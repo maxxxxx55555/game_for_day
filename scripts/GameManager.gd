@@ -25,6 +25,7 @@ var business_tier: int = 0
 var business_scale: int = 1 # Масштабирование топового бизнеса
 var marketing_boost: float = 1.0 # Временный мультипликатор маркетинга
 var manager_hired: bool = false # Нанят ли топ-менеджер
+var business_risk_factor: float = 1.0 # Рисковый модификатор дохода от внешних угроз
 
 const BUSINESS_TIERS := [
 	{"name": "Нет бизнеса", "cost": 0.0, "income": 0.0, "valuation": 0.0},
@@ -122,6 +123,7 @@ func save_active_game() -> void:
 	cfg.set_value("game", "business_scale", business_scale)
 	cfg.set_value("game", "marketing_boost", marketing_boost)
 	cfg.set_value("game", "manager_hired", manager_hired)
+	cfg.set_value("game", "business_risk_factor", business_risk_factor)
 	cfg.set_value("game", "health", health)
 	cfg.set_value("game", "intellect", intellect)
 	cfg.set_value("game", "stress", stress)
@@ -157,6 +159,7 @@ func load_active_game() -> bool:
 		business_scale = cfg.get_value("game", "business_scale", 1)
 		marketing_boost = cfg.get_value("game", "marketing_boost", 1.0)
 		manager_hired = cfg.get_value("game", "manager_hired", false)
+		business_risk_factor = cfg.get_value("game", "business_risk_factor", 1.0)
 		health = cfg.get_value("game", "health", 100)
 		intellect = cfg.get_value("game", "intellect", 15)
 		stress = cfg.get_value("game", "stress", 10)
@@ -221,6 +224,7 @@ func reset_game() -> void:
 	business_scale = 1
 	marketing_boost = 1.0
 	manager_hired = false
+	business_risk_factor = 1.0
 	health = 100
 	intellect = 15
 	stress = 10
@@ -296,12 +300,12 @@ func get_business_valuation() -> float:
 	if business_tier == 0:
 		return 0.0
 	var base_val: float = BUSINESS_TIERS[business_tier]["valuation"]
-	return base_val * float(business_scale)
+	return base_val * float(business_scale) * business_risk_factor
 
 func get_passive_quarterly_income() -> float:
 	var biz_inc: float = 0.0
 	if business_tier > 0:
-		biz_inc = BUSINESS_TIERS[business_tier]["income"] * float(business_scale) * marketing_boost
+		biz_inc = BUSINESS_TIERS[business_tier]["income"] * float(business_scale) * marketing_boost * business_risk_factor
 		if player_perk == "real_estate_mogul":
 			biz_inc *= 1.2
 	var div_inc: float = (stock_units * stock_index) * 0.012 # 1.2% дивидендов в квартал
@@ -354,6 +358,10 @@ func advance_quarter_and_markets() -> Dictionary:
 
 	if marketing_boost > 1.0:
 		marketing_boost = maxf(1.0, marketing_boost - 0.05 * time_speed)
+
+	# Постепенное восстановление рискового фактора бизнеса к 1.0
+	if business_risk_factor < 1.0:
+		business_risk_factor = minf(1.0, business_risk_factor + 0.05 * time_speed)
 
 	# Уменьшение стресса, если нанят менеджер
 	if manager_hired:
@@ -483,6 +491,7 @@ func upgrade_or_scale_business() -> Dictionary:
 			cash -= cost
 			business_tier = next_tier
 			business_scale = 1
+			business_risk_factor = 1.0
 			recalculate_forbes_rank()
 			check_achievements()
 			save_active_game()
@@ -538,6 +547,7 @@ func sell_business() -> Dictionary:
 	business_scale = 1
 	marketing_boost = 1.0
 	manager_hired = false
+	business_risk_factor = 1.0
 	recalculate_forbes_rank()
 	save_active_game()
 	return {"ok": true, "msg": "Компания %s успешно продана за $%s!" % [b_name, format_num(val)]}
