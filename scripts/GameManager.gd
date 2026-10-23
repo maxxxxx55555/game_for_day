@@ -1,6 +1,7 @@
 extends Node
 
 const SAVE_PATH := "user://dynasty_save.cfg"
+const ACTIVE_SAVE_PATH := "user://active_game.cfg"
 
 # Время и календарь
 var age: int = 18
@@ -21,7 +22,11 @@ var difficulty_multiplier: float = 1.0
 
 # Бизнес-империя
 var business_tier: int = 0
-var business_scale: int = 1 # Масштабирование топового бизнеса (филиалы/поглощения)
+var business_scale: int = 1 # Масштабирование топового бизнеса
+var marketing_boost: float = 1.0 # Временный мультипликатор маркетинга
+var manager_hired: bool = false # Нанят ли топ-менеджер
+var business_risk_factor: float = 1.0 # Рисковый модификатор дохода от внешних угроз
+
 const BUSINESS_TIERS := [
 	{"name": "Нет бизнеса", "cost": 0.0, "income": 0.0, "valuation": 0.0},
 	{"name": "Кофейня / Фриланс-студия", "cost": 5000.0, "income": 650.0, "valuation": 4500.0},
@@ -30,6 +35,25 @@ const BUSINESS_TIERS := [
 	{"name": "Национальная Корпорация", "cost": 10000000.0, "income": 1500000.0, "valuation": 12000000.0},
 	{"name": "Глобальный Техно-Холдинг (IPO)", "cost": 250000000.0, "income": 45000000.0, "valuation": 320000000.0}
 ]
+
+# Достижения (Ачивки)
+var unlocked_achievements: Dictionary = {
+	"first_million": false,
+	"first_billion": false,
+	"crypto_king": false,
+	"forbes_top10": false,
+	"dynasty_3": false,
+	"biz_mogul": false
+}
+
+const ACHIEVEMENT_DESCS := {
+	"first_million": {"title": "🥇 Первый миллионер", "desc": "Заработайте свой первый $1,000,000 капитала."},
+	"first_billion": {"title": "💎 Доллар в миллиард", "desc": "Достигните $1,000,000,000 общего капитала."},
+	"crypto_king": {"title": "🪙 Крипто-Король", "desc": "Держите криптовалюту объемом более $100,000."},
+	"forbes_top10": {"title": "👑 Топ-10 Forbes", "desc": "Войдите в десятку самых богатых людей планеты."},
+	"dynasty_3": {"title": "🏛️ Вековая Династия", "desc": "Достигните 3-го поколения вашей финансовой империи."},
+	"biz_mogul": {"title": "🏢 Техно-Магнат", "desc": "Создайте Глобальный Холдинг масштаба x4 и выше."}
+}
 
 # Характеристики персонажа
 var health: int = 100
@@ -64,6 +88,10 @@ func save_dynasty() -> void:
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
+
+	for ach_id in unlocked_achievements.keys():
+		cfg.set_value("achievements", ach_id, unlocked_achievements[ach_id])
+
 	cfg.save(SAVE_PATH)
 
 func load_dynasty() -> void:
@@ -75,11 +103,108 @@ func load_dynasty() -> void:
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
 
+		for ach_id in unlocked_achievements.keys():
+			unlocked_achievements[ach_id] = cfg.get_value("achievements", ach_id, false)
+
+func save_active_game() -> void:
+	var cfg := ConfigFile.new()
+	cfg.set_value("game", "age", age)
+	cfg.set_value("game", "quarter", quarter)
+	cfg.set_value("game", "total_turns", total_turns)
+	cfg.set_value("game", "real_world_week", real_world_week)
+	cfg.set_value("game", "cash", cash)
+	cfg.set_value("game", "stock_units", stock_units)
+	cfg.set_value("game", "crypto_units", crypto_units)
+	cfg.set_value("game", "stock_index", stock_index)
+	cfg.set_value("game", "crypto_rate", crypto_rate)
+	cfg.set_value("game", "inflation_multiplier", inflation_multiplier)
+	cfg.set_value("game", "difficulty_multiplier", difficulty_multiplier)
+	cfg.set_value("game", "business_tier", business_tier)
+	cfg.set_value("game", "business_scale", business_scale)
+	cfg.set_value("game", "marketing_boost", marketing_boost)
+	cfg.set_value("game", "manager_hired", manager_hired)
+	cfg.set_value("game", "business_risk_factor", business_risk_factor)
+	cfg.set_value("game", "health", health)
+	cfg.set_value("game", "intellect", intellect)
+	cfg.set_value("game", "stress", stress)
+	cfg.set_value("game", "happiness", happiness)
+	cfg.set_value("game", "energy", energy)
+	cfg.set_value("game", "birth_origin", birth_origin)
+	cfg.set_value("game", "birth_cost_modifier", birth_cost_modifier)
+	cfg.set_value("game", "player_perk", player_perk)
+	cfg.set_value("game", "has_rolled_birth", has_rolled_birth)
+	cfg.set_value("game", "ad_cooldown", ad_cooldown)
+	cfg.set_value("game", "revive_used", revive_used)
+	cfg.save(ACTIVE_SAVE_PATH)
+
+func has_active_save() -> bool:
+	var cfg := ConfigFile.new()
+	return cfg.load(ACTIVE_SAVE_PATH) == OK and cfg.get_value("game", "has_rolled_birth", false)
+
+func load_active_game() -> bool:
+	var cfg := ConfigFile.new()
+	if cfg.load(ACTIVE_SAVE_PATH) == OK:
+		age = cfg.get_value("game", "age", 18)
+		quarter = cfg.get_value("game", "quarter", 1)
+		total_turns = cfg.get_value("game", "total_turns", 0)
+		real_world_week = cfg.get_value("game", "real_world_week", 1)
+		cash = cfg.get_value("game", "cash", 200.0)
+		stock_units = cfg.get_value("game", "stock_units", 0.0)
+		crypto_units = cfg.get_value("game", "crypto_units", 0.0)
+		stock_index = cfg.get_value("game", "stock_index", 1000.0)
+		crypto_rate = cfg.get_value("game", "crypto_rate", 100.0)
+		inflation_multiplier = cfg.get_value("game", "inflation_multiplier", 1.0)
+		difficulty_multiplier = cfg.get_value("game", "difficulty_multiplier", 1.0)
+		business_tier = cfg.get_value("game", "business_tier", 0)
+		business_scale = cfg.get_value("game", "business_scale", 1)
+		marketing_boost = cfg.get_value("game", "marketing_boost", 1.0)
+		manager_hired = cfg.get_value("game", "manager_hired", false)
+		business_risk_factor = cfg.get_value("game", "business_risk_factor", 1.0)
+		health = cfg.get_value("game", "health", 100)
+		intellect = cfg.get_value("game", "intellect", 15)
+		stress = cfg.get_value("game", "stress", 10)
+		happiness = cfg.get_value("game", "happiness", 60)
+		energy = cfg.get_value("game", "energy", 100)
+		birth_origin = cfg.get_value("game", "birth_origin", "")
+		birth_cost_modifier = cfg.get_value("game", "birth_cost_modifier", 1.0)
+		player_perk = cfg.get_value("game", "player_perk", "none")
+		has_rolled_birth = cfg.get_value("game", "has_rolled_birth", false)
+		ad_cooldown = cfg.get_value("game", "ad_cooldown", 0)
+		revive_used = cfg.get_value("game", "revive_used", false)
+		recalculate_forbes_rank()
+		check_achievements()
+		return true
+	return false
+
+func clear_active_save() -> void:
+	var dir := DirAccess.open("user://")
+	if dir and dir.file_exists("active_game.cfg"):
+		dir.remove("active_game.cfg")
+
+func check_achievements() -> void:
+	var nw := get_net_worth()
+	if nw >= 1000000.0 and not unlocked_achievements["first_million"]:
+		unlocked_achievements["first_million"] = true
+	if nw >= 1000000000.0 and not unlocked_achievements["first_billion"]:
+		unlocked_achievements["first_billion"] = true
+	if (crypto_units * crypto_rate) >= 100000.0 and not unlocked_achievements["crypto_king"]:
+		unlocked_achievements["crypto_king"] = true
+	if rank <= 10 and rank > 0 and not unlocked_achievements["forbes_top10"]:
+		unlocked_achievements["forbes_top10"] = true
+	if generation >= 3 and not unlocked_achievements["dynasty_3"]:
+		unlocked_achievements["dynasty_3"] = true
+	if business_tier >= 5 and business_scale >= 4 and not unlocked_achievements["biz_mogul"]:
+		unlocked_achievements["biz_mogul"] = true
+	save_dynasty()
+
 func reset_full_dynasty() -> void:
 	generation = 1
 	legacy_points = 0
 	inherited_capital = 0.0
+	for ach_id in unlocked_achievements.keys():
+		unlocked_achievements[ach_id] = false
 	save_dynasty()
+	clear_active_save()
 	reset_game()
 
 func reset_game() -> void:
@@ -97,6 +222,9 @@ func reset_game() -> void:
 	difficulty_multiplier = 1.0
 	business_tier = 0
 	business_scale = 1
+	marketing_boost = 1.0
+	manager_hired = false
+	business_risk_factor = 1.0
 	health = 100
 	intellect = 15
 	stress = 10
@@ -161,6 +289,7 @@ func roll_birth_lottery() -> Dictionary:
 	has_rolled_birth = true
 	inherited_capital = 0.0
 	save_dynasty()
+	save_active_game()
 	recalculate_forbes_rank()
 	return result
 
@@ -171,12 +300,14 @@ func get_business_valuation() -> float:
 	if business_tier == 0:
 		return 0.0
 	var base_val: float = BUSINESS_TIERS[business_tier]["valuation"]
-	return base_val * float(business_scale)
+	return base_val * float(business_scale) * business_risk_factor
 
 func get_passive_quarterly_income() -> float:
 	var biz_inc: float = 0.0
 	if business_tier > 0:
-		biz_inc = BUSINESS_TIERS[business_tier]["income"] * float(business_scale)
+		biz_inc = BUSINESS_TIERS[business_tier]["income"] * float(business_scale) * marketing_boost * business_risk_factor
+		if player_perk == "real_estate_mogul":
+			biz_inc *= 1.2
 	var div_inc: float = (stock_units * stock_index) * 0.012 # 1.2% дивидендов в квартал
 	if player_perk == "wall_street":
 		div_inc *= 1.5
@@ -184,9 +315,13 @@ func get_passive_quarterly_income() -> float:
 
 func get_quarterly_living_cost() -> float:
 	var base_cost := (280.0 + float(age - 18) * 18.0) * birth_cost_modifier * inflation_multiplier
+	if player_perk == "real_estate_mogul":
+		base_cost *= 0.8
 	# Обслуживание высокого уровня жизни и бизнеса
 	if business_tier >= 3:
 		base_cost += BUSINESS_TIERS[business_tier]["income"] * 0.15 * float(business_scale)
+	if manager_hired and business_tier > 0:
+		base_cost += BUSINESS_TIERS[business_tier]["income"] * 0.10 * float(business_scale)
 	return snappedf(base_cost, 1.0)
 
 func get_net_worth() -> float:
@@ -221,6 +356,17 @@ func advance_quarter_and_markets() -> Dictionary:
 	if ad_cooldown > 0:
 		ad_cooldown -= 1
 
+	if marketing_boost > 1.0:
+		marketing_boost = maxf(1.0, marketing_boost - 0.05 * time_speed)
+
+	# Постепенное восстановление рискового фактора бизнеса к 1.0
+	if business_risk_factor < 1.0:
+		business_risk_factor = minf(1.0, business_risk_factor + 0.05 * time_speed)
+
+	# Уменьшение стресса, если нанят менеджер
+	if manager_hired:
+		stress = max(0, stress - int(3 * time_speed))
+
 	# Продвижение кварталов и возраста с учетом настройки скорости времени
 	quarter_progress_accum += time_speed
 	while quarter_progress_accum >= 1.0:
@@ -250,6 +396,8 @@ func advance_quarter_and_markets() -> Dictionary:
 	cash += net_quarter_cash
 
 	recalculate_forbes_rank()
+	check_achievements()
+	save_active_game()
 	return {
 		"passive_inc": passive_inc,
 		"living_cost": living_cost,
@@ -272,6 +420,8 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 		adj_stress = int(float(adj_stress) * 0.65)
 	if player_perk == "tech_genius" and adj_intellect > 0:
 		adj_intellect += 3
+	if player_perk == "venture_catalyst" and d_money > 0.0:
+		d_money *= 1.25
 
 	cash += d_money
 	health = clamp(health + adj_health, 0, 100)
@@ -290,14 +440,23 @@ func buy_stocks(amount_usd: float) -> bool:
 	cash -= amount_usd
 	stock_units += amount_usd / stock_index
 	recalculate_forbes_rank()
+	check_achievements()
+	save_active_game()
 	return true
 
-func sell_all_stocks() -> float:
-	var val := stock_units * stock_index
+func sell_stocks_percent(pct: float) -> float:
+	pct = clampf(pct, 0.0, 1.0)
+	var units_to_sell := stock_units * pct
+	var val := units_to_sell * stock_index
+	stock_units -= units_to_sell
 	cash += val
-	stock_units = 0.0
 	recalculate_forbes_rank()
+	check_achievements()
+	save_active_game()
 	return val
+
+func sell_all_stocks() -> float:
+	return sell_stocks_percent(1.0)
 
 func buy_crypto(amount_usd: float) -> bool:
 	if cash < amount_usd or amount_usd <= 0.0:
@@ -305,14 +464,23 @@ func buy_crypto(amount_usd: float) -> bool:
 	cash -= amount_usd
 	crypto_units += amount_usd / crypto_rate
 	recalculate_forbes_rank()
+	check_achievements()
+	save_active_game()
 	return true
 
-func sell_all_crypto() -> float:
-	var val := crypto_units * crypto_rate
+func sell_crypto_percent(pct: float) -> float:
+	pct = clampf(pct, 0.0, 1.0)
+	var units_to_sell := crypto_units * pct
+	var val := units_to_sell * crypto_rate
+	crypto_units -= units_to_sell
 	cash += val
-	crypto_units = 0.0
 	recalculate_forbes_rank()
+	check_achievements()
+	save_active_game()
 	return val
+
+func sell_all_crypto() -> float:
+	return sell_crypto_percent(1.0)
 
 # Покупка и масштабирование бизнеса
 func upgrade_or_scale_business() -> Dictionary:
@@ -323,20 +491,66 @@ func upgrade_or_scale_business() -> Dictionary:
 			cash -= cost
 			business_tier = next_tier
 			business_scale = 1
+			business_risk_factor = 1.0
 			recalculate_forbes_rank()
+			check_achievements()
+			save_active_game()
 			return {"ok": true, "msg": "Открыт новый уровень бизнеса: " + BUSINESS_TIERS[business_tier]["name"]}
 		else:
 			return {"ok": false, "msg": "Недостаточно кэша! Требуется $" + format_num(cost)}
 	else:
-		# Масштабирование глобального техно-холдинга (поглощение корпораций на пути к $250 млрд)
+		# Масштабирование глобального техно-холдинга
 		var scale_cost := 250000000.0 * float(business_scale)
 		if cash >= scale_cost:
 			cash -= scale_cost
 			business_scale *= 2
 			recalculate_forbes_rank()
+			check_achievements()
+			save_active_game()
 			return {"ok": true, "msg": "Глобальное поглощение завершено! Масштаб империи удвоен (x%d)!" % business_scale}
 		else:
 			return {"ok": false, "msg": "Для поглощения конкурента нужно $" + format_num(scale_cost)}
+
+func launch_marketing_campaign() -> Dictionary:
+	if business_tier == 0:
+		return {"ok": false, "msg": "Сначала создайте или купите бизнес!"}
+	var cost := BUSINESS_TIERS[business_tier]["valuation"] * 0.1 * float(business_scale)
+	if cash < cost:
+		return {"ok": false, "msg": "Маркетинг стоит $" + format_num(cost) + "! Недостаточно кэша."}
+	cash -= cost
+	marketing_boost = 1.35 # +35% дохода
+	recalculate_forbes_rank()
+	save_active_game()
+	return {"ok": true, "msg": "Масштабная PR-кампания запущена! Доходы бизнеса увеличены на +35%!"}
+
+func hire_executive_manager() -> Dictionary:
+	if business_tier == 0:
+		return {"ok": false, "msg": "Сначала создайте или купите бизнес!"}
+	if manager_hired:
+		return {"ok": false, "msg": "У вас уже нанят генеральный директор."}
+	var cost := BUSINESS_TIERS[business_tier]["cost"] * 0.2 * float(business_scale)
+	if cash < cost:
+		return {"ok": false, "msg": "Нанайм ТОП-менеджера стоит $" + format_num(cost) + "!"}
+	cash -= cost
+	manager_hired = true
+	recalculate_forbes_rank()
+	save_active_game()
+	return {"ok": true, "msg": "Генеральный директор нанят! Стресс снижается каждый квартал."}
+
+func sell_business() -> Dictionary:
+	if business_tier == 0:
+		return {"ok": false, "msg": "У вас нет активного бизнеса для продажи."}
+	var val := get_business_valuation() * 0.80 # 80% рыночной оценки
+	cash += val
+	var b_name := BUSINESS_TIERS[business_tier]["name"]
+	business_tier = 0
+	business_scale = 1
+	marketing_boost = 1.0
+	manager_hired = false
+	business_risk_factor = 1.0
+	recalculate_forbes_rank()
+	save_active_game()
+	return {"ok": true, "msg": "Компания %s успешно продана за $%s!" % [b_name, format_num(val)]}
 
 func register_inheritance_on_end() -> String:
 	var nw := get_net_worth()
@@ -353,6 +567,7 @@ func register_inheritance_on_end() -> String:
 		generation += 1
 		msg = "Наследство не оставлено (требуется возраст 50+ и положительный капитал). Очки династии: %d." % legacy_points
 	save_dynasty()
+	clear_active_save()
 	return msg
 
 func format_num(val: float) -> String:

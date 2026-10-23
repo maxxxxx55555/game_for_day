@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8forbesv2main"]
+[gd_scene load_steps=10 format=3 uid="uid://c8forbesv2main"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_main"]
 
@@ -20,6 +20,34 @@ content_margin_left = 16.0
 content_margin_top = 14.0
 content_margin_right = 16.0
 content_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.07, 0.09, 0.14, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_fill"]
+bg_color = Color(0.25, 0.85, 0.45, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_energy_fill"]
+bg_color = Color(0.2, 0.7, 1.0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stress_fill"]
+bg_color = Color(0.95, 0.35, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_event"]
 bg_color = Color(0.0901961, 0.12549, 0.2, 1)
@@ -85,18 +113,53 @@ theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 12
 
 [node name="StatsPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
-[node name="StatsLabel" type="Label" parent="MarginContainer/VBoxContainer/StatsPanel"]
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/StatsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="StatsLabel" type="Label" parent="MarginContainer/VBoxContainer/StatsPanel/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.945098, 0.960784, 0.976471, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 text = "Статистика персонажа..."
 autowrap_mode = 3
+
+[node name="BarsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StatsPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/StatsPanel/VBox/BarsContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_health_fill")
+value = 100.0
+show_percentage = false
+
+[node name="EnergyBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/StatsPanel/VBox/BarsContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_energy_fill")
+value = 100.0
+show_percentage = false
+
+[node name="StressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/StatsPanel/VBox/BarsContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_stress_fill")
+value = 10.0
+show_percentage = false
 
 [node name="MarketPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -105,7 +168,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 [node name="MarketLabel" type="Label" parent="MarginContainer/VBoxContainer/MarketPanel"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16
 text = "Биржа и бизнес..."
 autowrap_mode = 3
 
@@ -118,7 +181,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_event")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 20
 text = "Загрузка события..."
 vertical_alignment = 1
 autowrap_mode = 3
@@ -128,25 +191,25 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/ChoicesBox"]
-custom_minimum_size = Vector2(0, 68)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 text = "Вариант 1"
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/ChoicesBox"]
-custom_minimum_size = Vector2(0, 68)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 text = "Вариант 2"
 autowrap_mode = 3
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/ChoicesBox"]
-custom_minimum_size = Vector2(0, 68)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
 text = "Вариант 3"
 autowrap_mode = 3
@@ -156,38 +219,39 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="MarketButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
-custom_minimum_size = Vector2(0, 54)
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 text = "📈 Биржа"
 
 [node name="BizButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
-custom_minimum_size = Vector2(0, 54)
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 text = "🏢 Бизнес"
 
 [node name="AdButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
-custom_minimum_size = Vector2(0, 54)
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 text = "📺 Реклама+"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
-custom_minimum_size = Vector2(0, 54)
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 text = "⚙️ Опции"
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.580392, 0.639216, 0.721569, 1)
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 13
 text = "🎵 Аудио..."
 horizontal_alignment = 1
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,25 +1,34 @@
 extends Control
 
-@onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/StatsLabel
+@onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/VBox/StatsLabel
+@onready var health_bar: ProgressBar = $MarginContainer/VBoxContainer/StatsPanel/VBox/BarsContainer/HealthBar
+@onready var energy_bar: ProgressBar = $MarginContainer/VBoxContainer/StatsPanel/VBox/BarsContainer/EnergyBar
+@onready var stress_bar: ProgressBar = $MarginContainer/VBoxContainer/StatsPanel/VBox/BarsContainer/StressBar
+
 @onready var market_label: Label = $MarginContainer/VBoxContainer/MarketPanel/MarketLabel
+@onready var event_panel: PanelContainer = $MarginContainer/VBoxContainer/EventPanel
 @onready var event_label: Label = $MarginContainer/VBoxContainer/EventPanel/EventLabel
 @onready var music_label: Label = $MarginContainer/VBoxContainer/MusicLabel
+
 @onready var btn_1: Button = $MarginContainer/VBoxContainer/ChoicesBox/Button1
 @onready var btn_2: Button = $MarginContainer/VBoxContainer/ChoicesBox/Button2
 @onready var btn_3: Button = $MarginContainer/VBoxContainer/ChoicesBox/Button3
+
 @onready var market_btn: Button = $MarginContainer/VBoxContainer/BottomBar/MarketButton
 @onready var biz_btn: Button = $MarginContainer/VBoxContainer/BottomBar/BizButton
 @onready var ad_btn: Button = $MarginContainer/VBoxContainer/BottomBar/AdButton
 @onready var settings_btn: Button = $MarginContainer/VBoxContainer/BottomBar/SettingsButton
-@onready var audio_player: AudioStreamPlayer = $AudioPlayer
 
-enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER }
+@onready var audio_player: AudioStreamPlayer = $AudioPlayer
+@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
+
+enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, ACHIEVEMENTS, GAMEOVER }
 var current_mode: ScreenMode = ScreenMode.INTRO
 var active_event: Dictionary = {}
 var last_event_title: String = ""
 var rng := RandomNumberGenerator.new()
 
-# Процедурный генератор ненадоедливой фоновой музыки (AudioStreamGenerator)
+# Процедурный генератор фоновой музыки (AudioStreamGenerator)
 var playback: AudioStreamGeneratorPlayback = null
 var phase_1: float = 0.0
 var phase_2: float = 0.0
@@ -32,16 +41,15 @@ func _ready() -> void:
 	rng.randomize()
 	setup_procedural_audio()
 	
-	btn_1.pressed.connect(func(): on_choice_pressed(1))
-	btn_2.pressed.connect(func(): on_choice_pressed(2))
-	btn_3.pressed.connect(func(): on_choice_pressed(3))
+	btn_1.pressed.connect(func(): play_sfx_click(); on_choice_pressed(1))
+	btn_2.pressed.connect(func(): play_sfx_click(); on_choice_pressed(2))
+	btn_3.pressed.connect(func(): play_sfx_click(); on_choice_pressed(3))
 	
-	market_btn.pressed.connect(open_market_menu)
-	biz_btn.pressed.connect(open_business_menu)
-	ad_btn.pressed.connect(watch_ad_for_bonus)
-	settings_btn.pressed.connect(open_settings_menu)
+	market_btn.pressed.connect(func(): play_sfx_click(); open_market_menu())
+	biz_btn.pressed.connect(func(): play_sfx_click(); open_business_menu())
+	ad_btn.pressed.connect(func(): play_sfx_click(); watch_ad_for_bonus())
+	settings_btn.pressed.connect(func(): play_sfx_click(); open_settings_menu())
 	
-	GameManager.reset_game()
 	show_intro_screen()
 
 func setup_procedural_audio() -> void:
@@ -52,6 +60,44 @@ func setup_procedural_audio() -> void:
 	audio_player.volume_db = -14.0
 	audio_player.play()
 	playback = audio_player.get_stream_playback()
+
+func play_sfx_click() -> void:
+	if not GameManager.audio_enabled:
+		return
+	var gen := AudioStreamGenerator.new()
+	gen.mix_rate = 22050.0
+	gen.buffer_length = 0.05
+	sfx_player.stream = gen
+	sfx_player.volume_db = -10.0
+	sfx_player.play()
+	var pb: AudioStreamGeneratorPlayback = sfx_player.get_stream_playback()
+	if pb != null:
+		var frames := pb.get_frames_available()
+		for i in range(frames):
+			var sample := sin(float(i) * 0.25) * exp(-float(i) * 0.01) * 0.2
+			pb.push_frame(Vector2(sample, sample))
+
+func play_sfx_coin() -> void:
+	if not GameManager.audio_enabled:
+		return
+	var gen := AudioStreamGenerator.new()
+	gen.mix_rate = 22050.0
+	gen.buffer_length = 0.08
+	sfx_player.stream = gen
+	sfx_player.volume_db = -8.0
+	sfx_player.play()
+	var pb: AudioStreamGeneratorPlayback = sfx_player.get_stream_playback()
+	if pb != null:
+		var frames := pb.get_frames_available()
+		for i in range(frames):
+			var freq := 880.0 if i < frames / 2 else 1320.0
+			var sample := sin(float(i) * freq * TAU / 22050.0) * 0.25
+			pb.push_frame(Vector2(sample, sample))
+
+func animate_panel_fade() -> void:
+	event_panel.modulate.a = 0.3
+	var tw := create_tween()
+	tw.tween_property(event_panel, "modulate:a", 1.0, 0.22).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _process(delta: float) -> void:
 	if not GameManager.audio_enabled or playback == null:
@@ -79,17 +125,18 @@ func update_ui() -> void:
 	var liv_cost := GameManager.get_quarterly_living_cost()
 	
 	stats_label.text = "Поколение #%d | Возраст: %d л. (Кв. %d) | Неделя #%d
-Капитал (Net Worth): $%s | Кэш: $%s
-Пассив: +$%s/кв | Расходы жизни: -$%s/кв
-Здоровье: %d%% | Энергия: %d%% | Стресс: %d%% | Счастье: %d%%
-Интеллект: %d | Место в Forbes: #%s" % [
+Капитал: $%s | Кэш: $%s | Интеллект: %d
+Пассив: +$%s/кв | Расходы: -$%s/кв | Forbes: #%s" % [
 		GameManager.generation, GameManager.age, GameManager.quarter, GameManager.real_world_week,
 		GameManager.format_num(nw), GameManager.format_num(GameManager.cash),
-		GameManager.format_num(pass_inc), GameManager.format_num(liv_cost),
-		GameManager.health, GameManager.energy, GameManager.stress, GameManager.happiness,
-		GameManager.intellect, format_rank(GameManager.rank)
+		GameManager.intellect, GameManager.format_num(pass_inc), GameManager.format_num(liv_cost),
+		format_rank(GameManager.rank)
 	]
 	
+	health_bar.value = GameManager.health
+	energy_bar.value = GameManager.energy
+	stress_bar.value = GameManager.stress
+
 	var port_val := GameManager.get_portfolio_value()
 	var biz_name: String = GameManager.BUSINESS_TIERS[GameManager.business_tier]["name"]
 	market_label.text = "📈 Индекс S&P: $%.1f | Крипта: $%.1f | Портфель: $%s
@@ -128,28 +175,41 @@ func show_intro_screen() -> void:
 	GameManager.current_track = "Warm Ambient Welcome (CC0 Procedural)"
 	base_freqs = [220.0, 261.63, 329.63, 293.66]
 	update_ui()
+	animate_panel_fade()
 	
 	var legacy_info := ""
 	if GameManager.generation > 1:
 		legacy_info = "
-🧬 ДИНАСТИЯ: Поколение #%d | Наследство: $%s | Очки опыта рода: %d" % [
-			GameManager.generation, GameManager.format_num(GameManager.cash - 200.0), GameManager.legacy_points
+🧬 ДИНАСТИЯ: Поколение #%d | Наследство: $%s | Очки рода: %d" % [
+			GameManager.generation, GameManager.format_num(GameManager.inherited_capital), GameManager.legacy_points
 		]
 	
-	event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В FORBES LADDER v2
+	btn_2.visible = true
+	btn_3.visible = true
 
-Ваша цель — пройти путь от рождения по реальной мировой статистике до #1 в списке Forbes ($250 млрд).
+	if GameManager.has_active_save():
+		event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В FORBES LADDER v2
+
+Обнаружено сохраненное прохождение! Продолжайте путь к вершине Forbes." + legacy_info
+		btn_1.text = "▶️ Продолжить сохраненную игру"
+		btn_2.text = "🎲 Начать новую жизнь (Лотерея рождения)"
+		btn_3.text = "🏆 Посмотреть достижения"
+	else:
+		event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В FORBES LADDER v2
+
+Пройдите путь от рождения по мировой статистике до #1 в списке Forbes ($250 млрд).
 • 1 ход = 1 квартал (3 месяца). Каждые 4 квартала вы стареете на 1 год.
-• Каждый квартал списываются расходы на жизнь (растут с инфляцией) и начисляется доход от бизнеса и дивидендов.
-• Используйте вкладки «Биржа» и «Бизнес» внизу экрана для масштабирования капитала." + legacy_info
-	btn_1.text = "🎲 Испытать судьбу (Лотерея рождения)"
-	btn_2.visible = false
-	btn_3.visible = false
+• Всегда следите за уровнем Здоровья, Энергии и Стресса на панели вверху." + legacy_info
+		btn_1.text = "🎲 Испытать судьбу (Лотерея рождения)"
+		btn_2.text = "🏆 Посмотреть достижения"
+		btn_3.visible = false
 
 func show_birth_screen() -> void:
 	current_mode = ScreenMode.BIRTH
+	GameManager.reset_game()
 	var info := GameManager.roll_birth_lottery()
 	update_ui()
+	animate_panel_fade()
 	event_label.text = "🌍 %s
 
 %s
@@ -167,6 +227,7 @@ func show_perk_screen() -> void:
 	btn_2.visible = true
 	btn_3.visible = true
 	update_ui()
+	animate_panel_fade()
 	
 	event_label.text = "🧠 ВЫБЕРИТЕ СТАРТОВУЮ ОСОБЕННОСТЬ:
 
@@ -192,6 +253,7 @@ func load_next_life_event(status_note: String = "") -> void:
 	
 	update_soundtrack_by_stage()
 	update_ui()
+	animate_panel_fade()
 	
 	active_event = pick_modular_event()
 	var prefix := ""
@@ -224,7 +286,7 @@ func update_soundtrack_by_stage() -> void:
 		GameManager.current_track = "Warm Acoustic Ambient (Зрелость)"
 		base_freqs = [174.61, 220.0, 261.63, 196.0]
 
-# --- ВКЛАДКИ: БИРЖА, БИЗНЕС, РЕКЛАМА, НАСТРОЙКИ ---
+# --- ВКЛАДКИ: БИРЖА, БИЗНЕС, РЕКЛАМА, НАСТРОЙКИ, ДОСТИЖЕНИЯ ---
 
 func open_market_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -233,21 +295,22 @@ func open_market_menu() -> void:
 	btn_2.visible = true
 	btn_3.visible = true
 	update_ui()
+	animate_panel_fade()
 	
 	var stock_val := GameManager.stock_units * GameManager.stock_index
 	var crypto_val := GameManager.crypto_units * GameManager.crypto_rate
 	event_label.text = "📈 ИНВЕСТИЦИОННЫЙ ПОРТФЕЛЬ:
 
-• Ваши акции (S&P 500): $%s (Дивиденды 1.2%%/кв)
-• Ваша криптовалюта: $%s (Высокая волатильность)
+• Акции S&P 500: $%s (Дивиденды 1.2%%/кв)
+• Криптовалюта: $%s (Высокая волатильность)
 • Свободный кэш: $%s
 
-Выберите операцию (не тратит квартал):" % [
+Выберите операцию:" % [
 		GameManager.format_num(stock_val), GameManager.format_num(crypto_val), GameManager.format_num(GameManager.cash)
 	]
-	btn_1.text = "📊 Купить акции S&P на 50% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
-	btn_2.text = "🪙 Купить крипту на 25% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
-	btn_3.text = "💵 Продать все активы в кэш / Назад к жизни"
+	btn_1.text = "📊 Купить акции S&P (50%% кэша)"
+	btn_2.text = "🪙 Купить крипту (25%% кэша)"
+	btn_3.text = "💵 Продать 50%% всех активов / Назад"
 
 func open_business_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -256,37 +319,49 @@ func open_business_menu() -> void:
 	btn_2.visible = true
 	btn_3.visible = true
 	update_ui()
+	animate_panel_fade()
 	
 	var cur_b: Dictionary = GameManager.BUSINESS_TIERS[GameManager.business_tier]
 	var next_info := ""
 	if GameManager.business_tier < GameManager.BUSINESS_TIERS.size() - 1:
 		var nxt: Dictionary = GameManager.BUSINESS_TIERS[GameManager.business_tier + 1]
 		next_info = "Следующий уровень: %s
-Стоимость запуска: $%s | Доход: +$%s/кв" % [
+Стоимость: $%s | Доход: +$%s/кв" % [
 			nxt["name"], GameManager.format_num(nxt["cost"]), GameManager.format_num(nxt["income"])
 		]
 	else:
 		var sc_cost := 250000000.0 * float(GameManager.business_scale)
 		next_info = "Глобальное масштабирование (x%d -> x%d)
-Стоимость поглощения конкурентов: $%s" % [
+Стоимость поглощения: $%s" % [
 			GameManager.business_scale, GameManager.business_scale * 2, GameManager.format_num(sc_cost)
 		]
 	
+	var manager_status := "Нанят" if GameManager.manager_hired else "Отсутствует"
+	var opt2_text := "📢 PR-Кампания (+35% дохода)"
+	if not GameManager.manager_hired:
+		opt2_text = "👔 Нанять ТОП-Директора (Снижение стресса)"
+
+	var opt3_text := "🔙 Вернуться к жизненным событиям"
+	if GameManager.business_tier > 0:
+		opt3_text = "💰 Продать компанию ($%s) / Назад" % GameManager.format_num(GameManager.get_business_valuation() * 0.8)
+
 	event_label.text = "🏢 УПРАВЛЕНИЕ БИЗНЕС-ИМПЕРИЕЙ:
 
 Текущий актив: %s (Масштаб x%d)
-Чистый пассивный доход: +$%s в квартал
+Чистый доход: +$%s в квартал
+Маркетинг-буст: x%.2f | Риск-фактор: %.2f | ТОП-Директор: %s
 Оценка компании: $%s
 
 %s" % [
 		cur_b["name"], GameManager.business_scale,
-		GameManager.format_num(cur_b["income"] * float(GameManager.business_scale)),
+		GameManager.format_num(GameManager.get_passive_quarterly_income()),
+		GameManager.marketing_boost, GameManager.business_risk_factor, manager_status,
 		GameManager.format_num(GameManager.get_business_valuation()),
 		next_info
 	]
 	btn_1.text = "🚀 Открыть / Масштабировать бизнес"
-	btn_2.text = "⚡ Оптимизировать процессы (+15% к кэшу от дохода, Энергия -15)"
-	btn_3.text = "🔙 Вернуться к событиям квартала"
+	btn_2.text = opt2_text
+	btn_3.text = opt3_text
 
 func watch_ad_for_bonus() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -304,7 +379,10 @@ func watch_ad_for_bonus() -> void:
 	GameManager.energy = min(100, GameManager.energy + 35)
 	GameManager.ad_cooldown = 4
 	GameManager.recalculate_forbes_rank()
+	GameManager.save_active_game()
+	play_sfx_coin()
 	update_ui()
+	animate_panel_fade()
 	event_label.text = "🎁 СПОНСОРСКИЙ ГРАНТ ПОЛУЧЕН!
 
 • +$%s на счет (масштабируется от капитала)
@@ -318,6 +396,7 @@ func open_settings_menu() -> void:
 	btn_2.visible = true
 	btn_3.visible = true
 	update_ui()
+	animate_panel_fade()
 	
 	var snd := "Включен" if GameManager.audio_enabled else "Выключен"
 	event_label.text = "⚙️ НАСТРОЙКИ СИМУЛЯЦИИ:
@@ -329,14 +408,44 @@ func open_settings_menu() -> void:
 	]
 	btn_1.text = "⏳ Изменить скорость времени (Сейчас: %.1fx)" % GameManager.time_speed
 	btn_2.text = "🔊 Переключить звук (Сейчас: %s)" % snd
-	btn_3.text = "🔙 Вернуться к игре"
+	btn_3.text = "🏆 Достижения / Назад"
+
+func open_achievements_menu() -> void:
+	current_mode = ScreenMode.ACHIEVEMENTS
+	btn_2.visible = false
+	btn_3.visible = true
+	update_ui()
+	animate_panel_fade()
+
+	var text := "🏆 ДОСТИЖЕНИЯ И РЕКОРДЫ ДИНАСТИИ:\n\n"
+	for ach_id in GameManager.ACHIEVEMENT_DESCS.keys():
+		var info: Dictionary = GameManager.ACHIEVEMENT_DESCS[ach_id]
+		var unlocked: bool = GameManager.unlocked_achievements.get(ach_id, false)
+		var icon := "✅ " if unlocked else "🔒 "
+		text += "%s%s — %s\n" % [icon, info["title"], info["desc"]]
+
+	event_label.text = text
+	btn_1.text = "🔙 Вернуться к игре / Меню"
+	btn_3.text = "🔙 Назад"
 
 # --- ОБРАБОТКА НАЖАТИЙ КНОПОК ---
 
 func on_choice_pressed(option: int) -> void:
 	match current_mode:
 		ScreenMode.INTRO:
-			show_birth_screen()
+			if GameManager.has_active_save():
+				if option == 1:
+					GameManager.load_active_game()
+					load_next_life_event("💾 Игра успешно загружена!")
+				elif option == 2:
+					show_birth_screen()
+				else:
+					open_achievements_menu()
+			else:
+				if option == 1:
+					show_birth_screen()
+				else:
+					open_achievements_menu()
 		ScreenMode.BIRTH:
 			show_perk_screen()
 		ScreenMode.PERK:
@@ -348,19 +457,24 @@ func on_choice_pressed(option: int) -> void:
 			handle_business_action(option)
 		ScreenMode.SETTINGS:
 			handle_settings_action(option)
+		ScreenMode.ACHIEVEMENTS:
+			if GameManager.has_rolled_birth:
+				load_next_life_event()
+			else:
+				show_intro_screen()
 		ScreenMode.LIFE:
 			var fn: Callable = active_event["r%d" % option]
 			var msg: String = fn.call()
 			load_next_life_event(msg)
 		ScreenMode.GAMEOVER:
 			if option == 1 and not GameManager.revive_used and GameManager.age < 80:
-				# Экстренное воскрешение за просмотр рекламы
 				GameManager.revive_used = true
 				GameManager.health = max(55, GameManager.health)
 				GameManager.stress = min(50, GameManager.stress)
 				GameManager.energy = max(60, GameManager.energy)
 				if GameManager.cash < 0.0:
 					GameManager.cash = 1000.0
+				GameManager.save_active_game()
 				load_next_life_event("🚑 ВТОРОЙ ШАНС! Врачи и кризис-менеджеры спасли вас!")
 			else:
 				GameManager.reset_game()
@@ -388,61 +502,64 @@ func apply_selected_perk(option: int) -> void:
 			GameManager.player_perk = "workaholic"
 			GameManager.energy = 100
 	GameManager.recalculate_forbes_rank()
+	GameManager.save_active_game()
 
 func handle_market_action(option: int) -> void:
 	if option == 1:
 		var amt := GameManager.cash * 0.5
-		if GameManager.buy_stocks(amt):
+		if amt > 0.0 and GameManager.buy_stocks(amt):
+			play_sfx_coin()
 			open_market_menu()
-			event_label.text = "✅ Куплены акции S&P 500 на $%s!
-
-" % GameManager.format_num(amt) + event_label.text
+			event_label.text = "✅ Куплены акции S&P 500 на $%s!\n\n" % GameManager.format_num(amt) + event_label.text
 		else:
-			event_label.text = "❌ Недостаточно свободного кэша для покупки акций!
-
-" + event_label.text
+			event_label.text = "❌ Недостаточно свободного кэша для покупки акций!\n\n" + event_label.text
 	elif option == 2:
 		var amt := GameManager.cash * 0.25
-		if GameManager.buy_crypto(amt):
+		if amt > 0.0 and GameManager.buy_crypto(amt):
+			play_sfx_coin()
 			open_market_menu()
-			event_label.text = "✅ Куплена криптовалюта на $%s!
-
-" % GameManager.format_num(amt) + event_label.text
+			event_label.text = "✅ Куплена криптовалюта на $%s!\n\n" % GameManager.format_num(amt) + event_label.text
 		else:
-			event_label.text = "❌ Недостаточно свободного кэша для покупки крипты!
-
-" + event_label.text
+			event_label.text = "❌ Недостаточно свободного кэша для покупки крипты!\n\n" + event_label.text
 	else:
-		var sold_s := GameManager.sell_all_stocks()
-		var sold_c := GameManager.sell_all_crypto()
-		var note := "💼 Возврат к событиям."
-		if sold_s + sold_c > 0.0:
-			note = "💵 Активы проданы на сумму $%s!" % GameManager.format_num(sold_s + sold_c)
+		var sold_s := GameManager.sell_stocks_percent(0.5)
+		var sold_c := GameManager.sell_crypto_percent(0.5)
+		var total := sold_s + sold_c
+		var note := "💼 Возврат к жизненным событиям."
+		if total > 0.0:
+			play_sfx_coin()
+			note = "💵 Продано 50%% активов на сумму $%s!" % GameManager.format_num(total)
 		load_next_life_event(note)
 
 func handle_business_action(option: int) -> void:
 	if option == 1:
 		var res := GameManager.upgrade_or_scale_business()
+		if res["ok"]:
+			play_sfx_coin()
 		open_business_menu()
-		event_label.text = ("✅ " if res["ok"] else "❌ ") + res["msg"] + "
-
-" + event_label.text
+		event_label.text = ("✅ " if res["ok"] else "❌ ") + res["msg"] + "\n\n" + event_label.text
 	elif option == 2:
-		if GameManager.business_tier > 0 and GameManager.energy >= 20:
-			var bonus := GameManager.get_passive_quarterly_income() * 0.25
-			GameManager.cash += bonus
-			GameManager.energy -= 15
-			GameManager.recalculate_forbes_rank()
+		if GameManager.business_tier == 0:
+			event_label.text = "❌ Сначала откройте бизнес!\n\n" + event_label.text
+		elif not GameManager.manager_hired:
+			var res := GameManager.hire_executive_manager()
+			if res["ok"]:
+				play_sfx_coin()
 			open_business_menu()
-			event_label.text = "⚡ Оптимизация принесла +$%s!
-
-" % GameManager.format_num(bonus) + event_label.text
+			event_label.text = ("👔 " if res["ok"] else "❌ ") + res["msg"] + "\n\n" + event_label.text
 		else:
-			event_label.text = "❌ Нужен открытый бизнес и минимум 20% Энергии!
-
-" + event_label.text
+			var res := GameManager.launch_marketing_campaign()
+			if res["ok"]:
+				play_sfx_coin()
+			open_business_menu()
+			event_label.text = ("📢 " if res["ok"] else "❌ ") + res["msg"] + "\n\n" + event_label.text
 	else:
-		load_next_life_event("🏢 Вы вернулись из офиса.")
+		if GameManager.business_tier > 0:
+			var res := GameManager.sell_business()
+			play_sfx_coin()
+			load_next_life_event(res["msg"])
+		else:
+			load_next_life_event("🏢 Вы вернулись из офиса.")
 
 func handle_settings_action(option: int) -> void:
 	if option == 1:
@@ -459,7 +576,7 @@ func handle_settings_action(option: int) -> void:
 		GameManager.save_dynasty()
 		open_settings_menu()
 	else:
-		load_next_life_event()
+		open_achievements_menu()
 
 # --- ПРОВЕРКА УСЛОВИЙ ПОБЕДЫ И СМЕРТИ ---
 
@@ -494,6 +611,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	GameManager.current_track = "Calm Finale Chord (CC0 Procedural)"
 	var dynasty_msg := GameManager.register_inheritance_on_end()
 	update_ui()
+	animate_panel_fade()
 	
 	event_label.text = "🏁 ИТОГ ЖИЗНИ (Поколение #%d)
 
@@ -518,9 +636,13 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 		btn_2.visible = false
 		btn_3.visible = false
 
-# --- 32+ МОДУЛЬНЫХ СОБЫТИЯ ПО 4 ЭКОНОМИЧЕСКИМ ЭТАПАМ ---
+# --- МОДУЛЬНЫЕ СОБЫТИЯ ПО 4 ЭКОНОМИЧЕСКИМ ЭТАПАМ + «ЧЕРНЫЕ ЛЕБЕДИ» ---
 
 func pick_modular_event() -> Dictionary:
+	# 8% шанс выпадания масштабного глобального события («Черного лебедя»)
+	if rng.randf() < 0.08:
+		return get_black_swan_event()
+
 	var nw := GameManager.get_net_worth()
 	var pool: Array = []
 	if nw < 25000.0:
@@ -539,6 +661,48 @@ func pick_modular_event() -> Dictionary:
 		guard += 1
 	last_event_title = candidate["title"]
 	return candidate
+
+func get_black_swan_event() -> Dictionary:
+	var swans := [
+		{
+			"title": "🚨 ГЛОБАЛЬНЫЙ МИРОВОЙ КРИЗИС («Черный лебедь»): Биржи рухнули на 35%!",
+			"o1": "Выкупить упавшие активы на дисконте (+$25,000 при восстановлении)",
+			"r1": func():
+				GameManager.stock_index *= 0.65
+				GameManager.crypto_rate *= 0.50
+				GameManager.apply_delta(0, -5, 5, 20, -10, -20)
+				return "📉 Вы рискнули в разгар паники. Время покажет выгоду!",
+			"o2": "Зафиксировать убытки и уйти в кэш (Стресс +15)",
+			"r2": func():
+				GameManager.sell_all_stocks()
+				GameManager.sell_all_crypto()
+				GameManager.apply_delta(0, 0, 2, 15, -15, -10)
+				return "💵 Все активы переведены в надежный кэш.",
+			"o3": "Запросить экстренную господдержку бизнеса (Стресс -10)",
+			"r3": func():
+				var grant := GameManager.get_net_worth() * 0.05
+				GameManager.apply_delta(grant, 0, 3, -10, 5, -5)
+				return "🏛️ Антикризисный субсидиарный грант: +$%s." % GameManager.format_num(grant)
+		},
+		{
+			"title": "⚡ БУМ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА: Рынок технологических акций взлетает!",
+			"o1": "Вложить все свободные средства в ИИ-индекс (Индекс акций +40%)",
+			"r1": func():
+				GameManager.stock_index *= 1.40
+				GameManager.apply_delta(0, 0, 6, -5, 20, -15)
+				return "🚀 Технологический сектор показал рекордный рост!",
+			"o2": "Запустить ИИ-стартап внутри своей компании (Доход бизнеса +25%)",
+			"r2": func():
+				GameManager.marketing_boost += 0.25
+				GameManager.apply_delta(0, -2, 8, 10, 15, -20)
+				return "🤖 Ваша компания внедрила генеративные алгоритмы!",
+			"o3": "Организовать крупную научную конференцию (Интеллект +12, Стресс -10)",
+			"r3": func():
+				GameManager.apply_delta(0, 2, 12, -10, 15, 10)
+				return "🎓 Вы объединили топовых ученых мира."
+		}
+	]
+	return swans[rng.randi() % swans.size()]
 
 func get_survival_events() -> Array:
 	return [
@@ -600,16 +764,13 @@ func get_survival_events() -> Array:
 			"r3": func(): GameManager.apply_delta(1500, 0, 3, 4, 6, -10); return "💻 Удаленные заказы принесли +$1,500."
 		},
 		{
-			"title": "Бум нейросетей: компании ищут специалистов по автоматизации.",
-			"o1": "Разработать бота под заказ бизнеса (+$3,200 при Интеллекте 30+, иначе +$900)",
-			"r1": func():
-				var gain := 3200.0 if GameManager.intellect >= 30 else 900.0
-				GameManager.apply_delta(gain, -2, 5, 8, 10, -18)
-				return "🤖 Заказ по автоматизации принес +$%s!" % GameManager.format_num(gain),
-			"o2": "Изучать архитектуру ИИ и алгоритмы (Интеллект +10, Энергия -15)",
-			"r2": func(): GameManager.apply_delta(100, 0, 10, 5, 5, -15); return "🧠 Интеллект вырос на +10!",
-			"o3": "Восстановить баланс сна и психики (Стресс -25, Энергия +35)",
-			"r3": func(): GameManager.apply_delta(200, 6, 0, -25, 15, 35); return "🧘 Полная перезагрузка нервной системы."
+			"title": "Индивидуальный заказ на разработку мобильного приложения.",
+			"o1": "Взять проект и делать его по ночам (+$2,100, Стресс +15, Энергия -25)",
+			"r1": func(): GameManager.apply_delta(2100, -4, 3, 15, 5, -25); return "📱 Приложение сдано! Доход +$2,100.",
+			"o2": "Субподрядить знакомого программиста (+$800, Стресс +2)",
+			"r2": func(): GameManager.apply_delta(800, 0, 1, 2, 5, -5); return "🤝 Заказ выполнен через подрядчика (+$800).",
+			"o3": "Отказаться и пройти курсы ораторского искусства (Интеллект +6, Счастье +10)",
+			"r3": func(): GameManager.apply_delta(100, 0, 6, -5, 10, 10); return "🗣️ Навыки презентации повышены."
 		}
 	]
 
@@ -662,6 +823,18 @@ func get_career_events() -> Array:
 			"r2": func(): GameManager.apply_delta(11000, -2, 3, 6, 8, -15); return "🔍 Экспертиза принесла +$11,000.",
 			"o3": "Заняться чекапом организма и спортом (Здоровье +15, Стресс -20, Энергия +30)",
 			"r3": func(): GameManager.apply_delta(1000, 15, 0, -20, 15, 30); return "💪 Отличная физическая форма!"
+		},
+		{
+			"title": "Хакерская атака на ключевые серверы вашей компании.",
+			"o1": "Заплатить специалистам по кибербезопасности (-$12,000, Риск-фактор 1.0)",
+			"r1": func(): GameManager.apply_delta(-12000, 0, 4, 10, 5, -10); return "🛡️ Атака отражена, уязвимости закрыты.",
+			"o2": "Восстанавливать базы из бэкапов своими силами (Стресс +25, Риск-фактор 0.85)",
+			"r2": func():
+				GameManager.business_risk_factor = 0.85
+				GameManager.apply_delta(0, -4, 5, 25, -10, -30)
+				return "⚠️ Базы восстановлены, но часть клиентов ушла.",
+			"o3": "Застраховать киберриски и взять паузу (Стресс -10, Энергия +20)",
+			"r3": func(): GameManager.apply_delta(-3000, 5, 2, -10, 8, 20); return "📜 Страховка оформлена."
 		}
 	]
 
@@ -692,13 +865,13 @@ func get_millionaire_events() -> Array:
 			"r3": func(): GameManager.apply_delta(60000, 12, 1, -25, 20, 35); return "⛳ Совет директоров справился, пока вы отдыхали."
 		},
 		{
-			"title": "Международный технологический форум в Давосе.",
-			"o1": "Презентовать стратегию экспансии инвесторам (+$600,000, Стресс +20, Энергия -25)",
-			"r1": func(): GameManager.apply_delta(600000, -4, 5, 20, 25, -25); return "🌍 Инвесторы выстроились в очередь! Приток +$600,000.",
-			"o2": "Провести закрытые кулуарные переговоры (+$240,000, Интеллект +6)",
-			"r2": func(): GameManager.apply_delta(240000, 0, 6, 5, 12, -10); return "🥂 Кулуарные контракты принесли +$240,000.",
-			"o3": "Остаться в альпийском спа-отеле (Здоровье +18, Стресс -30, Энергия +40)",
-			"r3": func(): GameManager.apply_delta(0, 18, 0, -30, 25, 40); return "🏔️ Чистый горный воздух вернул вам молодость."
+			"title": "Забастовка профсоюзов на производстве требует повышения зарплат.",
+			"o1": "Пойти на уступки и улучшить условия (Доход бизнеса -$20,000, Стресс -15)",
+			"r1": func(): GameManager.apply_delta(-20000, 5, 2, -15, 20, 15); return "🤝 Лояльность сотрудников выросла!",
+			"o2": "Заменить ключевые узлы автоматизированными роботами (-$150,000, Доход +$60,000)",
+			"r2": func(): GameManager.apply_delta(-150000 + 60000, -2, 5, 15, -5, -20); return "🤖 Автоматизация окупилась за один квартал!",
+			"o3": "Нанять антикризисных медиаторов (-$15,000, Стресс -5)",
+			"r3": func(): GameManager.apply_delta(-15000, 0, 3, -5, 5, -5); return "⚖️ Медиаторы урегулировали конфликт."
 		}
 	]
 
@@ -743,5 +916,27 @@ func get_billionaire_events() -> Array:
 			"r3": func():
 				GameManager.apply_delta(scale_mult * 0.25, 20, 0, -40, 35, 50)
 				return "🏝️ Абсолютный покой на частном острове."
+		},
+		{
+			"title": "Частная космическая программа и запуск орбитальной станции.",
+			"o1": "Запустить коммерческие орбитальные полеты (+$%s при Интеллекте 70+)" % GameManager.format_num(scale_mult * 2.5),
+			"r1": func():
+				if GameManager.intellect >= 70:
+					var win := scale_mult * 2.5
+					GameManager.apply_delta(win, -4, 10, 15, 30, -20)
+					return "🚀 Космический туризм стал мировым прорывом! Прибыль +$%s." % GameManager.format_num(win)
+				else:
+					var loss := scale_mult * 0.5
+					GameManager.apply_delta(-loss, -5, 5, 22, -10, -20)
+					return "🚀 Испытания затянулись. Убыток -$%s." % GameManager.format_num(loss),
+			"o2": "Заключить госконтракты на спутниковый интернет (+$%s)" % GameManager.format_num(scale_mult * 1.1),
+			"r2": func():
+				var gain := scale_mult * 1.1
+				GameManager.apply_delta(gain, 0, 4, 5, 15, -10)
+				return "🛰️ Госконтракты принесли +$%s!" % GameManager.format_num(gain),
+			"o3": "Побывать в невесомости личным пассажиром (Здоровье +15, Счастье +40, Стресс -30)",
+			"r3": func():
+				GameManager.apply_delta(scale_mult * 0.1, 15, 3, -30, 40, 30)
+				return "👨‍🚀 Захватывающий полет в космос изменил ваш взгляд на мир!"
 		}
 	]

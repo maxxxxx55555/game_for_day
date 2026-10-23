@@ -1,0 +1,22 @@
+# Godot-specific ignores
+.godot/
+*.import
+export_presets.cfg.secret
+
+# Imported assets
+.import/
+
+# Android build artifacts
+android/
+*.apk
+*.aab
+*.keystore
+
+# Save games & temporary files
+*.cfg
+!project.godot
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
