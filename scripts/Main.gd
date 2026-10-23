@@ -256,9 +256,9 @@ func open_market_menu() -> void:
 Выберите операцию:" % [
 		GameManager.format_num(stock_val), GameManager.format_num(crypto_val), GameManager.format_num(GameManager.cash)
 	]
-	btn_1.text = "📊 Акции: Купить 50%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
-	btn_2.text = "🪙 Крипта: Купить 25%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
-	btn_3.text = "💵 Фиксация прибыли: Продать 50%% всех активов / Назад"
+	btn_1.text = "📊 Купить 50%% акций / Продать 50%% акций"
+	btn_2.text = "🪙 Купить 25%% крипты / Продать 50%% крипты"
+	btn_3.text = "🔙 Вернуться к жизненным событиям"
 
 func open_business_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -284,7 +284,7 @@ func open_business_menu() -> void:
 		]
 	
 	var manager_status := "Нанят" if GameManager.manager_hired else "Отсутствует"
-	var opt2_text := "📢 PR-Кампания (+35% к доходу)"
+	var opt2_text := "📢 PR-Кампания (+35% дохода)"
 	if not GameManager.manager_hired:
 		opt2_text = "👔 Нанять ТОП-Директора (Снижение стресса)"
 
@@ -304,7 +304,7 @@ func open_business_menu() -> void:
 	]
 	btn_1.text = "🚀 Открыть / Масштабировать бизнес"
 	btn_2.text = opt2_text
-	btn_3.text = "💰 Продать компанию за 80%% оценки / Назад"
+	btn_3.text = "🔙 Вернуться к жизненным событиям"
 
 func watch_ad_for_bonus() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -445,26 +445,31 @@ func apply_selected_perk(option: int) -> void:
 
 func handle_market_action(option: int) -> void:
 	if option == 1:
-		var amt := GameManager.cash * 0.5
-		if GameManager.buy_stocks(amt):
+		if GameManager.cash >= 100.0:
+			var amt := GameManager.cash * 0.5
+			GameManager.buy_stocks(amt)
 			open_market_menu()
 			event_label.text = "✅ Куплены акции S&P 500 на $%s!\n\n" % GameManager.format_num(amt) + event_label.text
+		elif GameManager.stock_units > 0.0:
+			var sold := GameManager.sell_stocks_percent(0.5)
+			open_market_menu()
+			event_label.text = "💵 Продано 50%% акций на $%s!\n\n" % GameManager.format_num(sold) + event_label.text
 		else:
-			event_label.text = "❌ Недостаточно свободного кэша для покупки акций!\n\n" + event_label.text
+			event_label.text = "❌ Нет свободного кэша для покупки и акций для продажи!\n\n" + event_label.text
 	elif option == 2:
-		var amt := GameManager.cash * 0.25
-		if GameManager.buy_crypto(amt):
+		if GameManager.cash >= 100.0:
+			var amt := GameManager.cash * 0.25
+			GameManager.buy_crypto(amt)
 			open_market_menu()
 			event_label.text = "✅ Куплена криптовалюта на $%s!\n\n" % GameManager.format_num(amt) + event_label.text
+		elif GameManager.crypto_units > 0.0:
+			var sold := GameManager.sell_crypto_percent(0.5)
+			open_market_menu()
+			event_label.text = "🪙 Продано 50%% крипты на $%s!\n\n" % GameManager.format_num(sold) + event_label.text
 		else:
-			event_label.text = "❌ Недостаточно свободного кэша для покупки крипты!\n\n" + event_label.text
+			event_label.text = "❌ Нет свободного кэша для покупки и крипты для продажи!\n\n" + event_label.text
 	else:
-		var sold_s := GameManager.sell_stocks_percent(0.5)
-		var sold_c := GameManager.sell_crypto_percent(0.5)
-		var note := "💼 Возврат к событиям."
-		if sold_s + sold_c > 0.0:
-			note = "💵 Продано 50%% активов на сумму $%s!" % GameManager.format_num(sold_s + sold_c)
-		load_next_life_event(note)
+		load_next_life_event("💼 Вы вернулись к жизненным событиям.")
 
 func handle_business_action(option: int) -> void:
 	if option == 1:
@@ -483,11 +488,7 @@ func handle_business_action(option: int) -> void:
 			open_business_menu()
 			event_label.text = ("📢 " if res["ok"] else "❌ ") + res["msg"] + "\n\n" + event_label.text
 	else:
-		if GameManager.business_tier > 0:
-			var res := GameManager.sell_business()
-			load_next_life_event(res["msg"])
-		else:
-			load_next_life_event("🏢 Вы вернулись из офиса.")
+		load_next_life_event("🏢 Вы вернулись из офиса.")
 
 func handle_settings_action(option: int) -> void:
 	if option == 1:
