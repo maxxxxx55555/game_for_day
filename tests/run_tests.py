@@ -40,6 +40,9 @@ def main():
         cases.append(('market-exit', ['--headless', '--script', 'res://tests/test_market_exit.gd']))
         cases.append(('currencies', ['--headless', '--script', 'res://tests/test_currencies.gd']))
         cases.append(('currency-ui', ['--headless', '--script', 'res://tests/test_currency_ui.gd']))
+        cases.append(('integrity', ['--headless', '--script', 'res://tests/test_integrity.gd']))
+        cases.append(('protected-saves', ['--headless', '--script', 'res://tests/test_protected_saves.gd']))
+        cases.append(('finales', ([] if args.rendered else ['--headless']) + ['--script', 'res://tests/test_finales.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))

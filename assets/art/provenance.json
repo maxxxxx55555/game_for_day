@@ -5,5 +5,17 @@
     "purpose": "Original in-game illustrated city folio",
     "sha256": "3780c678c935882d2448fdb8ed314bc6593b334c96f79a079e411c9f378ff5aa",
     "prompt": "Original premium financial dynasty game background, portrait 3:4. No UI, text, numbers or logos. Blue-hour European river city with early 20th-century domed bank, townhouses, modern towers, stone bridge and warm windows. Detailed painterly architecture, navy, teal and brass palette, quiet upper sky."
+  },
+  "ending_victory.png": {
+    "provider": "OpenAI built-in image generation",
+    "date": "2026-10-25",
+    "prompt": "Portrait 3:4 original cinematic painted victory ending. Warm dawn above European river city from elegant stone terrace, mature olive tree, empty upholstered chair and closed leather journal. Quiet fulfillment and generational legacy. Rich architectural detail, ivory/brass highlights, navy/teal shadows. Calm dark top and bottom for game typography. No text, logos, symbols, people, UI or border.",
+    "sha256": "bfefb4c608d969faa00b82fbe420289180c5865afea3045489de4ed0146b5d33"
+  },
+  "ending_defeat.png": {
+    "provider": "OpenAI built-in image generation",
+    "date": "2026-10-25",
+    "prompt": "Portrait 3:4 original cinematic painted defeat ending. Empty tasteful study at blue hour, rain on large city window, closed leather journal and brass lamp, small seedling catching gentle morning light. Dignified bittersweet ending suggesting a new generation. Painterly architectural realism, slate blue, teal and amber, rain and soft city lights. Calm dark lower/top areas. No text, logos, symbols, people, UI or border.",
+    "sha256": "260b519cf402315ecaf3a567d452932545f2a134d45a0c8eaa85aa3647739d34"
   }
 }

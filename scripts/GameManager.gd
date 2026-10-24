@@ -1,5 +1,7 @@
 extends Node
 
+const Guard = preload("res://scripts/security/SaveGuard.gd")
+const SavePolicy = preload("res://scripts/security/FortuneSavePolicy.gd")
 const SAVE_PATH := "user://dynasty_save.cfg"
 const SESSION_PATH := "user://current_life.cfg"
 const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state"]
@@ -75,11 +77,11 @@ func save_dynasty() -> void:
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
 	cfg.set_value("settings", "music_volume", music_volume)
 	cfg.set_value("settings", "sfx_volume", sfx_volume)
-	cfg.save(SAVE_PATH)
+	Guard.write_config(SAVE_PATH, cfg, "fortune/dynasty", SavePolicy.dynasty)
 
 func load_dynasty() -> void:
-	var cfg := ConfigFile.new()
-	if cfg.load(SAVE_PATH) == OK:
+	var cfg := Guard.read_config(SAVE_PATH, "fortune/dynasty", SavePolicy.dynasty)
+	if cfg != null:
 		generation = cfg.get_value("dynasty", "generation", 1)
 		legacy_points = cfg.get_value("dynasty", "legacy_points", 0)
 		inherited_capital = cfg.get_value("dynasty", "inherited_capital", 0.0)
@@ -102,11 +104,11 @@ func save_current_life(ui_state: Dictionary) -> bool:
 	cfg.set_value("session", "ui", ui_state)
 	for field in RUN_FIELDS:
 		cfg.set_value("run", field, get(field))
-	return cfg.save(SESSION_PATH) == OK
+	return Guard.write_config(SESSION_PATH, cfg, "fortune/session", SavePolicy.session)
 
 func load_current_life() -> Dictionary:
-	var cfg := ConfigFile.new()
-	if cfg.load(SESSION_PATH) != OK or cfg.get_value("session", "generation", -1) != generation:
+	var cfg := Guard.read_config(SESSION_PATH, "fortune/session", SavePolicy.session)
+	if cfg == null or cfg.get_value("session", "generation", -1) != generation:
 		return {}
 	var ui_state: Dictionary = cfg.get_value("session", "ui", {})
 	if ui_state.is_empty():
@@ -117,8 +119,8 @@ func load_current_life() -> Dictionary:
 	return ui_state
 
 func clear_current_life() -> void:
-	if FileAccess.file_exists(SESSION_PATH):
-		DirAccess.remove_absolute(SESSION_PATH)
+	for path in [SESSION_PATH, SESSION_PATH + ".bak"]:
+		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
 
 func reset_game() -> void:
 	fx.reset()
@@ -344,7 +346,7 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 
 # Операции с инвестиционным портфелем
 func buy_stocks(amount_usd: float) -> bool:
-	if cash < amount_usd or amount_usd <= 0.0:
+	if not is_finite(amount_usd) or cash < amount_usd or amount_usd <= 0.0:
 		return false
 	cash -= amount_usd
 	stock_units += amount_usd / stock_index
@@ -359,7 +361,7 @@ func sell_all_stocks() -> float:
 	return val
 
 func buy_crypto(amount_usd: float) -> bool:
-	if cash < amount_usd or amount_usd <= 0.0:
+	if not is_finite(amount_usd) or cash < amount_usd or amount_usd <= 0.0:
 		return false
 	cash -= amount_usd
 	crypto_units += amount_usd / crypto_rate

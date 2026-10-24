@@ -18,6 +18,9 @@ func run(ui: Control) -> void:
 	await capture("title")
 	for index in 3: ui.btn_1.pressed.emit()
 	await capture("life")
+	if OS.get_cmdline_user_args().has("--defeat"):
+		await verify_defeat(ui)
+		return
 	var steps := 0
 	while ui.current_mode != ui.ScreenMode.GAMEOVER and steps < 520:
 		steps += 1
@@ -57,4 +60,29 @@ func run(ui: Control) -> void:
 		get_viewport().get_texture().get_image().save_png(OS.get_environment("GAME_SCREENSHOT"))
 	var success: bool = GameManager.rank == 1 and ui.final_victory and GameManager.get_net_worth() >= 250000000000.0
 	print("EXPORTED PLAYTHROUGH: ", "PASS" if success else "FAIL", " steps=", steps, " rank=", GameManager.rank, " wealth=", GameManager.get_net_worth())
+	get_tree().quit(0 if success else 1)
+
+func verify_defeat(ui: Control) -> void:
+	var steps:=0
+	# Only ordinary event buttons drive this loss route; no stats are assigned.
+	while ui.current_mode != ui.ScreenMode.GAMEOVER and steps<520:
+		ui.btn_1.pressed.emit()
+		steps+=1
+		if steps%10==0: await get_tree().process_frame
+	await get_tree().create_timer(0.8).timeout
+	await capture("defeat")
+	var success: bool=ui.current_mode==ui.ScreenMode.GAMEOVER and not ui.final_victory and ui.finale_overlay.visible
+	var had_revive: bool=ui.can_revive
+	if had_revive:
+		ui.finale_overlay.primary.pressed.emit()
+		success=success and GameManager.revive_used and ui.current_mode!=ui.ScreenMode.GAMEOVER
+		while ui.current_mode != ui.ScreenMode.GAMEOVER and steps<1040:
+			ui.btn_1.pressed.emit()
+			steps+=1
+			if steps%10==0: await get_tree().process_frame
+		success=success and not ui.can_revive and not ui.final_victory
+	var generation: int=GameManager.generation
+	ui.finale_overlay.primary.pressed.emit()
+	success=success and GameManager.generation==generation+1 and ui.current_mode==ui.ScreenMode.INTRO
+	print("EXPORTED DEFEAT ROUTE: ","PASS" if success else "FAIL"," steps=",steps," revive=",had_revive)
 	get_tree().quit(0 if success else 1)

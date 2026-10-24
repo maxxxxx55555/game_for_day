@@ -17,6 +17,7 @@ var market_back: Button
 var currency_button: Button
 var currency_panel: Control
 var story_art: TextureRect
+var finale_overlay: Control
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -85,6 +86,9 @@ func _ready() -> void:
 		update_ui()
 		save_session()
 	)
+	finale_overlay = preload("res://scripts/ui/LifeFinale.gd").new()
+	add_child(finale_overlay)
+	finale_overlay.choice_requested.connect(on_choice_pressed)
 	rng.randomize()
 	SoundManager.apply_gains()
 	audio_settings = preload("res://scripts/audio/AudioSettings.gd").new()
@@ -174,6 +178,8 @@ func restore_session(saved: Dictionary) -> void:
 	restoring_session = false
 
 func update_ui() -> void:
+	if finale_overlay: finale_overlay.visible = current_mode == ScreenMode.GAMEOVER
+	$MarginContainer.visible = current_mode != ScreenMode.GAMEOVER
 	if dashboard: dashboard.queue_redraw()
 	if market_back: market_back.visible = current_mode == ScreenMode.MARKET
 	if currency_button: currency_button.visible = current_mode == ScreenMode.MARKET
@@ -608,6 +614,9 @@ func check_game_over() -> bool:
 		return true
 	return false
 
+func show_finale() -> void:
+	finale_overlay.present({"victory":final_victory,"reason":clean_copy(final_reason),"wealth":GameManager.format_num(GameManager.get_net_worth()),"rank":format_rank(GameManager.rank),"generation":GameManager.generation,"age":GameManager.age,"revive":can_revive})
+
 func trigger_game_over(reason: String, is_victory: bool) -> void:
 	final_reason = reason
 	final_victory = is_victory
@@ -642,6 +651,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 		btn_1.text = "🔄 Начать новое поколение династии"
 		btn_2.visible = false
 		btn_3.visible = false
+	show_finale()
 	save_session()
 
 # --- 32+ МОДУЛЬНЫХ СОБЫТИЯ ПО 4 ЭКОНОМИЧЕСКИМ ЭТАПАМ ---
