@@ -38,6 +38,8 @@ def main():
         cases.append(('identity', ['--headless', '--script', 'res://tests/test_identity.gd']))
         cases.append(('mobile-lifecycle', ['--headless', '--script', 'res://tests/test_mobile_lifecycle.gd']))
         cases.append(('market-exit', ['--headless', '--script', 'res://tests/test_market_exit.gd']))
+        cases.append(('currencies', ['--headless', '--script', 'res://tests/test_currencies.gd']))
+        cases.append(('currency-ui', ['--headless', '--script', 'res://tests/test_currency_ui.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))

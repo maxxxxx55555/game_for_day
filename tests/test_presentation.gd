@@ -15,7 +15,7 @@ func run() -> void:
 		game.age = age
 		screen.update_soundtrack_by_stage()
 		screen.update_ui()
-		if "Where the Fog Rests" not in game.current_track:
+		if "Last Call at Three" not in game.current_track:
 			push_error("The visible track title must identify the current composition")
 			failed = true
 	if OS.get_environment("GAME_AUDIO_MUTED") == "1" and "ВЫКЛ" not in screen.music_label.text:

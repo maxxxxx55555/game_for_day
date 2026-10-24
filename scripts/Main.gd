@@ -14,8 +14,11 @@ extends Control
 var audio_settings: VBoxContainer
 var dashboard: Control
 var market_back: Button
+var currency_button: Button
+var currency_panel: Control
+var story_art: TextureRect
 
-enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER }
+enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
 var active_event: Dictionary = {}
 var last_event_title: String = ""
@@ -32,15 +35,54 @@ func _ready() -> void:
 	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
 	stats_label.hide()
 	stats_label.get_parent().add_child(dashboard)
+	var column := $MarginContainer/VBoxContainer
+	var brand := Label.new()
+	brand.text = "HEIRS OF FORTUNE"
+	brand.add_theme_font_override("font", load("res://assets/fonts/Prata-Regular.ttf"))
+	brand.add_theme_font_size_override("font_size", 25)
+	brand.add_theme_color_override("font_color", Color("d4bd90"))
+	column.add_child(brand)
+	column.move_child(brand,0)
+	var content := VBoxContainer.new()
+	content.name = "StoryContent"
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	content.add_theme_constant_override("separation",18)
+	$MarginContainer/VBoxContainer/EventPanel/EventScroll.add_child(content)
+	event_label.reparent(content)
+	story_art = TextureRect.new()
+	story_art.texture = load("res://assets/art/city_folio.png")
+	story_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	story_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	story_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	content.add_child(story_art)
+	content.move_child(story_art,0)
+	event_label.add_theme_color_override("font_color",Color("182735"))
+	event_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	event_label.minimum_size_changed.connect(func(): $MarginContainer/VBoxContainer/EventPanel/EventScroll.scroll_vertical = 0)
 	market_back = Button.new()
 	market_back.name = "MarketBack"
-	market_back.text = "Вернуться к жизни — сохранить инвестиции"
+	market_back.text = "Вернуться к жизни"
 	market_back.custom_minimum_size.y = 54
 	market_back.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	$MarginContainer/VBoxContainer/ChoicesBox.add_child(market_back)
 	market_back.pressed.connect(func():
 		load_next_life_event("", true)
+		save_session()
+	)
+	currency_button = Button.new()
+	currency_button.name = "CurrenciesButton"
+	currency_button.text = "Валюты · EUR / GBP / JPY"
+	currency_button.custom_minimum_size.y = 54
+	$MarginContainer/VBoxContainer/ChoicesBox.add_child(currency_button)
+	currency_button.pressed.connect(open_currency_menu)
+	currency_panel = preload("res://scripts/ui/CurrencyPanel.gd").new()
+	add_child(currency_panel)
+	currency_panel.hide()
+	currency_panel.closed.connect(open_market_menu)
+	currency_panel.traded.connect(func():
+		if check_game_over(): return
+		update_ui()
 		save_session()
 	)
 	rng.randomize()
@@ -75,7 +117,7 @@ func _notification(what: int) -> void:
 	if what in [NOTIFICATION_WM_CLOSE_REQUEST, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
 		save_session()
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		if current_mode in [ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS]:
+		if current_mode in [ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY]:
 			load_next_life_event("", true)
 			save_session()
 		else:
@@ -95,7 +137,7 @@ func save_session() -> void:
 func restore_session(saved: Dictionary) -> void:
 	restoring_session = true
 	var saved_mode: int = saved.get("mode", ScreenMode.INTRO)
-	set_bottom_bar_enabled(saved_mode in [ScreenMode.LIFE, ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS])
+	set_bottom_bar_enabled(saved_mode in [ScreenMode.LIFE, ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY])
 	rng.state = saved.get("rng_state", rng.state)
 	last_event_title = saved.get("last_event_title", "")
 	active_event_net_worth = saved.get("event_net_worth", GameManager.get_net_worth())
@@ -119,6 +161,8 @@ func restore_session(saved: Dictionary) -> void:
 			load_next_life_event("Продолжение сохранённой жизни.", true)
 		ScreenMode.MARKET:
 			open_market_menu()
+		ScreenMode.CURRENCY:
+			open_currency_menu()
 		ScreenMode.BUSINESS:
 			open_business_menu()
 		ScreenMode.SETTINGS:
@@ -132,7 +176,17 @@ func restore_session(saved: Dictionary) -> void:
 func update_ui() -> void:
 	if dashboard: dashboard.queue_redraw()
 	if market_back: market_back.visible = current_mode == ScreenMode.MARKET
-	$MarginContainer/VBoxContainer/MarketPanel.visible = current_mode not in [ScreenMode.MARKET, ScreenMode.SETTINGS]
+	if currency_button: currency_button.visible = current_mode == ScreenMode.MARKET
+	if currency_panel: currency_panel.visible = current_mode == ScreenMode.CURRENCY
+	$MarginContainer/VBoxContainer/MarketPanel.hide()
+	music_label.hide()
+	$MarginContainer/VBoxContainer/StatsPanel.visible = current_mode != ScreenMode.INTRO
+	$MarginContainer/VBoxContainer/BottomBar.visible = current_mode in [ScreenMode.LIFE,ScreenMode.MARKET,ScreenMode.BUSINESS,ScreenMode.SETTINGS]
+	story_art.visible = current_mode in [ScreenMode.INTRO,ScreenMode.BIRTH,ScreenMode.PERK,ScreenMode.LIFE]
+	story_art.custom_minimum_size.y = 820 if current_mode == ScreenMode.INTRO else 180
+	market_btn.text = "Рынки"
+	biz_btn.text = "Бизнес"
+	settings_btn.text = "Настройки"
 	if audio_settings:
 		audio_settings.visible = current_mode == ScreenMode.SETTINGS
 	SoundManager.apply_gains()
@@ -164,9 +218,23 @@ func update_ui() -> void:
 	music_label.text = "🎵 Аудио [%s]: %s" % [sound_state, GameManager.current_track]
 	
 	if GameManager.ad_cooldown > 0:
-		ad_btn.text = "📺 Бонус (%s кв)" % str(GameManager.ad_cooldown)
+		ad_btn.text = "Грант · %s кв" % str(GameManager.ad_cooldown)
 	else:
-		ad_btn.text = "🎁 Грант"
+		ad_btn.text = "Грант"
+
+func _process(_delta: float) -> void:
+	event_label.text = clean_copy(event_label.text)
+	for button in [btn_1,btn_2,btn_3]: button.text = clean_copy(button.text)
+
+func clean_copy(text: String) -> String:
+	var result := ""
+	for i in text.length():
+		var code := text.unicode_at(i)
+		if code >= 0x1f000 and code <= 0x1faff: continue
+		if code >= 0x2600 and code <= 0x27ff: continue
+		if code in [0xfe0f,0x200d]: continue
+		result += text[i]
+	return result.strip_edges()
 
 func format_rank(r: int) -> String:
 	if r >= 1000000000:
@@ -187,7 +255,7 @@ func set_bottom_bar_enabled(enabled: bool) -> void:
 func show_intro_screen() -> void:
 	current_mode = ScreenMode.INTRO
 	set_bottom_bar_enabled(false)
-	GameManager.current_track = "Where the Fog Rests"
+	GameManager.current_track = "Last Call at Three"
 	SoundManager.play_music("welcome")
 	update_ui()
 	
@@ -198,13 +266,8 @@ func show_intro_screen() -> void:
 			GameManager.generation, GameManager.format_num(GameManager.cash - 200.0), GameManager.legacy_points
 		]
 	
-	event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В HEIRS OF FORTUNE
-
-Ваша цель — пройти путь от рождения до #1 в мировом рейтинге ($250 млрд).
-• 1 ход = 1 квартал (3 месяца). Каждые 4 квартала вы стареете на 1 год.
-• Каждый квартал списываются расходы на жизнь (растут с инфляцией) и начисляется доход от бизнеса и дивидендов.
-• Используйте вкладки «Биржа» и «Бизнес» внизу экрана для масштабирования капитала." + legacy_info
-	btn_1.text = "🎲 Испытать судьбу (Лотерея рождения)"
+	event_label.text = "Создайте состояние, которое переживёт вас.\n\nУчитесь, развивайте бизнес и инвестируйте. Каждый ход — квартал: доход поступает, расходы растут с инфляцией. Цель — первое место и $250 млрд." + legacy_info
+	btn_1.text = "Начать новую историю"
 	btn_2.visible = false
 	btn_3.visible = false
 
@@ -230,9 +293,9 @@ func show_perk_screen() -> void:
 	btn_3.visible = true
 	update_ui()
 	
-	event_label.text = "🧠 ВЫБЕРИТЕ СТАРТОВУЮ ОСОБЕННОСТЬ:
+	event_label.text = "🧠 Ваш характер
 
-Очки династии (%d) открывают продвинутые перки в следующих поколениях:" % GameManager.legacy_points
+Очки династии: %d. Выберите преимущество этой жизни." % GameManager.legacy_points
 	if GameManager.legacy_points >= 3:
 		btn_1.text = "🏛️ Инсайдер Уолл-Стрит (+50% дивидендов, бонус к акциям)"
 		btn_2.text = "🧬 Биохакер (-50% урона здоровью, +20 Здоровья)"
@@ -264,11 +327,7 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 
 "
 	
-	event_label.text = "%s📅 Возраст: %d л. (Квартал %d)
-
-%s" % [
-		prefix, GameManager.age, GameManager.quarter, active_event["title"]
-	]
+	event_label.text = prefix + active_event["title"]
 	btn_1.text = active_event["o1"]
 	btn_2.text = active_event["o2"]
 	btn_3.text = active_event["o3"]
@@ -276,16 +335,16 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 func update_soundtrack_by_stage() -> void:
 	var nw := GameManager.get_net_worth()
 	if nw >= 50000000.0:
-		GameManager.current_track = "Where the Fog Rests"
+		GameManager.current_track = "Last Call at Three"
 		SoundManager.play_music("tycoon")
 	elif GameManager.age < 26:
-		GameManager.current_track = "Where the Fog Rests"
+		GameManager.current_track = "Last Call at Three"
 		SoundManager.play_music("study")
 	elif GameManager.age < 50:
-		GameManager.current_track = "Where the Fog Rests"
+		GameManager.current_track = "Last Call at Three"
 		SoundManager.play_music("career")
 	else:
-		GameManager.current_track = "Where the Fog Rests"
+		GameManager.current_track = "Last Call at Three"
 		SoundManager.play_music("welcome")
 
 # --- ВКЛАДКИ: БИРЖА, БИЗНЕС, РЕКЛАМА, НАСТРОЙКИ ---
@@ -300,18 +359,16 @@ func open_market_menu() -> void:
 	
 	var stock_val := GameManager.stock_units * GameManager.stock_index
 	var crypto_val := GameManager.crypto_units * GameManager.crypto_rate
-	event_label.text = "📈 ИНВЕСТИЦИОННЫЙ ПОРТФЕЛЬ:
-
-• Ваши акции (S&P 500): $%s (Дивиденды 1.2%%/кв)
-• Ваша криптовалюта: $%s (Высокая волатильность)
-• Свободный кэш: $%s
-
-Выберите операцию (не тратит квартал):" % [
-		GameManager.format_num(stock_val), GameManager.format_num(crypto_val), GameManager.format_num(GameManager.cash)
-	]
+	event_label.text = "Портфель\n\nАкции   $%s\nДивиденды 1,2%% / квартал\n\nКриптовалюта   $%s\nВысокая волатильность\n\nОбмен валют доступен ниже. Сделки не тратят ход." % [GameManager.format_num(stock_val), GameManager.format_num(crypto_val)]
 	btn_1.text = "Купить акции S&P на 50%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
 	btn_2.text = "Купить крипту на 25%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
-	btn_3.text = "Продать все активы и вернуться к жизни"
+	btn_3.text = "Продать акции и крипту"
+
+func open_currency_menu() -> void:
+	if current_mode == ScreenMode.GAMEOVER: return
+	current_mode = ScreenMode.CURRENCY
+	update_ui()
+	currency_panel.refresh()
 
 func open_business_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -325,8 +382,8 @@ func open_business_menu() -> void:
 	var next_info := ""
 	if GameManager.business_tier < GameManager.BUSINESS_TIERS.size() - 1:
 		var nxt: Dictionary = GameManager.BUSINESS_TIERS[GameManager.business_tier + 1]
-		next_info = "Следующий уровень: %s
-Стоимость запуска: $%s | Доход: +$%s/кв" % [
+		next_info = "Далее: %s
+Запуск $%s · доход +$%s/кв" % [
 			nxt["name"], GameManager.format_num(nxt["cost"]), GameManager.format_num(nxt["income"])
 		]
 	else:
@@ -336,21 +393,10 @@ func open_business_menu() -> void:
 			GameManager.business_scale, GameManager.business_scale * 2, GameManager.format_num(sc_cost)
 		]
 	
-	event_label.text = "🏢 УПРАВЛЕНИЕ БИЗНЕС-ИМПЕРИЕЙ:
-
-Текущий актив: %s (Масштаб x%d)
-Чистый пассивный доход: +$%s в квартал
-Оценка компании: $%s
-
-%s" % [
-		cur_b["name"], GameManager.business_scale,
-		GameManager.format_num(cur_b["income"] * float(GameManager.business_scale)),
-		GameManager.format_num(GameManager.get_business_valuation()),
-		next_info
-	]
-	btn_1.text = "🚀 Открыть / Масштабировать бизнес"
-	btn_2.text = "⚡ Оптимизация (+15% дохода бизнеса, Энергия -15, 1 ход)"
-	btn_3.text = "🔙 Вернуться к событиям квартала"
+	event_label.text = "%s · ×%d\n\n+$%s / квартал\nСтоимость компании $%s\n\n%s" % [cur_b["name"], GameManager.business_scale, GameManager.format_num(cur_b["income"] * float(GameManager.business_scale)), GameManager.format_num(GameManager.get_business_valuation()), next_info]
+	btn_1.text = "Развивать бизнес"
+	btn_2.text = "Оптимизация · +15%% дохода · −15 энергии · 1 ход"
+	btn_3.text = "Вернуться к жизни"
 
 func watch_ad_for_bonus() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -567,7 +613,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	final_victory = is_victory
 	current_mode = ScreenMode.GAMEOVER
 	set_bottom_bar_enabled(false)
-	GameManager.current_track = "Where the Fog Rests"
+	GameManager.current_track = "Last Call at Three"
 	SoundManager.play_music("welcome")
 	SoundManager.play_sfx("victory" if is_victory else "defeat")
 	can_revive = not is_victory and not GameManager.revive_used and GameManager.age < 80

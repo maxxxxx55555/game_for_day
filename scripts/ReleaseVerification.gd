@@ -24,6 +24,12 @@ func run(ui: Control) -> void:
 		if steps == 20 and OS.get_environment("GAME_CAPTURE_GALLERY") == "1":
 			ui.market_btn.pressed.emit()
 			await capture("portfolio")
+			ui.currency_button.pressed.emit()
+			if GameManager.cash > 0:
+				ui.currency_panel.rows.EUR.buy.pressed.emit()
+			await capture("currencies")
+			ui.currency_panel.rows.EUR.sell.pressed.emit()
+			ui.currency_panel.closed.emit()
 			ui.market_back.pressed.emit()
 			ui.biz_btn.pressed.emit()
 			await capture("business")

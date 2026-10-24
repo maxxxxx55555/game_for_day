@@ -2,7 +2,12 @@ extends Node
 
 const SAVE_PATH := "user://dynasty_save.cfg"
 const SESSION_PATH := "user://current_life.cfg"
-const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled"]
+const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state"]
+const QUARTERLY_INFLATION := 0.007
+var fx := preload("res://scripts/ExchangeMarket.gd").new()
+var fx_state: Dictionary:
+	get: return fx.capture()
+	set(value): fx.restore(value)
 
 # Время и календарь
 var age: int = 18
@@ -48,7 +53,7 @@ var inherited_capital: float = 0.0
 var birth_origin: String = ""
 var birth_cost_modifier: float = 1.0
 var player_perk: String = "none"
-var current_track: String = "Where the Fog Rests"
+var current_track: String = "Last Call at Three"
 var audio_enabled: bool = true
 var music_volume: float = 0.3
 var sfx_volume: float = 0.8
@@ -107,7 +112,7 @@ func load_current_life() -> Dictionary:
 	if ui_state.is_empty():
 		return {}
 	for field in RUN_FIELDS:
-		set(field, cfg.get_value("run", field, get(field)))
+		set(field, cfg.get_value("run", field, {} if field == "fx_state" else get(field)))
 	recalculate_forbes_rank()
 	return ui_state
 
@@ -116,6 +121,7 @@ func clear_current_life() -> void:
 		DirAccess.remove_absolute(SESSION_PATH)
 
 func reset_game() -> void:
+	fx.reset()
 	age = 18
 	quarter = 1
 	total_turns = 0
@@ -198,7 +204,26 @@ func roll_birth_lottery() -> Dictionary:
 	return result
 
 func get_portfolio_value() -> float:
-	return (stock_units * stock_index) + (crypto_units * crypto_rate)
+	return (stock_units * stock_index) + (crypto_units * crypto_rate) + fx.value()
+
+func get_annual_inflation() -> float:
+	return pow(1.0 + QUARTERLY_INFLATION, 4) - 1.0
+
+func get_real_cash() -> float:
+	return cash / maxf(1.0, inflation_multiplier)
+
+func buy_currency(code: String, dollars: float) -> bool:
+	if not is_finite(dollars) or dollars <= 0 or dollars > cash: return false
+	if not fx.buy(code, dollars): return false
+	cash -= dollars
+	recalculate_forbes_rank()
+	return true
+
+func sell_currency(code: String, units: float) -> float:
+	var received: float = fx.sell(code, units)
+	cash += received
+	recalculate_forbes_rank()
+	return received
 
 func get_business_valuation() -> float:
 	if business_tier == 0:
@@ -266,7 +291,8 @@ func advance_quarter_and_markets() -> Dictionary:
 	real_world_week = 1 + int((float((age - 18) * 4 + quarter - 1) + quarter_progress_accum) * 13.0)
 
 	# Инфляция и мировая сложность
-	inflation_multiplier *= (1.0 + 0.007 * time_speed)
+	inflation_multiplier *= (1.0 + QUARTERLY_INFLATION * time_speed)
+	fx.advance(time_speed, QUARTERLY_INFLATION)
 	difficulty_multiplier += 0.008 * time_speed
 
 	# Колебания фондового индекса и криптовалюты
