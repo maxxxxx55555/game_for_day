@@ -31,7 +31,21 @@ func run() -> void:
 		finish()
 		return
 	var scenario = OS.get_cmdline_user_args()
-	if scenario.has("--playthrough"):
+	if scenario.has("--balance"):
+		var origins := {}
+		for trial_seed in range(1, 1000):
+			seed(trial_seed)
+			game.reset_full_dynasty()
+			game.roll_birth_lottery()
+			if not origins.has(game.birth_origin):
+				origins[game.birth_origin] = trial_seed
+			if origins.size() == 4:
+				break
+		check(origins.size() == 4, "Balance fixtures cover all four birth origins")
+		for origin in origins:
+			print("BALANCE START: ", origin)
+			await playthrough(origins[origin])
+	elif scenario.has("--playthrough"):
 		await playthrough()
 	else:
 		await regressions()
@@ -138,14 +152,14 @@ func regressions() -> void:
 		ui.btn_1.pressed.emit()
 		check(game.generation == before + 1 and ui.current_mode == ui.ScreenMode.INTRO, "Resumed victory commits one generation")
 
-func playthrough() -> void:
+func playthrough(trial_seed: int = 7401) -> void:
 	# Deterministic strategy uses only buttons/actions available in the actual game.
 	game.reset_full_dynasty()
 	game.time_speed = 1.0
 	ui.active_event = {}
 	ui.show_intro_screen()
-	seed(7401)
-	ui.rng.seed = 7401
+	seed(trial_seed)
+	ui.rng.seed = trial_seed
 	ui.on_choice_pressed(1)
 	ui.on_choice_pressed(1)
 	ui.on_choice_pressed(1)

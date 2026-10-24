@@ -15,16 +15,21 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Forbes Ladder: Dynasty & Markets v2"
-config/description="Хардкорный экономический симулятор жизни от рождения по мировой статистике до #1 Forbes."
+config/description="Хардкорный экономический симулятор жизни от рождения до #1 Forbes с игровыми вероятностями происхождения."
 run/main_scene="res://scenes/Main.tscn"
-config/features=PackedStringArray("4.7", "Mobile")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scripts/GameManager.gd"
+SoundManager="*res://scripts/audio/AudioDirector.gd"
+EventLibrary="*res://scripts/EventLibrary.gd"
 
 [display]
+
+window/size/window_width_override=540
+window/size/window_height_override=960
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
@@ -34,4 +39,4 @@ window/handheld/orientation=1
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"

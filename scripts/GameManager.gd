@@ -50,6 +50,8 @@ var birth_cost_modifier: float = 1.0
 var player_perk: String = "none"
 var current_track: String = "Soft Lo-Fi Study (CC0 Procedural)"
 var audio_enabled: bool = true
+var music_volume: float = 0.3
+var sfx_volume: float = 0.8
 
 var has_seen_intro: bool = false
 var has_rolled_birth: bool = false
@@ -66,6 +68,8 @@ func save_dynasty() -> void:
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
+	cfg.set_value("settings", "music_volume", music_volume)
+	cfg.set_value("settings", "sfx_volume", sfx_volume)
 	cfg.save(SAVE_PATH)
 
 func load_dynasty() -> void:
@@ -76,6 +80,8 @@ func load_dynasty() -> void:
 		inherited_capital = cfg.get_value("dynasty", "inherited_capital", 0.0)
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
+		music_volume = clampf(cfg.get_value("settings", "music_volume", 0.3), 0, 1)
+		sfx_volume = clampf(cfg.get_value("settings", "sfx_volume", 0.8), 0, 1)
 
 func reset_full_dynasty() -> void:
 	clear_current_life()

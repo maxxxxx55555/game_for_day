@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+import sys
 
 
 def main():
@@ -21,6 +22,7 @@ def main():
         artifacts = (args.artifacts or profile / 'artifacts').resolve()
         artifacts.mkdir(parents=True, exist_ok=True)
         environment = os.environ.copy()
+        environment['GAME_AUDIO_MUTED'] = '1'
         for variable, folder in [('APPDATA', 'roaming'), ('LOCALAPPDATA', 'local'), ('XDG_DATA_HOME', 'data'), ('XDG_CONFIG_HOME', 'config'), ('XDG_CACHE_HOME', 'cache')]:
             path = profile / folder
             path.mkdir()
@@ -32,9 +34,19 @@ def main():
             ('regressions', ['--headless', '--script', 'res://tests/test_gameplay.gd']),
             ('playthrough', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_gameplay.gd', '--', '--playthrough']),
         ]
+        cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
+        if portrait:
+            cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))
+        else:
+            for script in ['strategy', 'campaign']:
+                if (project / ('tests/test_' + script + '.gd')).exists():
+                    cases.append((script, ([] if args.rendered else ['--headless']) + ['--resolution', '1280x720', '--script', 'res://tests/test_' + script + '.gd']))
+        assets = subprocess.run([sys.executable, str(project / 'tests/test_audio_assets.py')], timeout=60)
+        if assets.returncode:
+            return assets.returncode
         for name, switches in cases:
             log_path = artifacts / (name + '.log')
-            command = [args.godot, '--path', str(project), '--log-file', str(log_path), *switches]
+            command = [args.godot, '--rendering-method', 'gl_compatibility', '--path', str(project), '--log-file', str(log_path), *switches]
             result = subprocess.run(command, env=environment, timeout=180)
             log = log_path.read_text(encoding='utf-8', errors='replace') if log_path.exists() else 'ERROR: Missing Godot log'
             errors = [line for line in log.splitlines() if ('ERROR:' in line or 'FAIL:' in line) and 'Failed to read the root certificate store' not in line]
