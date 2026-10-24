@@ -17,6 +17,11 @@ enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER
 var current_mode: ScreenMode = ScreenMode.INTRO
 var active_event: Dictionary = {}
 var last_event_title: String = ""
+var can_revive: bool = false
+var final_reason: String = ""
+var final_victory: bool = false
+var active_event_net_worth: float = 0.0
+var restoring_session: bool = false
 var rng := RandomNumberGenerator.new()
 
 # Процедурный генератор ненадоедливой фоновой музыки (AudioStreamGenerator)
@@ -41,8 +46,63 @@ func _ready() -> void:
 	ad_btn.pressed.connect(watch_ad_for_bonus)
 	settings_btn.pressed.connect(open_settings_menu)
 	
-	GameManager.reset_game()
-	show_intro_screen()
+	var saved := GameManager.load_current_life()
+	if saved.is_empty():
+		GameManager.reset_game()
+		show_intro_screen()
+	else:
+		restore_session(saved)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_session()
+
+func save_session() -> void:
+	if restoring_session:
+		return
+	GameManager.save_current_life({
+		"mode": int(current_mode), "event_title": active_event.get("title", ""),
+		"event_net_worth": active_event_net_worth, "rng_state": rng.state,
+		"last_event_title": last_event_title, "final_reason": final_reason,
+		"final_victory": final_victory, "event_text": event_label.text
+	})
+
+func restore_session(saved: Dictionary) -> void:
+	restoring_session = true
+	var saved_mode: int = saved.get("mode", ScreenMode.INTRO)
+	set_bottom_bar_enabled(saved_mode in [ScreenMode.LIFE, ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS])
+	rng.state = saved.get("rng_state", rng.state)
+	last_event_title = saved.get("last_event_title", "")
+	active_event_net_worth = saved.get("event_net_worth", GameManager.get_net_worth())
+	var pools: Array = get_survival_events() + get_career_events() + get_millionaire_events() + get_billionaire_events(active_event_net_worth)
+	for event in pools:
+		if event.title == saved.get("event_title", ""):
+			active_event = event
+			break
+	match saved_mode:
+		ScreenMode.BIRTH:
+			current_mode = ScreenMode.BIRTH
+			set_bottom_bar_enabled(false)
+			update_ui()
+			event_label.text = saved.get("event_text", "")
+			btn_1.text = "➡️ Выбрать черту характера (18 лет)"
+			btn_2.hide()
+			btn_3.hide()
+		ScreenMode.PERK:
+			show_perk_screen()
+		ScreenMode.LIFE:
+			load_next_life_event("Продолжение сохранённой жизни.", true)
+		ScreenMode.MARKET:
+			open_market_menu()
+		ScreenMode.BUSINESS:
+			open_business_menu()
+		ScreenMode.SETTINGS:
+			open_settings_menu()
+		ScreenMode.GAMEOVER:
+			trigger_game_over(saved.get("final_reason", ""), saved.get("final_victory", false))
+		_:
+			show_intro_screen()
+	restoring_session = false
 
 func setup_procedural_audio() -> void:
 	var gen := AudioStreamGenerator.new()
@@ -102,7 +162,7 @@ func update_ui() -> void:
 	music_label.text = "🎵 Аудио [%s]: %s" % [sound_state, GameManager.current_track]
 	
 	if GameManager.ad_cooldown > 0:
-		ad_btn.text = "📺 Бонус (%d)" % GameManager.ad_cooldown
+		ad_btn.text = "📺 Бонус (%s кв)" % str(GameManager.ad_cooldown)
 	else:
 		ad_btn.text = "📺 Реклама+"
 
@@ -182,7 +242,7 @@ func show_perk_screen() -> void:
 
 # --- ОСНОВНОЙ ЦИКЛ ЖИЗНИ ---
 
-func load_next_life_event(status_note: String = "") -> void:
+func load_next_life_event(status_note: String = "", preserve_event: bool = false) -> void:
 	if check_game_over():
 		return
 	current_mode = ScreenMode.LIFE
@@ -193,7 +253,9 @@ func load_next_life_event(status_note: String = "") -> void:
 	update_soundtrack_by_stage()
 	update_ui()
 	
-	active_event = pick_modular_event()
+	if not preserve_event or active_event.is_empty():
+		active_event_net_worth = GameManager.get_net_worth()
+		active_event = pick_modular_event()
 	var prefix := ""
 	if status_note != "":
 		prefix = status_note + "
@@ -285,16 +347,16 @@ func open_business_menu() -> void:
 		next_info
 	]
 	btn_1.text = "🚀 Открыть / Масштабировать бизнес"
-	btn_2.text = "⚡ Оптимизировать процессы (+15% к кэшу от дохода, Энергия -15)"
+	btn_2.text = "⚡ Оптимизация (+15% дохода бизнеса, Энергия -15, 1 ход)"
 	btn_3.text = "🔙 Вернуться к событиям квартала"
 
 func watch_ad_for_bonus() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
 		return
 	if GameManager.ad_cooldown > 0:
-		event_label.text = "⏳ Бонус перезаряжается! Осталось ходов: %d.
+		event_label.text = "⏳ Бонус перезаряжается! Осталось кварталов: %s.
 
-Продолжайте принимать решения." % GameManager.ad_cooldown
+Продолжайте принимать решения." % str(GameManager.ad_cooldown)
 		return
 	
 	var nw := maxf(2500.0, absf(GameManager.get_net_worth()))
@@ -304,12 +366,15 @@ func watch_ad_for_bonus() -> void:
 	GameManager.energy = min(100, GameManager.energy + 35)
 	GameManager.ad_cooldown = 4
 	GameManager.recalculate_forbes_rank()
+	if check_game_over():
+		return
 	update_ui()
 	event_label.text = "🎁 СПОНСОРСКИЙ ГРАНТ ПОЛУЧЕН!
 
 • +$%s на счет (масштабируется от капитала)
 • Стресс снижен на 25%%, Энергия +35%%
 • Перезарядка бонуса: 4 квартала." % GameManager.format_num(grant)
+	save_session()
 
 func open_settings_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -353,7 +418,7 @@ func on_choice_pressed(option: int) -> void:
 			var msg: String = fn.call()
 			load_next_life_event(msg)
 		ScreenMode.GAMEOVER:
-			if option == 1 and not GameManager.revive_used and GameManager.age < 80:
+			if option == 1 and can_revive:
 				# Экстренное воскрешение за просмотр рекламы
 				GameManager.revive_used = true
 				GameManager.health = max(55, GameManager.health)
@@ -363,8 +428,11 @@ func on_choice_pressed(option: int) -> void:
 					GameManager.cash = 1000.0
 				load_next_life_event("🚑 ВТОРОЙ ШАНС! Врачи и кризис-менеджеры спасли вас!")
 			else:
+				GameManager.register_inheritance_on_end()
 				GameManager.reset_game()
+				active_event = {}
 				show_intro_screen()
+	save_session()
 
 func apply_selected_perk(option: int) -> void:
 	if GameManager.legacy_points >= 3:
@@ -418,31 +486,28 @@ func handle_market_action(option: int) -> void:
 		var note := "💼 Возврат к событиям."
 		if sold_s + sold_c > 0.0:
 			note = "💵 Активы проданы на сумму $%s!" % GameManager.format_num(sold_s + sold_c)
-		load_next_life_event(note)
+		load_next_life_event(note, true)
 
 func handle_business_action(option: int) -> void:
 	if option == 1:
 		var res := GameManager.upgrade_or_scale_business()
+		if check_game_over():
+			return
 		open_business_menu()
 		event_label.text = ("✅ " if res["ok"] else "❌ ") + res["msg"] + "
 
 " + event_label.text
 	elif option == 2:
-		if GameManager.business_tier > 0 and GameManager.energy >= 20:
-			var bonus := GameManager.get_passive_quarterly_income() * 0.25
-			GameManager.cash += bonus
-			GameManager.energy -= 15
-			GameManager.recalculate_forbes_rank()
-			open_business_menu()
-			event_label.text = "⚡ Оптимизация принесла +$%s!
-
-" % GameManager.format_num(bonus) + event_label.text
+		if GameManager.business_tier > 0 and GameManager.energy >= 15:
+			var bonus: float = GameManager.BUSINESS_TIERS[GameManager.business_tier]["income"] * float(GameManager.business_scale) * 0.15
+			GameManager.apply_delta(bonus, 0, 0, 0, 0, -15)
+			load_next_life_event("⚡ Оптимизация принесла +$%s! Прошёл один ход." % GameManager.format_num(bonus))
 		else:
-			event_label.text = "❌ Нужен открытый бизнес и минимум 20% Энергии!
+			event_label.text = "❌ Нужен открытый бизнес и минимум 15% Энергии!
 
 " + event_label.text
 	else:
-		load_next_life_event("🏢 Вы вернулись из офиса.")
+		load_next_life_event("🏢 Вы вернулись из офиса.", true)
 
 func handle_settings_action(option: int) -> void:
 	if option == 1:
@@ -459,7 +524,7 @@ func handle_settings_action(option: int) -> void:
 		GameManager.save_dynasty()
 		open_settings_menu()
 	else:
-		load_next_life_event()
+		load_next_life_event("", true)
 
 # --- ПРОВЕРКА УСЛОВИЙ ПОБЕДЫ И СМЕРТИ ---
 
@@ -489,10 +554,13 @@ func check_game_over() -> bool:
 	return false
 
 func trigger_game_over(reason: String, is_victory: bool) -> void:
+	final_reason = reason
+	final_victory = is_victory
 	current_mode = ScreenMode.GAMEOVER
 	set_bottom_bar_enabled(false)
 	GameManager.current_track = "Calm Finale Chord (CC0 Procedural)"
-	var dynasty_msg := GameManager.register_inheritance_on_end()
+	can_revive = not is_victory and not GameManager.revive_used and GameManager.age < 80
+	var dynasty_msg := "Итоги династии будут сохранены при начале следующего поколения."
 	update_ui()
 	
 	event_label.text = "🏁 ИТОГ ЖИЗНИ (Поколение #%d)
@@ -503,12 +571,12 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 Финальная позиция Forbes: #%s
 
 🧬 %s" % [
-		GameManager.generation - 1, reason,
+		GameManager.generation, reason,
 		GameManager.format_num(GameManager.get_net_worth()),
 		format_rank(GameManager.rank), dynasty_msg
 	]
 	
-	if not is_victory and not GameManager.revive_used and GameManager.age < 80:
+	if can_revive:
 		btn_1.text = "📺 Второй шанс (Продолжить жизнь за рекламу)"
 		btn_2.visible = true
 		btn_2.text = "🔄 Начать новое поколение династии"
@@ -517,6 +585,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 		btn_1.text = "🔄 Начать новое поколение династии"
 		btn_2.visible = false
 		btn_3.visible = false
+	save_session()
 
 # --- 32+ МОДУЛЬНЫХ СОБЫТИЯ ПО 4 ЭКОНОМИЧЕСКИМ ЭТАПАМ ---
 
@@ -702,12 +771,12 @@ func get_millionaire_events() -> Array:
 		}
 	]
 
-func get_billionaire_events() -> Array:
-	var scale_mult := maxf(1.0, GameManager.get_net_worth() * 0.08)
+func get_billionaire_events(event_net_worth: float = -1.0) -> Array:
+	var scale_mult := maxf(1.0, (GameManager.get_net_worth() if event_net_worth < 0 else event_net_worth) * 0.08)
 	return [
 		{
 			"title": "Глобальная гонка искусственного интеллекта и квантовых дата-центров.",
-			"o1": "Инвестировать в постройку мега-кластера (Шанс 75% на +$%s)" % GameManager.format_num(scale_mult * 2.2),
+			"o1": "Инвестировать в постройку мега-кластера (Шанс 75%% на +$%s)" % GameManager.format_num(scale_mult * 2.2),
 			"r1": func():
 				if rng.randf() < 0.75:
 					var win := scale_mult * 2.2
@@ -725,7 +794,7 @@ func get_billionaire_events() -> Array:
 			"o3": "Провести курс омоложения и биохакинга (Здоровье +25, Стресс -35, Энергия +45)",
 			"r3": func():
 				GameManager.apply_delta(scale_mult * 0.15, 25, 2, -35, 30, 45)
-				return "🧬 Передовая медицина восстановила ваше здоровье (+25%)."
+				return "🧬 Передовая медицина восстановила ваше здоровье (+25%).",
 		},
 		{
 			"title": "Антимонопольный комитет рассматривает влияние вашей империи на мировую экономику.",
@@ -742,6 +811,6 @@ func get_billionaire_events() -> Array:
 			"o3": "Уединиться на частном острове на весь квартал (Здоровье +20, Стресс -40, Энергия +50)",
 			"r3": func():
 				GameManager.apply_delta(scale_mult * 0.25, 20, 0, -40, 35, 50)
-				return "🏝️ Абсолютный покой на частном острове."
+				return "🏝️ Абсолютный покой на частном острове.",
 		}
 	]
