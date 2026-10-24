@@ -35,6 +35,8 @@ def main():
             ('playthrough', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_gameplay.gd', '--', '--playthrough']),
         ]
         cases.append(('presentation', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_presentation.gd']))
+        cases.append(('identity', ['--headless', '--script', 'res://tests/test_identity.gd']))
+        cases.append(('mobile-lifecycle', ['--headless', '--script', 'res://tests/test_mobile_lifecycle.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))

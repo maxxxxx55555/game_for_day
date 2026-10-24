@@ -25,6 +25,7 @@ var restoring_session: bool = false
 var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
+	get_tree().quit_on_go_back = false
 	rng.randomize()
 	SoundManager.apply_gains()
 	audio_settings = preload("res://scripts/audio/AudioSettings.gd").new()
@@ -53,8 +54,16 @@ func _ready() -> void:
 		verification.call_deferred("run", self)
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+	if not is_node_ready(): return
+	if what in [NOTIFICATION_WM_CLOSE_REQUEST, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
 		save_session()
+	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if current_mode in [ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS]:
+			load_next_life_event("", true)
+			save_session()
+		else:
+			save_session()
+			get_tree().quit()
 
 func save_session() -> void:
 	if restoring_session:
@@ -115,7 +124,7 @@ func update_ui() -> void:
 Капитал (Net Worth): $%s | Кэш: $%s
 Пассив: +$%s/кв | Расходы жизни: -$%s/кв
 Здоровье: %d%% | Энергия: %d%% | Стресс: %d%% | Счастье: %d%%
-Интеллект: %d | Место в Forbes: #%s" % [
+Интеллект: %d | Мировой рейтинг: #%s" % [
 		GameManager.generation, GameManager.age, GameManager.quarter, GameManager.real_world_week,
 		GameManager.format_num(nw), GameManager.format_num(GameManager.cash),
 		GameManager.format_num(pass_inc), GameManager.format_num(liv_cost),
@@ -169,9 +178,9 @@ func show_intro_screen() -> void:
 			GameManager.generation, GameManager.format_num(GameManager.cash - 200.0), GameManager.legacy_points
 		]
 	
-	event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В FORBES LADDER v2
+	event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В HEIRS OF FORTUNE
 
-Ваша цель — пройти путь от рождения до #1 в списке Forbes ($250 млрд).
+Ваша цель — пройти путь от рождения до #1 в мировом рейтинге ($250 млрд).
 • 1 ход = 1 квартал (3 месяца). Каждые 4 квартала вы стареете на 1 год.
 • Каждый квартал списываются расходы на жизнь (растут с инфляцией) и начисляется доход от бизнеса и дивидендов.
 • Используйте вкладки «Биржа» и «Бизнес» внизу экрана для масштабирования капитала." + legacy_info
@@ -511,7 +520,7 @@ func handle_settings_action(option: int) -> void:
 func check_game_over() -> bool:
 	if GameManager.rank == 1 and GameManager.get_net_worth() >= 250000000000.0:
 		trigger_game_over("🏆 АБСОЛЮТНЫЙ ТРИУМФ!
-Вы достигли состояния $250+ млрд и официально заняли #1 строчку мирового рейтинга Forbes!", true)
+Вы достигли состояния $250+ млрд и официально заняли #1 строчку мирового рейтинга!", true)
 		return true
 	if GameManager.health <= 0:
 		trigger_game_over("💔 Остановка сердца на фоне износа организма. Врачи оказались бессильны.", false)
@@ -550,7 +559,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 %s
 
 Итоговый капитал: $%s
-Финальная позиция Forbes: #%s
+Финальный мировой рейтинг: #%s
 
 🧬 %s" % [
 		GameManager.generation, reason,
