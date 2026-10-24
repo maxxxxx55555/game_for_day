@@ -1,0 +1,9 @@
+{
+  "city_folio.png": {
+    "provider": "OpenAI imagegen built-in",
+    "date": "2026-10-24",
+    "purpose": "Original in-game illustrated city folio",
+    "sha256": "3780c678c935882d2448fdb8ed314bc6593b334c96f79a079e411c9f378ff5aa",
+    "prompt": "Original premium financial dynasty game background, portrait 3:4. No UI, text, numbers or logos. Blue-hour European river city with early 20th-century domed bank, townhouses, modern towers, stone bridge and warm windows. Detailed painterly architecture, navy, teal and brass palette, quiet upper sky."
+  }
+}

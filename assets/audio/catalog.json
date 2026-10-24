@@ -4,7 +4,7 @@
   "music": {
     "welcome": {
       "path": "calm_theme.wav",
-      "seconds": 116.5843,
+      "seconds": 118.3722,
       "loop": true,
       "channels": 2,
       "source": "Google Gemini / Lyria",
@@ -12,7 +12,7 @@
     },
     "study": {
       "path": "calm_theme.wav",
-      "seconds": 116.5843,
+      "seconds": 118.3722,
       "loop": true,
       "channels": 2,
       "source": "Google Gemini / Lyria",
@@ -20,7 +20,7 @@
     },
     "career": {
       "path": "calm_theme.wav",
-      "seconds": 116.5843,
+      "seconds": 118.3722,
       "loop": true,
       "channels": 2,
       "source": "Google Gemini / Lyria",
@@ -28,7 +28,7 @@
     },
     "tycoon": {
       "path": "calm_theme.wav",
-      "seconds": 116.5843,
+      "seconds": 118.3722,
       "loop": true,
       "channels": 2,
       "source": "Google Gemini / Lyria",

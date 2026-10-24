@@ -1,0 +1,17 @@
+[
+  {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/prata/Prata-Regular.ttf",
+    "file": "assets/fonts/Prata-Regular.ttf",
+    "sha256": "3b2b880737be3bda5f03554297b758516876157c88f9e3b3bae8fa1fc96a2c2c"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf",
+    "file": "assets/fonts/Manrope.ttf",
+    "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/alegreya/Alegreya%5Bwght%5D.ttf",
+    "file": "assets/fonts/Alegreya.ttf",
+    "sha256": "ba5564634b93a8f8ba57b48cd4f1ae7417d2b4656fbac779028679b00de3cf12"
+  }
+]
