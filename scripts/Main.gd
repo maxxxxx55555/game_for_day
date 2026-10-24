@@ -131,7 +131,7 @@ func update_ui() -> void:
 		GameManager.format_num(port_val), biz_name, GameManager.business_scale
 	]
 	
-	var sound_state := "ВКЛ" if GameManager.audio_enabled else "ВЫКЛ"
+	var sound_state := "ВКЛ" if GameManager.audio_enabled and not SoundManager.force_mute else "ВЫКЛ"
 	music_label.text = "🎵 Аудио [%s]: %s" % [sound_state, GameManager.current_track]
 	
 	if GameManager.ad_cooldown > 0:
@@ -158,7 +158,7 @@ func set_bottom_bar_enabled(enabled: bool) -> void:
 func show_intro_screen() -> void:
 	current_mode = ScreenMode.INTRO
 	set_bottom_bar_enabled(false)
-	GameManager.current_track = "Mosaic — спокойное начало"
+	GameManager.current_track = "Тихая тема Gemini"
 	SoundManager.play_music("welcome")
 	update_ui()
 	
@@ -171,7 +171,7 @@ func show_intro_screen() -> void:
 	
 	event_label.text = "📖 ДОБРО ПОЖАЛОВАТЬ В FORBES LADDER v2
 
-Ваша цель — пройти путь от рождения по реальной мировой статистике до #1 в списке Forbes ($250 млрд).
+Ваша цель — пройти путь от рождения до #1 в списке Forbes ($250 млрд).
 • 1 ход = 1 квартал (3 месяца). Каждые 4 квартала вы стареете на 1 год.
 • Каждый квартал списываются расходы на жизнь (растут с инфляцией) и начисляется доход от бизнеса и дивидендов.
 • Используйте вкладки «Биржа» и «Бизнес» внизу экрана для масштабирования капитала." + legacy_info
@@ -247,16 +247,16 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 func update_soundtrack_by_stage() -> void:
 	var nw := GameManager.get_net_worth()
 	if nw >= 50000000.0:
-		GameManager.current_track = "Horizon — бизнес-империя"
+		GameManager.current_track = "Тихая тема Gemini"
 		SoundManager.play_music("tycoon")
 	elif GameManager.age < 26:
-		GameManager.current_track = "First Steps — молодость"
+		GameManager.current_track = "Тихая тема Gemini"
 		SoundManager.play_music("study")
 	elif GameManager.age < 50:
-		GameManager.current_track = "Momentum — карьера"
+		GameManager.current_track = "Тихая тема Gemini"
 		SoundManager.play_music("career")
 	else:
-		GameManager.current_track = "Mosaic — зрелость"
+		GameManager.current_track = "Тихая тема Gemini"
 		SoundManager.play_music("welcome")
 
 # --- ВКЛАДКИ: БИРЖА, БИЗНЕС, РЕКЛАМА, НАСТРОЙКИ ---
@@ -538,7 +538,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	final_victory = is_victory
 	current_mode = ScreenMode.GAMEOVER
 	set_bottom_bar_enabled(false)
-	GameManager.current_track = "Mosaic — итоги жизни"
+	GameManager.current_track = "Тихая тема Gemini"
 	SoundManager.play_music("welcome")
 	SoundManager.play_sfx("victory" if is_victory else "defeat")
 	can_revive = not is_victory and not GameManager.revive_used and GameManager.age < 80
