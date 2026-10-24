@@ -15,8 +15,8 @@ func run() -> void:
 		game.age = age
 		screen.update_soundtrack_by_stage()
 		screen.update_ui()
-		if "Gemini" not in game.current_track:
-			push_error("The visible track title must identify the replacement music")
+		if "Where the Fog Rests" not in game.current_track:
+			push_error("The visible track title must identify the current composition")
 			failed = true
 	if OS.get_environment("GAME_AUDIO_MUTED") == "1" and "ВЫКЛ" not in screen.music_label.text:
 		push_error("The audio indicator must show the effective muted state")

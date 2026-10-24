@@ -2,7 +2,7 @@ extends Control
 
 @onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/StatsLabel
 @onready var market_label: Label = $MarginContainer/VBoxContainer/MarketPanel/MarketLabel
-@onready var event_label: Label = $MarginContainer/VBoxContainer/EventPanel/EventLabel
+@onready var event_label: Label = $MarginContainer/VBoxContainer/EventPanel/EventScroll/EventLabel
 @onready var music_label: Label = $MarginContainer/VBoxContainer/MusicLabel
 @onready var btn_1: Button = $MarginContainer/VBoxContainer/ChoicesBox/Button1
 @onready var btn_2: Button = $MarginContainer/VBoxContainer/ChoicesBox/Button2
@@ -12,6 +12,8 @@ extends Control
 @onready var ad_btn: Button = $MarginContainer/VBoxContainer/BottomBar/AdButton
 @onready var settings_btn: Button = $MarginContainer/VBoxContainer/BottomBar/SettingsButton
 var audio_settings: VBoxContainer
+var dashboard: Control
+var market_back: Button
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -26,6 +28,21 @@ var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
 	get_tree().quit_on_go_back = false
+	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
+	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
+	stats_label.hide()
+	stats_label.get_parent().add_child(dashboard)
+	event_label.minimum_size_changed.connect(func(): $MarginContainer/VBoxContainer/EventPanel/EventScroll.scroll_vertical = 0)
+	market_back = Button.new()
+	market_back.name = "MarketBack"
+	market_back.text = "Вернуться к жизни — сохранить инвестиции"
+	market_back.custom_minimum_size.y = 54
+	market_back.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	$MarginContainer/VBoxContainer/ChoicesBox.add_child(market_back)
+	market_back.pressed.connect(func():
+		load_next_life_event("", true)
+		save_session()
+	)
 	rng.randomize()
 	SoundManager.apply_gains()
 	audio_settings = preload("res://scripts/audio/AudioSettings.gd").new()
@@ -113,6 +130,9 @@ func restore_session(saved: Dictionary) -> void:
 	restoring_session = false
 
 func update_ui() -> void:
+	if dashboard: dashboard.queue_redraw()
+	if market_back: market_back.visible = current_mode == ScreenMode.MARKET
+	$MarginContainer/VBoxContainer/MarketPanel.visible = current_mode not in [ScreenMode.MARKET, ScreenMode.SETTINGS]
 	if audio_settings:
 		audio_settings.visible = current_mode == ScreenMode.SETTINGS
 	SoundManager.apply_gains()
@@ -167,7 +187,7 @@ func set_bottom_bar_enabled(enabled: bool) -> void:
 func show_intro_screen() -> void:
 	current_mode = ScreenMode.INTRO
 	set_bottom_bar_enabled(false)
-	GameManager.current_track = "Тихая тема Gemini"
+	GameManager.current_track = "Where the Fog Rests"
 	SoundManager.play_music("welcome")
 	update_ui()
 	
@@ -256,16 +276,16 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 func update_soundtrack_by_stage() -> void:
 	var nw := GameManager.get_net_worth()
 	if nw >= 50000000.0:
-		GameManager.current_track = "Тихая тема Gemini"
+		GameManager.current_track = "Where the Fog Rests"
 		SoundManager.play_music("tycoon")
 	elif GameManager.age < 26:
-		GameManager.current_track = "Тихая тема Gemini"
+		GameManager.current_track = "Where the Fog Rests"
 		SoundManager.play_music("study")
 	elif GameManager.age < 50:
-		GameManager.current_track = "Тихая тема Gemini"
+		GameManager.current_track = "Where the Fog Rests"
 		SoundManager.play_music("career")
 	else:
-		GameManager.current_track = "Тихая тема Gemini"
+		GameManager.current_track = "Where the Fog Rests"
 		SoundManager.play_music("welcome")
 
 # --- ВКЛАДКИ: БИРЖА, БИЗНЕС, РЕКЛАМА, НАСТРОЙКИ ---
@@ -289,9 +309,9 @@ func open_market_menu() -> void:
 Выберите операцию (не тратит квартал):" % [
 		GameManager.format_num(stock_val), GameManager.format_num(crypto_val), GameManager.format_num(GameManager.cash)
 	]
-	btn_1.text = "📊 Купить акции S&P на 50% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
-	btn_2.text = "🪙 Купить крипту на 25% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
-	btn_3.text = "💵 Продать все активы в кэш / Назад к жизни"
+	btn_1.text = "Купить акции S&P на 50%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
+	btn_2.text = "Купить крипту на 25%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
+	btn_3.text = "Продать все активы и вернуться к жизни"
 
 func open_business_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
@@ -547,7 +567,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	final_victory = is_victory
 	current_mode = ScreenMode.GAMEOVER
 	set_bottom_bar_enabled(false)
-	GameManager.current_track = "Тихая тема Gemini"
+	GameManager.current_track = "Where the Fog Rests"
 	SoundManager.play_music("welcome")
 	SoundManager.play_sfx("victory" if is_victory else "defeat")
 	can_revive = not is_victory and not GameManager.revive_used and GameManager.age < 80

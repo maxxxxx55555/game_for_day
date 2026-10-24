@@ -14,10 +14,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
+config/version="1.0.0"
+
 config/name="Heirs of Fortune"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Godot/app_userdata/Forbes Ladder- Dynasty & Markets v2"
-config/description="Хардкорный экономический симулятор жизни от рождения до #1 Forbes с игровыми вероятностями происхождения."
+config/description="A generational finance strategy game: build a business dynasty and reach the world's top rank."
 run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
