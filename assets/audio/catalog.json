@@ -1,0 +1,100 @@
+{
+  "sample_rate": 32000,
+  "license": "Mixed: synthesized SFX CC0-1.0; Gemini generated music, see LICENSE.md and music-provenance.json",
+  "music": {
+    "welcome": {
+      "path": "calm_theme.wav",
+      "seconds": 116.5843,
+      "loop": true,
+      "channels": 2,
+      "source": "Google Gemini / Lyria",
+      "license": "Generated output; Google Terms of Service"
+    },
+    "study": {
+      "path": "calm_theme.wav",
+      "seconds": 116.5843,
+      "loop": true,
+      "channels": 2,
+      "source": "Google Gemini / Lyria",
+      "license": "Generated output; Google Terms of Service"
+    },
+    "career": {
+      "path": "calm_theme.wav",
+      "seconds": 116.5843,
+      "loop": true,
+      "channels": 2,
+      "source": "Google Gemini / Lyria",
+      "license": "Generated output; Google Terms of Service"
+    },
+    "tycoon": {
+      "path": "calm_theme.wav",
+      "seconds": 116.5843,
+      "loop": true,
+      "channels": 2,
+      "source": "Google Gemini / Lyria",
+      "license": "Generated output; Google Terms of Service"
+    }
+  },
+  "sfx": {
+    "ui_click": {
+      "path": "ui_click.wav",
+      "seconds": 0.38,
+      "loop": false,
+      "channels": 1
+    },
+    "inventory_open": {
+      "path": "inventory_open.wav",
+      "seconds": 0.38,
+      "loop": false,
+      "channels": 1
+    },
+    "pickup": {
+      "path": "pickup.wav",
+      "seconds": 0.38,
+      "loop": false,
+      "channels": 1
+    },
+    "purchase": {
+      "path": "purchase.wav",
+      "seconds": 0.38,
+      "loop": false,
+      "channels": 1
+    },
+    "sale": {
+      "path": "sale.wav",
+      "seconds": 0.38,
+      "loop": false,
+      "channels": 1
+    },
+    "coin": {
+      "path": "coin.wav",
+      "seconds": 0.38,
+      "loop": false,
+      "channels": 1
+    },
+    "upgrade": {
+      "path": "upgrade.wav",
+      "seconds": 1.1,
+      "loop": false,
+      "channels": 1
+    },
+    "potion": {
+      "path": "potion.wav",
+      "seconds": 0.65,
+      "loop": false,
+      "channels": 1
+    },
+    "victory": {
+      "path": "victory.wav",
+      "seconds": 2.8,
+      "loop": false,
+      "channels": 1
+    },
+    "defeat": {
+      "path": "defeat.wav",
+      "seconds": 2.2,
+      "loop": false,
+      "channels": 1
+    }
+  }
+}

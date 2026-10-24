@@ -1,6 +1,8 @@
 extends Node
 
 const SAVE_PATH := "user://dynasty_save.cfg"
+const SESSION_PATH := "user://current_life.cfg"
+const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled"]
 
 # Время и календарь
 var age: int = 18
@@ -46,12 +48,14 @@ var inherited_capital: float = 0.0
 var birth_origin: String = ""
 var birth_cost_modifier: float = 1.0
 var player_perk: String = "none"
-var current_track: String = "Soft Lo-Fi Study (CC0 Procedural)"
+var current_track: String = "Where the Fog Rests"
 var audio_enabled: bool = true
+var music_volume: float = 0.3
+var sfx_volume: float = 0.8
 
 var has_seen_intro: bool = false
 var has_rolled_birth: bool = false
-var ad_cooldown: int = 0
+var ad_cooldown: float = 0.0
 var revive_used: bool = false
 
 func _ready() -> void:
@@ -64,6 +68,8 @@ func save_dynasty() -> void:
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
+	cfg.set_value("settings", "music_volume", music_volume)
+	cfg.set_value("settings", "sfx_volume", sfx_volume)
 	cfg.save(SAVE_PATH)
 
 func load_dynasty() -> void:
@@ -74,13 +80,40 @@ func load_dynasty() -> void:
 		inherited_capital = cfg.get_value("dynasty", "inherited_capital", 0.0)
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
+		music_volume = clampf(cfg.get_value("settings", "music_volume", 0.3), 0, 1)
+		sfx_volume = clampf(cfg.get_value("settings", "sfx_volume", 0.8), 0, 1)
 
 func reset_full_dynasty() -> void:
+	clear_current_life()
 	generation = 1
 	legacy_points = 0
 	inherited_capital = 0.0
 	save_dynasty()
 	reset_game()
+
+func save_current_life(ui_state: Dictionary) -> bool:
+	var cfg := ConfigFile.new()
+	cfg.set_value("session", "generation", generation)
+	cfg.set_value("session", "ui", ui_state)
+	for field in RUN_FIELDS:
+		cfg.set_value("run", field, get(field))
+	return cfg.save(SESSION_PATH) == OK
+
+func load_current_life() -> Dictionary:
+	var cfg := ConfigFile.new()
+	if cfg.load(SESSION_PATH) != OK or cfg.get_value("session", "generation", -1) != generation:
+		return {}
+	var ui_state: Dictionary = cfg.get_value("session", "ui", {})
+	if ui_state.is_empty():
+		return {}
+	for field in RUN_FIELDS:
+		set(field, cfg.get_value("run", field, get(field)))
+	recalculate_forbes_rank()
+	return ui_state
+
+func clear_current_life() -> void:
+	if FileAccess.file_exists(SESSION_PATH):
+		DirAccess.remove_absolute(SESSION_PATH)
 
 func reset_game() -> void:
 	age = 18
@@ -210,16 +243,17 @@ func recalculate_forbes_rank() -> void:
 	elif nw < 1000000000.0:
 		rank = int(lerp(2800.0, 30000.0, 1.0 - ((nw - 100000000.0) / 900000000.0)))
 	elif nw < 250000000000.0:
-		var t := clamp((nw - 1000000000.0) / 249000000000.0, 0.0, 1.0)
+		var t: float = clampf((nw - 1000000000.0) / 249000000000.0, 0.0, 1.0)
 		rank = max(1, int(lerp(2800.0, 1.0, pow(t, 0.35))))
 	else:
 		rank = 1
 
 func advance_quarter_and_markets() -> Dictionary:
+	var passive_inc := get_passive_quarterly_income() * time_speed
+	var living_cost := get_quarterly_living_cost() * time_speed
 	total_turns += 1
-	real_world_week += int(max(1.0, 13.0 * time_speed))
 	if ad_cooldown > 0:
-		ad_cooldown -= 1
+		ad_cooldown = maxf(0.0, ad_cooldown - time_speed)
 
 	# Продвижение кварталов и возраста с учетом настройки скорости времени
 	quarter_progress_accum += time_speed
@@ -229,6 +263,7 @@ func advance_quarter_and_markets() -> Dictionary:
 		if quarter > 4:
 			quarter = 1
 			age += 1
+	real_world_week = 1 + int((float((age - 18) * 4 + quarter - 1) + quarter_progress_accum) * 13.0)
 
 	# Инфляция и мировая сложность
 	inflation_multiplier *= (1.0 + 0.007 * time_speed)
@@ -244,8 +279,6 @@ func advance_quarter_and_markets() -> Dictionary:
 	crypto_rate = max(5.0, snappedf(crypto_rate * (1.0 + crypto_delta), 0.01))
 
 	# Начисление пассивного дохода и списание стоимости жизни
-	var passive_inc := get_passive_quarterly_income()
-	var living_cost := get_quarterly_living_cost()
 	var net_quarter_cash := passive_inc - living_cost
 	cash += net_quarter_cash
 
