@@ -18,6 +18,7 @@ var currency_button: Button
 var currency_panel: Control
 var story_art: TextureRect
 var finale_overlay: Control
+var save_status: Label
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -32,6 +33,24 @@ var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
 	get_tree().quit_on_go_back = false
+	save_status = Label.new()
+	save_status.name = "SaveStatus"
+	save_status.text = "Не удалось сохранить. Освободите место на диске и повторите действие."
+	save_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	save_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	save_status.add_theme_color_override("font_color",Color("ffbf90"))
+	save_status.add_theme_color_override("font_outline_color",Color("10191b"))
+	save_status.add_theme_constant_override("outline_size",8)
+	save_status.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	save_status.z_index = 100
+	add_child(save_status)
+	save_status.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	save_status.offset_top = -150
+	save_status.offset_bottom = -95
+	save_status.offset_left = 20
+	save_status.offset_right = -20
+	save_status.visible = not GameManager.write_failures.is_empty()
+	GameManager.persistence_changed.connect(func(ok): save_status.visible = not ok)
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
 	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
 	stats_label.hide()
