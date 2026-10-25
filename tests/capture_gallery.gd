@@ -21,6 +21,10 @@ func run() -> void:
 	root.get_node("GameManager").reset_full_dynasty()
 	screen.show_intro_screen()
 	await shot(screen, "intro")
+	screen.open_credits()
+	await shot(screen,"credits")
+	screen.credits_panel.close()
+	await process_frame
 	for i in 3: screen.btn_1.pressed.emit()
 	await shot(screen, "life")
 	screen.market_btn.pressed.emit()
@@ -30,5 +34,7 @@ func run() -> void:
 	screen.currency_panel.closed.emit()
 	screen.biz_btn.pressed.emit()
 	await shot(screen, "business")
+	screen.open_settings_menu()
+	await shot(screen,"settings")
 	print("PORTRAIT GALLERY: PASS")
 	quit(0)

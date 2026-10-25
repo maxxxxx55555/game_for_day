@@ -30,3 +30,13 @@ func _ready() -> void:
 			SoundManager.apply_gains()
 			GameManager.save_dynasty()
 		)
+
+	var motion:=CheckBox.new()
+	motion.name="ReducedMotion"
+	motion.text=LocalizationManager.source("ui.reduced_motion")
+	motion.button_pressed=GameManager.reduced_motion
+	add_child(motion)
+	motion.toggled.connect(func(enabled):
+		GameManager.reduced_motion=enabled
+		GameManager.save_dynasty()
+	)

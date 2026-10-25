@@ -23,6 +23,9 @@ var outcome: Label
 var outcome_timer:=0.0
 var choice_cards:Array[Control]=[]
 var language_choice:OptionButton
+var intro_actions:HBoxContainer
+var credits_panel:Control
+var story_transition:Tween
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -77,8 +80,17 @@ func _ready() -> void:
 	language_choice.add_item("Русский")
 	language_choice.add_item("English")
 	language_choice.selected=0 if LocalizationManager.current_language=="ru" else 1
-	column.add_child(language_choice)
-	column.move_child(language_choice,1)
+	intro_actions=HBoxContainer.new()
+	column.add_child(intro_actions)
+	column.move_child(intro_actions,1)
+	language_choice.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	intro_actions.add_child(language_choice)
+	var credits_button:=Button.new()
+	credits_button.name="CreditsButton"
+	credits_button.text=LocalizationManager.source("ui.credits")
+	credits_button.custom_minimum_size.x=150
+	intro_actions.add_child(credits_button)
+	credits_button.pressed.connect(open_credits)
 	language_choice.item_selected.connect(func(index):LocalizationManager.set_language("ru" if index==0 else "en"))
 	LocalizationManager.language_changed.connect(func(language):
 		language_choice.select(0 if language=="ru" else 1)
@@ -170,6 +182,9 @@ func _notification(what: int) -> void:
 	if what in [NOTIFICATION_WM_CLOSE_REQUEST, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
 		save_session()
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if is_instance_valid(credits_panel):
+			credits_panel.close()
+			return
 		if current_mode in [ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY]:
 			load_next_life_event("", true)
 			save_session()
@@ -227,7 +242,7 @@ func restore_session(saved: Dictionary) -> void:
 	restoring_session = false
 
 func update_ui() -> void:
-	if language_choice:language_choice.visible=current_mode==ScreenMode.INTRO
+	if intro_actions:intro_actions.visible=current_mode==ScreenMode.INTRO
 	if finale_overlay: finale_overlay.visible = current_mode == ScreenMode.GAMEOVER
 	$MarginContainer.visible = current_mode != ScreenMode.GAMEOVER
 	if dashboard: dashboard.queue_redraw()
@@ -377,6 +392,7 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 	btn_1.text = active_event["o1"]
 	btn_2.text = active_event["o2"]
 	btn_3.text = active_event["o3"]
+	animate_story()
 
 func update_soundtrack_by_stage() -> void:
 	var nw := GameManager.get_net_worth()
@@ -890,3 +906,22 @@ func get_billionaire_events(event_net_worth: float = -1.0) -> Array:
 				return LocalizationManager.source("copy.8431904301ab"),
 		}
 	] + EventLibrary.events_for("billionaire")
+
+func open_credits() -> void:
+	if is_instance_valid(credits_panel):return
+	var previous_focus:=get_viewport().gui_get_focus_owner()
+	credits_panel=preload("res://scripts/ui/FortuneCredits.gd").new()
+	add_child(credits_panel)
+	credits_panel.closed.connect(func():
+		credits_panel=null
+		if is_instance_valid(previous_focus):previous_focus.grab_focus()
+	)
+
+func animate_story() -> void:
+	var panel:Control=$MarginContainer/VBoxContainer/EventPanel
+	if is_instance_valid(story_transition):story_transition.kill()
+	panel.modulate.a=1.0
+	if GameManager.reduced_motion:return
+	panel.modulate.a=0.9
+	story_transition=create_tween()
+	story_transition.tween_property(panel,"modulate:a",1.0,0.18).set_trans(Tween.TRANS_SINE)

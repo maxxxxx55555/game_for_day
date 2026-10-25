@@ -11,6 +11,7 @@ static func dynasty(cfg: ConfigFile) -> bool:
 	if not Guard.numeric(cfg.get_value("dynasty","inherited_capital",0),0,1.0e17): return false
 	if cfg.get_value("settings","time_speed",1.0) not in [0.5,1.0,2.0]: return false
 	if not cfg.get_value("settings","audio_enabled",true) is bool: return false
+	if not cfg.get_value("settings","reduced_motion",false) is bool: return false
 	for name in ["master_volume","music_volume","sfx_volume","ui_volume"]:
 		if not Guard.numeric(cfg.get_value("settings",name,0.3),0,1): return false
 	return cfg.has_section("dynasty")

@@ -148,6 +148,8 @@ func load_settings() -> void:
 	var config:=ConfigFile.new()
 	var text:=Guard.bounded_text(SETTINGS_FILE)
 	var preferred:="ru" if OS.get_locale_language()=="ru" else "en"
+	# Existing 1.4 profiles were Russian-only; preserve their presentation until an explicit choice.
+	if text.is_empty() and FileAccess.file_exists("user://dynasty_save.cfg"):preferred="ru"
 	if text.length()<=65536 and Guard.safe_text(text) and config.parse(text)==OK:
 		var value=config.get_value("language","locale",preferred)
 		if value in ["ru","en"]:preferred=value

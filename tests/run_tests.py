@@ -36,6 +36,8 @@ def main():
             ('regressions', ['--headless', '--script', 'res://tests/test_gameplay.gd']),
             ('playthrough', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_gameplay.gd', '--', '--playthrough']),
         ]
+        cases.append(('credits', ['--headless', '--script', 'res://tests/test_credits.gd']))
+        cases.append(('comfort-preferences', ['--headless', '--script', 'res://tests/test_comfort_preferences.gd']))
         cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
         cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
         cases.append(('audio-scope', ['--headless', '--script', 'res://tests/test_audio_scope.gd']))
@@ -60,6 +62,8 @@ def main():
             for script in ['strategy', 'campaign']:
                 if (project / ('tests/test_' + script + '.gd')).exists():
                     cases.append((script, ([] if args.rendered else ['--headless']) + ['--resolution', '1280x720', '--script', 'res://tests/test_' + script + '.gd']))
+        contract = subprocess.run([sys.executable, str(project / 'tests/test_export_contract.py')], timeout=30)
+        if contract.returncode: return contract.returncode
         isolation = subprocess.run([sys.executable, str(project / 'tests/test_repo_isolation.py')], timeout=30)
         if isolation.returncode: return isolation.returncode
         soundtrack = subprocess.run([sys.executable, str(project / 'tests/test_soundtrack.py')], timeout=60)

@@ -101,13 +101,14 @@ func present(data: Dictionary) -> void:
 	show()
 	elapsed = 0
 	if entrance and entrance.is_valid(): entrance.kill()
-	modulate.a = 0
-	entrance = create_tween()
-	entrance.tween_property(self,"modulate:a",1.0,0.65).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	modulate.a = 1.0 if GameManager.reduced_motion else 0.0
+	if not GameManager.reduced_motion:
+		entrance = create_tween()
+		entrance.tween_property(self,"modulate:a",1.0,0.65).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	primary.grab_focus()
 
 func _process(delta: float) -> void:
-	if not visible: return
+	if not visible or GameManager.reduced_motion: return
 	elapsed = fmod(elapsed+delta,1000.0)
 	queue_redraw()
 

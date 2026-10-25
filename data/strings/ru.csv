@@ -743,3 +743,6 @@ fragment.a1652d4ca77b,стресс,stress
 fragment.9c5f7ffb97be,интеллект,intelligence
 fragment.feb3705ae6d5,счастье,happiness
 fragment.c78357fb7246,Шанс %d%% на +$%s,%d%% chance of +$%s
+ui.reduced_motion,Меньше анимации,Reduced motion
+ui.no_currency,Нет %s для продажи.,No %s held to sell.
+ui.no_cash,Нет свободных денег для обмена.,No cash available for this trade.

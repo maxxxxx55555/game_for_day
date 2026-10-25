@@ -2327,6 +2327,18 @@
     "fragment.c78357fb7246": {
       "ru": "Шанс %d%% на +$%s",
       "en": "%d%% chance of +$%s"
+    },
+    "ui.reduced_motion": {
+      "ru": "Меньше анимации",
+      "en": "Reduced motion"
+    },
+    "ui.no_currency": {
+      "ru": "Нет %s для продажи.",
+      "en": "No %s held to sell."
+    },
+    "ui.no_cash": {
+      "ru": "Нет свободных денег для обмена.",
+      "en": "No cash available for this trade."
     }
   },
   "aliases": {
