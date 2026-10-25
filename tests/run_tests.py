@@ -74,8 +74,11 @@ def main():
         for name, switches in cases:
             log_path = artifacts / (name + '.log')
             command = [args.godot, '--rendering-method', 'gl_compatibility', '--path', str(project), '--log-file', str(log_path), *switches]
-            result = subprocess.run(command, env=environment, timeout=180)
+            result = subprocess.run(command, env=environment, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
             log = log_path.read_text(encoding='utf-8', errors='replace') if log_path.exists() else 'ERROR: Missing Godot log'
+            console = result.stdout + result.stderr
+            (artifacts / (name + '-console.log')).write_text(console, encoding='utf-8')
+            log += '\n' + console
             errors = [line for line in log.splitlines() if ('ERROR:' in line or 'FAIL:' in line or 'SCRIPT ERROR' in line) and 'Failed to read the root certificate store' not in line]
             print(f'{name}: ' + ('PASS' if result.returncode == 0 and not errors else 'FAIL'))
             for line in log.splitlines():
