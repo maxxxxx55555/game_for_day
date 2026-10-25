@@ -1,3 +1,7 @@
+# Heirs of Fortune —1.4.0
+
+Native decision cards now separate concise action titles from readable effects. Cost, probability and requirements remain visible, with original full text retained for tooltips/accessibility. A short outcome notice replaces repeated event paragraphs, and the main illustration uses the freed space. Smooth rounded controls and shorter introductory/market copy reduce clutter; all93 choice layouts are checked at a small portrait size. The original money, RNG, turns, currency/inflation, soundtrack and protected-save rules remain.
+
 # Heirs of Fortune — 1.3.0
 
 Onest body text, restrained Unbounded headings and authored chamfered satin-blue controls replace the previous interface. A fictional illustrated portrait ages through four life stages on the dashboard. Keyboard focus, disabled states and small portrait layouts are checked. Currency trading, inflation, life finales, distinct jazz music and protected saves are retained.
