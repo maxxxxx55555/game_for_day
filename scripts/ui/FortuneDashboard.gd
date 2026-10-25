@@ -3,6 +3,9 @@ extends Control
 const INK := Color("eeeadd")
 const MUTED := Color("a7b7bb")
 const GOLD := Color("c6ad7a")
+var portraits: Texture2D = preload("res://assets/art/life-portraits.png")
+func portrait_stage(age: int) -> int:
+    return 0 if age < 30 else 1 if age < 48 else 2 if age < 68 else 3
 func _ready() -> void:
     custom_minimum_size.y = 170
     mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -13,17 +16,21 @@ func _draw() -> void:
     var s := size.x / 644.0
     draw_set_transform(Vector2.ZERO, 0, Vector2(s,s))
     caption(Vector2(0,20), "%d лет · квартал %d · поколение %d" % [GameManager.age,GameManager.quarter,GameManager.generation],15,MUTED)
-    caption(Vector2(0,48), "Капитал",13,MUTED)
+    var tile := Vector2(portraits.get_width()/2.0,portraits.get_height()/2.0)
+    var stage := portrait_stage(GameManager.age)
+    draw_texture_rect_region(portraits,Rect2(0,34,70,84),Rect2(Vector2(stage%2,int(stage/2))*tile,tile))
+    draw_rect(Rect2(0,34,70,84),Color("a5b4bf"),false,1.0)
+    caption(Vector2(90,48), "Капитал",13,MUTED)
     caption(Vector2(420,48), "Доступно",13,MUTED)
-    caption(Vector2(0,87), "$"+GameManager.format_num(GameManager.get_net_worth()),36)
+    caption(Vector2(90,87), "$"+GameManager.format_num(GameManager.get_net_worth()),34)
     caption(Vector2(420,84), "$"+GameManager.format_num(GameManager.cash),26,GOLD)
     var meters := [GameManager.health,GameManager.energy,GameManager.happiness,100-GameManager.stress]
     var names := ["Здоровье","Энергия","Счастье","Спокойствие"]
     for i in 4:
         var x := i*165.0
-        caption(Vector2(x,124),names[i]+" "+str(meters[i]),13,MUTED)
-        draw_style_box(bar(Color("344c56")),Rect2(x,137,146,4))
-        draw_style_box(bar(Color("bd8b72") if meters[i]<30 else GOLD),Rect2(x,137,maxf(2,146*meters[i]/100.0),4))
+        caption(Vector2(x,142),names[i]+" "+str(meters[i]),13,MUTED)
+        draw_style_box(bar(Color("344c56")),Rect2(x,153,146,4))
+        draw_style_box(bar(Color("bd8b72") if meters[i]<30 else GOLD),Rect2(x,153,maxf(2,146*meters[i]/100.0),4))
 func bar(color: Color) -> StyleBoxFlat:
     var style := StyleBoxFlat.new()
     style.bg_color=color

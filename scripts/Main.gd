@@ -58,7 +58,7 @@ func _ready() -> void:
 	var column := $MarginContainer/VBoxContainer
 	var brand := Label.new()
 	brand.text = "HEIRS OF FORTUNE"
-	brand.add_theme_font_override("font", load("res://assets/fonts/Prata-Regular.ttf"))
+	brand.add_theme_font_override("font", load("res://assets/fonts/Unbounded.ttf"))
 	brand.add_theme_font_size_override("font_size", 25)
 	brand.add_theme_color_override("font_color", Color("d4bd90"))
 	column.add_child(brand)

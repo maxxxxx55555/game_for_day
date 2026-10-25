@@ -54,14 +54,14 @@ func _ready() -> void:
 	margin.add_child(column)
 	var brand := label(column,18,Color("d4bd90"))
 	brand.text = "HEIRS OF FORTUNE"
-	brand.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf"))
+	brand.add_theme_font_override("font",load("res://assets/fonts/Unbounded.ttf"))
 	var space := Control.new()
 	space.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	space.custom_minimum_size.y = 200
 	column.add_child(space)
 	overline = label(column,17,Color("d4bd90"))
 	heading = label(column,38)
-	heading.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf"))
+	heading.add_theme_font_override("font",load("res://assets/fonts/Unbounded.ttf"))
 	story = label(column,21,Color("c8d1d3"))
 	var card := PanelContainer.new()
 	card.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(Color(0.07,0.14,0.20,0.86),Color(0.72,0.62,0.43,0.4)))

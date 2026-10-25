@@ -43,6 +43,7 @@ def main():
         cases.append(('integrity', ['--headless', '--script', 'res://tests/test_integrity.gd']))
         cases.append(('protected-saves', ['--headless', '--script', 'res://tests/test_protected_saves.gd']))
         cases.append(('finales', ([] if args.rendered else ['--headless']) + ['--script', 'res://tests/test_finales.gd']))
+        cases.append(('premium-ui', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_premium_ui.gd']))
         cases.append(('release-hardening', ['--headless', '--script', 'res://tests/test_release_hardening.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
