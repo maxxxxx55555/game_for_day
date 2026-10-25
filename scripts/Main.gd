@@ -19,6 +19,9 @@ var currency_panel: Control
 var story_art: TextureRect
 var finale_overlay: Control
 var save_status: Label
+var outcome: Label
+var outcome_timer:=0.0
+var choice_cards:Array[Control]=[]
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -52,6 +55,10 @@ func _ready() -> void:
 	save_status.visible = not GameManager.write_failures.is_empty()
 	GameManager.persistence_changed.connect(func(ok): save_status.visible = not ok)
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
+	for button in [btn_1,btn_2,btn_3]:
+		var card:Control=preload("res://scripts/ui/ChoiceCard.gd").new()
+		button.add_child(card)
+		choice_cards.append(card)
 	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
 	stats_label.hide()
 	stats_label.get_parent().add_child(dashboard)
@@ -79,6 +86,14 @@ func _ready() -> void:
 	content.move_child(story_art,0)
 	event_label.add_theme_color_override("font_color",Color("182735"))
 	event_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	event_label.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
+	outcome=Label.new()
+	outcome.name="LastOutcome"
+	outcome.add_theme_font_size_override("font_size",15)
+	outcome.add_theme_color_override("font_color",Color("536577"))
+	outcome.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+	outcome.hide()
+	content.add_child(outcome)
 	event_label.minimum_size_changed.connect(func(): $MarginContainer/VBoxContainer/EventPanel/EventScroll.scroll_vertical = 0)
 	market_back = Button.new()
 	market_back.name = "MarketBack"
@@ -208,7 +223,8 @@ func update_ui() -> void:
 	$MarginContainer/VBoxContainer/StatsPanel.visible = current_mode != ScreenMode.INTRO
 	$MarginContainer/VBoxContainer/BottomBar.visible = current_mode in [ScreenMode.LIFE,ScreenMode.MARKET,ScreenMode.BUSINESS,ScreenMode.SETTINGS]
 	story_art.visible = current_mode in [ScreenMode.INTRO,ScreenMode.BIRTH,ScreenMode.PERK,ScreenMode.LIFE]
-	story_art.custom_minimum_size.y = 820 if current_mode == ScreenMode.INTRO else 180
+	story_art.custom_minimum_size.y = 260 if current_mode == ScreenMode.INTRO else 190
+	story_art.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	market_btn.text = "Рынки"
 	biz_btn.text = "Бизнес"
 	settings_btn.text = "Настройки"
@@ -247,9 +263,12 @@ func update_ui() -> void:
 	else:
 		ad_btn.text = "Грант"
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	event_label.text = clean_copy(event_label.text)
 	for button in [btn_1,btn_2,btn_3]: button.text = clean_copy(button.text)
+	for card in choice_cards: card.refresh()
+	outcome_timer=maxf(0,outcome_timer-delta)
+	if outcome: outcome.visible=outcome_timer>0 and current_mode==ScreenMode.LIFE
 
 func clean_copy(text: String) -> String:
 	var result := ""
@@ -291,7 +310,7 @@ func show_intro_screen() -> void:
 			GameManager.generation, GameManager.format_num(GameManager.cash - 200.0), GameManager.legacy_points
 		]
 	
-	event_label.text = "Создайте состояние, которое переживёт вас.\n\nУчитесь, развивайте бизнес и инвестируйте. Каждый ход — квартал: доход поступает, расходы растут с инфляцией. Цель — первое место и $250 млрд." + legacy_info
+	event_label.text = "Ваш путь к $250 млрд и первому месту.\nОдин выбор — один квартал." + legacy_info
 	btn_1.text = "Начать новую историю"
 	btn_2.visible = false
 	btn_3.visible = false
@@ -346,13 +365,11 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 	if not preserve_event or active_event.is_empty():
 		active_event_net_worth = GameManager.get_net_worth()
 		active_event = pick_modular_event()
-	var prefix := ""
-	if status_note != "":
-		prefix = status_note + "
-
-"
-	
-	event_label.text = prefix + active_event["title"]
+	event_label.text = active_event["title"]
+	if not status_note.is_empty():
+		outcome.text=clean_copy(status_note).replace("\n"," ")
+		outcome.tooltip_text=clean_copy(status_note)
+		outcome_timer=7.0
 	btn_1.text = active_event["o1"]
 	btn_2.text = active_event["o2"]
 	btn_3.text = active_event["o3"]
@@ -384,7 +401,7 @@ func open_market_menu() -> void:
 	
 	var stock_val := GameManager.stock_units * GameManager.stock_index
 	var crypto_val := GameManager.crypto_units * GameManager.crypto_rate
-	event_label.text = "Портфель\n\nАкции   $%s\nДивиденды 1,2%% / квартал\n\nКриптовалюта   $%s\nВысокая волатильность\n\nОбмен валют доступен ниже. Сделки не тратят ход." % [GameManager.format_num(stock_val), GameManager.format_num(crypto_val)]
+	event_label.text = "Портфель\n\nАкции  $%s · 1,2%% / квартал\nКрипта  $%s\n\nСделки без расхода хода." % [GameManager.format_num(stock_val), GameManager.format_num(crypto_val)]
 	btn_1.text = "Купить акции S&P на 50%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
 	btn_2.text = "Купить крипту на 25%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
 	btn_3.text = "Продать акции и крипту"
