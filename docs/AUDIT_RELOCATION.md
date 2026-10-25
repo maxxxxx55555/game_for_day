@@ -21,3 +21,6 @@ Two historical1.4 planning documents contained a joint project plan. They now re
 
 ## v2 reconciliation (2026-10-26)
 C11: the obsolete ACTIONS table is already removed; ChoiceCopy resolves current catalog aliases and retains full native-button copy/callbacks. Existing choice sweep exercises all93 decisions. F2 will audit both displayed languages again. C12: Main presentation uses catalog keys; remaining model/business/birth response literals are canonical Russian values and will be extracted without changing their bytes or saved IDs.
+
+## C13: historical design-copy contamination found by v2
+Three archived design/plan files still mixed unrelated runtime architecture and validation scope despite lacking an exact foreign game title. Each now contains only this game's own design. The canonical design content already exists in its proper repository; no new asset transfer or license edit was necessary. Two new negative tests reproduce the old guard's failure. The guard now rejects copied design labels and foreign runtime paths as well as game names. Full tracked-tree scanning catches the old text before cleanup and passes afterward.
