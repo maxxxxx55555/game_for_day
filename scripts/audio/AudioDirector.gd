@@ -117,11 +117,13 @@ func set_bus_volume(bus_name: String, value: float) -> void:
 		AudioServer.set_bus_volume_linear(index, clampf(value, 0.0001, 1))
 
 func set_enabled(enabled: bool) -> void:
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), force_mute or not enabled)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), force_mute or not enabled or (is_instance_valid(get_node_or_null("/root/GameManager")) and get_node("/root/GameManager").master_volume<=0))
 
 func apply_gains() -> void:
 	var settings := get_node_or_null("/root/GameManager")
 	if settings:
+		set_bus_volume("Master", settings.master_volume)
+		set_bus_volume("UI", settings.ui_volume)
 		set_bus_volume("Music", settings.music_volume)
 		set_bus_volume("SFX", settings.sfx_volume)
 		set_enabled(settings.audio_enabled)

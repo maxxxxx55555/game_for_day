@@ -95,7 +95,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.945098, 0.960784, 0.976471, 1)
 theme_override_font_sizes/font_size = 18
-text = "Статистика персонажа..."
+text = ""
 autowrap_mode = 3
 
 [node name="MarketPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
@@ -106,7 +106,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.984314, 0.74902, 0.141176, 1)
 theme_override_font_sizes/font_size = 17
-text = "Биржа и бизнес..."
+text = ""
 autowrap_mode = 3
 
 [node name="EventPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
@@ -126,7 +126,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 21
-text = "Загрузка события..."
+text = ""
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -139,7 +139,7 @@ custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
-text = "Вариант 1"
+text = ""
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/ChoicesBox"]
@@ -147,7 +147,7 @@ custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
-text = "Вариант 2"
+text = ""
 autowrap_mode = 3
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/ChoicesBox"]
@@ -155,7 +155,7 @@ custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
-text = "Вариант 3"
+text = ""
 autowrap_mode = 3
 
 [node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -167,34 +167,34 @@ custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-text = "📈 Биржа"
+text = ""
 
 [node name="BizButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-text = "🏢 Бизнес"
+text = ""
 
 [node name="AdButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-text = "📺 Реклама+"
+text = ""
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-text = "⚙️ Опции"
+text = ""
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.580392, 0.639216, 0.721569, 1)
 theme_override_font_sizes/font_size = 14
-text = "🎵 Аудио..."
+text = ""
 horizontal_alignment = 1
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

@@ -11,6 +11,7 @@ import sys
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--godot', default=os.environ.get('GODOT_BIN') or shutil.which('godot') or shutil.which('godot4'))
+    parser.add_argument('--language', choices=['ru','en'], default='ru', help='QA display locale')
     parser.add_argument('--rendered', action='store_true', help='Run the playthrough with a real graphics device')
     parser.add_argument('--artifacts', type=Path, help='Directory for logs and rendered screenshots')
     args = parser.parse_args()
@@ -23,6 +24,7 @@ def main():
         artifacts.mkdir(parents=True, exist_ok=True)
         environment = os.environ.copy()
         environment['GAME_AUDIO_MUTED'] = '1'
+        environment['GAME_LANGUAGE'] = args.language
         for variable, folder in [('APPDATA', 'roaming'), ('LOCALAPPDATA', 'local'), ('XDG_DATA_HOME', 'data'), ('XDG_CONFIG_HOME', 'config'), ('XDG_CACHE_HOME', 'cache')]:
             path = profile / folder
             path.mkdir()
@@ -34,6 +36,9 @@ def main():
             ('regressions', ['--headless', '--script', 'res://tests/test_gameplay.gd']),
             ('playthrough', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_gameplay.gd', '--', '--playthrough']),
         ]
+        cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
+        cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
+        cases.append(('audio-scope', ['--headless', '--script', 'res://tests/test_audio_scope.gd']))
         cases.append(('presentation', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_presentation.gd']))
         cases.append(('identity', ['--headless', '--script', 'res://tests/test_identity.gd']))
         cases.append(('mobile-lifecycle', ['--headless', '--script', 'res://tests/test_mobile_lifecycle.gd']))
@@ -54,6 +59,8 @@ def main():
             for script in ['strategy', 'campaign']:
                 if (project / ('tests/test_' + script + '.gd')).exists():
                     cases.append((script, ([] if args.rendered else ['--headless']) + ['--resolution', '1280x720', '--script', 'res://tests/test_' + script + '.gd']))
+        isolation = subprocess.run([sys.executable, str(project / 'tests/test_repo_isolation.py')], timeout=30)
+        if isolation.returncode: return isolation.returncode
         assets = subprocess.run([sys.executable, str(project / 'tests/test_audio_assets.py')], timeout=60)
         if assets.returncode:
             return assets.returncode
@@ -62,7 +69,7 @@ def main():
             command = [args.godot, '--rendering-method', 'gl_compatibility', '--path', str(project), '--log-file', str(log_path), *switches]
             result = subprocess.run(command, env=environment, timeout=180)
             log = log_path.read_text(encoding='utf-8', errors='replace') if log_path.exists() else 'ERROR: Missing Godot log'
-            errors = [line for line in log.splitlines() if ('ERROR:' in line or 'FAIL:' in line) and 'Failed to read the root certificate store' not in line]
+            errors = [line for line in log.splitlines() if ('ERROR:' in line or 'FAIL:' in line or 'SCRIPT ERROR' in line) and 'Failed to read the root certificate store' not in line]
             print(f'{name}: ' + ('PASS' if result.returncode == 0 and not errors else 'FAIL'))
             for line in log.splitlines():
                 if line.startswith(('RESULT:', 'PLAYTHROUGH', 'FAIL:')):

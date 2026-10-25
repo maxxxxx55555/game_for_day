@@ -13,7 +13,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.37eb0f42ce26",
+        "label_ru": "Собрать первый платный проект (+$1 800  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Take on your first paid project (+$1,800  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Провести практикум для соседей (+$750  интеллект +4  энергия −8)",
@@ -25,7 +31,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.0031d1b65193",
+        "label_ru": "Провести практикум для соседей (+$750  интеллект +4  энергия −8)",
+        "label_en": "Host a workshop for the neighbors (+$750  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -37,9 +49,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.3c8817a62677",
+    "title_ru": "Городская библиотека открыла бесплатную мастерскую. Как использовать возможность?",
+    "title_en": "The city library has opened a free workshop. How shall you seize the opportunity?"
   },
   {
     "stage": "survival",
@@ -55,7 +76,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.b00efadaba4c",
+        "label_ru": "Сдать комнату и вести бюджет (+$1 300  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Rent out the room and manage the budget (+$1,300  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Разделить расходы с другом (+$650  интеллект +4  энергия −8)",
@@ -67,7 +94,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.53fd3032480a",
+        "label_ru": "Разделить расходы с другом (+$650  интеллект +4  энергия −8)",
+        "label_en": "Split expenses with a friend (+$650  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -79,9 +112,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.b5ed25cfbbee",
+    "title_ru": "В вашей квартире освободилась комната, но совместный быт требует договорённостей.",
+    "title_en": "A room has opened up in your apartment, but shared living requires a firm hand."
   },
   {
     "stage": "survival",
@@ -97,7 +139,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.00f9888dca30",
+        "label_ru": "Внедрить систему за долю прибыли (+$2 100  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Implement a profit-sharing system (+$2,100  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Выполнить разовый заказ (+$950  интеллект +4  энергия −8)",
@@ -109,7 +157,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.080a5f95f626",
+        "label_ru": "Выполнить разовый заказ (+$950  интеллект +4  энергия −8)",
+        "label_en": "Execute a one-off order (+$950  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -121,9 +175,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.fadf493ba8c5",
+    "title_ru": "Местной пекарне нужен человек, который наладит учёт заказов.",
+    "title_en": "The local bakery needs a sharp mind to organize their accounts."
   },
   {
     "stage": "survival",
@@ -139,7 +202,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.2968ee0f6700",
+        "label_ru": "Взять срочные заказы на новый компьютер (+$1 600  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Take on urgent commissions for a new rig (+$1,600  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Отремонтировать технику и продолжить учиться (+$450  интеллект +4  энергия −8)",
@@ -151,7 +220,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.98f911c7e7cd",
+        "label_ru": "Отремонтировать технику и продолжить учиться (+$450  интеллект +4  энергия −8)",
+        "label_en": "Repair the hardware and keep at the books (+$450  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -163,9 +238,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.53872e44b0a6",
+    "title_ru": "Старая техника мешает учёбе и работе. Есть несколько способов обновиться.",
+    "title_en": "Old gear is hindering your grind. Time to upgrade."
   },
   {
     "stage": "career",
@@ -181,7 +265,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.a8296336bef9",
+        "label_ru": "Лично контролировать каждый проект (+$15 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Micromanage every project personally (+$15,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Обучить команду и делегировать (+$9 000  интеллект +4  энергия −8)",
@@ -193,7 +283,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.27addc2a3cc6",
+        "label_ru": "Обучить команду и делегировать (+$9 000  интеллект +4  энергия −8)",
+        "label_en": "Train the team and delegate (+$9,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -205,9 +301,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.902f2cc14698",
+    "title_ru": "Ваш отдел вырос. Пора решить, кто будет принимать ежедневные решения.",
+    "title_en": "Your department is booming. Decide who holds the reins on daily operations."
   },
   {
     "stage": "career",
@@ -223,7 +328,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.2c4e03b52b31",
+        "label_ru": "Арендовать стенд и представить продукт (+$19 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Rent a booth and showcase the product (+$19,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Провести встречи с постоянными клиентами (+$8 500  интеллект +4  энергия −8)",
@@ -235,7 +346,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.862c4d4dffac",
+        "label_ru": "Провести встречи с постоянными клиентами (+$8 500  интеллект +4  энергия −8)",
+        "label_en": "Host meetings with key accounts (+$8,500  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -247,9 +364,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.4025a290a329",
+    "title_ru": "Открывается региональная выставка поставщиков и покупателей.",
+    "title_en": "A regional trade expo is opening its doors."
   },
   {
     "stage": "career",
@@ -265,7 +391,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.547b98324207",
+        "label_ru": "Перестроить процесс контроля качества (+$13 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Overhaul the quality control pipeline (+$13,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Ввести взаимную проверку работ (+$7 500  интеллект +4  энергия −8)",
@@ -277,7 +409,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.18189dd5aa6f",
+        "label_ru": "Ввести взаимную проверку работ (+$7 500  интеллект +4  энергия −8)",
+        "label_en": "Implement a peer-review system (+$7,500  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -289,9 +427,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.fb0dc223a709",
+    "title_ru": "Сотрудник заметил дорогостоящую ошибку до отправки заказа.",
+    "title_en": "A sharp employee caught a costly blunder before shipping."
   },
   {
     "stage": "career",
@@ -307,7 +454,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.9f8aec5cbd3a",
+        "label_ru": "Взять большой объём под личную гарантию (+$18 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Take on a massive volume under personal guarantee (+$18,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Заключить меньший устойчивый контракт (+$10 000  интеллект +4  энергия −8)",
@@ -319,7 +472,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.7276c38183e4",
+        "label_ru": "Заключить меньший устойчивый контракт (+$10 000  интеллект +4  энергия −8)",
+        "label_en": "Secure a smaller, steady contract (+$10,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -331,9 +490,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.a30718f68d08",
+    "title_ru": "Давний заказчик предлагает годовой контракт вместо разовых поручений.",
+    "title_en": "A long-time client wants a yearly contract instead of piecemeal work."
   },
   {
     "stage": "millionaire",
@@ -349,7 +517,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.412e4667957d",
+        "label_ru": "Взять управление и обновить производство (+$120 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Take the helm and modernize production (+$120,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Финансировать модернизацию поэтапно (+$65 000  интеллект +4  энергия −8)",
@@ -361,7 +535,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.05c24aa55e1b",
+        "label_ru": "Финансировать модернизацию поэтапно (+$65 000  интеллект +4  энергия −8)",
+        "label_en": "Finance the modernization in stages (+$65,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -373,9 +553,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.699e1202fc91",
+    "title_ru": "Семейная фабрика ищет партнёра, который сохранит рабочие места.",
+    "title_en": "A family-run factory seeks a partner to keep the lights on and jobs secure."
   },
   {
     "stage": "millionaire",
@@ -391,7 +580,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.2f95954911b8",
+        "label_ru": "Одновременно открыть три представительства (+$180 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Open three new branches simultaneously (+$180,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Начать с одного пилотного региона (+$75 000  интеллект +4  энергия −8)",
@@ -403,7 +598,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.d86744a2b36e",
+        "label_ru": "Начать с одного пилотного региона (+$75 000  интеллект +4  энергия −8)",
+        "label_en": "Start with a single pilot region (+$75,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -415,9 +616,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.dfb2decf26e4",
+    "title_ru": "Выход на новый рынок потребует адаптации продукта и команды.",
+    "title_en": "Breaking into a new market requires adapting both product and personnel."
   },
   {
     "stage": "millionaire",
@@ -433,7 +643,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.7c6916731211",
+        "label_ru": "Запустить масштабную программу обмена (+$140 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Launch a massive trade-in program (+$140,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Переработать остатки в новую продукцию (+$60 000  интеллект +4  энергия −8)",
@@ -445,7 +661,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.8d6cdb8de57d",
+        "label_ru": "Переработать остатки в новую продукцию (+$60 000  интеллект +4  энергия −8)",
+        "label_en": "Repurpose the leftovers into new goods (+$60,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -457,9 +679,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.27a9751779ce",
+    "title_ru": "На складе скопились товары прошлой линейки.",
+    "title_en": "The warehouse is overflowing with last season's stock."
   },
   {
     "stage": "millionaire",
@@ -475,7 +706,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.cf52a53ceffb",
+        "label_ru": "Лично возглавить прорывную программу (+$160 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Lead the breakthrough program personally (+$160,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Собрать автономную исследовательскую команду (+$80 000  интеллект +4  энергия −8)",
@@ -487,7 +724,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.8f91d7314627",
+        "label_ru": "Собрать автономную исследовательскую команду (+$80 000  интеллект +4  энергия −8)",
+        "label_en": "Assemble an autonomous research squad (+$80,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -499,9 +742,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.8d7a7b0fc33b",
+    "title_ru": "Компания впервые может открыть собственный исследовательский центр.",
+    "title_en": "For the first time, the firm can establish its own R&D center."
   },
   {
     "stage": "billionaire",
@@ -517,7 +769,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.096bd0e9b7d4",
+        "label_ru": "Объединить все решения в одном штабе (+$12 000 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Centralize all decisions at headquarters (+$12,000,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Дать дочерним компаниям самостоятельность (+$6 500 000  интеллект +4  энергия −8)",
@@ -529,7 +787,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.8e31c1ae3fb3",
+        "label_ru": "Дать дочерним компаниям самостоятельность (+$6 500 000  интеллект +4  энергия −8)",
+        "label_en": "Grant the subsidiaries full autonomy (+$6,500,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -541,9 +805,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.2dd298852cbd",
+    "title_ru": "Растущий холдинг выбирает модель долгосрочного управления.",
+    "title_en": "The growing holding company must choose its long-term management model."
   },
   {
     "stage": "billionaire",
@@ -559,7 +832,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.c07fa640524c",
+        "label_ru": "Возглавить ускоренную стройку (+$18 000 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Spearhead the accelerated construction (+$18,000,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Разделить проект на надёжные этапы (+$9 000 000  интеллект +4  энергия −8)",
@@ -571,7 +850,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.0c238a313cb5",
+        "label_ru": "Разделить проект на надёжные этапы (+$9 000 000  интеллект +4  энергия −8)",
+        "label_en": "Divide the project into reliable phases (+$9,000,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -583,9 +868,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.0b7d36bae411",
+    "title_ru": "Несколько стран предлагают совместно развивать энергосети.",
+    "title_en": "Several nations are proposing a joint power grid development."
   },
   {
     "stage": "billionaire",
@@ -601,7 +895,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.c2667e7298fb",
+        "label_ru": "Провести широкую реорганизацию (+$15 000 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Execute a sweeping reorganization (+$15,000,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Запустить программу преемственности (+$7 500 000  интеллект +4  энергия −8)",
@@ -613,7 +913,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.0803a86da082",
+        "label_ru": "Запустить программу преемственности (+$7 500 000  интеллект +4  энергия −8)",
+        "label_en": "Launch a succession program (+$7,500,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -625,9 +931,18 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.b684145f3e89",
+    "title_ru": "Новое поколение руководителей готово принять часть ответственности.",
+    "title_en": "A new generation of executives is ready to shoulder the burden."
   },
   {
     "stage": "billionaire",
@@ -643,7 +958,13 @@
           3,
           -24
         ],
-        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла."
+        "result": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "label_key": "copy.35e8863dacc6",
+        "label_ru": "Быстро сократить непрофильные активы (+$14 000 000  здоровье −4  стресс +14  энергия −24)",
+        "label_en": "Rapidly divest non-core assets (+$14,000,000  health −4  stress +14  energy −24)",
+        "result_key": "copy.ababbbb85c8a",
+        "result_ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
+        "result_en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
       },
       {
         "label": "Создать резерв и улучшить снабжение (+$8 500 000  интеллект +4  энергия −8)",
@@ -655,7 +976,13 @@
           6,
           -8
         ],
-        "result": "Спокойная работа принесла доход, навыки и доверие команды."
+        "result": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "label_key": "copy.2e47ee470e6b",
+        "label_ru": "Создать резерв и улучшить снабжение (+$8 500 000  интеллект +4  энергия −8)",
+        "label_en": "Build a reserve and fortify the supply chain (+$8,500,000  intellect +4  energy −8)",
+        "result_key": "copy.938cfed2ddd2",
+        "result_ru": "Спокойная работа принесла доход, навыки и доверие команды.",
+        "result_en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
       },
       {
         "label": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
@@ -667,8 +994,17 @@
           10,
           32
         ],
-        "result": "Вы восстановили здоровье и силы перед следующим кварталом."
+        "result": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "label_key": "copy.67df7f77027d",
+        "label_ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
+        "label_en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)",
+        "result_key": "copy.7b4b7f994781",
+        "result_ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
+        "result_en": "You have restored your health and vigor for the coming quarter."
       }
-    ]
+    ],
+    "title_key": "copy.4563fe685afb",
+    "title_ru": "Совет обсуждает устойчивость компании перед следующим спадом.",
+    "title_en": "The board is debating the firm's resilience against the coming downturn."
   }
 ]

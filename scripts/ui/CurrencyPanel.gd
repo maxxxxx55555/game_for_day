@@ -18,12 +18,12 @@ func _ready() -> void:
 	var header := HBoxContainer.new()
 	column.add_child(header)
 	var back := Button.new()
-	back.text = "‹ Назад"
+	back.text = LocalizationManager.source("copy.b80940a8a747")
 	back.custom_minimum_size = Vector2(110, 54)
 	header.add_child(back)
 	back.pressed.connect(func(): closed.emit())
 	var title := Label.new()
-	title.text = "Валюты"
+	title.text = LocalizationManager.source("copy.66f4033be75d")
 	title.add_theme_font_size_override("font_size", 30)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -59,18 +59,18 @@ func _ready() -> void:
 		var actions := HBoxContainer.new()
 		actions.add_theme_constant_override("separation", 12)
 		card.add_child(actions)
-		var buy := action(actions, "Купить на 25%", func():
+		var buy := action(actions, LocalizationManager.source("copy.4b9f68c9ecf8"), func():
 			var amount: float = maxf(0, GameManager.cash * 0.25)
 			if GameManager.buy_currency(code, amount):
-				notice.text = "Куплено " + code + " на $" + GameManager.format_num(amount)
+				notice.text = LocalizationManager.source("copy.66b4772fc5e4") + code + LocalizationManager.source("copy.f6e8b6c3c34f") + GameManager.format_num(amount)
 				SoundManager.play_sfx("purchase")
 				traded.emit()
 			refresh()
 		)
-		var sell := action(actions, "Продать всё", func():
+		var sell := action(actions, LocalizationManager.source("copy.4145482dc87c"), func():
 			var received := GameManager.sell_currency(code, GameManager.fx.holdings[code])
 			if received > 0:
-				notice.text = "Продано " + code + " · +$" + GameManager.format_num(received)
+				notice.text = LocalizationManager.source("copy.3ab9100bd052") + code + " · +$" + GameManager.format_num(received)
 				SoundManager.play_sfx("sale")
 				traded.emit()
 			refresh()
@@ -85,7 +85,7 @@ func _ready() -> void:
 	notice.add_theme_color_override("font_color", Color("c4d3ba"))
 	column.add_child(notice)
 	var detail := Label.new()
-	detail.text = "Игровые курсы · спред 0,35% с каждой стороны\nОбмен не тратит ход. Новый курс — после хода."
+	detail.text = LocalizationManager.source("copy.a5f2a71c789f")
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail.add_theme_font_size_override("font_size", 15)
 	detail.add_theme_color_override("font_color", Color("a0b4b9"))
@@ -103,15 +103,15 @@ func action(parent: Node, text: String, callback: Callable) -> Button:
 
 func refresh() -> void:
 	if not is_node_ready(): return
-	cash_label.text = "$%s доступно  ·  Инфляция %.1f%%/год" % [GameManager.format_num(GameManager.cash), GameManager.get_annual_inflation() * 100]
+	cash_label.text = LocalizationManager.source("copy.d32075b866b9") % [GameManager.format_num(GameManager.cash), GameManager.get_annual_inflation() * 100]
 	for code in rows:
 		var row: Dictionary = rows[code]
 		var rate: float = GameManager.fx.rates[code]
 		var history: Array = GameManager.fx.history[code]
 		var change: float = (rate / history[-2] - 1) * 100 if history.size() > 1 else 0
 		row.quote.text = "%s   $%.4f   %+.1f%%" % [code, rate, change]
-		row.wallet.text = "На счёте: %.2f %s  ·  $%s" % [GameManager.fx.holdings[code], code, GameManager.format_num(GameManager.fx.holdings[code] * rate)]
+		row.wallet.text = LocalizationManager.source("copy.6b6d01a65284") % [GameManager.fx.holdings[code], code, GameManager.format_num(GameManager.fx.holdings[code] * rate)]
 		row.buy.disabled = GameManager.cash <= 0
 		row.sell.disabled = GameManager.fx.holdings[code] <= 0
-		row.buy.tooltip_text = "Потратить $" + GameManager.format_num(maxf(0, GameManager.cash * 0.25))
+		row.buy.tooltip_text = LocalizationManager.source("copy.778a48fdd09e") + GameManager.format_num(maxf(0, GameManager.cash * 0.25))
 		row.chart.queue_redraw()

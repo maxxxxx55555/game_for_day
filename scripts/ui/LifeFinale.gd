@@ -88,16 +88,16 @@ func _ready() -> void:
 func present(data: Dictionary) -> void:
 	victorious = data.victory
 	painting.texture = load("res://assets/art/ending_victory.png" if victorious else "res://assets/art/ending_defeat.png")
-	overline.text = "ПОБЕДА · ВАША ИСТОРИЯ ОСТАНЕТСЯ" if victorious else "КОНЕЦ ГЛАВЫ · НАЧАЛО НАСЛЕДИЯ"
-	heading.text = "Вы создали наследие" if victorious else "У каждой истории есть продолжение"
-	story.text = "За цифрами — прожитая жизнь. Теперь ваше состояние и опыт станут началом новой истории." if victorious else data.reason
+	overline.text = LocalizationManager.source("copy.eaafe278d74d") if victorious else LocalizationManager.source("copy.d1eba7de1ca1")
+	heading.text = LocalizationManager.source("copy.369eb05aca46") if victorious else LocalizationManager.source("copy.e8f666386cf2")
+	story.text = LocalizationManager.source("copy.c4ef0fe2e45a") if victorious else data.reason
 	wealth.text = "$" + data.wealth
-	legacy.text = "Поколение %d · %d лет · место #%s" % [data.generation,data.age,data.rank]
-	primary.text = "Принять наследие · следующее поколение"
+	legacy.text = LocalizationManager.source("copy.377bfc5e6b3e") % [data.generation,data.age,data.rank]
+	primary.text = LocalizationManager.source("copy.1644cbb54fcc")
 	secondary.visible = data.revive
 	if data.revive:
-		primary.text = "Второй шанс · экстренная помощь"
-		secondary.text = "Передать историю следующему поколению"
+		primary.text = LocalizationManager.source("copy.1549f96910e3")
+		secondary.text = LocalizationManager.source("copy.0bbe03537dc6")
 	show()
 	elapsed = 0
 	if entrance and entrance.is_valid(): entrance.kill()

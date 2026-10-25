@@ -1,0 +1,745 @@
+key,ru,en
+copy.19ecb2b49349,Музыка,Music
+copy.05321a5231ca,Эффекты,Effects
+copy.415032073d05,Нет бизнеса,No business
+copy.4e18dfdd0b19,Кофейня / Фриланс-студия,Coffee Shop / Freelance Studio
+copy.9b2e303874c5,Сеть точек / Веб-агентство,Chain of Stores / Web Agency
+copy.0a3b9ad578c8,IT-Продукт / Производство,IT Product / Manufacturing
+copy.2b2ac29e543c,Национальная Корпорация,National Corporation
+copy.d1c68387ac6a,Глобальный Техно-Холдинг (IPO),Global Tech Holding (IPO)
+copy.b1a7a4e2a93b,Развивающийся бедный регион (Шанс 50%),Developing Poor Region (50% Chance)
+copy.63771b02969d,Лотерея рождения: Бедный регион (50% населения Земли),Birth Lottery: Poor Region (50% of Earth's population)
+copy.2330d70b76f0,"Вы родились в семье с долгами (-$1,500) и слабой медициной, но низкими расходами на жизнь и высокой закалкой.","You were born into a family burdened by debt (-$1,500) and poor healthcare, but with low living costs and a hardened spirit."
+copy.0cf8277e4bff,Индустриальная страна (Шанс 35%),Industrial Nation (35% Chance)
+copy.d4c7a635ca3f,Лотерея рождения: Рабочий класс (35% населения Земли),Birth Lottery: Working Class (35% of Earth's population)
+copy.c5181ac5cb63,"Обычная семья, базовая школа и $250 в кармане на совершеннолетие. Все зависит от ваших решений.","An ordinary family, basic schooling, and $250 in your pocket upon coming of age. Everything depends on your choices."
+copy.495df6ec1ab0,Средний класс развитой страны (Шанс 14%),Middle Class in a Developed Nation (14% Chance)
+copy.f69c96f6c0cd,Лотерея рождения: Развитая экономика (14% населения Земли),Birth Lottery: Developed Economy (14% of Earth's population)
+copy.e7bee9cb90c8,"Отличное базовое образование (Интеллект 30) и $5,000 на старте, но высокая стоимость жизни и налогов.","Excellent primary education (Intelligence 30) and $5,000 to start, but high living costs and taxes."
+copy.319914340b65,Мировая финансовая элита (Шанс 1%),Global Financial Elite (1% Chance)
+copy.acd73a580d1b,Лотерея рождения: Золотой 1% планеты!,Birth Lottery: The planet's Golden 1%!
+copy.9860e896fe61,"Вы родились в богатой династии! Стартовый трастовый фонд $100,000 и лучшие репетиторы, но огромные расходы на статус.","You were born into a wealthy dynasty! A starting trust fund of $100,000 and the finest tutors, but massive status-related expenses."
+copy.a0d3e18684d0,Открыт новый уровень бизнеса: ,New business level unlocked: 
+copy.18de786a617a,Недостаточно кэша! Требуется $,Insufficient cash! Requires $
+copy.ef931bee4ea7,Глобальное поглощение завершено! Масштаб империи удвоен (x%d)!,Global takeover complete! Empire scale doubled (x%d)!
+copy.980c1f440898,Для поглощения конкурента нужно $,"To acquire a competitor, you need $"
+copy.3a3f57875e5c,По завещанию потомку (Поколение #%d) передано 20%% состояния: $%s. Очки династии: %d.,Your descendant (Generation #%d) inherits 20%% of your fortune: $%s. Dynasty points: %d.
+copy.51f8bcaaf0c7,Наследство не оставлено (требуется возраст 50+ и положительный капитал). Очки династии: %d.,No inheritance left (requires age 50+ and positive net worth). Dynasty Points: %d.
+copy.bf448e0995f5,Не удалось сохранить. Освободите место на диске и повторите действие.,Save failed. Please free up disk space and try again.
+copy.57ec323d704b,Вернуться к жизни,Return to life
+copy.aa18a82d3630,Валюты · EUR / GBP / JPY,Currencies · EUR / GBP / JPY
+copy.c45c411166e2,➡️ Выбрать черту характера (18 лет),➡️ Choose a character trait (18 years old)
+copy.f135cbb79f60,Продолжение сохранённой жизни.,Continue saved life.
+copy.47ff48632f92,Рынки,Markets
+copy.964b2df03bda,Бизнес,Business
+copy.7f17c7c62a7f,Настройки,Settings
+copy.8e0adca0f56b,"Поколение #%d | Возраст: %d л. (Кв. %d) | Неделя #%d
+Капитал (Net Worth): $%s | Кэш: $%s
+Пассив: +$%s/кв | Расходы жизни: -$%s/кв
+Здоровье: %d%% | Энергия: %d%% | Стресс: %d%% | Счастье: %d%%
+Интеллект: %d | Мировой рейтинг: #%s","Generation #%d | Age: %d yrs. (Qtr. %d) | Week #%d
+Net Worth: $%s | Cash: $%s
+Passive: +$%s/qtr | Living Costs: -$%s/qtr
+Health: %d%% | Energy: %d%% | Stress: %d%% | Happiness: %d%%
+Intelligence: %d | Global Rank: #%s"
+copy.71c3cf0f114b,"📈 Индекс S&P: $%.1f | Крипта: $%.1f | Портфель: $%s
+🏢 Бизнес: %s (x%d)","📈 S&P Index: $%.1f | Crypto: $%.1f | Portfolio: $%s
+🏢 Business: %s (x%d)"
+copy.5936895c8651,ВКЛ,ON
+copy.919af88107a1,ВЫКЛ,OFF
+copy.1556d74b3343,🎵 Аудио [%s]: %s,🎵 Audio [%s]: %s
+copy.c54826c2787f,Грант · %s кв,Grant · %s qtrs
+copy.3bcab31e2fd9,Грант,Grant
+copy.21a9f89a5145,%.2f млрд,%.2f billion
+copy.547cd75236ac,%.2f млн,%.2f million
+copy.07966e7a5d32,"
+🧬 ДИНАСТИЯ: Поколение #%d | Наследство: $%s | Очки опыта рода: %d","
+🧬 DYNASTY: Generation #%d | Inheritance: $%s | Lineage XP: %d"
+copy.fed691559450,"Ваш путь к $250 млрд и первому месту.
+Один выбор — один квартал.","Your path to $250 billion and the top spot.
+One choice — one quarter."
+copy.cc92b6b195e4,Начать новую историю,Start a new story
+copy.76fed3b6db77,"🌍 %s
+
+%s
+
+Регион: %s
+Стартовый баланс: $%s","🌍 %s
+
+%s
+
+Region: %s
+Starting Balance: $%s"
+copy.e0209c93a0eb,"🧠 Ваш характер
+
+Очки династии: %d. Выберите преимущество этой жизни.","🧠 Your Character
+
+Dynasty Points: %d. Choose a perk for this life."
+copy.908965d61d75,"🏛️ Инсайдер Уолл-Стрит (+50% дивидендов, бонус к акциям)","🏛️ Wall Street Insider (+50% dividends, stock bonus)"
+copy.f37aea39c473,"🧬 Биохакер (-50% урона здоровью, +20 Здоровья)","🧬 Biohacker (-50% health damage, +20 Health)"
+copy.0d5713148cdd,"🛡️ Антикризисный менеджер (-35% стресса, +$2,500)","🛡️ Crisis Manager (-35% stress, +$2,500)"
+copy.b2485dfd429c,"💻 Гений алгоритмов (+20 Интеллекта, бонус к учебе)","💻 Algorithm Genius (+20 Intelligence, study bonus)"
+copy.2c34a6b3982b,💪 Железный организм (-35% урона здоровью),💪 Iron Constitution (-35% health damage)
+copy.728389ddd486,⚡ Трудоголик (-30% расхода энергии на проектах),⚡ Workaholic (-30% energy cost on projects)
+copy.9a13d56f1eb5,"Портфель
+
+Акции  $%s · 1,2%% / квартал
+Крипта  $%s
+
+Сделки без расхода хода.","Portfolio
+
+Stocks  $%s · 1.2%% / quarter
+Crypto  $%s
+
+Trades do not consume a turn."
+copy.ce42724ffc48,Купить акции S&P на 50%% кэша ($%s),Buy S&P stocks with 50%% of cash ($%s)
+copy.ed467fc2f563,Купить крипту на 25%% кэша ($%s),Buy crypto with 25%% of cash ($%s)
+copy.bcfb6801b5e7,Продать акции и крипту,Sell stocks and crypto
+copy.a2be6aad5f03,"Далее: %s
+Запуск $%s · доход +$%s/кв","Next: %s
+Launch $%s · income +$%s/qtr"
+copy.e1bf8275af22,"Глобальное масштабирование (x%d -> x%d)
+Стоимость поглощения конкурентов: $%s","Global Scaling (x%d -> x%d)
+Cost to acquire competitors: $%s"
+copy.1d0c6be6aad9,"%s · ×%d
+
++$%s / квартал
+Стоимость компании $%s
+
+%s","%s · ×%d
+
++$%s / quarter
+Company Valuation $%s
+
+%s"
+copy.39fd05978986,Развивать бизнес,Expand Business
+copy.b509a224641b,Оптимизация · +15%% дохода · −15 энергии · 1 ход,Optimization · +15%% Revenue · −15 Energy · 1 Turn
+copy.1d33e8d9a164,"⏳ Бонус перезаряжается! Осталось кварталов: %s.
+
+Продолжайте принимать решения.","⏳ Bonus recharging! Quarters remaining: %s.
+
+Keep making your moves."
+copy.9bfe591e09c4,"🎁 СПОНСОРСКИЙ ГРАНТ ПОЛУЧЕН!
+
+• +$%s на счет (масштабируется от капитала)
+• Стресс снижен на 25%%, Энергия +35%%
+• Перезарядка бонуса: 4 квартала.","🎁 SPONSORSHIP GRANT SECURED!
+
+• +$%s to account (scaled by capital)
+• Stress reduced by 25%%, Energy +35%%
+• Bonus cooldown: 4 quarters."
+copy.edde94ba8823,Включен,Enabled
+copy.6eb7540d7c53,Выключен,Disabled
+copy.c9cc711f4032,"⚙️ НАСТРОЙКИ СИМУЛЯЦИИ:
+
+• Скорость течения времени: %.1fx (кварталов за ход)
+• Музыка и звуковые эффекты: %s
+• Поколение династии: #%d (Очки рода: %d)","⚙️ SIMULATION SETTINGS:
+
+• Time flow speed: %.1fx (quarters per turn)
+• Music and sound effects: %s
+• Dynasty generation: #%d (Legacy Points: %d)"
+copy.709e020e05a4,⏳ Изменить скорость времени (Сейчас: %.1fx),⏳ Adjust time speed (Current: %.1fx)
+copy.2f9864a97ebc,🔊 Переключить звук (Сейчас: %s),🔊 Toggle sound (Current: %s)
+copy.1feff1f51d9e,🔙 Вернуться к игре,🔙 Return to game
+copy.626462e893e5,✨ Самостоятельная жизнь началась!,✨ A life of your own begins!
+copy.eb39f4f8fa06,🚑 ВТОРОЙ ШАНС! Врачи и кризис-менеджеры спасли вас!,🚑 SECOND CHANCE! Doctors and crisis managers have pulled you back from the brink!
+copy.30fe6d28992e,"✅ Куплены акции S&P 500 на $%s!
+
+","✅ S&P 500 shares purchased for $%s!
+
+"
+copy.01ceea2130e1,"❌ Недостаточно свободного кэша для покупки акций!
+
+","❌ Insufficient liquid cash to purchase shares!
+
+"
+copy.67d6a0681bd8,"✅ Куплена криптовалюта на $%s!
+
+","✅ Cryptocurrency purchased for $%s!
+
+"
+copy.4379c0b7c8cd,"❌ Недостаточно свободного кэша для покупки крипты!
+
+","❌ Insufficient liquid cash to purchase crypto!
+
+"
+copy.ab4c949a31bc,💼 Возврат к событиям.,💼 Back to the action.
+copy.35be604060f8,💵 Активы проданы на сумму $%s!,💵 Assets liquidated for a total of $%s!
+copy.ed4b0b659951,⚡ Оптимизация принесла +$%s! Прошёл один ход.,⚡ Optimization yielded +$%s! One turn has passed.
+copy.6d0c821355a9,"❌ Нужен открытый бизнес и минимум 15% Энергии!
+
+","❌ Requires an active business and at least 15% Energy!
+
+"
+copy.87de3bb66d37,🏢 Вы вернулись из офиса.,🏢 You've returned from the office.
+copy.35118a151aa7,"🏆 АБСОЛЮТНЫЙ ТРИУМФ!
+Вы достигли состояния $250+ млрд и официально заняли #1 строчку мирового рейтинга!","🏆 ABSOLUTE TRIUMPH!
+You've amassed over $250 billion and officially claimed the #1 spot on the global leaderboard!"
+copy.14b8a11ef688,💔 Остановка сердца на фоне износа организма. Врачи оказались бессильны.,💔 Cardiac arrest due to extreme physical strain. The doctors were powerless.
+copy.8ac4a20f459a,🧠 Острый нервный срыв и клиническое выгорание. Вы отошли от всех дел.,🧠 Acute nervous breakdown and total clinical burnout. You have retired from all affairs.
+copy.8d3c88012d83,⚡ Критическое физическое истощение прямо на рабочем месте.,⚡ Critical physical exhaustion right on the job.
+copy.7f4b17d5695c,⚖️ Принудительное банкротство и арест имущества за неподъемные долги.,⚖️ Forced bankruptcy and asset seizure due to insurmountable debt.
+copy.848fe0958410,👑 Вы прожили легендарную жизнь и вошли в Топ-10 богатейших людей планеты (Место #%d)!,👑 You lived a legendary life and entered the Top 10 richest people on the planet (Rank #%d)!
+copy.4fd334376182,⏳ Жизненный путь подошел к концу в возрасте %d лет. Вы остановились на #%s месте в мире.,⏳ Your journey has reached its end at age %d. You finished at rank #%s worldwide.
+copy.b71d63dd66c0,Итоги династии будут сохранены при начале следующего поколения.,Dynasty results will be saved for the start of the next generation.
+copy.5965f40d6b39,"🏁 ИТОГ ЖИЗНИ (Поколение #%d)
+
+%s
+
+Итоговый капитал: $%s
+Финальный мировой рейтинг: #%s
+
+🧬 %s","🏁 LIFE SUMMARY (Generation #%d)
+
+%s
+
+Total Capital: $%s
+Final Global Rank: #%s
+
+🧬 %s"
+copy.b9a91297dde4,🚑 Экстренная помощь (один раз за жизнь),🚑 Emergency medical aid (once per lifetime)
+copy.13d00648f2d7,🔄 Начать новое поколение династии,🔄 Start a new dynasty generation
+copy.de2a6f7ecd03,Счета за аренду и продукты растут. Как проведете этот квартал?,Rent and grocery bills are mounting. How will you spend this quarter?
+copy.0c3022c59e3e,"Взять подработку и ночные смены (+$1,400, Энергия -25, Стресс +10)","Take a side gig and night shifts (+$1,400, Energy -25, Stress +10)"
+copy.040809336be4,"💼 Вы отработали тяжелые смены (+$1,400).","💼 You put in the hard hours (+$1,400)."
+copy.63250eaa07ff,"Проходить интенсив по IT и финансам (-$200, Интеллект +8, Энергия -15)","Take an IT and finance intensive course (-$200, Intelligence +8, Energy -15)"
+copy.ce6cf579ea2b,📚 Ваш уровень интеллекта вырос (+8)!,📚 Your intelligence level has increased (+8)!
+copy.57b165c2f936,"Отдохнуть, выспаться и заняться спортом (Здоровье +10, Стресс -20, Энергия +35)","Rest, sleep, and hit the gym (Health +10, Stress -20, Energy +35)"
+copy.9f38175c8969,🌿 Вы восстановили силы и здоровье.,🌿 You have restored your strength and health.
+copy.946b501b66a6,Знакомый предлагает перепродавать дефицитную электронику с маркетплейсов.,An acquaintance suggests flipping scarce electronics from marketplaces.
+copy.581db62553d7,"Вложить $800 и заняться продажами (Шанс 65% заработать +$2,800)","Invest $800 and start selling (65% chance to earn +$2,800)"
+copy.ad218c565f88,"📦 Партия разлетелась за неделю! Прибыль +$2,800.","📦 The inventory flew off the shelves in a week! Profit +$2,800."
+copy.668ea0fd9c03,📉 Товар завис на складе. Убыток -$800.,📉 The stock is gathering dust in the warehouse. Loss -$800.
+copy.425ffaf6d250,"Работать курьером/фрилансером без риска (+$950, Энергия -15)","Work as a courier/freelancer with no risk (+$950, Energy -15)"
+copy.56e35f27471f,🚲 Стабильный заработок +$950.,🚲 Steady earnings of +$950.
+copy.1277de12e43e,"Посвятить квартал нетворкингу и поиску ментора (Интеллект +5, Стресс -10)","Dedicate the quarter to networking and finding a mentor (Intelligence +5, Stress -10)"
+copy.c8dc61cd4524,🤝 Вы завели полезные знакомства.,🤝 You've made some valuable connections.
+copy.d3483c318bd7,Локальный хакатон стартапов с денежным призом.,Local startup hackathon with a cash prize.
+copy.9b246ac48259,Выступить с собственным прототипом (Требуется Интеллект 25+),Present your own prototype (Requires 25+ Intelligence)
+copy.f1de0c92fc74,"🏆 Вы заняли призовое место на хакатоне! Грант +$4,500.","🏆 You took a top prize at the hackathon! Grant +$4,500."
+copy.d3bea7ef17de,"💻 Не хватило навыков для победы, но вы получили опыт (+4 Интеллекта).","💻 You lacked the skills to win, but gained valuable experience (+4 Intelligence)."
+copy.a39b3f8d6862,"Помочь организаторам за фиксированную оплату (+$1,100)","Assist the organizers for a flat fee (+$1,100)"
+copy.0ee48b338227,"🎫 Вы заработали $1,100 на организации.","🎫 You earned $1,100 for your help with the event."
+copy.a47a5e41a30b,"Пропустить мероприятие и отдохнуть дома (Энергия +30, Стресс -15)","Skip the event and rest at home (Energy +30, Stress -15)"
+copy.f3a791c2646a,🛌 Отличный отдых дома.,🛌 A well-deserved rest at home.
+copy.89650c4a24ab,Проблемы со здоровьем из-за дешевой еды и перегрузок.,Health issues arising from cheap food and overwork.
+copy.488af448b06d,"Пройти полное обследование и лечение (-$600, Здоровье +22, Стресс -15)","Undergo a full check-up and treatment (-$600, Health +22, Stress -15)"
+copy.676e06f8634c,🏥 Здоровье полностью укреплено (+22%).,🏥 Health fully restored (+22%).
+copy.bfad3023f3ba,"Продолжать работать через силу (+$1,200, Здоровье -12, Стресс +15)","Keep pushing through the grind (+$1,200, Health -12, Stress +15)"
+copy.d07556011189,"💊 Вы заработали +$1,200, но здоровье ухудшилось.","💊 You’ve cleared +$1,200, but your health is paying the price."
+copy.f3cd70d26426,"Взять недельный отпуск и перейти на домашнюю еду (Здоровье +8, Энергия +25)","Take a week’s leave and stick to home-cooked meals (Health +8, Energy +25)"
+copy.c376a4f0217e,🥗 Самочувствие заметно улучшилось.,🥗 You’re feeling like a million bucks again.
+copy.c5ef2e086f8b,На работе открылась вакансия младшего руководителя проекта.,A junior project lead position has opened up at the firm.
+copy.d8f3a6fe0af0,"Взять на себя ответственность (+$2,200, Интеллект +4, Стресс +12)","Take the reins (+$2,200, Intellect +4, Stress +12)"
+copy.af1b68768b3a,"📈 Вас повысили! Доход квартала +$2,200.","📈 You’ve been promoted! Quarterly income +$2,200."
+copy.313d6c0a68d2,"Остаться на спокойной должности (+$1,000, Стресс -5, Энергия +10)","Stick to your steady post (+$1,000, Stress -5, Energy +10)"
+copy.59338dd850a4,"☕ Спокойный рабочий квартал (+$1,000).","☕ A quiet, profitable quarter (+$1,000)."
+copy.276587c257d5,"Уйти на удаленный фриланс (+$1,500, Интеллект +3, Энергия -10)","Switch to remote freelance work (+$1,500, Intellect +3, Energy -10)"
+copy.c23c0d676dfa,"💻 Удаленные заказы принесли +$1,500.","💻 Remote contracts have brought in +$1,500."
+copy.c6971ee65bcb,Бум нейросетей: компании ищут специалистов по автоматизации.,The AI boom is here: firms are scrambling for automation experts.
+copy.d7ccaea6dc89,"Разработать бота под заказ бизнеса (+$3,200 при Интеллекте 30+, иначе +$900)","Develop a custom business bot (+$3,200 if Intellect 30+, otherwise +$900)"
+copy.7c899eb130df,🤖 Заказ по автоматизации принес +$%s!,🤖 The automation contract netted +$%s!
+copy.e378e8878609,"Изучать архитектуру ИИ и алгоритмы (Интеллект +10, Энергия -15)","Study AI architecture and algorithms (Intellect +10, Energy -15)"
+copy.6245542029c3,🧠 Интеллект вырос на +10!,🧠 Your intellect has sharpened by +10!
+copy.c28a02729595,"Восстановить баланс сна и психики (Стресс -25, Энергия +35)","Restore your sleep and mental balance (Stress -25, Energy +35)"
+copy.256a39ac45f5,🧘 Полная перезагрузка нервной системы.,🧘 A total reset for your weary nerves.
+copy.0b6ffe72e8ed,Крупный корпоративный клиент предлагает сложный контракт с жестким дедлайном.,A major corporate client is offering a grueling contract with a tight deadline.
+copy.493af682846b,"Подписать контракт и работать без выходных (+$18,000, Стресс +22, Энергия -30)","Sign the contract and grind through the weekend (+$18,000, Stress +22, Energy -30)"
+copy.60c540913e98,"💰 Контракт закрыт! Вы получили +$18,000.","💰 Contract closed! You’ve pocketed +$18,000."
+copy.8ac918f166b3,"Нанять подрядчиков и разделить прибыль (+$8,500, Стресс +5, Энергия -10)","Hire contractors and split the take (+$8,500, Stress +5, Energy -10)"
+copy.88c763182a3a,"🤝 Делегирование сработало отлично (+$8,500).","🤝 Delegation proved a masterstroke (+$8,500)."
+copy.1c8c3ff50cc8,"Отказаться и уехать в оздоровительный отпуск (-$1,500, Здоровье +15, Стресс -30)","Decline and head for a wellness retreat (-$1,500, Health +15, Stress -30)"
+copy.e6a8d04f65c3,🏖️ Отпуск вернул вам здоровье и бодрость!,🏖️ The retreat has restored your health and vigor!
+copy.2f64e5f86a8a,На рынке коммерческой недвижимости просадка цен из-за высоких ставок.,Commercial real estate is dipping due to high interest rates.
+copy.9bd9ba917046,"Выкупить проблемный объект и сдать в субаренду (-$15,000, шанс 70% на +$38,000)","Buy a distressed property and sublease it (-$15,000, 70% chance for +$38,000)"
+copy.427336beea9c,"🏢 Сделка с недвижимостью принесла чистыми +$23,000!","🏢 The real estate play cleared a cool +$23,000!"
+copy.3bdda846c354,"📉 Арендаторы съехали раньше срока. Убыток -$12,000.","📉 Tenants skipped town early. A loss of -$12,000."
+copy.2352880633de,"Сфокусироваться на основной карьере и консалтинге (+$9,500)","Focus on your core career and consulting (+$9,500)"
+copy.a68bf3b69447,"💼 Консалтинг принес стабильные +$9,500.","💼 Consulting has brought in a steady +$9,500."
+copy.d5a6241a4923,"Пройти программу MBA и обрасти связями (-$4,000, Интеллект +14, Энергия +10)","Enroll in an MBA program to build your network (-$4,000, Intellect +14, Energy +10)"
+copy.a817effb7405,🎓 Диплом MBA укрепил ваш интеллект (+14).,🎓 That MBA diploma has bolstered your intellect (+14).
+copy.153c58937472,Налоговая проверка и аудит вашей финансовой деятельности.,The taxman is knocking for an audit of your financial affairs.
+copy.494af8ddcb35,"Нанять топовых юристов и закрыть все вопросы легально (-$5,000, Стресс -10)","Hire top-tier counsel to settle matters legally (-$5,000, Stress -10)"
+copy.e5a599dd29c3,⚖️ Юристы блестяще защитили ваши активы.,⚖️ Your lawyers have brilliantly shielded your assets.
+copy.600c40150298,"Разбираться с документами самостоятельно (+$4,000 экономии, Стресс +25, Энергия -25)","Handle the paperwork yourself (+$4,000 saved, Stress +25, Energy -25)"
+copy.b49dec85bba7,"📑 Вы отбились от штрафов сами, но сильно устали.","📑 You fended off the fines yourself, but you’re exhausted."
+copy.458a1d2a5ad2,"Провести реструктуризацию и отдохнуть (Здоровье +10, Стресс -20, Энергия +30)","Restructure your affairs and take a breather (Health +10, Stress -20, Energy +30)"
+copy.59fd9d43e41b,🌿 Дела приведены в порядок без лишней спешки.,"🌿 Affairs are in order, handled without the usual rush."
+copy.c98ac97b1cb3,Венчурный фонд ищет соинвесторов для запуска облачной платформы.,A venture firm is seeking co-investors for a new cloud platform.
+copy.a4316ea3c95b,"Войти в раунд А (Требуется Интеллект 45+ для отбора проекта, +$32,000)","Join the Series A round (Requires Intellect 45+ to qualify, +$32,000)"
+copy.20536b57a9ef,"🚀 Ваш аналитический расчет оправдался! +$32,000.","🚀 Your analytical gamble paid off! +$32,000."
+copy.828fb0804dfb,"📉 Без глубокой экспертизы стартап оказался пустышкой (-$8,000).","📉 Without deep expertise, the startup proved a dud (-$8,000)."
+copy.f1bb3f9ee94b,"Выступить платным техническим экспертом (+$11,000, Энергия -15)","Serve as a paid technical expert (+$11,000, Energy -15)"
+copy.3a1d44880892,"🔍 Экспертиза принесла +$11,000.","🔍 Your expertise has yielded +$11,000."
+copy.0257df066402,"Заняться чекапом организма и спортом (Здоровье +15, Стресс -20, Энергия +30)","Get a full medical checkup and hit the gym (Health +15, Stress -20, Energy +30)"
+copy.407c5f406f9a,💪 Отличная физическая форма!,💪 You’re in peak physical condition!
+copy.d88c31c1d726,Крупный конкурент испытывает кассовый разрыв и ищет покупателя на долю.,A major rival is facing a cash crunch and looking to sell a stake.
+copy.9e65892b0c6e,"Провести жесткое поглощение активов (+$450,000 при Интеллекте 60+, иначе -$120,000)","Execute a hostile takeover (+$450,000 if Intellect 60+, otherwise -$120,000)"
+copy.42f3c1de7182,"🦈 Блестящая сделка M&A! Капитал вырос на +$450,000.","🦈 A brilliant M&A play! Your capital has surged by +$450,000."
+copy.68960af84db5,"⚠️ В отчетности конкурента обнаружились скрытые долги (-$120,000).","⚠️ Hidden debts were unearthed in the rival's ledger (-$120,000)."
+copy.26cb492cda4b,"Выдать обеспеченный залогом кредит (+$160,000 без риска)","Issue a collateralized loan (+$160,000, risk-free)"
+copy.412bce5e6108,"🏦 Проценты по сделке принесли +$160,000.","🏦 The interest on the deal has brought in +$160,000."
+copy.7683dbed0e78,"Устроить семейный круиз по океану (-$25,000, Здоровье +20, Стресс -35, Энергия +45)","Book a family ocean cruise (-$25,000, Health +20, Stress -35, Energy +45)"
+copy.c528a7b3f678,🛥️ Роскошный отдых полностью восстановил ваши силы.,🛥️ A luxurious getaway has fully restored your spirits.
+copy.f258bd410451,Глобальный сбой цепочек поставок угрожает маржинальности рынков.,Global supply chain disruptions are threatening market margins.
+copy.0a752ba503f7,"Профинансировать собственные логистические хабы (+$320,000, Энергия -25)","Finance your own logistics hubs (+$320,000, Energy -25)"
+copy.a7d66c8d12e3,"🚢 Своя логистика позволила обойти кризис (+$320,000).","🚢 Your private logistics network bypassed the crisis (+$320,000)."
+copy.c4145a6c57e1,"Захеджировать валютные риски через опционы (+$140,000, Стресс -5)","Hedge currency risks via options (+$140,000, Stress -5)"
+copy.b0c7aea67e84,"🛡️ Хеджирование сохранило и приумножило капитал (+$140,000).","🛡️ Hedging has preserved and grown your capital (+$140,000)."
+copy.cdd14f6c2c30,"Передать операционку совету директоров и отдохнуть (Стресс -25, Энергия +35)","Hand over operations to the board and take a breather (Stress -25, Energy +35)"
+copy.a1aa6c89c5fa,"⛳ Совет директоров справился, пока вы отдыхали.",⛳ The board held the fort while you were away.
+copy.bd5d76a53d88,Международный технологический форум в Давосе.,International Tech Forum in Davos.
+copy.09ca3d3c9fde,"Презентовать стратегию экспансии инвесторам (+$600,000, Стресс +20, Энергия -25)","Pitch the expansion strategy to investors (+$600,000, Stress +20, Energy -25)"
+copy.06e601ea1ed0,"🌍 Инвесторы выстроились в очередь! Приток +$600,000.","🌍 Investors are lining up! A windfall of +$600,000."
+copy.b60ef3c4ab78,"Провести закрытые кулуарные переговоры (+$240,000, Интеллект +6)","Conduct private backroom negotiations (+$240,000, Intellect +6)"
+copy.060e13776b56,"🥂 Кулуарные контракты принесли +$240,000.","🥂 Backroom deals have yielded +$240,000."
+copy.c710a81df73f,"Остаться в альпийском спа-отеле (Здоровье +18, Стресс -30, Энергия +40)","Stay at an Alpine spa resort (Health +18, Stress -30, Energy +40)"
+copy.d82dd42ed897,🏔️ Чистый горный воздух вернул вам молодость.,🏔️ The crisp mountain air has restored your vigor.
+copy.592c313ed838,Глобальная гонка искусственного интеллекта и квантовых дата-центров.,The global race for AI and quantum data centers.
+copy.abef1f22864e,Инвестировать в постройку мега-кластера (Шанс 75%% на +$%s),Invest in a mega-cluster build (75%% chance for +$%s)
+copy.f1546a30c0ad,🌌 Ваш ИИ-кластер стал мировым стандартом! Капитал +$%s.,🌌 Your AI cluster is now the global standard! Capital +$%s.
+copy.391ed2771a2c,⚡ Задержка поставок чипов привела к убыткам -$%s.,⚡ Chip supply delays have resulted in losses of -$%s.
+copy.9a2eb5202848,Лицензировать патенты конкурентам (+$%s гарантированно),License patents to competitors (+$%s guaranteed)
+copy.1764e101d247,📜 Патентные роялти принесли +$%s.,📜 Patent royalties have brought in +$%s.
+copy.33517dbfdf3a,"Провести курс омоложения и биохакинга (Здоровье +25, Стресс -35, Энергия +45)","Undergo a rejuvenation and biohacking course (Health +25, Stress -35, Energy +45)"
+copy.329fd53f192b,🧬 Передовая медицина восстановила ваше здоровье (+25%).,🧬 Cutting-edge medicine has restored your vitality (+25%).
+copy.21daa0f76935,Антимонопольный комитет рассматривает влияние вашей империи на мировую экономику.,The Antitrust Committee is scrutinizing your empire's global economic footprint.
+copy.be8b999f3b0a,"Вывести дочерние бренды на биржу через громкое IPO (+$%s, Стресс +20)","Take your subsidiaries public with a high-profile IPO (+$%s, Stress +20)"
+copy.106035a32214,🔔 Триумфальное IPO дочерних компаний принесло +$%s!,🔔 A triumphant IPO for your subsidiaries has netted +$%s!
+copy.eda7fa63a1cd,"Учредить глобальный благотворительный научный фонд (+Счастье, -Стресс, +$%s)","Establish a global scientific charity foundation (+Happiness, -Stress, +$%s)"
+copy.298e9d265c65,🕊️ Благотворительный фонд укрепил вашу репутацию и капитализацию (+$%s).,🕊️ The charity foundation has bolstered your reputation and market cap (+$%s).
+copy.828d067a6408,"Уединиться на частном острове на весь квартал (Здоровье +20, Стресс -40, Энергия +50)","Retreat to a private island for the quarter (Health +20, Stress -40, Energy +50)"
+copy.8431904301ab,🏝️ Абсолютный покой на частном острове.,🏝️ Absolute serenity on a private island.
+copy.b2cf82ec22f6,хакатон,hackathon
+copy.0eb7f402dfcd,нейросетей,neural networks
+copy.de3f31e4c9dd,фонд ищет,the fund is looking for
+copy.3eb0f9f6707e,Проблемы со здоровьем,Health issues
+copy.d8b8857d2b1f,Антимонопольный,Antitrust
+copy.596a82c82edd,Вложить $800 и заняться продажами,Invest $800 and focus on sales
+copy.0f95ecc45eac,Торговать электроникой,Trade electronics
+copy.35904f213403,Работать курьером/фрилансером без риска,Work as a courier/freelancer with no risk
+copy.f0a395a28a84,Работать на себя,Work for yourself
+copy.873f704687c2,Посвятить квартал нетворкингу и поиску ментора,Dedicate the quarter to networking and finding a mentor
+copy.90036b9063c3,Найти наставника,Find a mentor
+copy.5f761252dbe0,Взять подработку и ночные смены,Take on a side gig and night shifts
+copy.14b445574eed,Взять подработку,Take a side gig
+copy.4dc7ac2e8b3c,Проходить интенсив по IT и финансам,Take an intensive course in IT and finance
+copy.484136e698dd,Пройти интенсив,Take an intensive
+copy.e7a3d37f5d01,"Отдохнуть, выспаться и заняться спортом","Rest, sleep well, and exercise"
+copy.f6b6bdb72f6f,Восстановить силы,Recover your strength
+copy.4c6f1022199f,Выступить с собственным прототипом,Present your own prototype
+copy.ba6bcc36b099,Представить прототип,Present prototype
+copy.278b41b07bf2,Помочь организаторам за фиксированную оплату,Assist the organizers for a flat fee
+copy.65343bd41c8e,Помочь организаторам,Assist organizers
+copy.56cc59b7ab46,Пропустить мероприятие и отдохнуть дома,Skip the event and rest at home
+copy.8346c054dfea,Отдохнуть дома,Rest at home
+copy.4d86ed612f89,Пройти полное обследование и лечение,Undergo a full check-up and treatment
+copy.8fb5411c2397,Пройти лечение,Undergo treatment
+copy.4f5635fe7e77,Продолжать работать через силу,Power through and keep working
+copy.b4625449dc1d,Продолжить работу,Continue working
+copy.3e7b7a48e185,Взять недельный отпуск и перейти на домашнюю еду,Take a week off and switch to home-cooked meals
+copy.721b6ddf6551,Взять отпуск,Take a vacation
+copy.48001540533c,Взять на себя ответственность,Take on the responsibility
+copy.898994512aaf,Принять повышение,Accept the promotion
+copy.ccedf631533a,Остаться на спокойной должности,Stay in a low-stress position
+copy.8f979359b6a0,Остаться на должности,Keep your current position
+copy.48b6d263f4c2,Уйти на удаленный фриланс,Switch to remote freelancing
+copy.d6bdab09e88a,Уйти на фриланс,Go freelance
+copy.cd03905a0445,Разработать бота под заказ бизнеса,Develop a custom bot for business
+copy.110b8ef8190a,Разработать бота,Develop a bot
+copy.69b7daf39b6f,Изучать архитектуру ИИ и алгоритмы,Study AI architecture and algorithms
+copy.be34f54ff3de,Изучать ИИ,Study AI
+copy.1bb021b6b57c,Восстановить баланс сна и психики,Restore sleep and mental balance
+copy.0de3f9303a0e,Подписать контракт и работать без выходных,Sign the contract and work without days off
+copy.41b64e1fca0a,Подписать контракт,Sign the contract
+copy.fc50ebdb400b,Нанять подрядчиков и разделить прибыль,Hire contractors and split the profits
+copy.d7f22d7a2a95,Нанять подрядчиков,Hire contractors
+copy.f7d2bf8a01f5,Отказаться и уехать в оздоровительный отпуск,Decline and take a wellness retreat
+copy.010ba8c14866,Выкупить проблемный объект и сдать в субаренду,Buy a distressed asset and sublet it
+copy.28e23efdc221,Купить недвижимость,Buy real estate
+copy.ebce8af789a1,Гений алгоритмов,Algorithm Genius
+copy.a3d492a5f532,Аналитик,Analyst
+copy.76bc4723f5a8,Железный организм,Iron Constitution
+copy.1d68e22036d3,Выносливость,Stamina
+copy.d401809c84e6,Инсайдер Уолл-Стрит,Wall Street Insider
+copy.024c7f10c798,Инвестор,Investor
+copy.727f0ecbe99f,Антикризисный менеджер,Turnaround Manager
+copy.1f8ad4092a6b,Выбрать черту характера,Select a character trait
+copy.816f09a64a07,Выбрать характер,Select character
+copy.f0bf5fcc07e0,Начать историю,Begin the story
+copy.b7e3aa4c2e65,Продолжить жизнь,Continue life
+copy.b80940a8a747,‹ Назад,‹ Back
+copy.66f4033be75d,Валюты,Currencies
+copy.4b9f68c9ecf8,Купить на 25%,Buy 25%
+copy.66b4772fc5e4,Куплено ,Purchased 
+copy.f6e8b6c3c34f, на $, for $
+copy.4145482dc87c,Продать всё,Sell all
+copy.3ab9100bd052,Продано ,Sold 
+copy.a5f2a71c789f,"Игровые курсы · спред 0,35% с каждой стороны
+Обмен не тратит ход. Новый курс — после хода.","Market rates · 0.35% spread on each side
+Exchanging costs no turns. New rates after the turn."
+copy.d32075b866b9,$%s доступно  ·  Инфляция %.1f%%/год,$%s available  ·  Inflation %.1f%%/year
+copy.6b6d01a65284,На счёте: %.2f %s  ·  $%s,Balance: %.2f %s  ·  $%s
+copy.778a48fdd09e,Потратить $,Spend $
+copy.d0e02c3cc5dc,%d лет · квартал %d · поколение %d,Age %d · Quarter %d · Generation %d
+copy.5405c11ba0de,Капитал,Capital
+copy.f925cafd86d7,Доступно,Available
+copy.08930838ebae,Здоровье,Health
+copy.f561c6b678d4,Энергия,Energy
+copy.c642a5769b74,Счастье,Happiness
+copy.e197da26d73a,Спокойствие,Composure
+copy.eaafe278d74d,ПОБЕДА · ВАША ИСТОРИЯ ОСТАНЕТСЯ,VICTORY · YOUR STORY ENDURES
+copy.d1eba7de1ca1,КОНЕЦ ГЛАВЫ · НАЧАЛО НАСЛЕДИЯ,CHAPTER END · A LEGACY BEGINS
+copy.369eb05aca46,Вы создали наследие,You have forged a legacy
+copy.e8f666386cf2,У каждой истории есть продолжение,Every story has a sequel
+copy.c4ef0fe2e45a,За цифрами — прожитая жизнь. Теперь ваше состояние и опыт станут началом новой истории.,"Behind the numbers lies a life lived. Now, your wealth and wisdom shall seed the next chapter."
+copy.377bfc5e6b3e,Поколение %d · %d лет · место #%s,Generation %d · %d years old · Rank #%s
+copy.1644cbb54fcc,Принять наследие · следующее поколение,Accept legacy · Next generation
+copy.1549f96910e3,Второй шанс · экстренная помощь,Second chance · Emergency relief
+copy.0bbe03537dc6,Передать историю следующему поколению,Pass the story to the next generation
+copy.3c8817a62677,Городская библиотека открыла бесплатную мастерскую. Как использовать возможность?,The city library has opened a free workshop. How shall you seize the opportunity?
+copy.37eb0f42ce26,Собрать первый платный проект (+$1 800  здоровье −4  стресс +14  энергия −24),"Take on your first paid project (+$1,800  health −4  stress +14  energy −24)"
+copy.ababbbb85c8a,"Ответственный проект завершён; доход получен, но нагрузка выросла.","The high-stakes project is complete; the payout is yours, though the toll was heavy."
+copy.0031d1b65193,Провести практикум для соседей (+$750  интеллект +4  энергия −8),Host a workshop for the neighbors (+$750  intellect +4  energy −8)
+copy.938cfed2ddd2,"Спокойная работа принесла доход, навыки и доверие команды.","Steady work has yielded profit, sharpened your skills, and earned the team's trust."
+copy.67df7f77027d,"Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)","Defer the decision and recover your strength (health +9, stress −22, energy +32)"
+copy.7b4b7f994781,Вы восстановили здоровье и силы перед следующим кварталом.,You have restored your health and vigor for the coming quarter.
+copy.b5ed25cfbbee,"В вашей квартире освободилась комната, но совместный быт требует договорённостей.","A room has opened up in your apartment, but shared living requires a firm hand."
+copy.b00efadaba4c,Сдать комнату и вести бюджет (+$1 300  здоровье −4  стресс +14  энергия −24),"Rent out the room and manage the budget (+$1,300  health −4  stress +14  energy −24)"
+copy.53fd3032480a,Разделить расходы с другом (+$650  интеллект +4  энергия −8),Split expenses with a friend (+$650  intellect +4  energy −8)
+copy.fadf493ba8c5,"Местной пекарне нужен человек, который наладит учёт заказов.",The local bakery needs a sharp mind to organize their accounts.
+copy.00f9888dca30,Внедрить систему за долю прибыли (+$2 100  здоровье −4  стресс +14  энергия −24),"Implement a profit-sharing system (+$2,100  health −4  stress +14  energy −24)"
+copy.080a5f95f626,Выполнить разовый заказ (+$950  интеллект +4  энергия −8),Execute a one-off order (+$950  intellect +4  energy −8)
+copy.53872e44b0a6,Старая техника мешает учёбе и работе. Есть несколько способов обновиться.,Old gear is hindering your grind. Time to upgrade.
+copy.2968ee0f6700,Взять срочные заказы на новый компьютер (+$1 600  здоровье −4  стресс +14  энергия −24),"Take on urgent commissions for a new rig (+$1,600  health −4  stress +14  energy −24)"
+copy.98f911c7e7cd,Отремонтировать технику и продолжить учиться (+$450  интеллект +4  энергия −8),Repair the hardware and keep at the books (+$450  intellect +4  energy −8)
+copy.902f2cc14698,"Ваш отдел вырос. Пора решить, кто будет принимать ежедневные решения.",Your department is booming. Decide who holds the reins on daily operations.
+copy.a8296336bef9,Лично контролировать каждый проект (+$15 000  здоровье −4  стресс +14  энергия −24),"Micromanage every project personally (+$15,000  health −4  stress +14  energy −24)"
+copy.27addc2a3cc6,Обучить команду и делегировать (+$9 000  интеллект +4  энергия −8),"Train the team and delegate (+$9,000  intellect +4  energy −8)"
+copy.4025a290a329,Открывается региональная выставка поставщиков и покупателей.,A regional trade expo is opening its doors.
+copy.2c4e03b52b31,Арендовать стенд и представить продукт (+$19 000  здоровье −4  стресс +14  энергия −24),"Rent a booth and showcase the product (+$19,000  health −4  stress +14  energy −24)"
+copy.862c4d4dffac,Провести встречи с постоянными клиентами (+$8 500  интеллект +4  энергия −8),"Host meetings with key accounts (+$8,500  intellect +4  energy −8)"
+copy.fb0dc223a709,Сотрудник заметил дорогостоящую ошибку до отправки заказа.,A sharp employee caught a costly blunder before shipping.
+copy.547b98324207,Перестроить процесс контроля качества (+$13 000  здоровье −4  стресс +14  энергия −24),"Overhaul the quality control pipeline (+$13,000  health −4  stress +14  energy −24)"
+copy.18189dd5aa6f,Ввести взаимную проверку работ (+$7 500  интеллект +4  энергия −8),"Implement a peer-review system (+$7,500  intellect +4  energy −8)"
+copy.a30718f68d08,Давний заказчик предлагает годовой контракт вместо разовых поручений.,A long-time client wants a yearly contract instead of piecemeal work.
+copy.9f8aec5cbd3a,Взять большой объём под личную гарантию (+$18 000  здоровье −4  стресс +14  энергия −24),"Take on a massive volume under personal guarantee (+$18,000  health −4  stress +14  energy −24)"
+copy.7276c38183e4,Заключить меньший устойчивый контракт (+$10 000  интеллект +4  энергия −8),"Secure a smaller, steady contract (+$10,000  intellect +4  energy −8)"
+copy.699e1202fc91,"Семейная фабрика ищет партнёра, который сохранит рабочие места.",A family-run factory seeks a partner to keep the lights on and jobs secure.
+copy.412e4667957d,Взять управление и обновить производство (+$120 000  здоровье −4  стресс +14  энергия −24),"Take the helm and modernize production (+$120,000  health −4  stress +14  energy −24)"
+copy.05c24aa55e1b,Финансировать модернизацию поэтапно (+$65 000  интеллект +4  энергия −8),"Finance the modernization in stages (+$65,000  intellect +4  energy −8)"
+copy.dfb2decf26e4,Выход на новый рынок потребует адаптации продукта и команды.,Breaking into a new market requires adapting both product and personnel.
+copy.2f95954911b8,Одновременно открыть три представительства (+$180 000  здоровье −4  стресс +14  энергия −24),"Open three new branches simultaneously (+$180,000  health −4  stress +14  energy −24)"
+copy.d86744a2b36e,Начать с одного пилотного региона (+$75 000  интеллект +4  энергия −8),"Start with a single pilot region (+$75,000  intellect +4  energy −8)"
+copy.27a9751779ce,На складе скопились товары прошлой линейки.,The warehouse is overflowing with last season's stock.
+copy.7c6916731211,Запустить масштабную программу обмена (+$140 000  здоровье −4  стресс +14  энергия −24),"Launch a massive trade-in program (+$140,000  health −4  stress +14  energy −24)"
+copy.8d6cdb8de57d,Переработать остатки в новую продукцию (+$60 000  интеллект +4  энергия −8),"Repurpose the leftovers into new goods (+$60,000  intellect +4  energy −8)"
+copy.8d7a7b0fc33b,Компания впервые может открыть собственный исследовательский центр.,"For the first time, the firm can establish its own R&D center."
+copy.cf52a53ceffb,Лично возглавить прорывную программу (+$160 000  здоровье −4  стресс +14  энергия −24),"Lead the breakthrough program personally (+$160,000  health −4  stress +14  energy −24)"
+copy.8f91d7314627,Собрать автономную исследовательскую команду (+$80 000  интеллект +4  энергия −8),"Assemble an autonomous research squad (+$80,000  intellect +4  energy −8)"
+copy.2dd298852cbd,Растущий холдинг выбирает модель долгосрочного управления.,The growing holding company must choose its long-term management model.
+copy.096bd0e9b7d4,Объединить все решения в одном штабе (+$12 000 000  здоровье −4  стресс +14  энергия −24),"Centralize all decisions at headquarters (+$12,000,000  health −4  stress +14  energy −24)"
+copy.8e31c1ae3fb3,Дать дочерним компаниям самостоятельность (+$6 500 000  интеллект +4  энергия −8),"Grant the subsidiaries full autonomy (+$6,500,000  intellect +4  energy −8)"
+copy.0b7d36bae411,Несколько стран предлагают совместно развивать энергосети.,Several nations are proposing a joint power grid development.
+copy.c07fa640524c,Возглавить ускоренную стройку (+$18 000 000  здоровье −4  стресс +14  энергия −24),"Spearhead the accelerated construction (+$18,000,000  health −4  stress +14  energy −24)"
+copy.0c238a313cb5,Разделить проект на надёжные этапы (+$9 000 000  интеллект +4  энергия −8),"Divide the project into reliable phases (+$9,000,000  intellect +4  energy −8)"
+copy.b684145f3e89,Новое поколение руководителей готово принять часть ответственности.,A new generation of executives is ready to shoulder the burden.
+copy.c2667e7298fb,Провести широкую реорганизацию (+$15 000 000  здоровье −4  стресс +14  энергия −24),"Execute a sweeping reorganization (+$15,000,000  health −4  stress +14  energy −24)"
+copy.0803a86da082,Запустить программу преемственности (+$7 500 000  интеллект +4  энергия −8),"Launch a succession program (+$7,500,000  intellect +4  energy −8)"
+copy.4563fe685afb,Совет обсуждает устойчивость компании перед следующим спадом.,The board is debating the firm's resilience against the coming downturn.
+copy.35e8863dacc6,Быстро сократить непрофильные активы (+$14 000 000  здоровье −4  стресс +14  энергия −24),"Rapidly divest non-core assets (+$14,000,000  health −4  stress +14  energy −24)"
+copy.2e47ee470e6b,Создать резерв и улучшить снабжение (+$8 500 000  интеллект +4  энергия −8),"Build a reserve and fortify the supply chain (+$8,500,000  intellect +4  energy −8)"
+ui.language,Язык,Language
+ui.master,Общая,Master
+ui.interface,Интерфейс,Interface
+ui.credits,Авторы,Credits
+ui.close,Закрыть,Close
+ui.language_prompt,Выберите язык,Choose your language
+ui.choose_language,Русский / English,Русский / English
+ui.audio_title,Звук,Audio
+ui.credits_body,"Движок: Godot 4.7 — лицензия MIT и сторонние уведомления.
+Шрифты: Onest, Unbounded и дополнительные семейства — SIL OFL.
+Иллюстрации: оригинальные изображения с указанным AI-происхождением.
+Музыка: исходная композиция Gemini / Lyria и оригинальные синтезированные аранжировки; подробности в каталоге.
+Звуковые эффекты: оригинальный синтез, CC0.
+Полные лицензии и происхождение включены в комплект игры.","Engine: Godot 4.7 — MIT license and third-party notices.
+Fonts: Onest, Unbounded and supporting families — SIL OFL.
+Illustrations: original images with recorded AI provenance.
+Music: the original Gemini / Lyria theme and original synthesized arrangements; see the catalog for details.
+Sound effects: original synthesis, CC0.
+Full licenses and provenance are included with the game."
+fragment.5ca60bc33f5d,Глобальный Техно-Холдинг,Global Tech Holding
+fragment.731aad18128f,IPO,IPO
+fragment.3b529f38122a,Развивающийся бедный регион,Developing Poor Region
+fragment.354cf61a82ab,Шанс 50%,50% Chance
+fragment.d2365c07c831,Лотерея рождения: Бедный регион,Birth Lottery: Poor Region
+fragment.08789c8aba40,50% населения Земли,50% of Earth's population
+fragment.2e9e8c2e665c,Вы родились в семье с долгами,You were born into a family burdened by debt
+fragment.4ebff31cb463,"-$1,500) и слабой медициной, но низкими расходами на жизнь и высокой закалкой.","-$1,500) and poor healthcare, but with low living costs and a hardened spirit."
+fragment.298ccfb77dd8,Индустриальная страна,Industrial Nation
+fragment.642efcda17bf,Шанс 35%,35% Chance
+fragment.dbff01c153c5,Лотерея рождения: Рабочий класс,Birth Lottery: Working Class
+fragment.fb35db206742,35% населения Земли,35% of Earth's population
+fragment.4c790a17023d,Средний класс развитой страны,Middle Class in a Developed Nation
+fragment.9d7ebf7bfb2f,Шанс 14%,14% Chance
+fragment.00e880ace2ee,Лотерея рождения: Развитая экономика,Birth Lottery: Developed Economy
+fragment.3b10858d13b1,14% населения Земли,14% of Earth's population
+fragment.3c2aebb198c1,Отличное базовое образование,Excellent primary education
+fragment.46698c58918b,"Интеллект 30) и $5,000 на старте, но высокая стоимость жизни и налогов.","Intelligence 30) and $5,000 to start, but high living costs and taxes."
+fragment.882130f91c34,Мировая финансовая элита,Global Financial Elite
+fragment.a85ed8823740,Шанс 1%,1% Chance
+fragment.869d6b56f529,Глобальное поглощение завершено! Масштаб империи удвоен,Global takeover complete! Empire scale doubled
+fragment.f4a9cb55dc38,x%d)!,x%d)!
+fragment.9352b2c66fdc,По завещанию потомку,Your descendant
+fragment.59d4ac681d61,Поколение #%d) передано 20%% состояния: $%s. Очки династии: %d.,Generation #%d) inherits 20%% of your fortune: $%s. Dynasty points: %d.
+fragment.f9eb2870f3d1,Наследство не оставлено,No inheritance left
+fragment.0e31b88d5a82,требуется возраст 50+ и положительный капитал). Очки династии: %d.,requires age 50+ and positive net worth). Dynasty Points: %d.
+fragment.057c43d5a4f4,➡️ Выбрать черту характера,➡️ Choose a character trait
+fragment.b4657caf38bc,18 лет,18 years old
+fragment.513c4b9992a4,Поколение #%d | Возраст: %d л.,Generation #%d | Age: %d yrs.
+fragment.911f6299e62e,"Кв. %d) | Неделя #%d
+Капитал (Net Worth): $%s | Кэш: $%s
+Пассив: +$%s/кв | Расходы жизни: -$%s/кв
+Здоровье: %d%% | Энергия: %d%% | Стресс: %d%% | Счастье: %d%%
+Интеллект: %d | Мировой рейтинг: #%s","Qtr. %d) | Week #%d
+Net Worth: $%s | Cash: $%s
+Passive: +$%s/qtr | Living Costs: -$%s/qtr
+Health: %d%% | Energy: %d%% | Stress: %d%% | Happiness: %d%%
+Intelligence: %d | Global Rank: #%s"
+fragment.a1275484e63e,"📈 Индекс S&P: $%.1f | Крипта: $%.1f | Портфель: $%s
+🏢 Бизнес: %s","📈 S&P Index: $%.1f | Crypto: $%.1f | Portfolio: $%s
+🏢 Business: %s"
+fragment.70702b23f675,x%d,x%d
+fragment.95bf214083b6,🏛️ Инсайдер Уолл-Стрит,🏛️ Wall Street Insider
+fragment.9d7a4fb509ca,"+50% дивидендов, бонус к акциям","+50% dividends, stock bonus"
+fragment.75767d507b77,🧬 Биохакер,🧬 Biohacker
+fragment.09a1f0389bbe,"-50% урона здоровью, +20 Здоровья","-50% health damage, +20 Health"
+fragment.15d7e0d4c6f4,🛡️ Антикризисный менеджер,🛡️ Crisis Manager
+fragment.8ccb7385686f,"-35% стресса, +$2,500","-35% stress, +$2,500"
+fragment.3fba1a7c5cb9,💻 Гений алгоритмов,💻 Algorithm Genius
+fragment.964f025701c2,"+20 Интеллекта, бонус к учебе","+20 Intelligence, study bonus"
+fragment.1b1626b80979,💪 Железный организм,💪 Iron Constitution
+fragment.d75648d117ef,-35% урона здоровью,-35% health damage
+fragment.c7deb78ba224,⚡ Трудоголик,⚡ Workaholic
+fragment.ed3a379eaa0d,-30% расхода энергии на проектах,-30% energy cost on projects
+fragment.bbb4ae079ae6,Купить акции S&P на 50%% кэша,Buy S&P stocks with 50%% of cash
+fragment.2197d9079c26,$%s,$%s
+fragment.b0b0374e5d66,Купить крипту на 25%% кэша,Buy crypto with 25%% of cash
+fragment.5595dd671ae8,Глобальное масштабирование,Global Scaling
+fragment.5f2fa79816ec,"x%d -> x%d)
+Стоимость поглощения конкурентов: $%s","x%d -> x%d)
+Cost to acquire competitors: $%s"
+fragment.db56a496ad37,"🎁 СПОНСОРСКИЙ ГРАНТ ПОЛУЧЕН!
+
+• +$%s на счет","🎁 SPONSORSHIP GRANT SECURED!
+
+• +$%s to account"
+fragment.51908ea0a13c,"масштабируется от капитала)
+• Стресс снижен на 25%%, Энергия +35%%
+• Перезарядка бонуса: 4 квартала.","scaled by capital)
+• Stress reduced by 25%%, Energy +35%%
+• Bonus cooldown: 4 quarters."
+fragment.3287384b0a6e,"⚙️ НАСТРОЙКИ СИМУЛЯЦИИ:
+
+• Скорость течения времени: %.1fx","⚙️ SIMULATION SETTINGS:
+
+• Time flow speed: %.1fx"
+fragment.0cacafed62e7,"кварталов за ход)
+• Музыка и звуковые эффекты: %s
+• Поколение династии: #%d (Очки рода: %d","quarters per turn)
+• Music and sound effects: %s
+• Dynasty generation: #%d (Legacy Points: %d"
+fragment.1dc42ef1a8c7,⏳ Изменить скорость времени,⏳ Adjust time speed
+fragment.e38378055976,Сейчас: %.1fx,Current: %.1fx
+fragment.37e3d71f9e80,🔊 Переключить звук,🔊 Toggle sound
+fragment.1871575262c7,Сейчас: %s,Current: %s
+fragment.0de25a185b54,👑 Вы прожили легендарную жизнь и вошли в Топ-10 богатейших людей планеты,👑 You lived a legendary life and entered the Top 10 richest people on the planet
+fragment.d4c6da8cda83,Место #%d)!,Rank #%d)!
+fragment.7cfbc09ec167,🏁 ИТОГ ЖИЗНИ,🏁 LIFE SUMMARY
+fragment.c79827773b20,"Поколение #%d)
+
+%s
+
+Итоговый капитал: $%s
+Финальный мировой рейтинг: #%s
+
+🧬 %s","Generation #%d)
+
+%s
+
+Total Capital: $%s
+Final Global Rank: #%s
+
+🧬 %s"
+fragment.2600fb05f7b4,🚑 Экстренная помощь,🚑 Emergency medical aid
+fragment.ddfffe28e8f3,один раз за жизнь,once per lifetime
+fragment.f7346c3b02cb,"+$1,400, Энергия -25, Стресс +10","+$1,400, Energy -25, Stress +10"
+fragment.ec6b8621ee5d,💼 Вы отработали тяжелые смены,💼 You put in the hard hours
+fragment.b7e7f4bb9b4f,"+$1,400).","+$1,400)."
+fragment.67b72e2179d7,"-$200, Интеллект +8, Энергия -15","-$200, Intelligence +8, Energy -15"
+fragment.cd850f179bc2,📚 Ваш уровень интеллекта вырос,📚 Your intelligence level has increased
+fragment.e04b85e9ded5,+8)!,+8)!
+fragment.e6dce3df13fa,"Здоровье +10, Стресс -20, Энергия +35","Health +10, Stress -20, Energy +35"
+fragment.228942d5226a,"Шанс 65% заработать +$2,800","65% chance to earn +$2,800"
+fragment.e112ed06df0f,"+$950, Энергия -15","+$950, Energy -15"
+fragment.bf42eba9e573,"Интеллект +5, Стресс -10","Intelligence +5, Stress -10"
+fragment.b696937e3f82,Требуется Интеллект 25+,Requires 25+ Intelligence
+fragment.5b33c08e152a,"💻 Не хватило навыков для победы, но вы получили опыт","💻 You lacked the skills to win, but gained valuable experience"
+fragment.c8e591461b88,+4 Интеллекта).,+4 Intelligence).
+fragment.2a58bc8c36a9,"+$1,100","+$1,100"
+fragment.869e03084450,"Энергия +30, Стресс -15","Energy +30, Stress -15"
+fragment.5fda0993d7d6,"-$600, Здоровье +22, Стресс -15","-$600, Health +22, Stress -15"
+fragment.6190a03a91f8,🏥 Здоровье полностью укреплено,🏥 Health fully restored
+fragment.03c955c9124e,+22%).,+22%).
+fragment.8fe9ec0fee6f,"+$1,200, Здоровье -12, Стресс +15","+$1,200, Health -12, Stress +15"
+fragment.b0346720e474,"Здоровье +8, Энергия +25","Health +8, Energy +25"
+fragment.c0664532abb3,"+$2,200, Интеллект +4, Стресс +12","+$2,200, Intellect +4, Stress +12"
+fragment.37e605583567,"+$1,000, Стресс -5, Энергия +10","+$1,000, Stress -5, Energy +10"
+fragment.0dccfbbd061f,☕ Спокойный рабочий квартал,"☕ A quiet, profitable quarter"
+fragment.8c8332dcf38e,"+$1,000).","+$1,000)."
+fragment.56b110ccbc69,"+$1,500, Интеллект +3, Энергия -10","+$1,500, Intellect +3, Energy -10"
+fragment.1cb10dc0246a,"+$3,200 при Интеллекте 30+, иначе +$900","+$3,200 if Intellect 30+, otherwise +$900"
+fragment.1358a2fb05c5,"Интеллект +10, Энергия -15","Intellect +10, Energy -15"
+fragment.e67cac2e7bf0,"Стресс -25, Энергия +35","Stress -25, Energy +35"
+fragment.f62db925c0d0,"+$18,000, Стресс +22, Энергия -30","+$18,000, Stress +22, Energy -30"
+fragment.4d62d22370b6,"+$8,500, Стресс +5, Энергия -10","+$8,500, Stress +5, Energy -10"
+fragment.78d247f3384d,🤝 Делегирование сработало отлично,🤝 Delegation proved a masterstroke
+fragment.5a47cf7743a0,"+$8,500).","+$8,500)."
+fragment.6b8cf736e9f4,"-$1,500, Здоровье +15, Стресс -30","-$1,500, Health +15, Stress -30"
+fragment.0231c41db2a2,"-$15,000, шанс 70% на +$38,000","-$15,000, 70% chance for +$38,000"
+fragment.8ddc4334c690,Сфокусироваться на основной карьере и консалтинге,Focus on your core career and consulting
+fragment.fbd9f6bddb93,"+$9,500","+$9,500"
+fragment.2d0efe741d6f,Пройти программу MBA и обрасти связями,Enroll in an MBA program to build your network
+fragment.30f99c9ce123,"-$4,000, Интеллект +14, Энергия +10","-$4,000, Intellect +14, Energy +10"
+fragment.b2e0c02f3cbe,🎓 Диплом MBA укрепил ваш интеллект,🎓 That MBA diploma has bolstered your intellect
+fragment.bab95cfbf4bc,+14).,+14).
+fragment.c480c844db8e,Нанять топовых юристов и закрыть все вопросы легально,Hire top-tier counsel to settle matters legally
+fragment.03192187e7b5,"-$5,000, Стресс -10","-$5,000, Stress -10"
+fragment.cecb35270104,Разбираться с документами самостоятельно,Handle the paperwork yourself
+fragment.b5783cc25e93,"+$4,000 экономии, Стресс +25, Энергия -25","+$4,000 saved, Stress +25, Energy -25"
+fragment.406d17765b1d,Провести реструктуризацию и отдохнуть,Restructure your affairs and take a breather
+fragment.8b96b866f32d,"Здоровье +10, Стресс -20, Энергия +30","Health +10, Stress -20, Energy +30"
+fragment.2715e3a3837e,Войти в раунд А,Join the Series A round
+fragment.83311471ac8f,"Требуется Интеллект 45+ для отбора проекта, +$32,000","Requires Intellect 45+ to qualify, +$32,000"
+fragment.b49ec476ec8b,📉 Без глубокой экспертизы стартап оказался пустышкой,"📉 Without deep expertise, the startup proved a dud"
+fragment.e9013f8058b3,"-$8,000).","-$8,000)."
+fragment.d88609968699,Выступить платным техническим экспертом,Serve as a paid technical expert
+fragment.213bac2c8bf0,"+$11,000, Энергия -15","+$11,000, Energy -15"
+fragment.08481d49dd93,Заняться чекапом организма и спортом,Get a full medical checkup and hit the gym
+fragment.6c2043e5e133,"Здоровье +15, Стресс -20, Энергия +30","Health +15, Stress -20, Energy +30"
+fragment.ff2ad48ac961,Провести жесткое поглощение активов,Execute a hostile takeover
+fragment.10d4a07a3ef7,"+$450,000 при Интеллекте 60+, иначе -$120,000","+$450,000 if Intellect 60+, otherwise -$120,000"
+fragment.99c335ecbcb3,⚠️ В отчетности конкурента обнаружились скрытые долги,⚠️ Hidden debts were unearthed in the rival's ledger
+fragment.97edc744d618,"-$120,000).","-$120,000)."
+fragment.bbb2aa85668a,Выдать обеспеченный залогом кредит,Issue a collateralized loan
+fragment.2e71edaa072f,"+$160,000 без риска","+$160,000, risk-free"
+fragment.7f5082e4e3f6,Устроить семейный круиз по океану,Book a family ocean cruise
+fragment.bca49350b2fd,"-$25,000, Здоровье +20, Стресс -35, Энергия +45","-$25,000, Health +20, Stress -35, Energy +45"
+fragment.5bedddb19e86,Профинансировать собственные логистические хабы,Finance your own logistics hubs
+fragment.57cffc01bb42,"+$320,000, Энергия -25","+$320,000, Energy -25"
+fragment.c5b2b370c494,🚢 Своя логистика позволила обойти кризис,🚢 Your private logistics network bypassed the crisis
+fragment.efd532c46bcb,"+$320,000).","+$320,000)."
+fragment.9a3510c27ae4,Захеджировать валютные риски через опционы,Hedge currency risks via options
+fragment.7479b2e0a5f3,"+$140,000, Стресс -5","+$140,000, Stress -5"
+fragment.534b33a35ed1,🛡️ Хеджирование сохранило и приумножило капитал,🛡️ Hedging has preserved and grown your capital
+fragment.e3c5449072c4,"+$140,000).","+$140,000)."
+fragment.1238eb2d0a4f,Передать операционку совету директоров и отдохнуть,Hand over operations to the board and take a breather
+fragment.b785e31d4ca8,Презентовать стратегию экспансии инвесторам,Pitch the expansion strategy to investors
+fragment.da75c5b54243,"+$600,000, Стресс +20, Энергия -25","+$600,000, Stress +20, Energy -25"
+fragment.48c7dc5410e5,Провести закрытые кулуарные переговоры,Conduct private backroom negotiations
+fragment.ab81e941d4a7,"+$240,000, Интеллект +6","+$240,000, Intellect +6"
+fragment.a507b646945b,Остаться в альпийском спа-отеле,Stay at an Alpine spa resort
+fragment.8009c4e14968,"Здоровье +18, Стресс -30, Энергия +40","Health +18, Stress -30, Energy +40"
+fragment.cba58146fe28,Инвестировать в постройку мега-кластера,Invest in a mega-cluster build
+fragment.8d2da768085e,Шанс 75%% на +$%s,75%% chance for +$%s
+fragment.fd05c66d349f,Лицензировать патенты конкурентам,License patents to competitors
+fragment.a2f63db98042,+$%s гарантированно,+$%s guaranteed
+fragment.1ef41c30a908,Провести курс омоложения и биохакинга,Undergo a rejuvenation and biohacking course
+fragment.7534c37c802a,"Здоровье +25, Стресс -35, Энергия +45","Health +25, Stress -35, Energy +45"
+fragment.0e66fb16893c,🧬 Передовая медицина восстановила ваше здоровье,🧬 Cutting-edge medicine has restored your vitality
+fragment.5f02073189f2,+25%).,+25%).
+fragment.30274dd4140d,Вывести дочерние бренды на биржу через громкое IPO,Take your subsidiaries public with a high-profile IPO
+fragment.53ca3e380423,"+$%s, Стресс +20","+$%s, Stress +20"
+fragment.56817fe84f0c,Учредить глобальный благотворительный научный фонд,Establish a global scientific charity foundation
+fragment.d99529f2951e,"+Счастье, -Стресс, +$%s","+Happiness, -Stress, +$%s"
+fragment.469a25c2c776,🕊️ Благотворительный фонд укрепил вашу репутацию и капитализацию,🕊️ The charity foundation has bolstered your reputation and market cap
+fragment.290fb613c120,+$%s).,+$%s).
+fragment.d42732d10203,Уединиться на частном острове на весь квартал,Retreat to a private island for the quarter
+fragment.cffd7ccf2f19,"Здоровье +20, Стресс -40, Энергия +50","Health +20, Stress -40, Energy +50"
+fragment.1084d28cc231,Собрать первый платный проект,Take on your first paid project
+fragment.16ea7b0f8ed1,+$1 800  здоровье −4  стресс +14  энергия −24,"+$1,800  health −4  stress +14  energy −24"
+fragment.77dbb067d291,Провести практикум для соседей,Host a workshop for the neighbors
+fragment.ac4e72ea520e,+$750  интеллект +4  энергия −8,+$750  intellect +4  energy −8
+fragment.9a50a45665d7,Отложить решение и восстановить силы,Defer the decision and recover your strength
+fragment.1901e90d93bd,"здоровье +9, стресс −22, энергия +32","health +9, stress −22, energy +32"
+fragment.03fc073d71b0,Сдать комнату и вести бюджет,Rent out the room and manage the budget
+fragment.fc835aa7769d,+$1 300  здоровье −4  стресс +14  энергия −24,"+$1,300  health −4  stress +14  energy −24"
+fragment.4b3371b7c74f,Разделить расходы с другом,Split expenses with a friend
+fragment.923a6cbc098b,+$650  интеллект +4  энергия −8,+$650  intellect +4  energy −8
+fragment.59a011ab8879,Внедрить систему за долю прибыли,Implement a profit-sharing system
+fragment.67046f256b1c,+$2 100  здоровье −4  стресс +14  энергия −24,"+$2,100  health −4  stress +14  energy −24"
+fragment.599f4888438b,Выполнить разовый заказ,Execute a one-off order
+fragment.e05557bbe600,+$950  интеллект +4  энергия −8,+$950  intellect +4  energy −8
+fragment.6599d3df0416,Взять срочные заказы на новый компьютер,Take on urgent commissions for a new rig
+fragment.0c00bd1fdf6c,+$1 600  здоровье −4  стресс +14  энергия −24,"+$1,600  health −4  stress +14  energy −24"
+fragment.803464fe1796,Отремонтировать технику и продолжить учиться,Repair the hardware and keep at the books
+fragment.c3d30f2c0d53,+$450  интеллект +4  энергия −8,+$450  intellect +4  energy −8
+fragment.63acc42b305f,Лично контролировать каждый проект,Micromanage every project personally
+fragment.c06957290d7f,+$15 000  здоровье −4  стресс +14  энергия −24,"+$15,000  health −4  stress +14  energy −24"
+fragment.156a6c7d1bc1,Обучить команду и делегировать,Train the team and delegate
+fragment.9f18d1ba0b45,+$9 000  интеллект +4  энергия −8,"+$9,000  intellect +4  energy −8"
+fragment.39c838e10923,Арендовать стенд и представить продукт,Rent a booth and showcase the product
+fragment.346d249c9ae3,+$19 000  здоровье −4  стресс +14  энергия −24,"+$19,000  health −4  stress +14  energy −24"
+fragment.d2083f96e789,Провести встречи с постоянными клиентами,Host meetings with key accounts
+fragment.b7a38bf015ec,+$8 500  интеллект +4  энергия −8,"+$8,500  intellect +4  energy −8"
+fragment.021d786d4300,Перестроить процесс контроля качества,Overhaul the quality control pipeline
+fragment.3d92d8cb7000,+$13 000  здоровье −4  стресс +14  энергия −24,"+$13,000  health −4  stress +14  energy −24"
+fragment.e4b6ff3e5e60,Ввести взаимную проверку работ,Implement a peer-review system
+fragment.1b09af1948b1,+$7 500  интеллект +4  энергия −8,"+$7,500  intellect +4  energy −8"
+fragment.686c8e287015,Взять большой объём под личную гарантию,Take on a massive volume under personal guarantee
+fragment.22a4539546a7,+$18 000  здоровье −4  стресс +14  энергия −24,"+$18,000  health −4  stress +14  energy −24"
+fragment.e4fd35627d43,Заключить меньший устойчивый контракт,"Secure a smaller, steady contract"
+fragment.57759891962b,+$10 000  интеллект +4  энергия −8,"+$10,000  intellect +4  energy −8"
+fragment.ed5346be6ae6,Взять управление и обновить производство,Take the helm and modernize production
+fragment.ba2406663103,+$120 000  здоровье −4  стресс +14  энергия −24,"+$120,000  health −4  stress +14  energy −24"
+fragment.2883688b53dd,Финансировать модернизацию поэтапно,Finance the modernization in stages
+fragment.1c6a1b864b0b,+$65 000  интеллект +4  энергия −8,"+$65,000  intellect +4  energy −8"
+fragment.44a9e55c39d4,Одновременно открыть три представительства,Open three new branches simultaneously
+fragment.2204a376a75d,+$180 000  здоровье −4  стресс +14  энергия −24,"+$180,000  health −4  stress +14  energy −24"
+fragment.974cf83e487d,Начать с одного пилотного региона,Start with a single pilot region
+fragment.9dc69f83ca2b,+$75 000  интеллект +4  энергия −8,"+$75,000  intellect +4  energy −8"
+fragment.7f638c0d5080,Запустить масштабную программу обмена,Launch a massive trade-in program
+fragment.400f6c2cd33f,+$140 000  здоровье −4  стресс +14  энергия −24,"+$140,000  health −4  stress +14  energy −24"
+fragment.b7628caa144f,Переработать остатки в новую продукцию,Repurpose the leftovers into new goods
+fragment.ef84852ca4cf,+$60 000  интеллект +4  энергия −8,"+$60,000  intellect +4  energy −8"
+fragment.57a442904934,Лично возглавить прорывную программу,Lead the breakthrough program personally
+fragment.3674a4faf73a,+$160 000  здоровье −4  стресс +14  энергия −24,"+$160,000  health −4  stress +14  energy −24"
+fragment.c4510f64974b,Собрать автономную исследовательскую команду,Assemble an autonomous research squad
+fragment.ea8ee77f045b,+$80 000  интеллект +4  энергия −8,"+$80,000  intellect +4  energy −8"
+fragment.896c833d18ab,Объединить все решения в одном штабе,Centralize all decisions at headquarters
+fragment.109d5e4c27e7,+$12 000 000  здоровье −4  стресс +14  энергия −24,"+$12,000,000  health −4  stress +14  energy −24"
+fragment.c4a165d3e979,Дать дочерним компаниям самостоятельность,Grant the subsidiaries full autonomy
+fragment.79fb7c662ea9,+$6 500 000  интеллект +4  энергия −8,"+$6,500,000  intellect +4  energy −8"
+fragment.1cf8cbc116db,Возглавить ускоренную стройку,Spearhead the accelerated construction
+fragment.fffcb663e689,+$18 000 000  здоровье −4  стресс +14  энергия −24,"+$18,000,000  health −4  stress +14  energy −24"
+fragment.7f1e58e1546e,Разделить проект на надёжные этапы,Divide the project into reliable phases
+fragment.fc6609b6d03c,+$9 000 000  интеллект +4  энергия −8,"+$9,000,000  intellect +4  energy −8"
+fragment.716c2c145f33,Провести широкую реорганизацию,Execute a sweeping reorganization
+fragment.2065573ad261,+$15 000 000  здоровье −4  стресс +14  энергия −24,"+$15,000,000  health −4  stress +14  energy −24"
+fragment.01e2ddc10644,Запустить программу преемственности,Launch a succession program
+fragment.85b4fe5de578,+$7 500 000  интеллект +4  энергия −8,"+$7,500,000  intellect +4  energy −8"
+fragment.659cc31df515,Быстро сократить непрофильные активы,Rapidly divest non-core assets
+fragment.8aa20228f06f,+$14 000 000  здоровье −4  стресс +14  энергия −24,"+$14,000,000  health −4  stress +14  energy −24"
+fragment.8d8a4de7efbc,Создать резерв и улучшить снабжение,Build a reserve and fortify the supply chain
+fragment.6383300b39d4,+$8 500 000  интеллект +4  энергия −8,"+$8,500,000  intellect +4  energy −8"
+fragment.7ce3c7bb4319,Шанс,Chance
+fragment.199c50ae0560,гарантированно,guaranteed
+fragment.67e9e465111b,Стресс,Stress
+fragment.a6ea3873281d,Интеллект,Intelligence
+fragment.3ecf6ad4fbd6,здоровье,health
+fragment.3a35a7f466ec,энергия,energy
+fragment.a1652d4ca77b,стресс,stress
+fragment.9c5f7ffb97be,интеллект,intelligence
+fragment.feb3705ae6d5,счастье,happiness
+fragment.c78357fb7246,Шанс %d%% на +$%s,%d%% chance of +$%s

@@ -64,6 +64,8 @@ var birth_cost_modifier: float = 1.0
 var player_perk: String = "none"
 var current_track: String = "Last Call at Three"
 var audio_enabled: bool = true
+var master_volume: float = 1.0
+var ui_volume: float = 0.8
 var music_volume: float = 0.3
 var sfx_volume: float = 0.8
 
@@ -82,6 +84,8 @@ func save_dynasty() -> bool:
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
+	cfg.set_value("settings", "master_volume", master_volume)
+	cfg.set_value("settings", "ui_volume", ui_volume)
 	cfg.set_value("settings", "music_volume", music_volume)
 	cfg.set_value("settings", "sfx_volume", sfx_volume)
 	var ok := Guard.write_config(SAVE_PATH, cfg, "fortune/dynasty", SavePolicy.dynasty)
@@ -97,6 +101,8 @@ func load_dynasty() -> void:
 		inherited_capital = cfg.get_value("dynasty", "inherited_capital", 0.0)
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
+		master_volume = clampf(cfg.get_value("settings", "master_volume", 1.0), 0, 1)
+		ui_volume = clampf(cfg.get_value("settings", "ui_volume", 0.8), 0, 1)
 		music_volume = clampf(cfg.get_value("settings", "music_volume", 0.3), 0, 1)
 		sfx_volume = clampf(cfg.get_value("settings", "sfx_volume", 0.8), 0, 1)
 

@@ -4,6 +4,7 @@ var title:Label
 var detail:Label
 var previous:=""
 var measured_width:=-1.0
+var previous_language:=""
 func _ready() -> void:
 	button=get_parent() as Button
 	name="ChoiceCard"
@@ -40,7 +41,8 @@ func refresh() -> void:
 	if not is_instance_valid(button): return
 	modulate.a=0.5 if button.disabled else 1.0
 	var available:=button.size.x-40
-	if button.text==previous and is_equal_approx(available,measured_width): return
+	if button.text==previous and previous_language==LocalizationManager.current_language and is_equal_approx(available,measured_width): return
+	previous_language=LocalizationManager.current_language
 	previous=button.text
 	measured_width=available
 	var copy:Dictionary=preload("res://scripts/ui/ChoiceCopy.gd").parts(button.text)
@@ -55,5 +57,5 @@ func text_height(label:Label,width:float) -> float:
 	var paragraph:=TextParagraph.new()
 	paragraph.width=width
 	paragraph.break_flags=TextServer.BREAK_MANDATORY|TextServer.BREAK_WORD_BOUND|TextServer.BREAK_ADAPTIVE
-	paragraph.add_string(label.text,label.get_theme_font("font"),label.get_theme_font_size("font_size"))
+	paragraph.add_string(LocalizationManager.display(label.text),label.get_theme_font("font"),label.get_theme_font_size("font_size"))
 	return paragraph.get_size().y

@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/version="1.4.0"
 
 config/name="Heirs of Fortune"
+config/name_localized={"en":"Heirs of Fortune","ru":"Наследники удачи"}
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Godot/app_userdata/Forbes Ladder- Dynasty & Markets v2"
 config/description="A generational finance strategy game: build a business dynasty and reach the world's top rank."
@@ -25,6 +26,8 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
+
+LocalizationManager="*res://scripts/autoload/LocalizationManager.gd"
 
 GameManager="*res://scripts/GameManager.gd"
 SoundManager="*res://scripts/audio/AudioDirector.gd"

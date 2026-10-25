@@ -22,6 +22,7 @@ var save_status: Label
 var outcome: Label
 var outcome_timer:=0.0
 var choice_cards:Array[Control]=[]
+var language_choice:OptionButton
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -38,7 +39,7 @@ func _ready() -> void:
 	get_tree().quit_on_go_back = false
 	save_status = Label.new()
 	save_status.name = "SaveStatus"
-	save_status.text = "Не удалось сохранить. Освободите место на диске и повторите действие."
+	save_status.text = LocalizationManager.source("copy.bf448e0995f5")
 	save_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	save_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	save_status.add_theme_color_override("font_color",Color("ffbf90"))
@@ -70,6 +71,20 @@ func _ready() -> void:
 	brand.add_theme_color_override("font_color", Color("d4bd90"))
 	column.add_child(brand)
 	column.move_child(brand,0)
+	language_choice=OptionButton.new()
+	language_choice.name="LanguageChoice"
+	language_choice.auto_translate_mode=Node.AUTO_TRANSLATE_MODE_DISABLED
+	language_choice.add_item("Русский")
+	language_choice.add_item("English")
+	language_choice.selected=0 if LocalizationManager.current_language=="ru" else 1
+	column.add_child(language_choice)
+	column.move_child(language_choice,1)
+	language_choice.item_selected.connect(func(index):LocalizationManager.set_language("ru" if index==0 else "en"))
+	LocalizationManager.language_changed.connect(func(language):
+		language_choice.select(0 if language=="ru" else 1)
+		for card in choice_cards:card.refresh()
+		if dashboard:dashboard.queue_redraw()
+	)
 	var content := VBoxContainer.new()
 	content.name = "StoryContent"
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -97,7 +112,7 @@ func _ready() -> void:
 	event_label.minimum_size_changed.connect(func(): $MarginContainer/VBoxContainer/EventPanel/EventScroll.scroll_vertical = 0)
 	market_back = Button.new()
 	market_back.name = "MarketBack"
-	market_back.text = "Вернуться к жизни"
+	market_back.text = LocalizationManager.source("copy.57ec323d704b")
 	market_back.custom_minimum_size.y = 54
 	market_back.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	$MarginContainer/VBoxContainer/ChoicesBox.add_child(market_back)
@@ -107,7 +122,7 @@ func _ready() -> void:
 	)
 	currency_button = Button.new()
 	currency_button.name = "CurrenciesButton"
-	currency_button.text = "Валюты · EUR / GBP / JPY"
+	currency_button.text = LocalizationManager.source("copy.aa18a82d3630")
 	currency_button.custom_minimum_size.y = 54
 	$MarginContainer/VBoxContainer/ChoicesBox.add_child(currency_button)
 	currency_button.pressed.connect(open_currency_menu)
@@ -190,13 +205,13 @@ func restore_session(saved: Dictionary) -> void:
 			set_bottom_bar_enabled(false)
 			update_ui()
 			event_label.text = saved.get("event_text", "")
-			btn_1.text = "➡️ Выбрать черту характера (18 лет)"
+			btn_1.text = LocalizationManager.source("copy.c45c411166e2")
 			btn_2.hide()
 			btn_3.hide()
 		ScreenMode.PERK:
 			show_perk_screen()
 		ScreenMode.LIFE:
-			load_next_life_event("Продолжение сохранённой жизни.", true)
+			load_next_life_event(LocalizationManager.source("copy.f135cbb79f60"), true)
 		ScreenMode.MARKET:
 			open_market_menu()
 		ScreenMode.CURRENCY:
@@ -212,6 +227,7 @@ func restore_session(saved: Dictionary) -> void:
 	restoring_session = false
 
 func update_ui() -> void:
+	if language_choice:language_choice.visible=current_mode==ScreenMode.INTRO
 	if finale_overlay: finale_overlay.visible = current_mode == ScreenMode.GAMEOVER
 	$MarginContainer.visible = current_mode != ScreenMode.GAMEOVER
 	if dashboard: dashboard.queue_redraw()
@@ -225,9 +241,9 @@ func update_ui() -> void:
 	story_art.visible = current_mode in [ScreenMode.INTRO,ScreenMode.BIRTH,ScreenMode.PERK,ScreenMode.LIFE]
 	story_art.custom_minimum_size.y = 260 if current_mode == ScreenMode.INTRO else 190
 	story_art.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	market_btn.text = "Рынки"
-	biz_btn.text = "Бизнес"
-	settings_btn.text = "Настройки"
+	market_btn.text = LocalizationManager.source("copy.47ff48632f92")
+	biz_btn.text = LocalizationManager.source("copy.964b2df03bda")
+	settings_btn.text = LocalizationManager.source("copy.7f17c7c62a7f")
 	if audio_settings:
 		audio_settings.visible = current_mode == ScreenMode.SETTINGS
 	SoundManager.apply_gains()
@@ -235,11 +251,7 @@ func update_ui() -> void:
 	var pass_inc := GameManager.get_passive_quarterly_income()
 	var liv_cost := GameManager.get_quarterly_living_cost()
 	
-	stats_label.text = "Поколение #%d | Возраст: %d л. (Кв. %d) | Неделя #%d
-Капитал (Net Worth): $%s | Кэш: $%s
-Пассив: +$%s/кв | Расходы жизни: -$%s/кв
-Здоровье: %d%% | Энергия: %d%% | Стресс: %d%% | Счастье: %d%%
-Интеллект: %d | Мировой рейтинг: #%s" % [
+	stats_label.text = LocalizationManager.source("copy.8e0adca0f56b") % [
 		GameManager.generation, GameManager.age, GameManager.quarter, GameManager.real_world_week,
 		GameManager.format_num(nw), GameManager.format_num(GameManager.cash),
 		GameManager.format_num(pass_inc), GameManager.format_num(liv_cost),
@@ -249,19 +261,18 @@ func update_ui() -> void:
 	
 	var port_val := GameManager.get_portfolio_value()
 	var biz_name: String = GameManager.BUSINESS_TIERS[GameManager.business_tier]["name"]
-	market_label.text = "📈 Индекс S&P: $%.1f | Крипта: $%.1f | Портфель: $%s
-🏢 Бизнес: %s (x%d)" % [
+	market_label.text = LocalizationManager.source("copy.71c3cf0f114b") % [
 		GameManager.stock_index, GameManager.crypto_rate,
 		GameManager.format_num(port_val), biz_name, GameManager.business_scale
 	]
 	
-	var sound_state := "ВКЛ" if GameManager.audio_enabled and not SoundManager.force_mute else "ВЫКЛ"
-	music_label.text = "🎵 Аудио [%s]: %s" % [sound_state, GameManager.current_track]
+	var sound_state := LocalizationManager.source("copy.5936895c8651") if GameManager.audio_enabled and not SoundManager.force_mute else LocalizationManager.source("copy.919af88107a1")
+	music_label.text = LocalizationManager.source("copy.1556d74b3343") % [sound_state, GameManager.current_track]
 	
 	if GameManager.ad_cooldown > 0:
-		ad_btn.text = "Грант · %s кв" % str(GameManager.ad_cooldown)
+		ad_btn.text = LocalizationManager.source("copy.c54826c2787f") % str(GameManager.ad_cooldown)
 	else:
-		ad_btn.text = "Грант"
+		ad_btn.text = LocalizationManager.source("copy.3bcab31e2fd9")
 
 func _process(delta: float) -> void:
 	event_label.text = clean_copy(event_label.text)
@@ -282,9 +293,9 @@ func clean_copy(text: String) -> String:
 
 func format_rank(r: int) -> String:
 	if r >= 1000000000:
-		return "%.2f млрд" % (float(r) / 1000000000.0)
+		return LocalizationManager.source("copy.21a9f89a5145") % (float(r) / 1000000000.0)
 	elif r >= 1000000:
-		return "%.2f млн" % (float(r) / 1000000.0)
+		return LocalizationManager.source("copy.547cd75236ac") % (float(r) / 1000000.0)
 	else:
 		return str(r)
 
@@ -305,29 +316,24 @@ func show_intro_screen() -> void:
 	
 	var legacy_info := ""
 	if GameManager.generation > 1:
-		legacy_info = "
-🧬 ДИНАСТИЯ: Поколение #%d | Наследство: $%s | Очки опыта рода: %d" % [
+		legacy_info = LocalizationManager.source("copy.07966e7a5d32") % [
 			GameManager.generation, GameManager.format_num(GameManager.cash - 200.0), GameManager.legacy_points
 		]
 	
-	event_label.text = "Ваш путь к $250 млрд и первому месту.\nОдин выбор — один квартал." + legacy_info
-	btn_1.text = "Начать новую историю"
+	event_label.text = LocalizationManager.source("copy.fed691559450") + legacy_info
+	btn_1.text = LocalizationManager.source("copy.cc92b6b195e4")
 	btn_2.visible = false
 	btn_3.visible = false
 
 func show_birth_screen() -> void:
+	if not LocalizationManager.language_confirmed:LocalizationManager.set_language(LocalizationManager.current_language)
 	current_mode = ScreenMode.BIRTH
 	var info := GameManager.roll_birth_lottery()
 	update_ui()
-	event_label.text = "🌍 %s
-
-%s
-
-Регион: %s
-Стартовый баланс: $%s" % [
+	event_label.text = LocalizationManager.source("copy.76fed3b6db77") % [
 		info["title"], info["desc"], GameManager.birth_origin, GameManager.format_num(GameManager.cash)
 	]
-	btn_1.text = "➡️ Выбрать черту характера (18 лет)"
+	btn_1.text = LocalizationManager.source("copy.c45c411166e2")
 	btn_2.visible = false
 	btn_3.visible = false
 
@@ -337,17 +343,15 @@ func show_perk_screen() -> void:
 	btn_3.visible = true
 	update_ui()
 	
-	event_label.text = "🧠 Ваш характер
-
-Очки династии: %d. Выберите преимущество этой жизни." % GameManager.legacy_points
+	event_label.text = LocalizationManager.source("copy.e0209c93a0eb") % GameManager.legacy_points
 	if GameManager.legacy_points >= 3:
-		btn_1.text = "🏛️ Инсайдер Уолл-Стрит (+50% дивидендов, бонус к акциям)"
-		btn_2.text = "🧬 Биохакер (-50% урона здоровью, +20 Здоровья)"
-		btn_3.text = "🛡️ Антикризисный менеджер (-35% стресса, +$2,500)"
+		btn_1.text = LocalizationManager.source("copy.908965d61d75")
+		btn_2.text = LocalizationManager.source("copy.f37aea39c473")
+		btn_3.text = LocalizationManager.source("copy.0d5713148cdd")
 	else:
-		btn_1.text = "💻 Гений алгоритмов (+20 Интеллекта, бонус к учебе)"
-		btn_2.text = "💪 Железный организм (-35% урона здоровью)"
-		btn_3.text = "⚡ Трудоголик (-30% расхода энергии на проектах)"
+		btn_1.text = LocalizationManager.source("copy.b2485dfd429c")
+		btn_2.text = LocalizationManager.source("copy.2c34a6b3982b")
+		btn_3.text = LocalizationManager.source("copy.728389ddd486")
 
 # --- ОСНОВНОЙ ЦИКЛ ЖИЗНИ ---
 
@@ -401,10 +405,10 @@ func open_market_menu() -> void:
 	
 	var stock_val := GameManager.stock_units * GameManager.stock_index
 	var crypto_val := GameManager.crypto_units * GameManager.crypto_rate
-	event_label.text = "Портфель\n\nАкции  $%s · 1,2%% / квартал\nКрипта  $%s\n\nСделки без расхода хода." % [GameManager.format_num(stock_val), GameManager.format_num(crypto_val)]
-	btn_1.text = "Купить акции S&P на 50%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
-	btn_2.text = "Купить крипту на 25%% кэша ($%s)" % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
-	btn_3.text = "Продать акции и крипту"
+	event_label.text = LocalizationManager.source("copy.9a13d56f1eb5") % [GameManager.format_num(stock_val), GameManager.format_num(crypto_val)]
+	btn_1.text = LocalizationManager.source("copy.ce42724ffc48") % GameManager.format_num(max(0.0, GameManager.cash * 0.5))
+	btn_2.text = LocalizationManager.source("copy.ed467fc2f563") % GameManager.format_num(max(0.0, GameManager.cash * 0.25))
+	btn_3.text = LocalizationManager.source("copy.bcfb6801b5e7")
 
 func open_currency_menu() -> void:
 	if current_mode == ScreenMode.GAMEOVER: return
@@ -424,29 +428,25 @@ func open_business_menu() -> void:
 	var next_info := ""
 	if GameManager.business_tier < GameManager.BUSINESS_TIERS.size() - 1:
 		var nxt: Dictionary = GameManager.BUSINESS_TIERS[GameManager.business_tier + 1]
-		next_info = "Далее: %s
-Запуск $%s · доход +$%s/кв" % [
+		next_info = LocalizationManager.source("copy.a2be6aad5f03") % [
 			nxt["name"], GameManager.format_num(nxt["cost"]), GameManager.format_num(nxt["income"])
 		]
 	else:
 		var sc_cost := 250000000.0 * float(GameManager.business_scale)
-		next_info = "Глобальное масштабирование (x%d -> x%d)
-Стоимость поглощения конкурентов: $%s" % [
+		next_info = LocalizationManager.source("copy.e1bf8275af22") % [
 			GameManager.business_scale, GameManager.business_scale * 2, GameManager.format_num(sc_cost)
 		]
 	
-	event_label.text = "%s · ×%d\n\n+$%s / квартал\nСтоимость компании $%s\n\n%s" % [cur_b["name"], GameManager.business_scale, GameManager.format_num(cur_b["income"] * float(GameManager.business_scale)), GameManager.format_num(GameManager.get_business_valuation()), next_info]
-	btn_1.text = "Развивать бизнес"
-	btn_2.text = "Оптимизация · +15%% дохода · −15 энергии · 1 ход"
-	btn_3.text = "Вернуться к жизни"
+	event_label.text = LocalizationManager.source("copy.1d0c6be6aad9") % [cur_b["name"], GameManager.business_scale, GameManager.format_num(cur_b["income"] * float(GameManager.business_scale)), GameManager.format_num(GameManager.get_business_valuation()), next_info]
+	btn_1.text = LocalizationManager.source("copy.39fd05978986")
+	btn_2.text = LocalizationManager.source("copy.b509a224641b")
+	btn_3.text = LocalizationManager.source("copy.57ec323d704b")
 
 func watch_ad_for_bonus() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
 		return
 	if GameManager.ad_cooldown > 0:
-		event_label.text = "⏳ Бонус перезаряжается! Осталось кварталов: %s.
-
-Продолжайте принимать решения." % str(GameManager.ad_cooldown)
+		event_label.text = LocalizationManager.source("copy.1d33e8d9a164") % str(GameManager.ad_cooldown)
 		return
 	
 	var nw := maxf(2500.0, absf(GameManager.get_net_worth()))
@@ -460,11 +460,7 @@ func watch_ad_for_bonus() -> void:
 	if check_game_over():
 		return
 	update_ui()
-	event_label.text = "🎁 СПОНСОРСКИЙ ГРАНТ ПОЛУЧЕН!
-
-• +$%s на счет (масштабируется от капитала)
-• Стресс снижен на 25%%, Энергия +35%%
-• Перезарядка бонуса: 4 квартала." % GameManager.format_num(grant)
+	event_label.text = LocalizationManager.source("copy.9bfe591e09c4") % GameManager.format_num(grant)
 	save_session()
 
 func open_settings_menu() -> void:
@@ -475,17 +471,13 @@ func open_settings_menu() -> void:
 	btn_3.visible = true
 	update_ui()
 	
-	var snd := "Включен" if GameManager.audio_enabled else "Выключен"
-	event_label.text = "⚙️ НАСТРОЙКИ СИМУЛЯЦИИ:
-
-• Скорость течения времени: %.1fx (кварталов за ход)
-• Музыка и звуковые эффекты: %s
-• Поколение династии: #%d (Очки рода: %d)" % [
+	var snd := LocalizationManager.source("copy.edde94ba8823") if GameManager.audio_enabled else LocalizationManager.source("copy.6eb7540d7c53")
+	event_label.text = LocalizationManager.source("copy.c9cc711f4032") % [
 		GameManager.time_speed, snd, GameManager.generation, GameManager.legacy_points
 	]
-	btn_1.text = "⏳ Изменить скорость времени (Сейчас: %.1fx)" % GameManager.time_speed
-	btn_2.text = "🔊 Переключить звук (Сейчас: %s)" % snd
-	btn_3.text = "🔙 Вернуться к игре"
+	btn_1.text = LocalizationManager.source("copy.709e020e05a4") % GameManager.time_speed
+	btn_2.text = LocalizationManager.source("copy.2f9864a97ebc") % snd
+	btn_3.text = LocalizationManager.source("copy.1feff1f51d9e")
 
 # --- ОБРАБОТКА НАЖАТИЙ КНОПОК ---
 
@@ -498,7 +490,7 @@ func on_choice_pressed(option: int) -> void:
 			show_perk_screen()
 		ScreenMode.PERK:
 			apply_selected_perk(option)
-			load_next_life_event("✨ Самостоятельная жизнь началась!")
+			load_next_life_event(LocalizationManager.source("copy.626462e893e5"))
 		ScreenMode.MARKET:
 			handle_market_action(option)
 		ScreenMode.BUSINESS:
@@ -518,7 +510,7 @@ func on_choice_pressed(option: int) -> void:
 				GameManager.energy = max(60, GameManager.energy)
 				if GameManager.cash < 0.0:
 					GameManager.cash = 1000.0
-				load_next_life_event("🚑 ВТОРОЙ ШАНС! Врачи и кризис-менеджеры спасли вас!")
+				load_next_life_event(LocalizationManager.source("copy.eb39f4f8fa06"))
 			else:
 				GameManager.register_inheritance_on_end()
 				GameManager.reset_game()
@@ -555,32 +547,24 @@ func handle_market_action(option: int) -> void:
 		if GameManager.buy_stocks(amt):
 			SoundManager.play_sfx("purchase")
 			open_market_menu()
-			event_label.text = "✅ Куплены акции S&P 500 на $%s!
-
-" % GameManager.format_num(amt) + event_label.text
+			event_label.text = LocalizationManager.source("copy.30fe6d28992e") % GameManager.format_num(amt) + event_label.text
 		else:
-			event_label.text = "❌ Недостаточно свободного кэша для покупки акций!
-
-" + event_label.text
+			event_label.text = LocalizationManager.source("copy.01ceea2130e1") + event_label.text
 	elif option == 2:
 		var amt := GameManager.cash * 0.25
 		if GameManager.buy_crypto(amt):
 			SoundManager.play_sfx("purchase")
 			open_market_menu()
-			event_label.text = "✅ Куплена криптовалюта на $%s!
-
-" % GameManager.format_num(amt) + event_label.text
+			event_label.text = LocalizationManager.source("copy.67d6a0681bd8") % GameManager.format_num(amt) + event_label.text
 		else:
-			event_label.text = "❌ Недостаточно свободного кэша для покупки крипты!
-
-" + event_label.text
+			event_label.text = LocalizationManager.source("copy.4379c0b7c8cd") + event_label.text
 	else:
 		var sold_s := GameManager.sell_all_stocks()
 		var sold_c := GameManager.sell_all_crypto()
-		var note := "💼 Возврат к событиям."
+		var note := LocalizationManager.source("copy.ab4c949a31bc")
 		if sold_s + sold_c > 0.0:
 			SoundManager.play_sfx("sale")
-			note = "💵 Активы проданы на сумму $%s!" % GameManager.format_num(sold_s + sold_c)
+			note = LocalizationManager.source("copy.35be604060f8") % GameManager.format_num(sold_s + sold_c)
 		load_next_life_event(note, true)
 
 func handle_business_action(option: int) -> void:
@@ -598,13 +582,11 @@ func handle_business_action(option: int) -> void:
 		if GameManager.business_tier > 0 and GameManager.energy >= 15:
 			var bonus: float = GameManager.BUSINESS_TIERS[GameManager.business_tier]["income"] * float(GameManager.business_scale) * 0.15
 			GameManager.apply_delta(bonus, 0, 0, 0, 0, -15)
-			load_next_life_event("⚡ Оптимизация принесла +$%s! Прошёл один ход." % GameManager.format_num(bonus))
+			load_next_life_event(LocalizationManager.source("copy.ed4b0b659951") % GameManager.format_num(bonus))
 		else:
-			event_label.text = "❌ Нужен открытый бизнес и минимум 15% Энергии!
-
-" + event_label.text
+			event_label.text = LocalizationManager.source("copy.6d0c821355a9") + event_label.text
 	else:
-		load_next_life_event("🏢 Вы вернулись из офиса.", true)
+		load_next_life_event(LocalizationManager.source("copy.87de3bb66d37"), true)
 
 func handle_settings_action(option: int) -> void:
 	if option == 1:
@@ -627,26 +609,25 @@ func handle_settings_action(option: int) -> void:
 
 func check_game_over() -> bool:
 	if GameManager.rank == 1 and GameManager.get_net_worth() >= 250000000000.0:
-		trigger_game_over("🏆 АБСОЛЮТНЫЙ ТРИУМФ!
-Вы достигли состояния $250+ млрд и официально заняли #1 строчку мирового рейтинга!", true)
+		trigger_game_over(LocalizationManager.source("copy.35118a151aa7"), true)
 		return true
 	if GameManager.health <= 0:
-		trigger_game_over("💔 Остановка сердца на фоне износа организма. Врачи оказались бессильны.", false)
+		trigger_game_over(LocalizationManager.source("copy.14b8a11ef688"), false)
 		return true
 	if GameManager.stress >= 100:
-		trigger_game_over("🧠 Острый нервный срыв и клиническое выгорание. Вы отошли от всех дел.", false)
+		trigger_game_over(LocalizationManager.source("copy.8ac4a20f459a"), false)
 		return true
 	if GameManager.energy <= 0:
-		trigger_game_over("⚡ Критическое физическое истощение прямо на рабочем месте.", false)
+		trigger_game_over(LocalizationManager.source("copy.8d3c88012d83"), false)
 		return true
 	if GameManager.get_net_worth() <= -30000.0:
-		trigger_game_over("⚖️ Принудительное банкротство и арест имущества за неподъемные долги.", false)
+		trigger_game_over(LocalizationManager.source("copy.7f4b17d5695c"), false)
 		return true
 	if GameManager.age >= 82:
 		if GameManager.rank <= 10:
-			trigger_game_over("👑 Вы прожили легендарную жизнь и вошли в Топ-10 богатейших людей планеты (Место #%d)!" % GameManager.rank, true)
+			trigger_game_over(LocalizationManager.source("copy.848fe0958410") % GameManager.rank, true)
 		else:
-			trigger_game_over("⏳ Жизненный путь подошел к концу в возрасте %d лет. Вы остановились на #%s месте в мире." % [GameManager.age, format_rank(GameManager.rank)], false)
+			trigger_game_over(LocalizationManager.source("copy.4fd334376182") % [GameManager.age, format_rank(GameManager.rank)], false)
 		return true
 	return false
 
@@ -662,29 +643,22 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	SoundManager.play_music("welcome")
 	SoundManager.play_sfx("victory" if is_victory else "defeat")
 	can_revive = not is_victory and not GameManager.revive_used and GameManager.age < 80
-	var dynasty_msg := "Итоги династии будут сохранены при начале следующего поколения."
+	var dynasty_msg := LocalizationManager.source("copy.b71d63dd66c0")
 	update_ui()
 	
-	event_label.text = "🏁 ИТОГ ЖИЗНИ (Поколение #%d)
-
-%s
-
-Итоговый капитал: $%s
-Финальный мировой рейтинг: #%s
-
-🧬 %s" % [
+	event_label.text = LocalizationManager.source("copy.5965f40d6b39") % [
 		GameManager.generation, reason,
 		GameManager.format_num(GameManager.get_net_worth()),
 		format_rank(GameManager.rank), dynasty_msg
 	]
 	
 	if can_revive:
-		btn_1.text = "🚑 Экстренная помощь (один раз за жизнь)"
+		btn_1.text = LocalizationManager.source("copy.b9a91297dde4")
 		btn_2.visible = true
-		btn_2.text = "🔄 Начать новое поколение династии"
+		btn_2.text = LocalizationManager.source("copy.13d00648f2d7")
 		btn_3.visible = false
 	else:
-		btn_1.text = "🔄 Начать новое поколение династии"
+		btn_1.text = LocalizationManager.source("copy.13d00648f2d7")
 		btn_2.visible = false
 		btn_3.visible = false
 	show_finale()
@@ -715,162 +689,162 @@ func pick_modular_event() -> Dictionary:
 func get_survival_events() -> Array:
 	return [
 		{
-			"title": "Счета за аренду и продукты растут. Как проведете этот квартал?",
-			"o1": "Взять подработку и ночные смены (+$1,400, Энергия -25, Стресс +10)",
-			"r1": func(): GameManager.apply_delta(1400, -4, 1, 10, -5, -25); return "💼 Вы отработали тяжелые смены (+$1,400).",
-			"o2": "Проходить интенсив по IT и финансам (-$200, Интеллект +8, Энергия -15)",
-			"r2": func(): GameManager.apply_delta(-200, 0, 8, 5, 5, -15); return "📚 Ваш уровень интеллекта вырос (+8)!",
-			"o3": "Отдохнуть, выспаться и заняться спортом (Здоровье +10, Стресс -20, Энергия +35)",
-			"r3": func(): GameManager.apply_delta(200, 10, 0, -20, 12, 35); return "🌿 Вы восстановили силы и здоровье."
+			"title": LocalizationManager.source("copy.de2a6f7ecd03"),
+			"o1": LocalizationManager.source("copy.0c3022c59e3e"),
+			"r1": func(): GameManager.apply_delta(1400, -4, 1, 10, -5, -25); return LocalizationManager.source("copy.040809336be4"),
+			"o2": LocalizationManager.source("copy.63250eaa07ff"),
+			"r2": func(): GameManager.apply_delta(-200, 0, 8, 5, 5, -15); return LocalizationManager.source("copy.ce6cf579ea2b"),
+			"o3": LocalizationManager.source("copy.57b165c2f936"),
+			"r3": func(): GameManager.apply_delta(200, 10, 0, -20, 12, 35); return LocalizationManager.source("copy.9f38175c8969")
 		},
 		{
-			"title": "Знакомый предлагает перепродавать дефицитную электронику с маркетплейсов.",
-			"o1": "Вложить $800 и заняться продажами (Шанс 65% заработать +$2,800)",
+			"title": LocalizationManager.source("copy.946b501b66a6"),
+			"o1": LocalizationManager.source("copy.581db62553d7"),
 			"r1": func():
 				if rng.randf() < 0.65:
 					GameManager.apply_delta(2800, -2, 3, 10, 10, -20)
-					return "📦 Партия разлетелась за неделю! Прибыль +$2,800."
+					return LocalizationManager.source("copy.ad218c565f88")
 				else:
 					GameManager.apply_delta(-800, -2, 1, 18, -10, -20)
-					return "📉 Товар завис на складе. Убыток -$800.",
-			"o2": "Работать курьером/фрилансером без риска (+$950, Энергия -15)",
-			"r2": func(): GameManager.apply_delta(950, -2, 1, 5, 0, -15); return "🚲 Стабильный заработок +$950.",
-			"o3": "Посвятить квартал нетворкингу и поиску ментора (Интеллект +5, Стресс -10)",
-			"r3": func(): GameManager.apply_delta(300, 2, 5, -10, 8, 10); return "🤝 Вы завели полезные знакомства."
+					return LocalizationManager.source("copy.668ea0fd9c03"),
+			"o2": LocalizationManager.source("copy.425ffaf6d250"),
+			"r2": func(): GameManager.apply_delta(950, -2, 1, 5, 0, -15); return LocalizationManager.source("copy.56e35f27471f"),
+			"o3": LocalizationManager.source("copy.1277de12e43e"),
+			"r3": func(): GameManager.apply_delta(300, 2, 5, -10, 8, 10); return LocalizationManager.source("copy.c8dc61cd4524")
 		},
 		{
-			"title": "Локальный хакатон стартапов с денежным призом.",
-			"o1": "Выступить с собственным прототипом (Требуется Интеллект 25+)",
+			"title": LocalizationManager.source("copy.d3483c318bd7"),
+			"o1": LocalizationManager.source("copy.9b246ac48259"),
 			"r1": func():
 				if GameManager.intellect >= 25:
 					GameManager.apply_delta(4500, -3, 6, 12, 20, -25)
-					return "🏆 Вы заняли призовое место на хакатоне! Грант +$4,500."
+					return LocalizationManager.source("copy.f1de0c92fc74")
 				else:
 					GameManager.apply_delta(300, -2, 4, 15, -5, -20)
-					return "💻 Не хватило навыков для победы, но вы получили опыт (+4 Интеллекта).",
-			"o2": "Помочь организаторам за фиксированную оплату (+$1,100)",
-			"r2": func(): GameManager.apply_delta(1100, 0, 2, 4, 5, -12); return "🎫 Вы заработали $1,100 на организации.",
-			"o3": "Пропустить мероприятие и отдохнуть дома (Энергия +30, Стресс -15)",
-			"r3": func(): GameManager.apply_delta(150, 5, 0, -15, 10, 30); return "🛌 Отличный отдых дома."
+					return LocalizationManager.source("copy.d3bea7ef17de"),
+			"o2": LocalizationManager.source("copy.a39b3f8d6862"),
+			"r2": func(): GameManager.apply_delta(1100, 0, 2, 4, 5, -12); return LocalizationManager.source("copy.0ee48b338227"),
+			"o3": LocalizationManager.source("copy.a47a5e41a30b"),
+			"r3": func(): GameManager.apply_delta(150, 5, 0, -15, 10, 30); return LocalizationManager.source("copy.f3a791c2646a")
 		},
 		{
-			"title": "Проблемы со здоровьем из-за дешевой еды и перегрузок.",
-			"o1": "Пройти полное обследование и лечение (-$600, Здоровье +22, Стресс -15)",
-			"r1": func(): GameManager.apply_delta(-600, 22, 0, -15, 10, 20); return "🏥 Здоровье полностью укреплено (+22%).",
-			"o2": "Продолжать работать через силу (+$1,200, Здоровье -12, Стресс +15)",
-			"r2": func(): GameManager.apply_delta(1200, -12, 1, 15, -10, -20); return "💊 Вы заработали +$1,200, но здоровье ухудшилось.",
-			"o3": "Взять недельный отпуск и перейти на домашнюю еду (Здоровье +8, Энергия +25)",
-			"r3": func(): GameManager.apply_delta(200, 8, 0, -10, 8, 25); return "🥗 Самочувствие заметно улучшилось."
+			"title": LocalizationManager.source("copy.89650c4a24ab"),
+			"o1": LocalizationManager.source("copy.488af448b06d"),
+			"r1": func(): GameManager.apply_delta(-600, 22, 0, -15, 10, 20); return LocalizationManager.source("copy.676e06f8634c"),
+			"o2": LocalizationManager.source("copy.bfad3023f3ba"),
+			"r2": func(): GameManager.apply_delta(1200, -12, 1, 15, -10, -20); return LocalizationManager.source("copy.d07556011189"),
+			"o3": LocalizationManager.source("copy.f3cd70d26426"),
+			"r3": func(): GameManager.apply_delta(200, 8, 0, -10, 8, 25); return LocalizationManager.source("copy.c376a4f0217e")
 		},
 		{
-			"title": "На работе открылась вакансия младшего руководителя проекта.",
-			"o1": "Взять на себя ответственность (+$2,200, Интеллект +4, Стресс +12)",
-			"r1": func(): GameManager.apply_delta(2200, -3, 4, 12, 8, -20); return "📈 Вас повысили! Доход квартала +$2,200.",
-			"o2": "Остаться на спокойной должности (+$1,000, Стресс -5, Энергия +10)",
-			"r2": func(): GameManager.apply_delta(1000, 2, 1, -5, 5, 10); return "☕ Спокойный рабочий квартал (+$1,000).",
-			"o3": "Уйти на удаленный фриланс (+$1,500, Интеллект +3, Энергия -10)",
-			"r3": func(): GameManager.apply_delta(1500, 0, 3, 4, 6, -10); return "💻 Удаленные заказы принесли +$1,500."
+			"title": LocalizationManager.source("copy.c5ef2e086f8b"),
+			"o1": LocalizationManager.source("copy.d8f3a6fe0af0"),
+			"r1": func(): GameManager.apply_delta(2200, -3, 4, 12, 8, -20); return LocalizationManager.source("copy.af1b68768b3a"),
+			"o2": LocalizationManager.source("copy.313d6c0a68d2"),
+			"r2": func(): GameManager.apply_delta(1000, 2, 1, -5, 5, 10); return LocalizationManager.source("copy.59338dd850a4"),
+			"o3": LocalizationManager.source("copy.276587c257d5"),
+			"r3": func(): GameManager.apply_delta(1500, 0, 3, 4, 6, -10); return LocalizationManager.source("copy.c23c0d676dfa")
 		},
 		{
-			"title": "Бум нейросетей: компании ищут специалистов по автоматизации.",
-			"o1": "Разработать бота под заказ бизнеса (+$3,200 при Интеллекте 30+, иначе +$900)",
+			"title": LocalizationManager.source("copy.c6971ee65bcb"),
+			"o1": LocalizationManager.source("copy.d7ccaea6dc89"),
 			"r1": func():
 				var gain := 3200.0 if GameManager.intellect >= 30 else 900.0
 				GameManager.apply_delta(gain, -2, 5, 8, 10, -18)
-				return "🤖 Заказ по автоматизации принес +$%s!" % GameManager.format_num(gain),
-			"o2": "Изучать архитектуру ИИ и алгоритмы (Интеллект +10, Энергия -15)",
-			"r2": func(): GameManager.apply_delta(100, 0, 10, 5, 5, -15); return "🧠 Интеллект вырос на +10!",
-			"o3": "Восстановить баланс сна и психики (Стресс -25, Энергия +35)",
-			"r3": func(): GameManager.apply_delta(200, 6, 0, -25, 15, 35); return "🧘 Полная перезагрузка нервной системы."
+				return LocalizationManager.source("copy.7c899eb130df") % GameManager.format_num(gain),
+			"o2": LocalizationManager.source("copy.e378e8878609"),
+			"r2": func(): GameManager.apply_delta(100, 0, 10, 5, 5, -15); return LocalizationManager.source("copy.6245542029c3"),
+			"o3": LocalizationManager.source("copy.c28a02729595"),
+			"r3": func(): GameManager.apply_delta(200, 6, 0, -25, 15, 35); return LocalizationManager.source("copy.256a39ac45f5")
 		}
 	] + EventLibrary.events_for("survival")
 
 func get_career_events() -> Array:
 	return [
 		{
-			"title": "Крупный корпоративный клиент предлагает сложный контракт с жестким дедлайном.",
-			"o1": "Подписать контракт и работать без выходных (+$18,000, Стресс +22, Энергия -30)",
-			"r1": func(): GameManager.apply_delta(18000, -8, 4, 22, 5, -30); return "💰 Контракт закрыт! Вы получили +$18,000.",
-			"o2": "Нанять подрядчиков и разделить прибыль (+$8,500, Стресс +5, Энергия -10)",
-			"r2": func(): GameManager.apply_delta(8500, 0, 3, 5, 10, -10); return "🤝 Делегирование сработало отлично (+$8,500).",
-			"o3": "Отказаться и уехать в оздоровительный отпуск (-$1,500, Здоровье +15, Стресс -30)",
-			"r3": func(): GameManager.apply_delta(-1500, 15, 0, -30, 25, 40); return "🏖️ Отпуск вернул вам здоровье и бодрость!"
+			"title": LocalizationManager.source("copy.0b6ffe72e8ed"),
+			"o1": LocalizationManager.source("copy.493af682846b"),
+			"r1": func(): GameManager.apply_delta(18000, -8, 4, 22, 5, -30); return LocalizationManager.source("copy.60c540913e98"),
+			"o2": LocalizationManager.source("copy.8ac918f166b3"),
+			"r2": func(): GameManager.apply_delta(8500, 0, 3, 5, 10, -10); return LocalizationManager.source("copy.88c763182a3a"),
+			"o3": LocalizationManager.source("copy.1c8c3ff50cc8"),
+			"r3": func(): GameManager.apply_delta(-1500, 15, 0, -30, 25, 40); return LocalizationManager.source("copy.e6a8d04f65c3")
 		},
 		{
-			"title": "На рынке коммерческой недвижимости просадка цен из-за высоких ставок.",
-			"o1": "Выкупить проблемный объект и сдать в субаренду (-$15,000, шанс 70% на +$38,000)",
+			"title": LocalizationManager.source("copy.2f64e5f86a8a"),
+			"o1": LocalizationManager.source("copy.9bd9ba917046"),
 			"r1": func():
 				if rng.randf() < 0.70:
 					GameManager.apply_delta(23000, 0, 4, 12, 15, -15)
-					return "🏢 Сделка с недвижимостью принесла чистыми +$23,000!"
+					return LocalizationManager.source("copy.427336beea9c")
 				else:
 					GameManager.apply_delta(-12000, -4, 2, 20, -10, -15)
-					return "📉 Арендаторы съехали раньше срока. Убыток -$12,000.",
-			"o2": "Сфокусироваться на основной карьере и консалтинге (+$9,500)",
-			"r2": func(): GameManager.apply_delta(9500, -2, 3, 8, 5, -15); return "💼 Консалтинг принес стабильные +$9,500.",
-			"o3": "Пройти программу MBA и обрасти связями (-$4,000, Интеллект +14, Энергия +10)",
-			"r3": func(): GameManager.apply_delta(-4000, 2, 14, -5, 12, 10); return "🎓 Диплом MBA укрепил ваш интеллект (+14)."
+					return LocalizationManager.source("copy.3bdda846c354"),
+			"o2": LocalizationManager.source("copy.2352880633de"),
+			"r2": func(): GameManager.apply_delta(9500, -2, 3, 8, 5, -15); return LocalizationManager.source("copy.a68bf3b69447"),
+			"o3": LocalizationManager.source("copy.d5a6241a4923"),
+			"r3": func(): GameManager.apply_delta(-4000, 2, 14, -5, 12, 10); return LocalizationManager.source("copy.a817effb7405")
 		},
 		{
-			"title": "Налоговая проверка и аудит вашей финансовой деятельности.",
-			"o1": "Нанять топовых юристов и закрыть все вопросы легально (-$5,000, Стресс -10)",
-			"r1": func(): GameManager.apply_delta(-5000, 0, 2, -10, 5, -5); return "⚖️ Юристы блестяще защитили ваши активы.",
-			"o2": "Разбираться с документами самостоятельно (+$4,000 экономии, Стресс +25, Энергия -25)",
-			"r2": func(): GameManager.apply_delta(4000, -5, 3, 25, -10, -25); return "📑 Вы отбились от штрафов сами, но сильно устали.",
-			"o3": "Провести реструктуризацию и отдохнуть (Здоровье +10, Стресс -20, Энергия +30)",
-			"r3": func(): GameManager.apply_delta(2000, 10, 1, -20, 12, 30); return "🌿 Дела приведены в порядок без лишней спешки."
+			"title": LocalizationManager.source("copy.153c58937472"),
+			"o1": LocalizationManager.source("copy.494af8ddcb35"),
+			"r1": func(): GameManager.apply_delta(-5000, 0, 2, -10, 5, -5); return LocalizationManager.source("copy.e5a599dd29c3"),
+			"o2": LocalizationManager.source("copy.600c40150298"),
+			"r2": func(): GameManager.apply_delta(4000, -5, 3, 25, -10, -25); return LocalizationManager.source("copy.b49dec85bba7"),
+			"o3": LocalizationManager.source("copy.458a1d2a5ad2"),
+			"r3": func(): GameManager.apply_delta(2000, 10, 1, -20, 12, 30); return LocalizationManager.source("copy.59fd9d43e41b")
 		},
 		{
-			"title": "Венчурный фонд ищет соинвесторов для запуска облачной платформы.",
-			"o1": "Войти в раунд А (Требуется Интеллект 45+ для отбора проекта, +$32,000)",
+			"title": LocalizationManager.source("copy.c98ac97b1cb3"),
+			"o1": LocalizationManager.source("copy.a4316ea3c95b"),
 			"r1": func():
 				if GameManager.intellect >= 45:
 					GameManager.apply_delta(32000, -2, 5, 10, 20, -15)
-					return "🚀 Ваш аналитический расчет оправдался! +$32,000."
+					return LocalizationManager.source("copy.20536b57a9ef")
 				else:
 					GameManager.apply_delta(-8000, -2, 4, 18, -10, -15)
-					return "📉 Без глубокой экспертизы стартап оказался пустышкой (-$8,000).",
-			"o2": "Выступить платным техническим экспертом (+$11,000, Энергия -15)",
-			"r2": func(): GameManager.apply_delta(11000, -2, 3, 6, 8, -15); return "🔍 Экспертиза принесла +$11,000.",
-			"o3": "Заняться чекапом организма и спортом (Здоровье +15, Стресс -20, Энергия +30)",
-			"r3": func(): GameManager.apply_delta(1000, 15, 0, -20, 15, 30); return "💪 Отличная физическая форма!"
+					return LocalizationManager.source("copy.828fb0804dfb"),
+			"o2": LocalizationManager.source("copy.f1bb3f9ee94b"),
+			"r2": func(): GameManager.apply_delta(11000, -2, 3, 6, 8, -15); return LocalizationManager.source("copy.3a1d44880892"),
+			"o3": LocalizationManager.source("copy.0257df066402"),
+			"r3": func(): GameManager.apply_delta(1000, 15, 0, -20, 15, 30); return LocalizationManager.source("copy.407c5f406f9a")
 		}
 	] + EventLibrary.events_for("career")
 
 func get_millionaire_events() -> Array:
 	return [
 		{
-			"title": "Крупный конкурент испытывает кассовый разрыв и ищет покупателя на долю.",
-			"o1": "Провести жесткое поглощение активов (+$450,000 при Интеллекте 60+, иначе -$120,000)",
+			"title": LocalizationManager.source("copy.d88c31c1d726"),
+			"o1": LocalizationManager.source("copy.9e65892b0c6e"),
 			"r1": func():
 				if GameManager.intellect >= 60:
 					GameManager.apply_delta(450000, -5, 6, 18, 20, -25)
-					return "🦈 Блестящая сделка M&A! Капитал вырос на +$450,000."
+					return LocalizationManager.source("copy.42f3c1de7182")
 				else:
 					GameManager.apply_delta(-120000, -5, 4, 25, -15, -25)
-					return "⚠️ В отчетности конкурента обнаружились скрытые долги (-$120,000).",
-			"o2": "Выдать обеспеченный залогом кредит (+$160,000 без риска)",
-			"r2": func(): GameManager.apply_delta(160000, 0, 2, 5, 10, -10); return "🏦 Проценты по сделке принесли +$160,000.",
-			"o3": "Устроить семейный круиз по океану (-$25,000, Здоровье +20, Стресс -35, Энергия +45)",
-			"r3": func(): GameManager.apply_delta(-25000, 20, 0, -35, 30, 45); return "🛥️ Роскошный отдых полностью восстановил ваши силы."
+					return LocalizationManager.source("copy.68960af84db5"),
+			"o2": LocalizationManager.source("copy.26cb492cda4b"),
+			"r2": func(): GameManager.apply_delta(160000, 0, 2, 5, 10, -10); return LocalizationManager.source("copy.412bce5e6108"),
+			"o3": LocalizationManager.source("copy.7683dbed0e78"),
+			"r3": func(): GameManager.apply_delta(-25000, 20, 0, -35, 30, 45); return LocalizationManager.source("copy.c528a7b3f678")
 		},
 		{
-			"title": "Глобальный сбой цепочек поставок угрожает маржинальности рынков.",
-			"o1": "Профинансировать собственные логистические хабы (+$320,000, Энергия -25)",
-			"r1": func(): GameManager.apply_delta(320000, -4, 4, 15, 12, -25); return "🚢 Своя логистика позволила обойти кризис (+$320,000).",
-			"o2": "Захеджировать валютные риски через опционы (+$140,000, Стресс -5)",
-			"r2": func(): GameManager.apply_delta(140000, 0, 3, -5, 8, -10); return "🛡️ Хеджирование сохранило и приумножило капитал (+$140,000).",
-			"o3": "Передать операционку совету директоров и отдохнуть (Стресс -25, Энергия +35)",
-			"r3": func(): GameManager.apply_delta(60000, 12, 1, -25, 20, 35); return "⛳ Совет директоров справился, пока вы отдыхали."
+			"title": LocalizationManager.source("copy.f258bd410451"),
+			"o1": LocalizationManager.source("copy.0a752ba503f7"),
+			"r1": func(): GameManager.apply_delta(320000, -4, 4, 15, 12, -25); return LocalizationManager.source("copy.a7d66c8d12e3"),
+			"o2": LocalizationManager.source("copy.c4145a6c57e1"),
+			"r2": func(): GameManager.apply_delta(140000, 0, 3, -5, 8, -10); return LocalizationManager.source("copy.b0c7aea67e84"),
+			"o3": LocalizationManager.source("copy.cdd14f6c2c30"),
+			"r3": func(): GameManager.apply_delta(60000, 12, 1, -25, 20, 35); return LocalizationManager.source("copy.a1aa6c89c5fa")
 		},
 		{
-			"title": "Международный технологический форум в Давосе.",
-			"o1": "Презентовать стратегию экспансии инвесторам (+$600,000, Стресс +20, Энергия -25)",
-			"r1": func(): GameManager.apply_delta(600000, -4, 5, 20, 25, -25); return "🌍 Инвесторы выстроились в очередь! Приток +$600,000.",
-			"o2": "Провести закрытые кулуарные переговоры (+$240,000, Интеллект +6)",
-			"r2": func(): GameManager.apply_delta(240000, 0, 6, 5, 12, -10); return "🥂 Кулуарные контракты принесли +$240,000.",
-			"o3": "Остаться в альпийском спа-отеле (Здоровье +18, Стресс -30, Энергия +40)",
-			"r3": func(): GameManager.apply_delta(0, 18, 0, -30, 25, 40); return "🏔️ Чистый горный воздух вернул вам молодость."
+			"title": LocalizationManager.source("copy.bd5d76a53d88"),
+			"o1": LocalizationManager.source("copy.09ca3d3c9fde"),
+			"r1": func(): GameManager.apply_delta(600000, -4, 5, 20, 25, -25); return LocalizationManager.source("copy.06e601ea1ed0"),
+			"o2": LocalizationManager.source("copy.b60ef3c4ab78"),
+			"r2": func(): GameManager.apply_delta(240000, 0, 6, 5, 12, -10); return LocalizationManager.source("copy.060e13776b56"),
+			"o3": LocalizationManager.source("copy.c710a81df73f"),
+			"r3": func(): GameManager.apply_delta(0, 18, 0, -30, 25, 40); return LocalizationManager.source("copy.d82dd42ed897")
 		}
 	] + EventLibrary.events_for("millionaire")
 
@@ -878,42 +852,42 @@ func get_billionaire_events(event_net_worth: float = -1.0) -> Array:
 	var scale_mult := maxf(1.0, (GameManager.get_net_worth() if event_net_worth < 0 else event_net_worth) * 0.08)
 	return [
 		{
-			"title": "Глобальная гонка искусственного интеллекта и квантовых дата-центров.",
-			"o1": "Инвестировать в постройку мега-кластера (Шанс 75%% на +$%s)" % GameManager.format_num(scale_mult * 2.2),
+			"title": LocalizationManager.source("copy.592c313ed838"),
+			"o1": LocalizationManager.source("copy.abef1f22864e") % GameManager.format_num(scale_mult * 2.2),
 			"r1": func():
 				if rng.randf() < 0.75:
 					var win := scale_mult * 2.2
 					GameManager.apply_delta(win, -5, 8, 18, 25, -25)
-					return "🌌 Ваш ИИ-кластер стал мировым стандартом! Капитал +$%s." % GameManager.format_num(win)
+					return LocalizationManager.source("copy.f1546a30c0ad") % GameManager.format_num(win)
 				else:
 					var loss := scale_mult * 0.6
 					GameManager.apply_delta(-loss, -5, 4, 25, -15, -25)
-					return "⚡ Задержка поставок чипов привела к убыткам -$%s." % GameManager.format_num(loss),
-			"o2": "Лицензировать патенты конкурентам (+$%s гарантированно)" % GameManager.format_num(scale_mult * 0.9),
+					return LocalizationManager.source("copy.391ed2771a2c") % GameManager.format_num(loss),
+			"o2": LocalizationManager.source("copy.9a2eb5202848") % GameManager.format_num(scale_mult * 0.9),
 			"r2": func():
 				var gain := scale_mult * 0.9
 				GameManager.apply_delta(gain, 0, 4, 5, 15, -10)
-				return "📜 Патентные роялти принесли +$%s." % GameManager.format_num(gain),
-			"o3": "Провести курс омоложения и биохакинга (Здоровье +25, Стресс -35, Энергия +45)",
+				return LocalizationManager.source("copy.1764e101d247") % GameManager.format_num(gain),
+			"o3": LocalizationManager.source("copy.33517dbfdf3a"),
 			"r3": func():
 				GameManager.apply_delta(scale_mult * 0.15, 25, 2, -35, 30, 45)
-				return "🧬 Передовая медицина восстановила ваше здоровье (+25%).",
+				return LocalizationManager.source("copy.329fd53f192b"),
 		},
 		{
-			"title": "Антимонопольный комитет рассматривает влияние вашей империи на мировую экономику.",
-			"o1": "Вывести дочерние бренды на биржу через громкое IPO (+$%s, Стресс +20)" % GameManager.format_num(scale_mult * 1.8),
+			"title": LocalizationManager.source("copy.21daa0f76935"),
+			"o1": LocalizationManager.source("copy.be8b999f3b0a") % GameManager.format_num(scale_mult * 1.8),
 			"r1": func():
 				var gain := scale_mult * 1.8
 				GameManager.apply_delta(gain, -4, 5, 20, 20, -20)
-				return "🔔 Триумфальное IPO дочерних компаний принесло +$%s!" % GameManager.format_num(gain),
-			"o2": "Учредить глобальный благотворительный научный фонд (+Счастье, -Стресс, +$%s)" % GameManager.format_num(scale_mult * 0.6),
+				return LocalizationManager.source("copy.106035a32214") % GameManager.format_num(gain),
+			"o2": LocalizationManager.source("copy.eda7fa63a1cd") % GameManager.format_num(scale_mult * 0.6),
 			"r2": func():
 				var gain := scale_mult * 0.6
 				GameManager.apply_delta(gain, 10, 4, -25, 35, 25)
-				return "🕊️ Благотворительный фонд укрепил вашу репутацию и капитализацию (+$%s)." % GameManager.format_num(gain),
-			"o3": "Уединиться на частном острове на весь квартал (Здоровье +20, Стресс -40, Энергия +50)",
+				return LocalizationManager.source("copy.298e9d265c65") % GameManager.format_num(gain),
+			"o3": LocalizationManager.source("copy.828d067a6408"),
 			"r3": func():
 				GameManager.apply_delta(scale_mult * 0.25, 20, 0, -40, 35, 50)
-				return "🏝️ Абсолютный покой на частном острове.",
+				return LocalizationManager.source("copy.8431904301ab"),
 		}
 	] + EventLibrary.events_for("billionaire")
