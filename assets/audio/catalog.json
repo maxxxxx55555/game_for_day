@@ -42,18 +42,6 @@
       "loop": false,
       "channels": 1
     },
-    "inventory_open": {
-      "path": "inventory_open.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
-    },
-    "pickup": {
-      "path": "pickup.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
-    },
     "purchase": {
       "path": "purchase.wav",
       "seconds": 0.38,
@@ -78,12 +66,6 @@
       "loop": false,
       "channels": 1
     },
-    "potion": {
-      "path": "potion.wav",
-      "seconds": 0.65,
-      "loop": false,
-      "channels": 1
-    },
     "victory": {
       "path": "victory.wav",
       "seconds": 2.8,
@@ -93,6 +75,12 @@
     "defeat": {
       "path": "defeat.wav",
       "seconds": 2.2,
+      "loop": false,
+      "channels": 1
+    },
+    "grant": {
+      "path": "grant.wav",
+      "seconds": 0.38,
       "loop": false,
       "channels": 1
     }

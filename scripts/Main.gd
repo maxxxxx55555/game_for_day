@@ -452,7 +452,7 @@ func watch_ad_for_bonus() -> void:
 	var nw := maxf(2500.0, absf(GameManager.get_net_worth()))
 	var grant := snappedf(maxf(1500.0, nw * 0.08), 10.0)
 	GameManager.cash += grant
-	SoundManager.play_sfx("pickup")
+	SoundManager.play_sfx("grant")
 	GameManager.stress = max(0, GameManager.stress - 25)
 	GameManager.energy = min(100, GameManager.energy + 35)
 	GameManager.ad_cooldown = 4

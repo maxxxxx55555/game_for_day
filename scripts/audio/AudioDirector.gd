@@ -5,14 +5,10 @@ var catalog: Dictionary = {}
 var streams: Dictionary = {}
 var music_players: Array[AudioStreamPlayer] = []
 var effect_players: Array[AudioStreamPlayer] = []
-var spatial_players: Array[AudioStreamPlayer3D] = []
 var current_music: String = ""
 var music_index: int = -1
 var crossfade: Tween
-var footstep_index: int = 0
-var spatial_cursor: int = 0
 var effect_cursor: int = 0
-var ambience: AudioStreamPlayer3D
 var audio_rng := RandomNumberGenerator.new()
 var force_mute: bool = OS.get_environment("GAME_AUDIO_MUTED") == "1"
 
@@ -25,8 +21,7 @@ func _ready() -> void:
 		push_error("Audio catalog missing: " + CATALOG_PATH)
 		return
 	catalog = JSON.parse_string(file.get_as_text())
-	var oaths: bool = catalog.music.has("exploration")
-	var routes := {"Music": "Master", "SFX": "Master", "UI": "Master" if oaths else "SFX", "SFX_Combat": "SFX", "SFX_Environment": "SFX", "SFX_UI": "UI", "Voice": "Master"}
+	var routes := {"Music": "Master", "SFX": "Master", "UI": "Master"}
 	for bus_name in routes:
 		if AudioServer.get_bus_index(bus_name) < 0:
 			AudioServer.add_bus()
@@ -41,14 +36,6 @@ func _ready() -> void:
 		var player := AudioStreamPlayer.new()
 		add_child(player)
 		effect_players.append(player)
-	for i in range(20):
-		var player := AudioStreamPlayer3D.new()
-		player.process_mode = Node.PROCESS_MODE_PAUSABLE
-		player.max_distance = 38
-		player.unit_size = 3.0
-		player.volume_db = -6
-		add_child(player)
-		spatial_players.append(player)
 	apply_gains()
 
 func _stream(name: String, music: bool = false) -> AudioStreamWAV:
@@ -74,7 +61,7 @@ func _stream(name: String, music: bool = false) -> AudioStreamWAV:
 func play_music(mood: String, fade_seconds: float = 1.2) -> void:
 	if mood == current_music:
 		return
-	# A shared calm theme continues through state changes without repeating its intro.
+	# Retain continuity if an explicitly shared source is ever configured.
 	if catalog.get("music", {}).get(mood, {}).get("path", "") == catalog.get("music", {}).get(current_music, {}).get("path", "missing"):
 		current_music = mood
 		return
@@ -114,57 +101,14 @@ func play_sfx(sound_name: String, bus_name: String = "") -> AudioStreamPlayer:
 		player = effect_players[effect_cursor % effect_players.size()]
 		effect_cursor += 1
 	player.stream = sound
-	player.bus = bus_name if not bus_name.is_empty() else "SFX_UI"
+	player.bus = bus_name if not bus_name.is_empty() else ("UI" if sound_name == "ui_click" else "SFX")
 	player.volume_db = -5
-	player.pitch_scale = audio_rng.randf_range(0.97, 1.03) if sound_name in ["ui_click", "inventory_open", "coin"] else 1.0
+	player.pitch_scale = audio_rng.randf_range(0.97, 1.03) if sound_name in ["ui_click", "coin"] else 1.0
 	player.play()
 	return player
 
 func play_sound(sound_name: String, bus_name: String = "") -> void:
-	if sound_name in ["potion", "hit", "enemy_hurt", "enemy_death"]:
-		var players := get_tree().get_nodes_in_group("player")
-		if not players.is_empty():
-			play_at(sound_name, players[0].global_position, bus_name)
-			return
 	play_sfx(sound_name, bus_name)
-
-func play_at(sound_name: String, position: Vector3, bus_name: String = "") -> AudioStreamPlayer3D:
-	var sound := _stream(sound_name)
-	if not sound:
-		return null
-	var player: AudioStreamPlayer3D
-	for candidate in spatial_players:
-		if not candidate.playing:
-			player = candidate
-			break
-	if not player:
-		player = spatial_players[spatial_cursor % spatial_players.size()]
-		spatial_cursor += 1
-	player.stream = sound
-	player.global_position = position
-	player.bus = bus_name if not bus_name.is_empty() else ("SFX_Combat" if sound_name in ["swing", "attack", "hit", "hit_metal", "hit_flesh", "block", "enemy_hurt", "enemy_death"] else "SFX_Environment")
-	player.pitch_scale = audio_rng.randf_range(0.94, 1.06)
-	player.play()
-	return player
-
-func play_footstep(surface: String, position: Vector3) -> void:
-	if surface not in ["grass", "dirt", "stone", "wood", "snow"]:
-		surface = "grass"
-	footstep_index = (footstep_index + 1) % 3
-	play_at("footstep_%s_%d" % [surface, footstep_index], position)
-
-func start_ambience(kind: String, position: Vector3) -> void:
-	if not is_instance_valid(ambience):
-		ambience = AudioStreamPlayer3D.new()
-		ambience.bus = "SFX_Environment"
-		ambience.unit_size = 35
-		ambience.max_distance = 180
-		ambience.volume_db = -22
-		ambience.process_mode = Node.PROCESS_MODE_PAUSABLE
-		add_child(ambience)
-	ambience.stream = _stream("ambience_" + kind)
-	ambience.global_position = position
-	ambience.play()
 
 func set_bus_volume(bus_name: String, value: float) -> void:
 	var index := AudioServer.get_bus_index(bus_name)
