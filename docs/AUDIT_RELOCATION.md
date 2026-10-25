@@ -18,3 +18,6 @@
 
 ## Final tracked-tree audit
 Two historical1.4 planning documents contained a joint project plan. They now retain only this project's own design and validation scope; the other project already has its own originals, so no content transfer was needed. The full tracked-tree isolation check covers historical documents as well as shipping sources.
+
+## v2 reconciliation (2026-10-26)
+C11: the obsolete ACTIONS table is already removed; ChoiceCopy resolves current catalog aliases and retains full native-button copy/callbacks. Existing choice sweep exercises all93 decisions. F2 will audit both displayed languages again. C12: Main presentation uses catalog keys; remaining model/business/birth response literals are canonical Russian values and will be extracted without changing their bytes or saved IDs.
