@@ -1,4 +1,11 @@
 extends Node
+signal persistence_changed(ok: bool)
+var write_failures := {}
+
+func report_write(path: String, ok: bool) -> void:
+	if ok: write_failures.erase(path)
+	else: write_failures[path] = true
+	persistence_changed.emit(write_failures.is_empty())
 
 const Guard = preload("res://scripts/security/SaveGuard.gd")
 const SavePolicy = preload("res://scripts/security/FortuneSavePolicy.gd")
@@ -68,7 +75,7 @@ var revive_used: bool = false
 func _ready() -> void:
 	load_dynasty()
 
-func save_dynasty() -> void:
+func save_dynasty() -> bool:
 	var cfg := ConfigFile.new()
 	cfg.set_value("dynasty", "generation", generation)
 	cfg.set_value("dynasty", "legacy_points", legacy_points)
@@ -77,10 +84,13 @@ func save_dynasty() -> void:
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
 	cfg.set_value("settings", "music_volume", music_volume)
 	cfg.set_value("settings", "sfx_volume", sfx_volume)
-	Guard.write_config(SAVE_PATH, cfg, "fortune/dynasty", SavePolicy.dynasty)
+	var ok := Guard.write_config(SAVE_PATH, cfg, "fortune/dynasty", SavePolicy.dynasty)
+	report_write(SAVE_PATH,ok)
+	return ok
 
 func load_dynasty() -> void:
 	var cfg := Guard.read_config(SAVE_PATH, "fortune/dynasty", SavePolicy.dynasty)
+	if Guard.last_repair_failed: report_write(SAVE_PATH,false)
 	if cfg != null:
 		generation = cfg.get_value("dynasty", "generation", 1)
 		legacy_points = cfg.get_value("dynasty", "legacy_points", 0)
@@ -104,10 +114,13 @@ func save_current_life(ui_state: Dictionary) -> bool:
 	cfg.set_value("session", "ui", ui_state)
 	for field in RUN_FIELDS:
 		cfg.set_value("run", field, get(field))
-	return Guard.write_config(SESSION_PATH, cfg, "fortune/session", SavePolicy.session)
+	var ok := Guard.write_config(SESSION_PATH, cfg, "fortune/session", SavePolicy.session)
+	report_write(SESSION_PATH,ok)
+	return ok
 
 func load_current_life() -> Dictionary:
 	var cfg := Guard.read_config(SESSION_PATH, "fortune/session", SavePolicy.session)
+	if Guard.last_repair_failed: report_write(SESSION_PATH,false)
 	if cfg == null or cfg.get_value("session", "generation", -1) != generation:
 		return {}
 	var ui_state: Dictionary = cfg.get_value("session", "ui", {})

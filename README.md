@@ -1,3 +1,7 @@
+# Heirs of Fortune — 1.2.1
+
+Typed RNG and event-value validation now rejects malformed legacy sessions before assignment. Failed disk writes show a non-blocking warning; successful retries clear it without hiding a separate outstanding dynasty-save failure. Constructor nesting is bounded before parsing. Existing currency trading, inflation, distinctive jazz music and illustrated victory/defeat scenes are retained.
+
 # Heirs of Fortune
 
 A portrait life-and-finance strategy game. Build a business dynasty, balance your health against ambition and reach the world's number-one wealth rank ($250 billion).
