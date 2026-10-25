@@ -1,3 +1,9 @@
+## Current edition scope — v2 integration in progress
+
+A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in the v2 integration. The new public release remains locked until the full gate passes.
+
+Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier1.4 emulator results are historical evidence only. Under v2 section16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.
+
 # Heirs of Fortune — 2.0.0
 
 Complete live Russian/English presentation with 585 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
@@ -38,7 +44,7 @@ Click/tap choices and navigation. Scroll the event card if its text is long. Set
 
 ## Android preview
 
-The separately supplied APK is an emulator-tested preview, signed with a development key. It is not a Google Play production artifact. It contains ARM64, ARMv7 and x86_64 libraries, targets API 36 and needs OpenGL ES 3. No phone or tablet hardware was available for testing. Publishing to a store needs the owner's durable production signing key and the store's own submission process. Do not upload this development-signed APK as a production app.
+Any APK supplied in this v2 cycle is an untested emulator preview, signed with a development key. It is not a Google Play production artifact. It contains ARM64, ARMv7 and x86_64 libraries, targets API 36 and needs OpenGL ES 3. No phone or tablet hardware was available for testing. Publishing to a store needs the owner's durable production signing key and the store's own submission process. Do not upload this development-signed APK as a production app.
 
 ## Build and test
 
@@ -63,7 +69,7 @@ The release report records the exact tested files, hashes, routes, screenshots a
 
 EUR, GBP and JPY can be bought and sold from Markets → Currencies. Fictional rates move after turns; both sides charge a disclosed 0.35% spread. Holdings count toward wealth and inheritance and persist with quote history and RNG state. Annualized inflation is displayed; rising living costs reduce idle cash purchasing power. The dashboard and event copy are shorter, and music credits are kept in the asset records.
 
-Both games have different newly generated music. See assets/CREDITS.md for creator licenses, font notices and generation records.
+The game has its own distinct per-mood soundtrack. See assets/CREDITS.md for creator licenses, font notices and generation records.
 
 ## 1.2.0 update
 

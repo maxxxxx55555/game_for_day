@@ -179,7 +179,9 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if not is_node_ready(): return
-	if what in [NOTIFICATION_WM_CLOSE_REQUEST, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
+	if what==NOTIFICATION_WM_CLOSE_REQUEST:
+		request_exit()
+	elif what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
 		save_session()
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		if is_instance_valid(credits_panel):
@@ -189,13 +191,16 @@ func _notification(what: int) -> void:
 			load_next_life_event("", true)
 			save_session()
 		else:
-			save_session()
-			get_tree().quit()
+			request_exit()
 
-func save_session() -> void:
+func request_exit() -> void:
+	if save_session():get_tree().quit()
+	else:FortuneArrival.confirm_unsaved(save_session,get_tree().quit)
+
+func save_session() -> bool:
 	if restoring_session:
-		return
-	GameManager.save_current_life({
+		return true
+	return GameManager.save_current_life({
 		"mode": int(current_mode), "event_title": active_event.get("title", ""),
 		"event_net_worth": active_event_net_worth, "rng_state": rng.state,
 		"last_event_title": last_event_title, "final_reason": final_reason,
@@ -319,6 +324,8 @@ func set_bottom_bar_enabled(enabled: bool) -> void:
 	biz_btn.disabled = not enabled
 	ad_btn.disabled = not enabled
 	settings_btn.disabled = not enabled
+	for button in [market_btn,biz_btn,ad_btn,settings_btn]:
+		button.tooltip_text=LocalizationManager.source("ui.begin_life_first") if not enabled else ""
 
 # --- ЭКРАНЫ СТАРТА (ИНТРО, ЛОТЕРЕЯ РОЖДЕНИЯ, ПЕРКИ) ---
 
@@ -925,3 +932,8 @@ func animate_story() -> void:
 	panel.modulate.a=0.9
 	story_transition=create_tween()
 	story_transition.tween_property(panel,"modulate:a",1.0,0.18).set_trans(Tween.TRANS_SINE)
+
+func _unhandled_key_input(event:InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_notification(NOTIFICATION_WM_GO_BACK_REQUEST)
+		get_viewport().set_input_as_handled()

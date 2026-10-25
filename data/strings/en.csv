@@ -746,3 +746,13 @@ fragment.c78357fb7246,Шанс %d%% на +$%s,%d%% chance of +$%s
 ui.reduced_motion,Меньше анимации,Reduced motion
 ui.no_currency,Нет %s для продажи.,No %s held to sell.
 ui.no_cash,Нет свободных денег для обмена.,No cash available for this trade.
+ui.unsaved_title,Сохранение не удалось,Progress could not be saved
+ui.unsaved_body,Прогресс ещё не записан. Повторите сохранение или оставайтесь в игре.,Your progress is still unsaved. Retry the save or stay in the game.
+ui.retry_save,Повторить сохранение,Retry save
+ui.discard_exit,Выйти без сохранения,Exit without saving
+ui.stay,Остаться,Stay
+flow.loading,Открываем семейную летопись,Opening the family ledger
+flow.tip.0,У валют есть спред: мгновенный обмен туда и обратно приносит убыток.,Currencies have a spread: an immediate round trip costs money.
+flow.tip.1,Инфляция повышает расходы. Сравнивайте доходы и стоимость жизни.,Inflation raises expenses. Compare income with your cost of living.
+flow.tip.2,Игра сохраняет жизнь после каждого решения и перед выходом.,Your life is saved after each decision and before you leave.
+ui.begin_life_first,Сначала начните жизнь и выберите черту.,Begin your life and choose a trait first.

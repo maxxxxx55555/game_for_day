@@ -21,11 +21,15 @@ config/name_localized={"en":"Heirs of Fortune","ru":"Наследники уда
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Godot/app_userdata/Forbes Ladder- Dynasty & Markets v2"
 config/description="A generational finance strategy game: build a business dynasty and reach the world's top rank."
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Boot.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.067,0.118,0.180,1)
 
 [autoload]
+
+FortuneArrival="*res://scripts/ui/FortuneArrival.gd"
 
 LocalizationManager="*res://scripts/autoload/LocalizationManager.gd"
 

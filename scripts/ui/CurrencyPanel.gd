@@ -113,6 +113,7 @@ func refresh() -> void:
 		row.wallet.text = LocalizationManager.source("copy.6b6d01a65284") % [GameManager.fx.holdings[code], code, GameManager.format_num(GameManager.fx.holdings[code] * rate)]
 		row.buy.disabled = GameManager.cash <= 0
 		row.sell.disabled = GameManager.fx.holdings[code] <= 0
+		row.sell.tooltip_text=(LocalizationManager.source("ui.no_currency") % code) if row.sell.disabled else ""
 		row.buy.tooltip_text = LocalizationManager.source("copy.778a48fdd09e") + GameManager.format_num(maxf(0, GameManager.cash * 0.25))
 		row.chart.queue_redraw()
 
@@ -121,4 +122,4 @@ func _process(_delta:float) -> void:
 	for code in rows:
 		var row:Dictionary=rows[code]
 		row.sell.tooltip_text=(LocalizationManager.source("ui.no_currency") % code) if row.sell.disabled else ""
-		row.buy.tooltip_text=LocalizationManager.source("ui.no_cash") if row.buy.disabled else ""
+		row.buy.tooltip_text=LocalizationManager.source("ui.no_cash") if row.buy.disabled else LocalizationManager.source("copy.778a48fdd09e")+GameManager.format_num(maxf(0,GameManager.cash*0.25))
