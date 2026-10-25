@@ -1,3 +1,9 @@
+# Heirs of Fortune — 1.3.0
+
+Onest body text, restrained Unbounded headings and authored chamfered satin-blue controls replace the previous interface. A fictional illustrated portrait ages through four life stages on the dashboard. Keyboard focus, disabled states and small portrait layouts are checked. Currency trading, inflation, life finales, distinct jazz music and protected saves are retained.
+
+Presentation remains stylized indie art; this update does not claim GTA V scale. Existing save directories and gameplay rules are preserved.
+
 # Heirs of Fortune — 1.2.1
 
 Typed RNG and event-value validation now rejects malformed legacy sessions before assignment. Failed disk writes show a non-blocking warning; successful retries clear it without hiding a separate outstanding dynasty-save failure. Constructor nesting is bounded before parsing. Existing currency trading, inflation, distinctive jazz music and illustrated victory/defeat scenes are retained.

@@ -1,36 +1,67 @@
 extends RefCounted
-
-static func style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFlat:
+static var surfaces := {}
+static func panel(color: Color, edge: Color = Color("61717a")) -> StyleBoxFlat:
 	var box := StyleBoxFlat.new()
 	box.bg_color = color
-	box.border_color = border
+	box.border_color = edge
 	box.set_border_width_all(1)
-	box.set_corner_radius_all(7)
+	box.set_corner_radius_all(5)
 	box.content_margin_left = 18
 	box.content_margin_right = 18
-	box.content_margin_top = 13
-	box.content_margin_bottom = 13
+	box.content_margin_top = 10
+	box.content_margin_bottom = 10
 	return box
 
-static func apply(root: Control) -> void:
+static func style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFlat:
+	return panel(color,border)
+
+static func surface(state: String) -> StyleBoxTexture:
+	if surfaces.has(state): return surfaces[state]
+	var box := StyleBoxTexture.new()
+	box.texture = load("res://assets/ui/button-"+state+".svg")
+	box.set_texture_margin_all(12)
+	box.content_margin_left = 20
+	box.content_margin_right = 20
+	box.content_margin_top = 12
+	box.content_margin_bottom = 14
+	surfaces[state] = box
+	return box
+
+static func create() -> Theme:
 	var theme := Theme.new()
-	theme.default_font_size = 18
+	theme.default_font_size = 19
 	var body := FontVariation.new()
-	body.base_font = load("res://assets/fonts/Manrope.ttf")
-	body.variation_opentype = {0x77676874: 550.0}
+	body.base_font = load("res://assets/fonts/Onest.ttf")
+	body.variation_opentype = {0x77676874:500.0}
 	theme.default_font = body
-	theme.set_color("font_color", "Label", Color("ede9df"))
-	for state in ["normal", "hover", "pressed", "disabled", "focus"]:
-		var color: Color = {"normal": Color("243e4b"), "hover": Color("365765"), "pressed": Color("496b73"), "disabled": Color("1a2d37"), "focus": Color.TRANSPARENT}[state]
-		theme.set_stylebox(state, "Button", style(color, Color("c6ad7a") if state == "focus" else Color("48616c")))
-	theme.set_color("font_color", "Button", Color("f0ecd9"))
-	theme.set_color("font_disabled_color", "Button", Color("74877a"))
-	root.theme = theme
-	for button in root.find_children("*", "Button", true, false):
-		button.remove_theme_stylebox_override("normal")
+	for type in ["Label","RichTextLabel"]: theme.set_color("font_color",type,Color("dce3e9"))
+	for type in ["PanelContainer","Panel"]: theme.set_stylebox("panel",type,panel(Color("1c2932")))
+	for type in ["Button","OptionButton","CheckBox"]:
+		theme.set_font_size("font_size",type,20)
+		for state in ["normal","hover","pressed","disabled"]: theme.set_stylebox(state,type,surface(state))
+		var focus := panel(Color.TRANSPARENT,Color("d3b78b"))
+		focus.set_border_width_all(2)
+		theme.set_stylebox("focus",type,focus)
+		theme.set_color("font_color",type,Color("e7e9e9"))
+		theme.set_color("font_hover_color",type,Color.WHITE)
+		theme.set_color("font_pressed_color",type,Color("efe1ce"))
+		theme.set_color("font_disabled_color",type,Color("91a0a7"))
+	for type in ["ItemList","Tree","PopupMenu","TabContainer"]:
+		theme.set_stylebox("panel",type,panel(Color("1c2932")))
+		theme.set_color("font_color",type,Color("e7e9e9"))
+	theme.set_stylebox("background","ProgressBar",panel(Color("1c252d")))
+	theme.set_stylebox("fill","ProgressBar",panel(Color("8d5d60"),Color("bd8a87")))
+	theme.set_color("font_color","ProgressBar",Color("e7e9e9"))
+	return theme
+
+static func apply(root: Control) -> void:
+	root.theme = create()
+	for button in root.find_children("*","Button",true,false):
+		button.remove_theme_font_size_override("font_size")
+		for state in ["normal","hover","pressed","disabled","focus"]: button.remove_theme_stylebox_override(state)
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	root.get_node("Background").add_theme_stylebox_override("panel", style(Color("182735")))
-	root.get_node("MarginContainer/VBoxContainer/StatsPanel").add_theme_stylebox_override("panel", style(Color("203542"), Color("3d535f")))
-	root.get_node("MarginContainer/VBoxContainer/MarketPanel").add_theme_stylebox_override("panel", style(Color("152f28"), Color("304d3d")))
-	root.get_node("MarginContainer/VBoxContainer/EventPanel").add_theme_stylebox_override("panel", style(Color("f0eee5"), Color("bfa16a")))
-	root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel").add_theme_color_override("font_color", Color("d4c49a"))
+	root.get_node("Background").add_theme_stylebox_override("panel",style(Color("111e2e")))
+	root.get_node("MarginContainer/VBoxContainer/StatsPanel").add_theme_stylebox_override("panel",style(Color("21374c"),Color("52687c")))
+	root.get_node("MarginContainer/VBoxContainer/MarketPanel").add_theme_stylebox_override("panel",style(Color("1c3042"),Color("486175")))
+	root.get_node("MarginContainer/VBoxContainer/EventPanel").add_theme_stylebox_override("panel",style(Color("e6e9eb"),Color("a5b4bf")))
+	root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel").add_theme_color_override("font_color",Color("9faebd"))
