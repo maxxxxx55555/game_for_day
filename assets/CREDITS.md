@@ -8,3 +8,7 @@ Music: “Last Call at Three”, generated in Google Gemini / Lyria on 2026-10-2
 
 ## 1.3 interface
 Original scalable satin control surfaces. New OFL type families: Onest and Unbounded. Font notices and exact source digests accompany the assets.
+
+## 2.0.0 soundtrack
+
+Four mood recordings and two musical finale cues, generated using Google Lyria RealTime. Track names, prompts, original/mastered hashes and generated-output terms: assets/audio/music-provenance.json and SOUNDTRACK.md. Synthesized interface/game effects retain separate CC0 provenance.

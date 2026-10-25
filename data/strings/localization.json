@@ -1397,8 +1397,8 @@
       "en": "Audio"
     },
     "ui.credits_body": {
-      "ru": "Движок: Godot 4.7 — лицензия MIT и сторонние уведомления.\nШрифты: Onest, Unbounded и дополнительные семейства — SIL OFL.\nИллюстрации: оригинальные изображения с указанным AI-происхождением.\nМузыка: исходная композиция Gemini / Lyria и оригинальные синтезированные аранжировки; подробности в каталоге.\nЗвуковые эффекты: оригинальный синтез, CC0.\nПолные лицензии и происхождение включены в комплект игры.",
-      "en": "Engine: Godot 4.7 — MIT license and third-party notices.\nFonts: Onest, Unbounded and supporting families — SIL OFL.\nIllustrations: original images with recorded AI provenance.\nMusic: the original Gemini / Lyria theme and original synthesized arrangements; see the catalog for details.\nSound effects: original synthesis, CC0.\nFull licenses and provenance are included with the game."
+      "ru": "Движок: Godot 4.7 — лицензия MIT и сторонние уведомления.\nШрифты: Onest, Unbounded и дополнительные семейства — SIL OFL.\nИллюстрации: оригинальные изображения с указанным AI-происхождением.\nМузыка: исходная композиция Gemini / Lyria и новые композиции Lyria RealTime; подробности в каталоге.\nЗвуковые эффекты: оригинальный синтез, CC0.\nПолные лицензии и происхождение включены в комплект игры.",
+      "en": "Engine: Godot 4.7 — MIT license and third-party notices.\nFonts: Onest, Unbounded and supporting families — SIL OFL.\nIllustrations: original images with recorded AI provenance.\nMusic: the original Gemini / Lyria theme and new Lyria RealTime compositions; see the catalog for details.\nSound effects: original synthesis, CC0.\nFull licenses and provenance are included with the game."
     },
     "fragment.5ca60bc33f5d": {
       "ru": "Глобальный Техно-Холдинг",

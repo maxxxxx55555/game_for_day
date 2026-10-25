@@ -1,12 +1,9 @@
 {
-  "calm_theme.wav": {
+  "last_call_at_three.wav": {
     "provider": "Google Gemini / Lyria",
     "date": "2026-10-24",
     "moods": [
-      "welcome",
-      "study",
-      "career",
-      "tycoon"
+      "welcome"
     ],
     "prompt": "Создай отдельный инструментальный трек длительностью 2 минуты: спокойное камерное джазовое трио, мягкое фетровое пианино, тёплый контрабас и едва слышные щётки, 76 BPM. Ненавязчивый вечерний лаунж без вокала, колокольчиков, резких синтезаторов и громких ударов. Тихая ровная динамика и плавное начало и окончание.",
     "source_filename": "last_call_at_three.mp4",
@@ -14,6 +11,97 @@
     "wav_sha256": "d42da2f8051e5bb00c3a69aeddbdcea0aade4ae1ff0937c90a450cb7e350366a",
     "processing": "32 kHz stereo PCM, quiet gain, two-second overlap crossfade, 2 ms edge taper",
     "terms": "https://policies.google.com/terms",
+    "policy": "https://policies.google.com/terms/generative-ai/use-policy",
+    "kind": "background"
+  },
+  "after_hours_ledger.wav": {
+    "provider": "Google Gemini / Lyria",
+    "model": "lyria-realtime-exp",
+    "date": "2026-10-25",
+    "moods": [
+      "study"
+    ],
+    "kind": "background",
+    "prompt": "Original quiet late-night study instrumental, 74 BPM, intimate felt piano, soft upright bass, subtle brushed texture, reflective focused and spacious, no vocals, no busy solos.",
+    "source_filename": "study-stream.wav",
+    "source_sha256": "b608e0fd84592c10646235f4bb2b516fb98ecb2fe35555bb513327bc941ad0d1",
+    "wav_sha256": "46f5cc6e2eb600577df89ea0c9aed83842aa8685897015b55c055e087553cfae",
+    "processing": "32 kHz stereo PCM; quiet matched RMS/peak; two-second overlap crossfade; 2 ms edge taper",
+    "requested_bpm": 74,
+    "documentation": "https://ai.google.dev/api/live_music",
+    "terms": "https://ai.google.dev/gemini-api/terms",
+    "policy": "https://policies.google.com/terms/generative-ai/use-policy"
+  },
+  "opening_bell_swing.wav": {
+    "provider": "Google Gemini / Lyria",
+    "model": "lyria-realtime-exp",
+    "date": "2026-10-25",
+    "moods": [
+      "career"
+    ],
+    "kind": "background",
+    "prompt": "Original elegant small-ensemble career jazz instrumental, 92 BPM, brushed drums, upright walking bass, warm piano and muted brass, optimistic sophisticated light swing, gentle dynamics and no vocals.",
+    "source_filename": "career-stream.wav",
+    "source_sha256": "9711a693cb814db91bdaefc4948da9a46180f02736fb645746383e8d80ce3953",
+    "wav_sha256": "b24c1e3a4c70ccdcc914883844c07340193d311b6a328d0392dcced12f4b75ab",
+    "processing": "32 kHz stereo PCM; quiet matched RMS/peak; two-second overlap crossfade; 2 ms edge taper",
+    "requested_bpm": 92,
+    "documentation": "https://ai.google.dev/api/live_music",
+    "terms": "https://ai.google.dev/gemini-api/terms",
+    "policy": "https://policies.google.com/terms/generative-ai/use-policy"
+  },
+  "the_long_dividend.wav": {
+    "provider": "Google Gemini / Lyria",
+    "model": "lyria-realtime-exp",
+    "date": "2026-10-25",
+    "moods": [
+      "tycoon"
+    ],
+    "kind": "background",
+    "prompt": "Original polished big-band finance lounge instrumental, 110 BPM, velvet brass voicings, piano, upright bass, discreet swing drums, confident rich harmonious arrangement without loud solos. No vocals.",
+    "source_filename": "tycoon-stream.wav",
+    "source_sha256": "470f0de7abe16594e536666bab154dea72ad03db1ed868fb9847706ad5d2f380",
+    "wav_sha256": "9039517d664e5a08d28b1ea3aa9fa6ff94d7a74b1fc93630fd3149dcc19b2735",
+    "processing": "32 kHz stereo PCM; quiet matched RMS/peak; two-second overlap crossfade; 2 ms edge taper",
+    "requested_bpm": 110,
+    "documentation": "https://ai.google.dev/api/live_music",
+    "terms": "https://ai.google.dev/gemini-api/terms",
+    "policy": "https://policies.google.com/terms/generative-ai/use-policy"
+  },
+  "a_fortune_remembered.wav": {
+    "provider": "Google Gemini / Lyria",
+    "model": "lyria-realtime-exp",
+    "date": "2026-10-25",
+    "moods": [
+      "victory"
+    ],
+    "kind": "stinger",
+    "prompt": "Original 18-second financial dynasty victory instrumental stinger, lush jazz piano chord progression, warm muted brass and upright bass, elegant major resolution, no vocals.",
+    "source_filename": "victory-stream.wav",
+    "source_sha256": "6e95bf854a9d01f8e6c2e7275d5d097302db2c18c915e08c4a72d77c1d2a42c6",
+    "wav_sha256": "7c4271f77bb9cef720f42ffb2269f572511013df79c9d7e88f18eb8c1e8c5de1",
+    "processing": "32 kHz stereo PCM; quiet matched RMS/peak; 20-second excerpt, naturalized 2.2-second release; 2 ms edge taper",
+    "requested_bpm": 84,
+    "documentation": "https://ai.google.dev/api/live_music",
+    "terms": "https://ai.google.dev/gemini-api/terms",
+    "policy": "https://policies.google.com/terms/generative-ai/use-policy"
+  },
+  "the_closing_ledger.wav": {
+    "provider": "Google Gemini / Lyria",
+    "model": "lyria-realtime-exp",
+    "date": "2026-10-25",
+    "moods": [
+      "defeat"
+    ],
+    "kind": "stinger",
+    "prompt": "Original 18-second reflective life finale instrumental stinger, solo felt piano and soft upright bass, dignified bittersweet jazz cadence with a quiet natural release, no vocals.",
+    "source_filename": "defeat-stream.wav",
+    "source_sha256": "a67b07f384b5a9c9f42d3637c2f7e4d2fa98c85c75394fcf387660eea084247b",
+    "wav_sha256": "1b4901e66ec803e2dd73eab699687d6d4936b3138a07bb50762d4ad4c871d6a0",
+    "processing": "32 kHz stereo PCM; quiet matched RMS/peak; 20-second excerpt, naturalized 2.2-second release; 2 ms edge taper",
+    "requested_bpm": 70,
+    "documentation": "https://ai.google.dev/api/live_music",
+    "terms": "https://ai.google.dev/gemini-api/terms",
     "policy": "https://policies.google.com/terms/generative-ai/use-policy"
   }
 }

@@ -381,13 +381,13 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 func update_soundtrack_by_stage() -> void:
 	var nw := GameManager.get_net_worth()
 	if nw >= 50000000.0:
-		GameManager.current_track = "Last Call at Three"
+		GameManager.current_track = SoundManager.catalog.music.tycoon.get("title", "")
 		SoundManager.play_music("tycoon")
 	elif GameManager.age < 26:
-		GameManager.current_track = "Last Call at Three"
+		GameManager.current_track = SoundManager.catalog.music.study.get("title", "")
 		SoundManager.play_music("study")
 	elif GameManager.age < 50:
-		GameManager.current_track = "Last Call at Three"
+		GameManager.current_track = SoundManager.catalog.music.career.get("title", "")
 		SoundManager.play_music("career")
 	else:
 		GameManager.current_track = "Last Call at Three"
@@ -640,8 +640,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	current_mode = ScreenMode.GAMEOVER
 	set_bottom_bar_enabled(false)
 	GameManager.current_track = "Last Call at Three"
-	SoundManager.play_music("welcome")
-	SoundManager.play_sfx("victory" if is_victory else "defeat")
+	SoundManager.play_finale(is_victory)
 	can_revive = not is_victory and not GameManager.revive_used and GameManager.age < 80
 	var dynasty_msg := LocalizationManager.source("copy.b71d63dd66c0")
 	update_ui()

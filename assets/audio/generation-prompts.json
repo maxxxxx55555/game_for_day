@@ -1,0 +1,42 @@
+[
+  {
+    "mood": "study",
+    "title": "After Hours Ledger",
+    "prompt": "Original quiet late-night study instrumental, 74 BPM, intimate felt piano, soft upright bass, subtle brushed texture, reflective focused and spacious, no vocals, no busy solos.",
+    "bpm": 74,
+    "capture_seconds": 126,
+    "density": 0.35
+  },
+  {
+    "mood": "career",
+    "title": "Opening Bell Swing",
+    "prompt": "Original elegant small-ensemble career jazz instrumental, 92 BPM, brushed drums, upright walking bass, warm piano and muted brass, optimistic sophisticated light swing, gentle dynamics and no vocals.",
+    "bpm": 92,
+    "capture_seconds": 126,
+    "density": 0.6
+  },
+  {
+    "mood": "tycoon",
+    "title": "The Long Dividend",
+    "prompt": "Original polished big-band finance lounge instrumental, 110 BPM, velvet brass voicings, piano, upright bass, discreet swing drums, confident rich harmonious arrangement without loud solos. No vocals.",
+    "bpm": 110,
+    "capture_seconds": 126,
+    "density": 0.6
+  },
+  {
+    "mood": "victory",
+    "title": "A Fortune Remembered",
+    "prompt": "Original 18-second financial dynasty victory instrumental stinger, lush jazz piano chord progression, warm muted brass and upright bass, elegant major resolution, no vocals.",
+    "bpm": 84,
+    "capture_seconds": 22,
+    "density": 0.6
+  },
+  {
+    "mood": "defeat",
+    "title": "The Closing Ledger",
+    "prompt": "Original 18-second reflective life finale instrumental stinger, solo felt piano and soft upright bass, dignified bittersweet jazz cadence with a quiet natural release, no vocals.",
+    "bpm": 70,
+    "capture_seconds": 22,
+    "density": 0.6
+  }
+]
