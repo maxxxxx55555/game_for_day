@@ -1,7 +1,7 @@
 extends RefCounted
-static var surfaces := {}
+static var surfaces:Dictionary= {}
 static func panel(color: Color, edge: Color = Color("61717a")) -> StyleBoxFlat:
-	var box := StyleBoxFlat.new()
+	var box:StyleBoxFlat= StyleBoxFlat.new()
 	box.bg_color = color
 	box.border_color = edge
 	box.set_border_width_all(1)
@@ -17,7 +17,7 @@ static func style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFl
 
 static func surface(state: String) -> StyleBoxTexture:
 	if surfaces.has(state): return surfaces[state]
-	var box := StyleBoxTexture.new()
+	var box:StyleBoxTexture= StyleBoxTexture.new()
 	box.texture = load("res://assets/ui/button-"+state+".svg")
 	box.set_texture_margin_all(12)
 	box.content_margin_left = 24
@@ -28,25 +28,25 @@ static func surface(state: String) -> StyleBoxTexture:
 	return box
 
 static func create() -> Theme:
-	var theme := Theme.new()
+	var theme:Theme= Theme.new()
 	theme.default_font_size = 19
-	var body := FontVariation.new()
+	var body:FontVariation= FontVariation.new()
 	body.base_font = load("res://assets/fonts/Onest.ttf")
 	body.variation_opentype = {0x77676874:500.0}
 	theme.default_font = body
-	for type in ["Label","RichTextLabel"]: theme.set_color("font_color",type,Color("dce3e9"))
-	for type in ["PanelContainer","Panel"]: theme.set_stylebox("panel",type,panel(Color("1c2932")))
-	for type in ["Button","OptionButton","CheckBox"]:
+	for type:String in ["Label","RichTextLabel"]: theme.set_color("font_color",type,Color("dce3e9"))
+	for type:String in ["PanelContainer","Panel"]: theme.set_stylebox("panel",type,panel(Color("1c2932")))
+	for type:String in ["Button","OptionButton","CheckBox"]:
 		theme.set_font_size("font_size",type,20)
-		for state in ["normal","hover","pressed","disabled"]: theme.set_stylebox(state,type,surface(state))
-		var focus := panel(Color.TRANSPARENT,Color("d3b78b"))
+		for state:String in ["normal","hover","pressed","disabled"]: theme.set_stylebox(state,type,surface(state))
+		var focus:StyleBoxFlat= panel(Color.TRANSPARENT,Color("d3b78b"))
 		focus.set_border_width_all(2)
 		theme.set_stylebox("focus",type,focus)
 		theme.set_color("font_color",type,Color("e7e9e9"))
 		theme.set_color("font_hover_color",type,Color.WHITE)
 		theme.set_color("font_pressed_color",type,Color("efe1ce"))
 		theme.set_color("font_disabled_color",type,Color("91a0a7"))
-	for type in ["ItemList","Tree","PopupMenu","TabContainer"]:
+	for type:String in ["ItemList","Tree","PopupMenu","TabContainer"]:
 		theme.set_stylebox("panel",type,panel(Color("1c2932")))
 		theme.set_color("font_color",type,Color("e7e9e9"))
 	theme.set_stylebox("background","ProgressBar",panel(Color("1c252d")))
@@ -56,12 +56,12 @@ static func create() -> Theme:
 
 static func apply(root: Control) -> void:
 	root.theme = create()
-	for button in root.find_children("*","Button",true,false):
+	for button:Button in root.find_children("*","Button",true,false):
 		button.remove_theme_font_size_override("font_size")
-		for state in ["normal","hover","pressed","disabled","focus"]: button.remove_theme_stylebox_override(state)
+		for state:String in ["normal","hover","pressed","disabled","focus"]: button.remove_theme_stylebox_override(state)
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	root.get_node("Background").add_theme_stylebox_override("panel",style(Color("111e2e")))
-	root.get_node("MarginContainer/VBoxContainer/StatsPanel").add_theme_stylebox_override("panel",style(Color("21374c"),Color("52687c")))
-	root.get_node("MarginContainer/VBoxContainer/MarketPanel").add_theme_stylebox_override("panel",style(Color("1c3042"),Color("486175")))
-	root.get_node("MarginContainer/VBoxContainer/EventPanel").add_theme_stylebox_override("panel",style(Color("e6e9eb"),Color("a5b4bf")))
-	root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel").add_theme_color_override("font_color",Color("9faebd"))
+	(root.get_node("Background") as Control).add_theme_stylebox_override("panel",style(Color("111e2e")))
+	(root.get_node("MarginContainer/VBoxContainer/StatsPanel") as Control).add_theme_stylebox_override("panel",style(Color("21374c"),Color("52687c")))
+	(root.get_node("MarginContainer/VBoxContainer/MarketPanel") as Control).add_theme_stylebox_override("panel",style(Color("1c3042"),Color("486175")))
+	(root.get_node("MarginContainer/VBoxContainer/EventPanel") as Control).add_theme_stylebox_override("panel",style(Color("e6e9eb"),Color("a5b4bf")))
+	(root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel") as Control).add_theme_color_override("font_color",Color("9faebd"))

@@ -16,30 +16,30 @@ func show_splash() -> void:
 	splash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	splash.theme=preload("res://scripts/ui/FortuneTheme.gd").create()
 	add_child(splash)
-	var paper:=ColorRect.new()
+	var paper:ColorRect=ColorRect.new()
 	paper.color=Color("111e2e")
 	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	splash.add_child(paper)
-	var margins:=MarginContainer.new()
+	var margins:MarginContainer=MarginContainer.new()
 	margins.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for side in ["left","right"]:margins.add_theme_constant_override("margin_"+side,48)
+	for side:String in ["left","right"]:margins.add_theme_constant_override("margin_"+side,48)
 	splash.add_child(margins)
-	var center:=CenterContainer.new()
+	var center:CenterContainer=CenterContainer.new()
 	margins.add_child(center)
-	var column:=VBoxContainer.new()
+	var column:VBoxContainer=VBoxContainer.new()
 	column.add_theme_constant_override("separation",24)
 	column.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	center.add_child(column)
-	var emblem:=TextureRect.new()
+	var emblem:TextureRect=TextureRect.new()
 	emblem.texture=load("res://assets/ui/app-icon.png")
 	emblem.custom_minimum_size=Vector2(96,96)
 	emblem.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	emblem.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	column.add_child(emblem)
-	var nameplate:=Label.new()
+	var nameplate:Label=Label.new()
 	nameplate.text="Heirs of Fortune"
 	nameplate.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	nameplate.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf"))
+	nameplate.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf") as Font)
 	nameplate.add_theme_font_size_override("font_size",32)
 	column.add_child(nameplate)
 	opening_label=Label.new()
@@ -60,7 +60,11 @@ func open_ledger() -> void:
 	show_splash()
 	await get_tree().process_frame
 	await get_tree().process_frame
-	get_tree().change_scene_to_file("res://scenes/Main.tscn")
+	var scene_error:Error=get_tree().change_scene_to_file("res://scenes/Main.tscn")
+	if scene_error!=OK:
+		hide_splash()
+		push_error("Ledger scene could not be opened: "+error_string(scene_error))
+		return
 	await get_tree().process_frame
 	await get_tree().process_frame
 	hide_splash()
@@ -72,19 +76,27 @@ func confirm_unsaved(retry:Callable,leave:Callable) -> void:
 	unsaved_dialog.dialog_text=LocalizationManager.get_string("ui.unsaved_body")
 	unsaved_dialog.ok_button_text=LocalizationManager.get_string("ui.retry_save")
 	unsaved_dialog.cancel_button_text=LocalizationManager.get_string("ui.stay")
+	# ConfirmationDialog owns this discard-action button and routes its custom_action signal.
+	@warning_ignore("return_value_discarded")
 	unsaved_dialog.add_button(LocalizationManager.get_string("ui.discard_exit"),true,"discard")
 	add_child(unsaved_dialog)
-	unsaved_dialog.confirmed.connect(func():
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	unsaved_dialog.confirmed.connect(func()->void:
 		if retry.call():
 			close_unsaved()
 			leave.call()
 		else:unsaved_dialog.popup_centered.call_deferred()
 	)
-	unsaved_dialog.custom_action.connect(func(action):
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	unsaved_dialog.custom_action.connect(func(action:StringName)->void:
 		if action=="discard":
 			close_unsaved()
 			leave.call()
 	)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
 	unsaved_dialog.canceled.connect(close_unsaved)
 	unsaved_dialog.popup_centered(Vector2i(500,260))
 
@@ -100,7 +112,9 @@ func _notification(what:int) -> void:
 		if current!=null and current.name=="LedgerBoot":get_tree().quit()
 
 func bind_locale() -> void:
-	LocalizationManager.language_changed.connect(func(_language):refresh_copy())
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	LocalizationManager.language_changed.connect(func(_language:String)->void:refresh_copy())
 func refresh_copy() -> void:
 	if is_instance_valid(opening_label):opening_label.text=LocalizationManager.get_string("flow.loading")
 	if is_instance_valid(hint):hint.text=LocalizationManager.get_string("flow.tip."+str(Time.get_ticks_msec()%3))
