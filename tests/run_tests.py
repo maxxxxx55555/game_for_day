@@ -12,6 +12,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--godot', default=os.environ.get('GODOT_BIN') or shutil.which('godot') or shutil.which('godot4'))
     parser.add_argument('--language', choices=['ru','en'], default='ru', help='QA display locale')
+    parser.add_argument('--audio-driver', help='Optional silent QA backend, for example Dummy')
     parser.add_argument('--rendered', action='store_true', help='Run the playthrough with a real graphics device')
     parser.add_argument('--artifacts', type=Path, help='Directory for logs and rendered screenshots')
     args = parser.parse_args()
@@ -80,6 +81,8 @@ def main():
             for script in ['strategy', 'campaign']:
                 if (project / ('tests/test_' + script + '.gd')).exists():
                     cases.append((script, ([] if args.rendered else ['--headless']) + ['--resolution', '1280x720', '--script', 'res://tests/test_' + script + '.gd']))
+        inherited_licenses = subprocess.run([sys.executable, str(project / 'tests/test_license_bytes.py')], timeout=30)
+        if inherited_licenses.returncode: return inherited_licenses.returncode
         contract = subprocess.run([sys.executable, str(project / 'tests/test_export_contract.py')], timeout=30)
         if contract.returncode: return contract.returncode
         copy_contract = subprocess.run([sys.executable, str(project / 'tests/test_copy_contract.py')], timeout=30)
@@ -103,7 +106,7 @@ def main():
                 strict = subprocess.run([sys.executable, str(project / 'tools/check_gdscript_warnings.py'), '--godot', args.godot, '--artifacts', str(artifacts / 'strict')], env=environment, timeout=300)
                 if strict.returncode: return strict.returncode
             log_path = artifacts / (name + '.log')
-            command = [args.godot, '--rendering-method', 'gl_compatibility', '--path', str(project), '--log-file', str(log_path), *switches]
+            command = [args.godot, *(['--audio-driver',args.audio_driver] if args.audio_driver else []), '--rendering-method', 'gl_compatibility', '--path', str(project), '--log-file', str(log_path), *switches]
             result = subprocess.run(command, env=environment, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
             log = log_path.read_text(encoding='utf-8', errors='replace') if log_path.exists() else 'ERROR: Missing Godot log'
             console = result.stdout + result.stderr

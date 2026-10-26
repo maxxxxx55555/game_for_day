@@ -1,0 +1,39 @@
+{
+  "original_version": "1.4.0",
+  "original_windows_zip_sha256": "a97bb390ac70dd2bac4c0fa5b11bb9492bf9540b32c8aaf4271e33eff0d06a79",
+  "rule": "Creator/engine license bytes are inherited verbatim from the original published Windows archive; do not normalize their line endings.",
+  "files": {
+    "assets/fonts/alegreya-OFL.txt": {
+      "sha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68",
+      "original_zip_entry": "HeirsOfFortune/licenses/alegreya-OFL.txt"
+    },
+    "assets/fonts/manrope-OFL.txt": {
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "original_zip_entry": "HeirsOfFortune/licenses/manrope-OFL.txt"
+    },
+    "assets/fonts/Onest-OFL.txt": {
+      "sha256": "071195d8806e226faeee60259c28ca67b458227af5195a73f5cfcab06e3003bc",
+      "original_zip_entry": "HeirsOfFortune/licenses/Onest-OFL.txt"
+    },
+    "assets/fonts/prata-OFL.txt": {
+      "sha256": "1e055d25bde41906cc2e1a08bc156e7776d5084e1640d75dbd0065a937b488e3",
+      "original_zip_entry": "HeirsOfFortune/licenses/prata-OFL.txt"
+    },
+    "assets/fonts/Unbounded-OFL.txt": {
+      "sha256": "31e5d4e83955e7103c34570dd49b0570ef490800bd65b42923c0dd02445263b3",
+      "original_zip_entry": "HeirsOfFortune/licenses/Unbounded-OFL.txt"
+    },
+    "assets/audio/LICENSE.md": {
+      "sha256": "fe30199c1aff2063513f001f73b85592ec589566981e207b9a1ffd3a6e50b38e",
+      "original_zip_entry": "HeirsOfFortune/licenses/Audio.md"
+    },
+    "third_party/Godot/COPYRIGHT.txt": {
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d",
+      "original_zip_entry": "HeirsOfFortune/licenses/Godot/COPYRIGHT.txt"
+    },
+    "third_party/Godot/LICENSE.txt": {
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+      "original_zip_entry": "HeirsOfFortune/licenses/Godot/LICENSE.txt"
+    }
+  }
+}

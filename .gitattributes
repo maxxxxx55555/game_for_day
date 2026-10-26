@@ -4,3 +4,19 @@ data/**/*.json text eol=lf
 assets/audio/catalog.json text eol=lf
 scripts/security/TrustedData.gd text eol=lf
 *.py text eol=lf
+
+# Preserve inherited legal/provenance and authenticated fixture bytes in every checkout.
+assets/**/*.txt -text
+assets/audio/LICENSE.md -text
+assets/CREDITS.md -text
+assets/**/*provenance*.json -text
+third_party/Godot/*.txt -text
+tests/fixtures/protected-*-autosave.json -text
+tests/fixtures/protected-*-current_life.cfg -text
+
+# Promise input digests are portable; legal files above remain opaque.
+README.md text eol=lf
+docs/promises/README-v2-source.md text eol=lf
+docs/superpowers/specs/2026-10-25-bilingual-release-design.md text eol=lf
+docs/superpowers/specs/2026-10-25-clear-play-design.md text eol=lf
+docs/superpowers/specs/2026-10-25-premium-presentation-design.md text eol=lf
