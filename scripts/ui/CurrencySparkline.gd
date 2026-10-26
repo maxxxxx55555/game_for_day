@@ -51,6 +51,6 @@ func _draw() -> void:
 	var line:PackedVector2Array=PackedVector2Array()
 	for i:int in points.size():
 		var height:float=(float(points[i])-lo)/range_value if range_value>0.000001 else 0.5
-		if not line.append(Vector2(plot.position.x+plot.size.x*i/maxi(1,points.size()-1),plot.end.y-height*plot.size.y)):return
+		if line.append(Vector2(plot.position.x+plot.size.x*i/maxi(1,points.size()-1),plot.end.y-height*plot.size.y)):return
 	if line.size()>1:draw_polyline(line,Color("c6ad7a"),2,true)
 	else:draw_circle(Vector2(plot.end.x,plot.position.y+plot.size.y*0.5),3,Color("c6ad7a"))

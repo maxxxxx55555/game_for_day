@@ -1,5 +1,7 @@
 class_name SaveGuard
 extends RefCounted
+const Exact=preload("res://scripts/security/ExactFloats.gd")
+const EXACT_SECTION:String="save_guard_exact"
 const IntegrityView=preload("res://scripts/security/BuildIntegrity.gd")
 ## Local tamper evidence and corruption recovery, not an unbreakable DRM claim.
 const MAX_BYTES:int= 8 * 1024 * 1024
@@ -148,10 +150,38 @@ static func config_candidate(path: String, purpose: String) -> ConfigFile:
 	for section:String in cfg.get_sections():
 		for field:String in cfg.get_section_keys(section):
 			if not pure(cfg.get_value(section, field), 0, [0]): return null
+	if cfg.has_section(EXACT_SECTION):
+		if split<0 or cfg.get_value(EXACT_SECTION,"version",0)!=1:return null
+		var data:Dictionary=config_data(cfg)
+		if not data.erase(EXACT_SECTION):return null
+		if not Exact.restore(data,cfg.get_value(EXACT_SECTION,"patches",null)):return null
+		cfg.erase_section(EXACT_SECTION)
+		for section:String in data:
+			var fields:Dictionary=data[section]
+			for field:String in fields:cfg.set_value(section,field,fields[field])
 	return cfg
 
+static func config_data(cfg:ConfigFile)->Dictionary:
+	var data:Dictionary={}
+	for section:String in cfg.get_sections():
+		var fields:Dictionary={}
+		for field:String in cfg.get_section_keys(section):fields[field]=cfg.get_value(section,field)
+		data[section]=fields
+	return data
+
 static func config_text(cfg: ConfigFile, purpose: String) -> String:
-	var body:String= cfg.encode_to_text()
+	if cfg.has_section(EXACT_SECTION):return ""
+	var data:Dictionary=config_data(cfg)
+	if not pure(data):return ""
+	var precision:Dictionary=Exact.capture(data)
+	if not precision.ok:return ""
+	var encoded:ConfigFile=ConfigFile.new()
+	for section:String in data:
+		var fields:Dictionary=data[section]
+		for field:String in fields:encoded.set_value(section,field,fields[field])
+	encoded.set_value(EXACT_SECTION,"version",1)
+	encoded.set_value(EXACT_SECTION,"patches",precision.patches)
+	var body:String=encoded.encode_to_text()
 	var mac:String= signature(body, purpose)
 	if mac.is_empty(): return ""
 	return body + FOOTER + 'version=1\nmac="' + mac + '"\n'

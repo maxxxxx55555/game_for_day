@@ -42,6 +42,7 @@ def main():
         cases.append(('comfort-preferences', ['--headless', '--script', 'res://tests/test_comfort_preferences.gd']))
         cases.append(('canonical-model', ['--headless', '--script', 'res://tests/test_canonical_model.gd']))
         cases.append(('currency-chart', ['--headless', '--script', 'res://tests/test_currency_chart.gd']))
+        if args.rendered: cases.append(('chart-path-regression', ['--resolution','540x960','--script','res://tests/test_chart_path_regression.gd']))
         cases.append(('financial-motion', ['--headless', '--script', 'res://tests/test_financial_motion.gd']))
         cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
         cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
@@ -68,6 +69,10 @@ def main():
         cases.append(('choice-reentry', ['--headless','--script','res://tests/test_choice_reentry.gd']))
         cases.append(('navigation-matrix', ([] if args.rendered else ['--headless'])+['--resolution', '1280x720' if not portrait else '540x960','--script','res://tests/test_navigation_matrix.gd']))
         cases.append(('qa-seed', ['--headless','--script','res://tests/test_qa_seed.gd']))
+        cases.append(('mechanics-inputs', ['--headless','--script','res://tests/test_mechanics_inputs.gd']))
+        cases.append(('exact-float-limits', ['--headless','--script','res://tests/test_exact_float_limits.gd']))
+        cases.append(('config-float-precision', ['--headless','--script','res://tests/test_config_float_precision.gd']))
+        cases.append(('profile-contract', ['--headless','--script','res://tests/test_profile_contract.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))
@@ -92,6 +97,9 @@ def main():
             result=subprocess.run([sys.executable,str(project/'tests'/source_contract)],timeout=60)
             if result.returncode:return result.returncode
         for name, switches in cases:
+            if name == 'regressions':
+                strict = subprocess.run([sys.executable, str(project / 'tools/check_gdscript_warnings.py'), '--godot', args.godot, '--artifacts', str(artifacts / 'strict')], env=environment, timeout=300)
+                if strict.returncode: return strict.returncode
             log_path = artifacts / (name + '.log')
             command = [args.godot, '--rendering-method', 'gl_compatibility', '--path', str(project), '--log-file', str(log_path), *switches]
             result = subprocess.run(command, env=environment, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
