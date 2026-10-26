@@ -1,10 +1,12 @@
-## Current edition scope — v2 integration in progress
+# Heirs of Fortune — 2.0.0
 
-A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in the v2 integration. The new public release remains locked until the full gate passes.
+## Current edition scope
 
-Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier1.4 emulator results are historical evidence only. Under v2 section16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.
+A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in this edition.
 
-# Heirs of Fortune — 2.0.0 preparation (publication locked)
+Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. Android is omitted from this release: the host cannot boot an emulator. Earlier1.4 emulator results are historical evidence only. The Windows release does not claim Android runtime acceptance.
+
+## 2.0.0 changes
 
 Complete live Russian/English presentation with 606 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
 
@@ -12,7 +14,13 @@ Complete live Russian/English presentation with 606 catalog keys, stable saved e
 
 Полная русская и английская локализация, выбор языка без потери текущего события. Разные композиции для четырёх настроений, музыкальные финалы, четыре уровня звука, настройка анимации и экран авторов. Каталоги старых сохранений сохранены.
 
-Target release: v2.0.0; unpublished until the v2 gate passes. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.
+Release edition: v2.0.0. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.
+
+## Current acceptance
+
+All31 events (16 external +15 inline),93 decision layouts and606 keys are covered. 46 rendered Godot invocations passed in each locale, plus Python byte/export/isolation/audio contracts. All49 warning categories are enforced on27 shipping scripts. 50 complete seeded lives, a1813.547-second rendered soak and three exact native victories plus defeat passed. On the tested host the dashboard became ready in2668ms;240 animation samples had16.736ms median and20.346ms p95 frame time.
+
+See [release notes](docs/RELEASE_2.0.0.md), [mechanics coverage](docs/MECHANICS_MATRIX.md), [save integrity](SAVE-INTEGRITY.md) and [the scoped promise inventory](docs/PROMISE_MATRIX.md). Tests cover stated cases; they do not prove absence of every possible defect. Public builds reject QA arguments and physically exclude verification resources.
 
 ---
 
@@ -57,7 +65,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains46 Godot invocations per locale, including import, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner contains46 Godot invocations per locale, including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -79,9 +87,9 @@ Victory and defeat now have separate full-screen illustrated finales with animat
 
 Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.
 
-V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; final release acceptance remains gated.
+V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; acceptance is documented in docs/RELEASE_2.0.0.md.
 
-## V2 integrity integration (release gate remains locked)
+## Release integrity
 
 Public Windows packs omit the private verifier; the separate Windows QA preset additionally requires GAME_QA=1. All pack entries and the directory are encrypted using a matching custom Godot template and an environment-only build key. Encryption makes modification harder; it is not DRM. The compiled critical-data trust root rejects a replacement manifest and starts changed installations with trusted fallback data, a localized warning and no progress/settings writes. Authenticated save recovery records a local integrity log and shows a localized message. See SAVE-INTEGRITY.md for exact boundaries.
 

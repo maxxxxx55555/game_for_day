@@ -16,3 +16,6 @@ F1: promise matrix and complete boot/loading/settings/save/exit paths. F2: finis
 No perfect-security, AAA-scale or universal zero-bug claim is made. Environment failures are documented instead of passed. Platform exceptions require the explicit specification fallback, never relabelling old evidence.
 
 The Android host denied WHPX and documented software attempts failed before boot. Section16 explicitly permits a preview labelled untested in this cycle, or omission. No emulator question remains pending; no Android runtime PASS is claimed. No2.0 tag or release exists at F0.
+
+## Continuation closure
+F1–F7 are complete for the accepted Windows edition. The current publication gate is section6 of the human-adopted continuation document. Earlier Android and unpublished-tag statements above are historical baseline observations. Final acceptance, current counts and platform exclusions are recorded in RELEASE_2.0.0.md.

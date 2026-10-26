@@ -27,3 +27,6 @@ Three archived design/plan files still mixed unrelated runtime architecture and 
 
 ## F2 closure evidence
 Keyed copy and empty scene defaults now have an enforced source contract. See LOCALIZATION_AUDIT.md for canonical-copy fixtures, actual current case counts and exact presentation exceptions. C10 counts are based on executed cases rather than the inherited file-count estimate. C12 model/business/birth/inheritance strings now reference their pre-existing keys; serialized canonical values remain unchanged.
+
+## Final byte-contract review
+The40 original promise entries remain indexed, including an immutable pre-release README snapshot. Portable LF input digests and opaque inherited-license/profile attributes survive fresh Git checkouts. All8 inherited license files match the original1.4.0 archive; six line-ending-only differences were restored, without wording changes. C10 is31 events/93 decisions (16 external +15 inline),46 rendered Godot invocations per locale and23 core regressions.
