@@ -4,15 +4,15 @@ A complete offline life/finance loop: four birth origins,31 events/93 decisions,
 
 Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier1.4 emulator results are historical evidence only. Under v2 section16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.
 
-# Heirs of Fortune — 2.0.0
+# Heirs of Fortune — 2.0.0 preparation (publication locked)
 
-Complete live Russian/English presentation with 598 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
+Complete live Russian/English presentation with 601 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
 
 ## Русский
 
 Полная русская и английская локализация, выбор языка без потери текущего события. Разные композиции для четырёх настроений, музыкальные финалы, четыре уровня звука, настройка анимации и экран авторов. Каталоги старых сохранений сохранены.
 
-Current release: v2.0.0. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.
+Target release: v2.0.0; unpublished until the v2 gate passes. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.
 
 ---
 
@@ -55,7 +55,7 @@ godot --headless --path . --export-release "Windows Desktop" builds/windows/Heir
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner executes27 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 598 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner executes29 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 601 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -76,3 +76,5 @@ The game has its own distinct per-mood soundtrack. See assets/CREDITS.md for cre
 Victory and defeat now have separate full-screen illustrated finales with animated atmosphere and readable actions. The ending restores after relaunch; second chance and inheritance use the same game rules. The opt-in exported verifier also accepts `--defeat` to exercise an ordinary losing route, one revive and the next generation.
 
 Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.
+
+V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; final release acceptance remains gated.

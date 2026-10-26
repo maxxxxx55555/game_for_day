@@ -2391,6 +2391,18 @@
     "number.billion": {
       "ru": " млрд",
       "en": "B"
+    },
+    "chart.unit": {
+      "ru": "USD за 1 %s",
+      "en": "USD per 1 %s"
+    },
+    "chart.now": {
+      "ru": "Сейчас",
+      "en": "Now"
+    },
+    "chart.samples_ago": {
+      "ru": "−%d отсч.",
+      "en": "−%d samples"
     }
   },
   "aliases": {

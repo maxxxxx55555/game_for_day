@@ -759,3 +759,6 @@ ui.begin_life_first,Сначала начните жизнь и выберите
 number.thousand, тыс.,K
 number.million, млн,M
 number.billion, млрд,B
+chart.unit,USD за 1 %s,USD per 1 %s
+chart.now,Сейчас,Now
+chart.samples_ago,−%d отсч.,−%d samples

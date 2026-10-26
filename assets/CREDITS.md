@@ -19,3 +19,5 @@ Original project artwork authored for this release, without third-party image so
 
 - `icon.svg`: SHA256 `89b5a964e141d7ae66e6a7fbd13ce924cbe31f30fea27100f39bc948a89e5e49`.
 - `assets/ui/app-icon.png`: SHA256 `c698dfd30aad44067387088eb00e4b1d2d7b9a48f7a723a41224c9dc6600015f`.
+
+V2 art curation: docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json. Narrative illustrations and their original generation provenance are retained. Prata display headings and Onest controls use the bundled licensed font files; currency plots and capital motion are repository UI code. Inherited third-party license files are retained unchanged.

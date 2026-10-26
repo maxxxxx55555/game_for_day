@@ -4,7 +4,7 @@
   "sources": [
     {
       "path": "README.md",
-      "sha256": "9204192683b46faafc9437c0906ebb419dabd77430b88fbadc54d41924156bcc"
+      "sha256": "caa2945dce8de03f7969cd461c18ee39e4cfe29a79042fab5316b07b4a126aee"
     },
     {
       "path": "docs/superpowers/specs/2026-10-25-bilingual-release-design.md",
@@ -74,7 +74,7 @@
       "source": "README.md",
       "line": 9,
       "section": "Current edition scope — v2 integration in progress",
-      "original": "Complete live Russian/English presentation with 598 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.",
+      "original": "Complete live Russian/English presentation with 601 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
@@ -96,7 +96,7 @@
       "source": "README.md",
       "line": 15,
       "section": "Русский",
-      "original": "Current release: v2.0.0. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.",
+      "original": "Target release: v2.0.0; unpublished until the v2 gate passes. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
@@ -217,7 +217,7 @@
       "source": "README.md",
       "line": 58,
       "section": "Build and test",
-      "original": "The current source runner executes27 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 598 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
+      "original": "The current source runner executes29 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 601 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
@@ -295,6 +295,17 @@
       "line": 78,
       "section": "1.2.0 update",
       "original": "Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.",
+      "status": "implemented",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
+      "test": "tests/test_gameplay.gd"
+    },
+    {
+      "id": "1:80",
+      "source": "README.md",
+      "line": 80,
+      "section": "1.2.0 update",
+      "original": "V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; final release acceptance remains gated.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",

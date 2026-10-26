@@ -69,8 +69,8 @@ func _ready() -> void:
 	var column := $MarginContainer/VBoxContainer
 	var brand := Label.new()
 	brand.text = "HEIRS OF FORTUNE"
-	brand.add_theme_font_override("font", load("res://assets/fonts/Unbounded.ttf"))
-	brand.add_theme_font_size_override("font_size", 25)
+	brand.add_theme_font_override("font", load("res://assets/fonts/Prata-Regular.ttf"))
+	brand.add_theme_font_size_override("font_size", 32)
 	brand.add_theme_color_override("font_color", Color("d4bd90"))
 	column.add_child(brand)
 	column.move_child(brand,0)
@@ -95,7 +95,7 @@ func _ready() -> void:
 	LocalizationManager.language_changed.connect(func(language):
 		language_choice.select(0 if language=="ru" else 1)
 		for card in choice_cards:card.refresh()
-		if dashboard:dashboard.queue_redraw()
+		if dashboard:dashboard.refresh_values()
 	)
 	var content := VBoxContainer.new()
 	content.name = "StoryContent"
@@ -250,7 +250,7 @@ func update_ui() -> void:
 	if intro_actions:intro_actions.visible=current_mode==ScreenMode.INTRO
 	if finale_overlay: finale_overlay.visible = current_mode == ScreenMode.GAMEOVER
 	$MarginContainer.visible = current_mode != ScreenMode.GAMEOVER
-	if dashboard: dashboard.queue_redraw()
+	if dashboard: dashboard.refresh_values()
 	if market_back: market_back.visible = current_mode == ScreenMode.MARKET
 	if currency_button: currency_button.visible = current_mode == ScreenMode.MARKET
 	if currency_panel: currency_panel.visible = current_mode == ScreenMode.CURRENCY

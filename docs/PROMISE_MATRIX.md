@@ -2,7 +2,7 @@
 
 The older design documents contain a much larger roadmap. This matrix indexes every substantive non-code line, including duplicated/extended design-book sections. It distinguishes actual edition systems from excluded roadmap details. Mandatory v2 improvements are included work and must pass their separate phase gates. A historical partial promise is never silently described as fully implemented.
 
-[Complete verbatim inventory](PROMISE_MATRIX.json). 37 paragraph/list/table entries. Sources and hashes are recorded; each group links to real engine tests. Final F7 logs determine test status.
+[Complete verbatim inventory](PROMISE_MATRIX.json). 38 paragraph/list/table entries. Sources and hashes are recorded; each group links to real engine tests. Final F7 logs determine test status.
 
 | Original section | Status | Current edition / evidence | Explicit exclusions |
 |---|---|---|---|

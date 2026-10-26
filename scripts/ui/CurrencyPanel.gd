@@ -13,7 +13,7 @@ func _ready() -> void:
 	for edge in ["left", "right", "top", "bottom"]: margin.add_theme_constant_override("margin_" + edge, 24)
 	add_child(margin)
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 18)
+	column.add_theme_constant_override("separation", 16)
 	margin.add_child(column)
 	var header := HBoxContainer.new()
 	column.add_child(header)
@@ -45,7 +45,7 @@ func _ready() -> void:
 		panel.add_theme_stylebox_override("panel", preload("res://scripts/ui/FortuneTheme.gd").style(Color("203c47"), Color("47616a")))
 		cards.add_child(panel)
 		var card := VBoxContainer.new()
-		card.add_theme_constant_override("separation", 10)
+		card.add_theme_constant_override("separation", 8)
 		panel.add_child(card)
 		var quote := Label.new()
 		quote.add_theme_font_size_override("font_size", 24)
@@ -115,7 +115,7 @@ func refresh() -> void:
 		row.sell.disabled = GameManager.fx.holdings[code] <= 0
 		row.sell.tooltip_text=(LocalizationManager.source("ui.no_currency") % code) if row.sell.disabled else ""
 		row.buy.tooltip_text = LocalizationManager.source("copy.778a48fdd09e") + GameManager.format_num(maxf(0, GameManager.cash * 0.25))
-		row.chart.queue_redraw()
+		row.chart.refresh_labels()
 
 func _process(_delta:float) -> void:
 	if not visible:return

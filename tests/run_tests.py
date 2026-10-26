@@ -41,6 +41,8 @@ def main():
         cases.append(('disabled-explanations', ['--headless', '--script', 'res://tests/test_disabled_explanations.gd']))
         cases.append(('comfort-preferences', ['--headless', '--script', 'res://tests/test_comfort_preferences.gd']))
         cases.append(('canonical-model', ['--headless', '--script', 'res://tests/test_canonical_model.gd']))
+        cases.append(('currency-chart', ['--headless', '--script', 'res://tests/test_currency_chart.gd']))
+        cases.append(('financial-motion', ['--headless', '--script', 'res://tests/test_financial_motion.gd']))
         cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
         cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
         cases.append(('audio-scope', ['--headless', '--script', 'res://tests/test_audio_scope.gd']))

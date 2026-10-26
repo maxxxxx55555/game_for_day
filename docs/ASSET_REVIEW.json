@@ -1,0 +1,96 @@
+{
+  "review_date": "2026-10-26",
+  "game": "Heirs of Fortune",
+  "method": "Visual contact-sheet inspection of every listed raster/vector, full narrative-image inspection,16px icon check; integrated gallery acceptance is recorded separately after capture review.",
+  "scope": "Source curation; does not claim human playtesting or final release acceptance",
+  "count": 10,
+  "files": [
+    {
+      "path": "assets/art/city_folio.png",
+      "sha256": "3780c678c935882d2448fdb8ed314bc6593b334c96f79a079e411c9f378ff5aa",
+      "role": "narrative city",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Full image and portrait crop inspected: coherent riverside architecture, warm lamps/cool evening palette, no gibberish lettering; preserves generous image area behind the event card.",
+      "provenance": "assets/art/provenance.json"
+    },
+    {
+      "path": "assets/art/ending_defeat.png",
+      "sha256": "260b519cf402315ecaf3a567d452932545f2a134d45a0c8eaa85aa3647739d34",
+      "role": "narrative ending",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Full image and real finale inspected: coherent office/terrace perspective, furniture and skyline; no visible hand/teeth or baked lettering defects. Deliberate mood lighting retained.",
+      "provenance": "assets/art/provenance.json"
+    },
+    {
+      "path": "assets/art/ending_victory.png",
+      "sha256": "bfefb4c608d969faa00b82fbe420289180c5865afea3045489de4ed0146b5d33",
+      "role": "narrative ending",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Full image and real finale inspected: coherent office/terrace perspective, furniture and skyline; no visible hand/teeth or baked lettering defects. Deliberate mood lighting retained.",
+      "provenance": "assets/art/provenance.json"
+    },
+    {
+      "path": "assets/art/life-portraits.png",
+      "sha256": "23b54852534fb57b268f63e57d3ff4646097cec3d3b6c8f3257b4983c1436cd6",
+      "role": "portrait atlas",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "All four life stages inspected at full source resolution: consistent identity/palette, aligned crops, no visible facial/teeth/hand artifacts; atlas boundaries avoid neighboring portrait bleed.",
+      "provenance": "assets/art/life-portraits-provenance.json"
+    },
+    {
+      "path": "assets/ui/app-icon.png",
+      "sha256": "c698dfd30aad44067387088eb00e4b1d2d7b9a48f7a723a41224c9dc6600015f",
+      "role": "application icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Crest/monogram remains distinguishable at16×16. Source geometry and executable raster match.",
+      "provenance": "assets/asset-sources.json"
+    },
+    {
+      "path": "assets/ui/button-disabled.svg",
+      "sha256": "5da7a4bb5dbc922d76fe2d89e31a6c288aebb575b77ff49304eb59c144fe983b",
+      "role": "control vector",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "provenance": "assets/asset-sources.json"
+    },
+    {
+      "path": "assets/ui/button-hover.svg",
+      "sha256": "b56bf9797af8b5ea64a7a53455ba9a4e7a2df86ab133f3d58ba04784f7215455",
+      "role": "control vector",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "provenance": "assets/asset-sources.json"
+    },
+    {
+      "path": "assets/ui/button-normal.svg",
+      "sha256": "32cc4b827718e5f979946626d53a452b740d65ba8deb4fb82b0448f723621a24",
+      "role": "control vector",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "provenance": "assets/asset-sources.json"
+    },
+    {
+      "path": "assets/ui/button-pressed.svg",
+      "sha256": "20ec70b2d1bef6b8d4970ed219d6b441d34f11a0473ace9d4bb7ef82f497bcb4",
+      "role": "control vector",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "provenance": "assets/asset-sources.json"
+    },
+    {
+      "path": "icon.svg",
+      "sha256": "89b5a964e141d7ae66e6a7fbd13ce924cbe31f30fea27100f39bc948a89e5e49",
+      "role": "application icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Crest/monogram remains distinguishable at16×16. Source geometry and executable raster match.",
+      "provenance": "assets/asset-sources.json"
+    }
+  ],
+  "integrated_gallery": "pending F3 acceptance and final F7 exact-build recapture",
+  "integrated_review": {
+    "decision": "ACCEPT_INTEGRATED_SOURCE",
+    "evidence": "External v2 release evidence: ArtReview/integrated-acceptance.json",
+    "raw_screen_count": 20,
+    "final_release_acceptance": "Pending F7 after remaining phases"
+  }
+}

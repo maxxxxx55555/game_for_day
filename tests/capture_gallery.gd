@@ -3,7 +3,7 @@ extends SceneTree
 func _initialize() -> void: call_deferred("run")
 
 func shot(screen: Control, suffix: String) -> void:
-	await process_frame
+	await create_timer(0.26).timeout
 	await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png(OS.get_environment("GAME_SCREENSHOT").replace(".png", "-" + suffix + ".png"))
@@ -15,6 +15,11 @@ func shot(screen: Control, suffix: String) -> void:
 
 func run() -> void:
 	await process_frame
+	root.get_node("FortuneArrival").show_splash()
+	await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OS.get_environment("GAME_SCREENSHOT").replace(".png","-loading.png"))
+	root.get_node("FortuneArrival").hide_splash()
 	var screen: Control = load("res://scenes/Main.tscn").instantiate()
 	root.add_child(screen)
 	current_scene = screen
