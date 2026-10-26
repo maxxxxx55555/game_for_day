@@ -4,7 +4,7 @@
   "sources": [
     {
       "path": "README.md",
-      "sha256": "bb521e5001e7cd292395877bd4802cd16bb827184e0989da0d0e9819bb0d56ee"
+      "sha256": "6139bdb004c99777afa21aac4d99b5f58d822b3f1c214a1d53106c5c28553bf2"
     },
     {
       "path": "docs/superpowers/specs/2026-10-25-bilingual-release-design.md",
@@ -217,7 +217,7 @@
       "source": "README.md",
       "line": 60,
       "section": "Build and test",
-      "original": "The current source runner executes37 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
+      "original": "The current source runner contains46 Godot invocations per locale, including import, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
@@ -239,7 +239,7 @@
       "source": "README.md",
       "line": 66,
       "section": "Release scope and verification",
-      "original": "The test runner imports the real project in Godot, exercises gameplay, save/load, audio controls and rendered UI. Packaged executables also contain an opt-in complete-playthrough verifier: `-- --verify-build`. It starts a new QA game, so use isolated APPDATA/LOCALAPPDATA folders. QA is silent through `GAME_AUDIO_MUTED=1`; this does not remove the player's music/effects controls. Folders and formats from the previous game names remain compatible.",
+      "original": "The test runner imports the real project in Godot, exercises gameplay, save/load, audio controls and rendered UI. Public executables physically omit the complete-playthrough verifier and reject QA arguments. Only the separate, unpublished QA preset supports `-- --verify-build` with `GAME_QA=1`; it starts a fresh QA game in isolated APPDATA/LOCALAPPDATA folders. QA is silent through `GAME_AUDIO_MUTED=1`; this does not remove the player's music/effects controls. Folders and formats from the previous game names remain compatible.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
@@ -486,6 +486,28 @@
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
+    }
+  ],
+  "reconciliations": [
+    {
+      "reason": "Correct current runner inventory and public/private verifier documentation; no edition feature was removed or excluded.",
+      "previous_sha256": "bb521e5001e7cd292395877bd4802cd16bb827184e0989da0d0e9819bb0d56ee",
+      "updated_sha256": "6139bdb004c99777afa21aac4d99b5f58d822b3f1c214a1d53106c5c28553bf2",
+      "claim_count_unchanged": 40,
+      "changes": [
+        {
+          "id": "1:60",
+          "line": 60,
+          "before": "The current source runner executes37 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
+          "after": "The current source runner contains46 Godot invocations per locale, including import, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens."
+        },
+        {
+          "id": "1:66",
+          "line": 66,
+          "before": "The test runner imports the real project in Godot, exercises gameplay, save/load, audio controls and rendered UI. Packaged executables also contain an opt-in complete-playthrough verifier: `-- --verify-build`. It starts a new QA game, so use isolated APPDATA/LOCALAPPDATA folders. QA is silent through `GAME_AUDIO_MUTED=1`; this does not remove the player's music/effects controls. Folders and formats from the previous game names remain compatible.",
+          "after": "The test runner imports the real project in Godot, exercises gameplay, save/load, audio controls and rendered UI. Public executables physically omit the complete-playthrough verifier and reject QA arguments. Only the separate, unpublished QA preset supports `-- --verify-build` with `GAME_QA=1`; it starts a fresh QA game in isolated APPDATA/LOCALAPPDATA folders. QA is silent through `GAME_AUDIO_MUTED=1`; this does not remove the player's music/effects controls. Folders and formats from the previous game names remain compatible."
+        }
+      ]
     }
   ]
 }

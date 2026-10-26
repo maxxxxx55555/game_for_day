@@ -1,8 +1,8 @@
 # Heirs of Fortune mechanics matrix
 
-Execution: **mapped; final frozen execution pending**. Publication remains locked.
+Execution: **executed PASS for the mapped finite cases; F7 pending**. Publication remains locked.
 
-Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. References map coverage; they do not approve a release.
+Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the final publication gate remain pending.
 
 Windows. OS background/Back is simulated on Windows; Android artifact omitted under section16.
 
@@ -25,4 +25,4 @@ Each cell links to executable assertions. The profile contract hashes the comple
 | Language, comfort, audio and settings | [comfort_preferences](../tests/test_comfort_preferences.gd) | [settings_lifetime](../tests/test_settings_lifetime.gd) | [navigation_matrix](../tests/test_navigation_matrix.gd) | [profile_contract](../tests/test_profile_contract.gd), [mobile_lifecycle](../tests/test_mobile_lifecycle.gd) | [comfort_preferences](../tests/test_comfort_preferences.gd) | [profile_contract](../tests/test_profile_contract.gd), [localization](../tests/test_localization.gd) | [audio](../tests/test_audio.gd), [ui_audio_feedback](../tests/test_ui_audio_feedback.gd) | [navigation_matrix](../tests/test_navigation_matrix.gd) |
 | Currency chart and dashboard motion | [chart_path_regression](../tests/test_chart_path_regression.gd) | [currency_chart](../tests/test_currency_chart.gd) | [financial_motion](../tests/test_financial_motion.gd) | [profile_contract](../tests/test_profile_contract.gd), [mobile_lifecycle](../tests/test_mobile_lifecycle.gd) | [profile_contract](../tests/test_profile_contract.gd), [currencies](../tests/test_currencies.gd) | [profile_contract](../tests/test_profile_contract.gd), [localization](../tests/test_localization.gd) | [audio](../tests/test_audio.gd), [ui_audio_feedback](../tests/test_ui_audio_feedback.gd) | [navigation_matrix](../tests/test_navigation_matrix.gd) |
 
-[Machine-readable matrix](MECHANICS_MATRIX.json). Every referenced test, fifty complete cycles, measured soak and build stability must pass against the candidate before execution is marked closed.
+[Machine-readable matrix](MECHANICS_MATRIX.json). Every referenced test passed in EN/RU;50 complete seeded cycles, measured soak,3 source verification runs and hosted49-category strict CI passed. See the release QA/F6-mechanics-execution.json for hashes, logs and explicit limits. Exact exported build acceptance remains F7.
