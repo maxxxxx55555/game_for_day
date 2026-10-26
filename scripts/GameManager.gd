@@ -1,20 +1,24 @@
 extends Node
+const TypeRefExchangeMarket=preload("res://scripts/ExchangeMarket.gd")
 signal persistence_changed(ok: bool)
-var write_failures := {}
+var write_failures:Dictionary= {}
 
 func report_write(path: String, ok: bool) -> void:
-	if ok: write_failures.erase(path)
+	if ok:
+		# Clearing an absent failure is an idempotent success.
+		@warning_ignore("return_value_discarded")
+		write_failures.erase(path)
 	else: write_failures[path] = true
 	persistence_changed.emit(write_failures.is_empty())
 
 const Guard = preload("res://scripts/security/SaveGuard.gd")
 const Money=preload("res://scripts/security/Money.gd")
 const SavePolicy = preload("res://scripts/security/FortuneSavePolicy.gd")
-const SAVE_PATH := "user://dynasty_save.cfg"
-const SESSION_PATH := "user://current_life.cfg"
-const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick"]
-const QUARTERLY_INFLATION := 0.007
-var fx := preload("res://scripts/ExchangeMarket.gd").new()
+const SAVE_PATH:String= "user://dynasty_save.cfg"
+const SESSION_PATH:String= "user://current_life.cfg"
+const RUN_FIELDS:Array[String]= ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick"]
+const QUARTERLY_INFLATION:float= 0.007
+var fx:TypeRefExchangeMarket= preload("res://scripts/ExchangeMarket.gd").new()
 var fx_state: Dictionary:
 	get: return fx.capture()
 	set(value): fx.restore(value)
@@ -64,7 +68,7 @@ var difficulty_multiplier: float = 1.0
 # Бизнес-империя
 var business_tier: int = 0
 var business_scale: int = 1 # Масштабирование топового бизнеса (филиалы/поглощения)
-const BUSINESS_DEFINITIONS := [
+const BUSINESS_DEFINITIONS:Array[Dictionary]= [
 	{"name_key": "copy.415032073d05", "cost_cents": 0, "income_cents": 0, "valuation_cents": 0},
 	{"name_key": "copy.4e18dfdd0b19", "cost_cents": 500000, "income_cents": 65000, "valuation_cents": 450000},
 	{"name_key": "copy.9b2e303874c5", "cost_cents": 5000000, "income_cents": 680000, "valuation_cents": 4800000},
@@ -74,14 +78,16 @@ const BUSINESS_DEFINITIONS := [
 ]
 
 # Public read API retains canonical Russian names for old saved presentation copy.
-var business_tier_cache:Array=[]
-var BUSINESS_TIERS:Array:
+var business_tier_cache:Array[Dictionary]=[]
+var BUSINESS_TIERS:Array[Dictionary]:
 	get:
 		if business_tier_cache.is_empty():
-			for definition in BUSINESS_DEFINITIONS:
+			for definition:Dictionary in BUSINESS_DEFINITIONS:
 				var entry:Dictionary=definition.duplicate()
-				for field in ["cost","income","valuation"]:entry[field]=Money.dollars(definition[field+"_cents"])
-				entry["name"]=LocalizationManager.source(entry.name_key)
+				for field:String in ["cost","income","valuation"]:
+					var cents:int=definition[field+"_cents"]
+					entry[field]=Money.dollars(cents)
+				entry["name"]=LocalizationManager.source(str(entry.name_key))
 				business_tier_cache.append(entry)
 		return business_tier_cache
 
@@ -130,7 +136,7 @@ func _ready() -> void:
 	load_dynasty()
 
 func save_dynasty() -> bool:
-	var cfg := ConfigFile.new()
+	var cfg:ConfigFile= ConfigFile.new()
 	cfg.set_value("dynasty", "generation", generation)
 	cfg.set_value("dynasty", "legacy_points", legacy_points)
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
@@ -142,12 +148,12 @@ func save_dynasty() -> bool:
 	cfg.set_value("settings", "ui_volume", ui_volume)
 	cfg.set_value("settings", "music_volume", music_volume)
 	cfg.set_value("settings", "sfx_volume", sfx_volume)
-	var ok := Guard.write_config(SAVE_PATH, cfg, "fortune/dynasty", SavePolicy.dynasty)
+	var ok:bool= Guard.write_config(SAVE_PATH, cfg, "fortune/dynasty", SavePolicy.dynasty)
 	report_write(SAVE_PATH,ok)
 	return ok
 
 func load_dynasty() -> void:
-	var cfg := Guard.read_config(SAVE_PATH, "fortune/dynasty", SavePolicy.dynasty)
+	var cfg:ConfigFile= Guard.read_config(SAVE_PATH, "fortune/dynasty", SavePolicy.dynasty)
 	if Guard.last_repair_failed: report_write(SAVE_PATH,false)
 	if cfg != null:
 		generation = cfg.get_value("dynasty", "generation", 1)
@@ -157,38 +163,44 @@ func load_dynasty() -> void:
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
 		reduced_motion = cfg.get_value("settings", "reduced_motion", false)
-		master_volume = clampf(cfg.get_value("settings", "master_volume", 1.0), 0, 1)
-		ui_volume = clampf(cfg.get_value("settings", "ui_volume", 0.8), 0, 1)
-		music_volume = clampf(cfg.get_value("settings", "music_volume", 0.3), 0, 1)
-		sfx_volume = clampf(cfg.get_value("settings", "sfx_volume", 0.8), 0, 1)
+		master_volume = cfg.get_value("settings", "master_volume", 1.0)
+		master_volume = clampf(master_volume,0,1)
+		ui_volume = cfg.get_value("settings", "ui_volume", 0.8)
+		ui_volume = clampf(ui_volume,0,1)
+		music_volume = cfg.get_value("settings", "music_volume", 0.3)
+		music_volume = clampf(music_volume,0,1)
+		sfx_volume = cfg.get_value("settings", "sfx_volume", 0.8)
+		sfx_volume = clampf(sfx_volume,0,1)
 
 func reset_full_dynasty() -> void:
 	clear_current_life()
 	generation = 1
 	legacy_points = 0
 	inherited_capital = 0.0
+	# save_dynasty reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
 	save_dynasty()
 	reset_game()
 
 func save_current_life(ui_state: Dictionary) -> bool:
-	var cfg := ConfigFile.new()
+	var cfg:ConfigFile= ConfigFile.new()
 	cfg.set_value("session", "generation", generation)
 	cfg.set_value("session", "ui", ui_state)
-	for field in RUN_FIELDS:
+	for field:String in RUN_FIELDS:
 		cfg.set_value("run", field, get(field))
-	var ok := Guard.write_config(SESSION_PATH, cfg, "fortune/session", SavePolicy.session)
+	var ok:bool= Guard.write_config(SESSION_PATH, cfg, "fortune/session", SavePolicy.session)
 	report_write(SESSION_PATH,ok)
 	return ok
 
 func load_current_life() -> Dictionary:
-	var cfg := Guard.read_config(SESSION_PATH, "fortune/session", SavePolicy.session)
+	var cfg:ConfigFile= Guard.read_config(SESSION_PATH, "fortune/session", SavePolicy.session)
 	if Guard.last_repair_failed: report_write(SESSION_PATH,false)
 	if cfg == null or cfg.get_value("session", "generation", -1) != generation:
 		return {}
 	var ui_state: Dictionary = cfg.get_value("session", "ui", {})
 	if ui_state.is_empty():
 		return {}
-	for field in RUN_FIELDS:
+	for field:String in RUN_FIELDS:
 		set(field, cfg.get_value("run", field, {} if field == "fx_state" else get(field)))
 	if not cfg.has_section_key("run","simulation_ticks"):
 		var old_cooldown:float=cfg.get_value("run","ad_cooldown",0.0)
@@ -200,8 +212,10 @@ func load_current_life() -> Dictionary:
 
 func clear_current_life() -> void:
 	if not Guard.can_write(): return
-	for path in [SESSION_PATH, SESSION_PATH + ".bak"]:
-		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
+	for path:String in [SESSION_PATH, SESSION_PATH + ".bak"]:
+		if FileAccess.file_exists(path):
+			var remove_error:Error=DirAccess.remove_absolute(path)
+			if remove_error!=OK:report_write(path,false)
 
 func reset_game() -> void:
 	fx.reset()
@@ -237,8 +251,8 @@ func reset_game() -> void:
 
 # Лотерея рождения по реальной демографической статистике мира
 func roll_birth_lottery() -> Dictionary:
-	var roll := randf() * 100.0
-	var result := {}
+	var roll:float= randf() * 100.0
+	var result:Dictionary= {}
 	if roll < 50.0:
 		birth_origin = LocalizationManager.source("copy.b1a7a4e2a93b")
 		cash = -1500.0 + inherited_capital
@@ -285,6 +299,8 @@ func roll_birth_lottery() -> Dictionary:
 		}
 	has_rolled_birth = true
 	inherited_capital = 0.0
+	# save_dynasty reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
 	save_dynasty()
 	recalculate_forbes_rank()
 	return result
@@ -323,14 +339,16 @@ func sell_currency(code:String,units:float) -> float:
 
 func get_business_valuation_cents() -> int:
 	if business_tier<0 or business_tier>=BUSINESS_DEFINITIONS.size():return 0
-	var result:int=Money.multiply(BUSINESS_DEFINITIONS[business_tier].valuation_cents,business_scale)
+	var cents:int=BUSINESS_DEFINITIONS[business_tier].valuation_cents
+	var result:int=Money.multiply(cents,business_scale)
 	return 0 if result==Money.INVALID else result
 
 func get_business_valuation() -> float:return Money.dollars(get_business_valuation_cents())
 
 func get_business_income_cents() -> int:
 	if business_tier<0 or business_tier>=BUSINESS_DEFINITIONS.size():return 0
-	var result:int=Money.multiply(BUSINESS_DEFINITIONS[business_tier].income_cents,business_scale)
+	var cents:int=BUSINESS_DEFINITIONS[business_tier].income_cents
+	var result:int=Money.multiply(cents,business_scale)
 	return 0 if result==Money.INVALID else result
 
 func get_optimization_bonus() -> float:return Money.dollars(Money.ratio(get_business_income_cents(),15,100))
@@ -360,24 +378,24 @@ func get_net_worth_cents() -> int:
 func get_net_worth() -> float:return Money.dollars(get_net_worth_cents())
 
 func recalculate_forbes_rank() -> void:
-	var nw := get_net_worth()
+	var nw:float= get_net_worth()
 	if nw <= -10000.0:
 		rank = 8000000000
 	elif nw < 0.0:
-		rank = int(lerp(7000000000.0, 8000000000.0, clamp(-nw / 10000.0, 0.0, 1.0)))
+		rank = int(lerpf(7000000000.0, 8000000000.0, clampf(-nw / 10000.0, 0.0, 1.0)))
 	elif nw < 10000.0:
-		rank = int(lerp(3500000000.0, 7000000000.0, 1.0 - (nw / 10000.0)))
+		rank = int(lerpf(3500000000.0, 7000000000.0, 1.0 - (nw / 10000.0)))
 	elif nw < 100000.0:
-		rank = int(lerp(600000000.0, 3500000000.0, 1.0 - ((nw - 10000.0) / 90000.0)))
+		rank = int(lerpf(600000000.0, 3500000000.0, 1.0 - ((nw - 10000.0) / 90000.0)))
 	elif nw < 1000000.0:
-		rank = int(lerp(60000000.0, 600000000.0, 1.0 - ((nw - 100000.0) / 900000.0)))
+		rank = int(lerpf(60000000.0, 600000000.0, 1.0 - ((nw - 100000.0) / 900000.0)))
 	elif nw < 100000000.0:
-		rank = int(lerp(30000.0, 60000000.0, 1.0 - ((nw - 1000000.0) / 99000000.0)))
+		rank = int(lerpf(30000.0, 60000000.0, 1.0 - ((nw - 1000000.0) / 99000000.0)))
 	elif nw < 1000000000.0:
-		rank = int(lerp(2800.0, 30000.0, 1.0 - ((nw - 100000000.0) / 900000000.0)))
+		rank = int(lerpf(2800.0, 30000.0, 1.0 - ((nw - 100000000.0) / 900000000.0)))
 	elif nw < 250000000000.0:
 		var t: float = clampf((nw - 1000000000.0) / 249000000000.0, 0.0, 1.0)
-		rank = max(1, int(lerp(2800.0, 1.0, pow(t, 0.35))))
+		rank = max(1, int(lerpf(2800.0, 1.0, pow(t, 0.35))))
 	else:
 		rank = 1
 
@@ -407,16 +425,16 @@ func advance_quarter_and_markets() -> Dictionary:
 	difficulty_multiplier += 0.008 * time_speed
 
 	# Колебания фондового индекса и криптовалюты
-	var stock_delta := randf_range(-0.045, 0.065)
+	var stock_delta:float= randf_range(-0.045, 0.065)
 	if player_perk == "wall_street":
 		stock_delta += 0.01
 	stock_index = max(100.0, snappedf(stock_index * (1.0 + stock_delta), 0.01))
 
-	var crypto_delta := randf_range(-0.22, 0.26)
+	var crypto_delta:float= randf_range(-0.22, 0.26)
 	crypto_rate = max(5.0, snappedf(crypto_rate * (1.0 + crypto_delta), 0.01))
 
 	# Начисление пассивного дохода и списание стоимости жизни
-	var net_quarter_cash := passive_inc - living_cost
+	var net_quarter_cash:float= passive_inc - living_cost
 	cash_cents=next_cash
 
 	recalculate_forbes_rank()
@@ -432,10 +450,10 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 	var passive:int=Money.scale(get_passive_quarterly_income_cents(),time_speed)
 	var living:int=Money.scale(get_quarterly_living_cost_cents(),time_speed)
 	if next_cash==Money.INVALID or Money.add(next_cash,Money.add(passive,-living))==Money.INVALID:return
-	var adj_health := d_health
-	var adj_stress := int(float(d_stress) * difficulty_multiplier)
-	var adj_energy := d_energy
-	var adj_intellect := d_intellect
+	var adj_health:int= d_health
+	var adj_stress:int= int(float(d_stress) * difficulty_multiplier)
+	var adj_energy:int= d_energy
+	var adj_intellect:int= d_intellect
 
 	if player_perk == "iron_health" and adj_health < 0:
 		adj_health = int(float(adj_health) * 0.65)
@@ -455,6 +473,8 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 	happiness = clamp(happiness + d_happiness, 0, 100)
 	energy = clamp(energy + adj_energy, 0, 100)
 
+	# Calendar advancement updates the model; this caller has no narrative result to consume.
+	@warning_ignore("return_value_discarded")
 	advance_quarter_and_markets()
 	recalculate_forbes_rank()
 
@@ -499,7 +519,7 @@ func sell_all_crypto() -> float:
 
 func upgrade_or_scale_business() -> Dictionary:
 	if business_tier < BUSINESS_TIERS.size() - 1:
-		var next_tier := business_tier + 1
+		var next_tier:int= business_tier + 1
 		var cost_cents:int=BUSINESS_DEFINITIONS[next_tier].cost_cents
 		var cost:float=Money.dollars(cost_cents)
 		if cash_cents>=cost_cents:
@@ -523,9 +543,9 @@ func upgrade_or_scale_business() -> Dictionary:
 			return {"ok": false, "msg": LocalizationManager.source("copy.980c1f440898") + format_num(scale_cost)}
 
 func register_inheritance_on_end() -> String:
-	var nw := get_net_worth()
-	legacy_points += 1 + int(max(0, age - 30) / 15)
-	var msg := ""
+	var nw:float= get_net_worth()
+	legacy_points += 1 + int(float(maxi(0,age-30))/15.0)
+	var msg:String= ""
 	if age >= 50 and nw > 1000.0:
 		inherited_capital_cents=roundi(float(Money.ratio(get_net_worth_cents(),20,100))/100.0)*100
 		generation += 1
@@ -536,12 +556,14 @@ func register_inheritance_on_end() -> String:
 		inherited_capital = 0.0
 		generation += 1
 		msg = LocalizationManager.source("copy.51f8bcaaf0c7") % legacy_points
+	# save_dynasty reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
 	save_dynasty()
 	return msg
 
 func format_num(val: float) -> String:
-	var abs_v := absf(val)
-	var sign_s := "-" if val < 0.0 else ""
+	var abs_v:float= absf(val)
+	var sign_s:String= "-" if val < 0.0 else ""
 	if abs_v >= 1000000000.0:
 		return "%s%.2fB" % [sign_s, abs_v / 1000000000.0]
 	elif abs_v >= 1000000.0:
