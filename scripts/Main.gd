@@ -500,7 +500,15 @@ func open_settings_menu() -> void:
 
 # --- ОБРАБОТКА НАЖАТИЙ КНОПОК ---
 
+var choice_busy:bool=false
+
 func on_choice_pressed(option: int) -> void:
+	if choice_busy:return
+	choice_busy=true
+	_apply_choice(option)
+	choice_busy=false
+
+func _apply_choice(option:int)->void:
 	match current_mode:
 		ScreenMode.INTRO:
 			show_birth_screen()

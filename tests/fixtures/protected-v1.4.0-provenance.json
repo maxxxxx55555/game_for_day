@@ -1,0 +1,10 @@
+{
+  "origin_version": "1.4.0",
+  "original_revision": "efce52c45bb9fcb3cb0b59214a8c3c7557b84fcd",
+  "original_windows_zip_sha256": "a97bb390ac70dd2bac4c0fa5b11bb9492bf9540b32c8aaf4271e33eff0d06a79",
+  "fixture": "protected-v1.4.0-current_life.cfg",
+  "fixture_sha256": "6ff7a2a994afc0c65eb431c9109c9497934f7dcd963d1fad88f35469eeb1abfb",
+  "fixture_bytes": 3528,
+  "installation_key": "Private original test-profile key retained outside repository; never a public artifact",
+  "method": "Byte-identical saved profile produced by the original1.4.0 game; exact protected migration runs use an isolated copy of the private original test installation"
+}
