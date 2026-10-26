@@ -11,3 +11,5 @@ The F1 suite inventory was corrected from an inherited estimate: actual executed
 The immutable v1.4.0 fixture records255 unique Russian literals from original Main/GameManager/ChoiceCopy source and16 ordered external events, with tag commit/source hashes. test_copy_contract.py requires exact original Russian values and the same ordered event data/deltas after removing added translation metadata. test_canonical_model.gd checks all four original birth identities and the existing business-name read API in both languages. test_choice_sweep.gd verifies title/detail translation for every real decision. The former ACTIONS table remains removed.
 
 F3 adds 3 keyed labels/briefing entries; current catalog count is601 per language. The rendered suite now has29 cases. F2 historical evidence above is unchanged.
+
+F4 adds two non-copy audio regression cases; current runner count is31. Localization keys remain unchanged from F3.

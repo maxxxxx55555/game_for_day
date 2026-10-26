@@ -4,7 +4,7 @@
   "sources": [
     {
       "path": "README.md",
-      "sha256": "caa2945dce8de03f7969cd461c18ee39e4cfe29a79042fab5316b07b4a126aee"
+      "sha256": "bb985eb8154bf2144b3d388d2e986f6c9cabc7bea51813eea277f923babcc06c"
     },
     {
       "path": "docs/superpowers/specs/2026-10-25-bilingual-release-design.md",
@@ -217,7 +217,7 @@
       "source": "README.md",
       "line": 58,
       "section": "Build and test",
-      "original": "The current source runner executes29 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 601 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
+      "original": "The current source runner executes31 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 601 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",

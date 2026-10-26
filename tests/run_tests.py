@@ -60,6 +60,8 @@ def main():
         cases.append(('premium-ui', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_premium_ui.gd']))
         cases.append(('release-hardening', ['--headless', '--script', 'res://tests/test_release_hardening.gd']))
         cases.append(('music-transitions', ['--headless', '--script', 'res://tests/test_music_transitions.gd']))
+        for case in ['ui_audio_feedback','context_audio']:
+            cases.append((case, ['--headless', '--script', 'res://tests/test_' + case + '.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))

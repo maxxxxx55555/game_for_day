@@ -10,3 +10,5 @@
 - Remaining birth/business/inheritance model copy uses existing keys while preserving canonical Russian identities. Added a v1.4.0 original-copy and ordered-event regression fixture; opening copy refreshes on live language changes.
 
 F3: published art tokens and individual10-file source review; unified Prata display headings, legible currency units/scale/sample labels, and interruptible180ms presentation-only capital updates with reduced-motion snapping. Source gallery and final gate evidence are tracked separately.
+
+V2 F4: preserve the four distinct recorded mood tracks and two finales; add quiet focus/unavailable synthesis with honest CC0 hashes, one contextual acknowledgment per action, restrained cosmetic pitch variation and real rejected-action regressions. QA remains muted.

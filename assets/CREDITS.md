@@ -21,3 +21,5 @@ Original project artwork authored for this release, without third-party image so
 - `assets/ui/app-icon.png`: SHA256 `c698dfd30aad44067387088eb00e4b1d2d7b9a48f7a723a41224c9dc6600015f`.
 
 V2 art curation: docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json. Narrative illustrations and their original generation provenance are retained. Prata display headings and Onest controls use the bundled licensed font files; currency plots and capital motion are repository UI code. Inherited third-party license files are retained unchanged.
+
+Interface focus/unavailable cues: original profile-specific synthesis using tools/generate_audio.py, CC0-1.0; exact provenance is in audio/interface-provenance.json.

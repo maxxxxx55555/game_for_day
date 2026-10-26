@@ -290,6 +290,7 @@ func update_ui() -> void:
 	music_label.text = LocalizationManager.source("copy.1556d74b3343") % [sound_state, GameManager.current_track]
 	
 	if GameManager.ad_cooldown > 0:
+		SoundManager.play_sfx("ui_error")
 		ad_btn.text = LocalizationManager.source("copy.c54826c2787f") % str(GameManager.ad_cooldown)
 	else:
 		ad_btn.text = LocalizationManager.source("copy.3bcab31e2fd9")
@@ -469,6 +470,7 @@ func watch_ad_for_bonus() -> void:
 	if current_mode == ScreenMode.GAMEOVER:
 		return
 	if GameManager.ad_cooldown > 0:
+		SoundManager.play_sfx("ui_error")
 		event_label.text = LocalizationManager.source("copy.1d33e8d9a164") % str(GameManager.ad_cooldown)
 		return
 	
@@ -505,7 +507,6 @@ func open_settings_menu() -> void:
 # --- ОБРАБОТКА НАЖАТИЙ КНОПОК ---
 
 func on_choice_pressed(option: int) -> void:
-	SoundManager.play_sfx("ui_click")
 	match current_mode:
 		ScreenMode.INTRO:
 			show_birth_screen()
@@ -572,6 +573,7 @@ func handle_market_action(option: int) -> void:
 			open_market_menu()
 			event_label.text = LocalizationManager.source("copy.30fe6d28992e") % GameManager.format_num(amt) + event_label.text
 		else:
+			SoundManager.play_sfx("ui_error")
 			event_label.text = LocalizationManager.source("copy.01ceea2130e1") + event_label.text
 	elif option == 2:
 		var amt := GameManager.cash * 0.25
@@ -580,6 +582,7 @@ func handle_market_action(option: int) -> void:
 			open_market_menu()
 			event_label.text = LocalizationManager.source("copy.67d6a0681bd8") % GameManager.format_num(amt) + event_label.text
 		else:
+			SoundManager.play_sfx("ui_error")
 			event_label.text = LocalizationManager.source("copy.4379c0b7c8cd") + event_label.text
 	else:
 		var sold_s := GameManager.sell_all_stocks()
@@ -593,8 +596,7 @@ func handle_market_action(option: int) -> void:
 func handle_business_action(option: int) -> void:
 	if option == 1:
 		var res := GameManager.upgrade_or_scale_business()
-		if res["ok"]:
-			SoundManager.play_sfx("upgrade")
+		SoundManager.play_sfx("upgrade" if res["ok"] else "ui_error")
 		if check_game_over():
 			return
 		open_business_menu()
@@ -605,8 +607,10 @@ func handle_business_action(option: int) -> void:
 		if GameManager.business_tier > 0 and GameManager.energy >= 15:
 			var bonus: float = GameManager.BUSINESS_TIERS[GameManager.business_tier]["income"] * float(GameManager.business_scale) * 0.15
 			GameManager.apply_delta(bonus, 0, 0, 0, 0, -15)
+			SoundManager.play_sfx("coin")
 			load_next_life_event(LocalizationManager.source("copy.ed4b0b659951") % GameManager.format_num(bonus))
 		else:
+			SoundManager.play_sfx("ui_error")
 			event_label.text = LocalizationManager.source("copy.6d0c821355a9") + event_label.text
 	else:
 		load_next_life_event(LocalizationManager.source("copy.87de3bb66d37"), true)

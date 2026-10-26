@@ -11,6 +11,7 @@ var current_finale:=""
 var music_index: int = -1
 var crossfade: Tween
 var effect_cursor: int = 0
+var feedback_serial:int=0
 var audio_rng := RandomNumberGenerator.new()
 var force_mute: bool = OS.get_environment("GAME_AUDIO_MUTED") == "1"
 
@@ -39,6 +40,9 @@ func _ready() -> void:
 		add_child(player)
 		effect_players.append(player)
 	apply_gains()
+	var feedback:=preload("res://scripts/audio/UIFeedback.gd").new()
+	add_child(feedback)
+	feedback.start(self)
 
 func _stream(name: String, music: bool = false) -> AudioStreamWAV:
 	var key := ("music/" if music else "sfx/") + name
@@ -96,6 +100,7 @@ func play_sfx(sound_name: String, bus_name: String = "") -> AudioStreamPlayer:
 	var sound := _stream(sound_name)
 	if not sound:
 		return null
+	feedback_serial+=1
 	var player: AudioStreamPlayer
 	for candidate in effect_players:
 		if not candidate.playing:
@@ -105,9 +110,9 @@ func play_sfx(sound_name: String, bus_name: String = "") -> AudioStreamPlayer:
 		player = effect_players[effect_cursor % effect_players.size()]
 		effect_cursor += 1
 	player.stream = sound
-	player.bus = bus_name if not bus_name.is_empty() else ("UI" if sound_name == "ui_click" else "SFX")
-	player.volume_db = -5
-	player.pitch_scale = audio_rng.randf_range(0.97, 1.03) if sound_name in ["ui_click", "coin"] else 1.0
+	player.bus = bus_name if not bus_name.is_empty() else ("UI" if sound_name in ["ui_click","ui_focus","ui_error"] else "SFX")
+	player.volume_db = -24 if sound_name=="ui_focus" else -10 if sound_name=="ui_error" else -5
+	player.pitch_scale = audio_rng.randf_range(0.97, 1.03) if not catalog.sfx[sound_name].get("loop",false) and sound_name not in ["victory","defeat"] else 1.0
 	player.play()
 	return player
 
