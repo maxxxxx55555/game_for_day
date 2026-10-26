@@ -2379,6 +2379,18 @@
     "ui.begin_life_first": {
       "ru": "Сначала начните жизнь и выберите черту.",
       "en": "Begin your life and choose a trait first."
+    },
+    "number.thousand": {
+      "ru": " тыс.",
+      "en": "K"
+    },
+    "number.million": {
+      "ru": " млн",
+      "en": "M"
+    },
+    "number.billion": {
+      "ru": " млрд",
+      "en": "B"
     }
   },
   "aliases": {

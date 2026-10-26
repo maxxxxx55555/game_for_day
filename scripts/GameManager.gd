@@ -38,14 +38,25 @@ var difficulty_multiplier: float = 1.0
 # Бизнес-империя
 var business_tier: int = 0
 var business_scale: int = 1 # Масштабирование топового бизнеса (филиалы/поглощения)
-const BUSINESS_TIERS := [
-	{"name": "Нет бизнеса", "cost": 0.0, "income": 0.0, "valuation": 0.0},
-	{"name": "Кофейня / Фриланс-студия", "cost": 5000.0, "income": 650.0, "valuation": 4500.0},
-	{"name": "Сеть точек / Веб-агентство", "cost": 50000.0, "income": 6800.0, "valuation": 48000.0},
-	{"name": "IT-Продукт / Производство", "cost": 500000.0, "income": 72000.0, "valuation": 520000.0},
-	{"name": "Национальная Корпорация", "cost": 10000000.0, "income": 1500000.0, "valuation": 12000000.0},
-	{"name": "Глобальный Техно-Холдинг (IPO)", "cost": 250000000.0, "income": 45000000.0, "valuation": 320000000.0}
+const BUSINESS_DEFINITIONS := [
+	{"name_key": "copy.415032073d05", "cost": 0.0, "income": 0.0, "valuation": 0.0},
+	{"name_key": "copy.4e18dfdd0b19", "cost": 5000.0, "income": 650.0, "valuation": 4500.0},
+	{"name_key": "copy.9b2e303874c5", "cost": 50000.0, "income": 6800.0, "valuation": 48000.0},
+	{"name_key": "copy.0a3b9ad578c8", "cost": 500000.0, "income": 72000.0, "valuation": 520000.0},
+	{"name_key": "copy.2b2ac29e543c", "cost": 10000000.0, "income": 1500000.0, "valuation": 12000000.0},
+	{"name_key": "copy.d1c68387ac6a", "cost": 250000000.0, "income": 45000000.0, "valuation": 320000000.0}
 ]
+
+# Public read API retains canonical Russian names for old saved presentation copy.
+var business_tier_cache:Array=[]
+var BUSINESS_TIERS:Array:
+	get:
+		if business_tier_cache.is_empty():
+			for definition in BUSINESS_DEFINITIONS:
+				var entry:Dictionary=definition.duplicate()
+				entry["name"]=LocalizationManager.source(entry.name_key)
+				business_tier_cache.append(entry)
+		return business_tier_cache
 
 # Характеристики персонажа
 var health: int = 100
@@ -178,48 +189,48 @@ func roll_birth_lottery() -> Dictionary:
 	var roll := randf() * 100.0
 	var result := {}
 	if roll < 50.0:
-		birth_origin = "Развивающийся бедный регион (Шанс 50%)"
+		birth_origin = LocalizationManager.source("copy.b1a7a4e2a93b")
 		cash = -1500.0 + inherited_capital
 		health = 80
 		intellect = 12
 		stress = 15
 		birth_cost_modifier = 0.6
 		result = {
-			"title": "Лотерея рождения: Бедный регион (50% населения Земли)",
-			"desc": "Вы родились в семье с долгами (-$1,500) и слабой медициной, но низкими расходами на жизнь и высокой закалкой."
+			"title": LocalizationManager.source("copy.63771b02969d"),
+			"desc": LocalizationManager.source("copy.2330d70b76f0")
 		}
 	elif roll < 85.0:
-		birth_origin = "Индустриальная страна (Шанс 35%)"
+		birth_origin = LocalizationManager.source("copy.0cf8277e4bff")
 		cash = 250.0 + inherited_capital
 		health = 90
 		intellect = 18
 		stress = 10
 		birth_cost_modifier = 1.0
 		result = {
-			"title": "Лотерея рождения: Рабочий класс (35% населения Земли)",
-			"desc": "Обычная семья, базовая школа и $250 в кармане на совершеннолетие. Все зависит от ваших решений."
+			"title": LocalizationManager.source("copy.d4c7a635ca3f"),
+			"desc": LocalizationManager.source("copy.c5181ac5cb63")
 		}
 	elif roll < 99.0:
-		birth_origin = "Средний класс развитой страны (Шанс 14%)"
+		birth_origin = LocalizationManager.source("copy.495df6ec1ab0")
 		cash = 5000.0 + inherited_capital
 		health = 95
 		intellect = 30
 		stress = 10
 		birth_cost_modifier = 1.6
 		result = {
-			"title": "Лотерея рождения: Развитая экономика (14% населения Земли)",
-			"desc": "Отличное базовое образование (Интеллект 30) и $5,000 на старте, но высокая стоимость жизни и налогов."
+			"title": LocalizationManager.source("copy.f69c96f6c0cd"),
+			"desc": LocalizationManager.source("copy.e7bee9cb90c8")
 		}
 	else:
-		birth_origin = "Мировая финансовая элита (Шанс 1%)"
+		birth_origin = LocalizationManager.source("copy.319914340b65")
 		cash = 100000.0 + inherited_capital
 		health = 100
 		intellect = 35
 		stress = 5
 		birth_cost_modifier = 3.0
 		result = {
-			"title": "Лотерея рождения: Золотой 1% планеты!",
-			"desc": "Вы родились в богатой династии! Стартовый трастовый фонд $100,000 и лучшие репетиторы, но огромные расходы на статус."
+			"title": LocalizationManager.source("copy.acd73a580d1b"),
+			"desc": LocalizationManager.source("copy.9860e896fe61")
 		}
 	has_rolled_birth = true
 	inherited_capital = 0.0
@@ -407,9 +418,9 @@ func upgrade_or_scale_business() -> Dictionary:
 			business_tier = next_tier
 			business_scale = 1
 			recalculate_forbes_rank()
-			return {"ok": true, "msg": "Открыт новый уровень бизнеса: " + BUSINESS_TIERS[business_tier]["name"]}
+			return {"ok": true, "msg": LocalizationManager.source("copy.a0d3e18684d0") + BUSINESS_TIERS[business_tier]["name"]}
 		else:
-			return {"ok": false, "msg": "Недостаточно кэша! Требуется $" + format_num(cost)}
+			return {"ok": false, "msg": LocalizationManager.source("copy.18de786a617a") + format_num(cost)}
 	else:
 		# Масштабирование глобального техно-холдинга (поглощение корпораций на пути к $250 млрд)
 		var scale_cost := 250000000.0 * float(business_scale)
@@ -417,9 +428,9 @@ func upgrade_or_scale_business() -> Dictionary:
 			cash -= scale_cost
 			business_scale *= 2
 			recalculate_forbes_rank()
-			return {"ok": true, "msg": "Глобальное поглощение завершено! Масштаб империи удвоен (x%d)!" % business_scale}
+			return {"ok": true, "msg": LocalizationManager.source("copy.ef931bee4ea7") % business_scale}
 		else:
-			return {"ok": false, "msg": "Для поглощения конкурента нужно $" + format_num(scale_cost)}
+			return {"ok": false, "msg": LocalizationManager.source("copy.980c1f440898") + format_num(scale_cost)}
 
 func register_inheritance_on_end() -> String:
 	var nw := get_net_worth()
@@ -428,13 +439,13 @@ func register_inheritance_on_end() -> String:
 	if age >= 50 and nw > 1000.0:
 		inherited_capital = snappedf(nw * 0.20, 1.0)
 		generation += 1
-		msg = "По завещанию потомку (Поколение #%d) передано 20%% состояния: $%s. Очки династии: %d." % [
+		msg = LocalizationManager.source("copy.3a3f57875e5c") % [
 			generation, format_num(inherited_capital), legacy_points
 		]
 	else:
 		inherited_capital = 0.0
 		generation += 1
-		msg = "Наследство не оставлено (требуется возраст 50+ и положительный капитал). Очки династии: %d." % legacy_points
+		msg = LocalizationManager.source("copy.51f8bcaaf0c7") % legacy_points
 	save_dynasty()
 	return msg
 

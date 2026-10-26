@@ -127,7 +127,7 @@ func russian_numbers(text:String) -> String:
 	var matches:=regex.search_all(text)
 	for i in range(matches.size()-1,-1,-1):
 		var match:RegExMatch=matches[i]
-		var suffix:String={"K":" тыс.","M":" млн","B":" млрд"}.get(match.get_string(3),"")
+		var suffix:String={"K":get_string("number.thousand"),"M":get_string("number.million"),"B":get_string("number.billion")}.get(match.get_string(3),"")
 		result=result.substr(0,match.get_start())+match.get_string(1)+","+match.get_string(2)+suffix+result.substr(match.get_end())
 	return result
 func set_language(language:String,persist:bool=true) -> void:

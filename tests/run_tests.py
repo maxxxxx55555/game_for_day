@@ -40,6 +40,7 @@ def main():
         cases.append(('release-details', ['--headless', '--script', 'res://tests/test_release_details.gd']))
         cases.append(('disabled-explanations', ['--headless', '--script', 'res://tests/test_disabled_explanations.gd']))
         cases.append(('comfort-preferences', ['--headless', '--script', 'res://tests/test_comfort_preferences.gd']))
+        cases.append(('canonical-model', ['--headless', '--script', 'res://tests/test_canonical_model.gd']))
         cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
         cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
         cases.append(('audio-scope', ['--headless', '--script', 'res://tests/test_audio_scope.gd']))
@@ -66,6 +67,8 @@ def main():
                     cases.append((script, ([] if args.rendered else ['--headless']) + ['--resolution', '1280x720', '--script', 'res://tests/test_' + script + '.gd']))
         contract = subprocess.run([sys.executable, str(project / 'tests/test_export_contract.py')], timeout=30)
         if contract.returncode: return contract.returncode
+        copy_contract = subprocess.run([sys.executable, str(project / 'tests/test_copy_contract.py')], timeout=30)
+        if copy_contract.returncode: return copy_contract.returncode
         promises = subprocess.run([sys.executable, str(project / 'tests/test_promise_matrix.py')], timeout=30)
         if promises.returncode: return promises.returncode
         isolation = subprocess.run([sys.executable, str(project / 'tests/test_repo_isolation.py')], timeout=30)

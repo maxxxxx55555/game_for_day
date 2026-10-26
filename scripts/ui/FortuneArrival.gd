@@ -2,13 +2,15 @@ extends CanvasLayer
 ## A short editorial opening, with persisted locale and no artificial progress percentage.
 var splash:Control
 var hint:Label
+var opening_label:Label
 var unsaved_dialog:ConfirmationDialog
 func _ready() -> void:
 	layer=100
 	process_mode=Node.PROCESS_MODE_ALWAYS
 	get_tree().auto_accept_quit=false
+	call_deferred("bind_locale")
 func show_splash() -> void:
-	if is_instance_valid(splash):splash.show();return
+	if is_instance_valid(splash):refresh_copy();splash.show();return
 	splash=Control.new()
 	splash.name="LedgerOpening"
 	splash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -40,11 +42,11 @@ func show_splash() -> void:
 	nameplate.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf"))
 	nameplate.add_theme_font_size_override("font_size",32)
 	column.add_child(nameplate)
-	var opening:=Label.new()
-	opening.text=LocalizationManager.get_string("flow.loading")
-	opening.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	opening.add_theme_color_override("font_color",Color("b6c2cc"))
-	column.add_child(opening)
+	opening_label=Label.new()
+	opening_label.text=LocalizationManager.get_string("flow.loading")
+	opening_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	opening_label.add_theme_color_override("font_color",Color("b6c2cc"))
+	column.add_child(opening_label)
 	hint=Label.new()
 	hint.text=LocalizationManager.get_string("flow.tip."+str(Time.get_ticks_msec()%3))
 	hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
@@ -96,3 +98,9 @@ func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
 		var current:Node=get_tree().current_scene
 		if current!=null and current.name=="LedgerBoot":get_tree().quit()
+
+func bind_locale() -> void:
+	LocalizationManager.language_changed.connect(func(_language):refresh_copy())
+func refresh_copy() -> void:
+	if is_instance_valid(opening_label):opening_label.text=LocalizationManager.get_string("flow.loading")
+	if is_instance_valid(hint):hint.text=LocalizationManager.get_string("flow.tip."+str(Time.get_ticks_msec()%3))

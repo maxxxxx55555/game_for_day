@@ -5,3 +5,6 @@
 - Added branded boot/loading hints and explicit retry/stay/discard handling after a failed exit save.
 - Added contextual disabled explanations and retained real transaction prices in tooltips.
 - Publication remains locked until all v2 phase evidence and the final gate pass.
+
+- F2: audited literal keys and blank scene defaults; verified both locale catalogs and actual typeface glyphs.
+- Remaining birth/business/inheritance model copy uses existing keys while preserving canonical Russian identities. Added a v1.4.0 original-copy and ordered-event regression fixture; opening copy refreshes on live language changes.

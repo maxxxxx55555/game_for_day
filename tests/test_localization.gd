@@ -44,9 +44,9 @@ func run() -> void:
 	for field in ["master_volume","music_volume","sfx_volume","ui_volume"]:
 		check(field in game,"Four sound levels exist: "+field)
 	var font:Font=load("res://assets/fonts/Onest.ttf")
-	for letter in "ёЁ«»—":check(font.has_char(letter.unicode_at(0)),"Body font covers "+letter)
+	for letter in "ёЁ«»—·×$€£¥":check(font.has_char(letter.unicode_at(0)),"Body font covers "+letter)
 
-	var heading_font:Font=load("res://assets/fonts/Unbounded.ttf")
-	for letter in "ёЁ«»—":check(heading_font.has_char(letter.unicode_at(0)),"Heading font covers "+letter)
+	var heading_font:Font=load("res://assets/fonts/Prata-Regular.ttf")
+	for letter in "ёЁ«»—·×$€£¥":check(heading_font.has_char(letter.unicode_at(0)),"Heading font covers "+letter)
 	print("LOCALIZATION RESULT: ","PASS" if failures==0 else "FAIL"," keys=",locale.translations.size())
 	quit(0 if failures==0 else 1)

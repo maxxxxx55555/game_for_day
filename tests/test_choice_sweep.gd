@@ -8,6 +8,8 @@ func run() -> void:
 	root.get_node("GameManager").reset_full_dynasty()
 	screen.show_intro_screen()
 	for i in 3: screen.on_choice_pressed(1)
+	var locale:Node=root.get_node("LocalizationManager")
+	var choice_copy=load("res://scripts/ui/ChoiceCopy.gd")
 	var count:=0
 	var failures:=0
 	for event in screen.get_survival_events()+screen.get_career_events()+screen.get_millionaire_events()+screen.get_billionaire_events(1000000000):
@@ -16,6 +18,13 @@ func run() -> void:
 		for i in 4: await process_frame
 		for button in [screen.btn_1,screen.btn_2,screen.btn_3]:
 			count+=1
+			var copy:Dictionary=choice_copy.parts(button.text)
+			if str(copy.title).strip_edges().is_empty():failures+=1;print("FAIL: Empty action title")
+			if locale.current_language=="en":
+				var letters:=RegEx.new();letters.compile("[А-Яа-яЁё]")
+				for field in ["title","detail"]:
+					if letters.search(locale.display(copy[field])):
+						failures+=1;print("FAIL: Untranslated choice ",field,": ",copy[field])
 			var rect:Rect2=button.get_global_rect()
 			if not root.get_visible_rect().encloses(rect):
 				failures+=1

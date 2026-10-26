@@ -756,3 +756,6 @@ flow.tip.0,У валют есть спред: мгновенный обмен т
 flow.tip.1,Инфляция повышает расходы. Сравнивайте доходы и стоимость жизни.,Inflation raises expenses. Compare income with your cost of living.
 flow.tip.2,Игра сохраняет жизнь после каждого решения и перед выходом.,Your life is saved after each decision and before you leave.
 ui.begin_life_first,Сначала начните жизнь и выберите черту.,Begin your life and choose a trait first.
+number.thousand, тыс.,K
+number.million, млн,M
+number.billion, млрд,B

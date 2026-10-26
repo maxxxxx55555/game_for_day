@@ -24,3 +24,6 @@ C11: the obsolete ACTIONS table is already removed; ChoiceCopy resolves current 
 
 ## C13: historical design-copy contamination found by v2
 Three archived design/plan files still mixed unrelated runtime architecture and validation scope despite lacking an exact foreign game title. Each now contains only this game's own design. The canonical design content already exists in its proper repository; no new asset transfer or license edit was necessary. Two new negative tests reproduce the old guard's failure. The guard now rejects copied design labels and foreign runtime paths as well as game names. Full tracked-tree scanning catches the old text before cleanup and passes afterward.
+
+## F2 closure evidence
+Keyed copy and empty scene defaults now have an enforced source contract. See LOCALIZATION_AUDIT.md for canonical-copy fixtures, actual current case counts and exact presentation exceptions. C10 counts are based on executed cases rather than the inherited file-count estimate. C12 model/business/birth/inheritance strings now reference their pre-existing keys; serialized canonical values remain unchanged.

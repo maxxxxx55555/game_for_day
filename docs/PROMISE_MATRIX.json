@@ -4,7 +4,7 @@
   "sources": [
     {
       "path": "README.md",
-      "sha256": "1de9e8d521a88b47b06b8b7abf7546ca1d7a8cf18a1019e7bc2fe2ef4e8ebc9f"
+      "sha256": "9204192683b46faafc9437c0906ebb419dabd77430b88fbadc54d41924156bcc"
     },
     {
       "path": "docs/superpowers/specs/2026-10-25-bilingual-release-design.md",
@@ -74,7 +74,7 @@
       "source": "README.md",
       "line": 9,
       "section": "Current edition scope — v2 integration in progress",
-      "original": "Complete live Russian/English presentation with 585 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.",
+      "original": "Complete live Russian/English presentation with 598 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
@@ -217,7 +217,7 @@
       "source": "README.md",
       "line": 58,
       "section": "Build and test",
-      "original": "The runner executes 24 Godot cases per locale, plus Python export, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 585 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
+      "original": "The current source runner executes27 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 598 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
