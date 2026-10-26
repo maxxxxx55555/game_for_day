@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "assets": [
+    {
+      "name": "HeirsOfFortune-Windows-2.0.0.zip",
+      "sha256": "dd4511d281fd6f2b53b98d4b58e1b1fa972a8e7860446515bb2d46b252d65f0f",
+      "bytes": 69730345,
+      "url": "https://github.com/maxxxxx55555/game_for_day/releases/download/v2.0.0/HeirsOfFortune-Windows-2.0.0.zip"
+    },
+    {
+      "name": "HeirsOfFortune-SHA256SUMS-2.0.0.txt",
+      "sha256": "1e9af09ecc81542defb7040687b1a30d7b2b270f0a1b533242d256d9f119a84b",
+      "bytes": 99,
+      "url": "https://github.com/maxxxxx55555/game_for_day/releases/download/v2.0.0/HeirsOfFortune-SHA256SUMS-2.0.0.txt"
+    }
+  ],
+  "method": "Fresh acceptance-cycle download: retained fresh-cycle interrupted-prefix bytes, completed remaining bytes through individually validated HTTP206 ranges, then independently checked complete SHA256 and native sha256sum -c; no previous-cycle archive reused",
+  "prefix_source": "C:\\Users\\Maxsim\\Documents\\Codex\\2026-10-24\\new-chat\\outputs\\acceptance-2026-10-26\\game_for_day\\fresh-downloads\\HeirsOfFortune-Windows-2.0.0.zip",
+  "prefix_bytes": 39845888,
+  "range_count": 29,
+  "all_range_headers_validated": true,
+  "sha256sum_command": "sha256sum -c HeirsOfFortune-SHA256SUMS-2.0.0.txt",
+  "stdout": "HeirsOfFortune-Windows-2.0.0.zip: OK\n",
+  "exit": 0,
+  "exact_checksum_filename": true,
+  "folder": "C:\\Users\\Maxsim\\Documents\\Codex\\2026-10-24\\new-chat\\outputs\\acceptance-2026-10-26\\game_for_day\\range-downloads"
+}

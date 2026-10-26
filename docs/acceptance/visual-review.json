@@ -1,0 +1,11 @@
+{
+  "result": "NOT_ACCEPTED",
+  "review_method": "20new source frames reviewed in two EN/RU contact sheets against this repository ART_DIRECTION.md",
+  "issues": [
+    "Integrity modal visibly obstructs screens in both locales",
+    "Source safe mode disables progress/settings writes; visual sign-off cannot be issued",
+    "Victory fixture restored to intro/safe-mode rather than a valid persisted victory; save-failure copy overlaps several controls"
+  ],
+  "empty_remarks_list": false,
+  "press_publishable": false
+}

@@ -1,0 +1,60 @@
+{
+  "result": "FAIL_ACCEPTANCE",
+  "raw_gameplay_result": "PASS",
+  "elapsed_seconds": 1802.545,
+  "cycles": 279,
+  "checkpoints": 4336,
+  "structural_counts": {
+    "nodes": {
+      "first": 27,
+      "last": 27,
+      "delta": 0,
+      "all_constant": true
+    },
+    "resources": {
+      "first": 34,
+      "last": 34,
+      "delta": 0,
+      "all_constant": true
+    },
+    "objects": {
+      "first": 1911,
+      "last": 1911,
+      "delta": 0,
+      "all_constant": true
+    },
+    "orphans": {
+      "first": 0,
+      "last": 0,
+      "delta": 0,
+      "all_constant": true
+    }
+  },
+  "process_memory": {
+    "working_set_bytes": {
+      "quarter_medians": [
+        364224512,
+        364564480,
+        323960832,
+        223481856
+      ],
+      "median_delta": -140742656
+    },
+    "private_bytes": {
+      "quarter_medians": [
+        345010176,
+        345804800,
+        345370624,
+        345899008
+      ],
+      "median_delta": 888832
+    }
+  },
+  "integrity_anomalies": [
+    "2026-10-26T19:55:26 integrity.files_changed [\"res://assets/audio/catalog.json\",\"res://data/events.json\",\"res://data/strings/choice_aliases.json\",\"res://data/strings/localization.json\"]"
+  ],
+  "reason": "Read-only safe mode activated from stale tag critical hashes; not an accepted ordinary persistence soak, even if loop/counters pass",
+  "metrics_sha256": "1a5f0bb91236b9d085ce60d8fb737ea023565e8aa69af92971c326d327792de9",
+  "console_sha256": "813d29ddd722b6d63aac61584397b3de35cf24b8583169758df58a3496fb2979",
+  "scratch_import_metadata": "unchanged"
+}

@@ -1,0 +1,28 @@
+{
+  "ru": {
+    "result": "FAIL",
+    "exit": 1,
+    "language": "ru",
+    "source_tag": "2.0.0",
+    "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a",
+    "godot_invocations": 0,
+    "seconds": 1.406,
+    "errors": [],
+    "console_sha256": "aa6a23c0d682cbe6dd41b731fbe87eefc30713fa9cf88197405e0deee40497b1",
+    "audio_driver": "Dummy",
+    "rendered": true
+  },
+  "en": {
+    "result": "FAIL",
+    "exit": 1,
+    "language": "en",
+    "source_tag": "2.0.0",
+    "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a",
+    "godot_invocations": 0,
+    "seconds": 1.157,
+    "errors": [],
+    "console_sha256": "aa6a23c0d682cbe6dd41b731fbe87eefc30713fa9cf88197405e0deee40497b1",
+    "audio_driver": "Dummy",
+    "rendered": true
+  }
+}

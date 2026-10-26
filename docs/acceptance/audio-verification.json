@@ -1,0 +1,112 @@
+{
+  "result": "PARTIAL_FAIL",
+  "music_wav_hashes": "PASS",
+  "music": [
+    {
+      "file": "last_call_at_three.wav",
+      "moods": [
+        "welcome"
+      ],
+      "sha256": "d42da2f8051e5bb00c3a69aeddbdcea0aade4ae1ff0937c90a450cb7e350366a",
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_width": 2,
+      "seconds": 118.37225
+    },
+    {
+      "file": "after_hours_ledger.wav",
+      "moods": [
+        "study"
+      ],
+      "sha256": "46f5cc6e2eb600577df89ea0c9aed83842aa8685897015b55c055e087553cfae",
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_width": 2,
+      "seconds": 124.0
+    },
+    {
+      "file": "opening_bell_swing.wav",
+      "moods": [
+        "career"
+      ],
+      "sha256": "b24c1e3a4c70ccdcc914883844c07340193d311b6a328d0392dcced12f4b75ab",
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_width": 2,
+      "seconds": 124.0
+    },
+    {
+      "file": "the_long_dividend.wav",
+      "moods": [
+        "tycoon"
+      ],
+      "sha256": "9039517d664e5a08d28b1ea3aa9fa6ff94d7a74b1fc93630fd3149dcc19b2735",
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_width": 2,
+      "seconds": 124.0
+    },
+    {
+      "file": "a_fortune_remembered.wav",
+      "moods": [
+        "victory"
+      ],
+      "sha256": "7c4271f77bb9cef720f42ffb2269f572511013df79c9d7e88f18eb8c1e8c5de1",
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_width": 2,
+      "seconds": 20.0
+    },
+    {
+      "file": "the_closing_ledger.wav",
+      "moods": [
+        "defeat"
+      ],
+      "sha256": "1b4901e66ec803e2dd73eab699687d6d4936b3138a07bb50762d4ad4c871d6a0",
+      "channels": 2,
+      "sample_rate": 32000,
+      "sample_width": 2,
+      "seconds": 20.0
+    }
+  ],
+  "unique_recordings": 6,
+  "contracts": [
+    {
+      "case": "test_soundtrack.py",
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "dfcc8dd0c18ec2164d5ee3e17fe8d6f2b029886e6c04307069d7866b58d9d4df"
+    },
+    {
+      "case": "test_audio_assets.py",
+      "result": "FAIL",
+      "exit": 1,
+      "log_sha256": "b0ff22396a1bce3e59ab11a9d08aa1c3f04927c5b0ec65b475bb7ab36d881b07"
+    },
+    {
+      "case": "test_public_qa_contract.py",
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "4cc62cbe95d7c7330ba797c1e0b793f228a0a1516d2b7ef0360e3c315d255879"
+    }
+  ],
+  "sfx_generator_provenance": [
+    {
+      "file": "ui_focus.wav",
+      "generator": "tools/generate_audio.py",
+      "expected": "c992ac3b883ec9380324123f4c4ff2f90ceb7fce73e94c2d6fa82fb6cb691e5a",
+      "actual_tag_source_sha256": "25ca7de4f8b0e458c7170580ffb1ba344188fe4c9092108df06f9919458a30dc",
+      "original_working_sha256": "c992ac3b883ec9380324123f4c4ff2f90ceb7fce73e94c2d6fa82fb6cb691e5a",
+      "newline_only": true
+    },
+    {
+      "file": "ui_error.wav",
+      "generator": "tools/generate_audio.py",
+      "expected": "c992ac3b883ec9380324123f4c4ff2f90ceb7fce73e94c2d6fa82fb6cb691e5a",
+      "actual_tag_source_sha256": "25ca7de4f8b0e458c7170580ffb1ba344188fe4c9092108df06f9919458a30dc",
+      "original_working_sha256": "c992ac3b883ec9380324123f4c4ff2f90ceb7fce73e94c2d6fa82fb6cb691e5a",
+      "newline_only": true
+    }
+  ],
+  "audible_human_review": "NOT_PERFORMED; owner action"
+}

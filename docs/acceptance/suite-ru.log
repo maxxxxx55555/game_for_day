@@ -1,0 +1,7 @@
+INHERITED LICENSE BYTE CONTRACT PASS: 8 files from published1.4.0
+EXPORT CONTRACT PASS: 2 presets with compiled data and notices
+Traceback (most recent call last):
+  File "C:\Users\Maxsim\Documents\Codex\2026-10-24\new-chat\outputs\acceptance-2026-10-26\runner-clones\game_for_day\tests\test_copy_contract.py", line 31, in <module>
+    for key,value in legacy['strings'].items():assert bykey[key]['ru']==value,'Russian1.4 byte regression: '+key
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Russian1.4 byte regression: copy.8e0adca0f56b

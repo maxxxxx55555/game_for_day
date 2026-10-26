@@ -1,0 +1,252 @@
+{
+  "result": "BLOCKED",
+  "source_tag": "v2.0.0",
+  "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a",
+  "root_causes": [
+    "Critical manifest expects CRLF working bytes for4JSONfiles; immutable tag/fresh checkout storesLF, so export preflight rejects stale trust",
+    "Unspecified CSV checkout EOL converts20multiline canonical Russian values from LF toCRLF on fresh Windows checkout; both full runner locales abort at canonical-v1.4-copy contract"
+  ],
+  "critical_differences": [
+    {
+      "path": "assets/audio/catalog.json",
+      "expected_manifest_sha256": "83cccf589e292a6c0a90f6d1ff9befb52a854864b8cc2852d327cef50a43968c",
+      "actual_fresh_tag_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+      "fresh_crlf": 0,
+      "working_crlf": 114,
+      "only_newlines": true
+    },
+    {
+      "path": "data/events.json",
+      "expected_manifest_sha256": "b986ca1e1c43cfb9e550fb573348dcc544f10781efadbc6f60d7bf712c572959",
+      "actual_fresh_tag_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+      "fresh_crlf": 0,
+      "working_crlf": 1010,
+      "only_newlines": true
+    },
+    {
+      "path": "data/strings/choice_aliases.json",
+      "expected_manifest_sha256": "213c10d14cce306fc4b722b420b31650daba45543135f7da365ee2bf564f8f4d",
+      "actual_fresh_tag_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+      "fresh_crlf": 0,
+      "working_crlf": 31,
+      "only_newlines": true
+    },
+    {
+      "path": "data/strings/localization.json",
+      "expected_manifest_sha256": "75f9bf64118f7e94330e6e2915c0290abe1c39eff57c5c94c87c27f439e255c9",
+      "actual_fresh_tag_sha256": "63583221889fa0a82ace95df3215ddf9bff3d7e88e61c8b8f02cfc66e982e0be",
+      "fresh_crlf": 0,
+      "working_crlf": 2459,
+      "only_newlines": true
+    }
+  ],
+  "canonical_copy_differences": [
+    {
+      "key": "copy.8e0adca0f56b",
+      "old_crlf": 0,
+      "new_crlf": 4,
+      "old_lf": 4,
+      "new_lf": 4,
+      "newline_only": true,
+      "old_sha256": "39c2e9e5ab70986b906fb6f8a55daef38923f044c4f20e023a2aacccc2621e06",
+      "new_sha256": "7a1e7e01114f42786a521cfb2e9da7782e5bb7257c1d6d92281813616e4b00f2"
+    },
+    {
+      "key": "copy.71c3cf0f114b",
+      "old_crlf": 0,
+      "new_crlf": 1,
+      "old_lf": 1,
+      "new_lf": 1,
+      "newline_only": true,
+      "old_sha256": "7e0b5ebb00ffb008d9aa558172b6ca697352ae39da94a6ede3cb2b9edcade8c2",
+      "new_sha256": "2d3f51cc8ef1a498e959fab290f6c1a696dbfaa438b1d5f7037bb46dc966063a"
+    },
+    {
+      "key": "copy.07966e7a5d32",
+      "old_crlf": 0,
+      "new_crlf": 1,
+      "old_lf": 1,
+      "new_lf": 1,
+      "newline_only": true,
+      "old_sha256": "f49fb4877f691c27185722414ee626752f5495d9f1f76790677f2b34e8bcc462",
+      "new_sha256": "1dd220864c90564d3fe8353c87eb1ee2d2e99c0c01ae50e2a8948e6dc5918bb1"
+    },
+    {
+      "key": "copy.fed691559450",
+      "old_crlf": 0,
+      "new_crlf": 1,
+      "old_lf": 1,
+      "new_lf": 1,
+      "newline_only": true,
+      "old_sha256": "453f2d9e98c7f61bc889b633d924f35c328fd4af83984ec90e8a3980d2bac744",
+      "new_sha256": "0a7729772a16e3c7fce3951015432042e05ec1ca6cb463fa56ce512963efd700"
+    },
+    {
+      "key": "copy.76fed3b6db77",
+      "old_crlf": 0,
+      "new_crlf": 5,
+      "old_lf": 5,
+      "new_lf": 5,
+      "newline_only": true,
+      "old_sha256": "64ff696feb83bf74791400ecbc0d0ce9c0aed20528b62f217bd78bc1aa1b240f",
+      "new_sha256": "7b337b76965ecbf5c981b55cfae35a54f09e047a31fc341a0200e4f9d6a305d8"
+    },
+    {
+      "key": "copy.e0209c93a0eb",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "d99e7df8efe1d45f1420f6c214799685079bea51d0b24c05294e79f0aacf1645",
+      "new_sha256": "d76c73eefe05ffa3d4ef7a39f52e27e5e5f045edf8e899d8cead99fa7da8ecd4"
+    },
+    {
+      "key": "copy.9a13d56f1eb5",
+      "old_crlf": 0,
+      "new_crlf": 5,
+      "old_lf": 5,
+      "new_lf": 5,
+      "newline_only": true,
+      "old_sha256": "59f17e3d2587cf7cb4bcbbf33cda439d2a9c6da3c825a967ae87bde297124302",
+      "new_sha256": "e94e1aa46ebe518635ec68bffa341e1d8485b401a58af60fb807a70a32ef9ef7"
+    },
+    {
+      "key": "copy.a2be6aad5f03",
+      "old_crlf": 0,
+      "new_crlf": 1,
+      "old_lf": 1,
+      "new_lf": 1,
+      "newline_only": true,
+      "old_sha256": "d4af131b75a95258df2665425017473eedb0c45a4e242cc55399f71360046d1e",
+      "new_sha256": "bf3bf2118aec9a8873a6011f37bd355c9f673134ab66891dab6d2f646ea27e01"
+    },
+    {
+      "key": "copy.e1bf8275af22",
+      "old_crlf": 0,
+      "new_crlf": 1,
+      "old_lf": 1,
+      "new_lf": 1,
+      "newline_only": true,
+      "old_sha256": "5e79dac3fbcc97ea5fcaaaa4e77e3f042edb8f5476201a7f7daeaf6f04560cce",
+      "new_sha256": "f765dba3a91601ebed2c82590cadeb750bd7e193206fa87add1dde2d1346b748"
+    },
+    {
+      "key": "copy.1d0c6be6aad9",
+      "old_crlf": 0,
+      "new_crlf": 5,
+      "old_lf": 5,
+      "new_lf": 5,
+      "newline_only": true,
+      "old_sha256": "0921c05e833a3c6723c1105655521aac9773f6acd57ed32256184daf48c9ee4e",
+      "new_sha256": "af59d8c0fa5ec3ce78412c12d1c95cc1cd13958e74288a30a7b6ecfabf552865"
+    },
+    {
+      "key": "copy.1d33e8d9a164",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "3e147ad921d14cf9480bdf1de1fa36c1178e662940007f307dfdbcf2ee59a06c",
+      "new_sha256": "50673e3f7d19b338f721cf4f3520ea843d50b284f65a533ba432b4cb8552166a"
+    },
+    {
+      "key": "copy.9bfe591e09c4",
+      "old_crlf": 0,
+      "new_crlf": 4,
+      "old_lf": 4,
+      "new_lf": 4,
+      "newline_only": true,
+      "old_sha256": "636efab6de969bab21f424c421c1e524e8614d4e9ee95a8f64f356a534ffb20d",
+      "new_sha256": "3e01a7a4b160480cb5bb886fbaacefe940532695207945a61a2096e16fa69ffa"
+    },
+    {
+      "key": "copy.c9cc711f4032",
+      "old_crlf": 0,
+      "new_crlf": 4,
+      "old_lf": 4,
+      "new_lf": 4,
+      "newline_only": true,
+      "old_sha256": "d4e28586306c6be4cb71e420fe172ff07860b96ed3bf161a402f21c310d343f0",
+      "new_sha256": "a4bbda5f6ec4f9e4dfb5500f095a065eb2a43f9f62020ad42ace93f23d2d7373"
+    },
+    {
+      "key": "copy.30fe6d28992e",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "fbf08efd903ffde82b7454ceddf95d53e728c652df086d6b97a574412a1a2ea7",
+      "new_sha256": "9d13bb6ad5f3f931414b00e44a16ac4d2ad5c7e5e6aaf89029a3990966d86bca"
+    },
+    {
+      "key": "copy.01ceea2130e1",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "562aeb7529ea17fd1f3f90b856daed8b0011485b00387a7c329546ed29499150",
+      "new_sha256": "cbc289ed82eeed3fed4a15a78fb0cee5a4969399cd4b27b9ff92edcab34e776e"
+    },
+    {
+      "key": "copy.67d6a0681bd8",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "f00ea83a84daf13f738b885f50023cd9cbcc74fc6ed92cf89a5da1ab1bd2fba3",
+      "new_sha256": "8a4646d38a55402cdbf1961bd071a6b6f9e805fe0ce51e71df2db4d3dc1a1bc0"
+    },
+    {
+      "key": "copy.4379c0b7c8cd",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "4ccfc2ed629e9002d836ceb4efe6c50815d907af1841ac97688e4e3f0a9f417b",
+      "new_sha256": "2a9bab0448b5ed4c468121ae9f9d56d40c132decf0df02c0e6fe5651c79a649c"
+    },
+    {
+      "key": "copy.6d0c821355a9",
+      "old_crlf": 0,
+      "new_crlf": 2,
+      "old_lf": 2,
+      "new_lf": 2,
+      "newline_only": true,
+      "old_sha256": "259fa3294bda98666c9e6352cefd698c4cb78c3690bcccfa0243f2a55d423c1c",
+      "new_sha256": "108face4a96624c6e9a68052f53ee3333ff67476b158a7b1127667c7d1cd9cd3"
+    },
+    {
+      "key": "copy.35118a151aa7",
+      "old_crlf": 0,
+      "new_crlf": 1,
+      "old_lf": 1,
+      "new_lf": 1,
+      "newline_only": true,
+      "old_sha256": "c305cb647a2962eecfb54e5437d1bf9a1814dcbfb661677b45b8714b5b6341cb",
+      "new_sha256": "11fb47b17363e91e78c789764d9cbbb0ec40cf8050ee9bbca6e53158f0169d9f"
+    },
+    {
+      "key": "copy.5965f40d6b39",
+      "old_crlf": 0,
+      "new_crlf": 7,
+      "old_lf": 7,
+      "new_lf": 7,
+      "newline_only": true,
+      "old_sha256": "a4df1a9fac16e6dde7bbf65fb0283f00514938e4b9cbd95f5c21e0513b2ce9c9",
+      "new_sha256": "96dc98a03c9cbb3739d49131588b3ac15fa280d4c0cf8fbd2e5dcc2e7b8ede58"
+    }
+  ],
+  "suites": {
+    "ru": "FAIL before Godot invocations",
+    "en": "FAIL before Godot invocations"
+  },
+  "public_export_preflight_exit": 2,
+  "game_files_changed": false,
+  "release_assets_changed": false
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "case": "gallery",
+    "locale": "en",
+    "result": "FAIL",
+    "exit": 0,
+    "timed_out": false,
+    "errors": [],
+    "integrity_log": [
+      "2026-10-26T20:23:09 integrity.files_changed [\"res://assets/audio/catalog.json\",\"res://data/events.json\",\"res://data/strings/choice_aliases.json\",\"res://data/strings/localization.json\"]"
+    ],
+    "log_sha256": "360aaafc7034d10942d16b90c56eb2301f35b2cf3cf9cfcb12ec1b1232a23c4d"
+  },
+  {
+    "case": "finales",
+    "locale": "en",
+    "result": "FAIL",
+    "exit": 1,
+    "timed_out": false,
+    "errors": [
+      "FAIL: Restarting restores the same ending without changing dynasty",
+      "FAIL: Next generation delegates to existing inheritance exactly once"
+    ],
+    "integrity_log": [
+      "2026-10-26T20:23:17 integrity.files_changed [\"res://assets/audio/catalog.json\",\"res://data/events.json\",\"res://data/strings/choice_aliases.json\",\"res://data/strings/localization.json\"]"
+    ],
+    "log_sha256": "d7a18741a9b59dadb6ad4f0c711729bc80c2ec2afeb9dfc1e2f25fcc7ef5add9"
+  },
+  {
+    "case": "gallery",
+    "locale": "ru",
+    "result": "FAIL",
+    "exit": 0,
+    "timed_out": false,
+    "errors": [],
+    "integrity_log": [
+      "2026-10-26T20:23:29 integrity.files_changed [\"res://assets/audio/catalog.json\",\"res://data/events.json\",\"res://data/strings/choice_aliases.json\",\"res://data/strings/localization.json\"]"
+    ],
+    "log_sha256": "360aaafc7034d10942d16b90c56eb2301f35b2cf3cf9cfcb12ec1b1232a23c4d"
+  },
+  {
+    "case": "finales",
+    "locale": "ru",
+    "result": "FAIL",
+    "exit": 1,
+    "timed_out": false,
+    "errors": [
+      "FAIL: Restarting restores the same ending without changing dynasty",
+      "FAIL: Next generation delegates to existing inheritance exactly once"
+    ],
+    "integrity_log": [
+      "2026-10-26T20:23:38 integrity.files_changed [\"res://assets/audio/catalog.json\",\"res://data/events.json\",\"res://data/strings/choice_aliases.json\",\"res://data/strings/localization.json\"]"
+    ],
+    "log_sha256": "1f8fd3fb3c1ff71f957c639bd2d1d0a7c8a9b6cc0029d0f5ae3259054b94a815"
+  }
+]

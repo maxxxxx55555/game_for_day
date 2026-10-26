@@ -1,0 +1,79 @@
+{
+  "status": "REJECTED_DIAGNOSTIC_DRAFT",
+  "publishable": false,
+  "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a",
+  "images": [
+    {
+      "file": "01-en-gallery-intro.png",
+      "locale": "en",
+      "caption": "Intro / Начало — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "64a5b77e357a5ac519300974ac7c08a15541146ed59e6e93bdb3c659c05248b0",
+      "publishable": false,
+      "staged": false,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "02-en-gallery-life.png",
+      "locale": "en",
+      "caption": "Life decision / Жизненное решение — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "1fda7df9b9ab52e2ad9523b1e540e6cf26f1d5d54186da91be01518aefe24ef9",
+      "publishable": false,
+      "staged": false,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "03-ru-gallery-currencies.png",
+      "locale": "ru",
+      "caption": "Currencies / Валюты — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "d33737db98209092a7dede138fb2d489141d14b529087f8332fbdc55ce21e384",
+      "publishable": false,
+      "staged": false,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "04-ru-gallery-business.png",
+      "locale": "ru",
+      "caption": "Business / Бизнес — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "58c89feaa7e9a41bfefac8e70e188fe70ec35ac68a1796cf32d3343b6ea8be67",
+      "publishable": false,
+      "staged": false,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "05-en-finales-victory-finale.png",
+      "locale": "en",
+      "caption": "Failed victory fixture shows intro and safe mode / Неуспешный сценарий победы показывает начало и безопасный режим — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "64a5b77e357a5ac519300974ac7c08a15541146ed59e6e93bdb3c659c05248b0",
+      "publishable": false,
+      "staged": true,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "06-ru-finales-defeat-finale.png",
+      "locale": "ru",
+      "caption": "Staged defeat fixture / Постановочный сценарий поражения — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "79aa1a0ed8c0f86147dd2f31a7e800206b79b09c8ce0fd0edfbd7c56a864d3f3",
+      "publishable": false,
+      "staged": true,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "07-en-gallery-credits.png",
+      "locale": "en",
+      "caption": "Credits / Авторы — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "117578a86d6ed1edd84368e1adf7a5502a7da31bbcb35f1360c9fb0001fef311",
+      "publishable": false,
+      "staged": false,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    },
+    {
+      "file": "08-ru-gallery-settings.png",
+      "locale": "ru",
+      "caption": "Settings / Настройки — Rejected diagnostic capture, not approved for publication / Непринятый диагностический кадр, не для публикации",
+      "sha256": "5359fd22772933f16703d1a422dc1fccb5ba820e2aaf87e9694aef6f66029882",
+      "publishable": false,
+      "staged": false,
+      "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a"
+    }
+  ]
+}

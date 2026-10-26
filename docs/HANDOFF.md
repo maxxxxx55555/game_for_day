@@ -1,5 +1,7 @@
 # Heirs of Fortune — owner handoff
 
+> Announcement hold: the newer [ACCEPTANCE_CERTIFICATE.md](ACCEPTANCE_CERTIFICATE.md) records failed clean-tag source contracts. Earlier finite results below remain historical. The five manual checks cannot waive these mandatory blockers.
+
 Accepted Windows release: [v2.0.0](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.0). Immutable game source: `b5a9aba0821ae9af8a202a4c835e17981425e09a`. Post-tag closeout commits add documentation only; use the versioned release ZIP for play. [FINAL_REPORT.md](FINAL_REPORT.md) contains full hashes, F1–F8 acceptance, native guard output, soundtrack provenance and limitations.
 
 ## Five checks before announcement
