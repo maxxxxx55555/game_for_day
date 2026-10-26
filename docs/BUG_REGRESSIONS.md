@@ -26,3 +26,11 @@ The full source runner now imports first, then compiles every shipping GDScript 
 The complete-profile test compares narrative fields and exact RNG across scene recreation, then requires live callbacks owned by the new screen. Lambdas capture their owning scene and their object identities are deliberately different after reload; comparing those identities was an invalid test oracle, not lost player progress. EN/RU narrative and RNG behavior remain checked.
 
 `test_mechanics_inputs.gd` adds real rapid-input and boundary coverage for the edition systems; it does not grant resources in the full-cycle release verifier. Large boundary fixtures in this isolated test intentionally exercise caps and rejection.
+
+## Native verifier deleted with the completed life screen
+
+`tests/test_native_verifier_lifetime.py` runs the actual private Windows verifier and requires victory plus a timely clean exit. RED reached rank1 after154 turns but timed out after45seconds: QARouter parented the verifier to Main, then the route queued Main for deletion before its cleanup and exit calls. The private verifier now belongs to the scene-tree root and survives its UI cleanup. Source standalone drivers already used that root owner; normal gameplay, money, saved state and event routing are unchanged. Fresh complete source suites and exact native exports are rerun after this ownership fix.
+
+## Portable promise and inherited-license byte contracts
+
+A fresh Git checkout normalized the promise documents while their inventory recorded Windows line endings. Explicit LF rules and unchanged verbatim lines now make those digests portable. The pre-release README inventory is retained in its own immutable snapshot where needed. Protected profile fixtures, creator licenses and provenance use opaque Git attributes. The inherited-license test derives its expected bytes from the original published1.4.0 Windows archive. RED identified six line-ending-only changes in inherited font/engine notices; their original published bytes are restored. No license wording or game behavior changed. Fresh source and native acceptance follows the packaging correction.

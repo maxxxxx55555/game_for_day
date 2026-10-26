@@ -17,6 +17,6 @@ static func request(host:Node) -> bool:
 		host.get_tree().quit(65)
 		return true
 	var route:Node=script.new()
-	host.add_child(route)
+	host.get_tree().root.add_child(route)
 	route.call_deferred("run",host)
 	return true
