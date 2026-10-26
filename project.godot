@@ -29,6 +29,8 @@ boot_splash/bg_color=Color(0.067,0.118,0.180,1)
 
 [autoload]
 
+BuildIntegrity="*res://scripts/security/BuildIntegrity.gd"
+
 FortuneArrival="*res://scripts/ui/FortuneArrival.gd"
 
 LocalizationManager="*res://scripts/autoload/LocalizationManager.gd"

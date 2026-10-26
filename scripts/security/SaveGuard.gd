@@ -17,7 +17,14 @@ static func bounded_text(path: String) -> String:
 	file.close()
 	return text
 
+static func can_write() -> bool:
+	var tree:=Engine.get_main_loop() as SceneTree
+	if tree==null:return false
+	var integrity:=tree.root.get_node_or_null("BuildIntegrity")
+	return integrity!=null and not integrity.read_only
+
 static func atomic_text(path: String, text: String) -> bool:
+	if not can_write(): return false
 	if not path.begins_with("user://") or text.to_utf8_buffer().size() > MAX_BYTES: return false
 	var file := FileAccess.open(path + ".tmp", FileAccess.WRITE)
 	if not file: return false
@@ -36,6 +43,7 @@ static func key() -> PackedByteArray:
 		cached_key = file.get_buffer(32)
 		file.close()
 	else:
+		if not can_write(): return PackedByteArray()
 		var generated := Crypto.new().generate_random_bytes(32)
 		var file := FileAccess.open(KEY_PATH + ".tmp", FileAccess.WRITE)
 		if not file or generated.size() != 32: return PackedByteArray()
@@ -135,6 +143,7 @@ static func config_text(cfg: ConfigFile, purpose: String) -> String:
 	return body + FOOTER + 'version=1\nmac="' + mac + '"\n'
 
 static func write_config(path: String, cfg: ConfigFile, purpose: String, validate: Callable) -> bool:
+	if not can_write(): return false
 	if not validate.call(cfg): return false
 	var signed := config_text(cfg, purpose)
 	if signed.is_empty(): return false
@@ -154,6 +163,15 @@ static func read_config(path: String, purpose: String, validate: Callable) -> Co
 	if cfg == null or not validate.call(cfg):
 		cfg = config_candidate(path + ".bak", purpose)
 		recovered = true
-	if cfg == null or not validate.call(cfg): return null
-	if recovered or not locked(purpose): last_repair_failed = not write_config(path, cfg, purpose, validate)
+	if cfg == null or not validate.call(cfg):
+		if FileAccess.file_exists(path) or FileAccess.file_exists(path+".bak"): report_recovery("integrity.save_rejected",path)
+		return null
+	if recovered: report_recovery("integrity.save_recovered",path)
+	if can_write() and (recovered or not locked(purpose)): last_repair_failed = not write_config(path, cfg, purpose, validate)
 	return cfg
+
+static func report_recovery(key_name:String,path:String) -> void:
+	var tree:=Engine.get_main_loop() as SceneTree
+	if tree==null:return
+	var integrity:=tree.root.get_node_or_null("BuildIntegrity")
+	if integrity!=null:integrity.report_save(key_name,path)

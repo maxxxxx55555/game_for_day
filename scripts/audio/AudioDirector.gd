@@ -19,11 +19,7 @@ func _ready() -> void:
 	AudioServer.set_bus_mute(0, force_mute)
 	audio_rng.randomize()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	var file := FileAccess.open(CATALOG_PATH, FileAccess.READ)
-	if not file:
-		push_error("Audio catalog missing: " + CATALOG_PATH)
-		return
-	catalog = JSON.parse_string(file.get_as_text())
+	catalog = BuildIntegrity.read_json(CATALOG_PATH)
 	var routes := {"Music": "Master", "SFX": "Master", "UI": "Master"}
 	for bus_name in routes:
 		if AudioServer.get_bus_index(bus_name) < 0:

@@ -6,7 +6,7 @@ Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md)
 
 # Heirs of Fortune — 2.0.0 preparation (publication locked)
 
-Complete live Russian/English presentation with 601 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
+Complete live Russian/English presentation with 606 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
 
 ## Русский
 
@@ -42,20 +42,22 @@ There are four birth origins, 31 events with 93 decisions, five business upgrade
 
 Click/tap choices and navigation. Scroll the event card if its text is long. Settings provide independent Master, Music, SFX and UI levels, live Russian/English selection and reduced motion. On Android, Back closes a submenu; backgrounding saves the session. Normal purchases do not advance a quarter. Grants have a four-quarter cooldown and require no advertisement or network connection.
 
-## Android preview
+## Android status in this v2 cycle
 
-Any APK supplied in this v2 cycle is an untested emulator preview, signed with a development key. It is not a Google Play production artifact. It contains ARM64, ARMv7 and x86_64 libraries, targets API 36 and needs OpenGL ES 3. No phone or tablet hardware was available for testing. Publishing to a store needs the owner's durable production signing key and the store's own submission process. Do not upload this development-signed APK as a production app.
+The v2 release omits Android artifacts under specification section16. This host cannot boot the emulator; existing older APK/static-signature results do not establish runtime acceptance for the new encrypted build. The active export presets therefore target Windows only. Existing Android lifecycle code remains covered by source tests; it is not a claim of device certification.
 
 ## Build and test
 
 Open `project.godot` in Godot 4.7 and press F5, or use:
 
 ```text
-godot --headless --path . --export-release "Windows Desktop" builds/windows/HeirsOfFortune.exe
+python tools/build_manifest.py
+# Set GODOT_SCRIPT_ENCRYPTION_KEY and GODOT_WINDOWS_RELEASE_TEMPLATE privately in the build environment.
+python tools/export_release.py --godot /path/to/godot --output /fresh/staging/HeirsOfFortune.exe
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner executes31 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 601 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner executes37 Godot cases per locale, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -78,3 +80,9 @@ Victory and defeat now have separate full-screen illustrated finales with animat
 Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.
 
 V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; final release acceptance remains gated.
+
+## V2 integrity integration (release gate remains locked)
+
+Public Windows packs omit the private verifier; the separate Windows QA preset additionally requires GAME_QA=1. All pack entries and the directory are encrypted using a matching custom Godot template and an environment-only build key. Encryption makes modification harder; it is not DRM. The compiled critical-data trust root rejects a replacement manifest and starts changed installations with trusted fallback data, a localized warning and no progress/settings writes. Authenticated save recovery records a local integrity log and shows a localized message. See SAVE-INTEGRITY.md for exact boundaries.
+
+Money is stored as bounded integer cents, including cash, prices, income, costs and inheritance. Dollar properties are compatibility/presentation boundaries. Foreign holdings use integer thousandths; acquisition and liquidation round down and same-quote trades lose spread. Grants use saved integer half-quarter ticks, with duplicate-claim prevention and no wall-clock dependency.

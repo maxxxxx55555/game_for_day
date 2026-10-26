@@ -1,19 +1,21 @@
 extends RefCounted
 const Guard = preload("res://scripts/security/SaveGuard.gd")
+const Money=preload("res://scripts/security/Money.gd")
 const RANGES := {
 	"age":[18,130],"quarter":[1,4],"total_turns":[0,10000],"real_world_week":[1,100000],
-	"business_tier":[0,5],"business_scale":[1,10000000],"health":[0,100],"intellect":[1,1000000],
+	"business_tier":[0,5],"business_scale":[1,16384],"health":[0,100],"intellect":[1,1000000],
 	"stress":[0,100],"happiness":[0,100],"energy":[0,100]
 }
 static func dynasty(cfg: ConfigFile) -> bool:
 	if not Guard.numeric(cfg.get_value("dynasty","generation",1),1,1000000,true): return false
 	if not Guard.numeric(cfg.get_value("dynasty","legacy_points",0),0,10000000,true): return false
-	if not Guard.numeric(cfg.get_value("dynasty","inherited_capital",0),0,1.0e17): return false
+	if not Guard.numeric(cfg.get_value("dynasty","inherited_capital",0),0,Money.dollars(Money.MAX_CENTS)): return false
 	if cfg.get_value("settings","time_speed",1.0) not in [0.5,1.0,2.0]: return false
 	if not cfg.get_value("settings","audio_enabled",true) is bool: return false
 	if not cfg.get_value("settings","reduced_motion",false) is bool: return false
 	for name in ["master_volume","music_volume","sfx_volume","ui_volume"]:
 		if not Guard.numeric(cfg.get_value("settings",name,0.3),0,1): return false
+	if cfg.has_section_key("dynasty","inherited_capital_cents") and not cents_pair(cfg,"dynasty","inherited_capital","inherited_capital_cents",false):return false
 	return cfg.has_section("dynasty")
 
 static func session(cfg: ConfigFile) -> bool:
@@ -29,7 +31,7 @@ static func session(cfg: ConfigFile) -> bool:
 	for field in RANGES:
 		if not Guard.numeric(cfg.get_value("run",field,null),RANGES[field][0],RANGES[field][1],true): return false
 	for field in ["cash","stock_units","crypto_units","inherited_capital"]:
-		if not Guard.numeric(cfg.get_value("run",field,null),-1.0e12 if field=="cash" else 0,1.0e17): return false
+		if not Guard.numeric(cfg.get_value("run",field,null),-Money.dollars(Money.MAX_CENTS) if field=="cash" else 0,Money.dollars(Money.MAX_CENTS) if field in ["cash","inherited_capital"] else 1.0e12): return false
 	for field in ["stock_index","crypto_rate","inflation_multiplier","difficulty_multiplier","birth_cost_modifier"]:
 		if not Guard.numeric(cfg.get_value("run",field,null),0.00001,1.0e12): return false
 	if cfg.get_value("run","time_speed",0) not in [0.5,1.0,2.0]: return false
@@ -52,4 +54,25 @@ static func session(cfg: ConfigFile) -> bool:
 			if not points is Array or points.is_empty() or points.size()>24: return false
 			for point in points:
 				if not Guard.numeric(point,0.000001,1000000): return false
+	if cfg.has_section_key("run","cash_cents"):
+		for pair in [["cash","cash_cents"],["inherited_capital","inherited_capital_cents"],["stock_index","stock_price_cents"],["crypto_rate","crypto_price_cents"]]:
+			if not cents_pair(cfg,"run",pair[0],pair[1],pair[0]=="cash"):return false
+		for field in ["simulation_ticks","grant_ready_tick","last_grant_tick"]:
+			var counter:Variant=cfg.get_value("run",field,null)
+			if not counter is int or counter<(-1 if field=="last_grant_tick" else 0) or counter>1000000:return false
+		var tick:int=cfg.get_value("run","simulation_ticks",0)
+		var ready:int=cfg.get_value("run","grant_ready_tick",0)
+		if cfg.get_value("run","last_grant_tick",-1)>tick or ready>tick+200:return false
+		if absf(float(maxi(0,ready-tick))/2.0-float(cfg.get_value("run","ad_cooldown",0)))>0.00001:return false
+	if fx.has("holding_milli"):
+		if not fx.holding_milli is Dictionary:return false
+		for code in ["EUR","GBP","JPY"]:
+			var exact:Variant=fx.holding_milli.get(code,null)
+			if not exact is int or exact<0 or exact>9000000000000000:return false
+			if float(exact)/1000.0!=float(fx.holdings[code]):return false
 	return true
+
+static func cents_pair(cfg:ConfigFile,section:String,dollars_key:String,cents_key:String,signed:bool) -> bool:
+	var exact:Variant=cfg.get_value(section,cents_key,null)
+	if not exact is int or not Money.valid(exact) or not signed and exact<0:return false
+	return Money.from_dollars(float(cfg.get_value(section,dollars_key,0)))==exact

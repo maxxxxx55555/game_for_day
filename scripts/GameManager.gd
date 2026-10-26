@@ -8,10 +8,11 @@ func report_write(path: String, ok: bool) -> void:
 	persistence_changed.emit(write_failures.is_empty())
 
 const Guard = preload("res://scripts/security/SaveGuard.gd")
+const Money=preload("res://scripts/security/Money.gd")
 const SavePolicy = preload("res://scripts/security/FortuneSavePolicy.gd")
 const SAVE_PATH := "user://dynasty_save.cfg"
 const SESSION_PATH := "user://current_life.cfg"
-const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state"]
+const RUN_FIELDS := ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick"]
 const QUARTERLY_INFLATION := 0.007
 var fx := preload("res://scripts/ExchangeMarket.gd").new()
 var fx_state: Dictionary:
@@ -27,11 +28,36 @@ var time_speed: float = 1.0 # 0.5x, 1.0x, 2.0x
 var quarter_progress_accum: float = 0.0
 
 # Финансы и активы
-var cash: float = 200.0
-var stock_units: float = 0.0
-var crypto_units: float = 0.0
-var stock_index: float = 1000.0
-var crypto_rate: float = 100.0
+var cash_cents:int=20000:
+	set(value):
+		if Money.valid(value):cash_cents=value
+var cash:float:
+	get:return Money.dollars(cash_cents)
+	set(value):
+		var amount:int=Money.from_dollars(value)
+		if amount!=Money.INVALID:cash_cents=amount
+var stock_units:float=0.0:
+	set(value):
+		if is_finite(value) and value>=0 and value<=1.0e12:stock_units=value
+var crypto_units:float=0.0:
+	set(value):
+		if is_finite(value) and value>=0 and value<=1.0e12:crypto_units=value
+var stock_price_cents:int=100000:
+	set(value):
+		if value>0 and Money.valid(value):stock_price_cents=value
+var stock_index:float:
+	get:return Money.dollars(stock_price_cents)
+	set(value):
+		var amount:int=Money.from_dollars(value)
+		if amount>0 and Money.valid(amount):stock_price_cents=amount
+var crypto_price_cents:int=10000:
+	set(value):
+		if value>0 and Money.valid(value):crypto_price_cents=value
+var crypto_rate:float:
+	get:return Money.dollars(crypto_price_cents)
+	set(value):
+		var amount:int=Money.from_dollars(value)
+		if amount>0 and Money.valid(amount):crypto_price_cents=amount
 var inflation_multiplier: float = 1.0
 var difficulty_multiplier: float = 1.0
 
@@ -39,12 +65,12 @@ var difficulty_multiplier: float = 1.0
 var business_tier: int = 0
 var business_scale: int = 1 # Масштабирование топового бизнеса (филиалы/поглощения)
 const BUSINESS_DEFINITIONS := [
-	{"name_key": "copy.415032073d05", "cost": 0.0, "income": 0.0, "valuation": 0.0},
-	{"name_key": "copy.4e18dfdd0b19", "cost": 5000.0, "income": 650.0, "valuation": 4500.0},
-	{"name_key": "copy.9b2e303874c5", "cost": 50000.0, "income": 6800.0, "valuation": 48000.0},
-	{"name_key": "copy.0a3b9ad578c8", "cost": 500000.0, "income": 72000.0, "valuation": 520000.0},
-	{"name_key": "copy.2b2ac29e543c", "cost": 10000000.0, "income": 1500000.0, "valuation": 12000000.0},
-	{"name_key": "copy.d1c68387ac6a", "cost": 250000000.0, "income": 45000000.0, "valuation": 320000000.0}
+	{"name_key": "copy.415032073d05", "cost_cents": 0, "income_cents": 0, "valuation_cents": 0},
+	{"name_key": "copy.4e18dfdd0b19", "cost_cents": 500000, "income_cents": 65000, "valuation_cents": 450000},
+	{"name_key": "copy.9b2e303874c5", "cost_cents": 5000000, "income_cents": 680000, "valuation_cents": 4800000},
+	{"name_key": "copy.0a3b9ad578c8", "cost_cents": 50000000, "income_cents": 7200000, "valuation_cents": 52000000},
+	{"name_key": "copy.2b2ac29e543c", "cost_cents": 1000000000, "income_cents": 150000000, "valuation_cents": 1200000000},
+	{"name_key": "copy.d1c68387ac6a", "cost_cents": 25000000000, "income_cents": 4500000000, "valuation_cents": 32000000000}
 ]
 
 # Public read API retains canonical Russian names for old saved presentation copy.
@@ -54,6 +80,7 @@ var BUSINESS_TIERS:Array:
 		if business_tier_cache.is_empty():
 			for definition in BUSINESS_DEFINITIONS:
 				var entry:Dictionary=definition.duplicate()
+				for field in ["cost","income","valuation"]:entry[field]=Money.dollars(definition[field+"_cents"])
 				entry["name"]=LocalizationManager.source(entry.name_key)
 				business_tier_cache.append(entry)
 		return business_tier_cache
@@ -69,7 +96,14 @@ var rank: int = 8000000000
 # Мета-прогрессия (Династия) и состояние
 var generation: int = 1
 var legacy_points: int = 0
-var inherited_capital: float = 0.0
+var inherited_capital_cents:int=0:
+	set(value):
+		if value>=0 and Money.valid(value):inherited_capital_cents=value
+var inherited_capital:float:
+	get:return Money.dollars(inherited_capital_cents)
+	set(value):
+		var amount:int=Money.from_dollars(value)
+		if amount>=0 and Money.valid(amount):inherited_capital_cents=amount
 var birth_origin: String = ""
 var birth_cost_modifier: float = 1.0
 var player_perk: String = "none"
@@ -83,7 +117,13 @@ var sfx_volume: float = 0.8
 
 var has_seen_intro: bool = false
 var has_rolled_birth: bool = false
-var ad_cooldown: float = 0.0
+var simulation_ticks:int=0
+var grant_ready_tick:int=0
+var last_grant_tick:int=-1
+var ad_cooldown:float:
+	get:return float(maxi(0,grant_ready_tick-simulation_ticks))/2.0
+	set(value):
+		if is_finite(value) and value>=0 and value<=100:grant_ready_tick=simulation_ticks+ceili(value*2.0)
 var revive_used: bool = false
 
 func _ready() -> void:
@@ -94,6 +134,7 @@ func save_dynasty() -> bool:
 	cfg.set_value("dynasty", "generation", generation)
 	cfg.set_value("dynasty", "legacy_points", legacy_points)
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
+	cfg.set_value("dynasty","inherited_capital_cents",inherited_capital_cents)
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
 	cfg.set_value("settings", "reduced_motion", reduced_motion)
@@ -112,6 +153,7 @@ func load_dynasty() -> void:
 		generation = cfg.get_value("dynasty", "generation", 1)
 		legacy_points = cfg.get_value("dynasty", "legacy_points", 0)
 		inherited_capital = cfg.get_value("dynasty", "inherited_capital", 0.0)
+		inherited_capital_cents=cfg.get_value("dynasty","inherited_capital_cents",inherited_capital_cents)
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
 		reduced_motion = cfg.get_value("settings", "reduced_motion", false)
@@ -148,10 +190,16 @@ func load_current_life() -> Dictionary:
 		return {}
 	for field in RUN_FIELDS:
 		set(field, cfg.get_value("run", field, {} if field == "fx_state" else get(field)))
+	if not cfg.has_section_key("run","simulation_ticks"):
+		var old_cooldown:float=cfg.get_value("run","ad_cooldown",0.0)
+		simulation_ticks=maxi(0,((age-18)*4+quarter-1)*2+roundi(quarter_progress_accum*2.0))
+		grant_ready_tick=simulation_ticks+ceili(old_cooldown*2.0)
+		last_grant_tick=-1
 	recalculate_forbes_rank()
 	return ui_state
 
 func clear_current_life() -> void:
+	if not Guard.can_write(): return
 	for path in [SESSION_PATH, SESSION_PATH + ".bak"]:
 		if FileAccess.file_exists(path): DirAccess.remove_absolute(path)
 
@@ -162,6 +210,9 @@ func reset_game() -> void:
 	total_turns = 0
 	real_world_week = 1
 	quarter_progress_accum = 0.0
+	simulation_ticks=0
+	grant_ready_tick=0
+	last_grant_tick=-1
 	cash = 200.0 + inherited_capital
 	stock_units = 0.0
 	crypto_units = 0.0
@@ -238,8 +289,14 @@ func roll_birth_lottery() -> Dictionary:
 	recalculate_forbes_rank()
 	return result
 
+func get_portfolio_value_cents() -> int:
+	var stock:int=Money.market(stock_units,stock_price_cents)
+	var crypto:int=Money.market(crypto_units,crypto_price_cents)
+	var total:int=Money.add(Money.add(stock,crypto),fx.value_cents())
+	return Money.MAX_CENTS if total==Money.INVALID else total
+
 func get_portfolio_value() -> float:
-	return (stock_units * stock_index) + (crypto_units * crypto_rate) + fx.value()
+	return Money.dollars(get_portfolio_value_cents())
 
 func get_annual_inflation() -> float:
 	return pow(1.0 + QUARTERLY_INFLATION, 4) - 1.0
@@ -247,45 +304,61 @@ func get_annual_inflation() -> float:
 func get_real_cash() -> float:
 	return cash / maxf(1.0, inflation_multiplier)
 
-func buy_currency(code: String, dollars: float) -> bool:
-	if not is_finite(dollars) or dollars <= 0 or dollars > cash: return false
-	if not fx.buy(code, dollars): return false
-	cash -= dollars
+func buy_currency(code:String,dollars:float) -> bool:
+	var amount:int=Money.from_dollars(dollars)
+	if amount<=0 or not Money.valid(amount) or amount>cash_cents:return false
+	if not fx.buy_cents(code,amount):return false
+	cash_cents-=amount
 	recalculate_forbes_rank()
 	return true
 
-func sell_currency(code: String, units: float) -> float:
-	var received: float = fx.sell(code, units)
-	cash += received
+func sell_currency(code:String,units:float) -> float:
+	var received:int=fx.quote_sell_cents(code,units)
+	var next:int=Money.add(cash_cents,received)
+	if received<=0 or next==Money.INVALID:return 0
+	if fx.sell_cents(code,units)!=received:return 0
+	cash_cents=next
 	recalculate_forbes_rank()
-	return received
+	return Money.dollars(received)
 
-func get_business_valuation() -> float:
-	if business_tier == 0:
-		return 0.0
-	var base_val: float = BUSINESS_TIERS[business_tier]["valuation"]
-	return base_val * float(business_scale)
+func get_business_valuation_cents() -> int:
+	if business_tier<0 or business_tier>=BUSINESS_DEFINITIONS.size():return 0
+	var result:int=Money.multiply(BUSINESS_DEFINITIONS[business_tier].valuation_cents,business_scale)
+	return 0 if result==Money.INVALID else result
 
-func get_passive_quarterly_income() -> float:
-	var biz_inc: float = 0.0
-	if business_tier > 0:
-		biz_inc = BUSINESS_TIERS[business_tier]["income"] * float(business_scale)
-	var div_inc: float = (stock_units * stock_index) * 0.012 # 1.2% дивидендов в квартал
-	if player_perk == "wall_street":
-		div_inc *= 1.5
-	return biz_inc + div_inc
+func get_business_valuation() -> float:return Money.dollars(get_business_valuation_cents())
 
-func get_quarterly_living_cost() -> float:
-	var base_cost := (280.0 + float(age - 18) * 18.0) * birth_cost_modifier * inflation_multiplier
-	# Обслуживание высокого уровня жизни и бизнеса
-	if business_tier >= 3:
-		base_cost += BUSINESS_TIERS[business_tier]["income"] * 0.15 * float(business_scale)
-	return snappedf(base_cost, 1.0)
+func get_business_income_cents() -> int:
+	if business_tier<0 or business_tier>=BUSINESS_DEFINITIONS.size():return 0
+	var result:int=Money.multiply(BUSINESS_DEFINITIONS[business_tier].income_cents,business_scale)
+	return 0 if result==Money.INVALID else result
 
-func get_net_worth() -> float:
-	return cash + get_portfolio_value() + get_business_valuation()
+func get_optimization_bonus() -> float:return Money.dollars(Money.ratio(get_business_income_cents(),15,100))
 
-# Честная формула позиции в Forbes строго от Net Worth
+func get_passive_quarterly_income_cents() -> int:
+	var stock:int=Money.market(stock_units,stock_price_cents)
+	if stock==Money.INVALID:return 0
+	var dividend:int=Money.ratio(stock,18 if player_perk=="wall_street" else 12,1000)
+	var result:int=Money.add(get_business_income_cents(),dividend)
+	return 0 if result==Money.INVALID else result
+
+func get_passive_quarterly_income() -> float:return Money.dollars(get_passive_quarterly_income_cents())
+
+func get_quarterly_living_cost_cents() -> int:
+	var base:int=Money.scale((280+(age-18)*18)*100,birth_cost_modifier*inflation_multiplier)
+	if business_tier>=3:base=Money.add(base,Money.ratio(get_business_income_cents(),15,100))
+	if base==Money.INVALID:return Money.MAX_CENTS
+	# Preserve the edition's nearest-whole-dollar cost policy, in the cent ledger.
+	return roundi(float(base)/100.0)*100
+
+func get_quarterly_living_cost() -> float:return Money.dollars(get_quarterly_living_cost_cents())
+
+func get_net_worth_cents() -> int:
+	var total:int=Money.add(Money.add(cash_cents,get_portfolio_value_cents()),get_business_valuation_cents())
+	return Money.MAX_CENTS if total==Money.INVALID else total
+
+func get_net_worth() -> float:return Money.dollars(get_net_worth_cents())
+
 func recalculate_forbes_rank() -> void:
 	var nw := get_net_worth()
 	if nw <= -10000.0:
@@ -309,11 +382,14 @@ func recalculate_forbes_rank() -> void:
 		rank = 1
 
 func advance_quarter_and_markets() -> Dictionary:
-	var passive_inc := get_passive_quarterly_income() * time_speed
-	var living_cost := get_quarterly_living_cost() * time_speed
+	var passive_cents:int=Money.scale(get_passive_quarterly_income_cents(),time_speed)
+	var living_cents:int=Money.scale(get_quarterly_living_cost_cents(),time_speed)
+	var next_cash:int=Money.add(cash_cents,Money.add(passive_cents,-living_cents))
+	if next_cash==Money.INVALID:return {}
+	var passive_inc:float=Money.dollars(passive_cents)
+	var living_cost:float=Money.dollars(living_cents)
 	total_turns += 1
-	if ad_cooldown > 0:
-		ad_cooldown = maxf(0.0, ad_cooldown - time_speed)
+	simulation_ticks+=roundi(time_speed*2.0)
 
 	# Продвижение кварталов и возраста с учетом настройки скорости времени
 	quarter_progress_accum += time_speed
@@ -341,7 +417,7 @@ func advance_quarter_and_markets() -> Dictionary:
 
 	# Начисление пассивного дохода и списание стоимости жизни
 	var net_quarter_cash := passive_inc - living_cost
-	cash += net_quarter_cash
+	cash_cents=next_cash
 
 	recalculate_forbes_rank()
 	return {
@@ -351,6 +427,11 @@ func advance_quarter_and_markets() -> Dictionary:
 	}
 
 func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int, d_happiness: int, d_energy: int) -> void:
+	var delta_cents:int=Money.from_dollars(d_money)
+	var next_cash:int=Money.add(cash_cents,delta_cents)
+	var passive:int=Money.scale(get_passive_quarterly_income_cents(),time_speed)
+	var living:int=Money.scale(get_quarterly_living_cost_cents(),time_speed)
+	if next_cash==Money.INVALID or Money.add(next_cash,Money.add(passive,-living))==Money.INVALID:return
 	var adj_health := d_health
 	var adj_stress := int(float(d_stress) * difficulty_multiplier)
 	var adj_energy := d_energy
@@ -367,7 +448,7 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 	if player_perk == "tech_genius" and adj_intellect > 0:
 		adj_intellect += 3
 
-	cash += d_money
+	cash_cents=next_cash
 	health = clamp(health + adj_health, 0, 100)
 	intellect = max(1, intellect + adj_intellect)
 	stress = clamp(stress + adj_stress, 0, 100)
@@ -378,43 +459,51 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 	recalculate_forbes_rank()
 
 # Операции с инвестиционным портфелем
-func buy_stocks(amount_usd: float) -> bool:
-	if not is_finite(amount_usd) or cash < amount_usd or amount_usd <= 0.0:
-		return false
-	cash -= amount_usd
-	stock_units += amount_usd / stock_index
+func buy_stocks(amount_usd:float) -> bool:
+	var amount:int=Money.from_dollars(amount_usd)
+	if amount<=0 or not Money.valid(amount) or cash_cents<amount:return false
+	var acquired:float=float(amount)/float(stock_price_cents)
+	if not is_finite(acquired) or acquired<=0 or stock_units+acquired>1.0e12:return false
+	cash_cents-=amount
+	stock_units+=acquired
 	recalculate_forbes_rank()
 	return true
 
 func sell_all_stocks() -> float:
-	var val := stock_units * stock_index
-	cash += val
-	stock_units = 0.0
+	var received:int=Money.market(stock_units,stock_price_cents)
+	var next:int=Money.add(cash_cents,received)
+	if received<=0 or next==Money.INVALID:return 0
+	cash_cents=next
+	stock_units=0
 	recalculate_forbes_rank()
-	return val
+	return Money.dollars(received)
 
-func buy_crypto(amount_usd: float) -> bool:
-	if not is_finite(amount_usd) or cash < amount_usd or amount_usd <= 0.0:
-		return false
-	cash -= amount_usd
-	crypto_units += amount_usd / crypto_rate
+func buy_crypto(amount_usd:float) -> bool:
+	var amount:int=Money.from_dollars(amount_usd)
+	if amount<=0 or not Money.valid(amount) or cash_cents<amount:return false
+	var acquired:float=float(amount)/float(crypto_price_cents)
+	if not is_finite(acquired) or acquired<=0 or crypto_units+acquired>1.0e12:return false
+	cash_cents-=amount
+	crypto_units+=acquired
 	recalculate_forbes_rank()
 	return true
 
 func sell_all_crypto() -> float:
-	var val := crypto_units * crypto_rate
-	cash += val
-	crypto_units = 0.0
+	var received:int=Money.market(crypto_units,crypto_price_cents)
+	var next:int=Money.add(cash_cents,received)
+	if received<=0 or next==Money.INVALID:return 0
+	cash_cents=next
+	crypto_units=0
 	recalculate_forbes_rank()
-	return val
+	return Money.dollars(received)
 
-# Покупка и масштабирование бизнеса
 func upgrade_or_scale_business() -> Dictionary:
 	if business_tier < BUSINESS_TIERS.size() - 1:
 		var next_tier := business_tier + 1
-		var cost: float = BUSINESS_TIERS[next_tier]["cost"]
-		if cash >= cost:
-			cash -= cost
+		var cost_cents:int=BUSINESS_DEFINITIONS[next_tier].cost_cents
+		var cost:float=Money.dollars(cost_cents)
+		if cash_cents>=cost_cents:
+			cash_cents-=cost_cents
 			business_tier = next_tier
 			business_scale = 1
 			recalculate_forbes_rank()
@@ -423,9 +512,10 @@ func upgrade_or_scale_business() -> Dictionary:
 			return {"ok": false, "msg": LocalizationManager.source("copy.18de786a617a") + format_num(cost)}
 	else:
 		# Масштабирование глобального техно-холдинга (поглощение корпораций на пути к $250 млрд)
-		var scale_cost := 250000000.0 * float(business_scale)
-		if cash >= scale_cost:
-			cash -= scale_cost
+		var scale_cents:int=Money.multiply(25000000000,business_scale)
+		var scale_cost:float=Money.dollars(scale_cents)
+		if business_scale>0 and business_scale<=8192 and scale_cents>0 and cash_cents>=scale_cents:
+			cash_cents-=scale_cents
 			business_scale *= 2
 			recalculate_forbes_rank()
 			return {"ok": true, "msg": LocalizationManager.source("copy.ef931bee4ea7") % business_scale}
@@ -437,7 +527,7 @@ func register_inheritance_on_end() -> String:
 	legacy_points += 1 + int(max(0, age - 30) / 15)
 	var msg := ""
 	if age >= 50 and nw > 1000.0:
-		inherited_capital = snappedf(nw * 0.20, 1.0)
+		inherited_capital_cents=roundi(float(Money.ratio(get_net_worth_cents(),20,100))/100.0)*100
 		generation += 1
 		msg = LocalizationManager.source("copy.3a3f57875e5c") % [
 			generation, format_num(inherited_capital), legacy_points
@@ -460,3 +550,17 @@ func format_num(val: float) -> String:
 		return "%s%.1fK" % [sign_s, abs_v / 1000.0]
 	else:
 		return "%s%d" % [sign_s, int(abs_v)]
+
+func claim_grant() -> float:
+	if simulation_ticks<grant_ready_tick or last_grant_tick==simulation_ticks:return 0
+	var base:int=maxi(250000,absi(get_net_worth_cents()))
+	var grant:int=maxi(150000,roundi(float(Money.ratio(base,8,100))/1000.0)*1000)
+	var next:int=Money.add(cash_cents,grant)
+	if next==Money.INVALID:return 0
+	cash_cents=next
+	last_grant_tick=simulation_ticks
+	grant_ready_tick=simulation_ticks+8
+	stress=maxi(0,stress-25)
+	energy=mini(100,energy+35)
+	recalculate_forbes_rank()
+	return Money.dollars(grant)

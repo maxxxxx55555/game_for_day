@@ -3,7 +3,7 @@ extends Node
 var catalog: Array = []
 
 func _ready() -> void:
-	catalog = JSON.parse_string(FileAccess.get_file_as_string("res://data/events.json"))
+	catalog = BuildIntegrity.read_json("res://data/events.json")
 
 func events_for(stage: String) -> Array:
 	var result: Array = []

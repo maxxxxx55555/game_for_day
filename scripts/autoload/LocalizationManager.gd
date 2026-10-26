@@ -20,7 +20,7 @@ func _exit_tree() -> void:
 	translation_resources.clear()
 func _ready() -> void:
 	format_tokens.compile("%(?:[-+0#]*[0-9]*(?:\\.[0-9]+)?[sdif])")
-	var decoded=JSON.parse_string(FileAccess.get_file_as_string("res://data/strings/localization.json"))
+	var decoded:Variant=BuildIntegrity.read_json("res://data/strings/localization.json")
 	if not decoded is Dictionary:
 		push_error("Compiled localization catalog missing")
 		return

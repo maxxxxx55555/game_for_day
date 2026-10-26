@@ -172,10 +172,7 @@ func _ready() -> void:
 		show_intro_screen()
 	else:
 		restore_session(saved)
-	if OS.get_cmdline_user_args().has("--verify-build"):
-		var verification := preload("res://scripts/ReleaseVerification.gd").new()
-		add_child(verification)
-		verification.call_deferred("run", self)
+	preload("res://scripts/security/QARouter.gd").request(self)
 
 func _notification(what: int) -> void:
 	if not is_node_ready(): return
@@ -474,14 +471,11 @@ func watch_ad_for_bonus() -> void:
 		event_label.text = LocalizationManager.source("copy.1d33e8d9a164") % str(GameManager.ad_cooldown)
 		return
 	
-	var nw := maxf(2500.0, absf(GameManager.get_net_worth()))
-	var grant := snappedf(maxf(1500.0, nw * 0.08), 10.0)
-	GameManager.cash += grant
+	var grant:float=GameManager.claim_grant()
+	if grant<=0:
+		SoundManager.play_sfx("ui_error")
+		return
 	SoundManager.play_sfx("grant")
-	GameManager.stress = max(0, GameManager.stress - 25)
-	GameManager.energy = min(100, GameManager.energy + 35)
-	GameManager.ad_cooldown = 4
-	GameManager.recalculate_forbes_rank()
 	if check_game_over():
 		return
 	update_ui()
@@ -605,7 +599,7 @@ func handle_business_action(option: int) -> void:
 " + event_label.text
 	elif option == 2:
 		if GameManager.business_tier > 0 and GameManager.energy >= 15:
-			var bonus: float = GameManager.BUSINESS_TIERS[GameManager.business_tier]["income"] * float(GameManager.business_scale) * 0.15
+			var bonus:float=GameManager.get_optimization_bonus()
 			GameManager.apply_delta(bonus, 0, 0, 0, 0, -15)
 			SoundManager.play_sfx("coin")
 			load_next_life_event(LocalizationManager.source("copy.ed4b0b659951") % GameManager.format_num(bonus))

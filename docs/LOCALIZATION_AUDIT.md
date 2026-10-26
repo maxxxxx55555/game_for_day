@@ -13,3 +13,5 @@ The immutable v1.4.0 fixture records255 unique Russian literals from original Ma
 F3 adds 3 keyed labels/briefing entries; current catalog count is601 per language. The rendered suite now has29 cases. F2 historical evidence above is unchanged.
 
 F4 adds two non-copy audio regression cases; current runner count is31. Localization keys remain unchanged from F3.
+
+F5 adds five keyed integrity/recovery captions: 606 keys and37 Godot cases in the current source. Earlier phase counts above are historical. Full F5 bilingual logs and native pack checks are recorded separately from final F7 acceptance.

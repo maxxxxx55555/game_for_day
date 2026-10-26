@@ -1,0 +1,9 @@
+{
+  "files": {
+    "res://assets/audio/catalog.json": "83cccf589e292a6c0a90f6d1ff9befb52a854864b8cc2852d327cef50a43968c",
+    "res://data/events.json": "b986ca1e1c43cfb9e550fb573348dcc544f10781efadbc6f60d7bf712c572959",
+    "res://data/strings/choice_aliases.json": "213c10d14cce306fc4b722b420b31650daba45543135f7da365ee2bf564f8f4d",
+    "res://data/strings/localization.json": "75f9bf64118f7e94330e6e2915c0290abe1c39eff57c5c94c87c27f439e255c9"
+  },
+  "version": 1
+}
