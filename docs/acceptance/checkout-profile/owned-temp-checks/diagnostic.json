@@ -1,0 +1,114 @@
+{
+  "source_tag": "v2.0.0",
+  "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a",
+  "source_tree": "e13c284bb2ed6c1956f2fce52458f72dbb3b1e40",
+  "attributes": [
+    "# Diagnostic checkout serialization only; immutable blobs and contracts unchanged.",
+    "assets/audio/catalog.json text eol=crlf",
+    "data/events.json text eol=crlf",
+    "data/strings/choice_aliases.json text eol=crlf",
+    "data/strings/localization.json text eol=crlf",
+    "tools/generate_audio.py text eol=crlf",
+    "data/strings/en.csv text eol=lf",
+    "data/strings/ru.csv text eol=lf"
+  ],
+  "canonical_git_diff": "",
+  "working_paths": [
+    {
+      "path": "assets/audio/catalog.json",
+      "tag_blob": "7c3655c0faaa06301189513943560d1db9ca8769",
+      "cleaned_working_blob": "7c3655c0faaa06301189513943560d1db9ca8769",
+      "tag_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+      "working_sha256": "83cccf589e292a6c0a90f6d1ff9befb52a854864b8cc2852d327cef50a43968c",
+      "canonical_equal": true,
+      "newline_only": true
+    },
+    {
+      "path": "data/events.json",
+      "tag_blob": "9648e3657561ebfb613dfd751fe42a67e9c7c2dd",
+      "cleaned_working_blob": "9648e3657561ebfb613dfd751fe42a67e9c7c2dd",
+      "tag_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+      "working_sha256": "b986ca1e1c43cfb9e550fb573348dcc544f10781efadbc6f60d7bf712c572959",
+      "canonical_equal": true,
+      "newline_only": true
+    },
+    {
+      "path": "data/strings/choice_aliases.json",
+      "tag_blob": "3ac978d5842f87643ab6a743447631f753e2519b",
+      "cleaned_working_blob": "3ac978d5842f87643ab6a743447631f753e2519b",
+      "tag_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+      "working_sha256": "213c10d14cce306fc4b722b420b31650daba45543135f7da365ee2bf564f8f4d",
+      "canonical_equal": true,
+      "newline_only": true
+    },
+    {
+      "path": "data/strings/localization.json",
+      "tag_blob": "a9c6d750b216f4d17ad47a09a7c6610863707914",
+      "cleaned_working_blob": "a9c6d750b216f4d17ad47a09a7c6610863707914",
+      "tag_sha256": "63583221889fa0a82ace95df3215ddf9bff3d7e88e61c8b8f02cfc66e982e0be",
+      "working_sha256": "75f9bf64118f7e94330e6e2915c0290abe1c39eff57c5c94c87c27f439e255c9",
+      "canonical_equal": true,
+      "newline_only": true
+    },
+    {
+      "path": "tools/generate_audio.py",
+      "tag_blob": "edf9b2d8292bedb1e289604addc7f2190aed9306",
+      "cleaned_working_blob": "edf9b2d8292bedb1e289604addc7f2190aed9306",
+      "tag_sha256": "25ca7de4f8b0e458c7170580ffb1ba344188fe4c9092108df06f9919458a30dc",
+      "working_sha256": "c992ac3b883ec9380324123f4c4ff2f90ceb7fce73e94c2d6fa82fb6cb691e5a",
+      "canonical_equal": true,
+      "newline_only": true
+    },
+    {
+      "path": "data/strings/en.csv",
+      "tag_blob": "ef58ede87a96e7cd0b903036b34a58c3b0fb14f0",
+      "cleaned_working_blob": "ef58ede87a96e7cd0b903036b34a58c3b0fb14f0",
+      "tag_sha256": "0262b9bccadae16887f2ecef215071bedf28febdeae4ad7a91e20885bc72201d",
+      "working_sha256": "0262b9bccadae16887f2ecef215071bedf28febdeae4ad7a91e20885bc72201d",
+      "canonical_equal": true,
+      "newline_only": true
+    },
+    {
+      "path": "data/strings/ru.csv",
+      "tag_blob": "ef58ede87a96e7cd0b903036b34a58c3b0fb14f0",
+      "cleaned_working_blob": "ef58ede87a96e7cd0b903036b34a58c3b0fb14f0",
+      "tag_sha256": "0262b9bccadae16887f2ecef215071bedf28febdeae4ad7a91e20885bc72201d",
+      "working_sha256": "0262b9bccadae16887f2ecef215071bedf28febdeae4ad7a91e20885bc72201d",
+      "canonical_equal": true,
+      "newline_only": true
+    }
+  ],
+  "checks": {
+    "tools/build_manifest.py": {
+      "exit": 0,
+      "result": "PASS",
+      "log": "owned-temp-checks/build_manifest.py.log",
+      "log_sha256": "d05fea35b26540151284359f5808fad65455c665c33156666d31baf9a496b3cd"
+    },
+    "tests/test_critical_manifest.py": {
+      "exit": 0,
+      "result": "PASS",
+      "log": "owned-temp-checks/test_critical_manifest.py.log",
+      "log_sha256": "65d5105b76cdc625d9dfa8fbf1394f1ccedd728d9a4cfa4c50d847ecfe740334"
+    },
+    "tests/test_audio_assets.py": {
+      "exit": 0,
+      "result": "PASS",
+      "log": "owned-temp-checks/test_audio_assets.py.log",
+      "log_sha256": "b146398e1a6a80e37b74ef5340aa249f6bc856ba08134b22391910026f0565ff"
+    },
+    "tests/test_copy_contract.py": {
+      "exit": 0,
+      "result": "PASS",
+      "log": "owned-temp-checks/test_copy_contract.py.log",
+      "log_sha256": "686ae5316a0afa3164e9844100a233b07d6fa865b5dee54fcbd5594b9c13ab1a"
+    },
+    "tests/test_soundtrack.py": {
+      "exit": 0,
+      "result": "PASS",
+      "log": "owned-temp-checks/test_soundtrack.py.log",
+      "log_sha256": "50327d5eb68ba46dc1b7d4d2b91c80bea11109fde4e2b5fdb1339c7dbfe6857b"
+    }
+  },
+  "scope": "DIAGNOSTIC ONLY: not an acceptance sign-off; default checkout failures retained"
+}

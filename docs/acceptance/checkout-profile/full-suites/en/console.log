@@ -1,0 +1,81 @@
+INHERITED LICENSE BYTE CONTRACT PASS: 8 files from published1.4.0
+EXPORT CONTRACT PASS: 2 presets with compiled data and notices
+COPY CONTRACT PASS: 606 keys, scene/model source audit and canonical copy
+PROMISE MATRIX PASS: 40 original entries, explicit scope and existing test references
+MECHANICS MAPPING PASS: 14 mechanics, 112 cells; EXECUTED_PASS
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK
+SOUNDTRACK PASS: 4 unique mood compositions and two musical finales
+AUDIO ASSETS PASS: 14 WAV assets; levels, data, loop seams and envelopes verified
+PUBLIC QA CONTRACT PASS: separate feature/env gate, physical exclusion, encrypted presets
+RELEASE EXPORT PREFLIGHT PASS: missing/invalid key rejected, no secret output or mutation
+CRITICAL DATA TRUST ANCHOR VERIFIED
+CRITICAL DATA TRUST ANCHOR GENERATED
+CRITICAL MANIFEST PASS: 4 files, stable generation, tamper and replacement rejection
+STRICT SHIPPING COMPILE PASS 27 scripts 49 categories
+import: PASS
+regressions: PASS
+RESULT: PASS (23 checks, 0 failures)
+RESULT: PASS (23 checks, 0 failures)
+audio: PASS
+playthrough: PASS
+PLAYTHROUGH steps=154 age=56 wealth=255332637152.74 rank=1
+RESULT: PASS (1 checks, 0 failures)
+PLAYTHROUGH steps=154 age=56 wealth=255332637152.74 rank=1
+RESULT: PASS (1 checks, 0 failures)
+credits: PASS
+release-details: PASS
+disabled-explanations: PASS
+comfort-preferences: PASS
+canonical-model: PASS
+currency-chart: PASS
+chart-path-regression: PASS
+financial-motion: PASS
+localization: PASS
+translation-coverage: PASS
+audio-scope: PASS
+presentation: PASS
+identity: PASS
+mobile-lifecycle: PASS
+market-exit: PASS
+currencies: PASS
+currency-ui: PASS
+integrity: PASS
+protected-saves: PASS
+finales: PASS
+choice-sweep: PASS
+clear-play: PASS
+premium-ui: PASS
+release-hardening: PASS
+music-transitions: PASS
+ui_audio_feedback: PASS
+context_audio: PASS
+qa_router: PASS
+build_integrity: PASS
+critical_read_bounds: PASS
+integrity_notice: PASS
+save_recovery: PASS
+cent_ledger: PASS
+settings-lifetime: PASS
+choice-reentry: PASS
+navigation-matrix: PASS
+qa-seed: PASS
+mechanics-inputs: PASS
+exact-float-limits: PASS
+config-float-precision: PASS
+profile-contract: PASS
+balance: PASS
+PLAYTHROUGH steps=166 age=59 wealth=250254333891.28 rank=1
+PLAYTHROUGH steps=169 age=60 wealth=268235166610.74 rank=1
+PLAYTHROUGH steps=160 age=58 wealth=269150345814.94 rank=1
+PLAYTHROUGH steps=145 age=54 wealth=259486794447.91 rank=1
+RESULT: PASS (5 checks, 0 failures)
+PLAYTHROUGH steps=166 age=59 wealth=250254333891.28 rank=1
+PLAYTHROUGH steps=169 age=60 wealth=268235166610.74 rank=1
+PLAYTHROUGH steps=160 age=58 wealth=269150345814.94 rank=1
+PLAYTHROUGH steps=145 age=54 wealth=259486794447.91 rank=1
+RESULT: PASS (5 checks, 0 failures)
+Artifacts: C:\Users\Maxsim\Documents\Codex\2026-10-24\new-chat\outputs\checkout-profile-2026-10-27\game_for_day\full-suites\en

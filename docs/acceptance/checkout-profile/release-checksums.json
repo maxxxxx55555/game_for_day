@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "command": "sha256sum -c HeirsOfFortune-SHA256SUMS-2.0.0.txt",
+  "exit": 0,
+  "stdout": "HeirsOfFortune-Windows-2.0.0.zip: OK\n",
+  "assets": [
+    {
+      "name": "HeirsOfFortune-Windows-2.0.0.zip",
+      "sha256": "dd4511d281fd6f2b53b98d4b58e1b1fa972a8e7860446515bb2d46b252d65f0f",
+      "bytes": 69730345,
+      "url": "https://github.com/maxxxxx55555/game_for_day/releases/download/v2.0.0/HeirsOfFortune-Windows-2.0.0.zip"
+    },
+    {
+      "name": "HeirsOfFortune-SHA256SUMS-2.0.0.txt",
+      "sha256": "1e9af09ecc81542defb7040687b1a30d7b2b270f0a1b533242d256d9f119a84b",
+      "bytes": 99,
+      "url": "https://github.com/maxxxxx55555/game_for_day/releases/download/v2.0.0/HeirsOfFortune-SHA256SUMS-2.0.0.txt"
+    }
+  ],
+  "download_scope": "Rechecked exact fresh acceptance-cycle downloads; no duplicate transfer; current asset metadata separately verified unchanged",
+  "log_sha256": "88e216f2828a75951d865c1f24e94d5efe82ea27ee7d709dcb6c076c2736018e"
+}

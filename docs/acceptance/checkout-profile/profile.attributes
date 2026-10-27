@@ -1,0 +1,8 @@
+# Diagnostic checkout serialization only; immutable blobs and contracts unchanged.
+assets/audio/catalog.json text eol=crlf
+data/events.json text eol=crlf
+data/strings/choice_aliases.json text eol=crlf
+data/strings/localization.json text eol=crlf
+tools/generate_audio.py text eol=crlf
+data/strings/en.csv text eol=lf
+data/strings/ru.csv text eol=lf

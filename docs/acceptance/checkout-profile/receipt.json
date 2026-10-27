@@ -1,0 +1,29 @@
+{
+  "verdict": "NOT_ACCEPTED",
+  "announcement_approved": false,
+  "scope": "Supplemental diagnostic reproduction; original default-checkout failures and certificates remain authoritative",
+  "source_tag": "v2.0.0",
+  "source_commit": "b5a9aba0821ae9af8a202a4c835e17981425e09a",
+  "source_tree": "e13c284bb2ed6c1956f2fce52458f72dbb3b1e40",
+  "original_repository_game_delta": 0,
+  "diagnostic_scratch_raw_bytes_changed": true,
+  "tags_or_release_assets_changed": false,
+  "evidence": {
+    "full-suite-summary.json": "b79ef7ec03dded9f98ed74fd64ce79ab913056eb1c5d087ed8ef2a5443da863d",
+    "full-suites/en/console.log": "65904ac89e0ee711e61c61e722524f162cc8aa83f2f16a89d535e26dd830c321",
+    "full-suites/en/result.json": "37dc4b8f0888225979dab7451759a0b5bc2e3720a93527909656c59504230f65",
+    "full-suites/ru/console.log": "8e96c6a004be486d59e2c471b51c82386025bc44bd7feebc156a39a0522f1dc9",
+    "full-suites/ru/result.json": "adcc65c90e671e0c094c94014f64256618f7a3d38721a070bb9ffbdf9d7a7aa8",
+    "independent-review.json": "940bac857b0e748badcbc7da977d9e6fce895c63c4fb7262c658340cda1def7c",
+    "owned-temp-checks/build_manifest.py.log": "d05fea35b26540151284359f5808fad65455c665c33156666d31baf9a496b3cd",
+    "owned-temp-checks/diagnostic.json": "3a06411af281b96c35402977c9958f86b481dac0faf49829531a3c6b34647e9d",
+    "owned-temp-checks/test_audio_assets.py.log": "b146398e1a6a80e37b74ef5340aa249f6bc856ba08134b22391910026f0565ff",
+    "owned-temp-checks/test_copy_contract.py.log": "686ae5316a0afa3164e9844100a233b07d6fa865b5dee54fcbd5594b9c13ab1a",
+    "owned-temp-checks/test_critical_manifest.py.log": "65d5105b76cdc625d9dfa8fbf1394f1ccedd728d9a4cfa4c50d847ecfe740334",
+    "owned-temp-checks/test_soundtrack.py.log": "50327d5eb68ba46dc1b7d4d2b91c80bea11109fde4e2b5fdb1339c7dbfe6857b",
+    "post-suite-source-audit.json": "473995eaff8f3439b7ecac7a5cea2bcb9938466e4108472d24dd18523b465733",
+    "profile.attributes": "cf0de5b865fef7997506eec7ce4fa462f3ba6007b5da62d91f6f63f1bf693f12",
+    "release-checksums.json": "18ef99b57774c1e775d99bb9420381c078c210edee87e01e9240dc661839d5ad",
+    "release-sha256sum.log": "88e216f2828a75951d865c1f24e94d5efe82ea27ee7d709dcb6c076c2736018e"
+  }
+}
