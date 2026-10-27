@@ -56,4 +56,7 @@ func run() -> void:
 	game.register_inheritance_on_end()
 	check(game.inherited_capital == inheritance, "Foreign currency value is included in the dynasty inheritance")
 	print("CURRENCY AND INFLATION RESULT: ", "PASS" if failed == 0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failed == 0 else 1)

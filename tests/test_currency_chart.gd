@@ -22,4 +22,7 @@ func run() -> void:
 	await process_frame;await process_frame
 	for label in chart.find_children("*","Label",true,false):check(Rect2(Vector2.ZERO,chart.size).encloses(label.get_rect()),"Chart label stays inside plot after resize: "+label.name)
 	print("CURRENCY CHART RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

@@ -35,4 +35,7 @@ func run()->void:
 		quit(74)
 		return
 	print("SOAK RESULT: ",JSON.stringify(record))
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

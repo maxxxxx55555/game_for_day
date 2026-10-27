@@ -15,6 +15,8 @@ var effect_cursor: int = 0
 var feedback_serial:int=0
 var audio_rng:RandomNumberGenerator= RandomNumberGenerator.new()
 var force_mute: bool = OS.get_environment("GAME_AUDIO_MUTED") == "1"
+var shutting_down:bool=false
+var shutdown_references:Array[WeakRef]=[]
 
 func _ready() -> void:
 	AudioServer.set_bus_mute(0, force_mute)
@@ -42,6 +44,7 @@ func _ready() -> void:
 	feedback.start(self)
 
 func _stream(sound_id: String, music: bool = false) -> AudioStreamWAV:
+	if shutting_down:return null
 	var key:String= ("music/" if music else "sfx/") + sound_id
 	if streams.has(key):
 		return streams[key]
@@ -63,6 +66,7 @@ func _stream(sound_id: String, music: bool = false) -> AudioStreamWAV:
 	return sound
 
 func play_music(mood: String, fade_seconds: float = 1.2) -> void:
+	if shutting_down:return
 	if is_instance_valid(finale_player):finale_player.stop()
 	current_finale=""
 	if mood == current_music:
@@ -104,6 +108,7 @@ func play_music(mood: String, fade_seconds: float = 1.2) -> void:
 		crossfade.tween_callback(old.stop).set_delay(fade_seconds)
 
 func play_sfx(sound_name: String, bus_name: String = "") -> AudioStreamPlayer:
+	if shutting_down:return null
 	var sound:AudioStreamWAV= _stream(sound_name)
 	if not sound:
 		return null
@@ -144,6 +149,7 @@ func apply_gains() -> void:
 		set_enabled(GameManager.audio_enabled)
 
 func play_finale(victorious:bool) -> void:
+	if shutting_down:return
 	var cue:String="victory" if victorious else "defeat"
 	if is_instance_valid(finale_player) and finale_player.playing and current_finale==cue:return
 	if is_instance_valid(crossfade):crossfade.kill()
@@ -169,3 +175,34 @@ func music_title(mood:String)->String:
 	var music_catalog:Dictionary=catalog.get("music",{})
 	var entry:Dictionary=music_catalog.get(mood,{})
 	return str(entry.get("title",""))
+
+# Terminal application shutdown; ordinary scene changes and QA loop resets do not call it.
+func shutdown_refs_released()->bool:
+	for reference:WeakRef in shutdown_references:
+		if reference.get_ref()!=null:return false
+	return true
+
+func shutdown()->bool:
+	if not shutting_down:
+		shutting_down=true
+		for key:String in streams:shutdown_references.append(weakref(streams[key]))
+		if is_instance_valid(crossfade):crossfade.kill()
+		crossfade=null
+		for voice:Node in get_children():
+			if voice is AudioStreamPlayer:
+				(voice as AudioStreamPlayer).stop()
+				(voice as AudioStreamPlayer).stream=null
+		streams.clear()
+		current_music=""
+		current_finale=""
+		music_index=-1
+	# Mixer playback disposal is asynchronous; accelerated frames are not wall time.
+	var deadline:int=Time.get_ticks_msec()+5000
+	while not shutdown_refs_released():
+		if Time.get_ticks_msec()>=deadline:
+			push_error("Audio shutdown did not release playback references before its deadline")
+			return false
+		await get_tree().process_frame
+		OS.delay_msec(1)
+	shutdown_references.clear()
+	return true

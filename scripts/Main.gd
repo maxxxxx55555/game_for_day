@@ -221,6 +221,7 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if not is_node_ready(): return
+	if FortuneArrival.quitting:return
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
 		request_exit()
 	elif what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT]:
@@ -240,8 +241,9 @@ func _notification(what: int) -> void:
 			request_exit()
 
 func request_exit() -> void:
-	if save_session():get_tree().quit()
-	else:FortuneArrival.confirm_unsaved(save_session,get_tree().quit)
+	if FortuneArrival.quitting:return
+	if save_session():FortuneArrival.quit_game()
+	else:FortuneArrival.confirm_unsaved(save_session,FortuneArrival.quit_game)
 
 func save_session() -> bool:
 	if restoring_session:

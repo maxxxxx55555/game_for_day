@@ -47,4 +47,7 @@ func run() -> void:
     var cfg=load("res://scripts/security/SaveGuard.gd").config_candidate(game.SESSION_PATH,"fortune/session")
     check(cfg.get_value("run","cash_cents") is int,"Authenticated save contains integer cents")
     print("CENT LEDGER RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

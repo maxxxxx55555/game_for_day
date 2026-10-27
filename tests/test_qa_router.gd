@@ -17,4 +17,7 @@ func run() -> void:
     check(before==root.get_child_count() and host.get_child_count()==0,"Ordinary startup allocates no verifier")
     host.queue_free()
     print("QA ROUTER RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

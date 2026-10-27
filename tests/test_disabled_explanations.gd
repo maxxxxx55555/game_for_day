@@ -20,4 +20,7 @@ func run() -> void:
 		check(not row.buy.tooltip_text.is_empty(),"Enabled currency purchase keeps its cost tooltip")
 	print("DISABLED EXPLANATIONS RESULT: ","PASS" if failures==0 else "FAIL")
 	paused=false
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

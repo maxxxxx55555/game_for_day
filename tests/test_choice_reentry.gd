@@ -28,4 +28,7 @@ func run()->void:
 	print("CHOICE REENTRY RESULT: ","PASS" if failures==0 else "FAIL")
 	ui.queue_free()
 	await process_frame
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

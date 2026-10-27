@@ -21,4 +21,7 @@ func run()->void:
     for index:int in 10001:hostile.append({})
     check(not exact.restore(source.duplicate(true),hostile),"Supplement count is bounded before traversal")
     print("EXACT FLOAT LIMITS RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

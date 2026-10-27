@@ -75,11 +75,8 @@ func run() -> void:
     check(AudioServer.is_bus_mute(0),"QA stays inaudible through every cue")
     silence()
     panel.queue_free()
-    for player in audio.effect_players+audio.music_players:
-        player.stop()
-        player.stream=null
-    audio.streams.clear()
-    await create_timer(0.25).timeout
-    for index in 10:await process_frame
     print("UI AUDIO FEEDBACK RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

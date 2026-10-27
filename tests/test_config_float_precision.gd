@@ -22,4 +22,7 @@ func run()->void:
         for field:String in values:check(JSON.stringify(loaded.get_value("precision",field),"",true,true)==JSON.stringify(values[field],"",true,true),"Native value remains bit exact across save/load: "+field)
         check(JSON.stringify(loaded.get_value("quoted section","quoted=key"),"",true,true)==JSON.stringify(values,"",true,true),"Native section and field quoting survive exact serialization")
     print("CONFIG FLOAT PRECISION RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

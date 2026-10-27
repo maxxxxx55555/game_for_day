@@ -35,4 +35,7 @@ func run() -> void:
 	await process_frame
 	check(screen.currency_panel.get_global_rect().size == root.get_visible_rect().size, "The exchange covers the portrait viewport")
 	print("CURRENCY UI RESULT: ", "FAIL" if failed else "PASS")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(1 if failed else 0)

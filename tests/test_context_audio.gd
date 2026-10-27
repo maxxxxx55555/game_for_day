@@ -39,11 +39,8 @@ func run() -> void:
     check(has_error(audio),"Repeated cooldown award request emits unavailable feedback")
     check(game.cash==0,"Error feedback never mutates the ledger")
     screen.queue_free()
-    for player in audio.effect_players+audio.music_players:
-        player.stop()
-        player.stream=null
-    audio.streams.clear()
-    await create_timer(0.25).timeout
-    for index in 10:await process_frame
     print("CONTEXT AUDIO RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

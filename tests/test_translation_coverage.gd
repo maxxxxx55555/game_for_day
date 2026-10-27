@@ -55,4 +55,7 @@ func run() -> void:
 	await process_frame
 	inspect(ui)
 	print("TRANSLATION COVERAGE RESULT: ","PASS" if failures==0 else "FAIL"," visible strings=",seen.size())
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

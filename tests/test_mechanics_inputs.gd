@@ -58,11 +58,8 @@ func run()->void:
     for click:int in 20:screen.check_game_over()
     check(game.generation==generation+1 and game.legacy_points==legacy,"Repeated terminal checks cannot award extra generations or legacy")
     screen.queue_free();await process_frame
-    var audio:Node=root.get_node("SoundManager")
-    if audio.crossfade!=null:audio.crossfade.kill()
-    for voice:Node in audio.get_children():
-        if voice is AudioStreamPlayer:voice.stop();voice.stream=null
-    audio.streams.clear()
-    await create_timer(0.3).timeout
     print("MECHANICS INPUTS RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

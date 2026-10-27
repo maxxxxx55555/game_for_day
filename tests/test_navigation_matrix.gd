@@ -65,4 +65,7 @@ func run()->void:
 			await process_frame;await process_frame
 	ui.queue_free();await process_frame
 	print("NAVIGATION MATRIX RESULT: ","PASS" if failures==0 else "FAIL"," screens=",screens)
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

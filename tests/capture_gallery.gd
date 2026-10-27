@@ -42,4 +42,7 @@ func run() -> void:
 	screen.open_settings_menu()
 	await shot(screen,"settings")
 	print("PORTRAIT GALLERY: PASS")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0)

@@ -24,4 +24,7 @@ func run() -> void:
 	back.pressed.emit()
 	var ok: bool = game.stock_units == 7 and game.crypto_units == 2 and game.total_turns == turns and screen.active_event == event and screen.current_mode == screen.ScreenMode.LIFE
 	print("MARKET EXIT RESULT: ", "PASS" if ok else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if ok else 1)

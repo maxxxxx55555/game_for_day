@@ -38,4 +38,7 @@ func run() -> void:
 					failures+=1
 					print("FAIL: Clipped choice information: ",button.text," ",rect," ",label.get_global_rect())
 	print("CHOICE SWEEP RESULT: ","PASS" if failures==0 else "FAIL"," choices=",count)
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

@@ -41,4 +41,7 @@ func run() -> void:
 	check(not Guard.safe_text("[".repeat(40)+"]".repeat(40)),"Excessive nesting is rejected before parsing")
 	check(not Guard.atomic_text("user://too-large.cfg","x".repeat(Guard.MAX_BYTES+1)),"Oversized writes are rejected")
 	print("PROTECTED FORTUNE SAVES: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

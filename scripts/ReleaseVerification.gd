@@ -80,8 +80,8 @@ func run(ui: LedgerView) -> void:
 	write_qa_result({"seed":trial_seed,"result":"PASS" if success else "FAIL","steps":steps,"origin":GameManager.birth_origin,"rank":GameManager.rank,"wealth_cents":GameManager.get_net_worth_cents(),"trace_sha256":JSON.stringify(trace,"",true,true).sha256_text(),"state_sha256":JSON.stringify(state,"",true,true).sha256_text(),"elapsed_ms":Time.get_ticks_msec()-started_ms})
 	ui.queue_free()
 	await get_tree().process_frame
-	await settle_audio()
-	finish(0 if success else 1)
+	var audio_settled:bool=await settle_audio()
+	finish(0 if success and audio_settled else 1)
 
 func verify_defeat(ui: LedgerView) -> void:
 	var steps:int=0
@@ -106,7 +106,10 @@ func verify_defeat(ui: LedgerView) -> void:
 	ui.finale_overlay.primary.pressed.emit()
 	success=success and GameManager.generation==generation+1 and ui.current_mode==ui.ScreenMode.INTRO
 	print("EXPORTED DEFEAT ROUTE: ","PASS" if success else "FAIL"," steps=",steps," revive=",had_revive)
-	finish(0 if success else 1)
+	ui.queue_free()
+	await get_tree().process_frame
+	var audio_settled:bool=await settle_audio()
+	finish(0 if success and audio_settled else 1)
 
 # Private QA only: explicit seeds vary simulation; art/audio keep their own RNG.
 static func parse_seed(raw:String)->int:
@@ -123,8 +126,15 @@ func write_qa_result(record:Dictionary)->void:
 		if file:
 			if not file.store_string(JSON.stringify(record,"",true,true)+"\n"):finish(74)
 
-func settle_audio()->void:
+func audio_refs_released(references:Array[WeakRef])->bool:
+	for reference:WeakRef in references:
+		if reference.get_ref()!=null:return false
+	return true
+
+func settle_audio()->bool:
 	var audio:AudioView=get_tree().root.get_node("SoundManager")
+	var references:Array[WeakRef]=[]
+	for key:String in audio.streams:references.append(weakref(audio.streams[key]))
 	if audio.crossfade:audio.crossfade.kill()
 	for voice:Node in audio.get_children():
 		if voice is AudioStreamPlayer:
@@ -134,8 +144,16 @@ func settle_audio()->void:
 	audio.current_music=""
 	audio.current_finale=""
 	audio.music_index=-1
-	await get_tree().create_timer(0.3,true,false,true).timeout
-	for index:int in 10:await get_tree().process_frame
+	# AudioServer stops and releases playback on the mixer thread. Fixed-FPS QA
+	# can advance simulated timers in milliseconds, so wait for actual release.
+	var deadline:int=Time.get_ticks_msec()+5000
+	while not audio_refs_released(references):
+		if Time.get_ticks_msec()>=deadline:
+			push_error("Private QA audio shutdown did not release playback references")
+			return false
+		await get_tree().process_frame
+		OS.delay_msec(1)
+	return true
 
 func step_checkpoint(_ui:Control)->void:
 	await get_tree().process_frame

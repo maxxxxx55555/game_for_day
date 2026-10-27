@@ -36,4 +36,7 @@ func run() -> void:
 	check(AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")),"Music mute also silences the finale")
 	if OS.get_environment("GAME_AUDIO_MUTED")=="1":check(AudioServer.is_bus_mute(0),"QA remains inaudible through all transitions")
 	print("MUSIC TRANSITIONS RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

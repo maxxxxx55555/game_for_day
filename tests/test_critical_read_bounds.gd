@@ -23,4 +23,7 @@ func run() -> void:
     check(boundary.critical_digest(large)=="authentic-data".sha256_text(),"Bounded streaming preserves the exact SHA256")
     check(boundary.failures.is_empty() and not boundary.read_only,"Real shipping data remains accepted")
     print("CRITICAL READ BOUNDS: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

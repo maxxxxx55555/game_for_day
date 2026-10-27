@@ -42,4 +42,7 @@ func run() -> void:
 		game.load_dynasty()
 		check(game.music_volume == 0.25, "Audio levels survive saving and loading")
 	print("AUDIO RESULT: ", "PASS" if failures == 0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures == 0 else 1)

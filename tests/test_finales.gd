@@ -46,4 +46,7 @@ func run() -> void:
 	screen.check_game_over()
 	check(not screen.can_revive and not screen.finale_overlay.secondary.visible,"A second defeat cannot grant another revive")
 	print("FINALE SCENES RESULT: ","FAIL" if failed else "PASS")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(1 if failed else 0)

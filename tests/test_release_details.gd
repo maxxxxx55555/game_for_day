@@ -25,4 +25,7 @@ func run() -> void:
 		dialog.canceled.emit()
 		check(attempts[0]==1,"Stay keeps the life intact")
 	print("RELEASE DETAILS RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

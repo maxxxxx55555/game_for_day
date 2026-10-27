@@ -15,4 +15,7 @@ func run() -> void:
 	game.cash = 1000
 	check(not game.buy_crypto(NAN) and game.cash == 1000,"Nonfinite crypto orders cannot poison cash")
 	print("INTEGRITY BOUNDARY RESULT: ","PASS" if failures == 0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures == 0 else 1)

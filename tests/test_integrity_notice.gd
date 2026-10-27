@@ -21,4 +21,7 @@ func run() -> void:
     screen.queue_free()
     await process_frame
     print("INTEGRITY NOTICE RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

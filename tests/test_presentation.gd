@@ -26,4 +26,7 @@ func run() -> void:
 		push_error("The audio indicator must show the effective muted state")
 		failed = true
 	print("PRESENTATION RESULT: ", "FAIL" if failed else "PASS")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(1 if failed else 0)

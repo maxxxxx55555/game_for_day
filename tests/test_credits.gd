@@ -31,4 +31,7 @@ func run() -> void:
 		await process_frame
 		check(not is_instance_valid(credits) or credits.is_queued_for_deletion() or not credits.visible,"Closing credits restores the existing menu")
 	print("CREDITS RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

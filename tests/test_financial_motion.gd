@@ -25,4 +25,7 @@ func run() -> void:
 		await process_frame;await process_frame
 		check(is_equal_approx(dashboard.display_cash,600.0),"Enabling reduced motion during a transition snaps the value")
 	print("FINANCIAL MOTION RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

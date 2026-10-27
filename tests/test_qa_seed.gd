@@ -15,4 +15,7 @@ func run()->void:
   for invalid in ["abc","0","-1","1.5","9223372036854775808"]:
    check(Driver.parse_seed(invalid)==-1,"Invalid QA seed rejected: "+invalid)
  print("QA SEED RESULT: ","PASS" if failures==0 else "FAIL")
+ if not await root.get_node("SoundManager").shutdown():
+     quit(1)
+     return
  quit(0 if failures==0 else 1)

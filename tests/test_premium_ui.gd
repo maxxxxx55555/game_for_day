@@ -38,4 +38,7 @@ func run() -> void:
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png(OS.get_environment("GAME_SCREENSHOT").replace(".png","-premium.png"))
 	print("PREMIUM UI RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

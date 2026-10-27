@@ -34,4 +34,7 @@ func run() -> void:
     check(JSON.stringify(boundary.read_json(path))==JSON.stringify(live),"Callers cannot mutate compiled fallback")
     boundary.read_only=false
     print("BUILD INTEGRITY RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

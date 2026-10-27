@@ -49,4 +49,7 @@ func run() -> void:
 	var heading_font:Font=load("res://assets/fonts/Prata-Regular.ttf")
 	for letter in "ёЁ«»—·×$€£¥":check(heading_font.has_char(letter.unicode_at(0)),"Heading font covers "+letter)
 	print("LOCALIZATION RESULT: ","PASS" if failures==0 else "FAIL"," keys=",locale.translations.size())
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

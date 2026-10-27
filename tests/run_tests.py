@@ -48,6 +48,11 @@ def main():
         cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
         cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
         cases.append(('audio-scope', ['--headless', '--script', 'res://tests/test_audio_scope.gd']))
+        cases.append(('qa-audio-lifetime', ['--headless', '--fixed-fps', '30', '--script', 'res://tests/test_qa_audio_lifetime.gd']))
+        cases.append(('audio-shutdown', ['--headless', '--fixed-fps', '30', '--script', 'res://tests/test_audio_shutdown.gd']))
+        cases.append(('quit-save', ['--headless', '--script', 'res://tests/test_quit_audio.gd']))
+        for close_kind in ['wm','boot','retry','discard']:
+            cases.append(('quit-'+close_kind, ['--headless', '--script', 'res://tests/test_quit_audio.gd', '--', '--'+close_kind]))
         cases.append(('presentation', ([] if args.rendered else ['--headless']) + ['--resolution', '540x960' if portrait else '1280x720', '--script', 'res://tests/test_presentation.gd']))
         cases.append(('identity', ['--headless', '--script', 'res://tests/test_identity.gd']))
         cases.append(('mobile-lifecycle', ['--headless', '--script', 'res://tests/test_mobile_lifecycle.gd']))
@@ -112,7 +117,7 @@ def main():
             console = result.stdout + result.stderr
             (artifacts / (name + '-console.log')).write_text(console, encoding='utf-8')
             log += '\n' + console
-            errors = [line for line in log.splitlines() if ('ERROR:' in line or 'FAIL:' in line or 'SCRIPT ERROR' in line) and 'Failed to read the root certificate store' not in line]
+            errors = [line for line in log.splitlines() if any(marker in line for marker in ['ERROR:', 'FAIL:', 'SCRIPT ERROR', 'INTEGRITY ANOMALY', 'ObjectDB instances leaked', 'ObjectDB instances were leaked', 'Orphan Nodes detected', 'Resources still in use at exit']) and 'Failed to read the root certificate store' not in line]
             print(f'{name}: ' + ('PASS' if result.returncode == 0 and not errors else 'FAIL'))
             for line in log.splitlines():
                 if line.startswith(('RESULT:', 'PLAYTHROUGH', 'FAIL:')):

@@ -18,4 +18,7 @@ func run() -> void:
 	for field in ["master_volume","music_volume","sfx_volume","ui_volume"]:check(is_equal_approx(settings.get(field),0.35),"Sound preference survives reload: "+field)
 	if "reduced_motion" in settings:check(settings.reduced_motion,"Reduced motion survives reload")
 	print("COMFORT PREFERENCES RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

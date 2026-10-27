@@ -4,6 +4,8 @@ var splash:Control
 var hint:Label
 var opening_label:Label
 var unsaved_dialog:ConfirmationDialog
+var quitting:bool=false
+var quit_code:int=0
 func _ready() -> void:
 	layer=100
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -57,18 +59,24 @@ func show_splash() -> void:
 func hide_splash() -> void:
 	if is_instance_valid(splash):splash.hide()
 func open_ledger() -> void:
+	if quitting:return
 	show_splash()
 	await get_tree().process_frame
+	if quitting:return
 	await get_tree().process_frame
+	if quitting:return
 	var scene_error:Error=get_tree().change_scene_to_file("res://scenes/Main.tscn")
 	if scene_error!=OK:
 		hide_splash()
 		push_error("Ledger scene could not be opened: "+error_string(scene_error))
 		return
 	await get_tree().process_frame
+	if quitting:return
 	await get_tree().process_frame
+	if quitting:return
 	hide_splash()
 func confirm_unsaved(retry:Callable,leave:Callable) -> void:
+	if quitting:return
 	if is_instance_valid(unsaved_dialog):unsaved_dialog.popup_centered();return
 	unsaved_dialog=ConfirmationDialog.new()
 	unsaved_dialog.theme=preload("res://scripts/ui/FortuneTheme.gd").create()
@@ -83,6 +91,7 @@ func confirm_unsaved(retry:Callable,leave:Callable) -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	unsaved_dialog.confirmed.connect(func()->void:
+		if quitting:return
 		if retry.call():
 			close_unsaved()
 			leave.call()
@@ -91,6 +100,7 @@ func confirm_unsaved(retry:Callable,leave:Callable) -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	unsaved_dialog.custom_action.connect(func(action:StringName)->void:
+		if quitting:return
 		if action=="discard":
 			close_unsaved()
 			leave.call()
@@ -109,7 +119,7 @@ func close_unsaved() -> void:
 func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
 		var current:Node=get_tree().current_scene
-		if current!=null and current.name=="LedgerBoot":get_tree().quit()
+		if current!=null and current.name=="LedgerBoot":quit_game()
 
 func bind_locale() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
@@ -118,3 +128,16 @@ func bind_locale() -> void:
 func refresh_copy() -> void:
 	if is_instance_valid(opening_label):opening_label.text=LocalizationManager.get_string("flow.loading")
 	if is_instance_valid(hint):hint.text=LocalizationManager.get_string("flow.tip."+str(Time.get_ticks_msec()%3))
+
+# Accept the terminal transition synchronously so duplicate close events cannot save twice.
+func quit_game(code:int=0)->void:
+	if quitting:return
+	quitting=true
+	quit_code=code
+	var current:Node=get_tree().current_scene
+	if is_instance_valid(current):current.process_mode=Node.PROCESS_MODE_DISABLED
+	finish_quit.call_deferred()
+
+func finish_quit()->void:
+	var drained:bool=await SoundManager.shutdown()
+	get_tree().quit(quit_code if quit_code!=0 else (0 if drained else 1))

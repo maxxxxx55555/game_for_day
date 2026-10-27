@@ -31,4 +31,7 @@ func run() -> void:
 	screen._notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
 	check(screen.current_mode == screen.ScreenMode.LIFE and screen.active_event == event and game.total_turns == turns, "Android Back closes a business menu without rerolling or spending a quarter")
 	print("MOBILE LIFECYCLE RESULT: ", "PASS" if failures == 0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures == 0 else 1)

@@ -22,4 +22,7 @@ func run()->void:
 		check(locale.language_changed.get_connections().size()==baseline,"Freed settings panel leaves no persistent locale callback")
 		locale.set_language("en" if cycle%2 else "ru")
 	print("SETTINGS LIFETIME RESULT: ","PASS" if failures==0 else "FAIL")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures==0 else 1)

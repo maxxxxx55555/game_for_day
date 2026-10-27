@@ -26,4 +26,7 @@ func run()->void:
     check(pixels>250,"Historical quote path remains visibly drawn after a successful packed-array append; pixels="+str(pixels))
     viewport.queue_free();await process_frame
     print("CHART PATH REGRESSION RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

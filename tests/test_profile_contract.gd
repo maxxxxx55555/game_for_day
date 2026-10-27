@@ -53,12 +53,8 @@ func run()->void:
         var callback:Callable=screen.active_event.get(action,Callable())
         check(callback.is_valid(),"Restored event owns a live choice callback: "+action)
     screen.queue_free();await process_frame
-    var audio:Node=root.get_node("SoundManager")
-    if audio.crossfade!=null:audio.crossfade.kill()
-    for voice:Node in audio.effect_players+audio.music_players:voice.stop();voice.stream=null
-    if is_instance_valid(audio.finale_player):audio.finale_player.stop();audio.finale_player.stream=null
-    audio.current_music="";audio.music_index=-1;audio.streams.clear()
-    await create_timer(0.3).timeout
-    for frame:int in 10:await process_frame
     print("PROFILE CONTRACT RESULT: ","PASS" if failures==0 else "FAIL")
+    if not await root.get_node("SoundManager").shutdown():
+        quit(1)
+        return
     quit(0 if failures==0 else 1)

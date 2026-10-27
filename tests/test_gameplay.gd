@@ -204,4 +204,7 @@ func reopen_ui() -> void:
 
 func finish() -> void:
 	print("RESULT: ", "PASS" if failures.is_empty() else "FAIL", " (", checks, " checks, ", failures.size(), " failures)")
+	if not await root.get_node("SoundManager").shutdown():
+		quit(1)
+		return
 	quit(0 if failures.is_empty() else 1)
