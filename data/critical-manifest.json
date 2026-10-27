@@ -1,9 +1,9 @@
 {
   "files": {
-    "res://assets/audio/catalog.json": "83cccf589e292a6c0a90f6d1ff9befb52a854864b8cc2852d327cef50a43968c",
-    "res://data/events.json": "b986ca1e1c43cfb9e550fb573348dcc544f10781efadbc6f60d7bf712c572959",
-    "res://data/strings/choice_aliases.json": "213c10d14cce306fc4b722b420b31650daba45543135f7da365ee2bf564f8f4d",
-    "res://data/strings/localization.json": "75f9bf64118f7e94330e6e2915c0290abe1c39eff57c5c94c87c27f439e255c9"
+    "res://assets/audio/catalog.json": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+    "res://data/events.json": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+    "res://data/strings/choice_aliases.json": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+    "res://data/strings/localization.json": "63583221889fa0a82ace95df3215ddf9bff3d7e88e61c8b8f02cfc66e982e0be"
   },
   "version": 1
 }

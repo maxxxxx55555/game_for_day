@@ -1,4 +1,4 @@
-# Heirs of Fortune — 2.0.0
+# Heirs of Fortune — 2.0.1
 
 ## Current edition scope
 
@@ -6,21 +6,23 @@ A complete offline life/finance loop: four birth origins,31 events/93 decisions,
 
 Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. Android is omitted from this release: the host cannot boot an emulator. Earlier1.4 emulator results are historical evidence only. The Windows release does not claim Android runtime acceptance.
 
-## 2.0.0 changes
+## 2.0.1 repair
 
-Complete live Russian/English presentation with 606 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.
+Ordinary Git checkouts now use the committed LF bytes consistently: critical-data hashes and the compiled trust anchor match those bytes, and interface SFX provenance identifies the unchanged canonical generator source. Real checkout regressions exercise both `core.autocrlf=true` and `false` without local attribute overrides; CI and the source runner enforce them. Existing public tags and assets remain immutable.
+
+Both localization CSV files have explicit LF checkout rules, preserving embedded canonical Russian line breaks on Windows.
+
+Retained: Live RU/EN presentation with606 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected1.4.0 profiles. Current content: 31 events/93 choices, four origins, business progression, investments, EUR/GBP/JPY trading with a disclosed0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
 
 ## Русский
 
-Полная русская и английская локализация, выбор языка без потери текущего события. Разные композиции для четырёх настроений, музыкальные финалы, четыре уровня звука, настройка анимации и экран авторов. Каталоги старых сохранений сохранены.
+Исправлена воспроизводимая сборка из обычного Git-checkout: манифест данных, происхождение интерфейсных звуков и переносы строк локализации согласованы с исходными LF-байтами. Канонический русский текст, музыка, экономика и защищённые сохранения не меняются.
 
-Release edition: v2.0.0. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.
+## Validation and limits
 
-## Current acceptance
+Coverage: 46 rendered Godot cases per locale;112 mechanics cells; all93 decision layouts plus currency, inflation, save, integrity and finale routes, plus Python checkout/provenance/license/copy/export contracts. Fresh complete source/native/soak results and exact artifact hashes are recorded by the release gate and current acceptance certificate. Earlier release measurements are historical and do not establish acceptance of this patch.
 
-All31 events (16 external +15 inline),93 decision layouts and606 keys are covered. 46 rendered Godot invocations passed in each locale, plus Python byte/export/isolation/audio contracts. All49 warning categories are enforced on27 shipping scripts. 50 complete seeded lives, a1813.547-second rendered soak and three exact native victories plus defeat passed. On the tested host the dashboard became ready in2668ms;240 animation samples had16.736ms median and20.346ms p95 frame time.
-
-See [release notes](docs/RELEASE_2.0.0.md), [mechanics coverage](docs/MECHANICS_MATRIX.md), [save integrity](SAVE-INTEGRITY.md) and [the scoped promise inventory](docs/PROMISE_MATRIX.md). Tests cover stated cases; they do not prove absence of every possible defect. Public builds reject QA arguments and physically exclude verification resources.
+See [patch notes](docs/RELEASE_2.0.1.md), [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [mechanics coverage](docs/MECHANICS_MATRIX.md), [save integrity](SAVE-INTEGRITY.md) and [the scoped promise inventory](docs/PROMISE_MATRIX.md). Portable Windows x64; Godot Compatibility/OpenGL-capable GPU; offline. The EXE is not Authenticode signed. Android artifacts are omitted. Finite automated tests do not replace owner play/listening checks or guarantee zero possible bugs, unbreakable offline security or AAA scale.
 
 ---
 
@@ -59,7 +61,7 @@ The v2 release omits Android artifacts under specification section16. This host 
 Open `project.godot` in Godot 4.7 and press F5, or use:
 
 ```text
-python tools/build_manifest.py
+python tools/build_manifest.py --check
 # Set GODOT_SCRIPT_ENCRYPTION_KEY and GODOT_WINDOWS_RELEASE_TEMPLATE privately in the build environment.
 python tools/export_release.py --godot /path/to/godot --output /fresh/staging/HeirsOfFortune.exe
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
@@ -69,7 +71,7 @@ The current source runner contains46 Godot invocations per locale, including imp
 
 ## Release scope and verification
 
-Version 2.0.0 is the localization, soundtrack and presentation update to the portable Windows desktop edition, built with Godot 4.7 Stable. It remains a small standalone game with original illustrations and licensed assets. Earlier design documents include broader ideas for future development; they are not a list of promised features in this edition.
+Version 2.0.0 was the localization, soundtrack and presentation update to the portable Windows desktop edition, built with Godot 4.7 Stable. It remains a small standalone game with original illustrations and licensed assets. Earlier design documents include broader ideas for future development; they are not a list of promised features in this edition.
 
 The test runner imports the real project in Godot, exercises gameplay, save/load, audio controls and rendered UI. Public executables physically omit the complete-playthrough verifier and reject QA arguments. Only the separate, unpublished QA preset supports `-- --verify-build` with `GAME_QA=1`; it starts a fresh QA game in isolated APPDATA/LOCALAPPDATA folders. QA is silent through `GAME_AUDIO_MUTED=1`; this does not remove the player's music/effects controls. Folders and formats from the previous game names remain compatible.
 
@@ -87,7 +89,7 @@ Victory and defeat now have separate full-screen illustrated finales with animat
 
 Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.
 
-V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; acceptance is documented in docs/RELEASE_2.0.0.md.
+V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; historical release evidence is documented in docs/RELEASE_2.0.0.md.
 
 ## Release integrity
 

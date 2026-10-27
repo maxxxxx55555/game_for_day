@@ -98,8 +98,8 @@ def main():
         assets = subprocess.run([sys.executable, str(project / 'tests/test_audio_assets.py')], timeout=60)
         if assets.returncode:
             return assets.returncode
-        for source_contract in ['test_public_qa_contract.py','test_release_export_tool.py','test_critical_manifest.py']:
-            result=subprocess.run([sys.executable,str(project/'tests'/source_contract)],timeout=60)
+        for source_contract in ['test_public_qa_contract.py','test_release_export_tool.py','test_critical_manifest.py','test_default_checkout.py']:
+            result=subprocess.run([sys.executable,str(project/'tests'/source_contract)],timeout=180 if source_contract=='test_default_checkout.py' else 60)
             if result.returncode:return result.returncode
         for name, switches in cases:
             if name == 'regressions':

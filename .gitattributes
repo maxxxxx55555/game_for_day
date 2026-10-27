@@ -1,6 +1,8 @@
 
 # Critical-data hashes and generated trust source must survive Windows checkout.
 data/**/*.json text eol=lf
+data/strings/en.csv text eol=lf
+data/strings/ru.csv text eol=lf
 assets/audio/catalog.json text eol=lf
 scripts/security/TrustedData.gd text eol=lf
 *.py text eol=lf
