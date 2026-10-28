@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "manifest_path": "QA/gallery-birth-r3/manifest.json",
+  "manifest_sha256": "82473432c7a5006cef96d2eb19c6d33f78ddaf561287c1af0b6561030c2692f1",
+  "reviewed_frames": 44,
+  "reviewed_locales": [
+    "en",
+    "ru"
+  ],
+  "reviewed_resolutions": [
+    [
+      540,
+      960
+    ],
+    [
+      720,
+      1280
+    ]
+  ],
+  "method": "Inspected all44 frames in four contact sheets; original-resolution Russian birth card, English settings and Russian currency view additionally inspected. ART_DIRECTION layout, type, controls, illustrated endings, credits and locale continuity checked.",
+  "issues": [],
+  "source_art_inventory_files": 10,
+  "source_art_hashes_unchanged": true,
+  "scope": "Retained illustration and current dark ledger presentation; readable controls and labels, no clipping/missing glyphs/integrity warnings in reviewed frames. Not human interaction/listening or universal QA. Controlled terminal fixtures labelled, never organic-playthrough proof.",
+  "press_scope": "Use selected unmodified framebuffers with explicit captions after gate and owner acceptance. Contact sheets are review aids only."
+}

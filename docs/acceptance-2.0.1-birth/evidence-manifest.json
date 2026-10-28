@@ -1,0 +1,22 @@
+{
+  "source_test_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "runtime_export_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "files": {
+    "contracts.json": "f5aad35502389f5536e4a759fe076f39701e69c9a7d4706315fbb2fa2c29c459",
+    "cycles.json": "1778b0001a11e929336dd8dd8b57994504766759c5eec6838644038bb814b5ac",
+    "exports.json": "10dea6930677e54024cd20af81c810876b5aa4c22284c94daa277c36fc5cd92f",
+    "legacy.json": "2a227ffb428b5627f892a0d15fd0c364380a267adc2fcbd891b0bf29b9eebb54",
+    "memory-review-negative-controls.json": "16bc170c269adee72f572e650bd2bcce6b7e9b45f82e4af20095245ece39e0a8",
+    "memory-review.json": "487c27c67904364acebf76379dde5ea2f468c1e633b6275aed081f798b2080c7",
+    "native.json": "e631d0712d7122721af6f1243a9ece904f3fcde95035b50e0d01208c56675088",
+    "pack-audit.json": "e7f88671f3c0e0e61aef6fbb0c07b1bccee1566778f41e9c880f8dd75bf996d5",
+    "soak-trend.json": "ad44a4210df9c643094cc290d5eed13e6f4ccce84270954c8410a176b346847d",
+    "soak.json": "00ed5953ace4e8fe7b25fa4d106f79ccd86823452cbe042c052fcf2bedb0c5da",
+    "suite-en.log": "92e289a7de260072c6cb67bb0e51b676d7ff284592e6cdbc4eaebf20abfb7c86",
+    "suite-ru.log": "c779213a557b5e1cb1c455712bf9790cde300c8affcc8a709281e1c6d2b77846",
+    "suite-source-audit.json": "55a5f0bca2d0bbf78cfc4d212657ba78633289f0d90bf6fa1e8d94f5e474e2cf",
+    "suites.json": "4343bffbc0181c15e37bb99046aa6b6cd4d0fcc5bdc379a1a5a7328f670e8de5",
+    "visual-review.json": "8778a426c7fc772d21d1b5bf420f6bac0bd72a3b26a71d94924ac347133c72d1"
+  },
+  "scope": "Per-game summaries and raw suite logs. Full isolated execution records remain in the final evidence bundle. No private profile or key material included."
+}

@@ -2,7 +2,7 @@
 
 ## Current edition scope
 
-A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in this edition.
+A complete offline life/finance loop: birthplaces drawn from 192 countries, 31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in this edition.
 
 Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. Android is omitted from this release: the host cannot boot an emulator. Earlier1.4 emulator results are historical evidence only. The Windows release does not claim Android runtime acceptance.
 
@@ -12,11 +12,11 @@ Ordinary Git checkouts now use the committed LF bytes consistently: critical-dat
 
 Both localization CSV files have explicit LF checkout rules, preserving embedded canonical Russian line breaks on Windows.
 
-Retained: Live RU/EN presentation with606 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected1.4.0 profiles. Current content: 31 events/93 choices, four origins, business progression, investments, EUR/GBP/JPY trading with a disclosed0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
+Retained: Live RU/EN presentation with 816 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected1.4.0 profiles. Current content: 31 events/93 choices, 192 weighted birthplaces, business progression, investments, EUR/GBP/JPY trading with a disclosed0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
 
 ## Русский
 
-Исправлена воспроизводимая сборка из обычного Git-checkout: манифест данных, происхождение интерфейсных звуков и переносы строк локализации согласованы с исходными LF-байтами. Канонический русский текст, музыка, экономика и защищённые сохранения не меняются.
+Исправлена воспроизводимая сборка из обычного Git-checkout: манифест данных, происхождение интерфейсных звуков и переносы строк локализации согласованы с исходными LF-байтами. Канонический русский текст и музыка сохранены. Включены 192 страны рождения с разными начальными условиями, тёмный интерфейс и проверяемые поля сохранения; старые профили получают нейтральные значения.
 
 ## Validation and limits
 
@@ -48,9 +48,9 @@ A portrait life-and-finance strategy game. Build a business dynasty, balance you
 
 ## Play
 
-Extract the whole Windows archive and run `HeirsOfFortune.exe`. Roll a birth origin, choose a trait and make one quarterly decision at a time. Businesses and stocks generate income; living costs and inflation continue each quarter. Markets and business menus let you manage capital without consuming a quarter unless the action explicitly says otherwise. The portfolio's dedicated Back button keeps investments and the current life event.
+Extract the whole Windows archive and run `HeirsOfFortune.exe`. Draw a birthplace, choose a trait and make one quarterly decision at a time. Businesses and stocks generate income; living costs and inflation continue each quarter. Markets and business menus let you manage capital without consuming a quarter unless the action explicitly says otherwise. The portfolio's dedicated Back button keeps investments and the current life event.
 
-There are four birth origins, 31 events with 93 decisions, five business upgrades followed by expansion, stocks, crypto, recurring grants, inheritance and advanced dynasty traits. Reaching the target produces a persistent victory; death and retirement feed the next generation. The dashboard shows actual capital, available cash, income, costs and four condition meters.
+There are 192 possible birth countries, 31 events with 93 decisions, five business upgrades followed by expansion, stocks, crypto, recurring grants, inheritance and advanced dynasty traits. Reaching the target produces a persistent victory; death and retirement feed the next generation. The dashboard shows actual capital, available cash, income, costs and four condition meters.
 
 Click/tap choices and navigation. Scroll the event card if its text is long. Settings provide independent Master, Music, SFX and UI levels, live Russian/English selection and reduced motion. On Android, Back closes a submenu; backgrounding saves the session. Normal purchases do not advance a quarter. Grants have a four-quarter cooldown and require no advertisement or network connection.
 
@@ -69,7 +69,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains55 Godot invocations per locale, including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner contains 55 Godot invocations per locale, including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 816 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -99,10 +99,13 @@ Public Windows packs omit the private verifier; the separate Windows QA preset a
 
 Money is stored as bounded integer cents, including cash, prices, income, costs and inheritance. Dollar properties are compatibility/presentation boundaries. Foreign holdings use integer thousandths; acquisition and liquidation round down and same-quote trades lose spread. Grants use saved integer half-quarter ticks, with duplicate-claim prevention and no wall-clock dependency.
 
-## 2.0.1 acceptance and distribution
-
-Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
 
 ## Country birth update
 
-The birth lottery now draws from 192 countries in the bundled historical dataset and shows the birthplace in a dedicated card and dashboard. Starting conditions vary; the income effect converges to neutral by age 52. The new save fields are bounded and validated, and older profiles receive neutral historical defaults. Fresh acceptance for this runtime is required; previous candidate receipts are superseded.
+The birth lottery now draws from 192 countries in the bundled historical dataset and shows the birthplace in a dedicated card and dashboard. Starting conditions vary; the income effect converges to neutral by age 52. The new save fields are bounded and validated, and older profiles receive neutral historical defaults. This runtime requires its own fresh acceptance; the certificate and release gate identify the current evidence. Earlier 53-case candidate receipts are historical.
+
+Country statistics and reuse terms: [data attribution and open table](docs/BIRTH_DATA_NOTICE.md).
+
+## 2.0.1 acceptance and distribution
+
+Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.

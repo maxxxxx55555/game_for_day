@@ -1,0 +1,20 @@
+{
+  "repository": "game_for_day",
+  "phase": "patch-full-cycles-birth-r3",
+  "source_role": "cycles-r3",
+  "requested_cycles": 50,
+  "result": "PASS",
+  "source_project": "C:\\Users\\Maxsim\\Documents\\Codex\\2026-10-24\\new-chat\\outputs\\release-1.5.2-and-2.0.1\\sources\\cycles-r3\\game_for_day",
+  "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "source_tree": "4ae40ba9e2b22aebcd35882cd34c92bb89b0871d",
+  "source_record_sha256": "9c053a89313fa63e6773e15b4e4bd6e101e19db17eeb6bc833150a788841426c",
+  "source_archive_sha256": "45257268106f598fea7dfcadef2e41e498be18774107726532c2b448b5b34ca2",
+  "driver_sha256": "4b2abdf7bffe4b85ed76ca921e0ff58c195c266f860566bd14707745565f591a",
+  "cancelled_before_start": 0,
+  "accepted_for_release": true,
+  "complete_cycles": 50,
+  "distinct_final_states": 50,
+  "driver_unchanged": true,
+  "seconds": 1368.719,
+  "scope": "Each accepted seed reaches60 objectives plus mechanics/save round-trip (campaign) or rank1/250B victory (life simulation). Accelerated headless finite-route coverage; not normal-speed or exhaustive unscripted play."
+}

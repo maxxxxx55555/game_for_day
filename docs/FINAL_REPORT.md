@@ -1,12 +1,12 @@
-**REVALIDATION REQUIRED:** the new birth-lottery/UI commit `c90d385ea965c8b01886ae03ea155afdccce6159` was merged after the earlier candidate QA. Receipts below describe the prior runtime until the new gate replaces them. No patch release is authorized yet.
-
 # Heirs of Fortune 2.0.1 — final release report
 
-Release URL: [Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Runtime source `2ca971ba27d78a931d792912d45bdb8bf4245537`; source-suite commit `2ca971ba27d78a931d792912d45bdb8bf4245537`.
+Release URL: [Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Runtime source `bd25752d9b4c6948bb1f9fa18f04779da10acdd9`; source-suite commit `bd25752d9b4c6948bb1f9fa18f04779da10acdd9`.
 
-Automated acceptance: EN 53/53, RU 53/53; 50/50 distinct complete seed routes; 3/3 consecutive native victories plus defeat; legacy read/write round-trips and tamper rejection; measured soak 1850.625s, 69 complete loops; 40 reviewed raw frames. Full receipts: [certificate](ACCEPTANCE_CERTIFICATE.md), [kit](ANNOUNCE_KIT.md), `acceptance-2.0.1/`.
+Automated acceptance: EN 55/55, RU 55/55; 50/50 distinct complete seed routes; 3/3 consecutive native victories plus defeat; legacy read/write round-trips and tamper rejection; measured soak 1823.906s, 76 complete loops; 44 reviewed raw frames. Full receipts: [certificate](ACCEPTANCE_CERTIFICATE.md), [kit](ANNOUNCE_KIT.md), `acceptance-2.0.1-birth/`.
 
-Patch changes: canonical critical-data and audio-generator bytes, stable Windows localization CSV serialization where applicable, bounded audio teardown for normal/QA exits, safe retry handling and stricter leak detection. Runtime balance, music recordings, save schema and licensed assets are retained. Earlier failed source acceptance is preserved in historical evidence; these passes use repaired source.
+Patch changes: canonical critical-data and audio-generator bytes, stable Windows localization CSV serialization where applicable, bounded audio teardown for normal/QA exits, safe retry handling and stricter leak detection. Music recordings and licensed art remain retained; per-game gameplay and save changes are documented below. Earlier failed source acceptance is preserved in historical evidence; these passes use repaired source.
+
+The concurrent upstream 192-country birth update is included: weighted birth draw, country-specific starting capital/health/intellect/cost/lifespan and income opportunity converging at age 52; a dark ledger UI with live EN/RU birth labels. Three optional validated birth save fields use neutral defaults for older profiles. Localization now contains 816 keys. All mandatory finance-game QA was rerun on the merged repaired source; prior 53-case evidence is historical.
 
 Unique-content branch exception: `jules-game-enhancements-12581546528437518941`, tip `5fcd0e64f169a7c3bb7b3dfe719ab68ffca7687b`, merge base `86b5344dc8e1b88aca3c48383ffac588a50bb36e`; 4 unmerged commits retained. No unique work was deleted.
 

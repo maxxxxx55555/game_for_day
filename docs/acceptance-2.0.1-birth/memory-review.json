@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "failures": [],
+  "tail_seconds": 360,
+  "tail_complete_cycles": 18,
+  "tail_start_process_seconds": 1458.859,
+  "metrics": {
+    "private_bytes": {
+      "minute_medians_bytes": [
+        329240576.0,
+        329285632.0,
+        328290304.0,
+        329252864.0,
+        329250816.0,
+        329244672.0
+      ],
+      "net_bytes": 4096.0,
+      "band_bytes": 995328.0
+    },
+    "working_set_bytes": {
+      "minute_medians_bytes": [
+        233709568.0,
+        234086400.0,
+        233551872.0,
+        235270144.0,
+        235560960.0,
+        235126784.0
+      ],
+      "net_bytes": 1417216.0,
+      "band_bytes": 2009088.0
+    }
+  },
+  "criteria": "Retrospective review: six-minute final window, at least10 completed cycles; private median net <=64KiB and band <=1MiB; whole-run resident quarter medians must not independently flag sustained growth (resident tail remains reported); all post-cycle engine counts exactly flat, zero orphans. This is a finite stability review, not zero-byte growth or leak-freedom proof.",
+  "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "original_trend_flag_retained": true,
+  "original_quarter_private_median_delta": 1843200,
+  "input_hashes": {
+    "result.json": "5054a10077adfa579a3f99646070f0180105a2b8f8d85dbef8b149ca2bd31535",
+    "trend.json": "ad44a4210df9c643094cc290d5eed13e6f4ccce84270954c8410a176b346847d",
+    "process-metrics.csv": "1013b6a74b8ecf7ec6f079f1a603c65e72939213dd32e7e223cae8049505d375"
+  },
+  "interpretation": "Quarter medians increase by1.76MiB across the entire run, then stabilize: final six-minute median net is reported above. Counts remain19nodes/36resources/1846objects/0orphans across76 completed cycles. OS allocation variation is observed; a specific allocator/cache cause is not established. No original receipt is overwritten."
+}
