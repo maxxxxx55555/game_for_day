@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.0.1 — acceptance certificate
 
-Date: 2026-10-28 (Europe/Moscow). Automated Windows runtime checks accepted within the recorded scope. Final publication requires the external `release-gate.json` to report 100%; remote download verification is recorded after publication. Owner play/listening acceptance remains outstanding.
+Date: 2026-10-28 (Europe/Moscow). Automated Windows runtime checks accepted within the recorded scope. The external release gate passed 100%; both published assets were freshly downloaded and verified with native `sha256sum -c` (exit 0). Owner play/listening acceptance remains outstanding.
 
 Runtime/export source: `bd25752d9b4c6948bb1f9fa18f04779da10acdd9`. Full-suite source: `bd25752d9b4c6948bb1f9fa18f04779da10acdd9`. Later documentation or test-only changes must retain byte-identical shipping source/assets; the final gate records this comparison. This certificate supersedes the earlier negative certificate for this patch only; old tags, assets and failure records remain unchanged.
 
@@ -13,7 +13,7 @@ Runtime/export source: `bd25752d9b4c6948bb1f9fa18f04779da10acdd9`. Full-suite so
 | F5 Integrity | PASS: signed bounded saves, atomic backup/recovery, critical data anchoring, encrypted public pack and physically excluded private verifier; pack/native/source contracts. |
 | F6 Mechanics | PASS: 50 distinct completed seeded routes; matrix assertions; no unexplained errors or integrity warnings. |
 | F7 Acceptance | PASS: bilingual suites, 3 consecutive native victories plus defeat, legacy read/write round-trips and tamper rejection, 1823.906s measured normal soak with 76 complete loops. |
-| F8 Distribution | Required external gate: clean synchronized main, shipping-byte parity, CI, licenses/secrets, exact ZIP+sums, immutable prior releases; fresh remote `sha256sum -c` after publication. |
+| F8 Distribution | PASS: 100% gate, clean main/CI, exact shipping bytes, licenses/secrets, immutable prior release, published ZIP+sums and fresh remote `sha256sum -c` exit 0; see distribution receipt below. |
 
 ## Exact public binaries
 
@@ -26,3 +26,13 @@ The normal soak has flat unloaded-cycle engine object/resource/node counts and z
 Portable EXEs are not Authenticode signed. Android/emulator and store certification are outside this Windows release. Offline integrity resists ordinary corruption/editing but cannot prevent an owner from patching a local binary. The custom native template necessarily contains the pack-decryption key; encryption is not invulnerable DRM. No secrets or private profiles are distributed as loose files.
 
 After the gated release and the five owner checks in [HANDOFF](HANDOFF.md), this edition may be announced and distributed within these limits.
+
+## Published distribution receipt
+
+[Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1) — tag commit `0b9bea2262909569c1ef5492e0a725b6ad6b422b`. Gate: 58/58 (100%). Fresh remote `sha256sum -c`: **OK, exit 0**.
+
+ZIP: `HeirsofFortune-Windows-2.0.1.zip`
+
+SHA256: `7807fa273d3d36b4d17d1487d2a1419e12e40df6457a79b3f60923b0322f9fcd`
+
+Evidence: [acceptance-2.0.1-birth/distribution.json](acceptance-2.0.1-birth/distribution.json). This post-publication update changes documentation only; the tagged build and release assets are unchanged. The five owner checks remain outstanding before announcement.

@@ -22,3 +22,13 @@ Unique-content branch exception: `jules-game-enhancements-12581546528437518941`,
 | defeat | The Closing Ledger | `1b4901e66ec803e2dd73eab699687d6d4936b3138a07bb50762d4ad4c871d6a0` |
 
 Known limitations: no human/audible final acceptance, Android/store certification or Authenticode; no AAA or universal no-bug/invulnerability claim. See HANDOFF. Final ZIP hashes and remote verification are recorded after publication.
+
+## Published distribution receipt
+
+[Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1) — tag commit `0b9bea2262909569c1ef5492e0a725b6ad6b422b`. Gate: 58/58 (100%). Fresh remote `sha256sum -c`: **OK, exit 0**.
+
+ZIP: `HeirsofFortune-Windows-2.0.1.zip`
+
+SHA256: `7807fa273d3d36b4d17d1487d2a1419e12e40df6457a79b3f60923b0322f9fcd`
+
+Evidence: [acceptance-2.0.1-birth/distribution.json](acceptance-2.0.1-birth/distribution.json). This post-publication update changes documentation only; the tagged build and release assets are unchanged. The five owner checks remain outstanding before announcement.
