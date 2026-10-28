@@ -1,5 +1,5 @@
 {
-  "review_date": "2026-10-26",
+  "review_date": "2026-10-28",
   "game": "Heirs of Fortune",
   "method": "Visual contact-sheet inspection of every listed raster/vector, full narrative-image inspection,16px icon check; integrated gallery acceptance is recorded separately after capture review.",
   "scope": "Source curation; does not claim human playtesting or final release acceptance",
@@ -47,34 +47,34 @@
     },
     {
       "path": "assets/ui/button-disabled.svg",
-      "sha256": "5da7a4bb5dbc922d76fe2d89e31a6c288aebb575b77ff49304eb59c144fe983b",
+      "sha256": "685a4b315f2ec119d29b2e7981184ab5c3680b982b5dbb8a05b4784b1bfa3216",
       "role": "control vector",
       "decision": "ACCEPT_SOURCE",
-      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "notes": "Updated dark ledger vector state inspected as SVG and in integrated birth UI: consistent 256x72 framing, gold/ink palette, distinct normal/hover/pressed/disabled borders. Full bilingual gallery acceptance recorded separately.",
       "provenance": "assets/asset-sources.json"
     },
     {
       "path": "assets/ui/button-hover.svg",
-      "sha256": "b56bf9797af8b5ea64a7a53455ba9a4e7a2df86ab133f3d58ba04784f7215455",
+      "sha256": "1b1d7148b04e3acc59a6d93e5dae458ff3ffdc4c15aee58fce5cacfb1f9a2ca2",
       "role": "control vector",
       "decision": "ACCEPT_SOURCE",
-      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "notes": "Updated dark ledger vector state inspected as SVG and in integrated birth UI: consistent 256x72 framing, gold/ink palette, distinct normal/hover/pressed/disabled borders. Full bilingual gallery acceptance recorded separately.",
       "provenance": "assets/asset-sources.json"
     },
     {
       "path": "assets/ui/button-normal.svg",
-      "sha256": "32cc4b827718e5f979946626d53a452b740d65ba8deb4fb82b0448f723621a24",
+      "sha256": "cbeb9662916a7e2a5c838dbfa8a0941b55ec2a6a8825cafe67f31ecfeb2991b6",
       "role": "control vector",
       "decision": "ACCEPT_SOURCE",
-      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "notes": "Updated dark ledger vector state inspected as SVG and in integrated birth UI: consistent 256x72 framing, gold/ink palette, distinct normal/hover/pressed/disabled borders. Full bilingual gallery acceptance recorded separately.",
       "provenance": "assets/asset-sources.json"
     },
     {
       "path": "assets/ui/button-pressed.svg",
-      "sha256": "20ec70b2d1bef6b8d4970ed219d6b441d34f11a0473ace9d4bb7ef82f497bcb4",
+      "sha256": "f225c0bf629888c4b4afe08a017ba78e351443e4bdd8dfa824b23dd106fc8e16",
       "role": "control vector",
       "decision": "ACCEPT_SOURCE",
-      "notes": "Authored scalable surface. Distinct state contrast, restrained slate/gold treatment, no baked lettering; focus is separately drawn by the theme.",
+      "notes": "Updated dark ledger vector state inspected as SVG and in integrated birth UI: consistent 256x72 framing, gold/ink palette, distinct normal/hover/pressed/disabled borders. Full bilingual gallery acceptance recorded separately.",
       "provenance": "assets/asset-sources.json"
     },
     {

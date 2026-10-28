@@ -13,7 +13,7 @@
   ],
   "rows": [
     {
-      "mechanic": "Birth origins, intro and perks",
+      "mechanic": "Birth countries, intro and perks",
       "cells": {
         "happy": [
           {
@@ -25,6 +25,10 @@
           {
             "path": "tests/test_canonical_model.gd",
             "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_birth_save_contract.gd",
+            "scope": "Malformed country, opportunity and lifespan fields are rejected before applying typed state."
           }
         ],
         "rapid_input": [
@@ -47,6 +51,10 @@
           {
             "path": "tests/test_profile_contract.gd",
             "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_birth_save_contract.gd",
+            "scope": "Older saves restore neutral country defaults without carrying over a previous life."
           }
         ],
         "en_ru": [
@@ -57,6 +65,10 @@
           {
             "path": "tests/test_localization.gd",
             "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_birth_locale.gd",
+            "scope": "Live country labels in both controls and complete country-title width coverage."
           }
         ],
         "audio": [

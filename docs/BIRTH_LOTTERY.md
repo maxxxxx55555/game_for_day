@@ -68,9 +68,9 @@ python tools/compile_localization.py
 python tools/build_manifest.py
 ```
 
-`localization.json` must stay LF on Windows; `compile_localization.py` writes
-with platform line endings, so convert the file back to LF before rebuilding the
-trust anchor or `tests/test_default_checkout.py` will report a stale anchor.
+`compile_localization.py` now writes canonical LF on every host. The generation regression checks identical bilingual content and rejects platform newline conversion before rebuilding the trust anchor.
+
+Country saves validate the complete optional triplet (country code, opportunity and lifespan). Pre-country saves restore an empty code, neutral income factor and historical lifespan of 82, independently of any previous run. Display names are localized before uppercase/styling; birth-card titles fit the measured available width.
 
 ## Проверка по-русски
 

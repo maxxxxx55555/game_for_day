@@ -3245,8 +3245,8 @@
       "en": "The country sets the start, not the ending."
     },
     "birth.note.two": {
-      "ru": "Её влияние тает к 50 годам.",
-      "en": "Its grip fades by 50."
+      "ru": "Её влияние на доход исчезает к 52 годам.",
+      "en": "Its income effect fades by 52."
     },
     "birth.pick_trait": {
       "ru": "Выберите черту, которая подходит жизни, начавшейся здесь.",

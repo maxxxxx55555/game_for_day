@@ -42,6 +42,8 @@ def main():
         cases.append(('disabled-explanations', ['--headless', '--script', 'res://tests/test_disabled_explanations.gd']))
         cases.append(('comfort-preferences', ['--headless', '--script', 'res://tests/test_comfort_preferences.gd']))
         cases.append(('canonical-model', ['--headless', '--script', 'res://tests/test_canonical_model.gd']))
+        cases.append(('birth-save-contract', ['--headless', '--script', 'res://tests/test_birth_save_contract.gd']))
+        cases.append(('birth-locale', ['--headless', '--script', 'res://tests/test_birth_locale.gd']))
         cases.append(('currency-chart', ['--headless', '--script', 'res://tests/test_currency_chart.gd']))
         if args.rendered: cases.append(('chart-path-regression', ['--resolution','540x960','--script','res://tests/test_chart_path_regression.gd']))
         cases.append(('financial-motion', ['--headless', '--script', 'res://tests/test_financial_motion.gd']))
@@ -92,6 +94,8 @@ def main():
         if contract.returncode: return contract.returncode
         copy_contract = subprocess.run([sys.executable, str(project / 'tests/test_copy_contract.py')], timeout=30)
         if copy_contract.returncode: return copy_contract.returncode
+        generation = subprocess.run([sys.executable, str(project / 'tests/test_localization_generation.py')], timeout=30)
+        if generation.returncode: return generation.returncode
         promises = subprocess.run([sys.executable, str(project / 'tests/test_promise_matrix.py')], timeout=30)
         if promises.returncode: return promises.returncode
         mechanics = subprocess.run([sys.executable, str(project / 'tests/test_mechanics_matrix.py')], timeout=30)

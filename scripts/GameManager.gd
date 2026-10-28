@@ -203,6 +203,11 @@ func load_current_life() -> Dictionary:
 	var ui_state: Dictionary = cfg.get_value("session", "ui", {})
 	if ui_state.is_empty():
 		return {}
+	if not cfg.has_section_key("run","birth_country_code"):
+		# Pre-country saves retain their historical lifespan and neutral income.
+		birth_country_code=""
+		birth_opportunity=1.0
+		death_age=82
 	for field:String in RUN_FIELDS:
 		set(field, cfg.get_value("run", field, {} if field == "fx_state" else get(field)))
 	if not cfg.has_section_key("run","simulation_ticks"):

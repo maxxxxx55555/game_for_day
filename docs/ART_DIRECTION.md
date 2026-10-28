@@ -1,10 +1,10 @@
 # Heirs of Fortune — art direction
 
-A quiet private office at the end of a rainy day. Keep the operator-selected city folio, four life-stage portraits and authored victory/defeat illustrations. Their cool blue daylight and warm brass lamps are the visual anchor; the cream decision card is the one strong contrast. The signature is a living ledger: capital settles gently while quotes show honest units and history, with simulation values already final.
+A quiet private office at the end of a rainy day. Keep the operator-selected city folio, authored victory/defeat illustrations. Their cool blue daylight and warm brass lamps are the visual anchor; dark ledger cards and warm, high-contrast type carry the decisions. The signature is a living ledger: capital settles gently while quotes show honest units and history, with simulation values already final.
 
 ## Palette and typography
 - Ink #111E2E: page background; ledger navy #21374C: dashboard.
-- Paper #E6E9EB: decision card; chalk #EEEADD: bright foreground.
+- Ink #0D151F: decision card; chalk #EDE7DA: bright foreground.
 - Steel #A7B7BB: secondary labels; lamp gold #C6AD7A: capital/accent.
 - Clay #BD8B72: low-condition warning, always paired with numeric condition.
 
@@ -28,3 +28,7 @@ Keep source provenance visible in credits and asset metadata. Review every raste
 Interface feedback stays below the music and action effects. Focus is a brief dry cue at−24dB, rate-limited to80ms; it never follows passive pointer hover. Normal actions get one short click only when their handler has not already emitted purchase/sale/upgrade/crafting/error feedback. Unavailable actions use a subdued220ms two-tone cue at−10dB; disabled controls stay quiet and explain their condition in text. Repeated short effects vary pitch0.97–1.03 with a separate cosmetic RNG. UI gain remains independent, and forced QA mute always wins. Closing a control retains its accepted-action acknowledgment without retaining the destroyed node.
 
 The existing four distinct mood compositions and two20-second musical finales retain their recorded Gemini/Lyria provenance and original mastered files. The new80ms focus and220ms unavailable cues are repository-authored synthesis, CC0; no third-party recording or music-generation claim is attached. assets/audio/interface-provenance.json records exact WAV and generator hashes. See AUDIO_FEEDBACK.md for action coverage and regression evidence.
+
+## Country birth refinement
+
+The dashboard identifies the actual country without an unrelated portrait or duplicated region line. The dedicated birth card carries country, region, population share, life expectancy and starting capital. Country names translate before casing; long names fit the measured line, and rules never cross statistic glyphs. Country income influence converges by age52; this is a game balance rule.

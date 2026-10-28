@@ -1,6 +1,7 @@
 extends RefCounted
 const Guard = preload("res://scripts/security/SaveGuard.gd")
 const Money=preload("res://scripts/security/Money.gd")
+const BirthData=preload("res://scripts/BirthCountries.gd")
 const RANGES:Dictionary[String,Array]= {
 	"age":[18,130],"quarter":[1,4],"total_turns":[0,10000],"real_world_week":[1,100000],
 	"business_tier":[0,5],"business_scale":[1,16384],"health":[0,100],"intellect":[1,1000000],
@@ -43,6 +44,18 @@ static func session(cfg: ConfigFile) -> bool:
 	for field:String in ["has_rolled_birth","revive_used","audio_enabled"]:
 		if not cfg.get_value("run",field,null) is bool: return false
 	if not cfg.get_value("run","birth_origin",null) is String: return false
+	var birth_fields:int=0
+	for field:String in ["birth_country_code","birth_opportunity","death_age"]:
+		if cfg.has_section_key("run",field):birth_fields+=1
+	# Older saves omit all three fields. A partial new schema is corruption.
+	if birth_fields not in [0,3]:return false
+	if birth_fields==3:
+		var country_value:Variant=cfg.get_value("run","birth_country_code",null)
+		if not country_value is String:return false
+		var country:String=country_value
+		if not country.is_empty() and not known_country(country):return false
+		if not Guard.numeric(cfg.get_value("run","birth_opportunity",null),0.62,1.55):return false
+		if not Guard.numeric(cfg.get_value("run","death_age",null),70,88,true):return false
 	if cfg.get_value("run","player_perk","") not in ["none","tech_genius","iron_health","workaholic","wall_street","biohacker","crisis_mgr"]: return false
 	var fx_value:Variant=cfg.get_value("run","fx_state",{})
 	if not fx_value is Dictionary or not Guard.pure(fx_value,0,[0]):return false
@@ -87,6 +100,11 @@ static func session(cfg: ConfigFile) -> bool:
 			var displayed:float=displayed_holdings[code]
 			if float(milli)/1000.0!=displayed:return false
 	return true
+
+static func known_country(code:String)->bool:
+	for row:Array in BirthData.COUNTRIES:
+		if str(row[0])==code:return true
+	return false
 
 static func cents_pair(cfg:ConfigFile,section:String,dollars_key:String,cents_key:String,signed:bool) -> bool:
 	var exact:Variant=cfg.get_value(section,cents_key,null)

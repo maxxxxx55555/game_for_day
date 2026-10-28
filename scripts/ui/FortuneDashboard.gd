@@ -23,7 +23,7 @@ func birthplace() -> String:
 	var row:Array= BirthLottery.by_code(GameManager.birth_country_code)
 	if row.is_empty():
 		return GameManager.birth_origin if not GameManager.birth_origin.is_empty() else "—"
-	return BirthLottery.country_name(GameManager.birth_country_code)
+	return LocalizationManager.display(BirthLottery.country_name(GameManager.birth_country_code))
 
 func birthplace_region() -> String:
 	if GameManager.birth_country_code.is_empty():
@@ -31,7 +31,7 @@ func birthplace_region() -> String:
 	var row:Array= BirthLottery.by_code(GameManager.birth_country_code)
 	if row.is_empty():
 		return ""
-	return BirthLottery.region_name(str(row[1]))
+	return LocalizationManager.display(BirthLottery.region_name(str(row[1])))
 
 ## Share of the country's influence that still applies to income and costs.
 func origin_note() -> String:
@@ -60,9 +60,9 @@ func _draw() -> void:
 	var s:float= size.x / 644.0
 	draw_set_transform(Vector2.ZERO, 0, Vector2(s,s))
 	var country:String= birthplace()
-	var region:String= birthplace_region()
 	var meta:String= LocalizationManager.source("copy.d0e02c3cc5dc") % [GameManager.age,GameManager.quarter,GameManager.generation]
-	var top_line:String= country.to_upper() if region.is_empty() else "%s · %s" % [country.to_upper(), region.to_upper()]
+	# Keep the metadata separate; the birth card already shows the region.
+	var top_line:String= country.to_upper()
 	caption(Vector2(0,12), top_line, 12, GOLD)
 	caption_right(644.0, 12, meta, 12, MUTED)
 	draw_line(Vector2(0,24), Vector2(644,24), RULE, 1.0)

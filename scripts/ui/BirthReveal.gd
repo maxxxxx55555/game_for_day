@@ -12,11 +12,13 @@ var country:String=""
 var region:String=""
 var share_text:String=""
 var life_text:String=""
+var share_value:float=0.0
+var life_years:int=0
 var cash_text:String=""
 var has_result:bool=false
 
 func _ready() -> void:
-	custom_minimum_size.y = 236
+	custom_minimum_size.y = 260
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
@@ -30,6 +32,8 @@ func present(info:Dictionary) -> void:
 	country=str(info.get("title",""))
 	region=str(info.get("region",GameManager.birth_origin))
 	var percent:float=BirthLottery.value_number(info,"share")*100.0
+	share_value=percent
+	life_years=BirthLottery.value_int(info,"life")
 	share_text=GameManager.origin_percent_text(percent)+"%"
 	life_text=LocalizationManager.source("birth.life_years") % BirthLottery.value_int(info,"life")
 	cash_text="$"+GameManager.format_num(GameManager.cash)
@@ -65,24 +69,34 @@ func tracked(text:String) -> String:
 func caption(at: Vector2, text: String, font_size: int, color: Color = INK) -> void:
 	draw_string(get_theme_default_font(), at, LocalizationManager.display(text), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, color)
 
+func country_label()->String:
+	return LocalizationManager.display(country)
+
+func country_font_size()->int:
+	var width:float=display_font.get_string_size(country_label(),HORIZONTAL_ALIGNMENT_LEFT,-1,42).x
+	return maxi(20,mini(42,floori(42.0*620.0/maxf(1.0,width))))
+
 func stat(x: float, value: String, label: String) -> void:
-	draw_string(get_theme_default_font(), Vector2(x,132), LocalizationManager.display(value), HORIZONTAL_ALIGNMENT_LEFT, 190, 30, INK)
-	draw_string(get_theme_default_font(), Vector2(x,156), LocalizationManager.display(label), HORIZONTAL_ALIGNMENT_LEFT, 190, 11, MUTED)
+	draw_string(get_theme_default_font(), Vector2(x,154), LocalizationManager.display(value), HORIZONTAL_ALIGNMENT_LEFT, 190, 30, INK)
+	draw_string(get_theme_default_font(), Vector2(x,177), LocalizationManager.display(label), HORIZONTAL_ALIGNMENT_LEFT, 190, 11, MUTED)
 
 func _draw() -> void:
 	if not has_result: return
 	var s:float= size.x / 620.0
 	# Sit the card in the optical middle of whatever height the panel grants.
-	var spare:float= maxf(0.0, size.y - 236.0 * s)
+	var spare:float= maxf(0.0, size.y - 260.0 * s)
 	draw_set_transform(Vector2(0, spare * 0.42), 0, Vector2(s,s))
-	draw_string(get_theme_default_font(), Vector2(0,12), tracked(LocalizationManager.source("birth.overline")), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, GOLD)
+	draw_string(get_theme_default_font(), Vector2(0,12), tracked(LocalizationManager.get_string("birth.overline")), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, GOLD)
 	draw_line(Vector2(0,24), Vector2(620,24), RULE, 1.0)
-	draw_string(display_font, Vector2(0,74), country, HORIZONTAL_ALIGNMENT_LEFT, 620, 42, INK)
-	draw_string(get_theme_default_font(), Vector2(0,100), LocalizationManager.display(region.to_upper()), HORIZONTAL_ALIGNMENT_LEFT, 620, 12, MUTED)
+	draw_string(display_font, Vector2(0,74), country_label(), HORIZONTAL_ALIGNMENT_LEFT, 620, country_font_size(), INK)
+	draw_string(get_theme_default_font(), Vector2(0,100), LocalizationManager.display(region).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 620, 12, MUTED)
 	draw_line(Vector2(0,116), Vector2(620,116), RULE, 1.0)
+	share_text=GameManager.origin_percent_text(share_value)+"%"
+	life_text=LocalizationManager.get_string("birth.life_years") % life_years
+	cash_text="$"+GameManager.format_num(GameManager.cash)
 	stat(0.0,share_text,LocalizationManager.source("birth.share"))
 	stat(215.0,life_text,LocalizationManager.source("birth.life"))
 	stat(430.0,cash_text,LocalizationManager.source("birth.capital"))
-	draw_line(Vector2(0,176), Vector2(620,176), RULE, 1.0)
-	caption(Vector2(0,200), LocalizationManager.source("birth.note.one"), 13, INK)
-	caption(Vector2(0,220), LocalizationManager.source("birth.note.two"), 13, GOLD_DIM)
+	draw_line(Vector2(0,198), Vector2(620,198), RULE, 1.0)
+	caption(Vector2(0,222), LocalizationManager.source("birth.note.one"), 13, INK)
+	caption(Vector2(0,242), LocalizationManager.source("birth.note.two"), 13, GOLD_DIM)

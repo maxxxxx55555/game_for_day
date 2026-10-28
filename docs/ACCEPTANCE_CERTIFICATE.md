@@ -1,3 +1,5 @@
+**REVALIDATION REQUIRED:** the new birth-lottery/UI commit `c90d385ea965c8b01886ae03ea155afdccce6159` was merged after the earlier candidate QA. Receipts below describe the prior runtime until the new gate replaces them. No patch release is authorized yet.
+
 # Heirs of Fortune 2.0.1 — acceptance certificate
 
 Date: 2026-10-28 (Europe/Moscow). Automated Windows runtime checks accepted within the recorded scope. Final publication requires the external `release-gate.json` to report 100%; remote download verification is recorded after publication. Owner play/listening acceptance remains outstanding.

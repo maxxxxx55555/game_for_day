@@ -972,7 +972,7 @@ birth.share,новорождённых,of newborns
 birth.life,жизнь,life expectancy
 birth.capital,капитал семьи,family capital
 birth.note.one,"Страна задаёт старт, но не приговор.","The country sets the start, not the ending."
-birth.note.two,Её влияние тает к 50 годам.,Its grip fades by 50.
+birth.note.two,Её влияние на доход исчезает к 52 годам.,Its income effect fades by 52.
 birth.pick_trait,"Выберите черту, которая подходит жизни, начавшейся здесь.",Take the trait that fits a life that began here.
 birth.reveal,"%s%% новорождённых в мире появляются здесь. Ожидаемая жизнь — %d лет.
 Страна задаёт старт, но не приговор: её влияние тает к 50 годам.","%s%% of the world's newborns arrive here. Life expectancy — %d years.

@@ -30,7 +30,9 @@ func run() -> void:
 	await shot(screen,"credits")
 	screen.credits_panel.close()
 	await process_frame
-	for i in 3: screen.btn_1.pressed.emit()
+	screen.btn_1.pressed.emit()
+	await shot(screen,"birth")
+	for i in 2: screen.btn_1.pressed.emit()
 	await shot(screen, "life")
 	screen.market_btn.pressed.emit()
 	await shot(screen, "market")

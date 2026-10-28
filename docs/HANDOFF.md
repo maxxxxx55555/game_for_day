@@ -1,3 +1,5 @@
+**REVALIDATION REQUIRED:** the new birth-lottery/UI commit `c90d385ea965c8b01886ae03ea155afdccce6159` was merged after the earlier candidate QA. Receipts below describe the prior runtime until the new gate replaces them. No patch release is authorized yet.
+
 # Heirs of Fortune 2.0.1 — owner handoff
 
 Release: [Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Read [acceptance](ACCEPTANCE_CERTIFICATE.md) and use only the new [announcement kit](ANNOUNCE_KIT.md). This is a portable offline Windows x64 edition; Android and store submissions are omitted.
