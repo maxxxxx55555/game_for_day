@@ -1,0 +1,46 @@
+{
+  "public.exe": {
+    "result": "PASS",
+    "exit": 0,
+    "seconds": 54.453,
+    "console_sha256": "0337e0a405d91cda8c5cce241840f7ddbf46bbe3149efa33abd63f052b1dde64",
+    "source_commit": "2ca971ba27d78a931d792912d45bdb8bf4245537",
+    "private_qa": false,
+    "sha256": "6603b8264254ad943e5a5c9b81ffde5d6d044f079e8cdeb598b86f9b87dde395",
+    "bytes": 93729176,
+    "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905"
+  },
+  "public.pck": {
+    "result": "PASS",
+    "exit": 0,
+    "seconds": 29.062,
+    "console_sha256": "744d884327115b19cebb672692fb9bdb30912e1a3238fb18481d0c5ffc691224",
+    "source_commit": "2ca971ba27d78a931d792912d45bdb8bf4245537",
+    "private_qa": false,
+    "sha256": "08c295cff1e6eba128cd7f1bde805eb81ccf61cc8804b45df359a432d4f6d2d7",
+    "bytes": 22481804,
+    "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905"
+  },
+  "private-qa.exe": {
+    "result": "PASS",
+    "exit": 0,
+    "seconds": 32.344,
+    "console_sha256": "174c86ca0ff155d130e11ddbf7192bbf180742a61aa12dced1bcb86bdee0789d",
+    "source_commit": "2ca971ba27d78a931d792912d45bdb8bf4245537",
+    "private_qa": true,
+    "sha256": "592c40d1b97fe6739c33afa296ce399e783f4081ee22b532c1438e3e90a33e70",
+    "bytes": 93736280,
+    "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905"
+  },
+  "private-qa.pck": {
+    "result": "PASS",
+    "exit": 0,
+    "seconds": 29.922,
+    "console_sha256": "6005bdaefcaafefe8f5e7760bf5cb365239514c8768c3bad4176be98a9d0a37e",
+    "source_commit": "2ca971ba27d78a931d792912d45bdb8bf4245537",
+    "private_qa": true,
+    "sha256": "4e313e32b11bcb4bcd5e5d43742dc349f9737182d4e8c0a7409459145afc07cc",
+    "bytes": 22488908,
+    "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905"
+  }
+}

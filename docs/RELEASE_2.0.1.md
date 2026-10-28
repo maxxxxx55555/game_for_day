@@ -27,3 +27,9 @@ Limits: Windows x64 offline edition, unsigned portable EXE, no Authenticode or s
 Распакуйте весь `HeirsofFortune-Windows-2.0.1.zip` и запустите `HeirsofFortune.exe`. Сверьте архив с `HeirsofFortune-SHA256SUMS-2.0.1.txt` командой `sha256sum -c`; перед обновлением скопируйте всю папку профиля с ключом установки. QA-сборки и ключи не распространяются.
 
 Релиз публикуется только после полного гейта: RU/EN, маршруты победы/поражения, старые профили,50 полных посевов, измеренная нагрузка, аудит зашифрованных пакетов, галереи и CI. Фактические результаты находятся в отчёте приёмки. Windows x64, офлайн; EXE без Authenticode. Android не выпускается, масштаб AAA и отсутствие любых возможных ошибок не заявляются. Ручные проверки владельца остаются обязательными.
+
+## Verified Windows scope / Проверенный Windows-релиз
+
+EN/RU: 53/53 Godot cases per locale; 50 completed distinct seed routes; 3 consecutive native victories and defeat; legacy save compatibility; measured normal soak 1850.625s. Full acceptance and owner checklist are in docs/ACCEPTANCE_CERTIFICATE.md and docs/HANDOFF.md.
+
+Проверки EN/RU, 50 прохождений, три последовательные нативные победы, поражение и совместимость сохранений пройдены. Android и магазины не входят в релиз. EXE без Authenticode; ручное прослушивание и пять проверок владельца остаются обязательными перед анонсом.
