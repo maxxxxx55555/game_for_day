@@ -1,4 +1,6 @@
-# Heirs of Fortune — 2.0.1
+# Heirs of Fortune — 2.0.2 candidate
+
+This source is a 2.0.2 release candidate. The published 2.0.1 build remains available; the new build requires fresh release validation.
 
 ## Current edition scope
 
