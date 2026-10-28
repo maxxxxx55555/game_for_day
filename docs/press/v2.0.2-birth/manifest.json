@@ -1,0 +1,119 @@
+{
+  "result": "VISUALLY_REVIEWED",
+  "images": [
+    {
+      "file": "01-en-gallery-intro.png",
+      "locale": "en",
+      "caption": "Introduction and language selection",
+      "sha256": "9cfb8a2b2a9103e5427a71f118a3d59fc19dcafdefbeb1dd92aa194ceec13ddc",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": false,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "02-en-gallery-life.png",
+      "locale": "en",
+      "caption": "A scripted life decision",
+      "sha256": "52f19288d72521306b6a30c269d00300d495fdebe7247b6791b0215cc14f6628",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": false,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "03-ru-gallery-currencies.png",
+      "locale": "ru",
+      "caption": "Fictional exchange rates and inflation in Russian",
+      "sha256": "cdeb85da17eca5c30efcae3924ffb84c0709b13e5cca1b3e2d5cf57897c5b83b",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": false,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "04-en-gallery-birth.png",
+      "locale": "en",
+      "caption": "Weighted country-of-birth result with starting conditions",
+      "sha256": "4dfd89b4872cf364f8f21386001d32e485838428e02735512579d56f598605ab",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": false,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "05-en-finales-victory-finale.png",
+      "locale": "en",
+      "caption": "Controlled victory fixture; qualifying wealth and age are set by the capture driver",
+      "sha256": "33953a79a0e0323a2558f4b032949a1cf6e2e69605001d37ae608eeb3cd59515",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": true,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "06-ru-finales-defeat-finale.png",
+      "locale": "ru",
+      "caption": "Controlled defeat fixture; health is set to zero by the capture driver",
+      "sha256": "c5603c5e7b8b952618b9131e0ea209a03238e78668d6100a5d89c83add449658",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": true,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "07-en-gallery-credits.png",
+      "locale": "en",
+      "caption": "Credits and licenses",
+      "sha256": "f596c00cd490609830b2efb9d9011d29e9cb8502e6a12f0bebc6d62a50715da9",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": false,
+      "publishable_after_gate_and_owner_acceptance": true
+    },
+    {
+      "file": "08-ru-gallery-settings.png",
+      "locale": "ru",
+      "caption": "Settings and independent audio controls",
+      "sha256": "12d037ce439a87002a5093766497b8f549f05a368115912359bed052db9abdbb",
+      "dimensions": [
+        540,
+        960
+      ],
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "staged": false,
+      "controlled_terminal": false,
+      "publishable_after_gate_and_owner_acceptance": true
+    }
+  ],
+  "raw_frames_unmodified": true,
+  "publication_condition": "100% release gate followed by five owner checks in HANDOFF"
+}

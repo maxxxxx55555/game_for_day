@@ -1,6 +1,4 @@
-# Heirs of Fortune — 2.0.2 candidate
-
-This source is a 2.0.2 release candidate. The published 2.0.1 build remains available; the new build requires fresh release validation.
+# Heirs of Fortune — 2.0.2
 
 ## Current edition scope
 
@@ -109,5 +107,9 @@ The birth lottery now draws from 192 countries in the bundled historical dataset
 Country statistics and reuse terms: [data attribution and open table](docs/BIRTH_DATA_NOTICE.md).
 
 ## 2.0.1 acceptance and distribution
+
+Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
+
+## 2.0.2 acceptance and distribution
 
 Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.

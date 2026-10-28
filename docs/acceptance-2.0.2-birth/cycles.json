@@ -1,0 +1,20 @@
+{
+  "repository": "game_for_day",
+  "phase": "patch-full-cycles-visual-r4b",
+  "source_role": "cycles-r4",
+  "requested_cycles": 50,
+  "result": "PASS",
+  "source_project": "C:\\Users\\Maxsim\\Documents\\Codex\\2026-10-24\\new-chat\\outputs\\release-1.5.2-and-2.0.1\\sources\\cycles-r4\\game_for_day",
+  "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+  "source_tree": "4ae6e26f89161530889c3f4065eb105b59f96838",
+  "source_record_sha256": "de90bcea4c946743d6b9a2dfdb52c9dae46c0232a05a4e556fd59aca2831c15f",
+  "source_archive_sha256": "818c0d2dd5ac71531fbe9304b48263cb6a05348ef244f5a54237255990b5f2ef",
+  "driver_sha256": "4b2abdf7bffe4b85ed76ca921e0ff58c195c266f860566bd14707745565f591a",
+  "cancelled_before_start": 0,
+  "accepted_for_release": true,
+  "complete_cycles": 50,
+  "distinct_final_states": 50,
+  "driver_unchanged": true,
+  "seconds": 2424.359,
+  "scope": "Each accepted seed reaches60 objectives plus mechanics/save round-trip (campaign) or rank1/250B victory (life simulation). Accelerated headless finite-route coverage; not normal-speed or exhaustive unscripted play."
+}
