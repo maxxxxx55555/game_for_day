@@ -7,6 +7,7 @@ const GOLD:Color= Color("c8a96a")
 const GOLD_DIM:Color= Color("8c7442")
 const RULE:Color= Color("2a3646")
 const display_font:Font= preload("res://assets/fonts/Prata-Regular.ttf")
+const CITY:Texture2D=preload("res://assets/art/city_folio.png")
 const BirthLottery=preload("res://scripts/BirthLottery.gd")
 var country:String=""
 var region:String=""
@@ -85,6 +86,13 @@ func _draw() -> void:
 	var s:float= size.x / 620.0
 	# Sit the card in the optical middle of whatever height the panel grants.
 	var spare:float= maxf(0.0, size.y - 260.0 * s)
+	# Use the existing city artwork as a quiet illustration, never under the data.
+	var art_height:float=minf(spare * 0.34, 160.0 * s)
+	if art_height >= 32.0 and size.x > 0.0:
+		var source_width:float=float(CITY.get_width())
+		var source_height:float=source_width * art_height / size.x
+		var source_top:float=clampf(float(CITY.get_height()) * 0.39 - source_height * 0.5, 0.0, float(CITY.get_height()) - source_height)
+		draw_texture_rect_region(CITY,Rect2(0,0,size.x,art_height),Rect2(0,source_top,source_width,source_height),Color(0.75,0.80,0.87,0.52))
 	draw_set_transform(Vector2(0, spare * 0.42), 0, Vector2(s,s))
 	draw_string(get_theme_default_font(), Vector2(0,12), tracked(LocalizationManager.get_string("birth.overline")), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, GOLD)
 	draw_line(Vector2(0,24), Vector2(620,24), RULE, 1.0)
