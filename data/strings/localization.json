@@ -2423,6 +2423,846 @@
     "integrity.continue": {
       "ru": "Продолжить",
       "en": "Continue"
+    },
+    "country.ind.name": {
+      "ru": "Индия",
+      "en": "India"
+    },
+    "country.chn.name": {
+      "ru": "Китай",
+      "en": "China"
+    },
+    "country.nga.name": {
+      "ru": "Нигерия",
+      "en": "Nigeria"
+    },
+    "country.pak.name": {
+      "ru": "Пакистан",
+      "en": "Pakistan"
+    },
+    "country.idn.name": {
+      "ru": "Индонезия",
+      "en": "Indonesia"
+    },
+    "country.cod.name": {
+      "ru": "ДР Конго",
+      "en": "DR Congo"
+    },
+    "country.eth.name": {
+      "ru": "Эфиопия",
+      "en": "Ethiopia"
+    },
+    "country.usa.name": {
+      "ru": "США",
+      "en": "United States"
+    },
+    "country.bgd.name": {
+      "ru": "Бангладеш",
+      "en": "Bangladesh"
+    },
+    "country.bra.name": {
+      "ru": "Бразилия",
+      "en": "Brazil"
+    },
+    "country.egy.name": {
+      "ru": "Египет",
+      "en": "Egypt"
+    },
+    "country.tza.name": {
+      "ru": "Танзания",
+      "en": "Tanzania"
+    },
+    "country.mex.name": {
+      "ru": "Мексика",
+      "en": "Mexico"
+    },
+    "country.phl.name": {
+      "ru": "Филиппины",
+      "en": "Philippines"
+    },
+    "country.uga.name": {
+      "ru": "Уганда",
+      "en": "Uganda"
+    },
+    "country.sdn.name": {
+      "ru": "Судан",
+      "en": "Sudan"
+    },
+    "country.ken.name": {
+      "ru": "Кения",
+      "en": "Kenya"
+    },
+    "country.afg.name": {
+      "ru": "Афганистан",
+      "en": "Afghanistan"
+    },
+    "country.vnm.name": {
+      "ru": "Вьетнам",
+      "en": "Vietnam"
+    },
+    "country.ago.name": {
+      "ru": "Ангола",
+      "en": "Angola"
+    },
+    "country.moz.name": {
+      "ru": "Мозамбик",
+      "en": "Mozambique"
+    },
+    "country.rus.name": {
+      "ru": "Россия",
+      "en": "Russia"
+    },
+    "country.zaf.name": {
+      "ru": "ЮАР",
+      "en": "South Africa"
+    },
+    "country.irn.name": {
+      "ru": "Иран",
+      "en": "Iran"
+    },
+    "country.irq.name": {
+      "ru": "Ирак",
+      "en": "Iraq"
+    },
+    "country.ner.name": {
+      "ru": "Нигер",
+      "en": "Niger"
+    },
+    "country.mdg.name": {
+      "ru": "Мадагаскар",
+      "en": "Madagascar"
+    },
+    "country.yem.name": {
+      "ru": "Йемен",
+      "en": "Yemen"
+    },
+    "country.civ.name": {
+      "ru": "Кот-д’Ивуар",
+      "en": "Cote d'Ivoire"
+    },
+    "country.cmr.name": {
+      "ru": "Камерун",
+      "en": "Cameroon"
+    },
+    "country.tur.name": {
+      "ru": "Турция",
+      "en": "Turkiye"
+    },
+    "country.mli.name": {
+      "ru": "Мали",
+      "en": "Mali"
+    },
+    "country.uzb.name": {
+      "ru": "Узбекистан",
+      "en": "Uzbekistan"
+    },
+    "country.dza.name": {
+      "ru": "Алжир",
+      "en": "Algeria"
+    },
+    "country.mmr.name": {
+      "ru": "Мьянма",
+      "en": "Myanmar"
+    },
+    "country.gha.name": {
+      "ru": "Гана",
+      "en": "Ghana"
+    },
+    "country.tcd.name": {
+      "ru": "Чад",
+      "en": "Chad"
+    },
+    "country.som.name": {
+      "ru": "Сомали",
+      "en": "Somalia"
+    },
+    "country.jpn.name": {
+      "ru": "Япония",
+      "en": "Japan"
+    },
+    "country.bfa.name": {
+      "ru": "Буркина-Фасо",
+      "en": "Burkina Faso"
+    },
+    "country.col.name": {
+      "ru": "Колумбия",
+      "en": "Colombia"
+    },
+    "country.deu.name": {
+      "ru": "Германия",
+      "en": "Germany"
+    },
+    "country.gbr.name": {
+      "ru": "Великобритания",
+      "en": "United Kingdom"
+    },
+    "country.zmb.name": {
+      "ru": "Замбия",
+      "en": "Zambia"
+    },
+    "country.fra.name": {
+      "ru": "Франция",
+      "en": "France"
+    },
+    "country.mwi.name": {
+      "ru": "Малави",
+      "en": "Malawi"
+    },
+    "country.mar.name": {
+      "ru": "Марокко",
+      "en": "Morocco"
+    },
+    "country.tha.name": {
+      "ru": "Таиланд",
+      "en": "Thailand"
+    },
+    "country.npl.name": {
+      "ru": "Непал",
+      "en": "Nepal"
+    },
+    "country.sau.name": {
+      "ru": "Саудовская Аравия",
+      "en": "Saudi Arabia"
+    },
+    "country.per.name": {
+      "ru": "Перу",
+      "en": "Peru"
+    },
+    "country.sen.name": {
+      "ru": "Сенегал",
+      "en": "Senegal"
+    },
+    "country.arg.name": {
+      "ru": "Аргентина",
+      "en": "Argentina"
+    },
+    "country.syr.name": {
+      "ru": "Сирия",
+      "en": "Syria"
+    },
+    "country.zwe.name": {
+      "ru": "Зимбабве",
+      "en": "Zimbabwe"
+    },
+    "country.gin.name": {
+      "ru": "Гвинея",
+      "en": "Guinea"
+    },
+    "country.ben.name": {
+      "ru": "Бенин",
+      "en": "Benin"
+    },
+    "country.bdi.name": {
+      "ru": "Бурунди",
+      "en": "Burundi"
+    },
+    "country.mys.name": {
+      "ru": "Малайзия",
+      "en": "Malaysia"
+    },
+    "country.ven.name": {
+      "ru": "Венесуэла",
+      "en": "Venezuela"
+    },
+    "country.kaz.name": {
+      "ru": "Казахстан",
+      "en": "Kazakhstan"
+    },
+    "country.rwa.name": {
+      "ru": "Руанда",
+      "en": "Rwanda"
+    },
+    "country.ita.name": {
+      "ru": "Италия",
+      "en": "Italy"
+    },
+    "country.gtm.name": {
+      "ru": "Гватемала",
+      "en": "Guatemala"
+    },
+    "country.khm.name": {
+      "ru": "Камбоджа",
+      "en": "Cambodia"
+    },
+    "country.can.name": {
+      "ru": "Канада",
+      "en": "Canada"
+    },
+    "country.prk.name": {
+      "ru": "КНДР",
+      "en": "North Korea"
+    },
+    "country.esp.name": {
+      "ru": "Испания",
+      "en": "Spain"
+    },
+    "country.ssd.name": {
+      "ru": "Южный Судан",
+      "en": "South Sudan"
+    },
+    "country.aus.name": {
+      "ru": "Австралия",
+      "en": "Australia"
+    },
+    "country.pol.name": {
+      "ru": "Польша",
+      "en": "Poland"
+    },
+    "country.tjk.name": {
+      "ru": "Таджикистан",
+      "en": "Tajikistan"
+    },
+    "country.ecu.name": {
+      "ru": "Эквадор",
+      "en": "Ecuador"
+    },
+    "country.tgo.name": {
+      "ru": "Того",
+      "en": "Togo"
+    },
+    "country.bol.name": {
+      "ru": "Боливия",
+      "en": "Bolivia"
+    },
+    "country.sle.name": {
+      "ru": "Сьерра-Леоне",
+      "en": "Sierra Leone"
+    },
+    "country.hti.name": {
+      "ru": "Гаити",
+      "en": "Haiti"
+    },
+    "country.png.name": {
+      "ru": "Папуа — Новая Гвинея",
+      "en": "Papua New Guinea"
+    },
+    "country.lka.name": {
+      "ru": "Шри-Ланка",
+      "en": "Sri Lanka"
+    },
+    "country.caf.name": {
+      "ru": "Центральноафриканская Республика",
+      "en": "Central African Republic"
+    },
+    "country.jor.name": {
+      "ru": "Иордания",
+      "en": "Jordan"
+    },
+    "country.hnd.name": {
+      "ru": "Гондурас",
+      "en": "Honduras"
+    },
+    "country.kor.name": {
+      "ru": "Южная Корея",
+      "en": "South Korea"
+    },
+    "country.ukr.name": {
+      "ru": "Украина",
+      "en": "Ukraine"
+    },
+    "country.dom.name": {
+      "ru": "Доминиканская Республика",
+      "en": "Dominican Republic"
+    },
+    "country.cog.name": {
+      "ru": "Республика Конго",
+      "en": "Congo"
+    },
+    "country.isr.name": {
+      "ru": "Израиль",
+      "en": "Israel"
+    },
+    "country.chl.name": {
+      "ru": "Чили",
+      "en": "Chile"
+    },
+    "country.mrt.name": {
+      "ru": "Мавритания",
+      "en": "Mauritania"
+    },
+    "country.lbr.name": {
+      "ru": "Либерия",
+      "en": "Liberia"
+    },
+    "country.tun.name": {
+      "ru": "Тунис",
+      "en": "Tunisia"
+    },
+    "country.nld.name": {
+      "ru": "Нидерланды",
+      "en": "Netherlands"
+    },
+    "country.lao.name": {
+      "ru": "Лаос",
+      "en": "Laos"
+    },
+    "country.rou.name": {
+      "ru": "Румыния",
+      "en": "Romania"
+    },
+    "country.tkm.name": {
+      "ru": "Туркменистан",
+      "en": "Turkmenistan"
+    },
+    "country.kgz.name": {
+      "ru": "Киргизия",
+      "en": "Kyrgyzstan"
+    },
+    "country.pse.name": {
+      "ru": "Палестина",
+      "en": "Palestine"
+    },
+    "country.pry.name": {
+      "ru": "Парагвай",
+      "en": "Paraguay"
+    },
+    "country.nic.name": {
+      "ru": "Никарагуа",
+      "en": "Nicaragua"
+    },
+    "country.lby.name": {
+      "ru": "Ливия",
+      "en": "Libya"
+    },
+    "country.aze.name": {
+      "ru": "Азербайджан",
+      "en": "Azerbaijan"
+    },
+    "country.bel.name": {
+      "ru": "Бельгия",
+      "en": "Belgium"
+    },
+    "country.cub.name": {
+      "ru": "Куба",
+      "en": "Cuba"
+    },
+    "country.eri.name": {
+      "ru": "Эритрея",
+      "en": "Eritrea"
+    },
+    "country.are.name": {
+      "ru": "ОАЭ",
+      "en": "United Arab Emirates"
+    },
+    "country.swe.name": {
+      "ru": "Швеция",
+      "en": "Sweden"
+    },
+    "country.slv.name": {
+      "ru": "Сальвадор",
+      "en": "El Salvador"
+    },
+    "country.lbn.name": {
+      "ru": "Ливан",
+      "en": "Lebanon"
+    },
+    "country.cze.name": {
+      "ru": "Чехия",
+      "en": "Czechia"
+    },
+    "country.hun.name": {
+      "ru": "Венгрия",
+      "en": "Hungary"
+    },
+    "country.prt.name": {
+      "ru": "Португалия",
+      "en": "Portugal"
+    },
+    "country.omn.name": {
+      "ru": "Оман",
+      "en": "Oman"
+    },
+    "country.gmb.name": {
+      "ru": "Гамбия",
+      "en": "Gambia"
+    },
+    "country.che.name": {
+      "ru": "Швейцария",
+      "en": "Switzerland"
+    },
+    "country.aut.name": {
+      "ru": "Австрия",
+      "en": "Austria"
+    },
+    "country.nam.name": {
+      "ru": "Намибия",
+      "en": "Namibia"
+    },
+    "country.pan.name": {
+      "ru": "Панама",
+      "en": "Panama"
+    },
+    "country.grc.name": {
+      "ru": "Греция",
+      "en": "Greece"
+    },
+    "country.gab.name": {
+      "ru": "Габон",
+      "en": "Gabon"
+    },
+    "country.mng.name": {
+      "ru": "Монголия",
+      "en": "Mongolia"
+    },
+    "country.blr.name": {
+      "ru": "Беларусь",
+      "en": "Belarus"
+    },
+    "country.gnb.name": {
+      "ru": "Гвинея-Бисау",
+      "en": "Guinea-Bissau"
+    },
+    "country.bwa.name": {
+      "ru": "Ботсвана",
+      "en": "Botswana"
+    },
+    "country.srb.name": {
+      "ru": "Сербия",
+      "en": "Serbia"
+    },
+    "country.dnk.name": {
+      "ru": "Дания",
+      "en": "Denmark"
+    },
+    "country.bgr.name": {
+      "ru": "Болгария",
+      "en": "Bulgaria"
+    },
+    "country.nzl.name": {
+      "ru": "Новая Зеландия",
+      "en": "New Zealand"
+    },
+    "country.lso.name": {
+      "ru": "Лесото",
+      "en": "Lesotho"
+    },
+    "country.irl.name": {
+      "ru": "Ирландия",
+      "en": "Ireland"
+    },
+    "country.gnq.name": {
+      "ru": "Экваториальная Гвинея",
+      "en": "Equatorial Guinea"
+    },
+    "country.cri.name": {
+      "ru": "Коста-Рика",
+      "en": "Costa Rica"
+    },
+    "country.nor.name": {
+      "ru": "Норвегия",
+      "en": "Norway"
+    },
+    "country.kwt.name": {
+      "ru": "Кувейт",
+      "en": "Kuwait"
+    },
+    "country.svk.name": {
+      "ru": "Словакия",
+      "en": "Slovakia"
+    },
+    "country.sgp.name": {
+      "ru": "Сингапур",
+      "en": "Singapore"
+    },
+    "country.fin.name": {
+      "ru": "Финляндия",
+      "en": "Finland"
+    },
+    "country.geo.name": {
+      "ru": "Грузия",
+      "en": "Georgia"
+    },
+    "country.arm.name": {
+      "ru": "Армения",
+      "en": "Armenia"
+    },
+    "country.ury.name": {
+      "ru": "Уругвай",
+      "en": "Uruguay"
+    },
+    "country.hkg.name": {
+      "ru": "Гонконг",
+      "en": "Hong Kong"
+    },
+    "country.jam.name": {
+      "ru": "Ямайка",
+      "en": "Jamaica"
+    },
+    "country.hrv.name": {
+      "ru": "Хорватия",
+      "en": "Croatia"
+    },
+    "country.tls.name": {
+      "ru": "Восточный Тимор",
+      "en": "Timor-Leste"
+    },
+    "country.swz.name": {
+      "ru": "Эсватини",
+      "en": "Eswatini"
+    },
+    "country.mda.name": {
+      "ru": "Молдова",
+      "en": "Moldova"
+    },
+    "country.qat.name": {
+      "ru": "Катар",
+      "en": "Qatar"
+    },
+    "country.alb.name": {
+      "ru": "Албания",
+      "en": "Albania"
+    },
+    "country.bih.name": {
+      "ru": "Босния и Герцеговина",
+      "en": "Bosnia and Herzegovina"
+    },
+    "country.com.name": {
+      "ru": "Коморы",
+      "en": "Comoros"
+    },
+    "country.dji.name": {
+      "ru": "Джибути",
+      "en": "Djibouti"
+    },
+    "country.slb.name": {
+      "ru": "Соломоновы острова",
+      "en": "Solomon Islands"
+    },
+    "country.ltu.name": {
+      "ru": "Литва",
+      "en": "Lithuania"
+    },
+    "country.xkx.name": {
+      "ru": "Косово",
+      "en": "Kosovo"
+    },
+    "country.bhr.name": {
+      "ru": "Бахрейн",
+      "en": "Bahrain"
+    },
+    "country.pri.name": {
+      "ru": "Пуэрто-Рико",
+      "en": "Puerto Rico"
+    },
+    "country.svn.name": {
+      "ru": "Словения",
+      "en": "Slovenia"
+    },
+    "country.mkd.name": {
+      "ru": "Северная Македония",
+      "en": "North Macedonia"
+    },
+    "country.guy.name": {
+      "ru": "Гайана",
+      "en": "Guyana"
+    },
+    "country.fji.name": {
+      "ru": "Фиджи",
+      "en": "Fiji"
+    },
+    "country.tto.name": {
+      "ru": "Тринидад и Тобаго",
+      "en": "Trinidad and Tobago"
+    },
+    "country.cyp.name": {
+      "ru": "Кипр",
+      "en": "Cyprus"
+    },
+    "country.lva.name": {
+      "ru": "Латвия",
+      "en": "Latvia"
+    },
+    "country.mus.name": {
+      "ru": "Маврикий",
+      "en": "Mauritius"
+    },
+    "country.est.name": {
+      "ru": "Эстония",
+      "en": "Estonia"
+    },
+    "country.sur.name": {
+      "ru": "Суринам",
+      "en": "Suriname"
+    },
+    "country.btn.name": {
+      "ru": "Бутан",
+      "en": "Bhutan"
+    },
+    "country.vut.name": {
+      "ru": "Вануату",
+      "en": "Vanuatu"
+    },
+    "country.blz.name": {
+      "ru": "Белиз",
+      "en": "Belize"
+    },
+    "country.mne.name": {
+      "ru": "Черногория",
+      "en": "Montenegro"
+    },
+    "country.stp.name": {
+      "ru": "Сан-Томе и Принсипи",
+      "en": "Sao Tome and Principe"
+    },
+    "country.cpv.name": {
+      "ru": "Кабо-Верде",
+      "en": "Cabo Verde"
+    },
+    "country.lux.name": {
+      "ru": "Люксембург",
+      "en": "Luxembourg"
+    },
+    "country.brn.name": {
+      "ru": "Бруней",
+      "en": "Brunei"
+    },
+    "country.mdv.name": {
+      "ru": "Мальдивы",
+      "en": "Maldives"
+    },
+    "country.wsm.name": {
+      "ru": "Самоа",
+      "en": "Samoa"
+    },
+    "country.mlt.name": {
+      "ru": "Мальта",
+      "en": "Malta"
+    },
+    "country.bhs.name": {
+      "ru": "Багамы",
+      "en": "Bahamas"
+    },
+    "country.isl.name": {
+      "ru": "Исландия",
+      "en": "Iceland"
+    },
+    "country.ncl.name": {
+      "ru": "Новая Каледония",
+      "en": "New Caledonia"
+    },
+    "country.mac.name": {
+      "ru": "Макао",
+      "en": "Macao"
+    },
+    "country.kir.name": {
+      "ru": "Кирибати",
+      "en": "Kiribati"
+    },
+    "country.brb.name": {
+      "ru": "Барбадос",
+      "en": "Barbados"
+    },
+    "country.pyf.name": {
+      "ru": "Французская Полинезия",
+      "en": "French Polynesia"
+    },
+    "country.fsm.name": {
+      "ru": "Микронезия",
+      "en": "Micronesia"
+    },
+    "country.ton.name": {
+      "ru": "Тонга",
+      "en": "Tonga"
+    },
+    "country.lca.name": {
+      "ru": "Сент-Люсия",
+      "en": "St. Lucia"
+    },
+    "country.syc.name": {
+      "ru": "Сейшелы",
+      "en": "Seychelles"
+    },
+    "country.chi.name": {
+      "ru": "Нормандские острова",
+      "en": "Channel Islands"
+    },
+    "country.grd.name": {
+      "ru": "Гренада",
+      "en": "Grenada"
+    },
+    "country.vct.name": {
+      "ru": "Сент-Винсент и Гренадины",
+      "en": "St. Vincent and the Grenadines"
+    },
+    "country.cuw.name": {
+      "ru": "Кюрасао",
+      "en": "Curacao"
+    },
+    "country.atg.name": {
+      "ru": "Антигуа и Барбуда",
+      "en": "Antigua and Barbuda"
+    },
+    "region.eap": {
+      "ru": "Восточная Азия и Тихий океан",
+      "en": "East Asia & Pacific"
+    },
+    "region.eca": {
+      "ru": "Европа и Центральная Азия",
+      "en": "Europe & Central Asia"
+    },
+    "region.lcn": {
+      "ru": "Латинская Америка",
+      "en": "Latin America & Caribbean"
+    },
+    "region.mna": {
+      "ru": "Ближний Восток и Северная Африка",
+      "en": "Middle East & North Africa"
+    },
+    "region.nam": {
+      "ru": "Северная Америка",
+      "en": "North America"
+    },
+    "region.sas": {
+      "ru": "Южная Азия",
+      "en": "South Asia"
+    },
+    "region.ssf": {
+      "ru": "Африка южнее Сахары",
+      "en": "Sub-Saharan Africa"
+    },
+    "region.wld": {
+      "ru": "Мир",
+      "en": "World"
+    },
+    "birth.overline": {
+      "ru": "ЛОТЕРЕЯ РОЖДЕНИЯ",
+      "en": "BIRTH LOTTERY"
+    },
+    "birth.share": {
+      "ru": "новорождённых",
+      "en": "of newborns"
+    },
+    "birth.life": {
+      "ru": "жизнь",
+      "en": "life expectancy"
+    },
+    "birth.capital": {
+      "ru": "капитал семьи",
+      "en": "family capital"
+    },
+    "birth.note.one": {
+      "ru": "Страна задаёт старт, но не приговор.",
+      "en": "The country sets the start, not the ending."
+    },
+    "birth.note.two": {
+      "ru": "Её влияние тает к 50 годам.",
+      "en": "Its grip fades by 50."
+    },
+    "birth.pick_trait": {
+      "ru": "Выберите черту, которая подходит жизни, начавшейся здесь.",
+      "en": "Take the trait that fits a life that began here."
+    },
+    "birth.reveal": {
+      "ru": "%s%% новорождённых в мире появляются здесь. Ожидаемая жизнь — %d лет.\nСтрана задаёт старт, но не приговор: её влияние тает к 50 годам.",
+      "en": "%s%% of the world's newborns arrive here. Life expectancy — %d years.\nThe country sets the start, not the ending: its grip fades by 50."
+    },
+    "birth.life_years": {
+      "ru": "%d лет",
+      "en": "%d yrs"
+    },
+    "dashboard.grip": {
+      "ru": "влияние страны: %d%%",
+      "en": "country grip: %d%%"
     }
   },
   "aliases": {
