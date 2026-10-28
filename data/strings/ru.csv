@@ -767,3 +767,215 @@ integrity.files_changed,Файлы игры изменены. Включён б�
 integrity.save_recovered,Повреждённое сохранение отклонено. Загружена последняя исправная резервная копия.,The damaged save was rejected. Your last valid backup has been restored.
 integrity.save_rejected,Сохранение повреждено или изменено и не может быть загружено. Исправная резервная копия не найдена.,The save is damaged or modified and cannot be loaded. No valid backup was found.
 integrity.continue,Продолжить,Continue
+country.ind.name,Индия,India
+country.chn.name,Китай,China
+country.nga.name,Нигерия,Nigeria
+country.pak.name,Пакистан,Pakistan
+country.idn.name,Индонезия,Indonesia
+country.cod.name,ДР Конго,DR Congo
+country.eth.name,Эфиопия,Ethiopia
+country.usa.name,США,United States
+country.bgd.name,Бангладеш,Bangladesh
+country.bra.name,Бразилия,Brazil
+country.egy.name,Египет,Egypt
+country.tza.name,Танзания,Tanzania
+country.mex.name,Мексика,Mexico
+country.phl.name,Филиппины,Philippines
+country.uga.name,Уганда,Uganda
+country.sdn.name,Судан,Sudan
+country.ken.name,Кения,Kenya
+country.afg.name,Афганистан,Afghanistan
+country.vnm.name,Вьетнам,Vietnam
+country.ago.name,Ангола,Angola
+country.moz.name,Мозамбик,Mozambique
+country.rus.name,Россия,Russia
+country.zaf.name,ЮАР,South Africa
+country.irn.name,Иран,Iran
+country.irq.name,Ирак,Iraq
+country.ner.name,Нигер,Niger
+country.mdg.name,Мадагаскар,Madagascar
+country.yem.name,Йемен,Yemen
+country.civ.name,Кот-д’Ивуар,Cote d'Ivoire
+country.cmr.name,Камерун,Cameroon
+country.tur.name,Турция,Turkiye
+country.mli.name,Мали,Mali
+country.uzb.name,Узбекистан,Uzbekistan
+country.dza.name,Алжир,Algeria
+country.mmr.name,Мьянма,Myanmar
+country.gha.name,Гана,Ghana
+country.tcd.name,Чад,Chad
+country.som.name,Сомали,Somalia
+country.jpn.name,Япония,Japan
+country.bfa.name,Буркина-Фасо,Burkina Faso
+country.col.name,Колумбия,Colombia
+country.deu.name,Германия,Germany
+country.gbr.name,Великобритания,United Kingdom
+country.zmb.name,Замбия,Zambia
+country.fra.name,Франция,France
+country.mwi.name,Малави,Malawi
+country.mar.name,Марокко,Morocco
+country.tha.name,Таиланд,Thailand
+country.npl.name,Непал,Nepal
+country.sau.name,Саудовская Аравия,Saudi Arabia
+country.per.name,Перу,Peru
+country.sen.name,Сенегал,Senegal
+country.arg.name,Аргентина,Argentina
+country.syr.name,Сирия,Syria
+country.zwe.name,Зимбабве,Zimbabwe
+country.gin.name,Гвинея,Guinea
+country.ben.name,Бенин,Benin
+country.bdi.name,Бурунди,Burundi
+country.mys.name,Малайзия,Malaysia
+country.ven.name,Венесуэла,Venezuela
+country.kaz.name,Казахстан,Kazakhstan
+country.rwa.name,Руанда,Rwanda
+country.ita.name,Италия,Italy
+country.gtm.name,Гватемала,Guatemala
+country.khm.name,Камбоджа,Cambodia
+country.can.name,Канада,Canada
+country.prk.name,КНДР,North Korea
+country.esp.name,Испания,Spain
+country.ssd.name,Южный Судан,South Sudan
+country.aus.name,Австралия,Australia
+country.pol.name,Польша,Poland
+country.tjk.name,Таджикистан,Tajikistan
+country.ecu.name,Эквадор,Ecuador
+country.tgo.name,Того,Togo
+country.bol.name,Боливия,Bolivia
+country.sle.name,Сьерра-Леоне,Sierra Leone
+country.hti.name,Гаити,Haiti
+country.png.name,Папуа — Новая Гвинея,Papua New Guinea
+country.lka.name,Шри-Ланка,Sri Lanka
+country.caf.name,Центральноафриканская Республика,Central African Republic
+country.jor.name,Иордания,Jordan
+country.hnd.name,Гондурас,Honduras
+country.kor.name,Южная Корея,South Korea
+country.ukr.name,Украина,Ukraine
+country.dom.name,Доминиканская Республика,Dominican Republic
+country.cog.name,Республика Конго,Congo
+country.isr.name,Израиль,Israel
+country.chl.name,Чили,Chile
+country.mrt.name,Мавритания,Mauritania
+country.lbr.name,Либерия,Liberia
+country.tun.name,Тунис,Tunisia
+country.nld.name,Нидерланды,Netherlands
+country.lao.name,Лаос,Laos
+country.rou.name,Румыния,Romania
+country.tkm.name,Туркменистан,Turkmenistan
+country.kgz.name,Киргизия,Kyrgyzstan
+country.pse.name,Палестина,Palestine
+country.pry.name,Парагвай,Paraguay
+country.nic.name,Никарагуа,Nicaragua
+country.lby.name,Ливия,Libya
+country.aze.name,Азербайджан,Azerbaijan
+country.bel.name,Бельгия,Belgium
+country.cub.name,Куба,Cuba
+country.eri.name,Эритрея,Eritrea
+country.are.name,ОАЭ,United Arab Emirates
+country.swe.name,Швеция,Sweden
+country.slv.name,Сальвадор,El Salvador
+country.lbn.name,Ливан,Lebanon
+country.cze.name,Чехия,Czechia
+country.hun.name,Венгрия,Hungary
+country.prt.name,Португалия,Portugal
+country.omn.name,Оман,Oman
+country.gmb.name,Гамбия,Gambia
+country.che.name,Швейцария,Switzerland
+country.aut.name,Австрия,Austria
+country.nam.name,Намибия,Namibia
+country.pan.name,Панама,Panama
+country.grc.name,Греция,Greece
+country.gab.name,Габон,Gabon
+country.mng.name,Монголия,Mongolia
+country.blr.name,Беларусь,Belarus
+country.gnb.name,Гвинея-Бисау,Guinea-Bissau
+country.bwa.name,Ботсвана,Botswana
+country.srb.name,Сербия,Serbia
+country.dnk.name,Дания,Denmark
+country.bgr.name,Болгария,Bulgaria
+country.nzl.name,Новая Зеландия,New Zealand
+country.lso.name,Лесото,Lesotho
+country.irl.name,Ирландия,Ireland
+country.gnq.name,Экваториальная Гвинея,Equatorial Guinea
+country.cri.name,Коста-Рика,Costa Rica
+country.nor.name,Норвегия,Norway
+country.kwt.name,Кувейт,Kuwait
+country.svk.name,Словакия,Slovakia
+country.sgp.name,Сингапур,Singapore
+country.fin.name,Финляндия,Finland
+country.geo.name,Грузия,Georgia
+country.arm.name,Армения,Armenia
+country.ury.name,Уругвай,Uruguay
+country.hkg.name,Гонконг,Hong Kong
+country.jam.name,Ямайка,Jamaica
+country.hrv.name,Хорватия,Croatia
+country.tls.name,Восточный Тимор,Timor-Leste
+country.swz.name,Эсватини,Eswatini
+country.mda.name,Молдова,Moldova
+country.qat.name,Катар,Qatar
+country.alb.name,Албания,Albania
+country.bih.name,Босния и Герцеговина,Bosnia and Herzegovina
+country.com.name,Коморы,Comoros
+country.dji.name,Джибути,Djibouti
+country.slb.name,Соломоновы острова,Solomon Islands
+country.ltu.name,Литва,Lithuania
+country.xkx.name,Косово,Kosovo
+country.bhr.name,Бахрейн,Bahrain
+country.pri.name,Пуэрто-Рико,Puerto Rico
+country.svn.name,Словения,Slovenia
+country.mkd.name,Северная Македония,North Macedonia
+country.guy.name,Гайана,Guyana
+country.fji.name,Фиджи,Fiji
+country.tto.name,Тринидад и Тобаго,Trinidad and Tobago
+country.cyp.name,Кипр,Cyprus
+country.lva.name,Латвия,Latvia
+country.mus.name,Маврикий,Mauritius
+country.est.name,Эстония,Estonia
+country.sur.name,Суринам,Suriname
+country.btn.name,Бутан,Bhutan
+country.vut.name,Вануату,Vanuatu
+country.blz.name,Белиз,Belize
+country.mne.name,Черногория,Montenegro
+country.stp.name,Сан-Томе и Принсипи,Sao Tome and Principe
+country.cpv.name,Кабо-Верде,Cabo Verde
+country.lux.name,Люксембург,Luxembourg
+country.brn.name,Бруней,Brunei
+country.mdv.name,Мальдивы,Maldives
+country.wsm.name,Самоа,Samoa
+country.mlt.name,Мальта,Malta
+country.bhs.name,Багамы,Bahamas
+country.isl.name,Исландия,Iceland
+country.ncl.name,Новая Каледония,New Caledonia
+country.mac.name,Макао,Macao
+country.kir.name,Кирибати,Kiribati
+country.brb.name,Барбадос,Barbados
+country.pyf.name,Французская Полинезия,French Polynesia
+country.fsm.name,Микронезия,Micronesia
+country.ton.name,Тонга,Tonga
+country.lca.name,Сент-Люсия,St. Lucia
+country.syc.name,Сейшелы,Seychelles
+country.chi.name,Нормандские острова,Channel Islands
+country.grd.name,Гренада,Grenada
+country.vct.name,Сент-Винсент и Гренадины,St. Vincent and the Grenadines
+country.cuw.name,Кюрасао,Curacao
+country.atg.name,Антигуа и Барбуда,Antigua and Barbuda
+region.eap,Восточная Азия и Тихий океан,East Asia & Pacific
+region.eca,Европа и Центральная Азия,Europe & Central Asia
+region.lcn,Латинская Америка,Latin America & Caribbean
+region.mna,Ближний Восток и Северная Африка,Middle East & North Africa
+region.nam,Северная Америка,North America
+region.sas,Южная Азия,South Asia
+region.ssf,Африка южнее Сахары,Sub-Saharan Africa
+region.wld,Мир,World
+birth.overline,ЛОТЕРЕЯ РОЖДЕНИЯ,BIRTH LOTTERY
+birth.share,новорождённых,of newborns
+birth.life,жизнь,life expectancy
+birth.capital,капитал семьи,family capital
+birth.note.one,"Страна задаёт старт, но не приговор.","The country sets the start, not the ending."
+birth.note.two,Её влияние тает к 50 годам.,Its grip fades by 50.
+birth.pick_trait,"Выберите черту, которая подходит жизни, начавшейся здесь.",Take the trait that fits a life that began here.
+birth.reveal,"%s%% новорождённых в мире появляются здесь. Ожидаемая жизнь — %d лет.
+Страна задаёт старт, но не приговор: её влияние тает к 50 годам.","%s%% of the world's newborns arrive here. Life expectancy — %d years.
+The country sets the start, not the ending: its grip fades by 50."
+birth.life_years,%d лет,%d yrs
+dashboard.grip,влияние страны: %d%%,country grip: %d%%

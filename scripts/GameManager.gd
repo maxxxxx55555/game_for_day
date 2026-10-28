@@ -16,7 +16,7 @@ const Money=preload("res://scripts/security/Money.gd")
 const SavePolicy = preload("res://scripts/security/FortuneSavePolicy.gd")
 const SAVE_PATH:String= "user://dynasty_save.cfg"
 const SESSION_PATH:String= "user://current_life.cfg"
-const RUN_FIELDS:Array[String]= ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick"]
+const RUN_FIELDS:Array[String]= ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "birth_country_code", "birth_opportunity", "death_age", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick"]
 const QUARTERLY_INFLATION:float= 0.007
 var fx:TypeRefExchangeMarket= preload("res://scripts/ExchangeMarket.gd").new()
 var fx_state: Dictionary:
@@ -112,6 +112,9 @@ var inherited_capital:float:
 		if amount>=0 and Money.valid(amount):inherited_capital_cents=amount
 var birth_origin: String = ""
 var birth_cost_modifier: float = 1.0
+var birth_country_code: String = ""
+var birth_opportunity: float = 1.0
+var death_age: int = 82
 var player_perk: String = "none"
 var current_track: String = "Last Call at Three"
 var audio_enabled: bool = true
@@ -244,59 +247,46 @@ func reset_game() -> void:
 	player_perk = "none"
 	birth_origin = ""
 	birth_cost_modifier = 1.0
+	birth_country_code = ""
+	birth_opportunity = 1.0
+	death_age = 82
 	has_rolled_birth = false
 	ad_cooldown = 0
 	revive_used = false
 	recalculate_forbes_rank()
 
-# Лотерея рождения по реальной демографической статистике мира
+# Лотерея рождения: 192 реальные страны, взвешенные по числу рождений в год.
+# Страна задаёт стартовые условия, но её влияние тает с возрастом.
+const BirthLottery=preload("res://scripts/BirthLottery.gd")
+
+func origin_percent_text(value:float) -> String:
+	var text:String=String.num(value,1)
+	return text.replace(".",",") if LocalizationManager.current_language!="en" else text
+
 func roll_birth_lottery() -> Dictionary:
-	var roll:float= randf() * 100.0
-	var result:Dictionary= {}
-	if roll < 50.0:
-		birth_origin = LocalizationManager.source("copy.b1a7a4e2a93b")
-		cash = -1500.0 + inherited_capital
-		health = 80
-		intellect = 12
-		stress = 15
-		birth_cost_modifier = 0.6
-		result = {
-			"title": LocalizationManager.source("copy.63771b02969d"),
-			"desc": LocalizationManager.source("copy.2330d70b76f0")
-		}
-	elif roll < 85.0:
-		birth_origin = LocalizationManager.source("copy.0cf8277e4bff")
-		cash = 250.0 + inherited_capital
-		health = 90
-		intellect = 18
-		stress = 10
-		birth_cost_modifier = 1.0
-		result = {
-			"title": LocalizationManager.source("copy.d4c7a635ca3f"),
-			"desc": LocalizationManager.source("copy.c5181ac5cb63")
-		}
-	elif roll < 99.0:
-		birth_origin = LocalizationManager.source("copy.495df6ec1ab0")
-		cash = 5000.0 + inherited_capital
-		health = 95
-		intellect = 30
-		stress = 10
-		birth_cost_modifier = 1.6
-		result = {
-			"title": LocalizationManager.source("copy.f69c96f6c0cd"),
-			"desc": LocalizationManager.source("copy.e7bee9cb90c8")
-		}
-	else:
-		birth_origin = LocalizationManager.source("copy.319914340b65")
-		cash = 100000.0 + inherited_capital
-		health = 100
-		intellect = 35
-		stress = 5
-		birth_cost_modifier = 3.0
-		result = {
-			"title": LocalizationManager.source("copy.acd73a580d1b"),
-			"desc": LocalizationManager.source("copy.9860e896fe61")
-		}
+	var outcome:Dictionary=BirthLottery.roll(randf())
+	var percent:String=origin_percent_text(BirthLottery.value_number(outcome,"share")*100.0)
+	birth_country_code=str(outcome["code"])
+	birth_origin=str(outcome["region"])
+	birth_opportunity=BirthLottery.value_number(outcome,"opportunity")
+	birth_cost_modifier=BirthLottery.value_number(outcome,"cost")
+	death_age=BirthLottery.value_int(outcome,"death_age")
+	cash=BirthLottery.value_number(outcome,"cash")+inherited_capital
+	health=BirthLottery.value_int(outcome,"health")
+	intellect=BirthLottery.value_int(outcome,"intellect")
+	stress=BirthLottery.value_int(outcome,"stress")
+	var result:Dictionary={
+		"title": str(outcome["name"]),
+		"desc": LocalizationManager.source("birth.reveal") % [percent, BirthLottery.value_int(outcome,"life")],
+		"code": str(outcome["code"]),
+		"region": str(outcome["region"]),
+		"share": BirthLottery.value_number(outcome,"share"),
+		"life": BirthLottery.value_number(outcome,"life"),
+		"gdp": BirthLottery.value_int(outcome,"gdp"),
+		"births": BirthLottery.value_int(outcome,"births"),
+		"income_modifier": BirthLottery.value_number(outcome,"income_modifier"),
+		"cost_modifier": BirthLottery.value_number(outcome,"cost_modifier")
+	}
 	has_rolled_birth = true
 	inherited_capital = 0.0
 	# save_dynasty reports persistence failure to the visible save-status path.
@@ -304,6 +294,17 @@ func roll_birth_lottery() -> Dictionary:
 	save_dynasty()
 	recalculate_forbes_rank()
 	return result
+
+## Доход ранних лет: страна даёт фору или отставание, затем множитель сходит к 1.
+func get_origin_income_modifier() -> float:
+	return BirthLottery.income_modifier(birth_opportunity, age)
+
+## Стоимость жизни: страна задаёт уровень цен, доля влияния сохраняется навсегда.
+func get_origin_cost_modifier() -> float:
+	return BirthLottery.cost_modifier(birth_cost_modifier, age)
+
+func origin_influence() -> float:
+	return BirthLottery.origin_weight(age)
 
 func get_portfolio_value_cents() -> int:
 	var stock:int=Money.market(stock_units,stock_price_cents)
@@ -357,13 +358,15 @@ func get_passive_quarterly_income_cents() -> int:
 	var stock:int=Money.market(stock_units,stock_price_cents)
 	if stock==Money.INVALID:return 0
 	var dividend:int=Money.ratio(stock,18 if player_perk=="wall_street" else 12,1000)
-	var result:int=Money.add(get_business_income_cents(),dividend)
-	return 0 if result==Money.INVALID else result
+	var gross:int=Money.add(get_business_income_cents(),dividend)
+	if gross==Money.INVALID:return 0
+	var scaled:int=Money.scale(gross,get_origin_income_modifier())
+	return 0 if scaled==Money.INVALID else scaled
 
 func get_passive_quarterly_income() -> float:return Money.dollars(get_passive_quarterly_income_cents())
 
 func get_quarterly_living_cost_cents() -> int:
-	var base:int=Money.scale((280+(age-18)*18)*100,birth_cost_modifier*inflation_multiplier)
+	var base:int=Money.scale((280+(age-18)*18)*100,get_origin_cost_modifier()*inflation_multiplier)
 	if business_tier>=3:base=Money.add(base,Money.ratio(get_business_income_cents(),15,100))
 	if base==Money.INVALID:return Money.MAX_CENTS
 	# Preserve the edition's nearest-whole-dollar cost policy, in the cent ledger.

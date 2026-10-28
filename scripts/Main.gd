@@ -4,6 +4,7 @@ const CurrencyView=preload("res://scripts/ui/CurrencyPanel.gd")
 const FinaleView=preload("res://scripts/ui/LifeFinale.gd")
 const ChoiceView=preload("res://scripts/ui/ChoiceCard.gd")
 const CreditsView=preload("res://scripts/ui/FortuneCredits.gd")
+const BirthRevealView=preload("res://scripts/ui/BirthReveal.gd")
 
 @onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/StatsLabel
 @onready var market_label: Label = $MarginContainer/VBoxContainer/MarketPanel/MarketLabel
@@ -31,6 +32,8 @@ var language_choice:OptionButton
 var intro_actions:HBoxContainer
 var credits_panel:CreditsView
 var story_transition:Tween
+var birth_reveal:BirthRevealView
+var story_content:VBoxContainer
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -112,6 +115,7 @@ func _ready() -> void:
 	)
 	var content:VBoxContainer= VBoxContainer.new()
 	content.name = "StoryContent"
+	story_content = content
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	content.add_theme_constant_override("separation",18)
@@ -124,13 +128,18 @@ func _ready() -> void:
 	story_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	content.add_child(story_art)
 	content.move_child(story_art,0)
-	event_label.add_theme_color_override("font_color",Color("182735"))
+	birth_reveal = preload("res://scripts/ui/BirthReveal.gd").new()
+	birth_reveal.name = "BirthReveal"
+	content.add_child(birth_reveal)
+	content.move_child(birth_reveal,1)
+	birth_reveal.hide()
+	event_label.add_theme_color_override("font_color",Color("ede7da"))
 	event_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	event_label.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
 	outcome=Label.new()
 	outcome.name="LastOutcome"
 	outcome.add_theme_font_size_override("font_size",15)
-	outcome.add_theme_color_override("font_color",Color("536577"))
+	outcome.add_theme_color_override("font_color",Color("8a97a6"))
 	outcome.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	outcome.hide()
 	content.add_child(outcome)
@@ -273,6 +282,7 @@ func restore_session(saved: Dictionary) -> void:
 			set_bottom_bar_enabled(false)
 			update_ui()
 			event_label.text = saved.get("event_text", "")
+			if birth_reveal: birth_reveal.present_from_state()
 			btn_1.text = LocalizationManager.source("copy.c45c411166e2")
 			btn_2.hide()
 			btn_3.hide()
@@ -308,8 +318,11 @@ func update_ui() -> void:
 	music_label.hide()
 	($MarginContainer/VBoxContainer/StatsPanel as Control).visible = current_mode != ScreenMode.INTRO
 	($MarginContainer/VBoxContainer/BottomBar as Control).visible = current_mode in [ScreenMode.LIFE,ScreenMode.MARKET,ScreenMode.BUSINESS,ScreenMode.SETTINGS]
-	story_art.visible = current_mode in [ScreenMode.INTRO,ScreenMode.BIRTH,ScreenMode.PERK,ScreenMode.LIFE]
+	story_art.visible = current_mode in [ScreenMode.INTRO,ScreenMode.PERK,ScreenMode.LIFE]
 	story_art.custom_minimum_size.y = 260 if current_mode == ScreenMode.INTRO else 190
+	if birth_reveal: birth_reveal.visible = current_mode == ScreenMode.BIRTH
+	if story_content:
+		story_content.alignment = BoxContainer.ALIGNMENT_CENTER if current_mode == ScreenMode.BIRTH else BoxContainer.ALIGNMENT_BEGIN
 	story_art.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	market_btn.text = LocalizationManager.source("copy.47ff48632f92")
 	biz_btn.text = LocalizationManager.source("copy.964b2df03bda")
@@ -405,9 +418,8 @@ func show_birth_screen() -> void:
 	current_mode = ScreenMode.BIRTH
 	var info:Dictionary= GameManager.roll_birth_lottery()
 	update_ui()
-	event_label.text = LocalizationManager.source("copy.76fed3b6db77") % [
-		info["title"], info["desc"], GameManager.birth_origin, GameManager.format_num(GameManager.cash)
-	]
+	if birth_reveal: birth_reveal.present(info)
+	event_label.text = LocalizationManager.source("birth.pick_trait")
 	btn_1.text = LocalizationManager.source("copy.c45c411166e2")
 	btn_2.visible = false
 	btn_3.visible = false
@@ -742,7 +754,7 @@ func check_game_over() -> bool:
 	if GameManager.get_net_worth() <= -30000.0:
 		trigger_game_over(LocalizationManager.source("copy.7f4b17d5695c"), false)
 		return true
-	if GameManager.age >= 82:
+	if GameManager.age >= GameManager.death_age:
 		if GameManager.rank <= 10:
 			trigger_game_over(LocalizationManager.source("copy.848fe0958410") % GameManager.rank, true)
 		else:
