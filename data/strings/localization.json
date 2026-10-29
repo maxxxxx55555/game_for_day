@@ -3263,6 +3263,42 @@
     "dashboard.grip": {
       "ru": "влияние страны: %d%%",
       "en": "country grip: %d%%"
+    },
+    "ui.theme": {
+      "ru": "Оформление",
+      "en": "Appearance"
+    },
+    "ui.theme.dark": {
+      "ru": "Тёмное",
+      "en": "Dark"
+    },
+    "ui.theme.light": {
+      "ru": "Светлое",
+      "en": "Light"
+    },
+    "intro.overline": {
+      "ru": "ДИНАСТИЯ В КВАРТАЛАХ",
+      "en": "A DYNASTY IN QUARTERS"
+    },
+    "intro.title": {
+      "ru": "Наследники удачи",
+      "en": "Heirs of Fortune"
+    },
+    "stage.survival": {
+      "ru": "ВЫЖИВАНИЕ",
+      "en": "SURVIVAL"
+    },
+    "stage.career": {
+      "ru": "КАРЬЕРА",
+      "en": "CAREER"
+    },
+    "stage.millionaire": {
+      "ru": "КАПИТАЛ",
+      "en": "CAPITAL"
+    },
+    "stage.billionaire": {
+      "ru": "ИМПЕРИЯ",
+      "en": "EMPIRE"
     }
   },
   "aliases": {

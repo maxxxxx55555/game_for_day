@@ -1,6 +1,7 @@
 extends Node
 const TypeRefExchangeMarket=preload("res://scripts/ExchangeMarket.gd")
 signal persistence_changed(ok: bool)
+signal theme_changed(mode: String)
 var write_failures:Dictionary= {}
 
 func report_write(path: String, ok: bool) -> void:
@@ -119,6 +120,7 @@ var player_perk: String = "none"
 var current_track: String = "Last Call at Three"
 var audio_enabled: bool = true
 var reduced_motion: bool = false
+var theme_mode: String = "dark"
 var master_volume: float = 1.0
 var ui_volume: float = 0.8
 var music_volume: float = 0.3
@@ -147,6 +149,7 @@ func save_dynasty() -> bool:
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
 	cfg.set_value("settings", "reduced_motion", reduced_motion)
+	cfg.set_value("settings", "theme_mode", theme_mode)
 	cfg.set_value("settings", "master_volume", master_volume)
 	cfg.set_value("settings", "ui_volume", ui_volume)
 	cfg.set_value("settings", "music_volume", music_volume)
@@ -166,6 +169,8 @@ func load_dynasty() -> void:
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
 		reduced_motion = cfg.get_value("settings", "reduced_motion", false)
+		theme_mode = str(cfg.get_value("settings", "theme_mode", "dark"))
+		if theme_mode != "light": theme_mode = "dark"
 		master_volume = cfg.get_value("settings", "master_volume", 1.0)
 		master_volume = clampf(master_volume,0,1)
 		ui_volume = cfg.get_value("settings", "ui_volume", 0.8)
@@ -174,6 +179,19 @@ func load_dynasty() -> void:
 		music_volume = clampf(music_volume,0,1)
 		sfx_volume = cfg.get_value("settings", "sfx_volume", 0.8)
 		sfx_volume = clampf(sfx_volume,0,1)
+
+## Skin switching is presentation only; it never touches the run.
+func set_theme_mode(mode: String) -> void:
+	var next_mode: String = "light" if mode == "light" else "dark"
+	if next_mode == theme_mode: return
+	theme_mode = next_mode
+	theme_changed.emit(theme_mode)
+	# save_dynasty reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_dynasty()
+
+func toggle_theme() -> void:
+	set_theme_mode("light" if theme_mode != "light" else "dark")
 
 func reset_full_dynasty() -> void:
 	clear_current_life()

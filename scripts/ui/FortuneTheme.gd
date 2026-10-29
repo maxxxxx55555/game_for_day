@@ -1,22 +1,10 @@
 extends RefCounted
-## Restrained private-bank palette: near-black ink, deep slate surfaces, a single
-## champagne accent and thin rules instead of heavy fills. Gold marks value, never
-## decoration.
-const INK_BG:Color= Color("0a0f16")
-const SURFACE:Color= Color("111a25")
-const SURFACE_RAISED:Color= Color("16212e")
-const SURFACE_DEEP:Color= Color("0d151f")
-const RULE:Color= Color("26313f")
-const RULE_SOFT:Color= Color("1d2733")
-const IVORY:Color= Color("ede7da")
-const MUTED:Color= Color("8a97a6")
-const GOLD:Color= Color("c8a96a")
-const GOLD_DEEP:Color= Color("a98b4f")
-const ALERT:Color= Color("c9736a")
-
+## Builds the Theme for whichever skin is active. Surfaces come from Palette, so
+## switching skins only needs apply() to run again.
+const Palette=preload("res://scripts/ui/Palette.gd")
 static var surfaces:Dictionary= {}
 
-static func panel(color: Color, edge: Color = Color("26313f"), radius: int = 6) -> StyleBoxFlat:
+static func panel(color: Color, edge: Color = Color.TRANSPARENT, radius: int = 6) -> StyleBoxFlat:
 	var box:StyleBoxFlat= StyleBoxFlat.new()
 	box.bg_color = color
 	box.border_color = edge
@@ -32,15 +20,16 @@ static func style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFl
 	return panel(color,border)
 
 static func surface(state: String) -> StyleBoxTexture:
-	if surfaces.has(state): return surfaces[state]
+	var key:String= state + Palette.button_variant()
+	if surfaces.has(key): return surfaces[key]
 	var box:StyleBoxTexture= StyleBoxTexture.new()
-	box.texture = load("res://assets/ui/button-"+state+".svg")
+	box.texture = load("res://assets/ui/button-"+state+Palette.button_variant()+".svg")
 	box.set_texture_margin_all(12)
 	box.content_margin_left = 24
 	box.content_margin_right = 24
 	box.content_margin_top = 12
 	box.content_margin_bottom = 12
-	surfaces[state] = box
+	surfaces[key] = box
 	return box
 
 static func create() -> Theme:
@@ -50,24 +39,50 @@ static func create() -> Theme:
 	body.base_font = load("res://assets/fonts/Onest.ttf")
 	body.variation_opentype = {0x77676874:400.0}
 	theme.default_font = body
-	for type:String in ["Label","RichTextLabel"]: theme.set_color("font_color",type,IVORY)
-	for type:String in ["PanelContainer","Panel"]: theme.set_stylebox("panel",type,panel(SURFACE))
+	for type:String in ["Label","RichTextLabel"]: theme.set_color("font_color",type,Palette.text())
+	for type:String in ["PanelContainer","Panel"]: theme.set_stylebox("panel",type,panel(Palette.surface(),Palette.rule()))
 	for type:String in ["Button","OptionButton","CheckBox"]:
 		theme.set_font_size("font_size",type,20)
 		for state:String in ["normal","hover","pressed","disabled"]: theme.set_stylebox(state,type,surface(state))
-		var focus:StyleBoxFlat= panel(Color.TRANSPARENT,GOLD)
+		var focus:StyleBoxFlat= panel(Color.TRANSPARENT,Palette.accent())
 		focus.set_border_width_all(2)
 		theme.set_stylebox("focus",type,focus)
-		theme.set_color("font_color",type,IVORY)
-		theme.set_color("font_hover_color",type,Color.WHITE)
-		theme.set_color("font_pressed_color",type,GOLD)
-		theme.set_color("font_disabled_color",type,MUTED)
+		theme.set_color("font_color",type,Palette.text())
+		theme.set_color("font_hover_color",type,Palette.text())
+		theme.set_color("font_pressed_color",type,Palette.accent())
+		theme.set_color("font_disabled_color",type,Palette.muted())
+		theme.set_color("icon_normal_color",type,Palette.accent())
+		theme.set_color("icon_hover_color",type,Palette.accent())
+		theme.set_color("icon_pressed_color",type,Palette.accent_deep())
+		theme.set_color("icon_disabled_color",type,Palette.muted())
 	for type:String in ["ItemList","Tree","PopupMenu","TabContainer"]:
-		theme.set_stylebox("panel",type,panel(SURFACE_RAISED))
-		theme.set_color("font_color",type,IVORY)
-	theme.set_stylebox("background","ProgressBar",panel(SURFACE_DEEP))
-	theme.set_stylebox("fill","ProgressBar",panel(GOLD_DEEP,GOLD))
-	theme.set_color("font_color","ProgressBar",IVORY)
+		theme.set_stylebox("panel",type,panel(Palette.raised(),Palette.rule()))
+		theme.set_color("font_color",type,Palette.text())
+	# Thin bronze sliders instead of the engine's heavy default groove.
+	var groove:StyleBoxFlat= panel(Palette.track())
+	groove.set_corner_radius_all(3)
+	groove.content_margin_top = 2
+	groove.content_margin_bottom = 2
+	groove.content_margin_left = 0
+	groove.content_margin_right = 0
+	var filled:StyleBoxFlat= panel(Palette.accent())
+	filled.set_corner_radius_all(3)
+	filled.content_margin_top = 2
+	filled.content_margin_bottom = 2
+	filled.content_margin_left = 0
+	filled.content_margin_right = 0
+	for type:String in ["HSlider","VSlider"]:
+		theme.set_stylebox("slider",type,groove)
+		theme.set_stylebox("grabber_area",type,filled)
+		theme.set_stylebox("grabber_area_highlight",type,filled)
+	var suffix:String= Palette.button_variant()
+	theme.set_icon("checked","CheckBox",load("res://assets/ui/check-on"+suffix+".svg") as Texture2D)
+	theme.set_icon("unchecked","CheckBox",load("res://assets/ui/check-off"+suffix+".svg") as Texture2D)
+	theme.set_icon("checked","CheckButton",load("res://assets/ui/check-on"+suffix+".svg") as Texture2D)
+	theme.set_icon("unchecked","CheckButton",load("res://assets/ui/check-off"+suffix+".svg") as Texture2D)
+	theme.set_stylebox("background","ProgressBar",panel(Palette.deep()))
+	theme.set_stylebox("fill","ProgressBar",panel(Palette.accent_deep(),Palette.accent()))
+	theme.set_color("font_color","ProgressBar",Palette.text())
 	return theme
 
 static func apply(root: Control) -> void:
@@ -76,8 +91,8 @@ static func apply(root: Control) -> void:
 		button.remove_theme_font_size_override("font_size")
 		for state:String in ["normal","hover","pressed","disabled","focus"]: button.remove_theme_stylebox_override(state)
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	(root.get_node("Background") as Control).add_theme_stylebox_override("panel",style(INK_BG))
-	(root.get_node("MarginContainer/VBoxContainer/StatsPanel") as Control).add_theme_stylebox_override("panel",style(SURFACE,RULE))
-	(root.get_node("MarginContainer/VBoxContainer/MarketPanel") as Control).add_theme_stylebox_override("panel",style(SURFACE,RULE_SOFT))
-	(root.get_node("MarginContainer/VBoxContainer/EventPanel") as Control).add_theme_stylebox_override("panel",style(SURFACE_DEEP,RULE))
-	(root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel") as Control).add_theme_color_override("font_color",MUTED)
+	(root.get_node("Background") as Control).add_theme_stylebox_override("panel",style(Palette.ink()))
+	(root.get_node("MarginContainer/VBoxContainer/StatsPanel") as Control).add_theme_stylebox_override("panel",style(Palette.surface(),Palette.rule()))
+	(root.get_node("MarginContainer/VBoxContainer/MarketPanel") as Control).add_theme_stylebox_override("panel",style(Palette.surface(),Palette.rule_soft()))
+	(root.get_node("MarginContainer/VBoxContainer/EventPanel") as Control).add_theme_stylebox_override("panel",style(Palette.deep(),Palette.rule()))
+	(root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel") as Control).add_theme_color_override("font_color",Palette.muted())

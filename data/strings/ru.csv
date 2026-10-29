@@ -979,3 +979,12 @@ birth.reveal,"%s%% новорождённых в мире появляются �
 The country sets the start, not the ending: its grip fades by 50."
 birth.life_years,%d лет,%d yrs
 dashboard.grip,влияние страны: %d%%,country grip: %d%%
+ui.theme,Оформление,Appearance
+ui.theme.dark,Тёмное,Dark
+ui.theme.light,Светлое,Light
+intro.overline,ДИНАСТИЯ В КВАРТАЛАХ,A DYNASTY IN QUARTERS
+intro.title,Наследники удачи,Heirs of Fortune
+stage.survival,ВЫЖИВАНИЕ,SURVIVAL
+stage.career,КАРЬЕРА,CAREER
+stage.millionaire,КАПИТАЛ,CAPITAL
+stage.billionaire,ИМПЕРИЯ,EMPIRE

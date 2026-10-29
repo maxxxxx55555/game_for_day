@@ -1,14 +1,9 @@
 extends Control
 ## Compact actual balances, birthplace and decision-relevant condition meters.
 ## The portrait is gone on purpose: a random-country run has no single face.
-const INK:Color= Color("ede7da")
-const MUTED:Color= Color("8a97a6")
-const GOLD:Color= Color("c8a96a")
-const GOLD_DIM:Color= Color("8c7442")
-const RULE:Color= Color("2a3646")
-const TRACK:Color= Color("1e2a38")
-const ALERT:Color= Color("c9736a")
+## Colours resolve through Palette, so both skins share one drawing routine.
 const BirthLottery=preload("res://scripts/BirthLottery.gd")
+const Palette=preload("res://scripts/ui/Palette.gd")
 var display_cash:float=0.0
 var display_worth:float=0.0
 var target_cash:float=0.0
@@ -47,10 +42,13 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	LocalizationManager.language_changed.connect(func(_language:Variant)->void:queue_redraw())
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void:queue_redraw())
 	set_process(false)
 	refresh_values(true)
 
-func caption(at: Vector2, text: String, font_size: int, color: Color = INK) -> void:
+func caption(at: Vector2, text: String, font_size: int, color: Color) -> void:
 	draw_string(get_theme_default_font(), at, LocalizationManager.display(text), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, color)
 
 func caption_right(right_edge: float, top: float, text: String, font_size: int, color: Color) -> void:
@@ -63,24 +61,22 @@ func _draw() -> void:
 	var region:String= birthplace_region()
 	var meta:String= LocalizationManager.source("copy.d0e02c3cc5dc") % [GameManager.age,GameManager.quarter,GameManager.generation]
 	var top_line:String= country.to_upper() if region.is_empty() else "%s · %s" % [country.to_upper(), region.to_upper()]
-	caption(Vector2(0,12), top_line, 12, GOLD)
-	caption_right(644.0, 12, meta, 12, MUTED)
-	draw_line(Vector2(0,24), Vector2(644,24), RULE, 1.0)
-	caption(Vector2(0,46), LocalizationManager.source("copy.5405c11ba0de"), 11, MUTED)
-	caption(Vector2(430,46), LocalizationManager.source("copy.f925cafd86d7"), 11, MUTED)
-	caption(Vector2(0,88), "$"+GameManager.format_num(display_worth), 38, INK)
-	caption(Vector2(430,84), "$"+GameManager.format_num(display_cash), 26, GOLD)
+	caption(Vector2(0,12), top_line, 12, Palette.accent())
+	caption_right(644.0, 12, meta, 12, Palette.muted())
+	draw_line(Vector2(0,24), Vector2(644,24), Palette.rule(), 1.0)
+	caption(Vector2(0,46), LocalizationManager.source("copy.5405c11ba0de"), 11, Palette.muted())
+	caption(Vector2(430,46), LocalizationManager.source("copy.f925cafd86d7"), 11, Palette.muted())
+	caption(Vector2(0,88), "$"+GameManager.format_num(display_worth), 38, Palette.text())
+	caption(Vector2(430,84), "$"+GameManager.format_num(display_cash), 26, Palette.accent())
 	var meters:Array[int]= [GameManager.health,GameManager.energy,GameManager.happiness,100-GameManager.stress]
 	var names:Array[String]= [LocalizationManager.source("copy.08930838ebae"),LocalizationManager.source("copy.f561c6b678d4"),LocalizationManager.source("copy.c642a5769b74"),LocalizationManager.source("copy.e197da26d73a")]
 	for i:int in 4:
 		var x:float= i*164.0
-		caption(Vector2(x,132), names[i], 10, MUTED)
-		caption_right(x+150.0, 132, str(meters[i]), 10, INK if meters[i]>=30 else ALERT)
-		draw_style_box(bar(TRACK),Rect2(x,138,150,3))
-		draw_style_box(bar(ALERT if meters[i]<30 else GOLD),Rect2(x,138,maxf(3,150*float(meters[i])/100.0),3))
-	var note:String= origin_note()
-	if not note.is_empty():
-		caption_right(644.0, 168, LocalizationManager.source("copy.08930838ebae").substr(0,0)+note, 10, GOLD_DIM)
+		caption(Vector2(x,132), names[i], 10, Palette.muted())
+		caption_right(x+150.0, 132, str(meters[i]), 10, Palette.text() if meters[i]>=30 else Palette.alert())
+		draw_style_box(bar(Palette.track()),Rect2(x,138,150,3))
+		draw_style_box(bar(Palette.alert() if meters[i]<30 else Palette.accent()),Rect2(x,138,maxf(3,150*float(meters[i])/100.0),3))
+	caption_right(644.0, 168, origin_note(), 10, Palette.accent_deep())
 
 func bar(color: Color) -> StyleBoxFlat:
 	var style:StyleBoxFlat= StyleBoxFlat.new()

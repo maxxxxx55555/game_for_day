@@ -1,4 +1,7 @@
 extends MarginContainer
+const Palette=preload("res://scripts/ui/Palette.gd")
+const NUMERALS:Array[String]= ["I","II","III","IV"]
+var index:int=0
 var button:Button
 var title:Label
 var detail:Label
@@ -10,7 +13,8 @@ func _ready() -> void:
 	name="ChoiceCard"
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for edge:String in ["left","right"]: add_theme_constant_override("margin_"+edge,20)
+	add_theme_constant_override("margin_left",46)
+	add_theme_constant_override("margin_right",20)
 	for edge:String in ["top","bottom"]: add_theme_constant_override("margin_"+edge,12)
 	button.add_theme_font_size_override("font_size",1)
 	button.add_theme_constant_override("outline_size",0)
@@ -26,20 +30,33 @@ func _ready() -> void:
 	title.name="ActionTitle"
 	title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	title.add_theme_font_size_override("font_size",24)
-	title.add_theme_color_override("font_color",Color("f1eee7"))
 	title.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	column.add_child(title)
 	detail=Label.new()
 	detail.name="ActionDetail"
 	detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	detail.add_theme_font_size_override("font_size",20)
-	detail.add_theme_color_override("font_color",Color("b6c6d2"))
 	detail.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	column.add_child(detail)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void:queue_redraw())
 	refresh()
+
+## Roman index drawn in the gutter, the way a numbered menu is set in print.
+func numeral() -> String:
+	return NUMERALS[clampi(index-1,0,NUMERALS.size()-1)]
+
+func _draw() -> void:
+	if index <= 0: return
+	var color:Color= Palette.muted() if (button and button.disabled) else Palette.accent()
+	draw_string(get_theme_default_font(),Vector2(20.0,size.y*0.5+5.0),numeral(),HORIZONTAL_ALIGNMENT_LEFT,-1,14,color)
+
 func refresh() -> void:
 	if not is_instance_valid(button): return
 	modulate.a=0.5 if button.disabled else 1.0
+	title.add_theme_color_override("font_color",Palette.text())
+	detail.add_theme_color_override("font_color",Palette.muted())
 	var available:float=button.size.x-40
 	if button.text==previous and previous_language==LocalizationManager.current_language and is_equal_approx(available,measured_width): return
 	previous_language=LocalizationManager.current_language

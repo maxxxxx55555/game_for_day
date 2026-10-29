@@ -5,6 +5,10 @@ const FinaleView=preload("res://scripts/ui/LifeFinale.gd")
 const ChoiceView=preload("res://scripts/ui/ChoiceCard.gd")
 const CreditsView=preload("res://scripts/ui/FortuneCredits.gd")
 const BirthRevealView=preload("res://scripts/ui/BirthReveal.gd")
+const CountryPlateView=preload("res://scripts/ui/CountryPlate.gd")
+const IntroCoverView=preload("res://scripts/ui/IntroCover.gd")
+const ChromeView=preload("res://scripts/ui/Chrome.gd")
+const Palette=preload("res://scripts/ui/Palette.gd")
 
 @onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/StatsLabel
 @onready var market_label: Label = $MarginContainer/VBoxContainer/MarketPanel/MarketLabel
@@ -33,7 +37,13 @@ var intro_actions:HBoxContainer
 var credits_panel:CreditsView
 var story_transition:Tween
 var birth_reveal:BirthRevealView
+var country_plate:CountryPlateView
+var intro_cover:IntroCoverView
+var chrome:ChromeView
+var stage_label:Label
 var story_content:VBoxContainer
+var brand_label:Label
+var theme_button:Button
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -53,8 +63,8 @@ func _ready() -> void:
 	save_status.text = LocalizationManager.source("copy.bf448e0995f5")
 	save_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	save_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	save_status.add_theme_color_override("font_color",Color("ffbf90"))
-	save_status.add_theme_color_override("font_outline_color",Color("10191b"))
+	save_status.add_theme_color_override("font_color",Palette.alert())
+	save_status.add_theme_color_override("font_outline_color",Palette.ink())
 	save_status.add_theme_constant_override("outline_size",8)
 	save_status.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	save_status.z_index = 100
@@ -71,6 +81,7 @@ func _ready() -> void:
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
 	for button:Button in [btn_1,btn_2,btn_3]:
 		var card:ChoiceView=preload("res://scripts/ui/ChoiceCard.gd").new()
+		card.index=choice_cards.size()+1
 		button.add_child(card)
 		choice_cards.append(card)
 	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
@@ -81,7 +92,8 @@ func _ready() -> void:
 	brand.text = "HEIRS OF FORTUNE"
 	brand.add_theme_font_override("font", load("res://assets/fonts/Prata-Regular.ttf") as Font)
 	brand.add_theme_font_size_override("font_size", 32)
-	brand.add_theme_color_override("font_color", Color("d4bd90"))
+	brand.add_theme_color_override("font_color", Palette.accent())
+	brand_label = brand
 	column.add_child(brand)
 	column.move_child(brand,0)
 	language_choice=OptionButton.new()
@@ -103,6 +115,14 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	credits_button.pressed.connect(open_credits)
+	theme_button = Button.new()
+	theme_button.name = "ThemeButton"
+	theme_button.custom_minimum_size.x = 64
+	theme_button.tooltip_text = LocalizationManager.source("ui.theme")
+	intro_actions.add_child(theme_button)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	theme_button.pressed.connect(GameManager.toggle_theme)
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	language_choice.item_selected.connect(func(index:int)->void:LocalizationManager.set_language("ru" if index==0 else "en"))
@@ -120,6 +140,14 @@ func _ready() -> void:
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	content.add_theme_constant_override("separation",18)
 	$MarginContainer/VBoxContainer/EventPanel/EventScroll.add_child(content)
+	# The scroll child is sized to its content, so an expanding illustration needs
+	# the column to match the viewport before it can take the slack.
+	var story_scroll:ScrollContainer = $MarginContainer/VBoxContainer/EventPanel/EventScroll
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	story_scroll.resized.connect(func()->void:
+		if story_content: story_content.custom_minimum_size.y = maxf(0.0, story_scroll.size.y - 6.0)
+	)
 	event_label.reparent(content)
 	story_art = TextureRect.new()
 	story_art.texture = load("res://assets/art/city_folio.png")
@@ -128,18 +156,37 @@ func _ready() -> void:
 	story_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	content.add_child(story_art)
 	content.move_child(story_art,0)
+	country_plate = CountryPlateView.new()
+	country_plate.name = "CountryPlate"
+	content.add_child(country_plate)
+	content.move_child(country_plate,0)
+	country_plate.hide()
+	intro_cover = IntroCoverView.new()
+	intro_cover.name = "IntroCover"
+	intro_cover.texture = story_art.texture
+	content.add_child(intro_cover)
+	content.move_child(intro_cover,0)
+	intro_cover.hide()
 	birth_reveal = preload("res://scripts/ui/BirthReveal.gd").new()
 	birth_reveal.name = "BirthReveal"
 	content.add_child(birth_reveal)
 	content.move_child(birth_reveal,1)
 	birth_reveal.hide()
-	event_label.add_theme_color_override("font_color",Color("ede7da"))
+	event_label.add_theme_color_override("font_color",Palette.text())
 	event_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	event_label.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
+	stage_label = Label.new()
+	stage_label.name = "StageLabel"
+	stage_label.add_theme_font_size_override("font_size",11)
+	stage_label.add_theme_color_override("font_color",Palette.accent())
+	stage_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	content.add_child(stage_label)
+	content.move_child(stage_label, event_label.get_index())
+	stage_label.hide()
 	outcome=Label.new()
 	outcome.name="LastOutcome"
 	outcome.add_theme_font_size_override("font_size",15)
-	outcome.add_theme_color_override("font_color",Color("8a97a6"))
+	outcome.add_theme_color_override("font_color",Palette.muted())
 	outcome.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	outcome.hide()
 	content.add_child(outcome)
@@ -224,9 +271,51 @@ func _ready() -> void:
 		show_intro_screen()
 	else:
 		restore_session(saved)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void:apply_skin())
+	chrome = ChromeView.new()
+	chrome.name = "Chrome"
+	add_child(chrome)
+	apply_skin()
 	# The private QA router handles rejection/exit itself; normal startup continues when no flag is supplied.
 	@warning_ignore("return_value_discarded")
 	preload("res://scripts/security/QARouter.gd").request(self)
+
+## Re-skins everything the global Theme cannot reach: explicit colour overrides,
+## button icons and the custom-drawn cards.
+func apply_skin() -> void:
+	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
+	if brand_label: brand_label.add_theme_color_override("font_color", Palette.accent())
+	if event_label: event_label.add_theme_color_override("font_color", Palette.text())
+	if outcome: outcome.add_theme_color_override("font_color", Palette.muted())
+	if save_status:
+		save_status.add_theme_color_override("font_color", Palette.alert())
+		save_status.add_theme_color_override("font_outline_color", Palette.ink())
+	apply_icons()
+	if dashboard: dashboard.queue_redraw()
+	if birth_reveal: birth_reveal.queue_redraw()
+	if country_plate: country_plate.queue_redraw()
+	if intro_cover: intro_cover.queue_redraw()
+	if stage_label: stage_label.add_theme_color_override("font_color", Palette.accent())
+
+func apply_icons() -> void:
+	set_icon(market_btn, "market")
+	set_icon(biz_btn, "business")
+	set_icon(ad_btn, "grant")
+	set_icon(settings_btn, "settings")
+	set_icon(theme_button, "theme")
+
+func set_icon(button: Button, icon_name: String) -> void:
+	if button == null: return
+	button.icon = load("res://assets/ui/icons/%s.svg" % icon_name)
+	button.expand_icon = false
+	button.add_theme_constant_override("icon_max_width", 22)
+	button.add_theme_constant_override("h_separation", 8)
+	button.add_theme_color_override("icon_normal_color", Palette.accent())
+	button.add_theme_color_override("icon_hover_color", Palette.accent())
+	button.add_theme_color_override("icon_pressed_color", Palette.accent_deep())
+	button.add_theme_color_override("icon_disabled_color", Palette.muted())
 
 func _notification(what: int) -> void:
 	if not is_node_ready(): return
@@ -318,11 +407,21 @@ func update_ui() -> void:
 	music_label.hide()
 	($MarginContainer/VBoxContainer/StatsPanel as Control).visible = current_mode != ScreenMode.INTRO
 	($MarginContainer/VBoxContainer/BottomBar as Control).visible = current_mode in [ScreenMode.LIFE,ScreenMode.MARKET,ScreenMode.BUSINESS,ScreenMode.SETTINGS]
-	story_art.visible = current_mode in [ScreenMode.INTRO,ScreenMode.PERK,ScreenMode.LIFE]
-	story_art.custom_minimum_size.y = 260 if current_mode == ScreenMode.INTRO else 190
+	var has_country:bool = not GameManager.birth_country_code.is_empty()
+	var plate_mode:bool = current_mode == ScreenMode.LIFE and has_country
+	if country_plate:
+		country_plate.visible = plate_mode
+		if plate_mode: country_plate.present(GameManager.birth_country_code)
+	if intro_cover: intro_cover.visible = current_mode == ScreenMode.INTRO
+	if stage_label:
+		stage_label.visible = current_mode == ScreenMode.LIFE
+		stage_label.text = current_stage_text()
+	story_art.visible = current_mode == ScreenMode.PERK or (current_mode == ScreenMode.LIFE and not has_country)
+	story_art.custom_minimum_size.y = 190
 	if birth_reveal: birth_reveal.visible = current_mode == ScreenMode.BIRTH
 	if story_content:
 		story_content.alignment = BoxContainer.ALIGNMENT_CENTER if current_mode == ScreenMode.BIRTH else BoxContainer.ALIGNMENT_BEGIN
+	if birth_reveal: birth_reveal.size_flags_vertical = Control.SIZE_EXPAND_FILL if current_mode == ScreenMode.BIRTH else Control.SIZE_SHRINK_BEGIN
 	story_art.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	market_btn.text = LocalizationManager.source("copy.47ff48632f92")
 	biz_btn.text = LocalizationManager.source("copy.964b2df03bda")
@@ -359,6 +458,15 @@ func update_ui() -> void:
 		ad_btn.text = LocalizationManager.source("copy.c54826c2787f") % str(GameManager.ad_cooldown)
 	else:
 		ad_btn.text = LocalizationManager.source("copy.3bcab31e2fd9")
+
+## The chapter the run is in, matching the event pools' own thresholds.
+func current_stage_text() -> String:
+	var nw:float = GameManager.get_net_worth()
+	var stage:String = "survival"
+	if nw >= 50000000.0: stage = "billionaire"
+	elif nw >= 500000.0: stage = "millionaire"
+	elif nw >= 25000.0: stage = "career"
+	return LocalizationManager.source("stage." + stage)
 
 func _process(delta: float) -> void:
 	event_label.text = clean_copy(event_label.text)

@@ -72,6 +72,19 @@ static func by_code(code:String) -> Array:
 static func country_name(code:String) -> String:
 	return LocalizationManager.source("country.%s.name" % code.to_lower())
 
+## Three dominant flag colours, used to paint the country art plate.
+static func flag_colors(code:String) -> Array[Color]:
+	var colors:Array[Color] = []
+	var row:Array = by_code(code)
+	if row.is_empty():
+		return [Color("6b7280"), Color("9ca3af"), Color("ffffff")]
+	var parts:PackedStringArray = str(row[5]).split(",")
+	for part:String in parts:
+		colors.append(Color("#" + part.strip_edges()))
+	while colors.size() < 3:
+		colors.append(colors[colors.size() - 1])
+	return colors
+
 static func region_name(region_code:String) -> String:
 	return LocalizationManager.source("region.%s" % region_code)
 
