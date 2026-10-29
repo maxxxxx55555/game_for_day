@@ -38,6 +38,15 @@ func run()->void:
     check(game.select_ambition("heir"),"Heir ambition is selectable")
     check(is_equal_approx(game.inheritance_multiplier(),1.25),"Heir carries the 1.25 inheritance multiplier")
     check(is_equal_approx(game.cash,1450.0),"Heir scales the starting inheritance before the first event")
+    game.business_tier=1
+    game.business_scale=1
+    game.select_ambition("steady")
+    var steady_income:int=game.get_passive_quarterly_income_cents()
+    game.select_ambition("heir")
+    var heir_income:int=game.get_passive_quarterly_income_cents()
+    check(steady_income>0,"A tier-one business pays a quarterly income")
+    check(heir_income<steady_income and float(heir_income)>=float(steady_income)*0.88,"Heir trades about a tenth of quarterly income for the dynasty")
+    check(txt("ambition.heir.button").count("%")>=2,"The heir label discloses its gain and its cost")
     screen.update_ambition_controls()
     check(screen.ambition_buttons.size()==3 and screen.ambition_buttons[0].button_group!=null,"Ambition is a single-choice control group")
     for button:Button in screen.ambition_buttons:

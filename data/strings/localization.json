@@ -3293,8 +3293,8 @@
       "en": "Meteor (+25% income, +30% stress)"
     },
     "ambition.heir.button": {
-      "ru": "Наследник (наследство +25%)",
-      "en": "Heir (+25% inheritance)"
+      "ru": "Наследник (наследство +25%, доход -10%)",
+      "en": "Heir (+25% inheritance, -10% income)"
     },
     "ambition.steady.desc": {
       "ru": "Ровный темп: без скрытых множителей дохода и стресса.",
@@ -3305,8 +3305,8 @@
       "en": "Fast money demands strong nerves: higher income, faster stress."
     },
     "ambition.heir.desc": {
-      "ru": "Жизнь продолжает дело рода: наследство весомее на четверть.",
-      "en": "The life continues the family work: inheritance is a quarter larger."
+      "ru": "Дело рода требует вложений: доход на десятую часть ниже, зато наследство крупнее.",
+      "en": "The family work comes first: income runs a tenth lower, but the inheritance is larger."
     },
     "ambition.intro": {
       "ru": "Выберите темп этой жизни.",

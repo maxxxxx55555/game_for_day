@@ -444,6 +444,8 @@ func get_passive_quarterly_income_cents() -> int:
 	var gross:int=Money.add(get_business_income_cents(),dividend)
 	if gross==Money.INVALID:return 0
 	var factor:float=get_origin_income_modifier() * (1.05 if unlocked_perks.has("networker") else 1.0)
+	if ambition == "heir":
+		factor *= 0.9
 	var scaled:int=Money.scale(gross,factor)
 	return 0 if scaled==Money.INVALID else scaled
 

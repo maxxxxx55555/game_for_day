@@ -986,10 +986,10 @@ ambition.meteor,Метеор,Meteor
 ambition.heir,Наследник,Heir
 ambition.steady.button,Размеренный (ровный доход и стресс),Steady (even income and stress)
 ambition.meteor.button,"Метеор (доход +25%, стресс +30%)","Meteor (+25% income, +30% stress)"
-ambition.heir.button,Наследник (наследство +25%),Heir (+25% inheritance)
+ambition.heir.button,"Наследник (наследство +25%, доход -10%)","Heir (+25% inheritance, -10% income)"
 ambition.steady.desc,Ровный темп: без скрытых множителей дохода и стресса.,An even pace: no hidden income or stress multipliers.
 ambition.meteor.desc,"Быстрые деньги требуют крепких нервов: доход выше, стресс растёт быстрее.","Fast money demands strong nerves: higher income, faster stress."
-ambition.heir.desc,Жизнь продолжает дело рода: наследство весомее на четверть.,The life continues the family work: inheritance is a quarter larger.
+ambition.heir.desc,"Дело рода требует вложений: доход на десятую часть ниже, зато наследство крупнее.","The family work comes first: income runs a tenth lower, but the inheritance is larger."
 ambition.intro,Выберите темп этой жизни.,Choose the pace of this life.
 ambition.short.steady,размеренный,steady
 ambition.short.meteor,метеор,meteor
