@@ -6,7 +6,7 @@ The older design documents contain a much larger roadmap. This matrix indexes ev
 
 | Original section | Status | Current edition / evidence | Explicit exclusions |
 |---|---|---|---|
-| 0 | implemented | Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings. [Test](../tests/test_gameplay.gd) | No multiplayer/live markets/real-money ads or store-production signing |
+| 0 | implemented | Current edition: original event IDs/order, 93 real decisions, 192 weighted country birthplaces, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings. [Test](../tests/test_gameplay.gd) | No multiplayer/live markets/real-money ads or store-production signing |
 | 1 | implemented | Keyed bilingual presentation preserves canonical Russian serialized text and action callables. [Test](../tests/test_localization.gd) | — |
 | 2 | implemented | Concise real choice cards, costs/chances in details, native hitboxes/focus and responsive portrait layouts. [Test](../tests/test_choice_sweep.gd) | — |
 | 3 | implemented | Dark ledger theme, country card/dashboard, illustrated finales, sound, compatibility and current release gate. [Test](../tests/test_premium_ui.gd) | — |

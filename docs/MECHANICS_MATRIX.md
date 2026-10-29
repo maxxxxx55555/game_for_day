@@ -4,7 +4,7 @@ Execution: **executed PASS for the mapped finite cases; F7 pending**. Publicatio
 
 Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the final publication gate remain pending.
 
-Windows. OS background/Back is simulated on Windows; Android artifact omitted under section16.
+Windows. OS background/Back is simulated on Windows; Android artifact omitted under section 16.
 
 Each cell links to executable assertions. The profile contract hashes the complete persistent model across pause/background, live EN/RU changes and authenticated save/load. The completed-campaign contract adds sixty objectives and four companions. Separate valid clicks may remain separate paid actions; rejected transactions must be atomic.
 

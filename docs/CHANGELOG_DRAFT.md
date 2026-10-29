@@ -24,11 +24,11 @@
 - F2: audited literal keys and blank scene defaults; verified both locale catalogs and actual typeface glyphs.
 - Remaining birth/business/inheritance model copy uses existing keys while preserving canonical Russian identities. Added a v1.4.0 original-copy and ordered-event regression fixture; opening copy refreshes on live language changes.
 
-F3: published art tokens and individual10-file source review; unified Prata display headings, legible currency units/scale/sample labels, and interruptible180ms presentation-only capital updates with reduced-motion snapping. Source gallery and final gate evidence are tracked separately.
+F3: published art tokens and individual 10-file source review; unified Prata display headings, legible currency units/scale/sample labels, and interruptible 180ms presentation-only capital updates with reduced-motion snapping. Source gallery and final gate evidence are tracked separately.
 
 V2 F4: preserve the four distinct recorded mood tracks and two finales; add quiet focus/unavailable synthesis with honest CC0 hashes, one contextual acknowledgment per action, restrained cosmetic pitch variation and real rejected-action regressions. QA remains muted.
 
 ## F5 — integrity integration, awaiting final gate
 
 Separate encrypted public/private QA exports and environment-only keys; physically excluded public verifier. Compiled critical-data manifest/trusted fallback and localized read-only safe mode. Localized authenticated-save recovery and stable unchanged round trips. New regression tests cover replacement manifests, safe-mode write/deletion boundaries, key preflight, public flags and save recovery.
-Integer-cent money ledger, bounded fixed-precision FX wallet, no same-quote cent creation, atomic overflow refusal and saved monotonic grant ticks. Android artifacts omitted for this v2 cycle under section16; no emulator claim.
+Integer-cent money ledger, bounded fixed-precision FX wallet, no same-quote cent creation, atomic overflow refusal and saved monotonic grant ticks. Android artifacts omitted for this v2 cycle under section 16; no emulator claim.
