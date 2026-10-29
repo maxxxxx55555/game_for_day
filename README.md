@@ -1,3 +1,29 @@
+# Heirs of Fortune — 2.1.0
+
+## Legacy & Chains
+
+Eight player-started life threads now run across two links. A thread chosen from the dynasty ledger stores its flag, returns after five quarters with a recall of the exact choice, and resolves through a flag-specific variant. Completion grants momentum; every thread is recorded once.
+
+The dynasty ledger adds five real sections: journal, permanent legacy perks (eight unlocks, 4–15 points), life threads, a twelve-life hall of fame and ascension status. Legacy points survive generations; the intro offers three ambitions — steady, meteor and heir — and milestones at 18, 25, 35, 50 and 65 present a retrospective card and momentum without pausing the world.
+
+Ascension is a five-level NG+ path from the victory finale: each level raises inflation, volatility and difficulty and enriches legacy, while the next life starts clean. Cards gained a short reveal, signed delta chips for every changed stat, outcome tones and a live portfolio pulse; reduced motion snaps all of it. Palette, Unbounded display and Onest body type, the 1.75px vector icon set and the no-emoji presentation pass are documented in [art direction](docs/ART_DIRECTION.md).
+
+2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 17 rows and 136 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
+
+This candidate is not a release until rendered and export/native checks, the seeded soak, owner checks and the publication gate pass. The 57-case headless source suite passed in both Russian and English on 2026-10-29; no 2.1.0 artifact is published before the full gate. See the [2.1.0 release-candidate notes](docs/RELEASE_2.1.0.md) and the [handoff](docs/HANDOFF.md).
+
+## Русский
+
+Восемь «нитей судьбы», начатых из панели династии, теперь живут в двух звеньях: выбор запоминается флагом, возвращается через пять кварталов с точной цитатой и получает вариантную развязку. Завершённая нить даёт импульс и записывается один раз.
+
+Панель династии собрана из пяти разделов: журнал, постоянные перки наследия (восемь покупок за 4–15 очков), нити, зал славы на двенадцать жизней и восхождение. Очки наследия переходят между поколениями; на старте доступны три амбиции — размеренная, метеор и наследник; вехи в 18, 25, 35, 50 и 65 лет показывают карточку-ретроспективу и импульс, не останавливая мир.
+
+Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
+
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 17 строк и 136 исполняемых ячеек. Это кандидат, а не релиз: рендерные, экспортные и нативные проверки, сеяный прогон, проверки владельца и публикационный гейт ещё должны пройти; 29 октября 2026 года headless-набор из 57 кейсов прошёл на русском и английском. До полного гейта артефакт 2.1.0 не публикуется.
+
+---
+
 # Heirs of Fortune — 2.0.2
 
 ## Current edition scope
@@ -22,7 +48,7 @@ Retained: Live RU/EN presentation with 816 catalog keys, four mood compositions 
 
 Normal Exit, window close and guarded QA rejection now wait for actual audio playback disposal before terminating. Save failures retain Retry/Stay/Discard, repeated accepted dialog callbacks cannot write twice, and private verifier cleanup remains reusable. Source test drivers drain audio explicitly and the runner rejects resource-leak warnings.
 
-Coverage: 55 rendered Godot cases per locale;112 mechanics cells; all93 decision layouts plus currency, inflation, save, integrity and finale routes, plus Python checkout/provenance/license/copy/export contracts. Fresh complete source/native/soak results and exact artifact hashes are recorded by the release gate and current acceptance certificate. Earlier release measurements are historical and do not establish acceptance of this patch.
+2.0.2 coverage: 55 rendered Godot cases per locale; 112 mechanics cells; all 93 decision layouts plus currency, inflation, save, integrity and finale routes, plus Python checkout/provenance/license/copy/export contracts. Fresh complete source/native/soak results and exact artifact hashes are recorded by the release gate and current acceptance certificate. Earlier release measurements are historical and do not establish acceptance of this patch.
 
 See [patch notes](docs/RELEASE_2.0.1.md), [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [mechanics coverage](docs/MECHANICS_MATRIX.md), [save integrity](SAVE-INTEGRITY.md) and [the scoped promise inventory](docs/PROMISE_MATRIX.md). Portable Windows x64; Godot Compatibility/OpenGL-capable GPU; offline. The EXE is not Authenticode signed. Android artifacts are omitted. Finite automated tests do not replace owner play/listening checks or guarantee zero possible bugs, unbreakable offline security or AAA scale.
 
@@ -69,7 +95,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains 55 Godot invocations per locale, including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 816 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner contains 57 Godot invocations per locale (58 with rendered mode), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 1080 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 

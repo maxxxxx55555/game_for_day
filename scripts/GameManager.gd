@@ -16,8 +16,20 @@ const Money=preload("res://scripts/security/Money.gd")
 const SavePolicy = preload("res://scripts/security/FortuneSavePolicy.gd")
 const SAVE_PATH:String= "user://dynasty_save.cfg"
 const SESSION_PATH:String= "user://current_life.cfg"
-const RUN_FIELDS:Array[String]= ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "birth_country_code", "birth_opportunity", "death_age", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick"]
+const RUN_FIELDS:Array[String]= ["age", "quarter", "total_turns", "real_world_week", "time_speed", "quarter_progress_accum", "cash", "stock_units", "crypto_units", "stock_index", "crypto_rate", "inflation_multiplier", "difficulty_multiplier", "business_tier", "business_scale", "health", "intellect", "stress", "happiness", "energy", "birth_origin", "birth_cost_modifier", "birth_country_code", "birth_opportunity", "death_age", "player_perk", "has_rolled_birth", "ad_cooldown", "revive_used", "inherited_capital", "audio_enabled", "fx_state", "cash_cents", "stock_price_cents", "crypto_price_cents", "inherited_capital_cents", "simulation_ticks", "grant_ready_tick", "last_grant_tick", "ambition", "run_ascension", "chain_records", "milestone_log", "momentum", "market_history", "dynasty_committed"]
 const QUARTERLY_INFLATION:float= 0.007
+const MAX_ASCENSION:int= 5
+const MILESTONE_AGES:Array[int]= [18, 25, 35, 50, 65]
+const LEGACY_PERKS:Array[Dictionary]= [
+	{"id": "warm_start", "name_key": "legacy.perk.warm_start", "desc_key": "legacy.perk.warm_start.desc", "cost": 4},
+	{"id": "business_savvy", "name_key": "legacy.perk.business_savvy", "desc_key": "legacy.perk.business_savvy.desc", "cost": 6},
+	{"id": "market_instinct", "name_key": "legacy.perk.market_instinct", "desc_key": "legacy.perk.market_instinct.desc", "cost": 8},
+	{"id": "calm_blood", "name_key": "legacy.perk.calm_blood", "desc_key": "legacy.perk.calm_blood.desc", "cost": 8},
+	{"id": "healthy_habits", "name_key": "legacy.perk.healthy_habits", "desc_key": "legacy.perk.healthy_habits.desc", "cost": 10},
+	{"id": "networker", "name_key": "legacy.perk.networker", "desc_key": "legacy.perk.networker.desc", "cost": 12},
+	{"id": "fast_learner", "name_key": "legacy.perk.fast_learner", "desc_key": "legacy.perk.fast_learner.desc", "cost": 12},
+	{"id": "safety_net", "name_key": "legacy.perk.safety_net", "desc_key": "legacy.perk.safety_net.desc", "cost": 15}
+]
 var fx:TypeRefExchangeMarket= preload("res://scripts/ExchangeMarket.gd").new()
 var fx_state: Dictionary:
 	get: return fx.capture()
@@ -102,6 +114,12 @@ var rank: int = 8000000000
 # Мета-прогрессия (Династия) и состояние
 var generation: int = 1
 var legacy_points: int = 0
+var unlocked_perks: Array[String] = []
+var dynasty_records: Array = []
+var ascension_level: int = 0
+var lives_completed: int = 0
+var lifetime_best_cents: int = 0
+var total_legacy_earned: int = 0
 var inherited_capital_cents:int=0:
 	set(value):
 		if value>=0 and Money.valid(value):inherited_capital_cents=value
@@ -134,6 +152,14 @@ var ad_cooldown:float:
 	set(value):
 		if is_finite(value) and value>=0 and value<=100:grant_ready_tick=simulation_ticks+ceili(value*2.0)
 var revive_used: bool = false
+var ambition: String = "steady"
+var run_ascension: int = 0
+var chain_records: Array = []
+var milestone_log: Array = []
+var momentum: int = 0
+var market_history: Array = []
+var dynasty_committed: bool = false
+var last_delta: Dictionary = {}
 
 func _ready() -> void:
 	load_dynasty()
@@ -144,6 +170,12 @@ func save_dynasty() -> bool:
 	cfg.set_value("dynasty", "legacy_points", legacy_points)
 	cfg.set_value("dynasty", "inherited_capital", inherited_capital)
 	cfg.set_value("dynasty","inherited_capital_cents",inherited_capital_cents)
+	cfg.set_value("dynasty", "unlocked_perks", unlocked_perks)
+	cfg.set_value("dynasty", "records", dynasty_records)
+	cfg.set_value("dynasty", "ascension_level", ascension_level)
+	cfg.set_value("dynasty", "lives_completed", lives_completed)
+	cfg.set_value("dynasty", "lifetime_best_cents", lifetime_best_cents)
+	cfg.set_value("dynasty", "total_legacy_earned", total_legacy_earned)
 	cfg.set_value("settings", "time_speed", time_speed)
 	cfg.set_value("settings", "audio_enabled", audio_enabled)
 	cfg.set_value("settings", "reduced_motion", reduced_motion)
@@ -163,6 +195,34 @@ func load_dynasty() -> void:
 		legacy_points = cfg.get_value("dynasty", "legacy_points", 0)
 		inherited_capital = cfg.get_value("dynasty", "inherited_capital", 0.0)
 		inherited_capital_cents=cfg.get_value("dynasty","inherited_capital_cents",inherited_capital_cents)
+		unlocked_perks.clear()
+		var saved_perks: Variant = cfg.get_value("dynasty", "unlocked_perks", [])
+		if saved_perks is Array:
+			for perk: Variant in saved_perks:
+				var perk_id:String=str(perk)
+				if perk is String and valid_perk_id(perk_id) and not unlocked_perks.has(perk_id):
+					unlocked_perks.append(perk_id)
+		dynasty_records.clear()
+		var saved_records: Variant = cfg.get_value("dynasty", "records", [])
+		if saved_records is Array:
+			for record: Variant in saved_records:
+				if record is Dictionary:
+					dynasty_records.append(record)
+		var saved_ascension: Variant = cfg.get_value("dynasty", "ascension_level", 0)
+		if saved_ascension is int:
+			var ascension_value:int=saved_ascension
+			ascension_level = clampi(ascension_value, 0, MAX_ASCENSION)
+		var saved_lives: Variant = cfg.get_value("dynasty", "lives_completed", 0)
+		if saved_lives is int:
+			var lives_value:int=saved_lives
+			lives_completed = maxi(0, lives_value)
+		var saved_best: Variant = cfg.get_value("dynasty", "lifetime_best_cents", 0)
+		if saved_best is int:
+			lifetime_best_cents = saved_best
+		var saved_legacy: Variant = cfg.get_value("dynasty", "total_legacy_earned", 0)
+		if saved_legacy is int:
+			var legacy_value:int=saved_legacy
+			total_legacy_earned = maxi(0, legacy_value)
 		time_speed = cfg.get_value("settings", "time_speed", 1.0)
 		audio_enabled = cfg.get_value("settings", "audio_enabled", true)
 		reduced_motion = cfg.get_value("settings", "reduced_motion", false)
@@ -180,6 +240,12 @@ func reset_full_dynasty() -> void:
 	generation = 1
 	legacy_points = 0
 	inherited_capital = 0.0
+	unlocked_perks.clear()
+	dynasty_records.clear()
+	ascension_level = 0
+	lives_completed = 0
+	lifetime_best_cents = 0
+	total_legacy_earned = 0
 	# save_dynasty reports persistence failure to the visible save-status path.
 	@warning_ignore("return_value_discarded")
 	save_dynasty()
@@ -208,8 +274,12 @@ func load_current_life() -> Dictionary:
 		birth_country_code=""
 		birth_opportunity=1.0
 		death_age=82
+	var new_fields:Dictionary={
+		"ambition": "steady", "run_ascension": ascension_level, "chain_records": [],
+		"milestone_log": [], "momentum": 0, "market_history": [], "dynasty_committed": false
+	}
 	for field:String in RUN_FIELDS:
-		set(field, cfg.get_value("run", field, {} if field == "fx_state" else get(field)))
+		set(field, cfg.get_value("run", field, {} if field == "fx_state" else new_fields.get(field, get(field))))
 	if not cfg.has_section_key("run","simulation_ticks"):
 		var old_cooldown:float=cfg.get_value("run","ad_cooldown",0.0)
 		simulation_ticks=maxi(0,((age-18)*4+quarter-1)*2+roundi(quarter_progress_accum*2.0))
@@ -235,13 +305,21 @@ func reset_game() -> void:
 	simulation_ticks=0
 	grant_ready_tick=0
 	last_grant_tick=-1
-	cash = 200.0 + inherited_capital
+	ambition = "steady"
+	run_ascension = ascension_level
+	chain_records.clear()
+	milestone_log.clear()
+	momentum = 0
+	dynasty_committed = false
+	last_delta = {}
+	cash = 200.0 + inherited_capital * inheritance_multiplier() + legacy_start_bonus()
 	stock_units = 0.0
 	crypto_units = 0.0
 	stock_index = 1000.0
 	crypto_rate = 100.0
+	market_history = [stock_index]
 	inflation_multiplier = 1.0
-	difficulty_multiplier = 1.0
+	difficulty_multiplier = 1.0 + 0.08 * float(run_ascension)
 	business_tier = 0
 	business_scale = 1
 	health = 100
@@ -276,9 +354,9 @@ func roll_birth_lottery() -> Dictionary:
 	birth_opportunity=BirthLottery.value_number(outcome,"opportunity")
 	birth_cost_modifier=BirthLottery.value_number(outcome,"cost")
 	death_age=BirthLottery.value_int(outcome,"death_age")
-	cash=BirthLottery.value_number(outcome,"cash")+inherited_capital
-	health=BirthLottery.value_int(outcome,"health")
-	intellect=BirthLottery.value_int(outcome,"intellect")
+	cash=BirthLottery.value_number(outcome,"cash")+inherited_capital*inheritance_multiplier()+legacy_start_bonus()
+	health=mini(100,BirthLottery.value_int(outcome,"health")+(10 if unlocked_perks.has("healthy_habits") else 0))
+	intellect=BirthLottery.value_int(outcome,"intellect")+(2 if unlocked_perks.has("fast_learner") else 0)
 	stress=BirthLottery.value_int(outcome,"stress")
 	var result:Dictionary={
 		"title": str(outcome["name"]),
@@ -365,13 +443,15 @@ func get_passive_quarterly_income_cents() -> int:
 	var dividend:int=Money.ratio(stock,18 if player_perk=="wall_street" else 12,1000)
 	var gross:int=Money.add(get_business_income_cents(),dividend)
 	if gross==Money.INVALID:return 0
-	var scaled:int=Money.scale(gross,get_origin_income_modifier())
+	var factor:float=get_origin_income_modifier() * (1.05 if unlocked_perks.has("networker") else 1.0)
+	var scaled:int=Money.scale(gross,factor)
 	return 0 if scaled==Money.INVALID else scaled
 
 func get_passive_quarterly_income() -> float:return Money.dollars(get_passive_quarterly_income_cents())
 
 func get_quarterly_living_cost_cents() -> int:
-	var base:int=Money.scale((280+(age-18)*18)*100,get_origin_cost_modifier()*inflation_multiplier)
+	var cost_factor:float=get_origin_cost_modifier()*inflation_multiplier*(0.92 if unlocked_perks.has("safety_net") else 1.0)
+	var base:int=Money.scale((280+(age-18)*18)*100,cost_factor)
 	if business_tier>=3:base=Money.add(base,Money.ratio(get_business_income_cents(),15,100))
 	if base==Money.INVALID:return Money.MAX_CENTS
 	# Preserve the edition's nearest-whole-dollar cost policy, in the cent ledger.
@@ -428,24 +508,35 @@ func advance_quarter_and_markets() -> Dictionary:
 	real_world_week = 1 + int((float((age - 18) * 4 + quarter - 1) + quarter_progress_accum) * 13.0)
 
 	# Инфляция и мировая сложность
-	inflation_multiplier *= (1.0 + QUARTERLY_INFLATION * time_speed)
+	inflation_multiplier *= (1.0 + (QUARTERLY_INFLATION + 0.002 * float(run_ascension)) * time_speed)
 	fx.advance(time_speed, QUARTERLY_INFLATION)
 	difficulty_multiplier += 0.008 * time_speed
 
 	# Колебания фондового индекса и криптовалюты
-	var stock_delta:float= randf_range(-0.045, 0.065)
+	var pressure:float= float(run_ascension)
+	var stock_delta:float= randf_range(-0.045 - 0.01 * pressure, 0.065 + 0.015 * pressure)
 	if player_perk == "wall_street":
 		stock_delta += 0.01
+	if unlocked_perks.has("market_instinct"):
+		stock_delta += 0.005
+	if ambition == "meteor":
+		stock_delta *= 1.35
 	stock_index = max(100.0, snappedf(stock_index * (1.0 + stock_delta), 0.01))
 
-	var crypto_delta:float= randf_range(-0.22, 0.26)
+	var crypto_delta:float= randf_range(-0.22 - 0.03 * pressure, 0.26 + 0.04 * pressure)
+	if ambition == "meteor":
+		crypto_delta *= 1.35
 	crypto_rate = max(5.0, snappedf(crypto_rate * (1.0 + crypto_delta), 0.01))
 
 	# Начисление пассивного дохода и списание стоимости жизни
 	var net_quarter_cash:float= passive_inc - living_cost
 	cash_cents=next_cash
+	market_history.append(stock_index)
+	while market_history.size() > 24:
+		market_history.pop_front()
 
 	recalculate_forbes_rank()
+	check_milestones()
 	return {
 		"passive_inc": passive_inc,
 		"living_cost": living_cost,
@@ -453,11 +544,20 @@ func advance_quarter_and_markets() -> Dictionary:
 	}
 
 func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int, d_happiness: int, d_energy: int) -> void:
+	last_delta = {}
 	var delta_cents:int=Money.from_dollars(d_money)
+	if ambition == "meteor" and delta_cents > 0:
+		delta_cents = Money.scale(delta_cents, 1.25)
 	var next_cash:int=Money.add(cash_cents,delta_cents)
 	var passive:int=Money.scale(get_passive_quarterly_income_cents(),time_speed)
 	var living:int=Money.scale(get_quarterly_living_cost_cents(),time_speed)
-	if next_cash==Money.INVALID or Money.add(next_cash,Money.add(passive,-living))==Money.INVALID:return
+	if delta_cents==Money.INVALID or next_cash==Money.INVALID or Money.add(next_cash,Money.add(passive,-living))==Money.INVALID:return
+	var before_cash:int= cash_cents
+	var before_health:int= health
+	var before_intellect:int= intellect
+	var before_stress:int= stress
+	var before_happiness:int= happiness
+	var before_energy:int= energy
 	var adj_health:int= d_health
 	var adj_stress:int= int(float(d_stress) * difficulty_multiplier)
 	var adj_energy:int= d_energy
@@ -473,6 +573,12 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 		adj_stress = int(float(adj_stress) * 0.65)
 	if player_perk == "tech_genius" and adj_intellect > 0:
 		adj_intellect += 3
+	if unlocked_perks.has("fast_learner") and adj_intellect > 0:
+		adj_intellect += 2
+	if unlocked_perks.has("calm_blood") and adj_stress > 0:
+		adj_stress = int(float(adj_stress) * 0.9)
+	if ambition == "meteor" and adj_stress > 0:
+		adj_stress = int(float(adj_stress) * 1.3)
 
 	cash_cents=next_cash
 	health = clamp(health + adj_health, 0, 100)
@@ -480,6 +586,14 @@ func apply_delta(d_money: float, d_health: int, d_intellect: int, d_stress: int,
 	stress = clamp(stress + adj_stress, 0, 100)
 	happiness = clamp(happiness + d_happiness, 0, 100)
 	energy = clamp(energy + adj_energy, 0, 100)
+	last_delta = {
+		"cash": Money.dollars(cash_cents - before_cash),
+		"health": health - before_health,
+		"intellect": intellect - before_intellect,
+		"stress": stress - before_stress,
+		"happiness": happiness - before_happiness,
+		"energy": energy - before_energy
+	}
 
 	# Calendar advancement updates the model; this caller has no narrative result to consume.
 	@warning_ignore("return_value_discarded")
@@ -528,7 +642,8 @@ func sell_all_crypto() -> float:
 func upgrade_or_scale_business() -> Dictionary:
 	if business_tier < BUSINESS_TIERS.size() - 1:
 		var next_tier:int= business_tier + 1
-		var cost_cents:int=BUSINESS_DEFINITIONS[next_tier].cost_cents
+		var base_cost_cents:int=BUSINESS_DEFINITIONS[next_tier].cost_cents
+		var cost_cents:int=Money.scale(base_cost_cents,0.9 if unlocked_perks.has("business_savvy") else 1.0)
 		var cost:float=Money.dollars(cost_cents)
 		if cash_cents>=cost_cents:
 			cash_cents-=cost_cents
@@ -540,7 +655,7 @@ func upgrade_or_scale_business() -> Dictionary:
 			return {"ok": false, "msg": LocalizationManager.source("copy.18de786a617a") + format_num(cost)}
 	else:
 		# Масштабирование глобального техно-холдинга (поглощение корпораций на пути к $250 млрд)
-		var scale_cents:int=Money.multiply(25000000000,business_scale)
+		var scale_cents:int=Money.scale(Money.multiply(25000000000,business_scale),0.9 if unlocked_perks.has("business_savvy") else 1.0)
 		var scale_cost:float=Money.dollars(scale_cents)
 		if business_scale>0 and business_scale<=8192 and scale_cents>0 and cash_cents>=scale_cents:
 			cash_cents-=scale_cents
@@ -551,11 +666,36 @@ func upgrade_or_scale_business() -> Dictionary:
 			return {"ok": false, "msg": LocalizationManager.source("copy.980c1f440898") + format_num(scale_cost)}
 
 func register_inheritance_on_end() -> String:
+	if dynasty_committed:
+		return LocalizationManager.source("copy.51f8bcaaf0c7") % legacy_points
 	var nw:float= get_net_worth()
-	legacy_points += 1 + int(float(maxi(0,age-30))/15.0)
+	var gained:int= 1 + int(float(maxi(0,age-30))/15.0) + momentum
+	if ambition == "heir":
+		gained += ceili(float(gained) * 0.25)
+	gained += run_ascension
+	legacy_points += gained
+	total_legacy_earned += gained
+	var record:Dictionary= {
+		"generation": generation,
+		"age": age,
+		"wealth_cents": get_net_worth_cents(),
+		"rank": rank,
+		"victory": rank == 1 and nw >= 250000000000.0,
+		"ambition": ambition,
+		"ascension": run_ascension,
+		"chains": completed_chain_count(),
+		"milestones": milestone_log.size()
+	}
+	dynasty_records.append(record)
+	while dynasty_records.size() > 12:
+		dynasty_records.pop_front()
+	lives_completed += 1
+	lifetime_best_cents = maxi(lifetime_best_cents, get_net_worth_cents())
+	dynasty_committed = true
 	var msg:String= ""
+	var share:int= 25 if ambition == "heir" else 20
 	if age >= 50 and nw > 1000.0:
-		inherited_capital_cents=roundi(float(Money.ratio(get_net_worth_cents(),20,100))/100.0)*100
+		inherited_capital_cents=roundi(float(Money.ratio(get_net_worth_cents(),share,100))/100.0)*100
 		generation += 1
 		msg = LocalizationManager.source("copy.3a3f57875e5c") % [
 			generation, format_num(inherited_capital), legacy_points
@@ -568,6 +708,196 @@ func register_inheritance_on_end() -> String:
 	@warning_ignore("return_value_discarded")
 	save_dynasty()
 	return msg
+
+func valid_perk_id(id: String) -> bool:
+	for perk: Dictionary in LEGACY_PERKS:
+		if str(perk.get("id", "")) == id:
+			return true
+	return false
+
+func legacy_perk_owned(id: String) -> bool:
+	return unlocked_perks.has(id)
+
+func unlock_legacy_perk(id: String) -> bool:
+	if not valid_perk_id(id) or unlocked_perks.has(id):
+		return false
+	var cost: int = 0
+	for perk: Dictionary in LEGACY_PERKS:
+		if str(perk.get("id", "")) == id:
+			cost = perk.get("cost", 0)
+			break
+	if legacy_points < cost:
+		return false
+	legacy_points -= cost
+	unlocked_perks.append(id)
+	# save_dynasty reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_dynasty()
+	return true
+
+func legacy_start_bonus() -> float:
+	return 2000.0 if unlocked_perks.has("warm_start") else 0.0
+
+func inheritance_multiplier() -> float:
+	return 1.25 if ambition == "heir" else 1.0
+
+func select_ambition(mode: String) -> bool:
+	if mode not in ["steady", "meteor", "heir"]:
+		return false
+	ambition = mode
+	if not has_rolled_birth and total_turns == 0 and age == 18:
+		cash = 200.0 + inherited_capital * inheritance_multiplier() + legacy_start_bonus()
+	return true
+
+func stage_id() -> String:
+	var nw: float = get_net_worth()
+	if nw < 25000.0:
+		return "survival"
+	if nw < 500000.0:
+		return "career"
+	if nw < 50000000.0:
+		return "millionaire"
+	return "billionaire"
+
+func completed_chain_count() -> int:
+	var count: int = 0
+	for record: Variant in chain_records:
+		if record is Dictionary:
+			var entry: Dictionary = record
+			var completed: bool = entry.get("completed", false)
+			if completed:
+				count += 1
+	return count
+
+func chain_record_for(id: String) -> Dictionary:
+	for record: Variant in chain_records:
+		if not record is Dictionary:
+			continue
+		var found: Dictionary = record
+		if str(found.get("id", "")) == id:
+			return found
+	return {}
+
+func chain_flag(id: String) -> String:
+	return str(chain_record_for(id).get("flag", ""))
+
+func begin_chain(id: String, stage: String, flag: String, label: String, delay_quarters: int) -> void:
+	if chain_record_for(id).is_empty() == false:
+		return
+	chain_records.append({
+		"id": id,
+		"stage": stage,
+		"flag": flag,
+		"label": label,
+		"due_tick": simulation_ticks + maxi(1, delay_quarters) * 2,
+		"completed": false,
+		"outcome": ""
+	})
+
+func complete_chain(id: String) -> void:
+	for index: int in chain_records.size():
+		var record: Variant = chain_records[index]
+		if not record is Dictionary:
+			continue
+		var entry: Dictionary = record
+		if str(entry.get("id", "")) != id:
+			continue
+		var completed: bool = entry.get("completed", false)
+		if completed:
+			continue
+		entry["completed"] = true
+		entry["outcome"] = "completed"
+		chain_records[index] = entry
+		momentum += 1
+		return
+
+func chain_due() -> Dictionary:
+	var due: Dictionary = {}
+	for record: Variant in chain_records:
+		if not record is Dictionary:
+			continue
+		var entry: Dictionary = record
+		var completed: bool = entry.get("completed", false)
+		if completed:
+			continue
+		var due_tick: int = entry.get("due_tick", 0)
+		if due_tick > simulation_ticks:
+			continue
+		var best_due: int = due.get("due_tick", 0)
+		if due.is_empty() or due_tick < best_due:
+			due = entry
+	return due
+
+func chain_quarters_left(id: String) -> int:
+	var record: Dictionary = chain_record_for(id)
+	if record.is_empty():
+		return 0
+	var completed: bool = record.get("completed", false)
+	if completed:
+		return 0
+	var due_tick: int = record.get("due_tick", 0)
+	return maxi(0, ceili(float(due_tick - simulation_ticks) / 2.0))
+
+func check_milestones() -> void:
+	for threshold: int in MILESTONE_AGES:
+		if age < threshold:
+			continue
+		var seen: bool = false
+		for entry: Variant in milestone_log:
+			if entry is Dictionary:
+				var logged: Dictionary = entry
+				var logged_age: int = logged.get("age", 0)
+				if logged_age == threshold:
+					seen = true
+					break
+		if seen:
+			continue
+		milestone_log.append({
+			"age": threshold,
+			"wealth_cents": get_net_worth_cents(),
+			"rank": rank,
+			"stage": stage_id(),
+			"chains": completed_chain_count(),
+			"seen": false
+		})
+		momentum += 2
+
+func milestone_pending() -> Dictionary:
+	for entry: Variant in milestone_log:
+		if entry is Dictionary:
+			var pending: Dictionary = entry
+			var seen: bool = pending.get("seen", true)
+			if not seen:
+				return pending
+	return {}
+
+func acknowledge_milestone(age_value: int) -> void:
+	for entry: Variant in milestone_log:
+		if entry is Dictionary:
+			var acknowledged: Dictionary = entry
+			var logged_age: int = acknowledged.get("age", 0)
+			if logged_age == age_value:
+				acknowledged["seen"] = true
+				return
+
+func begin_ascension() -> bool:
+	if ascension_level >= MAX_ASCENSION:
+		return false
+	if rank != 1 or get_net_worth() < 250000000000.0:
+		return false
+	if not dynasty_committed:
+		# Inheritance is idempotent and persistence failure is reported by the model.
+		@warning_ignore("return_value_discarded")
+		register_inheritance_on_end()
+	ascension_level += 1
+	var bonus: int = 2 + ascension_level
+	legacy_points += bonus
+	total_legacy_earned += bonus
+	# save_dynasty reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_dynasty()
+	reset_game()
+	return true
 
 func format_num(val: float) -> String:
 	var abs_v:float= absf(val)

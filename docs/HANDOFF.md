@@ -1,11 +1,13 @@
-# Heirs of Fortune 2.0.2 — owner handoff
+# Heirs of Fortune 2.1.0 — owner handoff
 
-Release: [Heirs of Fortune 2.0.2](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.2). Read [acceptance](ACCEPTANCE_CERTIFICATE.md) and use only the new [announcement kit](ANNOUNCE_KIT.md). This is a portable offline Windows x64 edition; Android and store submissions are omitted.
+Release: **2.1.0 "Legacy & Chains" is a release candidate.** No 2.1.0 ZIP, tag or GitHub Release exists until the publication gate, fresh bilingual/native evidence and the checks below pass. The published [2.0.2 release](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.2) remains the current distribution artifact until then.
 
-1. Download the exact Windows ZIP and versioned sums file; require `sha256sum -c` to report OK and exit 0.
+Candidate evidence on 2026-10-29: the 57-case headless source suite passed in both RU and EN, including strict compile, deterministic playthrough, balance routes, save compatibility and the chains, dynasty and card-feel suites. This is not the gate; rendered/export/native checks, the seeded soak and the owner checks below remain open.
+
+1. When the gate publishes them, download only the exact 2.1.0 Windows ZIP and versioned sums file; require `sha256sum -c` to report OK and exit 0.
 2. Extract the entire folder, launch the EXE and select English/Russian.
-3. Listen to all four musical moods and finale cues, adjust each audio slider, and inspect Credits.
-4. Exercise save/Continue and a backed-up complete 1.4.0 profile; retain its installation key and original backup.
-5. Check the exact ZIP and sums filenames before redistribution.
+3. Open Dynasty: buy one legacy perk, start a thread from the Threads section, make a choice and confirm the delta chips and flag. Return after five quarters, accept the recalled follow-up, then press Back and verify the pending event survives.
+4. Walk every ledger section. Read a milestone retrospective at 18, finish a $250B victory and try Ascension; the hall must gain exactly one record per life.
+5. Check the four musical moods, finale cues, each audio slider, reduced motion, Credits and an older 1.4.0/2.0.x profile. Keep its installation key and original backup.
 
-These owner checks are not yet claimed complete. After the automated release gate and these five checks, the games may be announced and distributed. Unsigned executable, finite testing and offline-integrity limits are explained in the certificate.
+These owner checks are not claimed complete. Unsigned executable, finite testing and offline-integrity limits are explained in the acceptance certificate and release notes.

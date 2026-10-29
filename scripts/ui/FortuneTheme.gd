@@ -1,22 +1,23 @@
 extends RefCounted
-## Restrained private-bank palette: near-black ink, deep slate surfaces, a single
-## champagne accent and thin rules instead of heavy fills. Gold marks value, never
-## decoration.
-const INK_BG:Color= Color("0a0f16")
-const SURFACE:Color= Color("111a25")
-const SURFACE_RAISED:Color= Color("16212e")
-const SURFACE_DEEP:Color= Color("0d151f")
-const RULE:Color= Color("26313f")
-const RULE_SOFT:Color= Color("1d2733")
-const IVORY:Color= Color("ede7da")
-const MUTED:Color= Color("8a97a6")
-const GOLD:Color= Color("c8a96a")
-const GOLD_DEEP:Color= Color("a98b4f")
-const ALERT:Color= Color("c9736a")
+## Jazz-lounge palette: smoked ink, deep slate surfaces, brass accent, quiet green
+## and clay for outcomes. Gold marks value and legacy, never decoration.
+const INK_BG:Color= Color("14181d")
+const SURFACE:Color= Color("2e4057")
+const SURFACE_RAISED:Color= Color("3e5c76")
+const SURFACE_DEEP:Color= Color("1b2531")
+const RULE:Color= Color("3e5c76")
+const RULE_SOFT:Color= Color("2e4057")
+const IVORY:Color= Color("f1eee7")
+const MUTED:Color= Color("b8c2c4")
+const GOLD:Color= Color("c9a227")
+const GOLD_DEEP:Color= Color("a9871f")
+const GREEN:Color= Color("7fb069")
+const ALERT:Color= Color("c4614f")
 
 static var surfaces:Dictionary= {}
+static var display_fonts:Dictionary= {}
 
-static func panel(color: Color, edge: Color = Color("26313f"), radius: int = 6) -> StyleBoxFlat:
+static func panel(color: Color, edge: Color = Color("3e5c76"), radius: int = 6) -> StyleBoxFlat:
 	var box:StyleBoxFlat= StyleBoxFlat.new()
 	box.bg_color = color
 	box.border_color = edge
@@ -30,6 +31,15 @@ static func panel(color: Color, edge: Color = Color("26313f"), radius: int = 6) 
 
 static func style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFlat:
 	return panel(color,border)
+
+static func display_font(weight: int = 600) -> FontVariation:
+	if display_fonts.has(weight):
+		return display_fonts[weight]
+	var font:FontVariation= FontVariation.new()
+	font.base_font = load("res://assets/fonts/Unbounded.ttf")
+	font.variation_opentype = {0x77676874: float(weight)}
+	display_fonts[weight] = font
+	return font
 
 static func surface(state: String) -> StyleBoxTexture:
 	if surfaces.has(state): return surfaces[state]

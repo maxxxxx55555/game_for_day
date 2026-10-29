@@ -957,6 +957,233 @@
           }
         ]
       }
+    },
+    {
+      "mechanic": "Threads of fate: flagged chains and delayed follow-ups",
+      "cells": {
+        "happy": [
+          {
+            "path": "tests/test_chains.gd",
+            "scope": "A thread starts from the ledger, serves its delayed follow-up, recalls its flag, applies the variant reward, completes once and grants momentum."
+          }
+        ],
+        "bounds": [
+          {
+            "path": "tests/test_chains.gd",
+            "scope": "The catalog ships eight complete chains; a second start cannot duplicate a record and a five-quarter delay is asserted."
+          }
+        ],
+        "rapid_input": [
+          {
+            "path": "tests/test_choice_reentry.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_chains.gd",
+            "scope": "Opening a thread consumes no event RNG and only registered chain ids can be started."
+          }
+        ],
+        "pause_background": [
+          {
+            "path": "tests/test_profile_contract.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_mobile_lifecycle.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "save_load_hash": [
+          {
+            "path": "tests/test_chains.gd",
+            "scope": "Flags, pending follow-up title, callbacks and RNG survive a real session restart."
+          },
+          {
+            "path": "tests/test_profile_contract.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "en_ru": [
+          {
+            "path": "tests/test_chains.gd",
+            "scope": "Thread sources use canonical localization keys and the suite executes the assertions in both locales."
+          },
+          {
+            "path": "tests/test_translation_coverage.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "audio": [
+          {
+            "path": "tests/test_ui_audio_feedback.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_audio.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "ui_escape": [
+          {
+            "path": "tests/test_navigation_matrix.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_chains.gd",
+            "scope": "Closing a thread and restarting preserves the pending event instead of rerolling it."
+          }
+        ]
+      }
+    },
+    {
+      "mechanic": "Dynasty ledger, legacy perks, hall of fame, milestones and ascension",
+      "cells": {
+        "happy": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Perks unlock with their real cost, the ledger builds every section, the hall records a finished life, milestones grant momentum and ascension starts the next run."
+          }
+        ],
+        "bounds": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Save policy rejects unknown perks, malformed hall records, over-cap ascension and short balances."
+          },
+          {
+            "path": "tests/test_protected_saves.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "rapid_input": [
+          {
+            "path": "tests/test_navigation_matrix.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Rapid section rebuilds keep every disabled action explained and never change the model."
+          }
+        ],
+        "pause_background": [
+          {
+            "path": "tests/test_profile_contract.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_mobile_lifecycle.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "save_load_hash": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Purchased perks and 2.1 dynasty fields round-trip; 2.0.x sessions and dynasties still load."
+          },
+          {
+            "path": "tests/test_protected_saves.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "en_ru": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "All ledger sections and the milestone card build from localization keys in both suite locales."
+          },
+          {
+            "path": "tests/test_translation_coverage.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "audio": [
+          {
+            "path": "tests/test_ui_audio_feedback.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_audio_scope.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "ui_escape": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Back closes the ledger, returns to the life and preserves the pending event and RNG."
+          },
+          {
+            "path": "tests/test_navigation_matrix.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ]
+      }
+    },
+    {
+      "mechanic": "Card feel: reveal, delta chips, outcome tones and live pulse",
+      "cells": {
+        "happy": [
+          {
+            "path": "tests/test_card_feel.gd",
+            "scope": "Delta chips echo every real change with signed values and tones; the reveal, outcome tone and sparkline present the applied model."
+          }
+        ],
+        "bounds": [
+          {
+            "path": "tests/test_card_feel.gd",
+            "scope": "The sparkline stays inside its frame, covers the full history width and an empty delta hides every chip."
+          }
+        ],
+        "rapid_input": [
+          {
+            "path": "tests/test_choice_reentry.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_card_feel.gd",
+            "scope": "Restarting the card reveal kills the previous tween and settles at full scale without touching the model."
+          }
+        ],
+        "pause_background": [
+          {
+            "path": "tests/test_profile_contract.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          },
+          {
+            "path": "tests/test_mobile_lifecycle.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "save_load_hash": [
+          {
+            "path": "tests/test_profile_contract.gd",
+            "scope": "Presentation-only motion never enters the saved model; the profile contract hashes the model while the card animates."
+          },
+          {
+            "path": "tests/test_card_feel.gd",
+            "scope": "Outcome tones and chips are derived from the applied delta, not stored separately."
+          }
+        ],
+        "en_ru": [
+          {
+            "path": "tests/test_card_feel.gd",
+            "scope": "Visible labels and buttons are scanned for emoji and canonical copy in both suite locales."
+          },
+          {
+            "path": "tests/test_translation_coverage.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "audio": [
+          {
+            "path": "tests/test_ui_audio_feedback.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "ui_escape": [
+          {
+            "path": "tests/test_navigation_matrix.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ]
+      }
     }
   ],
   "coverage_status": "EXECUTED_PASS",

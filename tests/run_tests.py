@@ -26,6 +26,8 @@ def main():
         environment = os.environ.copy()
         environment['GAME_AUDIO_MUTED'] = '1'
         environment['GAME_LANGUAGE'] = args.language
+        # The negative QA fixture must prove that env alone cannot unlock the verifier.
+        environment['GAME_QA'] = '1'
         for variable, folder in [('APPDATA', 'roaming'), ('LOCALAPPDATA', 'local'), ('XDG_DATA_HOME', 'data'), ('XDG_CONFIG_HOME', 'config'), ('XDG_CACHE_HOME', 'cache')]:
             path = profile / folder
             path.mkdir()
@@ -81,6 +83,9 @@ def main():
         cases.append(('exact-float-limits', ['--headless','--script','res://tests/test_exact_float_limits.gd']))
         cases.append(('config-float-precision', ['--headless','--script','res://tests/test_config_float_precision.gd']))
         cases.append(('profile-contract', ['--headless','--script','res://tests/test_profile_contract.gd']))
+        cases.append(('chains', ['--headless','--script','res://tests/test_chains.gd']))
+        cases.append(('dynasty-progression', ['--headless','--script','res://tests/test_dynasty_progression.gd']))
+        cases.append(('card-feel', ['--headless','--script','res://tests/test_card_feel.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))

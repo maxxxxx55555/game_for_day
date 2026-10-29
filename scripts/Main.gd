@@ -5,6 +5,13 @@ const FinaleView=preload("res://scripts/ui/LifeFinale.gd")
 const ChoiceView=preload("res://scripts/ui/ChoiceCard.gd")
 const CreditsView=preload("res://scripts/ui/FortuneCredits.gd")
 const BirthRevealView=preload("res://scripts/ui/BirthReveal.gd")
+const DynastyView=preload("res://scripts/ui/DynastyPanel.gd")
+const MilestoneView=preload("res://scripts/ui/MilestoneCard.gd")
+const DeltaView=preload("res://scripts/ui/DeltaChips.gd")
+const LoungeTheme=preload("res://scripts/ui/FortuneTheme.gd")
+const OUTCOME_GOOD:Color=Color("7fb069")
+const OUTCOME_BAD:Color=Color("c4614f")
+const OUTCOME_NEUTRAL:Color=Color("c9a227")
 
 @onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/StatsLabel
 @onready var market_label: Label = $MarginContainer/VBoxContainer/MarketPanel/MarketLabel
@@ -34,8 +41,17 @@ var credits_panel:CreditsView
 var story_transition:Tween
 var birth_reveal:BirthRevealView
 var story_content:VBoxContainer
+var dynasty_button:Button
+var dynasty_panel:DynastyView
+var milestone_card:MilestoneView
+var delta_chips:DeltaView
+var ambition_row:VBoxContainer
+var ambition_buttons:Array[Button]=[]
+var ambition_desc:Label
+var ambition_group:ButtonGroup
+var intro_notice:String=""
 
-enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY }
+enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY, DYNASTY }
 var current_mode: ScreenMode = ScreenMode.INTRO
 var active_event: Dictionary = {}
 var last_event_title: String = ""
@@ -53,8 +69,8 @@ func _ready() -> void:
 	save_status.text = LocalizationManager.source("copy.bf448e0995f5")
 	save_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	save_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	save_status.add_theme_color_override("font_color",Color("ffbf90"))
-	save_status.add_theme_color_override("font_outline_color",Color("10191b"))
+	save_status.add_theme_color_override("font_color",Color("c4614f"))
+	save_status.add_theme_color_override("font_outline_color",Color("14181d"))
 	save_status.add_theme_constant_override("outline_size",8)
 	save_status.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	save_status.z_index = 100
@@ -69,6 +85,20 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	GameManager.persistence_changed.connect(func(ok:bool)->void: save_status.visible = not ok)
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
+	dynasty_button=Button.new()
+	dynasty_button.name="DynastyButton"
+	dynasty_button.custom_minimum_size.y=54
+	dynasty_button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	dynasty_button.add_theme_font_size_override("font_size",14)
+	var bottom_bar:Node=$MarginContainer/VBoxContainer/BottomBar
+	bottom_bar.add_child(dynasty_button)
+	bottom_bar.move_child(dynasty_button,2)
+	for bar_button:Button in [market_btn,biz_btn,ad_btn,dynasty_button,settings_btn]:
+		bar_button.add_theme_font_size_override("font_size",14)
+	apply_bottom_icons()
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	dynasty_button.pressed.connect(open_dynasty_menu)
 	for button:Button in [btn_1,btn_2,btn_3]:
 		var card:ChoiceView=preload("res://scripts/ui/ChoiceCard.gd").new()
 		button.add_child(card)
@@ -79,9 +109,9 @@ func _ready() -> void:
 	var column:Node= $MarginContainer/VBoxContainer
 	var brand:Label= Label.new()
 	brand.text = "HEIRS OF FORTUNE"
-	brand.add_theme_font_override("font", load("res://assets/fonts/Prata-Regular.ttf") as Font)
-	brand.add_theme_font_size_override("font_size", 32)
-	brand.add_theme_color_override("font_color", Color("d4bd90"))
+	brand.add_theme_font_override("font", LoungeTheme.display_font(700))
+	brand.add_theme_font_size_override("font_size", 24)
+	brand.add_theme_color_override("font_color", Color("c9a227"))
 	column.add_child(brand)
 	column.move_child(brand,0)
 	language_choice=OptionButton.new()
@@ -112,7 +142,44 @@ func _ready() -> void:
 		language_choice.select(0 if language=="ru" else 1)
 		for card:ChoiceView in choice_cards:card.refresh()
 		if dashboard:dashboard.refresh_values()
+		update_ambition_controls()
 	)
+	ambition_group=ButtonGroup.new()
+	ambition_row=VBoxContainer.new()
+	ambition_row.name="AmbitionRow"
+	ambition_row.add_theme_constant_override("separation",4)
+	column.add_child(ambition_row)
+	column.move_child(ambition_row,2)
+	var ambition_hint:Label=Label.new()
+	ambition_hint.text=LocalizationManager.source("ambition.intro")
+	ambition_hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	ambition_hint.add_theme_font_size_override("font_size",13)
+	ambition_hint.add_theme_color_override("font_color",Color("b8c2c4"))
+	ambition_row.add_child(ambition_hint)
+	var ambition_line:HBoxContainer=HBoxContainer.new()
+	ambition_line.add_theme_constant_override("separation",6)
+	ambition_row.add_child(ambition_line)
+	for mode:String in ["steady","meteor","heir"]:
+		var ambition_button:Button=Button.new()
+		ambition_button.name="Ambition_"+mode
+		ambition_button.text=LocalizationManager.source("ambition."+mode)
+		ambition_button.tooltip_text=LocalizationManager.source("ambition."+mode+".desc")
+		ambition_button.toggle_mode=true
+		ambition_button.button_group=ambition_group
+		ambition_button.custom_minimum_size.y=42
+		ambition_button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		ambition_button.add_theme_font_size_override("font_size",14)
+		ambition_line.add_child(ambition_button)
+		ambition_buttons.append(ambition_button)
+		# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+		@warning_ignore("return_value_discarded")
+		ambition_button.pressed.connect(apply_ambition.bind(mode))
+	ambition_desc=Label.new()
+	ambition_desc.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	ambition_desc.add_theme_font_size_override("font_size",12)
+	ambition_desc.add_theme_color_override("font_color",Color("b8c2c4"))
+	ambition_row.add_child(ambition_desc)
+	update_ambition_controls()
 	var content:VBoxContainer= VBoxContainer.new()
 	content.name = "StoryContent"
 	story_content = content
@@ -133,16 +200,19 @@ func _ready() -> void:
 	content.add_child(birth_reveal)
 	content.move_child(birth_reveal,1)
 	birth_reveal.hide()
-	event_label.add_theme_color_override("font_color",Color("ede7da"))
+	event_label.add_theme_color_override("font_color",Color("f1eee7"))
 	event_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	event_label.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
 	outcome=Label.new()
 	outcome.name="LastOutcome"
 	outcome.add_theme_font_size_override("font_size",15)
-	outcome.add_theme_color_override("font_color",Color("8a97a6"))
+	outcome.add_theme_color_override("font_color",Color("b8c2c4"))
 	outcome.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	outcome.hide()
 	content.add_child(outcome)
+	delta_chips=preload("res://scripts/ui/DeltaChips.gd").new()
+	delta_chips.name="DeltaChips"
+	content.add_child(delta_chips)
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	event_label.minimum_size_changed.connect(func()->void: ($MarginContainer/VBoxContainer/EventPanel/EventScroll as ScrollContainer).scroll_vertical = 0)
@@ -188,6 +258,23 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	finale_overlay.choice_requested.connect(on_choice_pressed)
+	dynasty_panel = preload("res://scripts/ui/DynastyPanel.gd").new()
+	dynasty_panel.name="DynastyPanel"
+	add_child(dynasty_panel)
+	dynasty_panel.hide()
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	dynasty_panel.closed.connect(close_dynasty_menu)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	dynasty_panel.thread_requested.connect(open_chain_thread)
+	milestone_card = preload("res://scripts/ui/MilestoneCard.gd").new()
+	milestone_card.name="MilestoneCard"
+	add_child(milestone_card)
+	milestone_card.hide()
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	milestone_card.dismissed.connect(acknowledge_milestone)
 	rng.randomize()
 	SoundManager.apply_gains()
 	audio_settings = preload("res://scripts/audio/AudioSettings.gd").new()
@@ -241,7 +328,13 @@ func _notification(what: int) -> void:
 		if is_instance_valid(credits_panel):
 			credits_panel.close()
 			return
-		if current_mode in [ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY]:
+		if is_instance_valid(milestone_card) and milestone_card.visible:
+			milestone_card.dismiss()
+			return
+		if is_instance_valid(dynasty_panel) and dynasty_panel.visible:
+			close_dynasty_menu()
+			return
+		if current_mode in [ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY, ScreenMode.DYNASTY]:
 			load_next_life_event("", true)
 			# save_session reports persistence failure to the visible save-status path.
 			@warning_ignore("return_value_discarded")
@@ -267,11 +360,11 @@ func save_session() -> bool:
 func restore_session(saved: Dictionary) -> void:
 	restoring_session = true
 	var saved_mode: int = saved.get("mode", ScreenMode.INTRO)
-	set_bottom_bar_enabled(saved_mode in [ScreenMode.LIFE, ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY])
+	set_bottom_bar_enabled(saved_mode in [ScreenMode.LIFE, ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY, ScreenMode.DYNASTY])
 	rng.state = saved.get("rng_state", rng.state)
 	last_event_title = saved.get("last_event_title", "")
 	active_event_net_worth = saved.get("event_net_worth", GameManager.get_net_worth())
-	var pools: Array = get_survival_events() + get_career_events() + get_millionaire_events() + get_billionaire_events(active_event_net_worth)
+	var pools: Array = get_survival_events() + get_career_events() + get_millionaire_events() + get_billionaire_events(active_event_net_worth) + ChainLibrary.restore_events()
 	for event:Variant in pools:
 		if event.title == saved.get("event_title", ""):
 			active_event = event
@@ -298,6 +391,8 @@ func restore_session(saved: Dictionary) -> void:
 			open_business_menu()
 		ScreenMode.SETTINGS:
 			open_settings_menu()
+		ScreenMode.DYNASTY:
+			open_dynasty_menu()
 		ScreenMode.GAMEOVER:
 			var saved_reason:String=saved.get("final_reason","")
 			var saved_victory:bool=saved.get("final_victory",false)
@@ -314,6 +409,11 @@ func update_ui() -> void:
 	if market_back: market_back.visible = current_mode == ScreenMode.MARKET
 	if currency_button: currency_button.visible = current_mode == ScreenMode.MARKET
 	if currency_panel: currency_panel.visible = current_mode == ScreenMode.CURRENCY
+	if dynasty_panel: dynasty_panel.visible = current_mode == ScreenMode.DYNASTY
+	if dynasty_button: dynasty_button.text = LocalizationManager.source("ui.dynasty")
+	if delta_chips: delta_chips.visible = current_mode == ScreenMode.LIFE and delta_chips.get_child_count()>0
+	if ambition_row: ambition_row.visible = current_mode == ScreenMode.INTRO
+	if current_mode == ScreenMode.INTRO: update_ambition_controls()
 	($MarginContainer/VBoxContainer/MarketPanel as Control).hide()
 	music_label.hide()
 	($MarginContainer/VBoxContainer/StatsPanel as Control).visible = current_mode != ScreenMode.INTRO
@@ -385,12 +485,27 @@ func format_rank(r: int) -> String:
 	else:
 		return str(r)
 
+func apply_bottom_icons() -> void:
+	apply_icon(market_btn,"market")
+	apply_icon(biz_btn,"business")
+	apply_icon(ad_btn,"grant")
+	apply_icon(dynasty_button,"dynasty")
+	apply_icon(settings_btn,"settings")
+
+func apply_icon(button: Button, icon_name: String) -> void:
+	var texture:Texture2D=load("res://assets/ui/icons/"+icon_name+".svg") as Texture2D
+	if texture==null:
+		return
+	button.icon=texture
+	button.add_theme_constant_override("icon_max_width",18)
+
 func set_bottom_bar_enabled(enabled: bool) -> void:
 	market_btn.disabled = not enabled
 	biz_btn.disabled = not enabled
 	ad_btn.disabled = not enabled
 	settings_btn.disabled = not enabled
-	for button:Variant in [market_btn,biz_btn,ad_btn,settings_btn]:
+	dynasty_button.disabled = not enabled
+	for button:Variant in [market_btn,biz_btn,ad_btn,settings_btn,dynasty_button]:
 		button.tooltip_text=LocalizationManager.source("ui.begin_life_first") if not enabled else ""
 
 # --- ЭКРАНЫ СТАРТА (ИНТРО, ЛОТЕРЕЯ РОЖДЕНИЯ, ПЕРКИ) ---
@@ -398,6 +513,9 @@ func set_bottom_bar_enabled(enabled: bool) -> void:
 func show_intro_screen() -> void:
 	current_mode = ScreenMode.INTRO
 	set_bottom_bar_enabled(false)
+	if dynasty_panel: dynasty_panel.hide()
+	if milestone_card: milestone_card.hide()
+	if delta_chips: delta_chips.clear_chips()
 	GameManager.current_track = "Last Call at Three"
 	SoundManager.play_music("welcome")
 	update_ui()
@@ -407,15 +525,21 @@ func show_intro_screen() -> void:
 		legacy_info = LocalizationManager.source("copy.07966e7a5d32") % [
 			GameManager.generation, GameManager.format_num(GameManager.cash - 200.0), GameManager.legacy_points
 		]
-	
-	event_label.text = LocalizationManager.source("copy.fed691559450") + legacy_info
+	var ascension_info:String=""
+	if GameManager.run_ascension > 0:
+		ascension_info = "\n\n" + LocalizationManager.source("intro.ascension") % GameManager.run_ascension
+	if not intro_notice.is_empty():
+		ascension_info += "\n\n" + intro_notice
+	event_label.text = LocalizationManager.source("copy.fed691559450") + legacy_info + ascension_info
 	btn_1.text = LocalizationManager.source("copy.cc92b6b195e4")
 	btn_2.visible = false
 	btn_3.visible = false
+	update_ambition_controls()
 
 func show_birth_screen() -> void:
 	if not LocalizationManager.language_confirmed:LocalizationManager.set_language(LocalizationManager.current_language)
 	current_mode = ScreenMode.BIRTH
+	intro_notice=""
 	var info:Dictionary= GameManager.roll_birth_lottery()
 	update_ui()
 	if birth_reveal: birth_reveal.present(info)
@@ -455,16 +579,126 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 	
 	if not preserve_event or active_event.is_empty():
 		active_event_net_worth = GameManager.get_net_worth()
-		active_event = pick_modular_event()
-	event_label.text = active_event["title"]
+		var due:Dictionary=GameManager.chain_due()
+		var followup:Dictionary={}
+		if not due.is_empty():
+			followup=ChainLibrary.followup_event(due)
+		if followup.is_empty():
+			active_event = pick_modular_event()
+		else:
+			active_event = followup
+	event_label.text = event_text(active_event)
 	if not status_note.is_empty():
 		outcome.text=clean_copy(status_note).replace("\n"," ")
 		outcome.tooltip_text=clean_copy(status_note)
+		outcome.add_theme_color_override("font_color",outcome_tone())
 		outcome_timer=7.0
 	btn_1.text = active_event["o1"]
 	btn_2.text = active_event["o2"]
 	btn_3.text = active_event["o3"]
 	animate_story()
+	if not preserve_event:
+		present_milestone_if_pending()
+
+func event_text(event:Dictionary) -> String:
+	var result:String=str(event.get("title",""))
+	if event.has("overline"):
+		result = str(event["overline"]) + "\n" + result
+	if event.has("note"):
+		result += "\n\n" + str(event["note"])
+	return result
+
+func outcome_tone() -> Color:
+	var cash:float=GameManager.last_delta.get("cash",0.0)
+	var health:int=GameManager.last_delta.get("health",0)
+	var stress:int=GameManager.last_delta.get("stress",0)
+	if cash>0.0 and health>=0 and stress<=0:
+		return OUTCOME_GOOD
+	if cash<0.0 or health<0 or stress>0:
+		return OUTCOME_BAD
+	return OUTCOME_NEUTRAL
+
+func apply_ambition(mode: String) -> void:
+	if not GameManager.select_ambition(mode):
+		return
+	update_ambition_controls()
+	if dashboard: dashboard.refresh_values()
+	# save_session reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_session()
+
+func update_ambition_controls() -> void:
+	if not is_instance_valid(ambition_row) or ambition_buttons.size()!=3:
+		return
+	var modes:Array[String]=["steady","meteor","heir"]
+	for index:int in modes.size():
+		var button:Button=ambition_buttons[index]
+		button.text=LocalizationManager.source("ambition."+modes[index])
+		button.tooltip_text=LocalizationManager.source("ambition."+modes[index]+".desc")
+		button.set_pressed_no_signal(GameManager.ambition==modes[index])
+	ambition_desc.text=LocalizationManager.source("ambition."+GameManager.ambition+".desc")
+
+func preset_chain_event(event:Dictionary) -> void:
+	active_event_net_worth=GameManager.get_net_worth()
+	active_event=event
+	last_event_title=str(event.get("title",""))
+	current_mode=ScreenMode.LIFE
+	set_bottom_bar_enabled(true)
+	btn_2.visible=true
+	btn_3.visible=true
+	update_soundtrack_by_stage()
+	update_ui()
+	event_label.text=event_text(active_event)
+	btn_1.text=active_event["o1"]
+	btn_2.text=active_event["o2"]
+	btn_3.text=active_event["o3"]
+	animate_story()
+	present_milestone_if_pending()
+
+func open_dynasty_menu() -> void:
+	if current_mode==ScreenMode.GAMEOVER:
+		return
+	current_mode=ScreenMode.DYNASTY
+	set_bottom_bar_enabled(true)
+	dynasty_panel.refresh()
+	dynasty_panel.show()
+	update_ui()
+	# save_session reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_session()
+
+func close_dynasty_menu() -> void:
+	if is_instance_valid(dynasty_panel):
+		dynasty_panel.hide()
+	load_next_life_event("", true)
+	# save_session reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_session()
+
+func open_chain_thread(chain_id: String) -> void:
+	var event:Dictionary=ChainLibrary.start_event(chain_id)
+	if event.is_empty():
+		return
+	if is_instance_valid(dynasty_panel):
+		dynasty_panel.hide()
+	preset_chain_event(event)
+	# save_session reports persistence failure to the visible save-status path.
+	@warning_ignore("return_value_discarded")
+	save_session()
+
+func present_milestone_if_pending() -> void:
+	if not is_instance_valid(milestone_card):
+		return
+	var entry:Dictionary=GameManager.milestone_pending()
+	if entry.is_empty():
+		milestone_card.hide()
+		return
+	milestone_card.present(entry)
+
+func acknowledge_milestone(age_value: int) -> void:
+	GameManager.acknowledge_milestone(age_value)
+	if is_instance_valid(milestone_card):
+		milestone_card.hide()
 
 func update_soundtrack_by_stage() -> void:
 	var nw:float= GameManager.get_net_worth()
@@ -587,6 +821,8 @@ func on_choice_pressed(option: int) -> void:
 	choice_busy=false
 
 func _apply_choice(option:int)->void:
+	if is_instance_valid(milestone_card) and milestone_card.visible:
+		milestone_card.dismiss()
 	match current_mode:
 		ScreenMode.INTRO:
 			show_birth_screen()
@@ -604,6 +840,7 @@ func _apply_choice(option:int)->void:
 		ScreenMode.LIFE:
 			var fn: Callable = active_event["r%d" % option]
 			var msg: String = fn.call()
+			delta_chips.present(GameManager.last_delta)
 			load_next_life_event(msg)
 		ScreenMode.GAMEOVER:
 			if option == 1 and can_revive:
@@ -615,6 +852,10 @@ func _apply_choice(option:int)->void:
 				if GameManager.cash < 0.0:
 					GameManager.cash = 1000.0
 				load_next_life_event(LocalizationManager.source("copy.eb39f4f8fa06"))
+			elif option == 3 and final_victory and GameManager.begin_ascension():
+				intro_notice=LocalizationManager.source("ascension.started") % GameManager.ascension_level
+				active_event = {}
+				show_intro_screen()
 			else:
 				# Inheritance is idempotent and persistence failure is reported by the model.
 				@warning_ignore("return_value_discarded")
@@ -696,13 +937,12 @@ func handle_business_action(option: int) -> void:
 		if check_game_over():
 			return
 		open_business_menu()
-		event_label.text = ("✅ " if res["ok"] else "❌ ") + res["msg"] + "
-
-" + event_label.text
+		event_label.text = res["msg"] + "\n\n" + event_label.text
 	elif option == 2:
 		if GameManager.business_tier > 0 and GameManager.energy >= 15:
 			var bonus:float=GameManager.get_optimization_bonus()
 			GameManager.apply_delta(bonus, 0, 0, 0, 0, -15)
+			delta_chips.present(GameManager.last_delta)
 			# The director owns the voice; action feedback serial records the acknowledgment.
 			@warning_ignore("return_value_discarded")
 			SoundManager.play_sfx("coin")
@@ -763,12 +1003,17 @@ func check_game_over() -> bool:
 	return false
 
 func show_finale() -> void:
-	finale_overlay.present({"victory":final_victory,"reason":clean_copy(final_reason),"wealth":GameManager.format_num(GameManager.get_net_worth()),"rank":format_rank(GameManager.rank),"generation":GameManager.generation,"age":GameManager.age,"revive":can_revive})
+	var ascension_available:bool=final_victory and GameManager.rank==1 and GameManager.ascension_level<GameManager.MAX_ASCENSION
+	var next_level:int=GameManager.ascension_level+1
+	finale_overlay.present({"victory":final_victory,"reason":clean_copy(final_reason),"wealth":GameManager.format_num(GameManager.get_net_worth()),"rank":format_rank(GameManager.rank),"generation":GameManager.generation,"age":GameManager.age,"revive":can_revive,"ascension_available":ascension_available,"ascension_next":next_level,"ascension_bonus":2+next_level})
 
 func trigger_game_over(reason: String, is_victory: bool) -> void:
 	final_reason = reason
 	final_victory = is_victory
 	current_mode = ScreenMode.GAMEOVER
+	if is_instance_valid(dynasty_panel): dynasty_panel.hide()
+	if is_instance_valid(milestone_card): milestone_card.hide()
+	if is_instance_valid(delta_chips): delta_chips.clear_chips()
 	set_bottom_bar_enabled(false)
 	GameManager.current_track = "Last Call at Three"
 	SoundManager.play_finale(is_victory)
@@ -1040,12 +1285,18 @@ func animate_story() -> void:
 	var panel:Control=$MarginContainer/VBoxContainer/EventPanel
 	if is_instance_valid(story_transition):story_transition.kill()
 	panel.modulate.a=1.0
+	panel.scale=Vector2.ONE
 	if GameManager.reduced_motion:return
+	panel.pivot_offset=panel.size*0.5
 	panel.modulate.a=0.9
-	story_transition=create_tween()
+	panel.scale=Vector2(0.985,0.985)
+	story_transition=create_tween().set_parallel(true)
 	# Tween owns this fluent configuration; no reference to the builder is needed.
 	@warning_ignore("return_value_discarded")
 	story_transition.tween_property(panel,"modulate:a",1.0,0.18).set_trans(Tween.TRANS_SINE)
+	# Tween owns this fluent configuration; no reference to the builder is needed.
+	@warning_ignore("return_value_discarded")
+	story_transition.tween_property(panel,"scale",Vector2.ONE,0.18).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _unhandled_key_input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

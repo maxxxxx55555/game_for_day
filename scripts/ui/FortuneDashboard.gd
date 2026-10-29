@@ -1,13 +1,13 @@
 extends Control
 ## Compact actual balances, birthplace and decision-relevant condition meters.
 ## The portrait is gone on purpose: a random-country run has no single face.
-const INK:Color= Color("ede7da")
-const MUTED:Color= Color("8a97a6")
-const GOLD:Color= Color("c8a96a")
-const GOLD_DIM:Color= Color("8c7442")
-const RULE:Color= Color("2a3646")
-const TRACK:Color= Color("1e2a38")
-const ALERT:Color= Color("c9736a")
+const INK:Color= Color("f1eee7")
+const MUTED:Color= Color("b8c2c4")
+const GOLD:Color= Color("c9a227")
+const GOLD_DIM:Color= Color("a9871f")
+const RULE:Color= Color("3e5c76")
+const TRACK:Color= Color("2e4057")
+const ALERT:Color= Color("c4614f")
 const BirthLottery=preload("res://scripts/BirthLottery.gd")
 var display_cash:float=0.0
 var display_worth:float=0.0
@@ -39,7 +39,7 @@ func origin_note() -> String:
 	return LocalizationManager.source("dashboard.grip") % influence
 
 func _ready() -> void:
-	custom_minimum_size.y = 178
+	custom_minimum_size.y = 196
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
@@ -78,9 +78,38 @@ func _draw() -> void:
 		caption_right(x+150.0, 132, str(meters[i]), 10, INK if meters[i]>=30 else ALERT)
 		draw_style_box(bar(TRACK),Rect2(x,138,150,3))
 		draw_style_box(bar(ALERT if meters[i]<30 else GOLD),Rect2(x,138,maxf(3,150*float(meters[i])/100.0),3))
+	draw_line(Vector2(0,146), Vector2(644,146), RULE, 1.0)
+	caption_right(644.0, 158, LocalizationManager.source("dashboard.pulse"), 10, MUTED)
+	var pulse:PackedVector2Array= pulse_points(Vector2(480,161), Vector2(164,21))
+	if pulse.size()>=2:
+		draw_polyline(pulse, GOLD, 1.5, true)
+		draw_circle(pulse[pulse.size()-1], 2.0, GOLD)
+	caption(Vector2(0,190), LocalizationManager.source("dashboard.ambition") % LocalizationManager.source("ambition.short."+GameManager.ambition), 10, GOLD_DIM)
 	var note:String= origin_note()
 	if not note.is_empty():
-		caption_right(644.0, 168, LocalizationManager.source("copy.08930838ebae").substr(0,0)+note, 10, GOLD_DIM)
+		caption_right(460.0, 190, note, 10, GOLD_DIM)
+
+func pulse_points(origin: Vector2, box: Vector2) -> PackedVector2Array:
+	var history:Array= GameManager.market_history
+	var points:PackedVector2Array= PackedVector2Array()
+	if history.size()<2:
+		return points
+	var low:float= history[0]
+	var high:float= low
+	for value:Variant in history:
+		var point:float= value
+		low= minf(low, point)
+		high= maxf(high, point)
+	var span:float= maxf(high-low, 0.0001)
+	var count:int= history.size()
+	# Packed arrays report resize success through a return value the painter does not need.
+	@warning_ignore("return_value_discarded")
+	points.resize(count)
+	for index:int in count:
+		var sample:float= history[index]
+		var t:float= float(index)/float(count-1)
+		points[index]= origin+Vector2(box.x*t, box.y*(1.0-(sample-low)/span))
+	return points
 
 func bar(color: Color) -> StyleBoxFlat:
 	var style:StyleBoxFlat= StyleBoxFlat.new()
