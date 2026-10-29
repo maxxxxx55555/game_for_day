@@ -3341,8 +3341,8 @@
       "en": "Lives: %d · Victories: %d · Best capital: $%s · Best rank: #%s · Chains: %d"
     },
     "dynasty.record": {
-      "ru": "Поколение #%d · %s · $%s · рейтинг #%s · %d лет",
-      "en": "Generation #%d · %s · $%s · rank #%s · %d years"
+      "ru": "Поколение #%d · %s · $%s · рейтинг #%s · %s",
+      "en": "Generation #%d · %s · $%s · rank #%s · %s"
     },
     "dynasty.record.victory": {
       "ru": "победа",
@@ -3363,6 +3363,22 @@
     "dynasty.record.detail": {
       "ru": "Нитей: %d · вех: %d",
       "en": "Threads: %d · milestones: %d"
+    },
+    "dynasty.age": {
+      "ru": "%d %s",
+      "en": "%d %s"
+    },
+    "dynasty.year.god": {
+      "ru": "год",
+      "en": "year"
+    },
+    "dynasty.year.goda": {
+      "ru": "года",
+      "en": "years"
+    },
+    "dynasty.year.let": {
+      "ru": "лет",
+      "en": "years"
     },
     "dynasty.empty.hall": {
       "ru": "Зал славы пуст. Завершите первую жизнь.",
@@ -3441,8 +3457,8 @@
       "en": "Milestones appear at ages 18, 25, 35, 50 and 65."
     },
     "dynasty.journal.milestone": {
-      "ru": "%d лет · $%s · рейтинг #%s · %s",
-      "en": "Age %d · $%s · rank #%s · %s"
+      "ru": "%s · $%s · рейтинг #%s · %s",
+      "en": "%s · $%s · rank #%s · %s"
     },
     "dynasty.journal.chain": {
       "ru": "Нить: %s · %s",
@@ -3545,8 +3561,8 @@
       "en": "You are %d. Time to check the course."
     },
     "milestone.body": {
-      "ru": "Капитал: $%s · Рейтинг: #%s · Этап: %s · Нить: %s",
-      "en": "Capital: $%s · Rank: #%s · Stage: %s · Thread: %s"
+      "ru": "Капитал: $%s · Рейтинг: #%s · Этап: %s · Нити: %s",
+      "en": "Capital: $%s · Rank: #%s · Stage: %s · Threads: %s"
     },
     "milestone.momentum": {
       "ru": "Импульс династии: +%d",
@@ -3573,12 +3589,12 @@
       "en": "billionaire"
     },
     "milestone.none": {
-      "ru": "без активной нити",
-      "en": "no active thread"
+      "ru": "нет активных",
+      "en": "none active"
     },
     "milestone.threads": {
-      "ru": "завершено нитей: %d",
-      "en": "completed threads: %d"
+      "ru": "завершено %d",
+      "en": "%d completed"
     },
     "chain.thread.overline": {
       "ru": "НИТЬ СУДЬБЫ",

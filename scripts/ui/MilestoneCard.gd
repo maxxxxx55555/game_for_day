@@ -76,10 +76,11 @@ func present(entry:Dictionary) -> void:
 	var wealth_cents:int=entry.get("wealth_cents",0)
 	var rank_value:int=entry.get("rank",0)
 	var chains:int=entry.get("chains",0)
+	card.custom_minimum_size.x=clampf(get_viewport_rect().size.x*0.72,320.0,520.0)
 	heading.text=LocalizationManager.source("milestone.title") % current_age
 	body.text=LocalizationManager.source("milestone.body") % [
 		GameManager.format_num(Money.dollars(wealth_cents)),
-		str(rank_value),
+		GameManager.format_rank(rank_value),
 		LocalizationManager.source("milestone.stage."+stage),
 		thread_note(chains)
 	]

@@ -26,11 +26,11 @@ The mechanics matrix now maps 17 mechanics and 136 executable cells, including [
 
 ## Limits
 
-Windows x64 only; Android artifacts are omitted. The executable is not Authenticode signed. Offline tamper evidence makes modification harder but is not DRM. No AAA-scale or "no bugs" claim is made. Publication requires the 100% gate; until then the published 2.0.2 release remains current.
+Windows x64 only; Android artifacts are omitted. The executable is not Authenticode signed. Offline tamper evidence makes modification harder but is not DRM. No AAA-scale or "no bugs" claim is made. Publication requires the 100% gate; until then the latest published release, 2.0.1, remains current.
 
 ## Русский
 
-Версия 2.1.0 «Наследие и нити» — **кандидат, а не публикация**. ZIP, тег и GitHub Release появятся только после публикационного гейта, свежих двуязычных и нативных проверок и пяти проверок владельца; до этого актуальным остаётся релиз 2.0.2.
+Версия 2.1.0 «Наследие и нити» — **кандидат, а не публикация**. ZIP, тег и GitHub Release появятся только после публикационного гейта, свежих двуязычных и нативных проверок и пяти проверок владельца; до этого актуальным остаётся опубликованный релиз 2.0.1 (кандидат 2.0.2 проверен в исходниках, но не был помечен тегом и не публиковался).
 
 Восемь «нитей судьбы» из панели династии живут в двух звеньях: выбор запоминается флагом, возвращается через пять кварталов с точной цитатой и получает вариантную развязку; завершённая нить даёт импульс и записывается один раз. Панель династии содержит журнал, восемь постоянных перков за 4–15 очков, нити, зал славы на двенадцать жизней и восхождение на пять уровней NG+, которое усиливает инфляцию, волатильность и сложность. Вехи в 18, 25, 35, 50 и 65 лет показывают ретроспективу и импульс, не останавливая мир. Три амбиции — размеренная, метеор и наследник — меняют реальные экономические условия. Карточки получили короткое появление, чипы изменений, тональность исхода и живой пульс портфеля; уменьшенная анимация всё мгновенно снимает.
 

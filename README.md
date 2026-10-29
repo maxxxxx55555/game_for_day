@@ -138,4 +138,4 @@ Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checkli
 
 ## 2.0.2 acceptance and distribution
 
-Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
+The 2.0.2 candidate was verified in source and runtime, but it was never tagged or published. The latest published release is [2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1): the [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) retain its verified evidence without claiming a publication that does not exist. Older diagnostic documents/images refer to preserved historical attempts.

@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.0.2 — final release report
 
-Release URL: [Heirs of Fortune 2.0.2](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.2). Runtime source `1ec7668a02998043f9ba6d7307cc661ed0f7f9d1`; source-suite commit `1ec7668a02998043f9ba6d7307cc661ed0f7f9d1`.
+Publication status: this 2.0.2 candidate was verified but never tagged or published; the latest published release is [Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Runtime source `1ec7668a02998043f9ba6d7307cc661ed0f7f9d1`; source-suite commit `1ec7668a02998043f9ba6d7307cc661ed0f7f9d1`.
 
 Automated acceptance: EN 55/55, RU 55/55; 50/50 distinct complete seed routes; 3/3 consecutive native victories plus defeat; legacy read/write round-trips and tamper rejection; measured soak 1835.234s, 47 complete loops; 44 reviewed raw frames. Full receipts: [certificate](ACCEPTANCE_CERTIFICATE.md), [kit](ANNOUNCE_KIT.md), `acceptance-2.0.2-birth/`.
 

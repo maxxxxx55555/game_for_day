@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.1.0 — owner handoff
 
-Release: **2.1.0 "Legacy & Chains" is a release candidate.** No 2.1.0 ZIP, tag or GitHub Release exists until the publication gate, fresh bilingual/native evidence and the checks below pass. The published [2.0.2 release](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.2) remains the current distribution artifact until then.
+Release: **2.1.0 "Legacy & Chains" is a release candidate.** No 2.1.0 ZIP, tag or GitHub Release exists until the publication gate, fresh bilingual/native evidence and the checks below pass. The latest published release remains [2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1); the 2.0.2 candidate was verified in source but was never tagged or published, so it is not a distribution artifact.
 
 Candidate evidence on 2026-10-29: the 57-case headless source suite passed in both RU and EN, including strict compile, deterministic playthrough, balance routes, save compatibility and the chains, dynasty and card-feel suites. This is not the gate; rendered/export/native checks, the seeded soak and the owner checks below remain open.
 

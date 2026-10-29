@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.0.2 — announcement kit
 
-Prepared for the gated Windows release: [Heirs of Fortune 2.0.2](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.2). Distribution and announcement require the published release receipt and the five owner checks in [HANDOFF](HANDOFF.md). Older rejected diagnostic images remain historical and must not be used.
+Prepared for the gated Windows release: the 2.0.2 candidate was verified but never tagged or published; the latest published release is [Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Distribution and announcement of any later release require its published release receipt and the five owner checks in [HANDOFF](HANDOFF.md). Older rejected diagnostic images remain historical and must not be used.
 
 ## EN announcement — 226 words
 

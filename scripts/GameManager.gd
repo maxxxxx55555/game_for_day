@@ -463,6 +463,14 @@ func get_net_worth_cents() -> int:
 	var total:int=Money.add(Money.add(cash_cents,get_portfolio_value_cents()),get_business_valuation_cents())
 	return Money.MAX_CENTS if total==Money.INVALID else total
 
+func format_rank(value: int) -> String:
+	if value >= 1000000000:
+		return LocalizationManager.source("copy.21a9f89a5145") % (float(value) / 1000000000.0)
+	elif value >= 1000000:
+		return LocalizationManager.source("copy.547cd75236ac") % (float(value) / 1000000.0)
+	else:
+		return str(value)
+
 func get_net_worth() -> float:return Money.dollars(get_net_worth_cents())
 
 func recalculate_forbes_rank() -> void:
@@ -910,6 +918,20 @@ func format_num(val: float) -> String:
 		return "%s%.1fK" % [sign_s, abs_v / 1000.0]
 	else:
 		return "%s%d" % [sign_s, int(abs_v)]
+
+func format_age(age_value: int) -> String:
+	return LocalizationManager.source("dynasty.age") % [age_value, year_word(age_value)]
+
+func year_word(age_value: int) -> String:
+	var tail:int=age_value%100
+	if tail>=11 and tail<=14:
+		return LocalizationManager.source("dynasty.year.let")
+	match age_value%10:
+		1:
+			return LocalizationManager.source("dynasty.year.god")
+		2, 3, 4:
+			return LocalizationManager.source("dynasty.year.goda")
+	return LocalizationManager.source("dynasty.year.let")
 
 func claim_grant() -> float:
 	if simulation_ticks<grant_ready_tick or last_grant_tick==simulation_ticks:return 0

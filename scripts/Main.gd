@@ -478,12 +478,7 @@ func clean_copy(text: String) -> String:
 	return result.strip_edges()
 
 func format_rank(r: int) -> String:
-	if r >= 1000000000:
-		return LocalizationManager.source("copy.21a9f89a5145") % (float(r) / 1000000000.0)
-	elif r >= 1000000:
-		return LocalizationManager.source("copy.547cd75236ac") % (float(r) / 1000000.0)
-	else:
-		return str(r)
+	return GameManager.format_rank(r)
 
 func apply_bottom_icons() -> void:
 	apply_icon(market_btn,"market")
