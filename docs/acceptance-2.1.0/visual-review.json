@@ -1,0 +1,66 @@
+{
+  "result": "PASS",
+  "source_commit": "30fcac43069ca1513074d224144b6e9291355b0f",
+  "capture_note": "Frames were rendered from the working tree committed as 30fcac4; the 720x1280 run uses an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area (720x1055) on this host.",
+  "reviewed_frames": 66,
+  "frames_per_run": {
+    "en-540x960": 17,
+    "ru-540x960": 17,
+    "en-720x1280": 16,
+    "ru-720x1280": 16
+  },
+  "reviewed_locales": [
+    "en",
+    "ru"
+  ],
+  "reviewed_resolutions": [
+    [
+      540,
+      960
+    ],
+    [
+      720,
+      1280
+    ]
+  ],
+  "method": "Every captured frame was inspected in four labelled contact sheets, and every 2.1 screen (perk choice, dynasty journal, legacy, life threads, hall of fame, ascension, milestone card) was additionally inspected at original size in both locales.",
+  "issues_found": [
+    {
+      "id": "raw-rank",
+      "detail": "Milestone card, dynasty journal and hall printed raw ranks such as #6233850000.",
+      "resolution": "GameManager.format_rank shared by Main, MilestoneCard and DynastyPanel."
+    },
+    {
+      "id": "milestone-card-width",
+      "detail": "The milestone card collapsed to about 180px and wrapped the heading over five lines.",
+      "resolution": "Responsive minimum width at 72% of the viewport clamped to 320-520px."
+    },
+    {
+      "id": "dynasty-ghosting",
+      "detail": "The dynasty backdrop at alpha 0.985 let the life screen bleed through at 720x1280.",
+      "resolution": "Backdrop is now opaque INK_BG."
+    },
+    {
+      "id": "thread-phrase",
+      "detail": "Milestone body read \"Thread: completed threads: 1\".",
+      "resolution": "Label is now Threads with the value \"%d completed\" / \"\u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u043e %d\"."
+    },
+    {
+      "id": "age-plural",
+      "detail": "Hall of fame printed \"61 \u043b\u0435\u0442\" in Russian.",
+      "resolution": "GameManager.format_age declines \u0433\u043e\u0434/\u0433\u043e\u0434\u0430/\u043b\u0435\u0442 and the English year/years plural."
+    }
+  ],
+  "open_issues": [],
+  "contact_sheets": {
+    "contact-en-540x960.png": "40b626b201a58c9db57544284905e8bbd945e1ebafd0dc0dae3926829d00a287",
+    "contact-en-720x1280.png": "fa1de4df030e0ca7f58fdcd9254dcac0c7883ef74188d3fc264748db091d93e5",
+    "contact-ru-540x960.png": "628a094642781f4f178f75da7731136220a3f4d767979b6253ce5cb2c623598b",
+    "contact-ru-720x1280.png": "0e244b0acd6cbe047e9fc677aa79022d1b08b253714e3e60c79e1a2db2aa2a50"
+  },
+  "source_art_inventory_files": 4,
+  "source_art_hashes_unchanged": true,
+  "press_frames": "docs/press/v2.1.0 (8 frames, manifest and captions record per-file hashes and which frames are staged).",
+  "packaging_note": "The gate re-runs at 90d0574, whose only source change is export_presets.cfg excluding builds/* from the archive. That file selects packaged paths and cannot alter a rendered frame, so this review carries over unchanged.",
+  "scope": "Presentation review only: clipping, ghosting, formatting and locale fit in captured frames. It does not establish human play, listening or balance acceptance, which remain with the owner."
+}
