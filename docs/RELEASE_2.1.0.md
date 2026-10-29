@@ -9,7 +9,7 @@ Status: **release candidate, not yet published.** This note records the intended
 - **Legacy meta-progression (G3).** Eight permanent perks cost 4–15 points. Points survive generations; warm start raises the first balance by $2,000.
 - **Ascension (G4).** A five-level NG+ path from the victory finale. Each level raises inflation, volatility and difficulty and pays bonus legacy; the next life starts clean with its ascension level recorded.
 - **Milestones and momentum (G5).** Retrospectives at 18, 25, 35, 50 and 65 grant momentum. The card records the read but never pauses or advances the world.
-- **Ambitions (G6).** Steady, meteor and heir change real economic trade-offs: meteor raises stress gains and market swings, heir applies a 1.25 inheritance multiplier.
+- **Ambitions (G6).** Steady, meteor and heir change real economic trade-offs: meteor raises stress gains and market swings, heir takes a 1.25 inheritance multiplier and a larger legacy payout in exchange for a tenth of quarter income.
 - **Card feel (G7).** A short reveal, signed delta chips for every changed stat, outcome tones, a live 24-sample portfolio pulse and reduced-motion snapping. Presentation never enters the saved model.
 
 ## Design pass

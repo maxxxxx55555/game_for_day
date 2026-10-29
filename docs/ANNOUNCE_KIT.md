@@ -34,7 +34,7 @@ EXE не подписан Authenticode, поэтому возможно стан
 
 - Weighted births across 192 countries, selectable traits, 31 events and 93 decisions.
 - Eight threads of fate: flagged choices that return as delayed continuation cards.
-- Three ambitions — Steady, Meteor (money gains ×1.25, market swings widened, stress ×1.3) and Heir (25% of net worth inherits instead of 20%, legacy income +25%).
+- Three ambitions — Steady, Meteor (money gains ×1.25, market swings widened, stress ×1.3) and Heir (quarter income ×0.9 in exchange for 25% of net worth inherited instead of 20% and legacy +25%).
 - Dynasty journal and hall of fame with rank, age and outcome per finished life.
 - Eight legacy perks bought with points earned at inheritance.
 - Ascension new-game-plus at five difficulty levels, keeping the family start.
@@ -49,7 +49,7 @@ EXE не подписан Authenticode, поэтому возможно стан
 
 - Взвешенный выбор места рождения среди 192 стран, черты персонажа, 31 событие и 93 решения.
 - Восемь нитей судьбы: отмеченный выбор возвращается продолжением спустя кварталы.
-- Три темпа жизни — Размеренный, Метеор (прибыль ×1,25, рынок колеблется сильнее, стресс ×1,3) и Наследник (передаётся 25% капитала вместо 20%, наследие +25%).
+- Три темпа жизни — Размеренный, Метеор (прибыль ×1,25, рынок колеблется сильнее, стресс ×1,3) и Наследник (квартальный доход ×0,9, зато передаётся 25% капитала вместо 20% и наследие +25%).
 - Журнал династии и Зал славы с рейтингом, возрастом и исходом каждой завершённой жизни.
 - Восемь перков наследия за очки, полученные при наследовании.
 - «Восхождение» с пятью уровнями сложности, сохраняющее старт рода.
