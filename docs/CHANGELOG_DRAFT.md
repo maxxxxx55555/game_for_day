@@ -1,6 +1,6 @@
 # CHANGELOG — v2 integration draft
 
-## 2.1.0 Legacy & Chains — release candidate, publication gated
+## 2.1.0 Legacy & Chains — published 2026-10-30
 
 - Added eight two-link threads with stored flags, five-quarter delays, recalled choices, variant outcomes and momentum.
 - Added the five-section dynasty ledger and a twelve-life hall of fame.
@@ -11,7 +11,12 @@
 - Added jazz-lounge palette, Unbounded/Onest type, 1.75px vector icons and emoji-free displayed copy.
 - Added chains, dynasty-progression and card-feel suites; mechanics matrix is now 18 rows / 144 cells.
 - 2.1 save fields remain optional; 1.4.0 and 2.0.x profiles load with neutral defaults.
-- No 2.1.0 artifact is published before the 100% publication gate.
+- Publication gate PASS at `807ba09`; tag `v2.1.0`; release assets `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file.
+
+## Unreleased on main — two-skin appearance system
+
+- Dark (ink and champagne) and light (warm paper and bronze) skins resolved through `scripts/ui/Palette.gd`, a theme switch on the intro and in settings, a per-country plate in the event card and new interface icons. See [APPEARANCE.md](APPEARANCE.md).
+- This work is **not** part of the published 2.1.0 archive and has not been through the publication gate; the 2.1.0 design-pass expectations (one documented palette, five 1.75px interface icons) do not describe it, so it needs its own acceptance run before any release.
 
 ## Earlier v2 notes (historical, unchanged by 2.1.0)
 

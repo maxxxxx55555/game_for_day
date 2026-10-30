@@ -8,4 +8,6 @@ Release: **2.1.0 "Legacy & Chains" is published at https://github.com/maxxxxx555
 4. Walk every ledger section. Read a milestone retrospective at 18, finish a $250B victory and try Ascension; the hall must gain exactly one record per life. Choose each of the three ambitions on the intro screen and confirm the Heir description states the income cost it charges.
 5. Check the four musical moods, finale cues, each audio slider, reduced motion, Credits and an older 1.4.0/2.0.x profile. Keep its installation key and original backup.
 
+Checks 1-5 describe the published 2.1.0 build at `807ba09`. Main has moved past it with the two-skin appearance system ([APPEARANCE.md](APPEARANCE.md)), which is not in this archive and has not been gated; it needs its own acceptance run and its own owner pass before it can be released.
+
 These owner checks are not claimed complete: they need a human at the keyboard and ears, and automated suites cannot stand in for them. Unsigned executable, finite testing and offline-integrity limits are explained in the acceptance certificate and release notes.
