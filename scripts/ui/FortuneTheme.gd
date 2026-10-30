@@ -98,7 +98,9 @@ static func create() -> Theme:
 static func apply(root: Control) -> void:
 	root.theme = create()
 	for button:Button in root.find_children("*","Button",true,false):
-		button.remove_theme_font_size_override("font_size")
+		# Font sizes stay with the screen that chose them: the bottom bar and the choice
+		# cards depend on their overrides, and clearing them here widens the layout past
+		# narrow viewports and prints the raw choice text over the card.
 		for state:String in ["normal","hover","pressed","disabled","focus"]: button.remove_theme_stylebox_override(state)
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	(root.get_node("Background") as Control).add_theme_stylebox_override("panel",style(Palette.ink()))

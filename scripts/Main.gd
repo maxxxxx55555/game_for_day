@@ -108,10 +108,13 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	dynasty_button.pressed.connect(open_dynasty_menu)
+	var choice_index:int=1
 	for button:Button in [btn_1,btn_2,btn_3]:
 		var card:ChoiceView=preload("res://scripts/ui/ChoiceCard.gd").new()
+		card.index=choice_index
 		button.add_child(card)
 		choice_cards.append(card)
+		choice_index+=1
 	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
 	stats_label.hide()
 	stats_label.get_parent().add_child(dashboard)
