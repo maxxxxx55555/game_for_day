@@ -16,7 +16,7 @@
 ## Unreleased on main — two-skin appearance system
 
 - Dark (ink and champagne) and light (warm paper and bronze) skins resolved through `scripts/ui/Palette.gd`, a theme switch on the intro and in settings, a per-country plate in the event card and new interface icons. See [APPEARANCE.md](APPEARANCE.md).
-- This work is **not** part of the published 2.1.0 archive and has not been through the publication gate; the 2.1.0 design-pass expectations (one documented palette, five 1.75px interface icons) do not describe it, so it needs its own acceptance run before any release.
+- This work is **not** part of the published 2.1.0 archive and has not been through the publication gate, and no suite exercises the theme switch yet; the 2.1.0 design-pass expectations (one documented palette, five 1.75px interface icons) do not describe it, so it needs its own acceptance run before any release.
 
 ## Earlier v2 notes (historical, unchanged by 2.1.0)
 

@@ -48,7 +48,7 @@ Presentation was reviewed from re-rendered frames at `e9b0256`: 66 gallery frame
 
 ## After this release
 
-Main has since merged a two-skin appearance system ([docs/APPEARANCE.md](APPEARANCE.md)): dark and light themes, a theme switch in settings, a per-country plate in the event card and new interface icons. None of that is inside the published 2.1.0 archive, which stays pinned to `807ba09`, and it has not been through the publication gate — the palette and icon expectations recorded above describe the released build, not the current main.
+Main has since merged a two-skin appearance system ([docs/APPEARANCE.md](APPEARANCE.md)): dark and light themes, a theme switch in settings, a per-country plate in the event card and new interface icons. None of that is inside the published 2.1.0 archive, which stays pinned to `807ba09`, and it has not been through the publication gate, and no automated case switches the theme yet, so its own suites and design pass still have to be written — the palette and icon expectations recorded above describe the released build, not the current main.
 
 ## Limits
 
