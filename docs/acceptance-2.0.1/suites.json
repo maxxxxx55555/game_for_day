@@ -1,0 +1,32 @@
+{
+  "en": {
+    "result": "PASS",
+    "exit": 0,
+    "language": "en",
+    "godot_invocations": 53,
+    "seconds": 449.687,
+    "errors": [],
+    "raw_case_issues": {},
+    "console_sha256": "69ee21db2f22811a6a06a08b24d8dd5b7a090ad37bf60b9f9f3cf32a31094d9a",
+    "source_commit": "2ca971ba27d78a931d792912d45bdb8bf4245537",
+    "source_tree": "235be5578ab604c3a0b3078e1c499788eaa9d160",
+    "audio_driver": "Dummy",
+    "rendered": true,
+    "local_attributes_override": false
+  },
+  "ru": {
+    "result": "PASS",
+    "exit": 0,
+    "language": "ru",
+    "godot_invocations": 53,
+    "seconds": 547.657,
+    "errors": [],
+    "raw_case_issues": {},
+    "console_sha256": "452322ca3cb97d07a2e439b61318409e5da525c5ffec7d6f222b4a092e519497",
+    "source_commit": "2ca971ba27d78a931d792912d45bdb8bf4245537",
+    "source_tree": "235be5578ab604c3a0b3078e1c499788eaa9d160",
+    "audio_driver": "Dummy",
+    "rendered": true,
+    "local_attributes_override": false
+  }
+}

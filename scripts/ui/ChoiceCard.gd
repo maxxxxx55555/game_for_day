@@ -40,8 +40,15 @@ func _ready() -> void:
 	column.add_child(detail)
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
-	GameManager.theme_changed.connect(func(_mode:String)->void:queue_redraw())
+	GameManager.theme_changed.connect(func(_mode:String)->void:apply_skin())
 	refresh()
+	apply_skin()
+
+## Colours are pushed once per skin, not per frame: theme overrides invalidate the theme cache.
+func apply_skin() -> void:
+	title.add_theme_color_override("font_color",Palette.text())
+	detail.add_theme_color_override("font_color",Palette.muted())
+	queue_redraw()
 
 ## Roman index drawn in the gutter, the way a numbered menu is set in print.
 func numeral() -> String:
@@ -55,8 +62,6 @@ func _draw() -> void:
 func refresh() -> void:
 	if not is_instance_valid(button): return
 	modulate.a=0.5 if button.disabled else 1.0
-	title.add_theme_color_override("font_color",Palette.text())
-	detail.add_theme_color_override("font_color",Palette.muted())
 	var available:float=button.size.x-40
 	if button.text==previous and previous_language==LocalizationManager.current_language and is_equal_approx(available,measured_width): return
 	previous_language=LocalizationManager.current_language

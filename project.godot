@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/version="2.0.1"
+config/version="2.1.0"
 
 config/name="Heirs of Fortune"
 config/name_localized={"en":"Heirs of Fortune","ru":"Наследники удачи"}
@@ -38,6 +38,7 @@ LocalizationManager="*res://scripts/autoload/LocalizationManager.gd"
 GameManager="*res://scripts/GameManager.gd"
 SoundManager="*res://scripts/audio/AudioDirector.gd"
 EventLibrary="*res://scripts/EventLibrary.gd"
+ChainLibrary="*res://scripts/ChainLibrary.gd"
 
 [display]
 

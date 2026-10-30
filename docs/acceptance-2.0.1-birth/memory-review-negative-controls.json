@@ -1,0 +1,78 @@
+{
+  "result": "PASS",
+  "controls": {
+    "continued64KiBperMinutePrivateGrowth": {
+      "result": "FAIL",
+      "failures": [
+        "private allocation has not stabilized"
+      ],
+      "tail_seconds": 360,
+      "tail_complete_cycles": 18,
+      "tail_start_process_seconds": 1458.859,
+      "metrics": {
+        "private_bytes": {
+          "minute_medians_bytes": [
+            347656431.0,
+            347722034.5,
+            347787673.0,
+            347853278.0,
+            347918899.0,
+            347984503.0
+          ],
+          "net_bytes": 328072.0,
+          "band_bytes": 328072.0
+        },
+        "working_set_bytes": {
+          "minute_medians_bytes": [
+            233709568.0,
+            234086400.0,
+            233551872.0,
+            235270144.0,
+            235560960.0,
+            235126784.0
+          ],
+          "net_bytes": 1417216.0,
+          "band_bytes": 2009088.0
+        }
+      },
+      "criteria": "Retrospective review: six-minute final window, at least10 completed cycles; private median net <=64KiB and band <=1MiB; whole-run resident quarter medians must not independently flag sustained growth (resident tail remains reported); all post-cycle engine counts exactly flat, zero orphans. This is a finite stability review, not zero-byte growth or leak-freedom proof."
+    },
+    "retainedObjectEveryCycle": {
+      "result": "FAIL",
+      "failures": [
+        "engine retained objects"
+      ],
+      "tail_seconds": 360,
+      "tail_complete_cycles": 18,
+      "tail_start_process_seconds": 1458.859,
+      "metrics": {
+        "private_bytes": {
+          "minute_medians_bytes": [
+            329240576.0,
+            329285632.0,
+            328290304.0,
+            329252864.0,
+            329250816.0,
+            329244672.0
+          ],
+          "net_bytes": 4096.0,
+          "band_bytes": 995328.0
+        },
+        "working_set_bytes": {
+          "minute_medians_bytes": [
+            233709568.0,
+            234086400.0,
+            233551872.0,
+            235270144.0,
+            235560960.0,
+            235126784.0
+          ],
+          "net_bytes": 1417216.0,
+          "band_bytes": 2009088.0
+        }
+      },
+      "criteria": "Retrospective review: six-minute final window, at least10 completed cycles; private median net <=64KiB and band <=1MiB; whole-run resident quarter medians must not independently flag sustained growth (resident tail remains reported); all post-cycle engine counts exactly flat, zero orphans. This is a finite stability review, not zero-byte growth or leak-freedom proof."
+    }
+  },
+  "scope": "Analysis-only copies; actual evidence/source untouched"
+}

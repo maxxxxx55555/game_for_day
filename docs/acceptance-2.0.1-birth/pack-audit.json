@@ -1,0 +1,203 @@
+{
+  "result": "PASS",
+  "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "source_role": "export-r3",
+  "export_phase": "exports-birth-r3",
+  "artifacts": {
+    "private-qa.exe": {
+      "result": "PASS",
+      "artifact": "private-qa.exe",
+      "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+      "artifact_sha256": "715b236d237a49de46aa05386cebc1685bc568d431315c9bb08424a8dff023ec",
+      "private_qa": true,
+      "directory_encrypted": true,
+      "all_files_encrypted": true,
+      "all_payload_hashes_verified": true,
+      "critical_manifest_matches_frozen_source": true,
+      "every_critical_digest_matches_decrypted_payload": true,
+      "critical_payloads": [
+        {
+          "path": "res://assets/audio/catalog.json",
+          "expected_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "actual_decrypted_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/events.json",
+          "expected_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "actual_decrypted_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/choice_aliases.json",
+          "expected_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "actual_decrypted_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/localization.json",
+          "expected_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "actual_decrypted_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "result": "PASS"
+        }
+      ],
+      "compiled_trust_anchor_present": true,
+      "compiled_trust_paths": [
+        "res://scripts/security/TrustedData.gdc"
+      ],
+      "compiled_constant_scope": "Frozen source binds manifest; compiled bytecode presence and encrypted integrity verified; no bytecode decompilation claim",
+      "qa_verifier_physically_present": true,
+      "qa_paths": [
+        "res://scripts/ReleaseVerification.gd.remap",
+        "res://scripts/ReleaseVerification.gdc"
+      ],
+      "file_count": 151,
+      "keys_or_key_hashes_recorded": false
+    },
+    "private-qa.pck": {
+      "result": "PASS",
+      "artifact": "private-qa.pck",
+      "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+      "artifact_sha256": "538798c144af84f1cb873ef8e8f2397101f4892b01c4cdc016fd58d480285adb",
+      "private_qa": true,
+      "directory_encrypted": true,
+      "all_files_encrypted": true,
+      "all_payload_hashes_verified": true,
+      "critical_manifest_matches_frozen_source": true,
+      "every_critical_digest_matches_decrypted_payload": true,
+      "critical_payloads": [
+        {
+          "path": "res://assets/audio/catalog.json",
+          "expected_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "actual_decrypted_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/events.json",
+          "expected_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "actual_decrypted_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/choice_aliases.json",
+          "expected_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "actual_decrypted_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/localization.json",
+          "expected_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "actual_decrypted_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "result": "PASS"
+        }
+      ],
+      "compiled_trust_anchor_present": true,
+      "compiled_trust_paths": [
+        "res://scripts/security/TrustedData.gdc"
+      ],
+      "compiled_constant_scope": "Frozen source binds manifest; compiled bytecode presence and encrypted integrity verified; no bytecode decompilation claim",
+      "qa_verifier_physically_present": true,
+      "qa_paths": [
+        "res://scripts/ReleaseVerification.gd.remap",
+        "res://scripts/ReleaseVerification.gdc"
+      ],
+      "file_count": 151,
+      "keys_or_key_hashes_recorded": false
+    },
+    "public.exe": {
+      "result": "PASS",
+      "artifact": "public.exe",
+      "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+      "artifact_sha256": "b57ba5c47522a95c1d197b26be9a4ac1bfc777a96612106b81c6b95f9eba5f78",
+      "private_qa": false,
+      "directory_encrypted": true,
+      "all_files_encrypted": true,
+      "all_payload_hashes_verified": true,
+      "critical_manifest_matches_frozen_source": true,
+      "every_critical_digest_matches_decrypted_payload": true,
+      "critical_payloads": [
+        {
+          "path": "res://assets/audio/catalog.json",
+          "expected_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "actual_decrypted_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/events.json",
+          "expected_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "actual_decrypted_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/choice_aliases.json",
+          "expected_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "actual_decrypted_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/localization.json",
+          "expected_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "actual_decrypted_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "result": "PASS"
+        }
+      ],
+      "compiled_trust_anchor_present": true,
+      "compiled_trust_paths": [
+        "res://scripts/security/TrustedData.gdc"
+      ],
+      "compiled_constant_scope": "Frozen source binds manifest; compiled bytecode presence and encrypted integrity verified; no bytecode decompilation claim",
+      "qa_verifier_physically_present": false,
+      "qa_paths": [],
+      "file_count": 149,
+      "keys_or_key_hashes_recorded": false
+    },
+    "public.pck": {
+      "result": "PASS",
+      "artifact": "public.pck",
+      "source_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+      "artifact_sha256": "87df971a2c885e223034e53eb657a8a352f333339344383447f0c1153d6a457e",
+      "private_qa": false,
+      "directory_encrypted": true,
+      "all_files_encrypted": true,
+      "all_payload_hashes_verified": true,
+      "critical_manifest_matches_frozen_source": true,
+      "every_critical_digest_matches_decrypted_payload": true,
+      "critical_payloads": [
+        {
+          "path": "res://assets/audio/catalog.json",
+          "expected_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "actual_decrypted_sha256": "c32c99222a11b305cb04ab6164e2eef326c253865700d1046ecac59d855739f9",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/events.json",
+          "expected_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "actual_decrypted_sha256": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/choice_aliases.json",
+          "expected_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "actual_decrypted_sha256": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
+          "result": "PASS"
+        },
+        {
+          "path": "res://data/strings/localization.json",
+          "expected_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "actual_decrypted_sha256": "6c817b2bef1bcc3cc21d08c637e6576808b48d2832146dd70a2bca8523a2b5dd",
+          "result": "PASS"
+        }
+      ],
+      "compiled_trust_anchor_present": true,
+      "compiled_trust_paths": [
+        "res://scripts/security/TrustedData.gdc"
+      ],
+      "compiled_constant_scope": "Frozen source binds manifest; compiled bytecode presence and encrypted integrity verified; no bytecode decompilation claim",
+      "qa_verifier_physically_present": false,
+      "qa_paths": [],
+      "file_count": 149,
+      "keys_or_key_hashes_recorded": false
+    }
+  },
+  "keys_or_key_hashes_recorded": false
+}

@@ -6,11 +6,23 @@ extends RefCounted
 const DARK:String= "dark"
 const LIGHT:String= "light"
 
+## Resolved through the tree, not by identifier: this module is compiled from
+## FortuneTheme during autoload setup, before GameManager exists as a name.
+static func theme_mode() -> String:
+	var loop:MainLoop= Engine.get_main_loop()
+	if loop is SceneTree:
+		var root_window:Window= (loop as SceneTree).root
+		if root_window != null:
+			var manager:Node= root_window.get_node_or_null("GameManager")
+			if manager != null:
+				return str(manager.get("theme_mode"))
+	return DARK
+
 static func is_dark() -> bool:
-	return GameManager.theme_mode != LIGHT
+	return theme_mode() != LIGHT
 
 static func mode() -> String:
-	return LIGHT if GameManager.theme_mode == LIGHT else DARK
+	return LIGHT if theme_mode() == LIGHT else DARK
 
 ## Page background behind every panel.
 static func ink() -> Color:
@@ -45,14 +57,18 @@ static func muted() -> Color:
 
 ## The single accent. Champagne on ink, bronze on paper.
 static func accent() -> Color:
-	return Color("c8a96a") if is_dark() else Color("8a6a2f")
+	return Color("c9a227") if is_dark() else Color("8a6a2f")
 
 static func accent_deep() -> Color:
-	return Color("8c7442") if is_dark() else Color("6d5324")
+	return Color("a9871f") if is_dark() else Color("6d5324")
+
+## Positive movement and completed chains.
+static func green() -> Color:
+	return Color("7fb069") if is_dark() else Color("4f7a3a")
 
 ## Warnings and failure states.
 static func alert() -> Color:
-	return Color("c9736a") if is_dark() else Color("a8443c")
+	return Color("c4614f") if is_dark() else Color("a8443c")
 
 ## Unfilled portion of a meter.
 static func track() -> Color:

@@ -1,8 +1,9 @@
 extends RefCounted
-## Builds the Theme for whichever skin is active. Surfaces come from Palette, so
-## switching skins only needs apply() to run again.
+## Builds the Theme for whichever skin is active. Every colour resolves through
+## Palette, so switching skins only needs apply() to run again.
 const Palette=preload("res://scripts/ui/Palette.gd")
 static var surfaces:Dictionary= {}
+static var display_fonts:Dictionary= {}
 
 static func panel(color: Color, edge: Color = Color.TRANSPARENT, radius: int = 6) -> StyleBoxFlat:
 	var box:StyleBoxFlat= StyleBoxFlat.new()
@@ -18,6 +19,15 @@ static func panel(color: Color, edge: Color = Color.TRANSPARENT, radius: int = 6
 
 static func style(color: Color, border: Color = Color.TRANSPARENT) -> StyleBoxFlat:
 	return panel(color,border)
+
+static func display_font(weight: int = 600) -> FontVariation:
+	if display_fonts.has(weight):
+		return display_fonts[weight]
+	var font:FontVariation= FontVariation.new()
+	font.base_font = load("res://assets/fonts/Unbounded.ttf")
+	font.variation_opentype = {0x77676874: float(weight)}
+	display_fonts[weight] = font
+	return font
 
 static func surface(state: String) -> StyleBoxTexture:
 	var key:String= state + Palette.button_variant()

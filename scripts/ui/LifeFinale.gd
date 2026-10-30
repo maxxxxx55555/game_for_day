@@ -3,12 +3,15 @@ extends Control
 signal choice_requested(option: int)
 var primary: Button
 var secondary: Button
+var tertiary: Button
+var ascension_hint: Label
 var painting: TextureRect
 var heading: Label
 var overline: Label
 var story: Label
 var wealth: Label
 var legacy: Label
+var spacer: Control
 var victorious:bool= false
 var elapsed:float= 0.0
 var entrance: Tween
@@ -52,23 +55,23 @@ func _ready() -> void:
 	var column:VBoxContainer= VBoxContainer.new()
 	column.add_theme_constant_override("separation",16)
 	margin.add_child(column)
-	var brand:Label= label(column,18,Color("d4bd90"))
+	var brand:Label= label(column,18,Color("c9a227"))
 	brand.text = "HEIRS OF FORTUNE"
-	var space:Control= Control.new()
-	space.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	space.custom_minimum_size.y = 200
-	column.add_child(space)
-	overline = label(column,17,Color("d4bd90"))
+	spacer= Control.new()
+	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	spacer.custom_minimum_size.y = 200
+	column.add_child(spacer)
+	overline = label(column,17,Color("c9a227"))
 	heading = label(column,32)
-	heading.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf") as Font)
-	story = label(column,21,Color("c8d1d3"))
+	heading.add_theme_font_override("font",preload("res://scripts/ui/FortuneTheme.gd").display_font(600))
+	story = label(column,21,Color("d8dfe0"))
 	var card:PanelContainer= PanelContainer.new()
-	card.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(Color(0.07,0.14,0.20,0.86),Color(0.72,0.62,0.43,0.4)))
+	card.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(Color(0.18,0.25,0.34,0.9),Color(0.79,0.64,0.15,0.55)))
 	column.add_child(card)
 	var metrics:VBoxContainer= VBoxContainer.new()
 	card.add_child(metrics)
-	wealth = label(metrics,34,Color("dfc692"))
-	legacy = label(metrics,17,Color("c2cdd0"))
+	wealth = label(metrics,34,Color("c9a227"))
+	legacy = label(metrics,17,Color("d8dfe0"))
 	primary = Button.new()
 	primary.name = "FinalePrimary"
 	primary.custom_minimum_size.y = 64
@@ -85,6 +88,15 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	secondary.pressed.connect(func()->void: choice_requested.emit(2))
+	tertiary = Button.new()
+	tertiary.name = "FinaleAscension"
+	tertiary.custom_minimum_size.y = 58
+	tertiary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	column.add_child(tertiary)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	tertiary.pressed.connect(func()->void: choice_requested.emit(3))
+	ascension_hint = label(column,14,Color("c9a227"))
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	resized.connect(queue_redraw)
@@ -103,6 +115,15 @@ func present(data: Dictionary) -> void:
 	if data.revive:
 		primary.text = LocalizationManager.source("copy.1549f96910e3")
 		secondary.text = LocalizationManager.source("copy.0bbe03537dc6")
+	var ascension_available:bool=data.get("ascension_available",false)
+	tertiary.visible=ascension_available
+	ascension_hint.visible=ascension_available
+	if ascension_available:
+		var ascension_next:int=data.get("ascension_next",1)
+		var ascension_bonus:int=data.get("ascension_bonus",3)
+		tertiary.text=LocalizationManager.source("ascension.finale.action") % ascension_next
+		ascension_hint.text=LocalizationManager.source("ascension.finale.hint") % ascension_bonus
+	spacer.custom_minimum_size.y=90 if ascension_available else 200
 	show()
 	elapsed = 0
 	if entrance and entrance.is_valid(): entrance.kill()

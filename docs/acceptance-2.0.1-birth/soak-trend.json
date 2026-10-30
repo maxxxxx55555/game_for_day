@@ -1,0 +1,79 @@
+{
+  "analysis_protocol": "actual-duration-denominator-v2",
+  "result": "PASS",
+  "failures": [],
+  "duration_seconds": 1823.906,
+  "complete_cycles": 76,
+  "checkpoints": 1207,
+  "post_cycle_counts": {
+    "nodes": {
+      "first": 19,
+      "last": 19,
+      "delta": 0,
+      "min": 19,
+      "max": 19,
+      "samples": 76
+    },
+    "resources": {
+      "first": 36,
+      "last": 36,
+      "delta": 0,
+      "min": 36,
+      "max": 36,
+      "samples": 76
+    },
+    "objects": {
+      "first": 1846,
+      "last": 1846,
+      "delta": 0,
+      "min": 1846,
+      "max": 1846,
+      "samples": 76
+    },
+    "orphans": {
+      "first": 0,
+      "last": 0,
+      "delta": 0,
+      "min": 0,
+      "max": 0,
+      "samples": 76
+    }
+  },
+  "warmup_seconds": 120,
+  "os_measurement_rows": 1817,
+  "measurement_coverage": 0.9962136206580822,
+  "process_metrics_sha256": "1013b6a74b8ecf7ec6f079f1a603c65e72939213dd32e7e223cae8049505d375",
+  "memory": {
+    "working_set_bytes": {
+      "min": 219746304,
+      "max": 395108352,
+      "quarter_medians": [
+        360464384,
+        276977664,
+        262623232,
+        234958848
+      ],
+      "median_delta": -125505536,
+      "strictly_increasing_quarters": false
+    },
+    "private_bytes": {
+      "min": 304504832,
+      "max": 341647360,
+      "quarter_medians": [
+        327401472,
+        328032256,
+        328908800,
+        329244672
+      ],
+      "median_delta": 1843200,
+      "strictly_increasing_quarters": true
+    }
+  },
+  "cpu_core_equivalents": {
+    "median": 0.921875,
+    "p95": 1.0467980295566643,
+    "max": 1.15625
+  },
+  "os_memory_trend_review_required": true,
+  "scope": "Measured on this host, possibly alongside other QA. Acceptance asserts flat unloaded-cycle engine object/resource/node counts and zero orphans. OS working-set/private allocation variation and trends are reported, not called zero-byte growth or universal leak freedom."
+}

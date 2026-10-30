@@ -1,0 +1,341 @@
+{
+  "result": "PASS",
+  "release": "https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1",
+  "tag": "v2.0.1",
+  "tag_commit": "0b9bea2262909569c1ef5492e0a725b6ad6b422b",
+  "runtime_export_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+  "gate_percent": 100,
+  "global_gate_sha256": "03edb8a4620a1c399c5b87a3abaf61bd0b916b11314772ec104584e2d49ffd19",
+  "checks": [
+    {
+      "repository": "game_for_day",
+      "check": "Full Godot suite en",
+      "result": "PASS",
+      "evidence": {
+        "path": "C:\\Users\\Maxsim\\Documents\\Codex\\2026-10-24\\new-chat\\outputs\\release-1.5.2-and-2.0.1\\game_for_day\\QA\\suites-birth-r3-summary.json",
+        "commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9"
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Full Godot suite ru",
+      "result": "PASS",
+      "evidence": {
+        "path": "C:\\Users\\Maxsim\\Documents\\Codex\\2026-10-24\\new-chat\\outputs\\release-1.5.2-and-2.0.1\\game_for_day\\QA\\suites-birth-r3-summary.json",
+        "commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9"
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Ordinary source checkout audit",
+      "result": "PASS",
+      "evidence": "suites-birth-r3-source-audit.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Final tag source matches full-suite source",
+      "result": "PASS",
+      "evidence": {
+        "tested_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "final_commit": "0b9bea2262909569c1ef5492e0a725b6ad6b422b",
+        "documentation_delta": [
+          "README.md",
+          "docs/ACCEPTANCE_CERTIFICATE.md",
+          "docs/ANNOUNCE_KIT.md",
+          "docs/BIRTH_DATA.csv",
+          "docs/BIRTH_DATA_NOTICE.md",
+          "docs/FINAL_REPORT.md",
+          "docs/HANDOFF.md",
+          "docs/PROMISE_MATRIX.json",
+          "docs/PROMISE_MATRIX.md",
+          "docs/RELEASE_2.0.1.md",
+          "docs/acceptance-2.0.1-birth/announcement-word-counts.json",
+          "docs/acceptance-2.0.1-birth/contracts.json",
+          "docs/acceptance-2.0.1-birth/cycles.json",
+          "docs/acceptance-2.0.1-birth/evidence-manifest.json",
+          "docs/acceptance-2.0.1-birth/exports.json",
+          "docs/acceptance-2.0.1-birth/legacy.json",
+          "docs/acceptance-2.0.1-birth/memory-review-negative-controls.json",
+          "docs/acceptance-2.0.1-birth/memory-review.json",
+          "docs/acceptance-2.0.1-birth/native.json",
+          "docs/acceptance-2.0.1-birth/pack-audit.json",
+          "docs/acceptance-2.0.1-birth/soak-trend.json",
+          "docs/acceptance-2.0.1-birth/soak.json",
+          "docs/acceptance-2.0.1-birth/suite-en.log",
+          "docs/acceptance-2.0.1-birth/suite-ru.log",
+          "docs/acceptance-2.0.1-birth/suite-source-audit.json",
+          "docs/acceptance-2.0.1-birth/suites.json",
+          "docs/acceptance-2.0.1-birth/visual-review.json",
+          "docs/press/v2.0.1-birth/01-en-gallery-intro.png",
+          "docs/press/v2.0.1-birth/02-en-gallery-life.png",
+          "docs/press/v2.0.1-birth/03-ru-gallery-currencies.png",
+          "docs/press/v2.0.1-birth/04-en-gallery-birth.png",
+          "docs/press/v2.0.1-birth/05-en-finales-victory-finale.png",
+          "docs/press/v2.0.1-birth/06-ru-finales-defeat-finale.png",
+          "docs/press/v2.0.1-birth/07-en-gallery-credits.png",
+          "docs/press/v2.0.1-birth/08-ru-gallery-settings.png",
+          "docs/press/v2.0.1-birth/CAPTIONS.md",
+          "docs/press/v2.0.1-birth/manifest.json"
+        ]
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Audio, license, promise/mechanics, export, QA and isolation contracts",
+      "result": "PASS",
+      "evidence": "final-contracts-birth-r3/summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Four encrypted exports",
+      "result": "PASS",
+      "evidence": "exports-birth-r3/summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Full encrypted pack payload/trust/physical QA exclusion audit",
+      "result": "PASS",
+      "evidence": "exports-birth-r3/pack-audit-summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Public guards and three native victories plus defeat",
+      "result": "PASS",
+      "evidence": "native-birth-r3/summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Legacy real read/write roundtrip and tamper rejection",
+      "result": "PASS",
+      "evidence": "legacy-birth-r3/summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Fifty distinct complete seeded routes",
+      "result": "PASS",
+      "evidence": "patch-full-cycles-birth-r3/summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Measured normal soak >=1800 seconds",
+      "result": "PASS",
+      "evidence": "patch-normal-soak-birth-r3/"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Bilingual integrated gallery review",
+      "result": "PASS",
+      "evidence": "visual-review-birth-r3.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "All runtime evidence uses the shipped source",
+      "result": "PASS",
+      "evidence": {
+        "legacy": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "cycles": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "soak": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "gallery": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "visual": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "export-public.exe": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "export-public.pck": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "export-private-qa.exe": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "export-private-qa.pck": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "contracts": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9"
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Native evidence uses the exact audited binaries",
+      "result": "PASS",
+      "evidence": "native-birth-r3/summary.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Reviewed screenshots retain exact raw bytes",
+      "result": "PASS",
+      "evidence": "gallery-birth-r3/manifest.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Exact delivery and license bytes",
+      "result": "PASS",
+      "evidence": "packages.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Final archive hash",
+      "result": "PASS",
+      "evidence": {
+        "name": "HeirsofFortune-Windows-2.0.1.zip",
+        "bytes": 79695388,
+        "sha256": "7807fa273d3d36b4d17d1487d2a1419e12e40df6457a79b3f60923b0322f9fcd"
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Final checksums hash",
+      "result": "PASS",
+      "evidence": {
+        "name": "HeirsofFortune-SHA256SUMS-2.0.1.txt",
+        "bytes": 99,
+        "sha256": "a595285f406e4727a4c1623ec686ae03d03b4adc396c0f80ba1e93f671829452"
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Native checksum verification",
+      "result": "PASS",
+      "evidence": "package-sha256sum.log"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "ZIP delivery filename executable/PCK guard",
+      "result": "PASS",
+      "evidence": "delivery-filename/result.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Actual secret literal absence in loose source/docs",
+      "result": "PASS",
+      "evidence": "final-sources.json; packages.json"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Shipping source/assets exactly match tested exports",
+      "result": "PASS",
+      "evidence": {
+        "runtime_commit": "bd25752d9b4c6948bb1f9fa18f04779da10acdd9",
+        "final_commit": "0b9bea2262909569c1ef5492e0a725b6ad6b422b",
+        "nonshipping_delta": [
+          "README.md",
+          "docs/ACCEPTANCE_CERTIFICATE.md",
+          "docs/ANNOUNCE_KIT.md",
+          "docs/BIRTH_DATA.csv",
+          "docs/BIRTH_DATA_NOTICE.md",
+          "docs/FINAL_REPORT.md",
+          "docs/HANDOFF.md",
+          "docs/PROMISE_MATRIX.json",
+          "docs/PROMISE_MATRIX.md",
+          "docs/RELEASE_2.0.1.md",
+          "docs/acceptance-2.0.1-birth/announcement-word-counts.json",
+          "docs/acceptance-2.0.1-birth/contracts.json",
+          "docs/acceptance-2.0.1-birth/cycles.json",
+          "docs/acceptance-2.0.1-birth/evidence-manifest.json",
+          "docs/acceptance-2.0.1-birth/exports.json",
+          "docs/acceptance-2.0.1-birth/legacy.json",
+          "docs/acceptance-2.0.1-birth/memory-review-negative-controls.json",
+          "docs/acceptance-2.0.1-birth/memory-review.json",
+          "docs/acceptance-2.0.1-birth/native.json",
+          "docs/acceptance-2.0.1-birth/pack-audit.json",
+          "docs/acceptance-2.0.1-birth/soak-trend.json",
+          "docs/acceptance-2.0.1-birth/soak.json",
+          "docs/acceptance-2.0.1-birth/suite-en.log",
+          "docs/acceptance-2.0.1-birth/suite-ru.log",
+          "docs/acceptance-2.0.1-birth/suite-source-audit.json",
+          "docs/acceptance-2.0.1-birth/suites.json",
+          "docs/acceptance-2.0.1-birth/visual-review.json",
+          "docs/press/v2.0.1-birth/01-en-gallery-intro.png",
+          "docs/press/v2.0.1-birth/02-en-gallery-life.png",
+          "docs/press/v2.0.1-birth/03-ru-gallery-currencies.png",
+          "docs/press/v2.0.1-birth/04-en-gallery-birth.png",
+          "docs/press/v2.0.1-birth/05-en-finales-victory-finale.png",
+          "docs/press/v2.0.1-birth/06-ru-finales-defeat-finale.png",
+          "docs/press/v2.0.1-birth/07-en-gallery-credits.png",
+          "docs/press/v2.0.1-birth/08-ru-gallery-settings.png",
+          "docs/press/v2.0.1-birth/CAPTIONS.md",
+          "docs/press/v2.0.1-birth/manifest.json"
+        ]
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Clean synchronized main",
+      "result": "PASS",
+      "evidence": "0b9bea2262909569c1ef5492e0a725b6ad6b422b"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Post-push isolation working",
+      "result": "PASS",
+      "evidence": "REPO ISOLATION PASS: game_for_day\n"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Post-push isolation tree",
+      "result": "PASS",
+      "evidence": "REPO ISOLATION PASS: game_for_day\n"
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Exact-head hosted CI",
+      "result": "PASS",
+      "evidence": {
+        "id": 40715595786,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/maxxxxx55555/game_for_day/actions/runs/40715595786"
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Prior public release/tag immutable",
+      "result": "PASS",
+      "evidence": {
+        "tag": "v2.0.0",
+        "release_id": 424212927
+      }
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Branches and unique-content preservation",
+      "result": "PASS",
+      "evidence": [
+        {
+          "name": "jules-game-enhancements-12581546528437518941",
+          "commit": "5fcd0e64f169a7c3bb7b3dfe719ab68ffca7687b"
+        },
+        {
+          "name": "main",
+          "commit": "0b9bea2262909569c1ef5492e0a725b6ad6b422b"
+        }
+      ]
+    },
+    {
+      "repository": "game_for_day",
+      "check": "Consistent patch version",
+      "result": "PASS",
+      "evidence": "2.0.1"
+    }
+  ],
+  "download_verification": {
+    "result": "PASS",
+    "release_url": "https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1",
+    "assets": [
+      {
+        "name": "HeirsofFortune-Windows-2.0.1.zip",
+        "bytes": 79695388,
+        "sha256": "7807fa273d3d36b4d17d1487d2a1419e12e40df6457a79b3f60923b0322f9fcd",
+        "id": 685432093,
+        "url": "https://github.com/maxxxxx55555/game_for_day/releases/download/v2.0.1/HeirsofFortune-Windows-2.0.1.zip",
+        "server_digest_verified": true
+      },
+      {
+        "name": "HeirsofFortune-SHA256SUMS-2.0.1.txt",
+        "bytes": 99,
+        "sha256": "a595285f406e4727a4c1623ec686ae03d03b4adc396c0f80ba1e93f671829452",
+        "id": 685432097,
+        "url": "https://github.com/maxxxxx55555/game_for_day/releases/download/v2.0.1/HeirsofFortune-SHA256SUMS-2.0.1.txt",
+        "server_digest_verified": true
+      }
+    ],
+    "method": "All archive bytes freshly downloaded after publication; validated HTTP206 Content-Range, complete SHA256, exact checksum filename and native sha256sum -c; no old/local prefix reused",
+    "range_count": 77,
+    "command": "sha256sum -c HeirsofFortune-SHA256SUMS-2.0.1.txt",
+    "exit": 0,
+    "stdout": "HeirsofFortune-Windows-2.0.1.zip: OK\n"
+  },
+  "old_release_immutable": true,
+  "owner_five_checks": "OUTSTANDING",
+  "zip_and_release_assets_unchanged_by_this_documentation_update": true
+}

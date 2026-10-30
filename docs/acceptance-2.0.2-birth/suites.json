@@ -1,0 +1,34 @@
+{
+  "en": {
+    "result": "PASS",
+    "exit": 0,
+    "language": "en",
+    "godot_invocations": 55,
+    "seconds": 703.985,
+    "errors": [],
+    "raw_case_issues": {},
+    "console_sha256": "a5c30499dac2807a23467a620f75a9647800765b339bb72ecf8390b1873cfc3a",
+    "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+    "source_tree": "4ae6e26f89161530889c3f4065eb105b59f96838",
+    "audio_driver": "Dummy",
+    "rendered": true,
+    "local_attributes_override": false,
+    "timeout_scope": "Unchanged test runner and assertions; Godot per-case timeout extended from 180 to 600 seconds under concurrent QA"
+  },
+  "ru": {
+    "result": "PASS",
+    "exit": 0,
+    "language": "ru",
+    "godot_invocations": 55,
+    "seconds": 442.516,
+    "errors": [],
+    "raw_case_issues": {},
+    "console_sha256": "6f081a4f66eaf0ea2c0ea18be7b31587045edde760c769c18f4bea6d3c77d715",
+    "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+    "source_tree": "4ae6e26f89161530889c3f4065eb105b59f96838",
+    "audio_driver": "Dummy",
+    "rendered": true,
+    "local_attributes_override": false,
+    "timeout_scope": "Unchanged test runner and assertions; Godot per-case timeout extended from 180 to 600 seconds under concurrent QA"
+  }
+}

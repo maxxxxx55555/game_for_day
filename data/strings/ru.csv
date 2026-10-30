@@ -972,13 +972,277 @@ birth.share,новорождённых,of newborns
 birth.life,жизнь,life expectancy
 birth.capital,капитал семьи,family capital
 birth.note.one,"Страна задаёт старт, но не приговор.","The country sets the start, not the ending."
-birth.note.two,Её влияние тает к 50 годам.,Its grip fades by 50.
+birth.note.two,Её влияние на доход исчезает к 52 годам.,Its income effect fades by 52.
 birth.pick_trait,"Выберите черту, которая подходит жизни, начавшейся здесь.",Take the trait that fits a life that began here.
 birth.reveal,"%s%% новорождённых в мире появляются здесь. Ожидаемая жизнь — %d лет.
 Страна задаёт старт, но не приговор: её влияние тает к 50 годам.","%s%% of the world's newborns arrive here. Life expectancy — %d years.
 The country sets the start, not the ending: its grip fades by 50."
 birth.life_years,%d лет,%d yrs
 dashboard.grip,влияние страны: %d%%,country grip: %d%%
+ui.dynasty,Династия,Dynasty
+ui.back,Назад,Back
+ambition.steady,Размеренный,Steady
+ambition.meteor,Метеор,Meteor
+ambition.heir,Наследник,Heir
+ambition.steady.button,Размеренный (ровный доход и стресс),Steady (even income and stress)
+ambition.meteor.button,"Метеор (доход +25%, стресс +30%)","Meteor (+25% income, +30% stress)"
+ambition.heir.button,Наследник (наследство +25%),Heir (+25% inheritance)
+ambition.steady.desc,Ровный темп: без скрытых множителей дохода и стресса.,An even pace: no hidden income or stress multipliers.
+ambition.meteor.desc,"Быстрые деньги требуют крепких нервов: доход выше, стресс растёт быстрее.","Fast money demands strong nerves: higher income, faster stress."
+ambition.heir.desc,Жизнь продолжает дело рода: наследство весомее на четверть.,The life continues the family work: inheritance is a quarter larger.
+ambition.intro,Выберите темп этой жизни.,Choose the pace of this life.
+ambition.short.steady,размеренный,steady
+ambition.short.meteor,метеор,meteor
+ambition.short.heir,наследник,heir
+intro.ascension,"Восхождение %d: инфляция и волатильность выше, наследие щедрее.","Ascension %d: higher inflation and volatility, richer legacy."
+dynasty.title,Династия,Dynasty
+dynasty.balance,Поколение #%d · Наследие: %d · Восхождение: %d · Импульс: %d,Generation #%d · Legacy: %d · Ascension: %d · Momentum: %d
+dynasty.stats,Жизней: %d · Побед: %d · Лучший капитал: $%s · Лучший рейтинг: #%s · Цепочек: %d,Lives: %d · Victories: %d · Best capital: $%s · Best rank: #%s · Chains: %d
+dynasty.record,Поколение #%d · %s · $%s · рейтинг #%s · %d лет,Generation #%d · %s · $%s · rank #%s · %d years
+dynasty.record.victory,победа,victory
+dynasty.record.defeat,поражение,defeat
+dynasty.record.ascension, · восхождение %d, · ascension %d
+dynasty.record.ascension.line,Восхождение %d,Ascension %d
+dynasty.record.detail,Нитей: %d · вех: %d,Threads: %d · milestones: %d
+dynasty.empty.hall,Зал славы пуст. Завершите первую жизнь.,The hall of fame is empty. Finish your first life.
+dynasty.section.hall,Зал славы,Hall of fame
+dynasty.section.legacy,Наследие,Legacy
+dynasty.section.threads,Нити судьбы,Life threads
+dynasty.section.journal,Журнал жизни,Life journal
+dynasty.section.ascension,Восхождение,Ascension
+dynasty.legacy.balance,Очки наследия: %d,Legacy points: %d
+dynasty.legacy.hint,Постоянные преимущества действуют в каждой новой жизни.,Permanent advantages apply to every new life.
+dynasty.legacy.owned,Уже в наследии,Already in the legacy
+dynasty.legacy.buy,Открыть · %d,Unlock · %d
+dynasty.legacy.need,Нужно %d очков наследия,Requires %d legacy points
+dynasty.threads.hint,Нить начнётся сейчас и вернётся продолжением через несколько кварталов.,A thread starts now and returns as a continuation several quarters later.
+dynasty.threads.start,Начать,Begin
+dynasty.threads.active,В пути · продолжение через %d кв.,Under way · continues in %d qtrs
+dynasty.threads.active.short,в пути,under way
+dynasty.threads.due,В пути · продолжение готово,Under way · continuation ready
+dynasty.threads.done,Завершено,Completed
+dynasty.threads.empty,Для этого этапа доступных нитей нет.,No threads are available at this stage.
+dynasty.journal.empty,"Вехи появятся на 18, 25, 35, 50 и 65 годах.","Milestones appear at ages 18, 25, 35, 50 and 65."
+dynasty.journal.milestone,%d лет · $%s · рейтинг #%s · %s,Age %d · $%s · rank #%s · %s
+dynasty.journal.chain,Нить: %s · %s,Thread: %s · %s
+dynasty.ascension.level,Уровень восхождения: %d,Ascension level: %d
+dynasty.ascension.hint,"Каждый уровень усиливает инфляцию и волатильность, но щедрее платит наследием.","Each level raises inflation and volatility, but pays more legacy."
+dynasty.ascension.momentum,Импульс: %d · при завершении жизни он станет очками наследия.,Momentum: %d · it becomes legacy points when the life ends.
+dynasty.ascension.next,Следующее восхождение: уровень %d · награда +%d очков наследия.,Next ascension: level %d · reward +%d legacy points.
+dynasty.ascension.max,Достигнут предел восхождения.,The ascension limit is reached.
+dynasty.ascension.open,Восхождение открывается после победы в списке Forbes.,Ascension unlocks after a Forbes victory.
+legacy.perk.warm_start,Тёплый старт,Warm start
+legacy.perk.warm_start.desc,+$2 000 к стартовому капиталу,"+$2,000 starting capital"
+legacy.perk.business_savvy,Деловая хватка,Business savvy
+legacy.perk.business_savvy.desc,Апгрейды бизнеса дешевле на 10%,Business upgrades cost 10% less
+legacy.perk.market_instinct,Рыночное чутьё,Market instinct
+legacy.perk.market_instinct.desc,Акции растут чуть охотнее,Stocks drift slightly higher
+legacy.perk.calm_blood,Холодная кровь,Calm blood
+legacy.perk.calm_blood.desc,Стресс растёт на 10% медленнее,Stress grows 10% slower
+legacy.perk.healthy_habits,Здоровые привычки,Healthy habits
+legacy.perk.healthy_habits.desc,+10 к здоровью в начале жизни,+10 health at life start
+legacy.perk.networker,Связи,Networker
+legacy.perk.networker.desc,Пассивный доход выше на 5%,+5% passive income
+legacy.perk.fast_learner,Быстрый ученик,Fast learner
+legacy.perk.fast_learner.desc,+2 к приросту интеллекта,+2 intellect gain
+legacy.perk.safety_net,Страховка,Safety net
+legacy.perk.safety_net.desc,Расходы жизни ниже на 8%,Living costs 8% lower
+milestone.overline,ВЕХА ЖИЗНИ,LIFE MILESTONE
+milestone.title,Вам %d. Время сверить курс.,You are %d. Time to check the course.
+milestone.body,Капитал: $%s · Рейтинг: #%s · Этап: %s · Нить: %s,Capital: $%s · Rank: #%s · Stage: %s · Thread: %s
+milestone.momentum,Импульс династии: +%d,Dynasty momentum: +%d
+milestone.continue,Продолжить,Continue
+milestone.stage.survival,выживание,survival
+milestone.stage.career,карьера,career
+milestone.stage.millionaire,миллионер,millionaire
+milestone.stage.billionaire,миллиардер,billionaire
+milestone.none,без активной нити,no active thread
+milestone.threads,завершено нитей: %d,completed threads: %d
+chain.thread.overline,НИТЬ СУДЬБЫ,LIFE THREAD
+chain.follow.overline,ПРОДОЛЖЕНИЕ,CONTINUATION
+chain.thread.started,Нить судьбы: %s,Life thread: %s
+delta.title,Изменения,Changes
+delta.cash,Кэш,Cash
+delta.health,Здоровье,Health
+delta.intellect,Интеллект,Intellect
+delta.stress,Стресс,Stress
+delta.happiness,Счастье,Happiness
+delta.energy,Энергия,Energy
+dashboard.pulse,Пульс рынка,Market pulse
+dashboard.ambition,Темп: %s,Pace: %s
+ascension.finale.action,Начать восхождение · уровень %d,Begin ascension · level %d
+ascension.finale.hint,"Следующая жизнь будет жёстче, а наследие — щедрее: +%d очков.",The next life will be harsher and its legacy richer: +%d points.
+ascension.started,Восхождение %d начато. Рынки стали жёстче.,Ascension %d begins. Markets are harsher.
+chain.library_workshop.codex,Мастерская при библиотеке,The library workshop
+chain.library_workshop.start.title,Мастерская при библиотеке ищет руки,The library workshop needs a pair of hands
+chain.library_workshop.start.c1.label,Провести вечерний практикум для соседей,Host an evening workshop for the neighbors
+chain.library_workshop.start.c1.result,Вы помогли людям и завели первые полезные знакомства.,You helped people and made your first useful contacts.
+chain.library_workshop.start.c2.label,Собрать платный проект для местного магазина,Take a paid project for the local shop
+chain.library_workshop.start.c2.result,"Заказ оплачен, но вечеров на отдых больше не осталось.","The order is paid, but your evenings are gone."
+chain.library_workshop.start.c3.label,Отложить и восстановить силы,Postpone and recover
+chain.library_workshop.start.c3.result,Вы сохранили силы — и упустили шанс на знакомство.,You kept your strength and missed a chance to connect.
+chain.library_workshop.follow.title,Мастерская присылает приглашение,The workshop sends an invitation
+chain.library_workshop.follow.recall,Помните вечер в библиотеке? Вы тогда выбрали: «%s».,Remember that evening at the library? You chose: «%s».
+chain.library_workshop.follow.c1.label,Вложить силы в общую мастерскую,Invest your effort in the shared workshop
+chain.library_workshop.follow.c1.result,Вы вошли в дело со свежей головой — и это заметили.,"You joined with a fresh mind, and people noticed."
+chain.library_workshop.follow.c1.v.taught.result,Соседи привели учеников: мастерская стала вашей витриной.,Neighbors brought students: the workshop became your showcase.
+chain.library_workshop.follow.c1.v.paid.result,Заказы из магазина привели первых платных учеников.,Shop orders brought your first paying students.
+chain.library_workshop.follow.c2.label,Продать оборудование и забрать прибыль,Sell the equipment and take the profit
+chain.library_workshop.follow.c2.result,Вы забрали своё — без сожалений и без новых знакомств.,"You took what was yours, without regrets or new contacts."
+chain.library_workshop.follow.c2.v.taught.result,"Вы продали то, что собирали вместе; часть соседей перестала здороваться.",You sold what you built together; some neighbors stopped saying hello.
+chain.library_workshop.follow.c2.v.paid.result,"Оборудование ушло быстро, выручка закрыла долги.",The equipment sold fast; the proceeds cleared your debts.
+chain.library_workshop.follow.c3.label,Передать мастерскую городу,Hand the workshop to the city
+chain.library_workshop.follow.c3.result,"Вы вышли из игры без денег, но с чистой совестью и свободным вечером.","You stepped away with no money, a clear conscience, and a free evening."
+chain.library_workshop.follow.c3.v.taught.result,Город отметил ваш вклад: мастерская осталась с вашим именем на двери.,The city honored your contribution: the workshop kept your name on the door.
+chain.library_workshop.follow.c3.v.paid.result,"Часть вложений не вернулась, зато вышли из дела честно.","Some of your investment never came back, but you left cleanly."
+chain.night_courier.codex,Ночной курьер,The night courier
+chain.night_courier.start.title,Ночная смена курьером: знакомый просит подменить,A night courier shift: a friend asks you to cover
+chain.night_courier.start.c1.label,Взять рискованный заказ через весь город,Take a risky cross-town delivery
+chain.night_courier.start.c1.result,"Заказ доставлен вовремя, чаевые оказались щедрыми.","Delivered on time, with a generous tip."
+chain.night_courier.start.c2.label,Взять спокойный маршрут на весь квартал,Take a calm route for the whole quarter
+chain.night_courier.start.c2.result,"Смена прошла ровно: без рекордов, но и без потерь.","A smooth shift: no records, no losses."
+chain.night_courier.start.c3.label,Отказаться и выспаться,Decline and get some sleep
+chain.night_courier.start.c3.result,Сон вернул ясность — и никаких лишних денег.,"Sleep restored your clarity, and brought no extra money."
+chain.night_courier.follow.title,Курьер зовёт в долю,The courier offers a share
+chain.night_courier.follow.recall,Та ночная смена осталась в памяти: «%s».,That night shift stayed with you: «%s».
+chain.night_courier.follow.c1.label,Скинуться на свой мини-склад,Chip in for a small depot
+chain.night_courier.follow.c1.result,Вы рискнули вместе — склад начал работать.,"You took the risk together, and the depot started working."
+chain.night_courier.follow.c1.v.risky.result,Тот ночной риск убедил его: склад работает.,That night's risk convinced him: the depot works.
+chain.night_courier.follow.c1.v.steady.result,Аккуратность оказалась лучшей рекомендацией.,Reliability proved the best reference.
+chain.night_courier.follow.c2.label,Работать только на его заказах,Work only on his orders
+chain.night_courier.follow.c2.result,"Он дал вам шанс, и вы его не потратили впустую.","He gave you a chance, and you used it well."
+chain.night_courier.follow.c2.v.risky.result,Ваша репутация ускорила дело.,Your reputation sped things up.
+chain.night_courier.follow.c2.v.steady.result,Ровный график приносит ровные деньги.,A steady schedule brings steady money.
+chain.night_courier.follow.c3.label,Остаться независимым,Stay independent
+chain.night_courier.follow.c3.result,Вы сохранили свободу и вечерние прогулки.,You kept your freedom and evening walks.
+chain.night_courier.follow.c3.v.risky.result,Пара заказов всё же пришла от него — без обязательств.,"A few orders still came from him, with no strings."
+chain.hackathon_team.codex,Команда с хакатона,The hackathon team
+chain.hackathon_team.start.title,На хакатоне не хватает лидера,The hackathon team needs a lead
+chain.hackathon_team.start.c1.label,Взять команду на себя,Lead the team
+chain.hackathon_team.start.c1.result,"Прототип собрали, выступление запомнили.",The prototype shipped and your pitch was remembered.
+chain.hackathon_team.start.c2.label,Помочь организаторам,Help the organizers
+chain.hackathon_team.start.c2.result,Вы получили оплату и полезные контакты.,You earned a fee and useful contacts.
+chain.hackathon_team.start.c3.label,Уйти на лекции и восстановиться,Attend the talks and recover
+chain.hackathon_team.start.c3.result,Вы узнали новое и не выгорели.,You learned something new without burning out.
+chain.hackathon_team.follow.title,Инвестор с хакатона пишет,An investor from the hackathon writes
+chain.hackathon_team.follow.recall,Он напомнил ваш выбор на хакатоне: «%s».,He recalled your choice at the hackathon: «%s».
+chain.hackathon_team.follow.c1.label,Показать прототип и попросить пилот,Demo the prototype and ask for a pilot
+chain.hackathon_team.follow.c1.result,Ваш свежий взгляд оказался кстати.,Your fresh take fit perfectly.
+chain.hackathon_team.follow.c1.v.led.result,Инвестор узнал вашу презентацию: пилот подписан.,The investor remembered your pitch: the pilot is signed.
+chain.hackathon_team.follow.c1.v.helped.result,Организаторы подтвердили вашу надёжность.,The organizers vouched for you.
+chain.hackathon_team.follow.c2.label,Продать место в команде,Sell your spot in the team
+chain.hackathon_team.follow.c2.result,Вы вышли из проекта с небольшой прибылью.,You left the project with a small profit.
+chain.hackathon_team.follow.c2.v.led.result,Команда узнала о продаже и расстроилась.,The team learned about the sale and took it hard.
+chain.hackathon_team.follow.c2.v.helped.result,Ваш контакт стоил дороже места в команде.,Your contact was worth more than the seat.
+chain.hackathon_team.follow.c3.label,Отказаться и вернуться к учёбе,Decline and return to study
+chain.hackathon_team.follow.c3.result,Вы сохранили время для главного.,You kept time for what mattered.
+chain.hackathon_team.follow.c3.v.led.result,Вы сохранили репутацию — инвестор запомнил это.,You kept your reputation; the investor remembered it.
+chain.mentor_coffee.codex,Наставник из кофейни,The mentor from the café
+chain.mentor_coffee.start.title,Наставник из кофейни предлагает разговор,A mentor from the café offers a conversation
+chain.mentor_coffee.start.c1.label,Принять менторство,Accept the mentorship
+chain.mentor_coffee.start.c1.result,Разговор расставил приоритеты на квартал.,The conversation set your priorities for the quarter.
+chain.mentor_coffee.start.c2.label,Попросить рекомендацию,Ask for a referral
+chain.mentor_coffee.start.c2.result,Его звонок открыл вам дверь.,His call opened a door.
+chain.mentor_coffee.start.c3.label,Вежливо отказаться,Politely decline
+chain.mentor_coffee.start.c3.result,Вы сохранили время и контроль.,You kept your time and control.
+chain.mentor_coffee.follow.title,Наставник собирает совет директоров,The mentor assembles a board
+chain.mentor_coffee.follow.recall,Он помнит вашу встречу в кофейне: «%s».,He remembers your café meeting: «%s».
+chain.mentor_coffee.follow.c1.label,Согласиться на место в совете,Accept a seat on the board
+chain.mentor_coffee.follow.c1.result,"Совет принял вас осторожно, но принял.","The board accepted you cautiously, but it accepted you."
+chain.mentor_coffee.follow.c1.v.mentor.result,Он назвал вас своим учеником: место в совете ваше.,He named you his student: the board seat is yours.
+chain.mentor_coffee.follow.c1.v.referral.result,Рекомендация сработала: вас ждут.,The referral worked: they expect you.
+chain.mentor_coffee.follow.c2.label,Войти консультантом,Join as a consultant
+chain.mentor_coffee.follow.c2.result,Консультант без обязательств — удобная роль.,A consultant without obligations is a comfortable role.
+chain.mentor_coffee.follow.c2.v.mentor.result,Ученик наставника получает лучшие условия.,The mentor's student gets the better terms.
+chain.mentor_coffee.follow.c2.v.referral.result,Ваш контакт сработал как пропуск.,Your contact worked as a pass.
+chain.mentor_coffee.follow.c3.label,Строить своё дело,Build your own venture
+chain.mentor_coffee.follow.c3.result,Свобода оказалась дороже места в совете.,Freedom proved worth more than a board seat.
+chain.mentor_coffee.follow.c3.v.declined.result,Ваш ранний отказ научил говорить «нет» вовремя.,Your early refusal taught you to say no in time.
+chain.family_loan.codex,Семейный заём,The family loan
+chain.family_loan.start.title,Семья просит крупный заём,The family asks for a large loan
+chain.family_loan.start.c1.label,Дать деньги без условий,Lend without conditions
+chain.family_loan.start.c1.result,"Вы помогли, но подушка стала тоньше.","You helped, but your cushion got thinner."
+chain.family_loan.start.c2.label,Дать деньги под расписку,Lend with a written note
+chain.family_loan.start.c2.result,Документ успокоил обе стороны.,The document calmed both sides.
+chain.family_loan.start.c3.label,Отказать и объяснить,Refuse and explain
+chain.family_loan.start.c3.result,"Разговор был трудным, но честным.",The conversation was hard but honest.
+chain.family_loan.follow.title,Прошло время: семья возвращается,Time passes: the family returns
+chain.family_loan.follow.recall,Помните тот разговор о деньгах? «%s».,Remember that conversation about money? «%s».
+chain.family_loan.follow.c1.label,Принять возврат и праздновать,Accept repayment and celebrate
+chain.family_loan.follow.c1.result,Вам вернули долг и тепло.,They returned the debt and the warmth.
+chain.family_loan.follow.c1.v.lent.result,"Вас обняли и вернули больше, чем просили.",They hugged you and returned more than they asked.
+chain.family_loan.follow.c1.v.noted.result,"Расписка пригодилась, но семья не в обиде.","The note helped, and no one took offense."
+chain.family_loan.follow.c2.label,Простить долг,Forgive the debt
+chain.family_loan.follow.c2.result,"Вы вычеркнули цифру из тетради, а не человека из жизни.","You erased a number from the ledger, not a person from your life."
+chain.family_loan.follow.c2.v.noted.result,Расписка больше не нужна: вы простили долг.,The note is no longer needed: you forgave the debt.
+chain.family_loan.follow.c2.v.refused.result,"Вас удивили: вернули сами, без напоминаний.",They surprised you: repaid unprompted.
+chain.family_loan.follow.c3.label,Попросить помощи в ответ,Ask for help in return
+chain.family_loan.follow.c3.result,Вы помогли друг другу без лишних слов.,You helped each other without extra words.
+chain.family_loan.follow.c3.v.refused.result,Старый отказ больше не мешал: вы помогли друг другу.,The old refusal no longer stood in the way; you helped each other.
+chain.city_tender.codex,Городской тендер,The city tender
+chain.city_tender.start.title,Город объявляет тендер на благоустройство,The city announces a refurbishment tender
+chain.city_tender.start.c1.label,Подать честную заявку,Submit an honest bid
+chain.city_tender.start.c1.result,Заявка прошла сложный отбор.,Your bid passed a tough selection.
+chain.city_tender.start.c2.label,Предложить партнёру сговор,Propose a backroom deal
+chain.city_tender.start.c2.result,"Деньги пришли быстро, вместе с тревогой.","The money came fast, along with worry."
+chain.city_tender.start.c3.label,Не участвовать и смотреть,Stay out and watch
+chain.city_tender.start.c3.result,Вы сохранили репутацию и спокойствие.,You kept your reputation and your peace.
+chain.city_tender.follow.title,Тендерный комитет возвращается,The tender committee returns
+chain.city_tender.follow.recall,В деле сохранилась ваша заявка: «%s».,Your bid stayed on file: «%s».
+chain.city_tender.follow.c1.label,Позвать наблюдателей и выйти на конкурс,Invite observers and join the competition
+chain.city_tender.follow.c1.result,Открытый конкурс оказался честной проверкой.,The open competition proved an honest test.
+chain.city_tender.follow.c1.v.honest.result,Ваша честная заявка стала стандартом.,Your honest bid became the standard.
+chain.city_tender.follow.c1.v.deal.result,Сговор раскрылся: штраф и заголовки.,The deal was exposed: a fine and headlines.
+chain.city_tender.follow.c2.label,Договориться с подрядчиками,Work with the contractors
+chain.city_tender.follow.c2.result,Подрядчики оказались надёжнее ожиданий.,The contractors proved more reliable than expected.
+chain.city_tender.follow.c2.v.honest.result,Чистая репутация принесла лучшие условия.,A clean reputation brought better terms.
+chain.city_tender.follow.c2.v.deal.result,Партнёры ждут ответных услуг.,Partners now expect favors.
+chain.city_tender.follow.c3.label,Вложить в частный проект,Invest in a private project
+chain.city_tender.follow.c3.result,Частный проект обошёлся без комитетов.,The private project needed no committees.
+chain.city_tender.follow.c3.v.stayed.result,Спокойный взгляд со стороны оказался прибыльным.,Your calm outsider view proved profitable.
+chain.media_profile.codex,Профиль в прессе,The press profile
+chain.media_profile.start.title,Журналистка просит профиль,A journalist requests a profile
+chain.media_profile.start.c1.label,Открыться и рассказать всё,Open up and tell everything
+chain.media_profile.start.c1.result,"История понравилась, но лишнее внимание утомило.","The story landed, but the attention tired you."
+chain.media_profile.start.c2.label,Дозировать информацию,Give a measured interview
+chain.media_profile.start.c2.result,Аккуратный текст без сюрпризов.,A careful piece without surprises.
+chain.media_profile.start.c3.label,Отказаться,Decline
+chain.media_profile.start.c3.result,Ваша жизнь осталась вашей.,Your life stayed yours.
+chain.media_profile.follow.title,Издательство предлагает книгу,A publisher offers a book
+chain.media_profile.follow.recall,В редакции помнят вашу историю: «%s».,The newsroom remembers your story: «%s».
+chain.media_profile.follow.c1.label,Написать честную книгу,Write an honest book
+chain.media_profile.follow.c1.result,"Книга вышла спокойной, но её читают.","The book came out quiet, but people read it."
+chain.media_profile.follow.c1.v.open.result,Ваша откровенность в статье продала книгу.,Your candor in the article sold the book.
+chain.media_profile.follow.c1.v.measured.result,Взвешенный тон сделал книгу убедительной.,Your measured tone made the book persuasive.
+chain.media_profile.follow.c2.label,Дать интервью о книге,Do interviews about the book
+chain.media_profile.follow.c2.result,Спокойный разговор без скандала.,A calm conversation without scandal.
+chain.media_profile.follow.c2.v.open.result,Зрители узнали вас в лицо.,Viewers recognized your face.
+chain.media_profile.follow.c2.v.measured.result,"Вопросы были острыми, ответы — точными.",The questions were sharp; your answers were precise.
+chain.media_profile.follow.c3.label,Отложить книгу,Shelve the book
+chain.media_profile.follow.c3.result,Вы сохранили личное и тишину.,You kept your privacy and the quiet.
+chain.media_profile.follow.c3.v.private.result,"Аванс остался у вас, а история — при вас.","The advance stayed with you, and the story stayed yours."
+chain.quiet_estate.codex,Тихое поместье,The quiet estate
+chain.quiet_estate.start.title,Старое поместье ищет нового хранителя,An old estate seeks a new keeper
+chain.quiet_estate.start.c1.label,Создать семейный фонд,Create a family foundation
+chain.quiet_estate.start.c1.result,Фонд дал поместью смысл и защиту.,The foundation gave the estate purpose and protection.
+chain.quiet_estate.start.c2.label,Купить поместье как актив,Buy the estate as an asset
+chain.quiet_estate.start.c2.result,"Земля окупится, если не спешить.",The land will pay off if you don't rush it.
+chain.quiet_estate.start.c3.label,Отложить решение,Postpone the decision
+chain.quiet_estate.start.c3.result,Вы оставили себе выбор.,You kept your options open.
+chain.quiet_estate.follow.title,Поместье присылает отчёт,The estate sends a report
+chain.quiet_estate.follow.recall,Управляющий помнит ваше решение: «%s».,The steward remembers your decision: «%s».
+chain.quiet_estate.follow.c1.label,Вложить в реставрацию,Invest in restoration
+chain.quiet_estate.follow.c1.result,"Реставрация идёт медленно, но впервые по плану.","Restoration is slow, but for once on plan."
+chain.quiet_estate.follow.c1.v.foundation.result,Фонд привлёк гранты: реставрация стала общественным делом.,The foundation attracted grants: restoration became a public cause.
+chain.quiet_estate.follow.c1.v.asset.result,Поместье подняло оценку активов.,The estate raised your asset valuation.
+chain.quiet_estate.follow.c2.label,Передать под опеку города,Hand it to the city's care
+chain.quiet_estate.follow.c2.result,Город принял поместье без лишнего шума.,The city accepted the estate without fuss.
+chain.quiet_estate.follow.c2.v.foundation.result,Город оставил вашу фамилию на воротах.,The city kept your name on the gates.
+chain.quiet_estate.follow.c2.v.asset.result,Вы отказались от актива ради тишины.,You gave up an asset for quiet.
+chain.quiet_estate.follow.c3.label,Продать поместье,Sell the estate
+chain.quiet_estate.follow.c3.result,Покупатель нашёлся быстро.,A buyer appeared quickly.
+chain.quiet_estate.follow.c3.v.foundation.result,"Фонд остался, поместье ушло: часть совета обиделась.","The foundation stayed, the estate left; part of the board took offense."
+chain.quiet_estate.follow.c3.v.asset.result,Актив продан с прибылью.,The asset sold at a profit.
 ui.theme,Оформление,Appearance
 ui.theme.dark,Тёмное,Dark
 ui.theme.light,Светлое,Light

@@ -1,0 +1,833 @@
+[
+  {
+    "id": "library_workshop",
+    "stage": "survival",
+    "codex": "Мастерская при библиотеке",
+    "codex_en": "The library workshop",
+    "start": {
+      "title": "Мастерская при библиотеке ищет руки",
+      "title_en": "The library workshop needs a pair of hands",
+      "choices": [
+        {
+          "label": "Провести вечерний практикум для соседей",
+          "label_en": "Host an evening workshop for the neighbors",
+          "delta": [600, -1, 2, 1, 3, -8],
+          "result": "Вы помогли людям и завели первые полезные знакомства.",
+          "result_en": "You helped people and made your first useful contacts.",
+          "flag": "taught"
+        },
+        {
+          "label": "Собрать платный проект для местного магазина",
+          "label_en": "Take a paid project for the local shop",
+          "delta": [1800, -3, 3, 8, 4, -18],
+          "result": "Заказ оплачен, но вечеров на отдых больше не осталось.",
+          "result_en": "The order is paid, but your evenings are gone.",
+          "flag": "paid"
+        },
+        {
+          "label": "Отложить и восстановить силы",
+          "label_en": "Postpone and recover",
+          "delta": [0, 6, 0, -8, 5, 18],
+          "result": "Вы сохранили силы — и упустили шанс на знакомство.",
+          "result_en": "You kept your strength and missed a chance to connect.",
+          "flag": "rested"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Мастерская присылает приглашение",
+      "title_en": "The workshop sends an invitation",
+      "recall": "Помните вечер в библиотеке? Вы тогда выбрали: «%s».",
+      "recall_en": "Remember that evening at the library? You chose: «%s».",
+      "choices": [
+        {
+          "label": "Вложить силы в общую мастерскую",
+          "label_en": "Invest your effort in the shared workshop",
+          "delta": [-500, -2, 3, 6, 6, -15],
+          "result": "Вы вошли в дело со свежей головой — и это заметили.",
+          "result_en": "You joined with a fresh mind, and people noticed.",
+          "variants": [
+            {
+              "flag": "taught",
+              "delta": [1400, -1, 4, 4, 9, -10],
+              "result": "Соседи привели учеников: мастерская стала вашей витриной.",
+              "result_en": "Neighbors brought students: the workshop became your showcase."
+            },
+            {
+              "flag": "paid",
+              "delta": [2200, -2, 5, 8, 7, -14],
+              "result": "Заказы из магазина привели первых платных учеников.",
+              "result_en": "Shop orders brought your first paying students."
+            }
+          ]
+        },
+        {
+          "label": "Продать оборудование и забрать прибыль",
+          "label_en": "Sell the equipment and take the profit",
+          "delta": [600, 0, 0, 4, -4, -6],
+          "result": "Вы забрали своё — без сожалений и без новых знакомств.",
+          "result_en": "You took what was yours, without regrets or new contacts.",
+          "variants": [
+            {
+              "flag": "taught",
+              "delta": [-200, 0, 1, 6, -8, -4],
+              "result": "Вы продали то, что собирали вместе; часть соседей перестала здороваться.",
+              "result_en": "You sold what you built together; some neighbors stopped saying hello."
+            },
+            {
+              "flag": "paid",
+              "delta": [1500, 0, 1, 5, -2, -5],
+              "result": "Оборудование ушло быстро, выручка закрыла долги.",
+              "result_en": "The equipment sold fast; the proceeds cleared your debts."
+            }
+          ]
+        },
+        {
+          "label": "Передать мастерскую городу",
+          "label_en": "Hand the workshop to the city",
+          "delta": [0, 6, 2, -6, 5, 14],
+          "result": "Вы вышли из игры без денег, но с чистой совестью и свободным вечером.",
+          "result_en": "You stepped away with no money, a clear conscience, and a free evening.",
+          "variants": [
+            {
+              "flag": "taught",
+              "delta": [400, 6, 3, -4, 8, 12],
+              "result": "Город отметил ваш вклад: мастерская осталась с вашим именем на двери.",
+              "result_en": "The city honored your contribution: the workshop kept your name on the door."
+            },
+            {
+              "flag": "paid",
+              "delta": [-100, 6, 2, -5, 4, 14],
+              "result": "Часть вложений не вернулась, зато вышли из дела честно.",
+              "result_en": "Some of your investment never came back, but you left cleanly."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "night_courier",
+    "stage": "survival",
+    "codex": "Ночной курьер",
+    "codex_en": "The night courier",
+    "start": {
+      "title": "Ночная смена курьером: знакомый просит подменить",
+      "title_en": "A night courier shift: a friend asks you to cover",
+      "choices": [
+        {
+          "label": "Взять рискованный заказ через весь город",
+          "label_en": "Take a risky cross-town delivery",
+          "delta": [900, -4, 1, 6, 2, -22],
+          "result": "Заказ доставлен вовремя, чаевые оказались щедрыми.",
+          "result_en": "Delivered on time, with a generous tip.",
+          "flag": "risky"
+        },
+        {
+          "label": "Взять спокойный маршрут на весь квартал",
+          "label_en": "Take a calm route for the whole quarter",
+          "delta": [500, 0, 1, 2, 3, -12],
+          "result": "Смена прошла ровно: без рекордов, но и без потерь.",
+          "result_en": "A smooth shift: no records, no losses.",
+          "flag": "steady"
+        },
+        {
+          "label": "Отказаться и выспаться",
+          "label_en": "Decline and get some sleep",
+          "delta": [0, 8, 0, -10, 4, 20],
+          "result": "Сон вернул ясность — и никаких лишних денег.",
+          "result_en": "Sleep restored your clarity, and brought no extra money.",
+          "flag": "refused"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Курьер зовёт в долю",
+      "title_en": "The courier offers a share",
+      "recall": "Та ночная смена осталась в памяти: «%s».",
+      "recall_en": "That night shift stayed with you: «%s».",
+      "choices": [
+        {
+          "label": "Скинуться на свой мини-склад",
+          "label_en": "Chip in for a small depot",
+          "delta": [-800, -2, 2, 5, 5, -12],
+          "result": "Вы рискнули вместе — склад начал работать.",
+          "result_en": "You took the risk together, and the depot started working.",
+          "variants": [
+            {
+              "flag": "risky",
+              "delta": [2400, -1, 4, 5, 9, -8],
+              "result": "Тот ночной риск убедил его: склад работает.",
+              "result_en": "That night's risk convinced him: the depot works."
+            },
+            {
+              "flag": "steady",
+              "delta": [1600, -1, 3, 4, 7, -10],
+              "result": "Аккуратность оказалась лучшей рекомендацией.",
+              "result_en": "Reliability proved the best reference."
+            }
+          ]
+        },
+        {
+          "label": "Работать только на его заказах",
+          "label_en": "Work only on his orders",
+          "delta": [600, 0, 1, 4, 2, -8],
+          "result": "Он дал вам шанс, и вы его не потратили впустую.",
+          "result_en": "He gave you a chance, and you used it well.",
+          "variants": [
+            {
+              "flag": "risky",
+              "delta": [1800, 0, 2, 5, 4, -10],
+              "result": "Ваша репутация ускорила дело.",
+              "result_en": "Your reputation sped things up."
+            },
+            {
+              "flag": "steady",
+              "delta": [900, 0, 2, 3, 4, -10],
+              "result": "Ровный график приносит ровные деньги.",
+              "result_en": "A steady schedule brings steady money."
+            }
+          ]
+        },
+        {
+          "label": "Остаться независимым",
+          "label_en": "Stay independent",
+          "delta": [0, 5, 2, -6, 5, 12],
+          "result": "Вы сохранили свободу и вечерние прогулки.",
+          "result_en": "You kept your freedom and evening walks.",
+          "variants": [
+            {
+              "flag": "risky",
+              "delta": [300, 4, 3, -4, 7, 8],
+              "result": "Пара заказов всё же пришла от него — без обязательств.",
+              "result_en": "A few orders still came from him, with no strings."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "hackathon_team",
+    "stage": "survival",
+    "codex": "Команда с хакатона",
+    "codex_en": "The hackathon team",
+    "start": {
+      "title": "На хакатоне не хватает лидера",
+      "title_en": "The hackathon team needs a lead",
+      "choices": [
+        {
+          "label": "Взять команду на себя",
+          "label_en": "Lead the team",
+          "delta": [1200, -3, 5, 12, 8, -22],
+          "result": "Прототип собрали, выступление запомнили.",
+          "result_en": "The prototype shipped and your pitch was remembered.",
+          "flag": "led"
+        },
+        {
+          "label": "Помочь организаторам",
+          "label_en": "Help the organizers",
+          "delta": [700, 0, 2, 4, 6, -10],
+          "result": "Вы получили оплату и полезные контакты.",
+          "result_en": "You earned a fee and useful contacts.",
+          "flag": "helped"
+        },
+        {
+          "label": "Уйти на лекции и восстановиться",
+          "label_en": "Attend the talks and recover",
+          "delta": [0, 4, 4, -6, 5, 12],
+          "result": "Вы узнали новое и не выгорели.",
+          "result_en": "You learned something new without burning out.",
+          "flag": "learned"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Инвестор с хакатона пишет",
+      "title_en": "An investor from the hackathon writes",
+      "recall": "Он напомнил ваш выбор на хакатоне: «%s».",
+      "recall_en": "He recalled your choice at the hackathon: «%s».",
+      "choices": [
+        {
+          "label": "Показать прототип и попросить пилот",
+          "label_en": "Demo the prototype and ask for a pilot",
+          "delta": [2500, 0, 6, 6, 8, -10],
+          "result": "Ваш свежий взгляд оказался кстати.",
+          "result_en": "Your fresh take fit perfectly.",
+          "variants": [
+            {
+              "flag": "led",
+              "delta": [6500, -2, 6, 7, 12, -12],
+              "result": "Инвестор узнал вашу презентацию: пилот подписан.",
+              "result_en": "The investor remembered your pitch: the pilot is signed."
+            },
+            {
+              "flag": "helped",
+              "delta": [3000, -1, 5, 6, 9, -10],
+              "result": "Организаторы подтвердили вашу надёжность.",
+              "result_en": "The organizers vouched for you."
+            }
+          ]
+        },
+        {
+          "label": "Продать место в команде",
+          "label_en": "Sell your spot in the team",
+          "delta": [1200, 0, 2, 4, 2, -6],
+          "result": "Вы вышли из проекта с небольшой прибылью.",
+          "result_en": "You left the project with a small profit.",
+          "variants": [
+            {
+              "flag": "led",
+              "delta": [900, -1, 2, 8, -4, -8],
+              "result": "Команда узнала о продаже и расстроилась.",
+              "result_en": "The team learned about the sale and took it hard."
+            },
+            {
+              "flag": "helped",
+              "delta": [1800, 0, 2, 4, 4, -6],
+              "result": "Ваш контакт стоил дороже места в команде.",
+              "result_en": "Your contact was worth more than the seat."
+            }
+          ]
+        },
+        {
+          "label": "Отказаться и вернуться к учёбе",
+          "label_en": "Decline and return to study",
+          "delta": [0, 5, 4, -8, 6, 14],
+          "result": "Вы сохранили время для главного.",
+          "result_en": "You kept time for what mattered.",
+          "variants": [
+            {
+              "flag": "led",
+              "delta": [300, 4, 5, -6, 7, 12],
+              "result": "Вы сохранили репутацию — инвестор запомнил это.",
+              "result_en": "You kept your reputation; the investor remembered it."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "mentor_coffee",
+    "stage": "career",
+    "codex": "Наставник из кофейни",
+    "codex_en": "The mentor from the café",
+    "start": {
+      "title": "Наставник из кофейни предлагает разговор",
+      "title_en": "A mentor from the café offers a conversation",
+      "choices": [
+        {
+          "label": "Принять менторство",
+          "label_en": "Accept the mentorship",
+          "delta": [-300, -1, 6, 6, 8, -10],
+          "result": "Разговор расставил приоритеты на квартал.",
+          "result_en": "The conversation set your priorities for the quarter.",
+          "flag": "mentor"
+        },
+        {
+          "label": "Попросить рекомендацию",
+          "label_en": "Ask for a referral",
+          "delta": [800, 0, 3, 4, 5, -6],
+          "result": "Его звонок открыл вам дверь.",
+          "result_en": "His call opened a door.",
+          "flag": "referral"
+        },
+        {
+          "label": "Вежливо отказаться",
+          "label_en": "Politely decline",
+          "delta": [0, 4, 1, -6, 4, 10],
+          "result": "Вы сохранили время и контроль.",
+          "result_en": "You kept your time and control.",
+          "flag": "declined"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Наставник собирает совет директоров",
+      "title_en": "The mentor assembles a board",
+      "recall": "Он помнит вашу встречу в кофейне: «%s».",
+      "recall_en": "He remembers your café meeting: «%s».",
+      "choices": [
+        {
+          "label": "Согласиться на место в совете",
+          "label_en": "Accept a seat on the board",
+          "delta": [4000, -4, 7, 12, 14, -18],
+          "result": "Совет принял вас осторожно, но принял.",
+          "result_en": "The board accepted you cautiously, but it accepted you.",
+          "variants": [
+            {
+              "flag": "mentor",
+              "delta": [18000, -3, 9, 10, 18, -15],
+              "result": "Он назвал вас своим учеником: место в совете ваше.",
+              "result_en": "He named you his student: the board seat is yours."
+            },
+            {
+              "flag": "referral",
+              "delta": [12000, -2, 8, 10, 15, -14],
+              "result": "Рекомендация сработала: вас ждут.",
+              "result_en": "The referral worked: they expect you."
+            }
+          ]
+        },
+        {
+          "label": "Войти консультантом",
+          "label_en": "Join as a consultant",
+          "delta": [3000, 0, 5, 6, 10, -10],
+          "result": "Консультант без обязательств — удобная роль.",
+          "result_en": "A consultant without obligations is a comfortable role.",
+          "variants": [
+            {
+              "flag": "mentor",
+              "delta": [9000, -1, 7, 6, 12, -8],
+              "result": "Ученик наставника получает лучшие условия.",
+              "result_en": "The mentor's student gets the better terms."
+            },
+            {
+              "flag": "referral",
+              "delta": [7000, 0, 6, 6, 10, -8],
+              "result": "Ваш контакт сработал как пропуск.",
+              "result_en": "Your contact worked as a pass."
+            }
+          ]
+        },
+        {
+          "label": "Строить своё дело",
+          "label_en": "Build your own venture",
+          "delta": [1200, 3, 5, 4, 8, 6],
+          "result": "Свобода оказалась дороже места в совете.",
+          "result_en": "Freedom proved worth more than a board seat.",
+          "variants": [
+            {
+              "flag": "declined",
+              "delta": [2600, 3, 6, 3, 9, 7],
+              "result": "Ваш ранний отказ научил говорить «нет» вовремя.",
+              "result_en": "Your early refusal taught you to say no in time."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "family_loan",
+    "stage": "career",
+    "codex": "Семейный заём",
+    "codex_en": "The family loan",
+    "start": {
+      "title": "Семья просит крупный заём",
+      "title_en": "The family asks for a large loan",
+      "choices": [
+        {
+          "label": "Дать деньги без условий",
+          "label_en": "Lend without conditions",
+          "delta": [-12000, 0, 1, 6, 10, -6],
+          "result": "Вы помогли, но подушка стала тоньше.",
+          "result_en": "You helped, but your cushion got thinner.",
+          "flag": "lent"
+        },
+        {
+          "label": "Дать деньги под расписку",
+          "label_en": "Lend with a written note",
+          "delta": [-12000, -1, 2, 6, 4, -6],
+          "result": "Документ успокоил обе стороны.",
+          "result_en": "The document calmed both sides.",
+          "flag": "noted"
+        },
+        {
+          "label": "Отказать и объяснить",
+          "label_en": "Refuse and explain",
+          "delta": [0, -2, 1, 8, -8, -4],
+          "result": "Разговор был трудным, но честным.",
+          "result_en": "The conversation was hard but honest.",
+          "flag": "refused"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Прошло время: семья возвращается",
+      "title_en": "Time passes: the family returns",
+      "recall": "Помните тот разговор о деньгах? «%s».",
+      "recall_en": "Remember that conversation about money? «%s».",
+      "choices": [
+        {
+          "label": "Принять возврат и праздновать",
+          "label_en": "Accept repayment and celebrate",
+          "delta": [18000, 4, 2, -8, 14, 10],
+          "result": "Вам вернули долг и тепло.",
+          "result_en": "They returned the debt and the warmth.",
+          "variants": [
+            {
+              "flag": "lent",
+              "delta": [26000, 5, 3, -8, 16, 10],
+              "result": "Вас обняли и вернули больше, чем просили.",
+              "result_en": "They hugged you and returned more than they asked."
+            },
+            {
+              "flag": "noted",
+              "delta": [22000, 4, 3, -6, 12, 8],
+              "result": "Расписка пригодилась, но семья не в обиде.",
+              "result_en": "The note helped, and no one took offense."
+            }
+          ]
+        },
+        {
+          "label": "Простить долг",
+          "label_en": "Forgive the debt",
+          "delta": [-4000, 6, 2, -10, 16, 12],
+          "result": "Вы вычеркнули цифру из тетради, а не человека из жизни.",
+          "result_en": "You erased a number from the ledger, not a person from your life.",
+          "variants": [
+            {
+              "flag": "noted",
+              "delta": [-2000, 6, 3, -8, 14, 10],
+              "result": "Расписка больше не нужна: вы простили долг.",
+              "result_en": "The note is no longer needed: you forgave the debt."
+            },
+            {
+              "flag": "refused",
+              "delta": [6000, 4, 2, -6, 8, 8],
+              "result": "Вас удивили: вернули сами, без напоминаний.",
+              "result_en": "They surprised you: repaid unprompted."
+            }
+          ]
+        },
+        {
+          "label": "Попросить помощи в ответ",
+          "label_en": "Ask for help in return",
+          "delta": [8000, 2, 3, -4, 10, 4],
+          "result": "Вы помогли друг другу без лишних слов.",
+          "result_en": "You helped each other without extra words.",
+          "variants": [
+            {
+              "flag": "refused",
+              "delta": [14000, 3, 4, -4, 10, 4],
+              "result": "Старый отказ больше не мешал: вы помогли друг другу.",
+              "result_en": "The old refusal no longer stood in the way; you helped each other."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "city_tender",
+    "stage": "millionaire",
+    "codex": "Городской тендер",
+    "codex_en": "The city tender",
+    "start": {
+      "title": "Город объявляет тендер на благоустройство",
+      "title_en": "The city announces a refurbishment tender",
+      "choices": [
+        {
+          "label": "Подать честную заявку",
+          "label_en": "Submit an honest bid",
+          "delta": [120000, -3, 4, 8, 10, -18],
+          "result": "Заявка прошла сложный отбор.",
+          "result_en": "Your bid passed a tough selection.",
+          "flag": "honest"
+        },
+        {
+          "label": "Предложить партнёру сговор",
+          "label_en": "Propose a backroom deal",
+          "delta": [300000, -5, 2, 14, -8, -20],
+          "result": "Деньги пришли быстро, вместе с тревогой.",
+          "result_en": "The money came fast, along with worry.",
+          "flag": "deal"
+        },
+        {
+          "label": "Не участвовать и смотреть",
+          "label_en": "Stay out and watch",
+          "delta": [0, 5, 2, -6, 5, 12],
+          "result": "Вы сохранили репутацию и спокойствие.",
+          "result_en": "You kept your reputation and your peace.",
+          "flag": "stayed"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Тендерный комитет возвращается",
+      "title_en": "The tender committee returns",
+      "recall": "В деле сохранилась ваша заявка: «%s».",
+      "recall_en": "Your bid stayed on file: «%s».",
+      "choices": [
+        {
+          "label": "Позвать наблюдателей и выйти на конкурс",
+          "label_en": "Invite observers and join the competition",
+          "delta": [400000, -4, 6, 10, 14, -18],
+          "result": "Открытый конкурс оказался честной проверкой.",
+          "result_en": "The open competition proved an honest test.",
+          "variants": [
+            {
+              "flag": "honest",
+              "delta": [900000, -2, 8, 8, 18, -15],
+              "result": "Ваша честная заявка стала стандартом.",
+              "result_en": "Your honest bid became the standard."
+            },
+            {
+              "flag": "deal",
+              "delta": [-200000, 2, 4, 16, -12, -18],
+              "result": "Сговор раскрылся: штраф и заголовки.",
+              "result_en": "The deal was exposed: a fine and headlines."
+            }
+          ]
+        },
+        {
+          "label": "Договориться с подрядчиками",
+          "label_en": "Work with the contractors",
+          "delta": [300000, -3, 4, 10, 6, -14],
+          "result": "Подрядчики оказались надёжнее ожиданий.",
+          "result_en": "The contractors proved more reliable than expected.",
+          "variants": [
+            {
+              "flag": "honest",
+              "delta": [500000, -2, 6, 8, 10, -12],
+              "result": "Чистая репутация принесла лучшие условия.",
+              "result_en": "A clean reputation brought better terms."
+            },
+            {
+              "flag": "deal",
+              "delta": [200000, -1, 4, 12, -6, -14],
+              "result": "Партнёры ждут ответных услуг.",
+              "result_en": "Partners now expect favors."
+            }
+          ]
+        },
+        {
+          "label": "Вложить в частный проект",
+          "label_en": "Invest in a private project",
+          "delta": [350000, -1, 5, 6, 10, -10],
+          "result": "Частный проект обошёлся без комитетов.",
+          "result_en": "The private project needed no committees.",
+          "variants": [
+            {
+              "flag": "stayed",
+              "delta": [600000, 0, 6, 5, 12, -8],
+              "result": "Спокойный взгляд со стороны оказался прибыльным.",
+              "result_en": "Your calm outsider view proved profitable."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "media_profile",
+    "stage": "millionaire",
+    "codex": "Профиль в прессе",
+    "codex_en": "The press profile",
+    "start": {
+      "title": "Журналистка просит профиль",
+      "title_en": "A journalist requests a profile",
+      "choices": [
+        {
+          "label": "Открыться и рассказать всё",
+          "label_en": "Open up and tell everything",
+          "delta": [150000, -3, 5, 10, 16, -14],
+          "result": "История понравилась, но лишнее внимание утомило.",
+          "result_en": "The story landed, but the attention tired you.",
+          "flag": "open"
+        },
+        {
+          "label": "Дозировать информацию",
+          "label_en": "Give a measured interview",
+          "delta": [80000, -1, 3, 4, 8, -8],
+          "result": "Аккуратный текст без сюрпризов.",
+          "result_en": "A careful piece without surprises.",
+          "flag": "measured"
+        },
+        {
+          "label": "Отказаться",
+          "label_en": "Decline",
+          "delta": [0, 5, 2, -6, 4, 10],
+          "result": "Ваша жизнь осталась вашей.",
+          "result_en": "Your life stayed yours.",
+          "flag": "private"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Издательство предлагает книгу",
+      "title_en": "A publisher offers a book",
+      "recall": "В редакции помнят вашу историю: «%s».",
+      "recall_en": "The newsroom remembers your story: «%s».",
+      "choices": [
+        {
+          "label": "Написать честную книгу",
+          "label_en": "Write an honest book",
+          "delta": [250000, -5, 7, 16, 18, -25],
+          "result": "Книга вышла спокойной, но её читают.",
+          "result_en": "The book came out quiet, but people read it.",
+          "variants": [
+            {
+              "flag": "open",
+              "delta": [900000, -4, 9, 14, 22, -22],
+              "result": "Ваша откровенность в статье продала книгу.",
+              "result_en": "Your candor in the article sold the book."
+            },
+            {
+              "flag": "measured",
+              "delta": [500000, -3, 8, 12, 18, -20],
+              "result": "Взвешенный тон сделал книгу убедительной.",
+              "result_en": "Your measured tone made the book persuasive."
+            }
+          ]
+        },
+        {
+          "label": "Дать интервью о книге",
+          "label_en": "Do interviews about the book",
+          "delta": [150000, -2, 4, 10, 10, -16],
+          "result": "Спокойный разговор без скандала.",
+          "result_en": "A calm conversation without scandal.",
+          "variants": [
+            {
+              "flag": "open",
+              "delta": [350000, -2, 5, 9, 12, -14],
+              "result": "Зрители узнали вас в лицо.",
+              "result_en": "Viewers recognized your face."
+            },
+            {
+              "flag": "measured",
+              "delta": [200000, -1, 4, 8, 10, -12],
+              "result": "Вопросы были острыми, ответы — точными.",
+              "result_en": "The questions were sharp; your answers were precise."
+            }
+          ]
+        },
+        {
+          "label": "Отложить книгу",
+          "label_en": "Shelve the book",
+          "delta": [0, 6, 3, -8, 6, 14],
+          "result": "Вы сохранили личное и тишину.",
+          "result_en": "You kept your privacy and the quiet.",
+          "variants": [
+            {
+              "flag": "private",
+              "delta": [50000, 6, 4, -6, 10, 14],
+              "result": "Аванс остался у вас, а история — при вас.",
+              "result_en": "The advance stayed with you, and the story stayed yours."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "quiet_estate",
+    "stage": "billionaire",
+    "codex": "Тихое поместье",
+    "codex_en": "The quiet estate",
+    "start": {
+      "title": "Старое поместье ищет нового хранителя",
+      "title_en": "An old estate seeks a new keeper",
+      "choices": [
+        {
+          "label": "Создать семейный фонд",
+          "label_en": "Create a family foundation",
+          "delta": [0, -2, 3, 6, 12, -12],
+          "cash_pct": -0.02,
+          "result": "Фонд дал поместью смысл и защиту.",
+          "result_en": "The foundation gave the estate purpose and protection.",
+          "flag": "foundation"
+        },
+        {
+          "label": "Купить поместье как актив",
+          "label_en": "Buy the estate as an asset",
+          "delta": [0, -1, 2, 8, 6, -10],
+          "cash_pct": -0.05,
+          "result": "Земля окупится, если не спешить.",
+          "result_en": "The land will pay off if you don't rush it.",
+          "flag": "asset"
+        },
+        {
+          "label": "Отложить решение",
+          "label_en": "Postpone the decision",
+          "delta": [0, 4, 1, -6, 4, 10],
+          "result": "Вы оставили себе выбор.",
+          "result_en": "You kept your options open.",
+          "flag": "postponed"
+        }
+      ]
+    },
+    "followup": {
+      "title": "Поместье присылает отчёт",
+      "title_en": "The estate sends a report",
+      "recall": "Управляющий помнит ваше решение: «%s».",
+      "recall_en": "The steward remembers your decision: «%s».",
+      "choices": [
+        {
+          "label": "Вложить в реставрацию",
+          "label_en": "Invest in restoration",
+          "delta": [0, -3, 4, 10, 12, -16],
+          "cash_pct": -0.03,
+          "result": "Реставрация идёт медленно, но впервые по плану.",
+          "result_en": "Restoration is slow, but for once on plan.",
+          "variants": [
+            {
+              "flag": "foundation",
+              "delta": [0, -2, 5, 8, 16, -14],
+              "cash_pct": 0.03,
+              "result": "Фонд привлёк гранты: реставрация стала общественным делом.",
+              "result_en": "The foundation attracted grants: restoration became a public cause."
+            },
+            {
+              "flag": "asset",
+              "delta": [0, -2, 4, 9, 10, -14],
+              "cash_pct": 0.05,
+              "result": "Поместье подняло оценку активов.",
+              "result_en": "The estate raised your asset valuation."
+            }
+          ]
+        },
+        {
+          "label": "Передать под опеку города",
+          "label_en": "Hand it to the city's care",
+          "delta": [0, 4, 3, -8, 10, 12],
+          "cash_pct": 0.01,
+          "result": "Город принял поместье без лишнего шума.",
+          "result_en": "The city accepted the estate without fuss.",
+          "variants": [
+            {
+              "flag": "foundation",
+              "delta": [0, 4, 4, -6, 12, 12],
+              "cash_pct": 0.02,
+              "result": "Город оставил вашу фамилию на воротах.",
+              "result_en": "The city kept your name on the gates."
+            },
+            {
+              "flag": "asset",
+              "delta": [0, 3, 2, -4, 6, 10],
+              "cash_pct": -0.01,
+              "result": "Вы отказались от актива ради тишины.",
+              "result_en": "You gave up an asset for quiet."
+            }
+          ]
+        },
+        {
+          "label": "Продать поместье",
+          "label_en": "Sell the estate",
+          "delta": [0, 0, 1, 4, -6, -4],
+          "cash_pct": 0.06,
+          "result": "Покупатель нашёлся быстро.",
+          "result_en": "A buyer appeared quickly.",
+          "variants": [
+            {
+              "flag": "foundation",
+              "delta": [0, -2, 1, 6, -10, -4],
+              "cash_pct": 0.04,
+              "result": "Фонд остался, поместье ушло: часть совета обиделась.",
+              "result_en": "The foundation stayed, the estate left; part of the board took offense."
+            },
+            {
+              "flag": "asset",
+              "delta": [0, 0, 2, 3, -4, -2],
+              "cash_pct": 0.08,
+              "result": "Актив продан с прибылью.",
+              "result_en": "The asset sold at a profit."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

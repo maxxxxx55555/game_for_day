@@ -33,7 +33,7 @@
   "groups": {
     "0": {
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "test": "tests/test_gameplay.gd",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing"
     },
@@ -51,7 +51,7 @@
     },
     "3": {
       "status": "implemented",
-      "edition_scope": "Authored theme, life-stage portraits, distinct finales, sound, compatibility and current release gate.",
+      "edition_scope": "Authored dark ledger theme, country birth card and dashboard, distinct illustrated finales, sound, compatibility and current release gate; former dashboard portraits are retained as inactive assets.",
       "test": "tests/test_premium_ui.gd",
       "excluded": ""
     }
@@ -64,7 +64,7 @@
       "section": "Current edition scope — v2 integration in progress",
       "original": "A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in the v2 integration. The new public release remains locked until the full gate passes.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -75,7 +75,7 @@
       "section": "Current edition scope — v2 integration in progress",
       "original": "Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier1.4 emulator results are historical evidence only. Under v2 section16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -86,7 +86,7 @@
       "section": "Current edition scope — v2 integration in progress",
       "original": "Complete live Russian/English presentation with 606 catalog keys, stable saved event identities and all 93 decision layouts. Four distinct Gemini/Lyria mood compositions, two 20-second musical finales, independent Master/Music/SFX/UI levels, reduced motion, functional credits and coherent application icons. Existing protected profiles and legacy user-data directories remain compatible.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -97,7 +97,7 @@
       "section": "Русский",
       "original": "Полная русская и английская локализация, выбор языка без потери текущего события. Разные композиции для четырёх настроений, музыкальные финалы, четыре уровня звука, настройка анимации и экран авторов. Каталоги старых сохранений сохранены.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -108,7 +108,7 @@
       "section": "Русский",
       "original": "Target release: v2.0.0; unpublished until the v2 gate passes. Detailed provenance: assets/audio/SOUNDTRACK.md. Localization: docs/LOCALIZATION.md. Scope remains stylized indie art and does not claim GTA V scale. Portable Windows executables are not Authenticode-signed; offline save tamper evidence is not unbreakable DRM.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -119,7 +119,7 @@
       "section": "Русский",
       "original": "Native decision cards now separate concise action titles from readable effects. Cost, probability and requirements remain visible, with original full text retained for tooltips/accessibility. A short outcome notice replaces repeated event paragraphs, and the main illustration uses the freed space. Smooth rounded controls and shorter introductory/market copy reduce clutter; all 93 choice layouts are checked at a small portrait size. The original money, RNG, turns, currency/inflation, soundtrack and protected-save rules remain.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -130,7 +130,7 @@
       "section": "Русский",
       "original": "Onest body text, restrained Unbounded headings and authored chamfered satin-blue controls replace the previous interface. A fictional illustrated portrait ages through four life stages on the dashboard. Keyboard focus, disabled states and small portrait layouts are checked. Currency trading, inflation, life finales, distinct jazz music and protected saves are retained.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -141,7 +141,7 @@
       "section": "Русский",
       "original": "Presentation remains stylized indie art; this update does not claim GTA V scale. Existing save directories and gameplay rules are preserved.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -152,7 +152,7 @@
       "section": "Русский",
       "original": "Typed RNG and event-value validation now rejects malformed legacy sessions before assignment. Failed disk writes show a non-blocking warning; successful retries clear it without hiding a separate outstanding dynasty-save failure. Constructor nesting is bounded before parsing. Existing currency trading, inflation, distinctive jazz music and illustrated victory/defeat scenes are retained.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -163,7 +163,7 @@
       "section": "Русский",
       "original": "A portrait life-and-finance strategy game. Build a business dynasty, balance your health against ambition and reach the world's number-one wealth rank ($250 billion).",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -174,7 +174,7 @@
       "section": "Play",
       "original": "Extract the whole Windows archive and run `HeirsOfFortune.exe`. Roll a birth origin, choose a trait and make one quarterly decision at a time. Businesses and stocks generate income; living costs and inflation continue each quarter. Markets and business menus let you manage capital without consuming a quarter unless the action explicitly says otherwise. The portfolio's dedicated Back button keeps investments and the current life event.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -185,7 +185,7 @@
       "section": "Play",
       "original": "There are four birth origins, 31 events with 93 decisions, five business upgrades followed by expansion, stocks, crypto, recurring grants, inheritance and advanced dynasty traits. Reaching the target produces a persistent victory; death and retirement feed the next generation. The dashboard shows actual capital, available cash, income, costs and four condition meters.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -196,7 +196,7 @@
       "section": "Play",
       "original": "Click/tap choices and navigation. Scroll the event card if its text is long. Settings provide independent Master, Music, SFX and UI levels, live Russian/English selection and reduced motion. On Android, Back closes a submenu; backgrounding saves the session. Normal purchases do not advance a quarter. Grants have a four-quarter cooldown and require no advertisement or network connection.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -207,7 +207,7 @@
       "section": "Android status in this v2 cycle",
       "original": "The v2 release omits Android artifacts under specification section16. This host cannot boot the emulator; existing older APK/static-signature results do not establish runtime acceptance for the new encrypted build. The active export presets therefore target Windows only. Existing Android lifecycle code remains covered by source tests; it is not a claim of device certification.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -218,7 +218,7 @@
       "section": "Build and test",
       "original": "Open `project.godot` in Godot 4.7 and press F5, or use:",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -229,7 +229,7 @@
       "section": "Build and test",
       "original": "The current source runner contains46 Godot invocations per locale, including import, plus Python export, copy/edition contracts, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -240,7 +240,7 @@
       "section": "Release scope and verification",
       "original": "Version 2.0.0 is the localization, soundtrack and presentation update to the portable Windows desktop edition, built with Godot 4.7 Stable. It remains a small standalone game with original illustrations and licensed assets. Earlier design documents include broader ideas for future development; they are not a list of promised features in this edition.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -251,7 +251,7 @@
       "section": "Release scope and verification",
       "original": "The test runner imports the real project in Godot, exercises gameplay, save/load, audio controls and rendered UI. Public executables physically omit the complete-playthrough verifier and reject QA arguments. Only the separate, unpublished QA preset supports `-- --verify-build` with `GAME_QA=1`; it starts a fresh QA game in isolated APPDATA/LOCALAPPDATA folders. QA is silent through `GAME_AUDIO_MUTED=1`; this does not remove the player's music/effects controls. Folders and formats from the previous game names remain compatible.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -262,7 +262,7 @@
       "section": "Release scope and verification",
       "original": "The release report records the exact tested files, hashes, routes, screenshots and platform limits. Tests are automated in the actual engine; they do not constitute a long independent human playtest or testing on every graphics card. Portable Windows executables are not Authenticode signed. Keep third_party/Godot/LICENSE.txt, COPYRIGHT.txt and assets/audio/LICENSE.md when redistributing. The soundtrack “Last Call at Three” has its own generation/provenance record; procedural sound effects are covered separately.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -273,7 +273,7 @@
       "section": "1.1.0 update",
       "original": "EUR, GBP and JPY can be bought and sold from Markets → Currencies. Fictional rates move after turns; both sides charge a disclosed 0.35% spread. Holdings count toward wealth and inheritance and persist with quote history and RNG state. Annualized inflation is displayed; rising living costs reduce idle cash purchasing power. The dashboard and event copy are shorter, and music credits are kept in the asset records.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -284,7 +284,7 @@
       "section": "1.1.0 update",
       "original": "The game has its own distinct per-mood soundtrack. See assets/CREDITS.md for creator licenses, font notices and generation records.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -295,7 +295,7 @@
       "section": "1.2.0 update",
       "original": "Victory and defeat now have separate full-screen illustrated finales with animated atmosphere and readable actions. The ending restores after relaunch; second chance and inheritance use the same game rules. The opt-in exported verifier also accepts `--defeat` to exercise an ordinary losing route, one revive and the next generation.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -306,7 +306,7 @@
       "section": "1.2.0 update",
       "original": "Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -317,7 +317,7 @@
       "section": "1.2.0 update",
       "original": "V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; final release acceptance remains gated.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -328,7 +328,7 @@
       "section": "V2 integrity integration (release gate remains locked)",
       "original": "Public Windows packs omit the private verifier; the separate Windows QA preset additionally requires GAME_QA=1. All pack entries and the directory are encrypted using a matching custom Godot template and an environment-only build key. Encryption makes modification harder; it is not DRM. The compiled critical-data trust root rejects a replacement manifest and starts changed installations with trusted fallback data, a localized warning and no progress/settings writes. Authenticated save recovery records a local integrity log and shows a localized message. See SAVE-INTEGRITY.md for exact boundaries.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -339,7 +339,7 @@
       "section": "V2 integrity integration (release gate remains locked)",
       "original": "Money is stored as bounded integer cents, including cash, prices, income, costs and inheritance. Dollar properties are compatibility/presentation boundaries. Foreign holdings use integer thousandths; acquisition and liquidation round down and same-quote trades lose spread. Grants use saved integer half-quarter ticks, with duplicate-claim prevention and no wall-clock dependency.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -350,7 +350,7 @@
       "section": "Archive",
       "original": "The user adopted the release specification and explicitly selected direct main-branch execution. Existing published artifacts and private save identities remain compatible. Art direction and existing licensed assets are retained, with focused bilingual controls and independent soundtracks.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -427,7 +427,7 @@
       "section": "Archive",
       "original": "Historical1.4.0 design.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -438,7 +438,7 @@
       "section": "Archive",
       "original": "native choice buttons retain their real full action text, hitboxes/focus/signals and original effects. A dedicated view shows a short authored verb label above a quieter effects line; cost, chance and requirements remain available visibly, original full copy remains in the tooltip/accessibility text. The current event stands alone; the last outcome appears as a compact temporary notice instead of another permanent paragraph. Shorten introductory/business/market instructions while retaining goal, costs and transaction semantics. No changes to RNG, money, turns or protected saves. Current Onest/Unbounded/navy/champagne identity stays.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -449,7 +449,7 @@
       "section": "Archive",
       "original": "Rounded satin surfaces preserve focus and disabled states. Short copy retains visible costs, chances and effects. Existing saves retain their original directory, schema and integrity key. Automated tests and observed hardware checks do not imply universal compatibility.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -460,7 +460,7 @@
       "section": "Archive",
       "original": "Historical1.3 design, now superseded by RELEASE_V2_PLAN.md and the current edition scope.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -471,7 +471,7 @@
       "section": "Archive",
       "original": "Private-bank ledger: midnight Oxford #111e2e, satin blue #263f56, platinum #dce3e9, steel #9faebd and champagne #d3b78b. Onest body and restrained Unbounded display. Fictional illustrated life-stage portraits age with the actual character; balances remain primary. Rounded controls preserve native text, callbacks and focus.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -482,7 +482,7 @@
       "section": "Archive",
       "original": "Motion does not alter hitboxes or game state. Russian/English copy, focus, disabled explanations, minimum sizes and creator notices are part of acceptance. Generated artwork is disclosed and inspected; no photoreal or AAA-scale claim.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     },
@@ -493,7 +493,7 @@
       "section": "Archive",
       "original": "Validation: Full source/security suites, all four birth origins, real victory/defeat/revive/inheritance,93 decision layouts, rendered bilingual galleries and Android checks where the current environment supports them. Public files and whole protected profiles remain compatible; previous releases are immutable.",
       "status": "implemented",
-      "edition_scope": "Current edition: original event IDs/order,93 real decisions, four origins, quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
+      "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",
       "test": "tests/test_gameplay.gd"
     }

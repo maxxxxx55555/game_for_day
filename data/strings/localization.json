@@ -3245,8 +3245,8 @@
       "en": "The country sets the start, not the ending."
     },
     "birth.note.two": {
-      "ru": "Её влияние тает к 50 годам.",
-      "en": "Its grip fades by 50."
+      "ru": "Её влияние на доход исчезает к 52 годам.",
+      "en": "Its income effect fades by 52."
     },
     "birth.pick_trait": {
       "ru": "Выберите черту, которая подходит жизни, начавшейся здесь.",
@@ -3263,6 +3263,1062 @@
     "dashboard.grip": {
       "ru": "влияние страны: %d%%",
       "en": "country grip: %d%%"
+    },
+    "ui.dynasty": {
+      "ru": "Династия",
+      "en": "Dynasty"
+    },
+    "ui.back": {
+      "ru": "Назад",
+      "en": "Back"
+    },
+    "ambition.steady": {
+      "ru": "Размеренный",
+      "en": "Steady"
+    },
+    "ambition.meteor": {
+      "ru": "Метеор",
+      "en": "Meteor"
+    },
+    "ambition.heir": {
+      "ru": "Наследник",
+      "en": "Heir"
+    },
+    "ambition.steady.button": {
+      "ru": "Размеренный (ровный доход и стресс)",
+      "en": "Steady (even income and stress)"
+    },
+    "ambition.meteor.button": {
+      "ru": "Метеор (доход +25%, стресс +30%)",
+      "en": "Meteor (+25% income, +30% stress)"
+    },
+    "ambition.heir.button": {
+      "ru": "Наследник (наследство +25%)",
+      "en": "Heir (+25% inheritance)"
+    },
+    "ambition.steady.desc": {
+      "ru": "Ровный темп: без скрытых множителей дохода и стресса.",
+      "en": "An even pace: no hidden income or stress multipliers."
+    },
+    "ambition.meteor.desc": {
+      "ru": "Быстрые деньги требуют крепких нервов: доход выше, стресс растёт быстрее.",
+      "en": "Fast money demands strong nerves: higher income, faster stress."
+    },
+    "ambition.heir.desc": {
+      "ru": "Жизнь продолжает дело рода: наследство весомее на четверть.",
+      "en": "The life continues the family work: inheritance is a quarter larger."
+    },
+    "ambition.intro": {
+      "ru": "Выберите темп этой жизни.",
+      "en": "Choose the pace of this life."
+    },
+    "ambition.short.steady": {
+      "ru": "размеренный",
+      "en": "steady"
+    },
+    "ambition.short.meteor": {
+      "ru": "метеор",
+      "en": "meteor"
+    },
+    "ambition.short.heir": {
+      "ru": "наследник",
+      "en": "heir"
+    },
+    "intro.ascension": {
+      "ru": "Восхождение %d: инфляция и волатильность выше, наследие щедрее.",
+      "en": "Ascension %d: higher inflation and volatility, richer legacy."
+    },
+    "dynasty.title": {
+      "ru": "Династия",
+      "en": "Dynasty"
+    },
+    "dynasty.balance": {
+      "ru": "Поколение #%d · Наследие: %d · Восхождение: %d · Импульс: %d",
+      "en": "Generation #%d · Legacy: %d · Ascension: %d · Momentum: %d"
+    },
+    "dynasty.stats": {
+      "ru": "Жизней: %d · Побед: %d · Лучший капитал: $%s · Лучший рейтинг: #%s · Цепочек: %d",
+      "en": "Lives: %d · Victories: %d · Best capital: $%s · Best rank: #%s · Chains: %d"
+    },
+    "dynasty.record": {
+      "ru": "Поколение #%d · %s · $%s · рейтинг #%s · %d лет",
+      "en": "Generation #%d · %s · $%s · rank #%s · %d years"
+    },
+    "dynasty.record.victory": {
+      "ru": "победа",
+      "en": "victory"
+    },
+    "dynasty.record.defeat": {
+      "ru": "поражение",
+      "en": "defeat"
+    },
+    "dynasty.record.ascension": {
+      "ru": " · восхождение %d",
+      "en": " · ascension %d"
+    },
+    "dynasty.record.ascension.line": {
+      "ru": "Восхождение %d",
+      "en": "Ascension %d"
+    },
+    "dynasty.record.detail": {
+      "ru": "Нитей: %d · вех: %d",
+      "en": "Threads: %d · milestones: %d"
+    },
+    "dynasty.empty.hall": {
+      "ru": "Зал славы пуст. Завершите первую жизнь.",
+      "en": "The hall of fame is empty. Finish your first life."
+    },
+    "dynasty.section.hall": {
+      "ru": "Зал славы",
+      "en": "Hall of fame"
+    },
+    "dynasty.section.legacy": {
+      "ru": "Наследие",
+      "en": "Legacy"
+    },
+    "dynasty.section.threads": {
+      "ru": "Нити судьбы",
+      "en": "Life threads"
+    },
+    "dynasty.section.journal": {
+      "ru": "Журнал жизни",
+      "en": "Life journal"
+    },
+    "dynasty.section.ascension": {
+      "ru": "Восхождение",
+      "en": "Ascension"
+    },
+    "dynasty.legacy.balance": {
+      "ru": "Очки наследия: %d",
+      "en": "Legacy points: %d"
+    },
+    "dynasty.legacy.hint": {
+      "ru": "Постоянные преимущества действуют в каждой новой жизни.",
+      "en": "Permanent advantages apply to every new life."
+    },
+    "dynasty.legacy.owned": {
+      "ru": "Уже в наследии",
+      "en": "Already in the legacy"
+    },
+    "dynasty.legacy.buy": {
+      "ru": "Открыть · %d",
+      "en": "Unlock · %d"
+    },
+    "dynasty.legacy.need": {
+      "ru": "Нужно %d очков наследия",
+      "en": "Requires %d legacy points"
+    },
+    "dynasty.threads.hint": {
+      "ru": "Нить начнётся сейчас и вернётся продолжением через несколько кварталов.",
+      "en": "A thread starts now and returns as a continuation several quarters later."
+    },
+    "dynasty.threads.start": {
+      "ru": "Начать",
+      "en": "Begin"
+    },
+    "dynasty.threads.active": {
+      "ru": "В пути · продолжение через %d кв.",
+      "en": "Under way · continues in %d qtrs"
+    },
+    "dynasty.threads.active.short": {
+      "ru": "в пути",
+      "en": "under way"
+    },
+    "dynasty.threads.due": {
+      "ru": "В пути · продолжение готово",
+      "en": "Under way · continuation ready"
+    },
+    "dynasty.threads.done": {
+      "ru": "Завершено",
+      "en": "Completed"
+    },
+    "dynasty.threads.empty": {
+      "ru": "Для этого этапа доступных нитей нет.",
+      "en": "No threads are available at this stage."
+    },
+    "dynasty.journal.empty": {
+      "ru": "Вехи появятся на 18, 25, 35, 50 и 65 годах.",
+      "en": "Milestones appear at ages 18, 25, 35, 50 and 65."
+    },
+    "dynasty.journal.milestone": {
+      "ru": "%d лет · $%s · рейтинг #%s · %s",
+      "en": "Age %d · $%s · rank #%s · %s"
+    },
+    "dynasty.journal.chain": {
+      "ru": "Нить: %s · %s",
+      "en": "Thread: %s · %s"
+    },
+    "dynasty.ascension.level": {
+      "ru": "Уровень восхождения: %d",
+      "en": "Ascension level: %d"
+    },
+    "dynasty.ascension.hint": {
+      "ru": "Каждый уровень усиливает инфляцию и волатильность, но щедрее платит наследием.",
+      "en": "Each level raises inflation and volatility, but pays more legacy."
+    },
+    "dynasty.ascension.momentum": {
+      "ru": "Импульс: %d · при завершении жизни он станет очками наследия.",
+      "en": "Momentum: %d · it becomes legacy points when the life ends."
+    },
+    "dynasty.ascension.next": {
+      "ru": "Следующее восхождение: уровень %d · награда +%d очков наследия.",
+      "en": "Next ascension: level %d · reward +%d legacy points."
+    },
+    "dynasty.ascension.max": {
+      "ru": "Достигнут предел восхождения.",
+      "en": "The ascension limit is reached."
+    },
+    "dynasty.ascension.open": {
+      "ru": "Восхождение открывается после победы в списке Forbes.",
+      "en": "Ascension unlocks after a Forbes victory."
+    },
+    "legacy.perk.warm_start": {
+      "ru": "Тёплый старт",
+      "en": "Warm start"
+    },
+    "legacy.perk.warm_start.desc": {
+      "ru": "+$2 000 к стартовому капиталу",
+      "en": "+$2,000 starting capital"
+    },
+    "legacy.perk.business_savvy": {
+      "ru": "Деловая хватка",
+      "en": "Business savvy"
+    },
+    "legacy.perk.business_savvy.desc": {
+      "ru": "Апгрейды бизнеса дешевле на 10%",
+      "en": "Business upgrades cost 10% less"
+    },
+    "legacy.perk.market_instinct": {
+      "ru": "Рыночное чутьё",
+      "en": "Market instinct"
+    },
+    "legacy.perk.market_instinct.desc": {
+      "ru": "Акции растут чуть охотнее",
+      "en": "Stocks drift slightly higher"
+    },
+    "legacy.perk.calm_blood": {
+      "ru": "Холодная кровь",
+      "en": "Calm blood"
+    },
+    "legacy.perk.calm_blood.desc": {
+      "ru": "Стресс растёт на 10% медленнее",
+      "en": "Stress grows 10% slower"
+    },
+    "legacy.perk.healthy_habits": {
+      "ru": "Здоровые привычки",
+      "en": "Healthy habits"
+    },
+    "legacy.perk.healthy_habits.desc": {
+      "ru": "+10 к здоровью в начале жизни",
+      "en": "+10 health at life start"
+    },
+    "legacy.perk.networker": {
+      "ru": "Связи",
+      "en": "Networker"
+    },
+    "legacy.perk.networker.desc": {
+      "ru": "Пассивный доход выше на 5%",
+      "en": "+5% passive income"
+    },
+    "legacy.perk.fast_learner": {
+      "ru": "Быстрый ученик",
+      "en": "Fast learner"
+    },
+    "legacy.perk.fast_learner.desc": {
+      "ru": "+2 к приросту интеллекта",
+      "en": "+2 intellect gain"
+    },
+    "legacy.perk.safety_net": {
+      "ru": "Страховка",
+      "en": "Safety net"
+    },
+    "legacy.perk.safety_net.desc": {
+      "ru": "Расходы жизни ниже на 8%",
+      "en": "Living costs 8% lower"
+    },
+    "milestone.overline": {
+      "ru": "ВЕХА ЖИЗНИ",
+      "en": "LIFE MILESTONE"
+    },
+    "milestone.title": {
+      "ru": "Вам %d. Время сверить курс.",
+      "en": "You are %d. Time to check the course."
+    },
+    "milestone.body": {
+      "ru": "Капитал: $%s · Рейтинг: #%s · Этап: %s · Нить: %s",
+      "en": "Capital: $%s · Rank: #%s · Stage: %s · Thread: %s"
+    },
+    "milestone.momentum": {
+      "ru": "Импульс династии: +%d",
+      "en": "Dynasty momentum: +%d"
+    },
+    "milestone.continue": {
+      "ru": "Продолжить",
+      "en": "Continue"
+    },
+    "milestone.stage.survival": {
+      "ru": "выживание",
+      "en": "survival"
+    },
+    "milestone.stage.career": {
+      "ru": "карьера",
+      "en": "career"
+    },
+    "milestone.stage.millionaire": {
+      "ru": "миллионер",
+      "en": "millionaire"
+    },
+    "milestone.stage.billionaire": {
+      "ru": "миллиардер",
+      "en": "billionaire"
+    },
+    "milestone.none": {
+      "ru": "без активной нити",
+      "en": "no active thread"
+    },
+    "milestone.threads": {
+      "ru": "завершено нитей: %d",
+      "en": "completed threads: %d"
+    },
+    "chain.thread.overline": {
+      "ru": "НИТЬ СУДЬБЫ",
+      "en": "LIFE THREAD"
+    },
+    "chain.follow.overline": {
+      "ru": "ПРОДОЛЖЕНИЕ",
+      "en": "CONTINUATION"
+    },
+    "chain.thread.started": {
+      "ru": "Нить судьбы: %s",
+      "en": "Life thread: %s"
+    },
+    "delta.title": {
+      "ru": "Изменения",
+      "en": "Changes"
+    },
+    "delta.cash": {
+      "ru": "Кэш",
+      "en": "Cash"
+    },
+    "delta.health": {
+      "ru": "Здоровье",
+      "en": "Health"
+    },
+    "delta.intellect": {
+      "ru": "Интеллект",
+      "en": "Intellect"
+    },
+    "delta.stress": {
+      "ru": "Стресс",
+      "en": "Stress"
+    },
+    "delta.happiness": {
+      "ru": "Счастье",
+      "en": "Happiness"
+    },
+    "delta.energy": {
+      "ru": "Энергия",
+      "en": "Energy"
+    },
+    "dashboard.pulse": {
+      "ru": "Пульс рынка",
+      "en": "Market pulse"
+    },
+    "dashboard.ambition": {
+      "ru": "Темп: %s",
+      "en": "Pace: %s"
+    },
+    "ascension.finale.action": {
+      "ru": "Начать восхождение · уровень %d",
+      "en": "Begin ascension · level %d"
+    },
+    "ascension.finale.hint": {
+      "ru": "Следующая жизнь будет жёстче, а наследие — щедрее: +%d очков.",
+      "en": "The next life will be harsher and its legacy richer: +%d points."
+    },
+    "ascension.started": {
+      "ru": "Восхождение %d начато. Рынки стали жёстче.",
+      "en": "Ascension %d begins. Markets are harsher."
+    },
+    "chain.library_workshop.codex": {
+      "ru": "Мастерская при библиотеке",
+      "en": "The library workshop"
+    },
+    "chain.library_workshop.start.title": {
+      "ru": "Мастерская при библиотеке ищет руки",
+      "en": "The library workshop needs a pair of hands"
+    },
+    "chain.library_workshop.start.c1.label": {
+      "ru": "Провести вечерний практикум для соседей",
+      "en": "Host an evening workshop for the neighbors"
+    },
+    "chain.library_workshop.start.c1.result": {
+      "ru": "Вы помогли людям и завели первые полезные знакомства.",
+      "en": "You helped people and made your first useful contacts."
+    },
+    "chain.library_workshop.start.c2.label": {
+      "ru": "Собрать платный проект для местного магазина",
+      "en": "Take a paid project for the local shop"
+    },
+    "chain.library_workshop.start.c2.result": {
+      "ru": "Заказ оплачен, но вечеров на отдых больше не осталось.",
+      "en": "The order is paid, but your evenings are gone."
+    },
+    "chain.library_workshop.start.c3.label": {
+      "ru": "Отложить и восстановить силы",
+      "en": "Postpone and recover"
+    },
+    "chain.library_workshop.start.c3.result": {
+      "ru": "Вы сохранили силы — и упустили шанс на знакомство.",
+      "en": "You kept your strength and missed a chance to connect."
+    },
+    "chain.library_workshop.follow.title": {
+      "ru": "Мастерская присылает приглашение",
+      "en": "The workshop sends an invitation"
+    },
+    "chain.library_workshop.follow.recall": {
+      "ru": "Помните вечер в библиотеке? Вы тогда выбрали: «%s».",
+      "en": "Remember that evening at the library? You chose: «%s»."
+    },
+    "chain.library_workshop.follow.c1.label": {
+      "ru": "Вложить силы в общую мастерскую",
+      "en": "Invest your effort in the shared workshop"
+    },
+    "chain.library_workshop.follow.c1.result": {
+      "ru": "Вы вошли в дело со свежей головой — и это заметили.",
+      "en": "You joined with a fresh mind, and people noticed."
+    },
+    "chain.library_workshop.follow.c1.v.taught.result": {
+      "ru": "Соседи привели учеников: мастерская стала вашей витриной.",
+      "en": "Neighbors brought students: the workshop became your showcase."
+    },
+    "chain.library_workshop.follow.c1.v.paid.result": {
+      "ru": "Заказы из магазина привели первых платных учеников.",
+      "en": "Shop orders brought your first paying students."
+    },
+    "chain.library_workshop.follow.c2.label": {
+      "ru": "Продать оборудование и забрать прибыль",
+      "en": "Sell the equipment and take the profit"
+    },
+    "chain.library_workshop.follow.c2.result": {
+      "ru": "Вы забрали своё — без сожалений и без новых знакомств.",
+      "en": "You took what was yours, without regrets or new contacts."
+    },
+    "chain.library_workshop.follow.c2.v.taught.result": {
+      "ru": "Вы продали то, что собирали вместе; часть соседей перестала здороваться.",
+      "en": "You sold what you built together; some neighbors stopped saying hello."
+    },
+    "chain.library_workshop.follow.c2.v.paid.result": {
+      "ru": "Оборудование ушло быстро, выручка закрыла долги.",
+      "en": "The equipment sold fast; the proceeds cleared your debts."
+    },
+    "chain.library_workshop.follow.c3.label": {
+      "ru": "Передать мастерскую городу",
+      "en": "Hand the workshop to the city"
+    },
+    "chain.library_workshop.follow.c3.result": {
+      "ru": "Вы вышли из игры без денег, но с чистой совестью и свободным вечером.",
+      "en": "You stepped away with no money, a clear conscience, and a free evening."
+    },
+    "chain.library_workshop.follow.c3.v.taught.result": {
+      "ru": "Город отметил ваш вклад: мастерская осталась с вашим именем на двери.",
+      "en": "The city honored your contribution: the workshop kept your name on the door."
+    },
+    "chain.library_workshop.follow.c3.v.paid.result": {
+      "ru": "Часть вложений не вернулась, зато вышли из дела честно.",
+      "en": "Some of your investment never came back, but you left cleanly."
+    },
+    "chain.night_courier.codex": {
+      "ru": "Ночной курьер",
+      "en": "The night courier"
+    },
+    "chain.night_courier.start.title": {
+      "ru": "Ночная смена курьером: знакомый просит подменить",
+      "en": "A night courier shift: a friend asks you to cover"
+    },
+    "chain.night_courier.start.c1.label": {
+      "ru": "Взять рискованный заказ через весь город",
+      "en": "Take a risky cross-town delivery"
+    },
+    "chain.night_courier.start.c1.result": {
+      "ru": "Заказ доставлен вовремя, чаевые оказались щедрыми.",
+      "en": "Delivered on time, with a generous tip."
+    },
+    "chain.night_courier.start.c2.label": {
+      "ru": "Взять спокойный маршрут на весь квартал",
+      "en": "Take a calm route for the whole quarter"
+    },
+    "chain.night_courier.start.c2.result": {
+      "ru": "Смена прошла ровно: без рекордов, но и без потерь.",
+      "en": "A smooth shift: no records, no losses."
+    },
+    "chain.night_courier.start.c3.label": {
+      "ru": "Отказаться и выспаться",
+      "en": "Decline and get some sleep"
+    },
+    "chain.night_courier.start.c3.result": {
+      "ru": "Сон вернул ясность — и никаких лишних денег.",
+      "en": "Sleep restored your clarity, and brought no extra money."
+    },
+    "chain.night_courier.follow.title": {
+      "ru": "Курьер зовёт в долю",
+      "en": "The courier offers a share"
+    },
+    "chain.night_courier.follow.recall": {
+      "ru": "Та ночная смена осталась в памяти: «%s».",
+      "en": "That night shift stayed with you: «%s»."
+    },
+    "chain.night_courier.follow.c1.label": {
+      "ru": "Скинуться на свой мини-склад",
+      "en": "Chip in for a small depot"
+    },
+    "chain.night_courier.follow.c1.result": {
+      "ru": "Вы рискнули вместе — склад начал работать.",
+      "en": "You took the risk together, and the depot started working."
+    },
+    "chain.night_courier.follow.c1.v.risky.result": {
+      "ru": "Тот ночной риск убедил его: склад работает.",
+      "en": "That night's risk convinced him: the depot works."
+    },
+    "chain.night_courier.follow.c1.v.steady.result": {
+      "ru": "Аккуратность оказалась лучшей рекомендацией.",
+      "en": "Reliability proved the best reference."
+    },
+    "chain.night_courier.follow.c2.label": {
+      "ru": "Работать только на его заказах",
+      "en": "Work only on his orders"
+    },
+    "chain.night_courier.follow.c2.result": {
+      "ru": "Он дал вам шанс, и вы его не потратили впустую.",
+      "en": "He gave you a chance, and you used it well."
+    },
+    "chain.night_courier.follow.c2.v.risky.result": {
+      "ru": "Ваша репутация ускорила дело.",
+      "en": "Your reputation sped things up."
+    },
+    "chain.night_courier.follow.c2.v.steady.result": {
+      "ru": "Ровный график приносит ровные деньги.",
+      "en": "A steady schedule brings steady money."
+    },
+    "chain.night_courier.follow.c3.label": {
+      "ru": "Остаться независимым",
+      "en": "Stay independent"
+    },
+    "chain.night_courier.follow.c3.result": {
+      "ru": "Вы сохранили свободу и вечерние прогулки.",
+      "en": "You kept your freedom and evening walks."
+    },
+    "chain.night_courier.follow.c3.v.risky.result": {
+      "ru": "Пара заказов всё же пришла от него — без обязательств.",
+      "en": "A few orders still came from him, with no strings."
+    },
+    "chain.hackathon_team.codex": {
+      "ru": "Команда с хакатона",
+      "en": "The hackathon team"
+    },
+    "chain.hackathon_team.start.title": {
+      "ru": "На хакатоне не хватает лидера",
+      "en": "The hackathon team needs a lead"
+    },
+    "chain.hackathon_team.start.c1.label": {
+      "ru": "Взять команду на себя",
+      "en": "Lead the team"
+    },
+    "chain.hackathon_team.start.c1.result": {
+      "ru": "Прототип собрали, выступление запомнили.",
+      "en": "The prototype shipped and your pitch was remembered."
+    },
+    "chain.hackathon_team.start.c2.label": {
+      "ru": "Помочь организаторам",
+      "en": "Help the organizers"
+    },
+    "chain.hackathon_team.start.c2.result": {
+      "ru": "Вы получили оплату и полезные контакты.",
+      "en": "You earned a fee and useful contacts."
+    },
+    "chain.hackathon_team.start.c3.label": {
+      "ru": "Уйти на лекции и восстановиться",
+      "en": "Attend the talks and recover"
+    },
+    "chain.hackathon_team.start.c3.result": {
+      "ru": "Вы узнали новое и не выгорели.",
+      "en": "You learned something new without burning out."
+    },
+    "chain.hackathon_team.follow.title": {
+      "ru": "Инвестор с хакатона пишет",
+      "en": "An investor from the hackathon writes"
+    },
+    "chain.hackathon_team.follow.recall": {
+      "ru": "Он напомнил ваш выбор на хакатоне: «%s».",
+      "en": "He recalled your choice at the hackathon: «%s»."
+    },
+    "chain.hackathon_team.follow.c1.label": {
+      "ru": "Показать прототип и попросить пилот",
+      "en": "Demo the prototype and ask for a pilot"
+    },
+    "chain.hackathon_team.follow.c1.result": {
+      "ru": "Ваш свежий взгляд оказался кстати.",
+      "en": "Your fresh take fit perfectly."
+    },
+    "chain.hackathon_team.follow.c1.v.led.result": {
+      "ru": "Инвестор узнал вашу презентацию: пилот подписан.",
+      "en": "The investor remembered your pitch: the pilot is signed."
+    },
+    "chain.hackathon_team.follow.c1.v.helped.result": {
+      "ru": "Организаторы подтвердили вашу надёжность.",
+      "en": "The organizers vouched for you."
+    },
+    "chain.hackathon_team.follow.c2.label": {
+      "ru": "Продать место в команде",
+      "en": "Sell your spot in the team"
+    },
+    "chain.hackathon_team.follow.c2.result": {
+      "ru": "Вы вышли из проекта с небольшой прибылью.",
+      "en": "You left the project with a small profit."
+    },
+    "chain.hackathon_team.follow.c2.v.led.result": {
+      "ru": "Команда узнала о продаже и расстроилась.",
+      "en": "The team learned about the sale and took it hard."
+    },
+    "chain.hackathon_team.follow.c2.v.helped.result": {
+      "ru": "Ваш контакт стоил дороже места в команде.",
+      "en": "Your contact was worth more than the seat."
+    },
+    "chain.hackathon_team.follow.c3.label": {
+      "ru": "Отказаться и вернуться к учёбе",
+      "en": "Decline and return to study"
+    },
+    "chain.hackathon_team.follow.c3.result": {
+      "ru": "Вы сохранили время для главного.",
+      "en": "You kept time for what mattered."
+    },
+    "chain.hackathon_team.follow.c3.v.led.result": {
+      "ru": "Вы сохранили репутацию — инвестор запомнил это.",
+      "en": "You kept your reputation; the investor remembered it."
+    },
+    "chain.mentor_coffee.codex": {
+      "ru": "Наставник из кофейни",
+      "en": "The mentor from the café"
+    },
+    "chain.mentor_coffee.start.title": {
+      "ru": "Наставник из кофейни предлагает разговор",
+      "en": "A mentor from the café offers a conversation"
+    },
+    "chain.mentor_coffee.start.c1.label": {
+      "ru": "Принять менторство",
+      "en": "Accept the mentorship"
+    },
+    "chain.mentor_coffee.start.c1.result": {
+      "ru": "Разговор расставил приоритеты на квартал.",
+      "en": "The conversation set your priorities for the quarter."
+    },
+    "chain.mentor_coffee.start.c2.label": {
+      "ru": "Попросить рекомендацию",
+      "en": "Ask for a referral"
+    },
+    "chain.mentor_coffee.start.c2.result": {
+      "ru": "Его звонок открыл вам дверь.",
+      "en": "His call opened a door."
+    },
+    "chain.mentor_coffee.start.c3.label": {
+      "ru": "Вежливо отказаться",
+      "en": "Politely decline"
+    },
+    "chain.mentor_coffee.start.c3.result": {
+      "ru": "Вы сохранили время и контроль.",
+      "en": "You kept your time and control."
+    },
+    "chain.mentor_coffee.follow.title": {
+      "ru": "Наставник собирает совет директоров",
+      "en": "The mentor assembles a board"
+    },
+    "chain.mentor_coffee.follow.recall": {
+      "ru": "Он помнит вашу встречу в кофейне: «%s».",
+      "en": "He remembers your café meeting: «%s»."
+    },
+    "chain.mentor_coffee.follow.c1.label": {
+      "ru": "Согласиться на место в совете",
+      "en": "Accept a seat on the board"
+    },
+    "chain.mentor_coffee.follow.c1.result": {
+      "ru": "Совет принял вас осторожно, но принял.",
+      "en": "The board accepted you cautiously, but it accepted you."
+    },
+    "chain.mentor_coffee.follow.c1.v.mentor.result": {
+      "ru": "Он назвал вас своим учеником: место в совете ваше.",
+      "en": "He named you his student: the board seat is yours."
+    },
+    "chain.mentor_coffee.follow.c1.v.referral.result": {
+      "ru": "Рекомендация сработала: вас ждут.",
+      "en": "The referral worked: they expect you."
+    },
+    "chain.mentor_coffee.follow.c2.label": {
+      "ru": "Войти консультантом",
+      "en": "Join as a consultant"
+    },
+    "chain.mentor_coffee.follow.c2.result": {
+      "ru": "Консультант без обязательств — удобная роль.",
+      "en": "A consultant without obligations is a comfortable role."
+    },
+    "chain.mentor_coffee.follow.c2.v.mentor.result": {
+      "ru": "Ученик наставника получает лучшие условия.",
+      "en": "The mentor's student gets the better terms."
+    },
+    "chain.mentor_coffee.follow.c2.v.referral.result": {
+      "ru": "Ваш контакт сработал как пропуск.",
+      "en": "Your contact worked as a pass."
+    },
+    "chain.mentor_coffee.follow.c3.label": {
+      "ru": "Строить своё дело",
+      "en": "Build your own venture"
+    },
+    "chain.mentor_coffee.follow.c3.result": {
+      "ru": "Свобода оказалась дороже места в совете.",
+      "en": "Freedom proved worth more than a board seat."
+    },
+    "chain.mentor_coffee.follow.c3.v.declined.result": {
+      "ru": "Ваш ранний отказ научил говорить «нет» вовремя.",
+      "en": "Your early refusal taught you to say no in time."
+    },
+    "chain.family_loan.codex": {
+      "ru": "Семейный заём",
+      "en": "The family loan"
+    },
+    "chain.family_loan.start.title": {
+      "ru": "Семья просит крупный заём",
+      "en": "The family asks for a large loan"
+    },
+    "chain.family_loan.start.c1.label": {
+      "ru": "Дать деньги без условий",
+      "en": "Lend without conditions"
+    },
+    "chain.family_loan.start.c1.result": {
+      "ru": "Вы помогли, но подушка стала тоньше.",
+      "en": "You helped, but your cushion got thinner."
+    },
+    "chain.family_loan.start.c2.label": {
+      "ru": "Дать деньги под расписку",
+      "en": "Lend with a written note"
+    },
+    "chain.family_loan.start.c2.result": {
+      "ru": "Документ успокоил обе стороны.",
+      "en": "The document calmed both sides."
+    },
+    "chain.family_loan.start.c3.label": {
+      "ru": "Отказать и объяснить",
+      "en": "Refuse and explain"
+    },
+    "chain.family_loan.start.c3.result": {
+      "ru": "Разговор был трудным, но честным.",
+      "en": "The conversation was hard but honest."
+    },
+    "chain.family_loan.follow.title": {
+      "ru": "Прошло время: семья возвращается",
+      "en": "Time passes: the family returns"
+    },
+    "chain.family_loan.follow.recall": {
+      "ru": "Помните тот разговор о деньгах? «%s».",
+      "en": "Remember that conversation about money? «%s»."
+    },
+    "chain.family_loan.follow.c1.label": {
+      "ru": "Принять возврат и праздновать",
+      "en": "Accept repayment and celebrate"
+    },
+    "chain.family_loan.follow.c1.result": {
+      "ru": "Вам вернули долг и тепло.",
+      "en": "They returned the debt and the warmth."
+    },
+    "chain.family_loan.follow.c1.v.lent.result": {
+      "ru": "Вас обняли и вернули больше, чем просили.",
+      "en": "They hugged you and returned more than they asked."
+    },
+    "chain.family_loan.follow.c1.v.noted.result": {
+      "ru": "Расписка пригодилась, но семья не в обиде.",
+      "en": "The note helped, and no one took offense."
+    },
+    "chain.family_loan.follow.c2.label": {
+      "ru": "Простить долг",
+      "en": "Forgive the debt"
+    },
+    "chain.family_loan.follow.c2.result": {
+      "ru": "Вы вычеркнули цифру из тетради, а не человека из жизни.",
+      "en": "You erased a number from the ledger, not a person from your life."
+    },
+    "chain.family_loan.follow.c2.v.noted.result": {
+      "ru": "Расписка больше не нужна: вы простили долг.",
+      "en": "The note is no longer needed: you forgave the debt."
+    },
+    "chain.family_loan.follow.c2.v.refused.result": {
+      "ru": "Вас удивили: вернули сами, без напоминаний.",
+      "en": "They surprised you: repaid unprompted."
+    },
+    "chain.family_loan.follow.c3.label": {
+      "ru": "Попросить помощи в ответ",
+      "en": "Ask for help in return"
+    },
+    "chain.family_loan.follow.c3.result": {
+      "ru": "Вы помогли друг другу без лишних слов.",
+      "en": "You helped each other without extra words."
+    },
+    "chain.family_loan.follow.c3.v.refused.result": {
+      "ru": "Старый отказ больше не мешал: вы помогли друг другу.",
+      "en": "The old refusal no longer stood in the way; you helped each other."
+    },
+    "chain.city_tender.codex": {
+      "ru": "Городской тендер",
+      "en": "The city tender"
+    },
+    "chain.city_tender.start.title": {
+      "ru": "Город объявляет тендер на благоустройство",
+      "en": "The city announces a refurbishment tender"
+    },
+    "chain.city_tender.start.c1.label": {
+      "ru": "Подать честную заявку",
+      "en": "Submit an honest bid"
+    },
+    "chain.city_tender.start.c1.result": {
+      "ru": "Заявка прошла сложный отбор.",
+      "en": "Your bid passed a tough selection."
+    },
+    "chain.city_tender.start.c2.label": {
+      "ru": "Предложить партнёру сговор",
+      "en": "Propose a backroom deal"
+    },
+    "chain.city_tender.start.c2.result": {
+      "ru": "Деньги пришли быстро, вместе с тревогой.",
+      "en": "The money came fast, along with worry."
+    },
+    "chain.city_tender.start.c3.label": {
+      "ru": "Не участвовать и смотреть",
+      "en": "Stay out and watch"
+    },
+    "chain.city_tender.start.c3.result": {
+      "ru": "Вы сохранили репутацию и спокойствие.",
+      "en": "You kept your reputation and your peace."
+    },
+    "chain.city_tender.follow.title": {
+      "ru": "Тендерный комитет возвращается",
+      "en": "The tender committee returns"
+    },
+    "chain.city_tender.follow.recall": {
+      "ru": "В деле сохранилась ваша заявка: «%s».",
+      "en": "Your bid stayed on file: «%s»."
+    },
+    "chain.city_tender.follow.c1.label": {
+      "ru": "Позвать наблюдателей и выйти на конкурс",
+      "en": "Invite observers and join the competition"
+    },
+    "chain.city_tender.follow.c1.result": {
+      "ru": "Открытый конкурс оказался честной проверкой.",
+      "en": "The open competition proved an honest test."
+    },
+    "chain.city_tender.follow.c1.v.honest.result": {
+      "ru": "Ваша честная заявка стала стандартом.",
+      "en": "Your honest bid became the standard."
+    },
+    "chain.city_tender.follow.c1.v.deal.result": {
+      "ru": "Сговор раскрылся: штраф и заголовки.",
+      "en": "The deal was exposed: a fine and headlines."
+    },
+    "chain.city_tender.follow.c2.label": {
+      "ru": "Договориться с подрядчиками",
+      "en": "Work with the contractors"
+    },
+    "chain.city_tender.follow.c2.result": {
+      "ru": "Подрядчики оказались надёжнее ожиданий.",
+      "en": "The contractors proved more reliable than expected."
+    },
+    "chain.city_tender.follow.c2.v.honest.result": {
+      "ru": "Чистая репутация принесла лучшие условия.",
+      "en": "A clean reputation brought better terms."
+    },
+    "chain.city_tender.follow.c2.v.deal.result": {
+      "ru": "Партнёры ждут ответных услуг.",
+      "en": "Partners now expect favors."
+    },
+    "chain.city_tender.follow.c3.label": {
+      "ru": "Вложить в частный проект",
+      "en": "Invest in a private project"
+    },
+    "chain.city_tender.follow.c3.result": {
+      "ru": "Частный проект обошёлся без комитетов.",
+      "en": "The private project needed no committees."
+    },
+    "chain.city_tender.follow.c3.v.stayed.result": {
+      "ru": "Спокойный взгляд со стороны оказался прибыльным.",
+      "en": "Your calm outsider view proved profitable."
+    },
+    "chain.media_profile.codex": {
+      "ru": "Профиль в прессе",
+      "en": "The press profile"
+    },
+    "chain.media_profile.start.title": {
+      "ru": "Журналистка просит профиль",
+      "en": "A journalist requests a profile"
+    },
+    "chain.media_profile.start.c1.label": {
+      "ru": "Открыться и рассказать всё",
+      "en": "Open up and tell everything"
+    },
+    "chain.media_profile.start.c1.result": {
+      "ru": "История понравилась, но лишнее внимание утомило.",
+      "en": "The story landed, but the attention tired you."
+    },
+    "chain.media_profile.start.c2.label": {
+      "ru": "Дозировать информацию",
+      "en": "Give a measured interview"
+    },
+    "chain.media_profile.start.c2.result": {
+      "ru": "Аккуратный текст без сюрпризов.",
+      "en": "A careful piece without surprises."
+    },
+    "chain.media_profile.start.c3.label": {
+      "ru": "Отказаться",
+      "en": "Decline"
+    },
+    "chain.media_profile.start.c3.result": {
+      "ru": "Ваша жизнь осталась вашей.",
+      "en": "Your life stayed yours."
+    },
+    "chain.media_profile.follow.title": {
+      "ru": "Издательство предлагает книгу",
+      "en": "A publisher offers a book"
+    },
+    "chain.media_profile.follow.recall": {
+      "ru": "В редакции помнят вашу историю: «%s».",
+      "en": "The newsroom remembers your story: «%s»."
+    },
+    "chain.media_profile.follow.c1.label": {
+      "ru": "Написать честную книгу",
+      "en": "Write an honest book"
+    },
+    "chain.media_profile.follow.c1.result": {
+      "ru": "Книга вышла спокойной, но её читают.",
+      "en": "The book came out quiet, but people read it."
+    },
+    "chain.media_profile.follow.c1.v.open.result": {
+      "ru": "Ваша откровенность в статье продала книгу.",
+      "en": "Your candor in the article sold the book."
+    },
+    "chain.media_profile.follow.c1.v.measured.result": {
+      "ru": "Взвешенный тон сделал книгу убедительной.",
+      "en": "Your measured tone made the book persuasive."
+    },
+    "chain.media_profile.follow.c2.label": {
+      "ru": "Дать интервью о книге",
+      "en": "Do interviews about the book"
+    },
+    "chain.media_profile.follow.c2.result": {
+      "ru": "Спокойный разговор без скандала.",
+      "en": "A calm conversation without scandal."
+    },
+    "chain.media_profile.follow.c2.v.open.result": {
+      "ru": "Зрители узнали вас в лицо.",
+      "en": "Viewers recognized your face."
+    },
+    "chain.media_profile.follow.c2.v.measured.result": {
+      "ru": "Вопросы были острыми, ответы — точными.",
+      "en": "The questions were sharp; your answers were precise."
+    },
+    "chain.media_profile.follow.c3.label": {
+      "ru": "Отложить книгу",
+      "en": "Shelve the book"
+    },
+    "chain.media_profile.follow.c3.result": {
+      "ru": "Вы сохранили личное и тишину.",
+      "en": "You kept your privacy and the quiet."
+    },
+    "chain.media_profile.follow.c3.v.private.result": {
+      "ru": "Аванс остался у вас, а история — при вас.",
+      "en": "The advance stayed with you, and the story stayed yours."
+    },
+    "chain.quiet_estate.codex": {
+      "ru": "Тихое поместье",
+      "en": "The quiet estate"
+    },
+    "chain.quiet_estate.start.title": {
+      "ru": "Старое поместье ищет нового хранителя",
+      "en": "An old estate seeks a new keeper"
+    },
+    "chain.quiet_estate.start.c1.label": {
+      "ru": "Создать семейный фонд",
+      "en": "Create a family foundation"
+    },
+    "chain.quiet_estate.start.c1.result": {
+      "ru": "Фонд дал поместью смысл и защиту.",
+      "en": "The foundation gave the estate purpose and protection."
+    },
+    "chain.quiet_estate.start.c2.label": {
+      "ru": "Купить поместье как актив",
+      "en": "Buy the estate as an asset"
+    },
+    "chain.quiet_estate.start.c2.result": {
+      "ru": "Земля окупится, если не спешить.",
+      "en": "The land will pay off if you don't rush it."
+    },
+    "chain.quiet_estate.start.c3.label": {
+      "ru": "Отложить решение",
+      "en": "Postpone the decision"
+    },
+    "chain.quiet_estate.start.c3.result": {
+      "ru": "Вы оставили себе выбор.",
+      "en": "You kept your options open."
+    },
+    "chain.quiet_estate.follow.title": {
+      "ru": "Поместье присылает отчёт",
+      "en": "The estate sends a report"
+    },
+    "chain.quiet_estate.follow.recall": {
+      "ru": "Управляющий помнит ваше решение: «%s».",
+      "en": "The steward remembers your decision: «%s»."
+    },
+    "chain.quiet_estate.follow.c1.label": {
+      "ru": "Вложить в реставрацию",
+      "en": "Invest in restoration"
+    },
+    "chain.quiet_estate.follow.c1.result": {
+      "ru": "Реставрация идёт медленно, но впервые по плану.",
+      "en": "Restoration is slow, but for once on plan."
+    },
+    "chain.quiet_estate.follow.c1.v.foundation.result": {
+      "ru": "Фонд привлёк гранты: реставрация стала общественным делом.",
+      "en": "The foundation attracted grants: restoration became a public cause."
+    },
+    "chain.quiet_estate.follow.c1.v.asset.result": {
+      "ru": "Поместье подняло оценку активов.",
+      "en": "The estate raised your asset valuation."
+    },
+    "chain.quiet_estate.follow.c2.label": {
+      "ru": "Передать под опеку города",
+      "en": "Hand it to the city's care"
+    },
+    "chain.quiet_estate.follow.c2.result": {
+      "ru": "Город принял поместье без лишнего шума.",
+      "en": "The city accepted the estate without fuss."
+    },
+    "chain.quiet_estate.follow.c2.v.foundation.result": {
+      "ru": "Город оставил вашу фамилию на воротах.",
+      "en": "The city kept your name on the gates."
+    },
+    "chain.quiet_estate.follow.c2.v.asset.result": {
+      "ru": "Вы отказались от актива ради тишины.",
+      "en": "You gave up an asset for quiet."
+    },
+    "chain.quiet_estate.follow.c3.label": {
+      "ru": "Продать поместье",
+      "en": "Sell the estate"
+    },
+    "chain.quiet_estate.follow.c3.result": {
+      "ru": "Покупатель нашёлся быстро.",
+      "en": "A buyer appeared quickly."
+    },
+    "chain.quiet_estate.follow.c3.v.foundation.result": {
+      "ru": "Фонд остался, поместье ушло: часть совета обиделась.",
+      "en": "The foundation stayed, the estate left; part of the board took offense."
+    },
+    "chain.quiet_estate.follow.c3.v.asset.result": {
+      "ru": "Актив продан с прибылью.",
+      "en": "The asset sold at a profit."
     },
     "ui.theme": {
       "ru": "Оформление",

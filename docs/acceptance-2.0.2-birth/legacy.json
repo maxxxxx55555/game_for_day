@@ -1,0 +1,130 @@
+{
+  "result": "PASS",
+  "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+  "source_role": "compat-r4",
+  "legacy_phase": "legacy-visual-r4",
+  "cases": [
+    {
+      "result": "PASS",
+      "version": "1.4.0",
+      "mode": "roundtrip",
+      "exit": 0,
+      "timed_out": false,
+      "seconds": 2.312,
+      "console_sha256": "cef7e2fa9ee971a1fa8898da0c2e3c4510ececcc064037337fd3cd0f344659ba",
+      "errors": [],
+      "new_integrity_notices": [],
+      "unexpected_integrity_notices": [],
+      "driver": {
+        "canonical_config_payload_sha256_after_first": "80408a1650bbff8c40a955944a61759cd2aa6ccd75c718e6952b9ecec7674e09",
+        "canonical_config_payload_sha256_after_second": "80408a1650bbff8c40a955944a61759cd2aa6ccd75c718e6952b9ecec7674e09",
+        "checks": {
+          "Complete model and narrative survive real save/load": true,
+          "Complete original pending UI/narrative state is preserved": true,
+          "Fresh source integrity permits ordinary save writes": true,
+          "Full canonical serialized payload hash is stable after migration": true,
+          "Legacy driver terminal audio resources release before quit": true,
+          "No persistence write failure is hidden": true,
+          "Original FX rates/history/RNG/positions preserved through declared integer-unit migration": true,
+          "Original dynasty generation is preserved": true,
+          "Original protected ConfigFile parses": true,
+          "Original protected current life loads": true,
+          "Original run field preserved with documented migration: ad_cooldown": true,
+          "Original run field preserved with documented migration: age": true,
+          "Original run field preserved with documented migration: audio_enabled": true,
+          "Original run field preserved with documented migration: birth_cost_modifier": true,
+          "Original run field preserved with documented migration: birth_origin": true,
+          "Original run field preserved with documented migration: business_scale": true,
+          "Original run field preserved with documented migration: business_tier": true,
+          "Original run field preserved with documented migration: cash": true,
+          "Original run field preserved with documented migration: crypto_rate": true,
+          "Original run field preserved with documented migration: crypto_units": true,
+          "Original run field preserved with documented migration: difficulty_multiplier": true,
+          "Original run field preserved with documented migration: energy": true,
+          "Original run field preserved with documented migration: happiness": true,
+          "Original run field preserved with documented migration: has_rolled_birth": true,
+          "Original run field preserved with documented migration: health": true,
+          "Original run field preserved with documented migration: inflation_multiplier": true,
+          "Original run field preserved with documented migration: inherited_capital": true,
+          "Original run field preserved with documented migration: intellect": true,
+          "Original run field preserved with documented migration: player_perk": true,
+          "Original run field preserved with documented migration: quarter": true,
+          "Original run field preserved with documented migration: quarter_progress_accum": true,
+          "Original run field preserved with documented migration: real_world_week": true,
+          "Original run field preserved with documented migration: revive_used": true,
+          "Original run field preserved with documented migration: stock_index": true,
+          "Original run field preserved with documented migration: stock_units": true,
+          "Original run field preserved with documented migration: stress": true,
+          "Original run field preserved with documented migration: time_speed": true,
+          "Original run field preserved with documented migration: total_turns": true,
+          "Real current-life write succeeds with original installation key": true,
+          "Real dynasty write succeeds with original installation key": true,
+          "Second complete model roundtrip is stable": true,
+          "Second ordinary current-life write succeeds": true,
+          "Written current life is authenticated": true
+        },
+        "hash_scope": "Complete current-life ConfigFile logical data and runtime RUN_FIELDS; exact-float metadata decoded; authentication footer and migration envelope excluded",
+        "legacy_fx_migration": {
+          "all_declared_fields_match": true,
+          "new_fields": [
+            "rates",
+            "holdings",
+            "holding_milli",
+            "history",
+            "rng"
+          ],
+          "old_fields": [
+            "history",
+            "holdings",
+            "rates",
+            "rng"
+          ],
+          "policy": "Only add exact holding_milli and quantize the corresponding legacy holdings view to nearest0.001unit; all rates/history/RNG and other fields remain exact"
+        },
+        "model_fields": 41,
+        "model_payload_sha256_after": "9ee6dc2db2344be6519adb760e7945026a3cb5ae647cd00ebd4ee1e7f56821f8",
+        "model_payload_sha256_before": "9ee6dc2db2344be6519adb760e7945026a3cb5ae647cd00ebd4ee1e7f56821f8",
+        "result": "PASS"
+      },
+      "scope": "Actual private protected profile copy; canonical payload hashes only; no envelope/installation-key hash claim",
+      "installation_key_preserved": true,
+      "original_all_profile_bytes_preserved": true,
+      "original_private_files_checked": 12,
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+    },
+    {
+      "result": "PASS",
+      "version": "1.4.0",
+      "mode": "tamper",
+      "exit": 0,
+      "timed_out": false,
+      "seconds": 1.984,
+      "console_sha256": "cef7e2fa9ee971a1fa8898da0c2e3c4510ececcc064037337fd3cd0f344659ba",
+      "errors": [],
+      "new_integrity_notices": [
+        "2026-10-28T16:33:50 integrity.save_rejected [\"user://current_life.cfg\"]"
+      ],
+      "unexpected_integrity_notices": [],
+      "driver": {
+        "checks": {
+          "Authenticated primary rejects modified signed body": true,
+          "Fresh source integrity permits ordinary save writes": true,
+          "Legacy driver terminal audio resources release before quit": true,
+          "Ordinary life load rejects tampered primary and backup": true,
+          "Tampered ConfigFile remains syntactically valid": true
+        },
+        "result": "PASS",
+        "scope": "Tampered disposable copies only; original profile and key are never edited"
+      },
+      "scope": "Actual private protected profile copy; canonical payload hashes only; no envelope/installation-key hash claim",
+      "tampered_primary_and_existing_backups": 2,
+      "installation_key_preserved": true,
+      "original_all_profile_bytes_preserved": true,
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+    }
+  ],
+  "source_critical_and_trust_bytes_preserved": true,
+  "actual_original_profiles_and_installation_keys_preserved": true,
+  "private_profiles_excluded_from_public_artifacts": true,
+  "scope": "Fresh isolated source compatibility checks; native public GUI compatibility is validated separately"
+}

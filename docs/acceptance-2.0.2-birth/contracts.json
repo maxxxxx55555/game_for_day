@@ -1,0 +1,46 @@
+{
+  "result": "PASS",
+  "cases": {
+    "tests/test_audio_assets.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "50d67bf2e75793dfe0a1572e0e1df3c07d98966c65a193311a86be45c6755d0c"
+    },
+    "tests/test_soundtrack.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "dfcc8dd0c18ec2164d5ee3e17fe8d6f2b029886e6c04307069d7866b58d9d4df"
+    },
+    "tests/test_license_bytes.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "203974b2284ad208fe892bb823848d09424c0e49e531d5d3f12b96b10cd9f650"
+    },
+    "tests/test_promise_matrix.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "92f9a33535cad73ce9fcb947a60160a3ceaf76e73dc66b79bcabc16005f3d4d0"
+    },
+    "tests/test_mechanics_matrix.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "77f76abcbedb9ec550bfcedc253bfeb126ece53db560e9e3a66530d345d67866"
+    },
+    "tests/test_export_contract.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "45333fb6f9b3b55773bd1863c2d8b4d6a0bcc44d5d2de0cb2c86a3ee7e195dbd"
+    },
+    "tests/test_public_qa_contract.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "4cc62cbe95d7c7330ba797c1e0b793f228a0a1516d2b7ef0360e3c315d255879"
+    },
+    "tools/check_repo_isolation.py": {
+      "result": "PASS",
+      "exit": 0,
+      "log_sha256": "69f0983316a1d264cfbd0b40c5e08a212d372bbaf0d121b0818852f54d6d7538"
+    }
+  },
+  "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+}

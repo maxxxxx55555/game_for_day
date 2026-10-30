@@ -12,5 +12,5 @@ for row in rows:
     assert printf.findall(row['ru'])==printf.findall(row['en']),row['key']
     catalog[row['key']]={lang:row[lang].replace('\r\n','\n') for lang in ('ru','en')}
 aliases=json.loads((folder/'choice_aliases.json').read_text(encoding='utf-8'))
-(folder/'localization.json').write_text(json.dumps({'strings':catalog,'aliases':aliases},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(folder/'localization.json').write_text(json.dumps({'strings':catalog,'aliases':aliases},ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('LOCALIZATION COMPILE PASS:',len(catalog),'RU/EN keys')

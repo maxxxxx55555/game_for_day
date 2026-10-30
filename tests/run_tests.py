@@ -26,6 +26,8 @@ def main():
         environment = os.environ.copy()
         environment['GAME_AUDIO_MUTED'] = '1'
         environment['GAME_LANGUAGE'] = args.language
+        # The negative QA fixture must prove that env alone cannot unlock the verifier.
+        environment['GAME_QA'] = '1'
         for variable, folder in [('APPDATA', 'roaming'), ('LOCALAPPDATA', 'local'), ('XDG_DATA_HOME', 'data'), ('XDG_CONFIG_HOME', 'config'), ('XDG_CACHE_HOME', 'cache')]:
             path = profile / folder
             path.mkdir()
@@ -42,6 +44,8 @@ def main():
         cases.append(('disabled-explanations', ['--headless', '--script', 'res://tests/test_disabled_explanations.gd']))
         cases.append(('comfort-preferences', ['--headless', '--script', 'res://tests/test_comfort_preferences.gd']))
         cases.append(('canonical-model', ['--headless', '--script', 'res://tests/test_canonical_model.gd']))
+        cases.append(('birth-save-contract', ['--headless', '--script', 'res://tests/test_birth_save_contract.gd']))
+        cases.append(('birth-locale', ['--headless', '--script', 'res://tests/test_birth_locale.gd']))
         cases.append(('currency-chart', ['--headless', '--script', 'res://tests/test_currency_chart.gd']))
         if args.rendered: cases.append(('chart-path-regression', ['--resolution','540x960','--script','res://tests/test_chart_path_regression.gd']))
         cases.append(('financial-motion', ['--headless', '--script', 'res://tests/test_financial_motion.gd']))
@@ -79,6 +83,9 @@ def main():
         cases.append(('exact-float-limits', ['--headless','--script','res://tests/test_exact_float_limits.gd']))
         cases.append(('config-float-precision', ['--headless','--script','res://tests/test_config_float_precision.gd']))
         cases.append(('profile-contract', ['--headless','--script','res://tests/test_profile_contract.gd']))
+        cases.append(('chains', ['--headless','--script','res://tests/test_chains.gd']))
+        cases.append(('dynasty-progression', ['--headless','--script','res://tests/test_dynasty_progression.gd']))
+        cases.append(('card-feel', ['--headless','--script','res://tests/test_card_feel.gd']))
         cases.insert(2, ('audio', ['--headless', '--script', 'res://tests/test_audio.gd']))
         if portrait:
             cases.append(('balance', ['--headless', '--script', 'res://tests/test_gameplay.gd', '--', '--balance']))
@@ -92,6 +99,8 @@ def main():
         if contract.returncode: return contract.returncode
         copy_contract = subprocess.run([sys.executable, str(project / 'tests/test_copy_contract.py')], timeout=30)
         if copy_contract.returncode: return copy_contract.returncode
+        generation = subprocess.run([sys.executable, str(project / 'tests/test_localization_generation.py')], timeout=30)
+        if generation.returncode: return generation.returncode
         promises = subprocess.run([sys.executable, str(project / 'tests/test_promise_matrix.py')], timeout=30)
         if promises.returncode: return promises.returncode
         mechanics = subprocess.run([sys.executable, str(project / 'tests/test_mechanics_matrix.py')], timeout=30)

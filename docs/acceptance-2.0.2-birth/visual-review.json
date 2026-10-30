@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+  "manifest_path": "QA/gallery-visual-r4/manifest.json",
+  "manifest_sha256": "eee9bec380f16e211c06abc633aa90ae9f009fc7b1f9f1d349d6a3d14c461c44",
+  "reviewed_frames": 44,
+  "reviewed_locales": [
+    "en",
+    "ru"
+  ],
+  "reviewed_resolutions": [
+    [
+      540,
+      960
+    ],
+    [
+      720,
+      1280
+    ]
+  ],
+  "method": "All 44 frames inspected in four contact sheets; birth card additionally inspected at original size in both locales.",
+  "issues": [],
+  "source_art_inventory_files": 10,
+  "source_art_hashes_unchanged": true,
+  "scope": "The decorative city is a fictional illustration, not an image of the selected birthplace. Reviewed frames show no obvious clipping, missing glyphs or integrity notices. This does not establish human play or listening acceptance."
+}

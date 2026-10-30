@@ -1,8 +1,34 @@
-# Heirs of Fortune — 2.0.1
+# Heirs of Fortune — 2.1.0
+
+## Legacy & Chains
+
+Eight player-started life threads now run across two links. A thread chosen from the dynasty ledger stores its flag, returns after five quarters with a recall of the exact choice, and resolves through a flag-specific variant. Completion grants momentum; every thread is recorded once.
+
+The dynasty ledger adds five real sections: journal, permanent legacy perks (eight unlocks, 4–15 points), life threads, a twelve-life hall of fame and ascension status. Legacy points survive generations; the intro offers three ambitions — steady, meteor and heir — and milestones at 18, 25, 35, 50 and 65 present a retrospective card and momentum without pausing the world.
+
+Ascension is a five-level NG+ path from the victory finale: each level raises inflation, volatility and difficulty and enriches legacy, while the next life starts clean. Cards gained a short reveal, signed delta chips for every changed stat, outcome tones and a live portfolio pulse; reduced motion snaps all of it. Palette, Unbounded display and Onest body type, the 1.75px vector icon set and the no-emoji presentation pass are documented in [art direction](docs/ART_DIRECTION.md).
+
+2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 17 rows and 136 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
+
+This candidate is not a release until rendered and export/native checks, the seeded soak, owner checks and the publication gate pass. The 57-case headless source suite passed in both Russian and English on 2026-10-29; no 2.1.0 artifact is published before the full gate. See the [2.1.0 release-candidate notes](docs/RELEASE_2.1.0.md) and the [handoff](docs/HANDOFF.md).
+
+## Русский
+
+Восемь «нитей судьбы», начатых из панели династии, теперь живут в двух звеньях: выбор запоминается флагом, возвращается через пять кварталов с точной цитатой и получает вариантную развязку. Завершённая нить даёт импульс и записывается один раз.
+
+Панель династии собрана из пяти разделов: журнал, постоянные перки наследия (восемь покупок за 4–15 очков), нити, зал славы на двенадцать жизней и восхождение. Очки наследия переходят между поколениями; на старте доступны три амбиции — размеренная, метеор и наследник; вехи в 18, 25, 35, 50 и 65 лет показывают карточку-ретроспективу и импульс, не останавливая мир.
+
+Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
+
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 17 строк и 136 исполняемых ячеек. Это кандидат, а не релиз: рендерные, экспортные и нативные проверки, сеяный прогон, проверки владельца и публикационный гейт ещё должны пройти; 29 октября 2026 года headless-набор из 57 кейсов прошёл на русском и английском. До полного гейта артефакт 2.1.0 не публикуется.
+
+---
+
+# Heirs of Fortune — 2.0.2
 
 ## Current edition scope
 
-A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in this edition.
+A complete offline life/finance loop: birthplaces drawn from 192 countries, 31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in this edition.
 
 Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. Android is omitted from this release: the host cannot boot an emulator. Earlier1.4 emulator results are historical evidence only. The Windows release does not claim Android runtime acceptance.
 
@@ -12,17 +38,17 @@ Ordinary Git checkouts now use the committed LF bytes consistently: critical-dat
 
 Both localization CSV files have explicit LF checkout rules, preserving embedded canonical Russian line breaks on Windows.
 
-Retained: Live RU/EN presentation with606 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected1.4.0 profiles. Current content: 31 events/93 choices, four origins, business progression, investments, EUR/GBP/JPY trading with a disclosed0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
+Retained: Live RU/EN presentation with 816 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected1.4.0 profiles. Current content: 31 events/93 choices, 192 weighted birthplaces, business progression, investments, EUR/GBP/JPY trading with a disclosed0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
 
 ## Русский
 
-Исправлена воспроизводимая сборка из обычного Git-checkout: манифест данных, происхождение интерфейсных звуков и переносы строк локализации согласованы с исходными LF-байтами. Канонический русский текст, музыка, экономика и защищённые сохранения не меняются.
+Исправлена воспроизводимая сборка из обычного Git-checkout: манифест данных, происхождение интерфейсных звуков и переносы строк локализации согласованы с исходными LF-байтами. Канонический русский текст и музыка сохранены. Включены 192 страны рождения с разными начальными условиями, тёмный интерфейс и проверяемые поля сохранения; старые профили получают нейтральные значения.
 
 ## Validation and limits
 
 Normal Exit, window close and guarded QA rejection now wait for actual audio playback disposal before terminating. Save failures retain Retry/Stay/Discard, repeated accepted dialog callbacks cannot write twice, and private verifier cleanup remains reusable. Source test drivers drain audio explicitly and the runner rejects resource-leak warnings.
 
-Coverage: 53 rendered Godot cases per locale;112 mechanics cells; all93 decision layouts plus currency, inflation, save, integrity and finale routes, plus Python checkout/provenance/license/copy/export contracts. Fresh complete source/native/soak results and exact artifact hashes are recorded by the release gate and current acceptance certificate. Earlier release measurements are historical and do not establish acceptance of this patch.
+2.0.2 coverage: 55 rendered Godot cases per locale; 112 mechanics cells; all 93 decision layouts plus currency, inflation, save, integrity and finale routes, plus Python checkout/provenance/license/copy/export contracts. Fresh complete source/native/soak results and exact artifact hashes are recorded by the release gate and current acceptance certificate. Earlier release measurements are historical and do not establish acceptance of this patch.
 
 See [patch notes](docs/RELEASE_2.0.1.md), [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [mechanics coverage](docs/MECHANICS_MATRIX.md), [save integrity](SAVE-INTEGRITY.md) and [the scoped promise inventory](docs/PROMISE_MATRIX.md). Portable Windows x64; Godot Compatibility/OpenGL-capable GPU; offline. The EXE is not Authenticode signed. Android artifacts are omitted. Finite automated tests do not replace owner play/listening checks or guarantee zero possible bugs, unbreakable offline security or AAA scale.
 
@@ -48,9 +74,9 @@ A portrait life-and-finance strategy game. Build a business dynasty, balance you
 
 ## Play
 
-Extract the whole Windows archive and run `HeirsOfFortune.exe`. Roll a birth origin, choose a trait and make one quarterly decision at a time. Businesses and stocks generate income; living costs and inflation continue each quarter. Markets and business menus let you manage capital without consuming a quarter unless the action explicitly says otherwise. The portfolio's dedicated Back button keeps investments and the current life event.
+Extract the whole Windows archive and run `HeirsOfFortune.exe`. Draw a birthplace, choose a trait and make one quarterly decision at a time. Businesses and stocks generate income; living costs and inflation continue each quarter. Markets and business menus let you manage capital without consuming a quarter unless the action explicitly says otherwise. The portfolio's dedicated Back button keeps investments and the current life event.
 
-There are four birth origins, 31 events with 93 decisions, five business upgrades followed by expansion, stocks, crypto, recurring grants, inheritance and advanced dynasty traits. Reaching the target produces a persistent victory; death and retirement feed the next generation. The dashboard shows actual capital, available cash, income, costs and four condition meters.
+There are 192 possible birth countries, 31 events with 93 decisions, five business upgrades followed by expansion, stocks, crypto, recurring grants, inheritance and advanced dynasty traits. Reaching the target produces a persistent victory; death and retirement feed the next generation. The dashboard shows actual capital, available cash, income, costs and four condition meters.
 
 Click/tap choices and navigation. Scroll the event card if its text is long. Settings provide independent Master, Music, SFX and UI levels, live Russian/English selection and reduced motion. On Android, Back closes a submenu; backgrounding saves the session. Normal purchases do not advance a quarter. Grants have a four-quarter cooldown and require no advertisement or network connection.
 
@@ -69,7 +95,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains53 Godot invocations per locale, including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 606 localization keys, all 93 decision layouts, independent audio buses, all four birth origins, full victory, market exit without liquidation, mobile lifecycle, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner contains 57 Godot invocations per locale (58 with rendered mode), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 1080 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -98,3 +124,18 @@ V2 visual pass: eight-point design tokens, curated source-asset review, consiste
 Public Windows packs omit the private verifier; the separate Windows QA preset additionally requires GAME_QA=1. All pack entries and the directory are encrypted using a matching custom Godot template and an environment-only build key. Encryption makes modification harder; it is not DRM. The compiled critical-data trust root rejects a replacement manifest and starts changed installations with trusted fallback data, a localized warning and no progress/settings writes. Authenticated save recovery records a local integrity log and shows a localized message. See SAVE-INTEGRITY.md for exact boundaries.
 
 Money is stored as bounded integer cents, including cash, prices, income, costs and inheritance. Dollar properties are compatibility/presentation boundaries. Foreign holdings use integer thousandths; acquisition and liquidation round down and same-quote trades lose spread. Grants use saved integer half-quarter ticks, with duplicate-claim prevention and no wall-clock dependency.
+
+
+## Country birth update
+
+The birth lottery now draws from 192 countries in the bundled historical dataset and shows the birthplace in a dedicated card and dashboard. Starting conditions vary; the income effect converges to neutral by age 52. The new save fields are bounded and validated, and older profiles receive neutral historical defaults. This runtime requires its own fresh acceptance; the certificate and release gate identify the current evidence. Earlier 53-case candidate receipts are historical.
+
+Country statistics and reuse terms: [data attribution and open table](docs/BIRTH_DATA_NOTICE.md).
+
+## 2.0.1 acceptance and distribution
+
+Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
+
+## 2.0.2 acceptance and distribution
+
+Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
