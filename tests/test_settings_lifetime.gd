@@ -24,7 +24,7 @@ func run()->void:
 			var theme_picker:OptionButton=null
 			for candidate:OptionButton in panel.find_children("*","OptionButton",true,false):
 				if candidate.name=="SettingsTheme":theme_picker=candidate
-			check(theme_picker!=null and theme_picker.get_item_text(0)==locale.source("ui.theme.dark") and theme_picker.get_item_text(1)==locale.source("ui.theme.light"),"Theme picker items translate immediately")
+			check(theme_picker!=null and theme_picker.get_item_text(0)==locale.display(locale.source("ui.theme.dark")) and theme_picker.get_item_text(1)==locale.display(locale.source("ui.theme.light")),"Theme picker items speak the active language")
 		panel.queue_free()
 		await process_frame
 		check(locale.language_changed.get_connections().size()==baseline,"Freed settings panel leaves no persistent locale callback")

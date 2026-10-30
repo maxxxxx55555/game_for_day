@@ -27,8 +27,8 @@ func _ready() -> void:
 	theme_picker=OptionButton.new()
 	theme_picker.name="SettingsTheme"
 	theme_picker.auto_translate_mode=Node.AUTO_TRANSLATE_MODE_DISABLED
-	theme_picker.add_item(LocalizationManager.source("ui.theme.dark"))
-	theme_picker.add_item(LocalizationManager.source("ui.theme.light"))
+	theme_picker.add_item(LocalizationManager.display(LocalizationManager.source("ui.theme.dark")))
+	theme_picker.add_item(LocalizationManager.display(LocalizationManager.source("ui.theme.light")))
 	theme_picker.selected=1 if GameManager.theme_mode=="light" else 0
 	theme_picker.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	theme_row.add_child(theme_picker)
@@ -80,8 +80,8 @@ func _on_language_changed(locale:String)->void:
 	language_picker.select(0 if locale=="ru" else 1)
 	if theme_picker:
 		var theme_index:int=1 if GameManager.theme_mode=="light" else 0
-		theme_picker.set_item_text(0,LocalizationManager.source("ui.theme.dark"))
-		theme_picker.set_item_text(1,LocalizationManager.source("ui.theme.light"))
+		theme_picker.set_item_text(0,LocalizationManager.display(LocalizationManager.source("ui.theme.dark")))
+		theme_picker.set_item_text(1,LocalizationManager.display(LocalizationManager.source("ui.theme.light")))
 		theme_picker.select(theme_index)
 	for control:Node in find_children("*","Control",true,false):
 		if control.has_meta("locale_key"):

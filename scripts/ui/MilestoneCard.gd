@@ -64,7 +64,19 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	continue_button.pressed.connect(dismiss)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void: apply_skin())
 	hide()
+
+## The card builds its own panel style, so it has to be repainted when the skin
+## changes instead of keeping whatever colour was current at boot.
+func apply_skin() -> void:
+	if not is_instance_valid(card):
+		return
+	card.add_theme_stylebox_override("panel",SkinTheme.panel(Palette.surface(),Palette.accent(),8))
+	overline.add_theme_color_override("font_color",Palette.accent())
+	momentum.add_theme_color_override("font_color",Palette.accent())
 
 func thread_note(chains:int) -> String:
 	if chains<=0:

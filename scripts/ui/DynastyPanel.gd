@@ -11,13 +11,14 @@ var title_label:Label
 var balance_label:Label
 var close_button:Button
 var content:VBoxContainer
+var backdrop:Panel
 var tabs:Dictionary={}
 var tab_group:ButtonGroup
 var active_section:String="journal"
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var backdrop:Panel=Panel.new()
+	backdrop=Panel.new()
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.ink()))
 	add_child(backdrop)
@@ -82,7 +83,21 @@ func _ready() -> void:
 	LocalizationManager.language_changed.connect(func(_language:String)->void:
 		if visible: refresh()
 	)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void: apply_skin())
 	hide()
+
+## The ledger paints its own backdrop and rows, so a skin change has to rebuild
+## them instead of inheriting the theme like the buttons do.
+func apply_skin() -> void:
+	if not is_instance_valid(backdrop):
+		return
+	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.ink()))
+	if is_instance_valid(balance_label):
+		balance_label.add_theme_color_override("font_color",Palette.muted())
+	if visible:
+		refresh()
 
 func set_section(section:String) -> void:
 	if not SECTIONS.has(section):
