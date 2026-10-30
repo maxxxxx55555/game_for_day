@@ -42,6 +42,10 @@ Performance on this host, measured against a 2.0.2 worktree in interleaved attem
 
 Presentation was reviewed from re-rendered frames at `e9b0256`: 66 gallery frames in four contact sheets plus 12 ambition-row frames with each ambition selected in both locales and both resolutions. Finite automated tests do not replace owner play/listening checks and do not prove the absence of every possible defect.
 
+## Archive
+
+`HeirsOfFortune-Windows-2.1.0.zip` — 85,736,652 bytes, SHA256 `c7199222573d17c8996d8774ffdd6238feef240753eaf803b137eba38b456226` — with `HeirsOfFortune-SHA256SUMS-2.1.0.txt` (SHA256 `e0ec84e1ce0a84715151e86f740b72a768c317242b3952bcb07be14dc5bfd782`) naming that exact filename. The archive holds the public EXE and PCK above plus the documentation tree; the private QA pair is not inside it, and the outside re-audit of the delivered entries passes with 238 entries, intact inherited licence bytes and no key material in any loose file.
+
 ## Limits
 
 Windows x64 only; Android artifacts are omitted. The executable is not Authenticode signed. Offline tamper evidence makes modification harder but is not DRM. No AAA-scale or "no bugs" claim is made.

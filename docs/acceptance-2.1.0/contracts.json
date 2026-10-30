@@ -34,7 +34,7 @@
     "tests/test_repo_isolation.py": {
       "result": "PASS",
       "exit": 0,
-      "log_sha256": "7a14a6b7a78ab0c73959601709b293818678a1cfb496728a9dcd17340f008027"
+      "log_sha256": "d4096016f94b3e2f854d42c86eca1d620c32a0e1545d3bdfb4b98c0627fef27a"
     },
     "tests/test_public_qa_contract.py": {
       "result": "PASS",
@@ -72,5 +72,5 @@
       "log_sha256": "69f0983316a1d264cfbd0b40c5e08a212d372bbaf0d121b0818852f54d6d7538"
     }
   },
-  "source_commit": "1964e55c18bc2b40837d5eca3184f31b0094b6c0"
+  "source_commit": "e4eeaf13cd1c5eeb81f2371be93de88c21117adb"
 }
