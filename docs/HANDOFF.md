@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.1.0 — owner handoff
 
-Release: **2.1.0 "Legacy & Chains" passed its publication gate on this build host.** The gate ran at commit `807ba09c551134c76f23b4167ab7b5783dd7199e` and every step reported exit 0: trust anchor, localization compile, strict compile, 49-case headless and 50-case rendered source suites in both RU and EN, four exports, nine exported native runs, 100 seeded cycles, legacy 1.4.0/2.0.x compatibility and the 30-minute rendered soak. The exact artifact digests are in the acceptance certificate and in the versioned sums file beside the ZIP.
+Release: **2.1.0 "Legacy & Chains" is published at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0, gated and tagged at commit `807ba09c551134c76f23b4167ab7b5783dd7199e`.** The gate ran at commit `807ba09c551134c76f23b4167ab7b5783dd7199e` and every step reported exit 0: trust anchor, localization compile, strict compile, 49-case headless and 50-case rendered source suites in both RU and EN, four exports, nine exported native runs, 100 seeded cycles, legacy 1.4.0/2.0.x compatibility and the 30-minute rendered soak. The exact artifact digests are in the acceptance certificate and in the versioned sums file beside the ZIP.
 
 1. Download only the exact 2.1.0 Windows ZIP and its versioned sums file; require `sha256sum -c` to report OK and exit 0.
 2. Extract the entire folder, launch the EXE and select English/Russian.

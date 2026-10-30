@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.1.0 — Legacy & Chains
 
-Status: **the publication gate returned PASS on 2026-10-30 at commit `807ba09c551134c76f23b4167ab7b5783dd7199e`**, and this note describes the Windows x64 portable release built from that commit. The tag `v2.1.0` sits on the exported commit; later commits on `main` change documentation only. Owner play and listening checks stay with the owner and are not claimed here.
+Status: **published.** The publication gate returned PASS on 2026-10-30 at commit `807ba09c551134c76f23b4167ab7b5783dd7199e`, the tag `v2.1.0` names that exported commit and the release is at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0 with exactly two assets, re-downloaded from the release and checked with `sha256sum -c` (output `HeirsOfFortune-Windows-2.1.0.zip: OK`, exit 0). Commits after the tag change documentation only. Owner play and listening checks stay with the owner and are not claimed here.
 
 ## New systems
 
