@@ -74,6 +74,27 @@ func run() -> void:
     check(pitches.min()>=0.97 and pitches.max()<=1.03 and not is_equal_approx(pitches.min(),pitches.max()),"Repeated contextual actions have restrained pitch variation")
     check(AudioServer.is_bus_mute(0),"QA stays inaudible through every cue")
     silence()
+    var screen:Control=load("res://scenes/Main.tscn").instantiate()
+    root.add_child(screen)
+    current_scene=screen
+    await process_frame
+    screen.show_intro_screen()
+    await process_frame
+    silence()
+    screen.ambition_buttons[2].button_down.emit()
+    screen.ambition_buttons[2].pressed.emit()
+    await process_frame
+    await process_frame
+    check(voices("ui_click").size()==1,"A real ambition press emits exactly one click cue")
+    silence()
+    screen.ambition_buttons[0].button_down.emit()
+    screen.ambition_buttons[0].pressed.emit()
+    await process_frame
+    await process_frame
+    check(voices("ui_click").size()==1,"Switching ambition re-arms one cue without doubling it")
+    screen.queue_free()
+    await process_frame
+    silence()
     panel.queue_free()
     print("UI AUDIO FEEDBACK RESULT: ","PASS" if failures==0 else "FAIL")
     if not await root.get_node("SoundManager").shutdown():

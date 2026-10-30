@@ -9,7 +9,7 @@
 - Added milestone retrospectives at 18/25/35/50/65 and momentum; Continue never advances the world.
 - Added card reveal, signed delta chips, outcome tones, a live 24-sample portfolio pulse and reduced-motion snapping.
 - Added jazz-lounge palette, Unbounded/Onest type, 1.75px vector icons and emoji-free displayed copy.
-- Added chains, dynasty-progression and card-feel suites; mechanics matrix is now 17 rows / 136 cells.
+- Added chains, dynasty-progression and card-feel suites; mechanics matrix is now 18 rows / 144 cells.
 - 2.1 save fields remain optional; 1.4.0 and 2.0.x profiles load with neutral defaults.
 - No 2.1.0 artifact is published before the 100% publication gate.
 

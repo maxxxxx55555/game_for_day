@@ -56,6 +56,35 @@ func run()->void:
     screen.apply_ambition("meteor")
     check(game.ambition=="meteor" and screen.ambition_buttons[1].button_pressed,"The ambition control writes the real model")
     check(not screen.ambition_desc.text.strip_edges().is_empty(),"The active ambition explains itself")
+    var ambition_turns:int=game.total_turns
+    var ambition_rng:int=screen.rng.state
+    for press:int in 24:
+        screen.ambition_buttons[press%3].pressed.emit()
+        await process_frame
+    check(game.ambition=="heir","Rapid ambition switching lands on the last control the player pressed")
+    var pressed_count:int=0
+    for button:Button in screen.ambition_buttons:
+        if button.button_pressed:pressed_count+=1
+    check(pressed_count==1,"Hammering the ambition group never leaves two ambitions lit")
+    check(game.total_turns==ambition_turns and screen.rng.state==ambition_rng,"Ambition switching spends no quarter and no RNG")
+    check(screen.ambition_desc.text==txt("ambition.heir.desc"),"The description follows the ambition the player ended on")
+    var heir_start:float=game.cash
+    for repeat:int in 5:
+        screen.ambition_buttons[2].pressed.emit()
+        await process_frame
+    check(is_equal_approx(game.cash,heir_start) and game.ambition=="heir","Re-pressing the active ambition is idempotent")
+    screen.apply_ambition("steady")
+    check(is_equal_approx(game.cash,200.0+game.inherited_capital+game.legacy_start_bonus()),"Steady starts on the plain inheritance")
+    screen.apply_ambition("heir")
+    check(is_equal_approx(game.cash,200.0+game.inherited_capital*1.25+game.legacy_start_bonus()),"Heir recomputes the same starting balance from its own multiplier")
+    scan_disabled(screen.ambition_row,"Ambitions")
+    check(screen.save_session(),"The ambition choice rides the real session save")
+    var ambition_saved_mode:String=game.ambition
+    game.ambition="steady"
+    game.load_current_life()
+    screen.update_ambition_controls()
+    check(game.ambition==ambition_saved_mode,"Reloading the session restores the ambition the player last chose")
+    check(screen.ambition_buttons[2].button_pressed,"The restored ambition lights its own control")
     game.reset_full_dynasty()
     game.legacy_points=20
     check(game.unlock_legacy_perk("warm_start"),"A legacy perk can be bought with earned points")

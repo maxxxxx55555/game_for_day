@@ -8,7 +8,7 @@ The dynasty ledger adds five real sections: journal, permanent legacy perks (eig
 
 Ascension is a five-level NG+ path from the victory finale: each level raises inflation, volatility and difficulty and enriches legacy, while the next life starts clean. Cards gained a short reveal, signed delta chips for every changed stat, outcome tones and a live portfolio pulse; reduced motion snaps all of it. Palette, Unbounded display and Onest body type, the 1.75px vector icon set and the no-emoji presentation pass are documented in [art direction](docs/ART_DIRECTION.md).
 
-2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 17 rows and 136 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
+2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 18 rows and 144 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
 
 This candidate is not a release until the publication gate passes in full. The 49-case headless suite and the 50-case rendered suite passed in both Russian and English on 2026-10-29 on this build host; exported, native, seeded, legacy-compatibility and soak steps are recorded by the same gate run. No 2.1.0 artifact is published before that run reports PASS. See the [2.1.0 release notes](docs/RELEASE_2.1.0.md) and the [handoff](docs/HANDOFF.md).
 
@@ -20,7 +20,7 @@ This candidate is not a release until the publication gate passes in full. The 4
 
 Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
 
-Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 17 строк и 136 исполняемых ячеек. Это кандидат, а не релиз: рендерные, экспортные и нативные проверки, сеяный прогон, проверки владельца и публикационный гейт ещё должны пройти; 29 октября 2026 года на этом сборочном хосте headless-набор из 49 кейсов и рендерный набор из 50 кейсов прошли на русском и английском. До полного гейта артефакт 2.1.0 не публикуется.
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 18 строк и 144 исполняемых ячейки. Это кандидат, а не релиз: рендерные, экспортные и нативные проверки, сеяный прогон, проверки владельца и публикационный гейт ещё должны пройти; 29 октября 2026 года на этом сборочном хосте headless-набор из 49 кейсов и рендерный набор из 50 кейсов прошли на русском и английском. До полного гейта артефакт 2.1.0 не публикуется.
 
 ---
 
