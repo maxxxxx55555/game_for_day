@@ -1,5 +1,6 @@
 extends VBoxContainer
 var language_picker:OptionButton
+var theme_picker:OptionButton
 func _ready() -> void:
 	add_theme_constant_override("separation",8)
 	language_picker=OptionButton.new()
@@ -15,6 +16,25 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	LocalizationManager.language_changed.connect(_on_language_changed)
+	var theme_row:HBoxContainer=HBoxContainer.new()
+	theme_row.add_theme_constant_override("separation",8)
+	add_child(theme_row)
+	var theme_label:Label=Label.new()
+	theme_label.text=LocalizationManager.source("ui.theme")
+	theme_label.set_meta("locale_key","ui.theme")
+	theme_label.custom_minimum_size.x=125
+	theme_row.add_child(theme_label)
+	theme_picker=OptionButton.new()
+	theme_picker.name="SettingsTheme"
+	theme_picker.auto_translate_mode=Node.AUTO_TRANSLATE_MODE_DISABLED
+	theme_picker.add_item(LocalizationManager.source("ui.theme.dark"))
+	theme_picker.add_item(LocalizationManager.source("ui.theme.light"))
+	theme_picker.selected=1 if GameManager.theme_mode=="light" else 0
+	theme_picker.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	theme_row.add_child(theme_picker)
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	theme_picker.item_selected.connect(func(index:int)->void:GameManager.set_theme_mode("light" if index==1 else "dark"))
 	for entry:Array in [["ui.master","master_volume"],["copy.19ecb2b49349","music_volume"],["copy.05321a5231ca","sfx_volume"],["ui.interface","ui_volume"]]:
 		var row:HBoxContainer=HBoxContainer.new()
 		add_child(row)
@@ -58,6 +78,11 @@ func _ready() -> void:
 
 func _on_language_changed(locale:String)->void:
 	language_picker.select(0 if locale=="ru" else 1)
+	if theme_picker:
+		var theme_index:int=1 if GameManager.theme_mode=="light" else 0
+		theme_picker.set_item_text(0,LocalizationManager.source("ui.theme.dark"))
+		theme_picker.set_item_text(1,LocalizationManager.source("ui.theme.light"))
+		theme_picker.select(theme_index)
 	for control:Node in find_children("*","Control",true,false):
 		if control.has_meta("locale_key"):
 			if control is Label:(control as Label).text=LocalizationManager.source(str(control.get_meta("locale_key")))

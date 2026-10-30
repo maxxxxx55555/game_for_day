@@ -1,4 +1,5 @@
 extends CanvasLayer
+const Palette=preload("res://scripts/ui/Palette.gd")
 ## A short editorial opening, with persisted locale and no artificial progress percentage.
 var splash:Control
 var hint:Label
@@ -19,7 +20,7 @@ func show_splash() -> void:
 	splash.theme=preload("res://scripts/ui/FortuneTheme.gd").create()
 	add_child(splash)
 	var paper:ColorRect=ColorRect.new()
-	paper.color=Color("111e2e")
+	paper.color=Palette.surface()
 	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	splash.add_child(paper)
 	var margins:MarginContainer=MarginContainer.new()
@@ -47,7 +48,7 @@ func show_splash() -> void:
 	opening_label=Label.new()
 	opening_label.text=LocalizationManager.get_string("flow.loading")
 	opening_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	opening_label.add_theme_color_override("font_color",Color("b6c2cc"))
+	opening_label.add_theme_color_override("font_color",Palette.muted())
 	column.add_child(opening_label)
 	hint=Label.new()
 	hint.text=LocalizationManager.get_string("flow.tip."+str(Time.get_ticks_msec()%3))

@@ -3,7 +3,8 @@ extends Control
 ## ascension state. Every figure comes from GameManager; the panel owns no rules.
 signal closed
 signal thread_requested(chain_id: String)
-const Palette=preload("res://scripts/ui/FortuneTheme.gd")
+const Palette=preload("res://scripts/ui/Palette.gd")
+const SkinTheme=preload("res://scripts/ui/FortuneTheme.gd")
 const Money=preload("res://scripts/security/Money.gd")
 const SECTIONS:Array[String]=["journal","legacy","threads","hall","ascension"]
 var title_label:Label
@@ -18,7 +19,7 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var backdrop:Panel=Panel.new()
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	backdrop.add_theme_stylebox_override("panel",Palette.style(Color(Palette.INK_BG)))
+	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.ink()))
 	add_child(backdrop)
 	var margin:MarginContainer=MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -32,7 +33,7 @@ func _ready() -> void:
 	header.add_theme_constant_override("separation",10)
 	column.add_child(header)
 	title_label=Label.new()
-	title_label.add_theme_font_override("font",Palette.display_font(700))
+	title_label.add_theme_font_override("font",SkinTheme.display_font(700))
 	title_label.add_theme_font_size_override("font_size",24)
 	title_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	header.add_child(title_label)
@@ -45,7 +46,7 @@ func _ready() -> void:
 	close_button.pressed.connect(func()->void: closed.emit())
 	balance_label=Label.new()
 	balance_label.add_theme_font_size_override("font_size",13)
-	balance_label.add_theme_color_override("font_color",Palette.MUTED)
+	balance_label.add_theme_color_override("font_color",Palette.muted())
 	balance_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	column.add_child(balance_label)
 	tab_group=ButtonGroup.new()
@@ -101,14 +102,14 @@ func add_heading(text:String) -> void:
 	var label:Label=Label.new()
 	label.text=text
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_override("font",Palette.display_font(600))
+	label.add_theme_font_override("font",SkinTheme.display_font(600))
 	label.add_theme_font_size_override("font_size",14)
-	label.add_theme_color_override("font_color",Palette.GOLD)
+	label.add_theme_color_override("font_color",Palette.accent())
 	content.add_child(label)
 
 func add_panel() -> VBoxContainer:
 	var box:PanelContainer=PanelContainer.new()
-	box.add_theme_stylebox_override("panel",Palette.panel(Palette.SURFACE,Palette.RULE_SOFT,8))
+	box.add_theme_stylebox_override("panel",SkinTheme.panel(Palette.surface(),Palette.rule_soft(),8))
 	content.add_child(box)
 	var column:VBoxContainer=VBoxContainer.new()
 	column.add_theme_constant_override("separation",5)
@@ -181,7 +182,7 @@ func refresh() -> void:
 		"ascension": build_ascension()
 
 func build_journal() -> void:
-	add_line(hall_stats(),15,Palette.IVORY)
+	add_line(hall_stats(),15,Palette.text())
 	if GameManager.milestone_log.is_empty():
 		add_line(LocalizationManager.source("dynasty.journal.empty"))
 	for value:Variant in GameManager.milestone_log:
@@ -220,7 +221,7 @@ func unlock_perk(id: String) -> void:
 	refresh()
 
 func build_legacy() -> void:
-	add_line(LocalizationManager.source("dynasty.legacy.balance") % GameManager.legacy_points,15,Palette.IVORY)
+	add_line(LocalizationManager.source("dynasty.legacy.balance") % GameManager.legacy_points,15,Palette.text())
 	add_line(LocalizationManager.source("dynasty.legacy.hint"))
 	for perk:Dictionary in GameManager.LEGACY_PERKS:
 		var id:String=str(perk.get("id",""))
@@ -235,7 +236,7 @@ func build_legacy() -> void:
 		name_label.text=LocalizationManager.source(name_key)
 		name_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-		name_label.add_theme_font_override("font",Palette.display_font(600))
+		name_label.add_theme_font_override("font",SkinTheme.display_font(600))
 		name_label.add_theme_font_size_override("font_size",13)
 		header.add_child(name_label)
 		var action:Button=Button.new()
@@ -246,7 +247,7 @@ func build_legacy() -> void:
 		desc_label.text=LocalizationManager.source(desc_key)
 		desc_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		desc_label.add_theme_font_size_override("font_size",12)
-		desc_label.add_theme_color_override("font_color",Palette.MUTED)
+		desc_label.add_theme_color_override("font_color",Palette.muted())
 		column.add_child(desc_label)
 		if GameManager.legacy_perk_owned(id):
 			action.text=LocalizationManager.source("dynasty.legacy.owned")
@@ -277,7 +278,7 @@ func build_threads() -> void:
 		var column:VBoxContainer=add_panel()
 		var name_label:Label=Label.new()
 		name_label.text=LocalizationManager.source("chain."+id+".codex")
-		name_label.add_theme_font_override("font",Palette.display_font(600))
+		name_label.add_theme_font_override("font",SkinTheme.display_font(600))
 		name_label.add_theme_font_size_override("font_size",13)
 		name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		column.add_child(name_label)
@@ -285,7 +286,7 @@ func build_threads() -> void:
 		title_label_local.text=LocalizationManager.source("chain."+id+".start.title")
 		title_label_local.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		title_label_local.add_theme_font_size_override("font_size",13)
-		title_label_local.add_theme_color_override("font_color",Palette.MUTED)
+		title_label_local.add_theme_color_override("font_color",Palette.muted())
 		column.add_child(title_label_local)
 		var record:Dictionary=GameManager.chain_record_for(id)
 		var completed:bool=record.get("completed",false)
@@ -295,7 +296,7 @@ func build_threads() -> void:
 			var done_label:Label=Label.new()
 			done_label.text=LocalizationManager.source("dynasty.threads.done")
 			done_label.add_theme_font_size_override("font_size",13)
-			done_label.add_theme_color_override("font_color",Palette.GREEN)
+			done_label.add_theme_color_override("font_color",Palette.green())
 			column.add_child(done_label)
 		else:
 			var left:int=GameManager.chain_quarters_left(id)
@@ -303,7 +304,7 @@ func build_threads() -> void:
 			state_label.text=LocalizationManager.source("dynasty.threads.active") % left if left>0 else LocalizationManager.source("dynasty.threads.due")
 			state_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 			state_label.add_theme_font_size_override("font_size",13)
-			state_label.add_theme_color_override("font_color",Palette.GOLD)
+			state_label.add_theme_color_override("font_color",Palette.accent())
 			column.add_child(state_label)
 
 func add_record_line(column:VBoxContainer, text:String, color:Color) -> void:
@@ -315,7 +316,7 @@ func add_record_line(column:VBoxContainer, text:String, color:Color) -> void:
 	column.add_child(label)
 
 func build_hall() -> void:
-	add_line(hall_stats(),15,Palette.IVORY)
+	add_line(hall_stats(),15,Palette.text())
 	if GameManager.dynasty_records.is_empty():
 		add_line(LocalizationManager.source("dynasty.empty.hall"))
 		return
@@ -338,21 +339,21 @@ func build_hall() -> void:
 			GameManager.format_num(Money.dollars(wealth_cents)),
 			GameManager.format_rank(rank_value),
 			GameManager.format_age(age_value)
-		],Palette.GOLD if victory else Palette.IVORY)
+		],Palette.accent() if victory else Palette.text())
 		var ascension:int=record.get("ascension",0)
 		if ascension>0:
-			add_record_line(column,LocalizationManager.source("dynasty.record.ascension.line") % ascension,Palette.MUTED)
+			add_record_line(column,LocalizationManager.source("dynasty.record.ascension.line") % ascension,Palette.muted())
 		var chains:int=record.get("chains",0)
 		var milestones:int=record.get("milestones",0)
-		add_record_line(column,LocalizationManager.source("dynasty.record.detail") % [chains,milestones],Palette.MUTED)
+		add_record_line(column,LocalizationManager.source("dynasty.record.detail") % [chains,milestones],Palette.muted())
 
 func build_ascension() -> void:
-	add_line(LocalizationManager.source("dynasty.ascension.level") % GameManager.ascension_level,16,Palette.IVORY)
+	add_line(LocalizationManager.source("dynasty.ascension.level") % GameManager.ascension_level,16,Palette.text())
 	add_line(LocalizationManager.source("dynasty.ascension.hint"))
 	add_line(LocalizationManager.source("dynasty.ascension.momentum") % GameManager.momentum)
 	if GameManager.ascension_level>=GameManager.MAX_ASCENSION:
-		add_line(LocalizationManager.source("dynasty.ascension.max"),15,Palette.GOLD)
+		add_line(LocalizationManager.source("dynasty.ascension.max"),15,Palette.accent())
 	else:
 		var next_level:int=GameManager.ascension_level+1
-		add_line(LocalizationManager.source("dynasty.ascension.next") % [next_level,2+next_level],15,Palette.GOLD)
+		add_line(LocalizationManager.source("dynasty.ascension.next") % [next_level,2+next_level],15,Palette.accent())
 	add_line(LocalizationManager.source("dynasty.ascension.open"))

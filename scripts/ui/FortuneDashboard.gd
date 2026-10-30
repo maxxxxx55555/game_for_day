@@ -1,13 +1,7 @@
 extends Control
+const Palette=preload("res://scripts/ui/Palette.gd")
 ## Compact actual balances, birthplace and decision-relevant condition meters.
 ## The portrait is gone on purpose: a random-country run has no single face.
-const INK:Color= Color("f1eee7")
-const MUTED:Color= Color("b8c2c4")
-const GOLD:Color= Color("c9a227")
-const GOLD_DIM:Color= Color("a9871f")
-const RULE:Color= Color("3e5c76")
-const TRACK:Color= Color("2e4057")
-const ALERT:Color= Color("c4614f")
 const BirthLottery=preload("res://scripts/BirthLottery.gd")
 var display_cash:float=0.0
 var display_worth:float=0.0
@@ -46,11 +40,14 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void:queue_redraw())
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
 	LocalizationManager.language_changed.connect(func(_language:Variant)->void:queue_redraw())
 	set_process(false)
 	refresh_values(true)
 
-func caption(at: Vector2, text: String, font_size: int, color: Color = INK) -> void:
+func caption(at: Vector2, text: String, font_size: int, color: Color) -> void:
 	draw_string(get_theme_default_font(), at, LocalizationManager.display(text), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, color)
 
 func caption_right(right_edge: float, top: float, text: String, font_size: int, color: Color) -> void:
@@ -63,31 +60,31 @@ func _draw() -> void:
 	var meta:String= LocalizationManager.source("copy.d0e02c3cc5dc") % [GameManager.age,GameManager.quarter,GameManager.generation]
 	# Keep the metadata separate; the birth card already shows the region.
 	var top_line:String= country.to_upper()
-	caption(Vector2(0,12), top_line, 12, GOLD)
-	caption_right(644.0, 12, meta, 12, MUTED)
-	draw_line(Vector2(0,24), Vector2(644,24), RULE, 1.0)
-	caption(Vector2(0,46), LocalizationManager.source("copy.5405c11ba0de"), 11, MUTED)
-	caption(Vector2(430,46), LocalizationManager.source("copy.f925cafd86d7"), 11, MUTED)
-	caption(Vector2(0,88), "$"+GameManager.format_num(display_worth), 38, INK)
-	caption(Vector2(430,84), "$"+GameManager.format_num(display_cash), 26, GOLD)
+	caption(Vector2(0,12), top_line, 12, Palette.accent())
+	caption_right(644.0, 12, meta, 12, Palette.muted())
+	draw_line(Vector2(0,24), Vector2(644,24), Palette.rule(), 1.0)
+	caption(Vector2(0,46), LocalizationManager.source("copy.5405c11ba0de"), 11, Palette.muted())
+	caption(Vector2(430,46), LocalizationManager.source("copy.f925cafd86d7"), 11, Palette.muted())
+	caption(Vector2(0,88), "$"+GameManager.format_num(display_worth), 38, Palette.text())
+	caption(Vector2(430,84), "$"+GameManager.format_num(display_cash), 26, Palette.accent())
 	var meters:Array[int]= [GameManager.health,GameManager.energy,GameManager.happiness,100-GameManager.stress]
 	var names:Array[String]= [LocalizationManager.source("copy.08930838ebae"),LocalizationManager.source("copy.f561c6b678d4"),LocalizationManager.source("copy.c642a5769b74"),LocalizationManager.source("copy.e197da26d73a")]
 	for i:int in 4:
 		var x:float= i*164.0
-		caption(Vector2(x,132), names[i], 10, MUTED)
-		caption_right(x+150.0, 132, str(meters[i]), 10, INK if meters[i]>=30 else ALERT)
-		draw_style_box(bar(TRACK),Rect2(x,138,150,3))
-		draw_style_box(bar(ALERT if meters[i]<30 else GOLD),Rect2(x,138,maxf(3,150*float(meters[i])/100.0),3))
-	draw_line(Vector2(0,146), Vector2(644,146), RULE, 1.0)
-	caption_right(644.0, 158, LocalizationManager.source("dashboard.pulse"), 10, MUTED)
+		caption(Vector2(x,132), names[i], 10, Palette.muted())
+		caption_right(x+150.0, 132, str(meters[i]), 10, Palette.text() if meters[i]>=30 else Palette.alert())
+		draw_style_box(bar(Palette.track()),Rect2(x,138,150,3))
+		draw_style_box(bar(Palette.alert() if meters[i]<30 else Palette.accent()),Rect2(x,138,maxf(3,150*float(meters[i])/100.0),3))
+	draw_line(Vector2(0,146), Vector2(644,146), Palette.rule(), 1.0)
+	caption_right(644.0, 158, LocalizationManager.source("dashboard.pulse"), 10, Palette.muted())
 	var pulse:PackedVector2Array= pulse_points(Vector2(480,161), Vector2(164,21))
 	if pulse.size()>=2:
-		draw_polyline(pulse, GOLD, 1.5, true)
-		draw_circle(pulse[pulse.size()-1], 2.0, GOLD)
-	caption(Vector2(0,190), LocalizationManager.source("dashboard.ambition") % LocalizationManager.source("ambition.short."+GameManager.ambition), 10, GOLD_DIM)
+		draw_polyline(pulse, Palette.accent(), 1.5, true)
+		draw_circle(pulse[pulse.size()-1], 2.0, Palette.accent())
+	caption(Vector2(0,190), LocalizationManager.source("dashboard.ambition") % LocalizationManager.source("ambition.short."+GameManager.ambition), 10, Palette.accent_deep())
 	var note:String= origin_note()
 	if not note.is_empty():
-		caption_right(460.0, 190, note, 10, GOLD_DIM)
+		caption_right(460.0, 190, note, 10, Palette.accent_deep())
 
 func pulse_points(origin: Vector2, box: Vector2) -> PackedVector2Array:
 	var history:Array= GameManager.market_history

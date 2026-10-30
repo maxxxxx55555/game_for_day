@@ -1,5 +1,9 @@
 extends Control
+const Palette=preload("res://scripts/ui/Palette.gd")
+const SkinTheme=preload("res://scripts/ui/FortuneTheme.gd")
 signal closed
+var backdrop_panel:Panel
+var title_label:Label
 var body:Label
 var close_button:Button
 func _ready() -> void:
@@ -8,8 +12,9 @@ func _ready() -> void:
 	z_index=200
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	var backdrop:Panel=Panel.new()
+	backdrop_panel=backdrop
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	backdrop.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(Color("111e2e")))
+	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.surface(),Palette.rule()))
 	add_child(backdrop)
 	var margin:MarginContainer=MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -23,7 +28,8 @@ func _ready() -> void:
 	title.text="HEIRS OF FORTUNE"
 	title.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf") as Font)
 	title.add_theme_font_size_override("font_size",32)
-	title.add_theme_color_override("font_color",Color("d4bd90"))
+	title.add_theme_color_override("font_color",Palette.accent())
+	title_label=title
 	column.add_child(title)
 	var scroll:ScrollContainer=ScrollContainer.new()
 	scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL

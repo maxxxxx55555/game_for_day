@@ -1247,3 +1247,12 @@ chain.quiet_estate.follow.c3.label,Продать поместье,Sell the esta
 chain.quiet_estate.follow.c3.result,Покупатель нашёлся быстро.,A buyer appeared quickly.
 chain.quiet_estate.follow.c3.v.foundation.result,"Фонд остался, поместье ушло: часть совета обиделась.","The foundation stayed, the estate left; part of the board took offense."
 chain.quiet_estate.follow.c3.v.asset.result,Актив продан с прибылью.,The asset sold at a profit.
+ui.theme,Оформление,Appearance
+ui.theme.dark,Тёмное,Dark
+ui.theme.light,Светлое,Light
+intro.overline,ДИНАСТИЯ В КВАРТАЛАХ,A DYNASTY IN QUARTERS
+intro.title,Наследники удачи,Heirs of Fortune
+stage.survival,ВЫЖИВАНИЕ,SURVIVAL
+stage.career,КАРЬЕРА,CAREER
+stage.millionaire,КАПИТАЛ,CAPITAL
+stage.billionaire,ИМПЕРИЯ,EMPIRE

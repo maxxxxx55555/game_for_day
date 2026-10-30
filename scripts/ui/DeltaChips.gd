@@ -1,6 +1,7 @@
 extends HFlowContainer
 ## Presentation-only echo of the last applied model delta.
-const Palette=preload("res://scripts/ui/FortuneTheme.gd")
+const Palette=preload("res://scripts/ui/Palette.gd")
+const SkinTheme=preload("res://scripts/ui/FortuneTheme.gd")
 var reveal:Tween
 
 func _ready() -> void:
@@ -25,7 +26,7 @@ func signed_stat(value:int) -> String:
 func chip(text:String, tint:Color) -> void:
 	var box:PanelContainer=PanelContainer.new()
 	box.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	box.add_theme_stylebox_override("panel",Palette.panel(Color(Palette.SURFACE_RAISED,0.55),tint,10))
+	box.add_theme_stylebox_override("panel",SkinTheme.panel(Color(Palette.raised(),0.55),tint,10))
 	var label:Label=Label.new()
 	label.text=text
 	label.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -42,7 +43,7 @@ func present(delta:Dictionary) -> void:
 	var shown:bool=false
 	var cash:float=delta.get("cash",0.0)
 	if not is_zero_approx(cash):
-		chip(LocalizationManager.source("delta.cash")+" "+signed_money(cash),Palette.GOLD if cash>0.0 else Palette.ALERT)
+		chip(LocalizationManager.source("delta.cash")+" "+signed_money(cash),Palette.accent() if cash>0.0 else Palette.alert())
 		shown=true
 	var stats:Array[String]=["health","intellect","stress","happiness","energy"]
 	for key:String in stats:
@@ -50,7 +51,7 @@ func present(delta:Dictionary) -> void:
 		if value==0:
 			continue
 		var positive_good:bool=key!="stress"
-		var tint:Color=Palette.GREEN if (value>0)==positive_good else Palette.ALERT
+		var tint:Color=Palette.green() if (value>0)==positive_good else Palette.alert()
 		chip(LocalizationManager.source("delta."+key)+" "+signed_stat(value),tint)
 		shown=true
 	if not shown:

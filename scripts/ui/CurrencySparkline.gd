@@ -1,5 +1,6 @@
 extends Control
 ## Quote history uses real sample indices; actions do not always advance a quarter.
+const Palette=preload("res://scripts/ui/Palette.gd")
 var code:String
 var labels:Dictionary[String,Label]={}
 func _ready() -> void:
@@ -9,7 +10,7 @@ func _ready() -> void:
 		var label:Label=Label.new()
 		label.name=id.capitalize()+"AxisLabel"
 		label.add_theme_font_size_override("font_size",16)
-		label.add_theme_color_override("font_color",Color("a7b7bb"))
+		label.add_theme_color_override("font_color",Palette.muted())
 		label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		add_child(label);labels[id]=label
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
@@ -18,6 +19,14 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	LocalizationManager.language_changed.connect(func(_language:Variant)->void:refresh_labels())
+	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void:apply_skin())
+
+func apply_skin() -> void:
+	for id:String in labels:
+		labels[id].add_theme_color_override("font_color",Palette.muted())
+	queue_redraw()
 	refresh_labels()
 func plot_rect() -> Rect2:
 	return Rect2(72,28,maxf(1,size.x-80),maxf(1,size.y-56))
@@ -42,8 +51,8 @@ func _draw() -> void:
 	var raw_points:Array=GameManager.fx.history.get(code,[])
 	var points:Array[float]=Array(raw_points,TYPE_FLOAT,"",null)
 	var plot:Rect2=plot_rect()
-	draw_line(plot.position,Vector2(plot.position.x,plot.end.y),Color("4a6066"),1)
-	draw_line(Vector2(plot.position.x,plot.end.y),plot.end,Color("4a6066"),1)
+	draw_line(plot.position,Vector2(plot.position.x,plot.end.y),Palette.rule(),1)
+	draw_line(Vector2(plot.position.x,plot.end.y),plot.end,Palette.rule(),1)
 	if points.is_empty():return
 	var lo:float=points.min()
 	var hi:float=points.max()
@@ -52,5 +61,5 @@ func _draw() -> void:
 	for i:int in points.size():
 		var height:float=(float(points[i])-lo)/range_value if range_value>0.000001 else 0.5
 		if line.append(Vector2(plot.position.x+plot.size.x*i/maxi(1,points.size()-1),plot.end.y-height*plot.size.y)):return
-	if line.size()>1:draw_polyline(line,Color("c6ad7a"),2,true)
-	else:draw_circle(Vector2(plot.end.x,plot.position.y+plot.size.y*0.5),3,Color("c6ad7a"))
+	if line.size()>1:draw_polyline(line,Palette.accent(),2,true)
+	else:draw_circle(Vector2(plot.end.x,plot.position.y+plot.size.y*0.5),3,Palette.accent())

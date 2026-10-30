@@ -2,7 +2,8 @@ extends Control
 ## A retrospective card. The world keeps running underneath; Continue only records
 ## that the milestone was read.
 signal dismissed(age_value: int)
-const Palette=preload("res://scripts/ui/FortuneTheme.gd")
+const Palette=preload("res://scripts/ui/Palette.gd")
+const SkinTheme=preload("res://scripts/ui/FortuneTheme.gd")
 const Money=preload("res://scripts/security/Money.gd")
 var overline:Label
 var heading:Label
@@ -32,7 +33,7 @@ func _ready() -> void:
 	card=PanelContainer.new()
 	card.name="MilestoneCard"
 	card.mouse_filter=Control.MOUSE_FILTER_STOP
-	card.add_theme_stylebox_override("panel",Palette.panel(Palette.SURFACE,Palette.GOLD,8))
+	card.add_theme_stylebox_override("panel",SkinTheme.panel(Palette.surface(),Palette.accent(),8))
 	margin.add_child(card)
 	var column:VBoxContainer=VBoxContainer.new()
 	column.add_theme_constant_override("separation",10)
@@ -40,10 +41,10 @@ func _ready() -> void:
 	overline=Label.new()
 	overline.text=LocalizationManager.source("milestone.overline")
 	overline.add_theme_font_size_override("font_size",12)
-	overline.add_theme_color_override("font_color",Palette.GOLD)
+	overline.add_theme_color_override("font_color",Palette.accent())
 	column.add_child(overline)
 	heading=Label.new()
-	heading.add_theme_font_override("font",Palette.display_font(600))
+	heading.add_theme_font_override("font",SkinTheme.display_font(600))
 	heading.add_theme_font_size_override("font_size",22)
 	heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	column.add_child(heading)
@@ -53,7 +54,7 @@ func _ready() -> void:
 	column.add_child(body)
 	momentum=Label.new()
 	momentum.add_theme_font_size_override("font_size",13)
-	momentum.add_theme_color_override("font_color",Palette.GOLD)
+	momentum.add_theme_color_override("font_color",Palette.accent())
 	column.add_child(momentum)
 	continue_button=Button.new()
 	continue_button.name="MilestoneContinue"
