@@ -21,8 +21,10 @@ func run()->void:
 				var key:String=str(control.get_meta("locale_key",""))
 				if audio_keys.has(key) and control.text==locale.source(key):translated+=1
 			check(translated==audio_keys.size(),"Every audio row label translates immediately")
-			var theme_picker:OptionButton=panel.get_node("SettingsTheme")
-			check(theme_picker.get_item_text(0)==locale.source("ui.theme.dark") and theme_picker.get_item_text(1)==locale.source("ui.theme.light"),"Theme picker items translate immediately")
+			var theme_picker:OptionButton=null
+			for candidate:OptionButton in panel.find_children("*","OptionButton",true,false):
+				if candidate.name=="SettingsTheme":theme_picker=candidate
+			check(theme_picker!=null and theme_picker.get_item_text(0)==locale.source("ui.theme.dark") and theme_picker.get_item_text(1)==locale.source("ui.theme.light"),"Theme picker items translate immediately")
 		panel.queue_free()
 		await process_frame
 		check(locale.language_changed.get_connections().size()==baseline,"Freed settings panel leaves no persistent locale callback")
