@@ -19,12 +19,16 @@ func run() -> void:
 	var game: Node = root.get_node("GameManager")
 	game.reset_full_dynasty()
 	screen.show_intro_screen()
+	screen.ambition_buttons[2].pressed.emit()
+	check(game.ambition == "heir", "The ambition control writes the model before the first card")
 	for choice in 3: screen.on_choice_pressed(1)
 	game.cash = 31415
 	screen._notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
 	game.cash = 0
+	game.ambition = "steady"
 	var saved: Dictionary = game.load_current_life()
 	check(game.cash == 31415 and not saved.is_empty(), "Android backgrounding persists the current life before the OS can evict it")
+	check(game.ambition == "heir", "Backgrounding keeps the ambition the player chose")
 	var event: Dictionary = screen.active_event.duplicate()
 	var turns: int = game.total_turns
 	screen.open_business_menu()

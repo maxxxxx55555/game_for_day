@@ -2,7 +2,7 @@
 
 A complete offline life/finance loop: four birth origins,31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in the v2 integration. The new public release remains locked until the full gate passes.
 
-Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier1.4 emulator results are historical evidence only. Under v2 section16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.
+Archived design notes are scoped by [the promise matrix](../PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier 1.4 emulator results are historical evidence only. Under v2 section 16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.
 
 # Heirs of Fortune — 2.0.0 preparation (publication locked)
 

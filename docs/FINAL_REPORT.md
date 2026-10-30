@@ -1,16 +1,22 @@
-# Heirs of Fortune 2.0.2 — final release report
+# Heirs of Fortune 2.1.0 — final release report
 
-Release URL: [Heirs of Fortune 2.0.2](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.2). Runtime source `1ec7668a02998043f9ba6d7307cc661ed0f7f9d1`; source-suite commit `1ec7668a02998043f9ba6d7307cc661ed0f7f9d1`.
+Publication status: the publication gate returned PASS at source commit `807ba09c551134c76f23b4167ab7b5783dd7199e` (engine 4.7.stable.official.5b4e0cb0f, Windows x64, clean tree). The tag `v2.1.0` names that commit; the two release assets are `HeirsOfFortune-Windows-2.1.0.zip` and `HeirsOfFortune-SHA256SUMS-2.1.0.txt`. The previous published release is [Heirs of Fortune 2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1); the 2.0.2 candidate was verified in source but never tagged or published.
 
-Automated acceptance: EN 55/55, RU 55/55; 50/50 distinct complete seed routes; 3/3 consecutive native victories plus defeat; legacy read/write round-trips and tamper rejection; measured soak 1835.234s, 47 complete loops; 44 reviewed raw frames. Full receipts: [certificate](ACCEPTANCE_CERTIFICATE.md), [kit](ANNOUNCE_KIT.md), `acceptance-2.0.2-birth/`.
+Automated acceptance at the gate: strict compile over 34 shipping scripts with all 49 warning categories as errors; 49 headless and 50 rendered source cases in Russian and in English with zero failures; four exports; nine exported-binary runs (three victories, three defeats, three verifier-refusal guards); 100 of 100 seeded cycles with 100 distinct final states; 1.4.0 and 2.0.x profile round-trips; a 1,817.032-second rendered soak with 84 complete cycles, 1,333 checkpoints, zero failures and flat engine object counts. Total gate wall time 5,685 seconds. Full receipts: [certificate](ACCEPTANCE_CERTIFICATE.md), [kit](ANNOUNCE_KIT.md), [release notes](RELEASE_2.1.0.md).
 
-This update refines the in-game presentation; the previous reproducibility, integrity and audio fixes remain in place. Music recordings and licensed art remain retained; per-game gameplay and save changes are documented below. Earlier failed source acceptance is preserved in historical evidence; these passes use repaired source.
+Balance: 112 scripted lives in 1,214.5 seconds under a conservative and an aggressive policy over the four birth origins, with no dominance finding. Meteor reaches victory about three years earlier than its siblings and pays for it in measured stress; heir pays a tenth of quarterly income for a larger inheritance and finishes later; steady is the reference. Perks and ascension levels shift age and stress without producing a free win.
 
-The retained 192-country birth system includes: weighted birth draw, country-specific starting capital/health/intellect/cost/lifespan and income opportunity converging at age 52; a dark ledger UI with live EN/RU birth labels. Three optional validated birth save fields use neutral defaults for older profiles. Localization now contains 816 keys. All mandatory finance-game QA was rerun on the merged repaired source; prior 53-case evidence is historical.
+Performance: measured against a 2.0.2 worktree in interleaved attempts on this host with isolated save profiles — median frame 16.665 ms versus 16.675 ms, p95 17.272 ms versus 17.263 ms, dashboard ready 528 ms versus 545.5 ms against a baseline attempt spread of 159 ms. No regression is claimed beyond that noise, and no every-device claim is made.
 
-Unique-content branch exception: `jules-game-enhancements-12581546528437518941`, tip `5fcd0e64f169a7c3bb7b3dfe719ab68ffca7687b`, merge base `86b5344dc8e1b88aca3c48383ffac588a50bb36e`; 4 unmerged commits retained. No unique work was deleted.
+Presentation: the gallery was re-rendered at `e9b0256` after the Heir copy changed — 66 frames in four labelled contact sheets plus 12 ambition-row frames covering each ambition in both locales at 540x960 and 720x1280. Five earlier defects (raw rank printing, milestone card width, dynasty ghosting, thread phrase, age plural) remain fixed; the anti-AI-slop audit passes over displayed copy, palette, type and icon geometry.
 
-The birth card now includes a subdued decorative crop of the existing fictional city illustration; it does not depict the selected country.
+## Defects found and repaired while closing this edition
+
+- QA capture folders were being packed into the shipped PCK; `export_presets.cfg` now excludes `builds/`, and the repository isolation check refuses a tracked path under it.
+- The soak trend rule reported allocator oscillation at a ~350 MB plateau as a leak; the rule now scales its allowance to the plateau and still flags a synthetic 150 B/s leak.
+- The heir ambition was strictly dominant — upside with no cost. It now trades a tenth of quarterly income for its inheritance bonus, and both the model cost and the disclosure on the description the player reads are asserted by tests.
+- Bulk document spacing had edited byte-pinned promise snapshots; the snapshots were restored verbatim and the promise inventory re-hashed, rather than loosening the promise test.
+- The mechanics matrix carried an `execution_evidence` path that never existed in the repository; it now names the suites that actually run, and ambitions gained their own row with per-column assertions that exist.
 
 ## Music file checksums
 
@@ -23,4 +29,4 @@ The birth card now includes a subdued decorative crop of the existing fictional 
 | victory | A Fortune Remembered | `7c4271f77bb9cef720f42ffb2269f572511013df79c9d7e88f18eb8c1e8c5de1` |
 | defeat | The Closing Ledger | `1b4901e66ec803e2dd73eab699687d6d4936b3138a07bb50762d4ad4c871d6a0` |
 
-Known limitations: no human/audible final acceptance, Android/store certification or Authenticode; no AAA or universal no-bug/invulnerability claim. See HANDOFF. Final ZIP hashes and remote verification are recorded after publication.
+Known limitations: no human/audible final acceptance, Android/store certification or Authenticode; the QA harnesses share the real user-data profile with the game, so save-writing harnesses and suites are never run concurrently; the balance sweep measures two scripted policies rather than the whole strategy space. No AAA or universal no-bug/invulnerability claim. See HANDOFF. Published at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0 from tag `v2.1.0`, which peels to the gated commit `807ba09c551134c76f23b4167ab7b5783dd7199e`. The release carries exactly two assets: `HeirsOfFortune-Windows-2.1.0.zip` (85,736,652 bytes, SHA256 `c7199222573d17c8996d8774ffdd6238feef240753eaf803b137eba38b456226`) and `HeirsOfFortune-SHA256SUMS-2.1.0.txt`. Both were downloaded fresh from the release into an empty directory and `sha256sum -c HeirsOfFortune-SHA256SUMS-2.1.0.txt` printed `HeirsOfFortune-Windows-2.1.0.zip: OK` with exit code 0.

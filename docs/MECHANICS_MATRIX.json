@@ -1117,6 +1117,71 @@
       }
     },
     {
+      "mechanic": "Ambitions: steady, meteor and heir route trade-offs",
+      "cells": {
+        "happy": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Each ambition is chosen through its real control, writes the model and explains itself; meteor multiplies the stress it earns and heir scales the inheritance it starts on."
+          }
+        ],
+        "bounds": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Unknown ambition modes are refused and an unknown ambition inside a saved session fails the save policy."
+          }
+        ],
+        "rapid_input": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "Twenty-four rapid ambition presses land on the last control pressed, keep exactly one ambition lit and spend no quarter and no RNG; re-pressing the active ambition is idempotent."
+          }
+        ],
+        "pause_background": [
+          {
+            "path": "tests/test_mobile_lifecycle.gd",
+            "scope": "Backgrounding the app persists the current life with the ambition the player chose."
+          },
+          {
+            "path": "tests/test_profile_contract.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "save_load_hash": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "The chosen ambition rides the authenticated session save and returns on reload; a 2.0.x session without the field still loads and defaults to steady."
+          }
+        ],
+        "en_ru": [
+          {
+            "path": "tests/test_dynasty_progression.gd",
+            "scope": "The Heir description discloses its income cost and its label carries both percentage figures in the suite locale; every ambition tooltip is filled."
+          },
+          {
+            "path": "tests/test_translation_coverage.gd",
+            "scope": "Executable engine assertions; full test body defines its preconditions and permitted actions."
+          }
+        ],
+        "audio": [
+          {
+            "path": "tests/test_ui_audio_feedback.gd",
+            "scope": "A real ambition press emits exactly one interface click and switching ambitions re-arms one cue without doubling it."
+          }
+        ],
+        "ui_escape": [
+          {
+            "path": "tests/test_quit_audio.gd",
+            "scope": "Back/Escape from a life in progress closes through the save that carries the chosen ambition."
+          },
+          {
+            "path": "tests/test_navigation_matrix.gd",
+            "scope": "Ambition controls take part in keyboard traversal on the intro screen and stay inside the viewport."
+          }
+        ]
+      }
+    },
+    {
       "mechanic": "Card feel: reveal, delta chips, outcome tones and live pulse",
       "cells": {
         "happy": [
@@ -1189,5 +1254,5 @@
   "coverage_status": "EXECUTED_PASS",
   "platform": "Windows. OS background/Back is simulated on Windows; Android artifact omitted under section16.",
   "scope": "Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the final publication gate remain pending.",
-  "execution_evidence": "QA/F6-mechanics-execution.json"
+  "execution_evidence": "Every mapped suite runs inside tests/run_tests.py during the publication gate passes (en and ru, headless and rendered). The gate writes its own summary under builds/, which is kept outside the repository, so no per-case evidence file is tracked here."
 }

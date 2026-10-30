@@ -108,10 +108,13 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	dynasty_button.pressed.connect(open_dynasty_menu)
+	var choice_index:int=1
 	for button:Button in [btn_1,btn_2,btn_3]:
 		var card:ChoiceView=preload("res://scripts/ui/ChoiceCard.gd").new()
+		card.index=choice_index
 		button.add_child(card)
 		choice_cards.append(card)
+		choice_index+=1
 	dashboard = preload("res://scripts/ui/FortuneDashboard.gd").new()
 	stats_label.hide()
 	stats_label.get_parent().add_child(dashboard)
@@ -559,12 +562,7 @@ func clean_copy(text: String) -> String:
 	return result.strip_edges()
 
 func format_rank(r: int) -> String:
-	if r >= 1000000000:
-		return LocalizationManager.source("copy.21a9f89a5145") % (float(r) / 1000000000.0)
-	elif r >= 1000000:
-		return LocalizationManager.source("copy.547cd75236ac") % (float(r) / 1000000.0)
-	else:
-		return str(r)
+	return GameManager.format_rank(r)
 
 func apply_bottom_icons() -> void:
 	apply_icon(market_btn,"market")

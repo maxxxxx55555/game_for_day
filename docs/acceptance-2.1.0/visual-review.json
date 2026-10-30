@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "source_commit": "e9b0256bb3c3048068d2ea1e12e3f3970aab1d87",
+  "capture_note": "Frames were re-rendered from the working tree committed as e9b0256 after the Heir ambition copy changed; the 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area (720x1055) on this host. The viewport runs carry no loading frame, so they contribute 16 frames each.",
+  "reviewed_frames": 78,
+  "frames_per_run": {
+    "en-540x960": 17,
+    "ru-540x960": 17,
+    "en-720x1280": 16,
+    "ru-720x1280": 16
+  },
+  "reviewed_locales": [
+    "en",
+    "ru"
+  ],
+  "reviewed_resolutions": [
+    [
+      540,
+      960
+    ],
+    [
+      720,
+      1280
+    ]
+  ],
+  "method": "Every gallery frame was inspected in four labelled contact sheets, and every 2.1 screen (perk choice, dynasty journal, legacy, life threads, hall of fame, ascension, milestone card) was additionally inspected at original size in both locales. The ambition row was captured with each ambition selected in both locales and both resolutions; the Heir frames were inspected at original size and every ambition frame passed a geometry check that keeps the description inside the viewport and the row above the start action.",
+  "issues_found": [
+    {
+      "id": "raw-rank",
+      "detail": "Milestone card, dynasty journal and hall printed raw ranks such as #6233850000.",
+      "resolution": "GameManager.format_rank shared by Main, MilestoneCard and DynastyPanel."
+    },
+    {
+      "id": "milestone-card-width",
+      "detail": "The milestone card collapsed to about 180px and wrapped the heading over five lines.",
+      "resolution": "Responsive minimum width at 72% of the viewport clamped to 320-520px."
+    },
+    {
+      "id": "dynasty-ghosting",
+      "detail": "The dynasty backdrop at alpha 0.985 let the life screen bleed through at 720x1280.",
+      "resolution": "Backdrop is now opaque INK_BG."
+    },
+    {
+      "id": "thread-phrase",
+      "detail": "Milestone body read \"Thread: completed threads: 1\".",
+      "resolution": "Label is now Threads with the value \"%d completed\" / \"\u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u043e %d\"."
+    },
+    {
+      "id": "age-plural",
+      "detail": "Hall of fame printed \"61 \u043b\u0435\u0442\" in Russian.",
+      "resolution": "GameManager.format_age declines \u0433\u043e\u0434/\u0433\u043e\u0434\u0430/\u043b\u0435\u0442 and the English year/years plural."
+    }
+  ],
+  "open_issues": [],
+  "contact_sheets": {
+    "contact-en-540x960.png": "b3f435f8f3680a5040ab103dce2358726b2aea3ba3f51facc9062ffc296e7a4b",
+    "contact-en-720x1280.png": "2ac95b1a228d18004ad5488f725dbb3bb635dc55ec7296b170c82b6b0fc9138a",
+    "contact-ru-540x960.png": "6ed410c5e556192e13d42ccb1bbb235efc4dd05214c9324a08638ba9bde23dee",
+    "contact-ru-720x1280.png": "079b81ac834cc9823377964827a74dbdb6be2ca861a27c5d7d41316cd9dd672d"
+  },
+  "source_art_inventory_files": 4,
+  "source_art_hashes_unchanged": true,
+  "press_frames": "docs/press/v2.1.0 (8 frames, manifest and captions record per-file hashes and which frames are staged).",
+  "packaging_note": "This review was refreshed at e9b0256, the commit the gate exports. Since the 30fcac4 review the only presentation-relevant source change is the Heir ambition copy, which is not on screen in the default intro frame; it is covered by the dedicated ambition captures above.",
+  "scope": "Presentation review only: clipping, ghosting, formatting and locale fit in captured frames. It does not establish human play, listening or balance acceptance, which remain with the owner.",
+  "gallery_frames": 66,
+  "ambition_frames_captured": 12,
+  "ambition_frames": {
+    "en-540x960-ambition-heir.png": "10e5752583c58990690f0a831641c2c8974dfd8102ef5dddbcc8faca19c98659",
+    "en-540x960-ambition-meteor.png": "29dafed1d7cd9db9170209bfc3eff5dc7d7070b92f03e0b0aec38b8b44b786d5",
+    "en-540x960-ambition-steady.png": "fdb4a1c17160943e41e189798e2cb47d08ea85d7c9860912348f481792d522bf",
+    "en-720x1280-ambition-heir.png": "1d632764ab6eb954f73d4a99f5ef0244c623dfe6eb49066eee627cb1986b6ce3",
+    "en-720x1280-ambition-meteor.png": "af8b070de10b074787bf4a2cd44c25987b109b9767d84399a4951c8e0206ab78",
+    "en-720x1280-ambition-steady.png": "239dbcb7474307b2888d00347a8d754fee126dca66ab6606904b6179f38988e1",
+    "ru-540x960-ambition-heir.png": "b1f2b6705bf7c7e96085633a45c4a06c75e247f292dd46f1c280a89636ed6f47",
+    "ru-540x960-ambition-meteor.png": "d0dac117333a0f9bbf580a6da44eca551ea724a806c83b57cdf3edf38e8992c2",
+    "ru-540x960-ambition-steady.png": "cde091c3adfb8c9531b5b1366da0ddcf56c9f8838dfd33317505b40e3e243dbd",
+    "ru-720x1280-ambition-heir.png": "7dd24c71ff3594a010ac08dba0273d07fa50b14c6915388481c5a2be0b57c6f6",
+    "ru-720x1280-ambition-meteor.png": "478ff1e24afcfbebae5dcda5d6726c226011bd1dda3ce8e99331c21fecc2e276",
+    "ru-720x1280-ambition-steady.png": "1d126aeddaa2732f08f4cdd6d7ade2edc1bd4f2ac1f4669a75755617304102da"
+  },
+  "frame_identity": "The intro frame is byte-identical to the previously reviewed capture in all four runs, so the press set in docs/press/v2.1.0 still shows the shipped screen. Frames that print live figures (loading, birth, perk, life, outcome, market, currencies, business, dynasty sections, milestone, settings) differ from the earlier capture only in those values and in tween phase; no layout difference was observed."
+}

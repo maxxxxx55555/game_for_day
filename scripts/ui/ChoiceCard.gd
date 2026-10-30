@@ -62,7 +62,7 @@ func _draw() -> void:
 func refresh() -> void:
 	if not is_instance_valid(button): return
 	modulate.a=0.5 if button.disabled else 1.0
-	var available:float=button.size.x-40
+	var available:float=button.size.x-float(get_theme_constant("margin_left")+get_theme_constant("margin_right"))
 	if button.text==previous and previous_language==LocalizationManager.current_language and is_equal_approx(available,measured_width): return
 	previous_language=LocalizationManager.current_language
 	previous=button.text

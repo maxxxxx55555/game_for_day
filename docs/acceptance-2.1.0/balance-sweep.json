@@ -1,0 +1,326 @@
+{
+  "result": "PASS",
+  "source_commit": "d8568fe4ab35bc438b6c470ee3cff99aa9aa340b",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "runs": 112,
+  "seconds": 1214.531,
+  "aggregated_from_log": false,
+  "console_sha256": "09c2691e9faf562e49e76cc8e61e2e10dd5f6f602176e4fd5e88ae6ad1e1108b",
+  "dimensions": {
+    "ambition": {
+      "policies": {
+        "aggressive": {
+          "groups": {
+            "steady": {
+              "runs": 12,
+              "victories": 0,
+              "defeats": 12,
+              "median_age_at_victory": null,
+              "median_steps": 7.5,
+              "median_wealth": 17598.114999999998,
+              "min_wealth": 11023.74,
+              "max_wealth": 177647.56,
+              "median_health": 68.0,
+              "min_health": 45,
+              "median_stress": 53.5,
+              "max_stress": 63,
+              "median_momentum": 2.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 17436.45,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 19413.78,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 17759.78,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 52783.6
+              }
+            },
+            "meteor": {
+              "runs": 12,
+              "victories": 0,
+              "defeats": 12,
+              "median_age_at_victory": null,
+              "median_steps": 7.5,
+              "median_wealth": 21830.715,
+              "min_wealth": 13843.03,
+              "max_wealth": 215112.56,
+              "median_health": 69.0,
+              "min_health": 45,
+              "median_stress": 76.0,
+              "max_stress": 87,
+              "median_momentum": 2.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 21036.45,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 23786.05,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 22624.98,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 102326.41
+              }
+            },
+            "heir": {
+              "runs": 12,
+              "victories": 0,
+              "defeats": 12,
+              "median_age_at_victory": null,
+              "median_steps": 7.5,
+              "median_wealth": 17398.04,
+              "min_wealth": 10923.96,
+              "max_wealth": 116131.75,
+              "median_health": 68.0,
+              "min_health": 45,
+              "median_stress": 53.5,
+              "max_stress": 63,
+              "median_momentum": 2.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 17175.29,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 19145.02,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 17620.79,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 52145.12
+              }
+            }
+          },
+          "dominance_findings": [],
+          "tradeoff_notes": []
+        },
+        "safe": {
+          "groups": {
+            "steady": {
+              "runs": 12,
+              "victories": 12,
+              "defeats": 0,
+              "median_age_at_victory": 59.0,
+              "median_steps": 164.5,
+              "median_wealth": 259688819640.60498,
+              "min_wealth": 250675103418.44,
+              "max_wealth": 286170211126.34,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 7.5,
+              "max_stress": 12,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 256439014836.61,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 263931223204.29,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 286170211126.34,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 267825806310.88
+              }
+            },
+            "meteor": {
+              "runs": 12,
+              "victories": 12,
+              "defeats": 0,
+              "median_age_at_victory": 56.0,
+              "median_steps": 153.5,
+              "median_wealth": 270428524514.005,
+              "min_wealth": 252087191037.7,
+              "max_wealth": 290980520912.29,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 4.0,
+              "max_stress": 29,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 280882563378.71,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 286913662938.8,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 281983754644.48,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 256914359723.35
+              }
+            },
+            "heir": {
+              "runs": 12,
+              "victories": 12,
+              "defeats": 0,
+              "median_age_at_victory": 60.5,
+              "median_steps": 171.5,
+              "median_wealth": 255767531544.115,
+              "min_wealth": 250264078321.08,
+              "max_wealth": 277264665335.12,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 6.0,
+              "max_stress": 23,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 258109395234.56,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 251222093566.85,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 260342364784.91,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 253425667853.67
+              }
+            }
+          },
+          "dominance_findings": [],
+          "tradeoff_notes": [
+            "meteor wins 3 years earlier than every sibling and pays a measured cost in stress, health or defeats"
+          ]
+        }
+      },
+      "dominance_findings": []
+    },
+    "perks": {
+      "policies": {
+        "safe": {
+          "groups": {
+            "0 perks": {
+              "runs": 8,
+              "victories": 8,
+              "defeats": 0,
+              "median_age_at_victory": 59.0,
+              "median_steps": 164.5,
+              "median_wealth": 258185375679.645,
+              "min_wealth": 250675103418.44,
+              "max_wealth": 278041127263.87,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 2.0,
+              "max_stress": 12,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 250675103418.44,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 256439014836.61,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 278041127263.87,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 257233453728.46
+              }
+            },
+            "4 perks": {
+              "runs": 8,
+              "victories": 8,
+              "defeats": 0,
+              "median_age_at_victory": 58.0,
+              "median_steps": 161.5,
+              "median_wealth": 263712384724.88,
+              "min_wealth": 250484385152.28,
+              "max_wealth": 279765815191.33,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 4.5,
+              "max_stress": 18,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 263712384724.88,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 279765815191.33,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 265009511449.2,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 254854263555.67
+              }
+            },
+            "8 perks": {
+              "runs": 8,
+              "victories": 8,
+              "defeats": 0,
+              "median_age_at_victory": 57.0,
+              "median_steps": 157.5,
+              "median_wealth": 262047164902.47498,
+              "min_wealth": 250324454268.85,
+              "max_wealth": 274641830870.26,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 0.0,
+              "max_stress": 12,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 264696460776.35,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 258635579144.6,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 256982410715.23,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 274641830870.26
+              }
+            }
+          },
+          "dominance_findings": [],
+          "tradeoff_notes": []
+        }
+      },
+      "dominance_findings": []
+    },
+    "ascension": {
+      "policies": {
+        "safe": {
+          "groups": {
+            "level 0": {
+              "runs": 4,
+              "victories": 4,
+              "defeats": 0,
+              "median_age_at_victory": 57.5,
+              "median_steps": 159.0,
+              "median_wealth": 259688819640.60498,
+              "min_wealth": 250675103418.44,
+              "max_wealth": 268407971428.68,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 2.0,
+              "max_stress": 11,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 259137297630.83,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 250675103418.44,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 268407971428.68,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 260240341650.38
+              }
+            },
+            "level 1": {
+              "runs": 4,
+              "victories": 4,
+              "defeats": 0,
+              "median_age_at_victory": 57.5,
+              "median_steps": 159.0,
+              "median_wealth": 259688523341.11,
+              "min_wealth": 250674846688.7,
+              "max_wealth": 268407648105.04,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 2.0,
+              "max_stress": 11,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 259136954019.78,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 250674846688.7,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 268407648105.04,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 260240092662.44
+              }
+            },
+            "level 3": {
+              "runs": 4,
+              "victories": 4,
+              "defeats": 0,
+              "median_age_at_victory": 57.5,
+              "median_steps": 159.0,
+              "median_wealth": 264323124450.85,
+              "min_wealth": 250821129033.47,
+              "max_wealth": 275522506343.47,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 7.5,
+              "max_stress": 15,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 250821129033.47,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 275522506343.47,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 268406811643.48,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 260239437258.22
+              }
+            },
+            "level 5": {
+              "runs": 4,
+              "victories": 4,
+              "defeats": 0,
+              "median_age_at_victory": 57.5,
+              "median_steps": 159.0,
+              "median_wealth": 261412698346.61,
+              "min_wealth": 250819857891.68,
+              "max_wealth": 268405624974.86,
+              "median_health": 100.0,
+              "min_health": 100,
+              "median_stress": 4.0,
+              "max_stress": 11,
+              "median_momentum": 8.0,
+              "wealth_by_origin": {
+                "\u0410\u0444\u0440\u0438\u043a\u0430 \u044e\u0436\u043d\u0435\u0435 \u0421\u0430\u0445\u0430\u0440\u044b": 250819857891.68,
+                "\u0415\u0432\u0440\u043e\u043f\u0430 \u0438 \u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0410\u0437\u0438\u044f": 262586917875.87,
+                "\u0411\u043b\u0438\u0436\u043d\u0438\u0439 \u0412\u043e\u0441\u0442\u043e\u043a \u0438 \u0421\u0435\u0432\u0435\u0440\u043d\u0430\u044f \u0410\u0444\u0440\u0438\u043a\u0430": 268405624974.86,
+                "\u041b\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0410\u043c\u0435\u0440\u0438\u043a\u0430": 260238478817.35
+              }
+            }
+          },
+          "dominance_findings": [],
+          "tradeoff_notes": []
+        }
+      },
+      "dominance_findings": []
+    }
+  },
+  "criteria": "Deterministic-strategy lives over the four birth origins and three seeds per variant, measured under the conservative route used by the gate and an aggressive route that never buys rest. A variant is reported for review when it can never win while a sibling can, or when it wins at least 2 years earlier than every sibling while paying no measured cost in defeats, stress or health under either policy. Differentiation with a measured cost is reported as a tradeoff, not dominance. Two scripted policies, not a strategy-space search: it measures the shipped knobs, not every possible player policy."
+}

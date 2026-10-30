@@ -8,9 +8,9 @@ The dynasty ledger adds five real sections: journal, permanent legacy perks (eig
 
 Ascension is a five-level NG+ path from the victory finale: each level raises inflation, volatility and difficulty and enriches legacy, while the next life starts clean. Cards gained a short reveal, signed delta chips for every changed stat, outcome tones and a live portfolio pulse; reduced motion snaps all of it. Palette, Unbounded display and Onest body type, the 1.75px vector icon set and the no-emoji presentation pass are documented in [art direction](docs/ART_DIRECTION.md).
 
-2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 17 rows and 136 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
+2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 18 rows and 144 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
 
-This candidate is not a release until rendered and export/native checks, the seeded soak, owner checks and the publication gate pass. The 57-case headless source suite passed in both Russian and English on 2026-10-29; no 2.1.0 artifact is published before the full gate. See the [2.1.0 release-candidate notes](docs/RELEASE_2.1.0.md) and the [handoff](docs/HANDOFF.md).
+The publication gate ran to completion on this build host on 2026-10-30 at commit `807ba09c551134c76f23b4167ab7b5783dd7199e` and every step exited 0: strict compile, 49 headless and 50 rendered cases in Russian and English, four exports, nine exported-binary runs, 100 seeded cycles, 1.4.0/2.0.x compatibility and a 1,817-second rendered soak. The `v2.1.0` tag names that exported commit and the release is published at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0 with exactly two assets, the Windows ZIP `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file, verified by a fresh download and `sha256sum -c`. Owner play and listening checks remain open and are not claimed. See the [2.1.0 release notes](docs/RELEASE_2.1.0.md), the [certificate](docs/ACCEPTANCE_CERTIFICATE.md) and the [handoff](docs/HANDOFF.md).
 
 ## Русский
 
@@ -20,7 +20,7 @@ This candidate is not a release until rendered and export/native checks, the see
 
 Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
 
-Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 17 строк и 136 исполняемых ячеек. Это кандидат, а не релиз: рендерные, экспортные и нативные проверки, сеяный прогон, проверки владельца и публикационный гейт ещё должны пройти; 29 октября 2026 года headless-набор из 57 кейсов прошёл на русском и английском. До полного гейта артефакт 2.1.0 не публикуется.
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 18 строк и 144 исполняемых ячейки. 30 октября 2026 года на этом сборочном хосте публикационный гейт прошёл целиком на коммите `807ba09c551134c76f23b4167ab7b5783dd7199e`: строгий компилятор, 49 headless и 50 рендерных кейсов на русском и английском, четыре экспорта, девять нативных прогонов, 100 сеяных циклов, совместимость профилей 1.4.0/2.0.x и соук 1817 с — все шаги с нулевым кодом возврата. Тег `v2.1.0` стоит на этом экспортированном коммите, релиз содержит ровно два файла: ZIP для Windows и сверенный с ним файл сумм. Ручные проверки владельца остаются открытыми и не объявлены пройденными.
 
 ---
 
@@ -30,7 +30,7 @@ This candidate is not a release until rendered and export/native checks, the see
 
 A complete offline life/finance loop: birthplaces drawn from 192 countries, 31 events/93 decisions, traits, five business upgrades plus expansion, stocks/crypto, EUR/GBP/JPY with spread, inflation, quarter-based grants, inheritance, dynasty and persistent victory/defeat/second-chance scenes. All active controls act on that model. Boot/loading hints and explicit failed-save exit handling are included in this edition.
 
-Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. Android is omitted from this release: the host cannot boot an emulator. Earlier1.4 emulator results are historical evidence only. The Windows release does not claim Android runtime acceptance.
+Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. Android is omitted from this release: the host cannot boot an emulator. Earlier 1.4 emulator results are historical evidence only. The Windows release does not claim Android runtime acceptance.
 
 ## 2.0.1 repair
 
@@ -38,7 +38,7 @@ Ordinary Git checkouts now use the committed LF bytes consistently: critical-dat
 
 Both localization CSV files have explicit LF checkout rules, preserving embedded canonical Russian line breaks on Windows.
 
-Retained: Live RU/EN presentation with 816 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected1.4.0 profiles. Current content: 31 events/93 choices, 192 weighted birthplaces, business progression, investments, EUR/GBP/JPY trading with a disclosed0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
+Retained: Live RU/EN presentation with 816 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected 1.4.0 profiles. Content of that edition: 31 events/93 choices, 192 weighted birthplaces, business progression, investments, EUR/GBP/JPY trading with a disclosed 0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
 
 ## Русский
 
@@ -82,7 +82,7 @@ Click/tap choices and navigation. Scroll the event card if its text is long. Set
 
 ## Android status in this v2 cycle
 
-The v2 release omits Android artifacts under specification section16. This host cannot boot the emulator; existing older APK/static-signature results do not establish runtime acceptance for the new encrypted build. The active export presets therefore target Windows only. Existing Android lifecycle code remains covered by source tests; it is not a claim of device certification.
+The v2 release omits Android artifacts under specification section 16. This host cannot boot the emulator; existing older APK/static-signature results do not establish runtime acceptance for the new encrypted build. The active export presets therefore target Windows only. Existing Android lifecycle code remains covered by source tests; it is not a claim of device certification.
 
 ## Build and test
 
@@ -95,7 +95,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains 57 Godot invocations per locale (58 with rendered mode), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 1080 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner contains 49 Godot invocations per locale (50 with rendered mode, which adds the chart-path regression), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 1084 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -117,7 +117,7 @@ Victory and defeat now have separate full-screen illustrated finales with animat
 
 Offline tamper evidence, schema/resource validation and atomic saves protect normal play and recover known-good backups. Valid legacy saves migrate once. Keep the whole user-data folder, including its installation key, when backing up protected saves. See SAVE-INTEGRITY.md for the precise guarantees and limitations.
 
-V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; historical release evidence is documented in docs/RELEASE_2.0.0.md.
+V2 visual pass: eight-point design tokens, curated source-asset review, consistent Prata display headings, labelled currency charts and 180ms capital settlement that does not alter the model. See docs/ART_DIRECTION.md and docs/ASSET_REVIEW.json; historical release evidence is documented in docs/RELEASE_2.0.0.md.
 
 ## Release integrity
 
@@ -136,6 +136,10 @@ Country statistics and reuse terms: [data attribution and open table](docs/BIRTH
 
 Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
 
-## 2.0.2 acceptance and distribution
+## 2.1.0 acceptance and distribution
 
-Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
+The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `807ba09` and tagged `v2.1.0`. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
+
+## Earlier editions
+
+The 2.0.2 candidate was verified in source and runtime, but it was never tagged or published; its receipts stay in `docs/acceptance-2.0.2-birth/`. The 2.0.1 release remains published at [v2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Older diagnostic documents/images refer to preserved historical attempts.

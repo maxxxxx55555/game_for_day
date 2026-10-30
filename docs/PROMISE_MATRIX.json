@@ -4,11 +4,11 @@
   "sources": [
     {
       "path": "docs/promises/README-v2-source.md",
-      "sha256": "244cb1daeed90bcaaa7921c29e8f56e2a2ef8573847e5791c4173d9720c1db60",
+      "sha256": "9c54ae8d21c051adc962f207501216ae8791b21077fb2eb0321a8686dd3f4363",
       "original_path": "README.md",
       "original_revision": "9b9ddeb0a1086250528cd38c27d0659f2d0793aa",
       "previous_working_bytes_sha256": "6139bdb004c99777afa21aac4d99b5f58d822b3f1c214a1d53106c5c28553bf2",
-      "canonicalization": "LF only; every verbatim line and its index is unchanged"
+      "canonicalization": "LF only; every verbatim line and its index is unchanged; the relocation link to the promise matrix resolves from docs/promises/, its sentence otherwise verbatim"
     },
     {
       "path": "docs/superpowers/specs/2026-10-25-bilingual-release-design.md",
@@ -73,7 +73,7 @@
       "source": "docs/promises/README-v2-source.md",
       "line": 5,
       "section": "Current edition scope — v2 integration in progress",
-      "original": "Archived design notes are scoped by [the promise matrix](docs/PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier1.4 emulator results are historical evidence only. Under v2 section16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.",
+      "original": "Archived design notes are scoped by [the promise matrix](../PROMISE_MATRIX.md). This edition has no multiplayer, live market data, real-money investments or advertisement network. Store-production signing and every-device certification are excluded. The current-cycle Android preview has **not been run on an emulator**: the host denies virtual-machine acceleration and documented software attempts fail before boot. Earlier 1.4 emulator results are historical evidence only. Under v2 section 16, any APK supplied in this cycle is clearly labelled an untested development-signed preview, or omitted.",
       "status": "implemented",
       "edition_scope": "Current edition: original event IDs/order,93 real decisions, 192 weighted country birthplaces (superseding the four-origin legacy model), quarterly business/markets/currencies/inflation, grants, dynasty, endings and settings.",
       "excluded": "No multiplayer/live markets/real-money ads or store-production signing",

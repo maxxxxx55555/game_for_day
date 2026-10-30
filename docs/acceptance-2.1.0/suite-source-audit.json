@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "source_commit": "e4eeaf13cd1c5eeb81f2371be93de88c21117adb",
+  "tracked_files": 487,
+  "test_changes_since_release_candidate": [
+    "tests/capture_gallery.gd",
+    "tests/test_dynasty_progression.gd",
+    "tests/test_mobile_lifecycle.gd",
+    "tests/test_quit_audio.gd",
+    "tests/test_ui_audio_feedback.gd"
+  ],
+  "shipping_changes_since_release_candidate": [
+    "assets/CREDITS.md",
+    "assets/audio/SOUNDTRACK.md",
+    "data/critical-manifest.json",
+    "data/strings/en.csv",
+    "data/strings/localization.json",
+    "data/strings/ru.csv",
+    "scripts/GameManager.gd",
+    "scripts/Main.gd",
+    "scripts/security/TrustedData.gd",
+    "scripts/ui/DynastyPanel.gd",
+    "scripts/ui/MilestoneCard.gd"
+  ],
+  "differences": [],
+  "scope": "Records what changed after the 2.1.0 release candidate so the gate cannot be credited to a suite that was quietly edited. Assertion files are listed, not rewritten."
+}

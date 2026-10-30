@@ -8,10 +8,10 @@ All remaining model copy uses existing catalog keys; no saved event IDs, event o
 
 The F1 suite inventory was corrected from an inherited estimate: actual executed case logs are authoritative. F2 default source case count: 27. Final v2 protocol evidence is generated after all later phases.
 
-The immutable v1.4.0 fixture records255 unique Russian literals from original Main/GameManager/ChoiceCopy source and16 ordered external events, with tag commit/source hashes. test_copy_contract.py requires exact original Russian values and the same ordered event data/deltas after removing added translation metadata. test_canonical_model.gd checks all four original birth identities and the existing business-name read API in both languages. test_choice_sweep.gd verifies title/detail translation for every real decision. The former ACTIONS table remains removed.
+The immutable v1.4.0 fixture records 255 unique Russian literals from original Main/GameManager/ChoiceCopy source and 16 ordered external events, with tag commit/source hashes. test_copy_contract.py requires exact original Russian values and the same ordered event data/deltas after removing added translation metadata. test_canonical_model.gd checks all four original birth identities and the existing business-name read API in both languages. test_choice_sweep.gd verifies title/detail translation for every real decision. The former ACTIONS table remains removed.
 
-F3 adds 3 keyed labels/briefing entries; current catalog count is601 per language. The rendered suite now has29 cases. F2 historical evidence above is unchanged.
+F3 adds 3 keyed labels/briefing entries; current catalog count is 601 per language. The rendered suite now has 29 cases. F2 historical evidence above is unchanged.
 
-F4 adds two non-copy audio regression cases; current runner count is31. Localization keys remain unchanged from F3.
+F4 adds two non-copy audio regression cases; current runner count is 31. Localization keys remain unchanged from F3.
 
-F5 adds five keyed integrity/recovery captions: 606 keys and37 Godot cases in the current source. Earlier phase counts above are historical. Full F5 bilingual logs and native pack checks are recorded separately from final F7 acceptance.
+F5 adds five keyed integrity/recovery captions: 606 keys and 37 Godot cases in the current source. Earlier phase counts above are historical. Full F5 bilingual logs and native pack checks are recorded separately from final F7 acceptance.

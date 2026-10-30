@@ -29,6 +29,7 @@ func on_audio_exit()->void:
  if mode in ["save","wm","retry"]:
   var saved:Dictionary=game.load_current_life()
   check(not saved.is_empty() and game.cash==31415,"Accepted quit preserves the actual saved life")
+  if mode=="save":check(game.ambition=="heir","Escape from the life closes through the save that carries the chosen ambition")
  if mode in ["save","wm","retry"]:check(persistence_signals==1,"Repeated accepted close/Retry requests save once")
  if mode=="discard":check(persistence_signals==0,"Queued Retry after accepted discard cannot save")
  if mode=="discard":check(Guard.bounded_text(game.SESSION_PATH)==original_save,"Discard preserves the previous valid save")
@@ -59,6 +60,8 @@ func run()->void:
  screen=load("res://scenes/Main.tscn").instantiate()
  root.add_child(screen);current_scene=screen
  screen.show_intro_screen()
+ if mode=="save":
+  screen.ambition_buttons[2].pressed.emit()
  for index:int in 3:screen.btn_1.pressed.emit()
  game.cash=31415
  check(screen.save_session(),"Prepare a legitimate persisted life")
@@ -106,6 +109,6 @@ func run()->void:
   screen._notification(MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT)
   root.propagate_notification(Node.NOTIFICATION_WM_CLOSE_REQUEST)
  else:
-  screen.request_exit()
+  screen._notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
   screen._notification(MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT)
   screen.request_exit()

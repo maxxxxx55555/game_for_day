@@ -1,0 +1,13 @@
+core.autocrlf=true manifest-preflight: PASS
+core.autocrlf=true critical-manifest: PASS
+core.autocrlf=true canonical-copy: PASS
+core.autocrlf=true audio-assets: PASS
+core.autocrlf=true license-bytes: PASS
+core.autocrlf=true soundtrack: PASS
+core.autocrlf=false manifest-preflight: PASS
+core.autocrlf=false critical-manifest: PASS
+core.autocrlf=false canonical-copy: PASS
+core.autocrlf=false audio-assets: PASS
+core.autocrlf=false license-bytes: PASS
+core.autocrlf=false soundtrack: PASS
+DEFAULT CHECKOUT PASS: true/false; real manifest/copy/audio/license/soundtrack contracts; no local attributes

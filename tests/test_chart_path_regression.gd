@@ -1,4 +1,5 @@
 extends SceneTree
+const Palette=preload("res://scripts/ui/Palette.gd")
 var failures:int=0
 func _initialize()->void:call_deferred("run")
 func check(ok:bool,label:String)->void:
@@ -17,7 +18,7 @@ func run()->void:
     chart.code="EUR";chart.size=Vector2(440,140);viewport.add_child(chart)
     await process_frame;await process_frame;await RenderingServer.frame_post_draw
     var image:Image=viewport.get_texture().get_image()
-    var accent:Color=Color("c6ad7a")
+    var accent:Color=Palette.accent()
     var pixels:int=0
     for y:int in range(32,108):
         for x:int in range(80,432):

@@ -19,7 +19,7 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var backdrop:Panel=Panel.new()
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Color(Palette.ink(),0.985)))
+	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.ink()))
 	add_child(backdrop)
 	var margin:MarginContainer=MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -154,7 +154,7 @@ func hall_stats() -> String:
 			best_rank=record_rank
 		var record_chains:int=record.get("chains",0)
 		chains+=record_chains
-	var rank_text:String="—" if best_rank==0 else str(best_rank)
+	var rank_text:String="—" if best_rank==0 else GameManager.format_rank(best_rank)
 	return LocalizationManager.source("dynasty.stats") % [
 		GameManager.lives_completed,wins,
 		GameManager.format_num(Money.dollars(best_cents)),rank_text,chains
@@ -194,9 +194,9 @@ func build_journal() -> void:
 		var milestone_cents:int=entry.get("wealth_cents",0)
 		var milestone_rank:int=entry.get("rank",0)
 		add_line(LocalizationManager.source("dynasty.journal.milestone") % [
-			milestone_age,
+			GameManager.format_age(milestone_age),
 			GameManager.format_num(Money.dollars(milestone_cents)),
-			str(milestone_rank),
+			GameManager.format_rank(milestone_rank),
 			LocalizationManager.source("milestone.stage."+stage)
 		])
 	for value:Variant in GameManager.chain_records:
@@ -337,8 +337,8 @@ func build_hall() -> void:
 			generation,
 			LocalizationManager.source(status_key),
 			GameManager.format_num(Money.dollars(wealth_cents)),
-			str(rank_value),
-			age_value
+			GameManager.format_rank(rank_value),
+			GameManager.format_age(age_value)
 		],Palette.accent() if victory else Palette.text())
 		var ascension:int=record.get("ascension",0)
 		if ascension>0:

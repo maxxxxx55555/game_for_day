@@ -22,6 +22,7 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	GameManager.theme_changed.connect(func(_mode:String)->void:apply_skin())
+	refresh_labels()
 
 func apply_skin() -> void:
 	for id:String in labels:

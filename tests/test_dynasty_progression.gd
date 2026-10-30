@@ -38,6 +38,17 @@ func run()->void:
     check(game.select_ambition("heir"),"Heir ambition is selectable")
     check(is_equal_approx(game.inheritance_multiplier(),1.25),"Heir carries the 1.25 inheritance multiplier")
     check(is_equal_approx(game.cash,1450.0),"Heir scales the starting inheritance before the first event")
+    game.business_tier=1
+    game.business_scale=1
+    game.select_ambition("steady")
+    var steady_income:int=game.get_passive_quarterly_income_cents()
+    game.select_ambition("heir")
+    var heir_income:int=game.get_passive_quarterly_income_cents()
+    check(steady_income>0,"A tier-one business pays a quarterly income")
+    check(heir_income<steady_income and float(heir_income)>=float(steady_income)*0.88,"Heir trades about a tenth of quarterly income for the dynasty")
+    var heir_desc:String=txt("ambition.heir.desc")
+    check(heir_desc.contains("ниже") or heir_desc.contains("lower"),"The Heir description discloses the income cost")
+    check(txt("ambition.heir.button").count("%")>=2,"The Heir label carries both its percentage figures")
     screen.update_ambition_controls()
     check(screen.ambition_buttons.size()==3 and screen.ambition_buttons[0].button_group!=null,"Ambition is a single-choice control group")
     for button:Button in screen.ambition_buttons:
@@ -45,6 +56,35 @@ func run()->void:
     screen.apply_ambition("meteor")
     check(game.ambition=="meteor" and screen.ambition_buttons[1].button_pressed,"The ambition control writes the real model")
     check(not screen.ambition_desc.text.strip_edges().is_empty(),"The active ambition explains itself")
+    var ambition_turns:int=game.total_turns
+    var ambition_rng:int=screen.rng.state
+    for press:int in 24:
+        screen.ambition_buttons[press%3].pressed.emit()
+        await process_frame
+    check(game.ambition=="heir","Rapid ambition switching lands on the last control the player pressed")
+    var pressed_count:int=0
+    for button:Button in screen.ambition_buttons:
+        if button.button_pressed:pressed_count+=1
+    check(pressed_count==1,"Hammering the ambition group never leaves two ambitions lit")
+    check(game.total_turns==ambition_turns and screen.rng.state==ambition_rng,"Ambition switching spends no quarter and no RNG")
+    check(screen.ambition_desc.text==txt("ambition.heir.desc"),"The description follows the ambition the player ended on")
+    var heir_start:float=game.cash
+    for repeat:int in 5:
+        screen.ambition_buttons[2].pressed.emit()
+        await process_frame
+    check(is_equal_approx(game.cash,heir_start) and game.ambition=="heir","Re-pressing the active ambition is idempotent")
+    screen.apply_ambition("steady")
+    check(is_equal_approx(game.cash,200.0+game.inherited_capital+game.legacy_start_bonus()),"Steady starts on the plain inheritance")
+    screen.apply_ambition("heir")
+    check(is_equal_approx(game.cash,200.0+game.inherited_capital*1.25+game.legacy_start_bonus()),"Heir recomputes the same starting balance from its own multiplier")
+    scan_disabled(screen.ambition_row,"Ambitions")
+    check(screen.save_session(),"The ambition choice rides the real session save")
+    var ambition_saved_mode:String=game.ambition
+    game.ambition="steady"
+    game.load_current_life()
+    screen.update_ambition_controls()
+    check(game.ambition==ambition_saved_mode,"Reloading the session restores the ambition the player last chose")
+    check(screen.ambition_buttons[2].button_pressed,"The restored ambition lights its own control")
     game.reset_full_dynasty()
     game.legacy_points=20
     check(game.unlock_legacy_perk("warm_start"),"A legacy perk can be bought with earned points")

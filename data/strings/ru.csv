@@ -986,10 +986,10 @@ ambition.meteor,Метеор,Meteor
 ambition.heir,Наследник,Heir
 ambition.steady.button,Размеренный (ровный доход и стресс),Steady (even income and stress)
 ambition.meteor.button,"Метеор (доход +25%, стресс +30%)","Meteor (+25% income, +30% stress)"
-ambition.heir.button,Наследник (наследство +25%),Heir (+25% inheritance)
+ambition.heir.button,"Наследник (наследство +25%, доход -10%)","Heir (+25% inheritance, -10% income)"
 ambition.steady.desc,Ровный темп: без скрытых множителей дохода и стресса.,An even pace: no hidden income or stress multipliers.
 ambition.meteor.desc,"Быстрые деньги требуют крепких нервов: доход выше, стресс растёт быстрее.","Fast money demands strong nerves: higher income, faster stress."
-ambition.heir.desc,Жизнь продолжает дело рода: наследство весомее на четверть.,The life continues the family work: inheritance is a quarter larger.
+ambition.heir.desc,"Дело рода требует вложений: доход на десятую часть ниже, зато наследство крупнее.","The family work comes first: income runs a tenth lower, but the inheritance is larger."
 ambition.intro,Выберите темп этой жизни.,Choose the pace of this life.
 ambition.short.steady,размеренный,steady
 ambition.short.meteor,метеор,meteor
@@ -998,12 +998,16 @@ intro.ascension,"Восхождение %d: инфляция и волатиль
 dynasty.title,Династия,Dynasty
 dynasty.balance,Поколение #%d · Наследие: %d · Восхождение: %d · Импульс: %d,Generation #%d · Legacy: %d · Ascension: %d · Momentum: %d
 dynasty.stats,Жизней: %d · Побед: %d · Лучший капитал: $%s · Лучший рейтинг: #%s · Цепочек: %d,Lives: %d · Victories: %d · Best capital: $%s · Best rank: #%s · Chains: %d
-dynasty.record,Поколение #%d · %s · $%s · рейтинг #%s · %d лет,Generation #%d · %s · $%s · rank #%s · %d years
+dynasty.record,Поколение #%d · %s · $%s · рейтинг #%s · %s,Generation #%d · %s · $%s · rank #%s · %s
 dynasty.record.victory,победа,victory
 dynasty.record.defeat,поражение,defeat
 dynasty.record.ascension, · восхождение %d, · ascension %d
 dynasty.record.ascension.line,Восхождение %d,Ascension %d
 dynasty.record.detail,Нитей: %d · вех: %d,Threads: %d · milestones: %d
+dynasty.age,%d %s,%d %s
+dynasty.year.god,год,year
+dynasty.year.goda,года,years
+dynasty.year.let,лет,years
 dynasty.empty.hall,Зал славы пуст. Завершите первую жизнь.,The hall of fame is empty. Finish your first life.
 dynasty.section.hall,Зал славы,Hall of fame
 dynasty.section.legacy,Наследие,Legacy
@@ -1023,7 +1027,7 @@ dynasty.threads.due,В пути · продолжение готово,Under way
 dynasty.threads.done,Завершено,Completed
 dynasty.threads.empty,Для этого этапа доступных нитей нет.,No threads are available at this stage.
 dynasty.journal.empty,"Вехи появятся на 18, 25, 35, 50 и 65 годах.","Milestones appear at ages 18, 25, 35, 50 and 65."
-dynasty.journal.milestone,%d лет · $%s · рейтинг #%s · %s,Age %d · $%s · rank #%s · %s
+dynasty.journal.milestone,%s · $%s · рейтинг #%s · %s,%s · $%s · rank #%s · %s
 dynasty.journal.chain,Нить: %s · %s,Thread: %s · %s
 dynasty.ascension.level,Уровень восхождения: %d,Ascension level: %d
 dynasty.ascension.hint,"Каждый уровень усиливает инфляцию и волатильность, но щедрее платит наследием.","Each level raises inflation and volatility, but pays more legacy."
@@ -1049,15 +1053,15 @@ legacy.perk.safety_net,Страховка,Safety net
 legacy.perk.safety_net.desc,Расходы жизни ниже на 8%,Living costs 8% lower
 milestone.overline,ВЕХА ЖИЗНИ,LIFE MILESTONE
 milestone.title,Вам %d. Время сверить курс.,You are %d. Time to check the course.
-milestone.body,Капитал: $%s · Рейтинг: #%s · Этап: %s · Нить: %s,Capital: $%s · Rank: #%s · Stage: %s · Thread: %s
+milestone.body,Капитал: $%s · Рейтинг: #%s · Этап: %s · Нити: %s,Capital: $%s · Rank: #%s · Stage: %s · Threads: %s
 milestone.momentum,Импульс династии: +%d,Dynasty momentum: +%d
 milestone.continue,Продолжить,Continue
 milestone.stage.survival,выживание,survival
 milestone.stage.career,карьера,career
 milestone.stage.millionaire,миллионер,millionaire
 milestone.stage.billionaire,миллиардер,billionaire
-milestone.none,без активной нити,no active thread
-milestone.threads,завершено нитей: %d,completed threads: %d
+milestone.none,нет активных,none active
+milestone.threads,завершено %d,%d completed
 chain.thread.overline,НИТЬ СУДЬБЫ,LIFE THREAD
 chain.follow.overline,ПРОДОЛЖЕНИЕ,CONTINUATION
 chain.thread.started,Нить судьбы: %s,Life thread: %s
