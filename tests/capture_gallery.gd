@@ -74,6 +74,9 @@ func run() -> void:
 	if host == root:
 		current_scene = screen
 	root.get_node("GameManager").reset_full_dynasty()
+	var skin: String = OS.get_environment("GAME_GALLERY_THEME")
+	if skin in ["dark", "light"] and root.get_node("GameManager").has_method("set_theme_mode"):
+		root.get_node("GameManager").set_theme_mode(skin)
 	screen.show_intro_screen()
 	await shot(screen, "intro")
 	screen.open_credits()
