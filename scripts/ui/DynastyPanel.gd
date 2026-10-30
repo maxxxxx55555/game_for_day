@@ -105,7 +105,9 @@ func set_section(section:String) -> void:
 	active_section=section
 	refresh()
 
-func add_line(text:String, font_size:int=15, color:Color=Color("b8c2c4")) -> void:
+func add_line(text:String, font_size:int=15, color:Color=Color(0,0,0,0)) -> void:
+	if color.a==0.0:
+		color=Palette.muted()
 	var label:Label=Label.new()
 	label.text=text
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART

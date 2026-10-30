@@ -174,7 +174,7 @@ func _ready() -> void:
 	ambition_hint.text=LocalizationManager.source("ambition.intro")
 	ambition_hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	ambition_hint.add_theme_font_size_override("font_size",13)
-	ambition_hint.add_theme_color_override("font_color",Color("b8c2c4"))
+	ambition_hint.add_theme_color_override("font_color",Palette.muted())
 	ambition_row.add_child(ambition_hint)
 	var ambition_line:HBoxContainer=HBoxContainer.new()
 	ambition_line.add_theme_constant_override("separation",6)
@@ -197,7 +197,7 @@ func _ready() -> void:
 	ambition_desc=Label.new()
 	ambition_desc.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	ambition_desc.add_theme_font_size_override("font_size",12)
-	ambition_desc.add_theme_color_override("font_color",Color("b8c2c4"))
+	ambition_desc.add_theme_color_override("font_color",Palette.muted())
 	ambition_row.add_child(ambition_desc)
 	update_ambition_controls()
 	var content:VBoxContainer= VBoxContainer.new()
