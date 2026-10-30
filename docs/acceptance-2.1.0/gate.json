@@ -1,0 +1,100 @@
+{
+  "result": "PASS",
+  "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
+  "clean_tree": true,
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "steps": [
+    {
+      "step": "trust-anchor",
+      "exit": 0,
+      "seconds": 0.4,
+      "timed_out": false
+    },
+    {
+      "step": "localization-drift",
+      "exit": 0,
+      "seconds": 0.3,
+      "timed_out": false
+    },
+    {
+      "step": "strict-compile",
+      "exit": 0,
+      "seconds": 5.1,
+      "timed_out": false
+    },
+    {
+      "step": "suites-en-headless",
+      "exit": 0,
+      "seconds": 393.5,
+      "timed_out": false
+    },
+    {
+      "step": "suites-en-rendered",
+      "exit": 0,
+      "seconds": 367.6,
+      "timed_out": false
+    },
+    {
+      "step": "suites-ru-headless",
+      "exit": 0,
+      "seconds": 361.5,
+      "timed_out": false
+    },
+    {
+      "step": "suites-ru-rendered",
+      "exit": 0,
+      "seconds": 363.3,
+      "timed_out": false
+    },
+    {
+      "step": "export-public-exe",
+      "exit": 0,
+      "seconds": 29.2,
+      "timed_out": false
+    },
+    {
+      "step": "export-public-pck",
+      "exit": 0,
+      "seconds": 26.9,
+      "timed_out": false
+    },
+    {
+      "step": "export-qa-exe",
+      "exit": 0,
+      "seconds": 32.3,
+      "timed_out": false
+    },
+    {
+      "step": "export-qa-pck",
+      "exit": 0,
+      "seconds": 33.2,
+      "timed_out": false
+    },
+    {
+      "step": "native-checks",
+      "exit": 0,
+      "seconds": 88.5,
+      "timed_out": false
+    },
+    {
+      "step": "cycles",
+      "exit": 0,
+      "seconds": 2150.4,
+      "timed_out": false
+    },
+    {
+      "step": "legacy",
+      "exit": 0,
+      "seconds": 5.8,
+      "timed_out": false
+    },
+    {
+      "step": "soak",
+      "exit": 0,
+      "seconds": 1827.0,
+      "timed_out": false
+    }
+  ],
+  "started": "2026-10-30T11:53:56",
+  "finished": "2026-10-30T13:28:45"
+}

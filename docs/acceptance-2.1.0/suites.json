@@ -1,0 +1,47 @@
+{
+  "en-headless": {
+    "result": "PASS",
+    "cases_passed": 49,
+    "cases_failed": 0,
+    "godot_invocations": 49,
+    "seconds": 393.5,
+    "console_sha256": "b2269e563fee8f09de53639bf0491f6b71559cb4cc1aef7e90dfc16dd6e7ff98",
+    "rendered": false,
+    "audio_driver": "Dummy",
+    "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+  },
+  "en-rendered": {
+    "result": "PASS",
+    "cases_passed": 50,
+    "cases_failed": 0,
+    "godot_invocations": 50,
+    "seconds": 367.6,
+    "console_sha256": "0052a4bfb2b464c5b837e5fa19be260d90c5886331281184d2f75723c57d9de2",
+    "rendered": true,
+    "audio_driver": "Dummy",
+    "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+  },
+  "ru-headless": {
+    "result": "PASS",
+    "cases_passed": 49,
+    "cases_failed": 0,
+    "godot_invocations": 49,
+    "seconds": 361.5,
+    "console_sha256": "a41cef72cfaa2474536c1635d28647a91633c2b4b1318c514029b1a432d648ae",
+    "rendered": false,
+    "audio_driver": "Dummy",
+    "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+  },
+  "ru-rendered": {
+    "result": "PASS",
+    "cases_passed": 50,
+    "cases_failed": 0,
+    "godot_invocations": 50,
+    "seconds": 363.3,
+    "console_sha256": "107793035de5adb20063a4251474697f1b2df9800af6605508049abf48161159",
+    "rendered": true,
+    "audio_driver": "Dummy",
+    "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+  },
+  "result": "PASS"
+}

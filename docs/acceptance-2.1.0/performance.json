@@ -1,0 +1,150 @@
+{
+  "result": "PASS",
+  "harness": "builds/release-2.1.0/run_perf.py with perf_probe.gd, real window, audio muted",
+  "labels": {
+    "perf-2.1.0": {
+      "label": "perf-2.1.0",
+      "project": "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0",
+      "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
+      "engine": "4.7-stable",
+      "attempts": [
+        {
+          "dashboard_ready_ms": 537,
+          "samples": 240,
+          "median_frame_ms": 16.67,
+          "p95_frame_ms": 17.269,
+          "engine": "4.7-stable",
+          "wall_seconds": 8.594,
+          "captured_at": "2026-10-30T10:41:12+00:00",
+          "console_sha256": "16d9bce030a4cce3c9f37d15d73b62e7422a2921709539f37391c814b21b76e4",
+          "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+        },
+        {
+          "dashboard_ready_ms": 528,
+          "samples": 240,
+          "median_frame_ms": 16.659,
+          "p95_frame_ms": 17.542,
+          "engine": "4.7-stable",
+          "wall_seconds": 8.0,
+          "captured_at": "2026-10-30T10:41:28+00:00",
+          "console_sha256": "452bce0a2bd03edbe83df4f05ade3544fbece085c88e1216546dff2256a4212e",
+          "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+        },
+        {
+          "dashboard_ready_ms": 484,
+          "samples": 240,
+          "median_frame_ms": 16.665,
+          "p95_frame_ms": 17.272,
+          "engine": "4.7-stable",
+          "wall_seconds": 8.641,
+          "captured_at": "2026-10-30T10:41:47+00:00",
+          "console_sha256": "c71092ac0697af1599207b70bfba1f6cc40aa0e77612df0b0fc4fea17ff05005",
+          "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+        }
+      ],
+      "dashboard_ready_ms": 528,
+      "median_frame_ms": 16.665,
+      "p95_frame_ms": 17.272,
+      "samples": 240,
+      "runs": 3,
+      "criteria": "Real-window run on this host with audio muted; dashboard_ready_ms counts intro->birth->perk->first life card, frame deltas cover 240 consecutive presented frames of the live dashboard screen. Top-level numbers are the median over 3 attempt(s) on this host; every attempt is stored separately. Same-host comparison, not a device sweep."
+    },
+    "perf-2.0.2": {
+      "label": "perf-2.0.2",
+      "project": "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\baseline-2.0.2",
+      "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+      "engine": "4.7-stable",
+      "attempts": [
+        {
+          "dashboard_ready_ms": 559,
+          "samples": 240,
+          "median_frame_ms": 16.683,
+          "p95_frame_ms": 17.233,
+          "engine": "4.7-stable",
+          "wall_seconds": 25.969,
+          "captured_at": "2026-10-30T10:40:13+00:00",
+          "console_sha256": "93aa4ef39f2559d39a023de91e21a5ce1a679695729add13d35f2cb40d9a7b06",
+          "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+        },
+        {
+          "dashboard_ready_ms": 469,
+          "samples": 240,
+          "median_frame_ms": 16.675,
+          "p95_frame_ms": 17.251,
+          "engine": "4.7-stable",
+          "wall_seconds": 7.437,
+          "captured_at": "2026-10-30T10:40:21+00:00",
+          "console_sha256": "e0e721ac71ff920ef9e5169053736e229566d7352cb894b1e79edc0239f72573",
+          "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+        },
+        {
+          "dashboard_ready_ms": 502,
+          "samples": 240,
+          "median_frame_ms": 16.688,
+          "p95_frame_ms": 17.274,
+          "engine": "4.7-stable",
+          "wall_seconds": 7.578,
+          "captured_at": "2026-10-30T10:40:29+00:00",
+          "console_sha256": "ea55f185d73e36b67a41ab67810696a36c4888d2b083f365cccc899669073f50",
+          "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+        },
+        {
+          "dashboard_ready_ms": 583,
+          "samples": 240,
+          "median_frame_ms": 16.664,
+          "p95_frame_ms": 17.779,
+          "engine": "4.7-stable",
+          "wall_seconds": 7.297,
+          "captured_at": "2026-10-30T10:41:20+00:00",
+          "console_sha256": "094eb92ec24a7fcf04f64087db91c7bc7edb671bd760f8ee61951fa1e2397ddb",
+          "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+        },
+        {
+          "dashboard_ready_ms": 628,
+          "samples": 240,
+          "median_frame_ms": 16.652,
+          "p95_frame_ms": 17.625,
+          "engine": "4.7-stable",
+          "wall_seconds": 8.516,
+          "captured_at": "2026-10-30T10:41:37+00:00",
+          "console_sha256": "241a508595e13a69f0b69dca8bea74ca676eda1dbfeabe1d0d7728bd0d6faead",
+          "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+        },
+        {
+          "dashboard_ready_ms": 532,
+          "samples": 240,
+          "median_frame_ms": 16.675,
+          "p95_frame_ms": 17.233,
+          "engine": "4.7-stable",
+          "wall_seconds": 7.422,
+          "captured_at": "2026-10-30T10:41:54+00:00",
+          "console_sha256": "4f17b6c3ed4ea97a3fb60dbc3fe47692bb11e61bd970ba1f89518818032e62fd",
+          "source_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1"
+        }
+      ],
+      "dashboard_ready_ms": 545.5,
+      "median_frame_ms": 16.675,
+      "p95_frame_ms": 17.263,
+      "samples": 240,
+      "runs": 6,
+      "criteria": "Real-window run on this host with audio muted; dashboard_ready_ms counts intro->birth->perk->first life card, frame deltas cover 240 consecutive presented frames of the live dashboard screen. Top-level numbers are the median over 6 attempt(s) on this host; every attempt is stored separately. Same-host comparison, not a device sweep."
+    }
+  },
+  "delta": {
+    "dashboard_ready_ms": -17.5,
+    "median_frame_ms": -0.01,
+    "p95_frame_ms": 0.009
+  },
+  "within_label_spread_ms": {
+    "dashboard_ready_ms": 159,
+    "median_frame_ms": 0.036,
+    "p95_frame_ms": 0.546
+  },
+  "allowance_ms": {
+    "dashboard_ready_ms": 159,
+    "median_frame_ms": 1.668,
+    "p95_frame_ms": 1.726
+  },
+  "overruns": [],
+  "scope": "Same host, same engine and the same probe; the 2.0.2 label is measured from a temporary worktree of the 2.0.2 candidate source (3 attempts for 2.1.0, 6 for the baseline). Top-level numbers are medians over those attempts, so this is a same-host comparison, not a device sweep or a statistical bound. A metric is called a regression only when it is slower than the baseline by more than the larger within-label spread or more than 10% of the baseline value, whichever is wider; the 10% allowance covers five new systems on top of the 2.0.2 loop and is stated rather than tuned after the fact."
+}

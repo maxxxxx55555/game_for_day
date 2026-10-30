@@ -1,0 +1,52 @@
+{
+  "result": "PASS",
+  "failures": [],
+  "tail_seconds": 360,
+  "tail_complete_cycles": 19,
+  "tail_start_process_seconds": 1456.016,
+  "metrics": {
+    "private_bytes": {
+      "minute_medians_bytes": [
+        348889088.0,
+        348495872.0,
+        348336128.0,
+        348332032.0,
+        348188672.0,
+        348192768.0
+      ],
+      "net_bytes": -696320.0,
+      "band_bytes": 700416.0,
+      "plateau_median_bytes": 348332032,
+      "net_allowance_bytes": 3483320,
+      "band_allowance_bytes": 5224980,
+      "post_warmup_quarter_medians_bytes": [
+        346247168,
+        347598848,
+        347967488,
+        348387328
+      ],
+      "post_warmup_growth_bytes": 2140160,
+      "post_warmup_growth_allowance_bytes": 5224980,
+      "post_warmup_quarters_monotone": true
+    },
+    "working_set_bytes": {
+      "minute_medians_bytes": [
+        344625152.0,
+        344530944.0,
+        344463360.0,
+        344408064.0,
+        344344576.0,
+        344254464.0
+      ],
+      "net_bytes": -370688.0,
+      "band_bytes": 370688.0
+    }
+  },
+  "resident_quarter_medians": [
+    371642368.0,
+    370987008.0,
+    337160192.0,
+    344408064.0
+  ],
+  "criteria": "Six-minute final window with at least 10 completed cycles. Shape test: the six final private minute medians must not rise monotonically. Size test: final-window net <=max(64KiB, 1% of the plateau median) and band <=max(1MiB, 1.5% of the plateau median); the tolerance is scaled to the plateau because allocator churn at a ~350MB steady state oscillates by several megabytes, and a fixed byte bound would report noise as growth. Whole-run test: the step between the first and last post-warm-up quarter median must stay within max(4MiB, 1.5% of the plateau), and a monotone four-quarter climb additionally has to stay within the 1% net allowance \u2014 cache warm-up past the 120s mark settles slowly, which the 2.0.2 baseline also measured as +1.6MB, so only growth beyond those bounds counts as a leak. Whole-run resident quarter medians must not independently flag sustained growth. All post-cycle engine node/resource/object counts exactly flat with zero orphans. Finite stability review, not zero-byte growth or leak-freedom proof."
+}

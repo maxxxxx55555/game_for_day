@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "artifacts": {
+    "public-exe": {
+      "preset": "Windows Desktop",
+      "private_qa": false,
+      "encrypted": true,
+      "directory_encrypted": true,
+      "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905",
+      "artifact_sha256": "000b0eda79d7fa463a1e0e9ff64ebcfd976ad11b7fddd07dcccc01319e0fead9",
+      "artifact_bytes": 94037672,
+      "key_storage": "environment only; no key recorded",
+      "source_preset_restored": true,
+      "staged_sha256": "000b0eda79d7fa463a1e0e9ff64ebcfd976ad11b7fddd07dcccc01319e0fead9",
+      "hash_matches_record": true
+    },
+    "public-pck": {
+      "preset": "Windows Desktop",
+      "private_qa": false,
+      "encrypted": true,
+      "directory_encrypted": true,
+      "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905",
+      "artifact_sha256": "35ed80d81ef2b22712115af74ca0b99702c037536812f809020242f453652ca1",
+      "artifact_bytes": 22790300,
+      "key_storage": "environment only; no key recorded",
+      "source_preset_restored": true,
+      "staged_sha256": "35ed80d81ef2b22712115af74ca0b99702c037536812f809020242f453652ca1",
+      "hash_matches_record": true
+    },
+    "qa-exe": {
+      "preset": "Windows QA",
+      "private_qa": true,
+      "encrypted": true,
+      "directory_encrypted": true,
+      "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905",
+      "artifact_sha256": "881cc5b198fd5bdf63431ce48a5be9a4c1007abb5687412d25db1e7356515c43",
+      "artifact_bytes": 94044792,
+      "key_storage": "environment only; no key recorded",
+      "source_preset_restored": true,
+      "staged_sha256": "881cc5b198fd5bdf63431ce48a5be9a4c1007abb5687412d25db1e7356515c43",
+      "hash_matches_record": true
+    },
+    "qa-pck": {
+      "preset": "Windows QA",
+      "private_qa": true,
+      "encrypted": true,
+      "directory_encrypted": true,
+      "template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905",
+      "artifact_sha256": "876e142edf86972cb29a7ea40157e2cb4433cfa006ea5b8acbc2de4ab653064c",
+      "artifact_bytes": 22797420,
+      "key_storage": "environment only; no key recorded",
+      "source_preset_restored": true,
+      "staged_sha256": "876e142edf86972cb29a7ea40157e2cb4433cfa006ea5b8acbc2de4ab653064c",
+      "hash_matches_record": true
+    }
+  },
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "export_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
+  "private_qa_excluded_from_release": true
+}

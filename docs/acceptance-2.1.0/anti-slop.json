@@ -1,0 +1,62 @@
+{
+  "result": "PASS",
+  "scope": "Finite presentation audit: displayed 2.1 copy, documented palette, repository vector icons, display fonts/licences, unchanged bitmap inventory and placeholder scan. It does not prove human authorship of every asset or replace visual review and owner checks.",
+  "runtime_commit": "028a4518e74bf49b65496deeb9f4899474dd7157",
+  "baseline_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
+  "copy_keys_scanned_per_locale": 526,
+  "copy_findings": [],
+  "palette_missing": [],
+  "icons": [
+    "business.svg",
+    "dynasty.svg",
+    "grant.svg",
+    "market.svg",
+    "settings.svg"
+  ],
+  "bad_icons": [],
+  "fonts": {
+    "Onest.ttf": {
+      "exists": true,
+      "bytes": 193056,
+      "sha256": "966c5c29b4755da84b6854d5c21dd4eaa2420225d0e9874de602de176d4a9f31"
+    },
+    "Unbounded.ttf": {
+      "exists": true,
+      "bytes": 778272,
+      "sha256": "323b511be380c8d474ef030686b71aedde501f8d9cd46da558b7c40454372c3f"
+    }
+  },
+  "font_licenses": [
+    "Onest-OFL.txt",
+    "Unbounded-OFL.txt",
+    "alegreya-OFL.txt",
+    "manrope-OFL.txt",
+    "prata-OFL.txt"
+  ],
+  "bitmap_changes_since_2_0_2": [],
+  "bitmap_inventory": [
+    {
+      "path": "assets/art/city_folio.png",
+      "bytes": 2471164,
+      "sha256": "3780c678c935882d2448fdb8ed314bc6593b334c96f79a079e411c9f378ff5aa"
+    },
+    {
+      "path": "assets/art/ending_defeat.png",
+      "bytes": 2287064,
+      "sha256": "260b519cf402315ecaf3a567d452932545f2a134d45a0c8eaa85aa3647739d34"
+    },
+    {
+      "path": "assets/art/ending_victory.png",
+      "bytes": 2482542,
+      "sha256": "bfefb4c608d969faa00b82fbe420289180c5865afea3045489de4ed0146b5d33"
+    },
+    {
+      "path": "assets/art/life-portraits.png",
+      "bytes": 2362425,
+      "sha256": "23b54852534fb57b268f63e57d3ff4646097cec3d3b6c8f3257b4983c1436cd6"
+    }
+  ],
+  "bitmap_inventory_count": 4,
+  "placeholder_hits": [],
+  "failures": []
+}
