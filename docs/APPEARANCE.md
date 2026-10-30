@@ -13,12 +13,16 @@ stylesheet.
 | `raised` popup | `#16212e` | `#ffffff` |
 | `deep` event panel | `#0d151f` | `#ebe4d4` |
 | `rule` hairline | `#26313f` | `#d8cdb6` |
+| `rule_soft` hairline | `#1d2733` | `#e4dbc8` |
 | `text` | `#ede7da` | `#1b2027` |
 | `muted` | `#8a97a6` | `#6f6a5e` |
-| `accent` | champagne `#c8a96a` | bronze `#8a6a2f` |
-| `alert` | `#c9736a` | `#a8443c` |
+| `accent` | gold `#c9a227` | bronze `#8a6a2f` |
+| `accent_deep` | `#a9871f` | `#6d5324` |
+| `green` | `#7fb069` | `#4f7a3a` |
+| `alert` | `#c4614f` | `#a8443c` |
+| `track` unfilled meter | `#1e2a38` | `#ddd4c1` |
 
-Dark is ink and champagne; light is warm paper and bronze. Neither uses more
+Dark is ink and gold; light is warm paper and bronze. Neither uses more
 than one accent — gold marks value, never decoration.
 
 ## Switching
@@ -90,7 +94,7 @@ use, so the label never disagrees with the events on screen.
 
 ## Проверка по-русски
 
-Две темы: тёмная (чернила и шампань) и светлая (тёплая бумага и бронза).
+Две темы: тёмная (чернила и золото) и светлая (тёплая бумага и бронза).
 Переключатель — солнце на стартовом экране и пункт «Оформление» в настройках;
 выбор сохраняется между запусками и не влияет на игру. Все цвета идут через
 `Palette.gd`, поэтому смена темы — это перерисовка, а не второй набор стилей.
