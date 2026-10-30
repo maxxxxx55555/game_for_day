@@ -10,7 +10,7 @@ Ascension is a five-level NG+ path from the victory finale: each level raises in
 
 2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 18 rows and 144 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
 
-This candidate is not a release until the publication gate passes in full. The 49-case headless suite and the 50-case rendered suite passed in both Russian and English on 2026-10-29 on this build host; exported, native, seeded, legacy-compatibility and soak steps are recorded by the same gate run. No 2.1.0 artifact is published before that run reports PASS. See the [2.1.0 release notes](docs/RELEASE_2.1.0.md) and the [handoff](docs/HANDOFF.md).
+The publication gate ran to completion on this build host on 2026-10-30 at commit `807ba09c551134c76f23b4167ab7b5783dd7199e` and every step exited 0: strict compile, 49 headless and 50 rendered cases in Russian and English, four exports, nine exported-binary runs, 100 seeded cycles, 1.4.0/2.0.x compatibility and a 1,817-second rendered soak. The `v2.1.0` tag names that exported commit and the release carries exactly two assets, the Windows ZIP and its versioned sums file. Owner play and listening checks remain open and are not claimed. See the [2.1.0 release notes](docs/RELEASE_2.1.0.md), the [certificate](docs/ACCEPTANCE_CERTIFICATE.md) and the [handoff](docs/HANDOFF.md).
 
 ## Русский
 
@@ -20,7 +20,7 @@ This candidate is not a release until the publication gate passes in full. The 4
 
 Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
 
-Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 18 строк и 144 исполняемых ячейки. Это кандидат, а не релиз: рендерные, экспортные и нативные проверки, сеяный прогон, проверки владельца и публикационный гейт ещё должны пройти; 29 октября 2026 года на этом сборочном хосте headless-набор из 49 кейсов и рендерный набор из 50 кейсов прошли на русском и английском. До полного гейта артефакт 2.1.0 не публикуется.
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 18 строк и 144 исполняемых ячейки. 30 октября 2026 года на этом сборочном хосте публикационный гейт прошёл целиком на коммите `807ba09c551134c76f23b4167ab7b5783dd7199e`: строгий компилятор, 49 headless и 50 рендерных кейсов на русском и английском, четыре экспорта, девять нативных прогонов, 100 сеяных циклов, совместимость профилей 1.4.0/2.0.x и соук 1817 с — все шаги с нулевым кодом возврата. Тег `v2.1.0` стоит на этом экспортированном коммите, релиз содержит ровно два файла: ZIP для Windows и сверенный с ним файл сумм. Ручные проверки владельца остаются открытыми и не объявлены пройденными.
 
 ---
 
@@ -136,6 +136,10 @@ Country statistics and reuse terms: [data attribution and open table](docs/BIRTH
 
 Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
 
-## 2.0.2 acceptance and distribution
+## 2.1.0 acceptance and distribution
 
-The 2.0.2 candidate was verified in source and runtime, but it was never tagged or published. The latest published release is [2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1): the [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) retain its verified evidence without claiming a publication that does not exist. Older diagnostic documents/images refer to preserved historical attempts.
+The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `807ba09` and tagged `v2.1.0`. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
+
+## Earlier editions
+
+The 2.0.2 candidate was verified in source and runtime, but it was never tagged or published; its receipts stay in `docs/acceptance-2.0.2-birth/`. The 2.0.1 release remains published at [v2.0.1](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.0.1). Older diagnostic documents/images refer to preserved historical attempts.

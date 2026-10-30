@@ -1,6 +1,6 @@
 # F6 regression work
 
-The source runner passes 41 Godot cases in each of English and Russian after these fixes. This is an intermediate source checkpoint; the full v2 release gate remains open.
+These regressions stay covered by the source runner, which now passes 49 headless and 50 rendered Godot cases in each of English and Russian; the 2.1.0 publication gate at `807ba09` ran them in both locales without a failure.
 
 | Defect | Trigger and correction | Regression |
 |---|---|---|
