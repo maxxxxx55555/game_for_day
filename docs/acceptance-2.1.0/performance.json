@@ -1,6 +1,6 @@
 {
   "result": "PASS",
-  "harness": "builds/release-2.1.0/run_perf.py with perf_probe.gd, real window, audio muted",
+  "harness": "builds/release-2.1.0/run_perf.py with perf_probe.gd, real window, audio muted, each attempt in a throwaway save profile and the two labels run in interleaved rounds",
   "labels": {
     "perf-2.1.0": {
       "label": "perf-2.1.0",

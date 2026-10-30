@@ -1,0 +1,980 @@
+{
+  "result": "PASS",
+  "archive": {
+    "name": "HeirsOfFortune-Windows-2.1.0.zip",
+    "bytes": 85723005,
+    "sha256": "8e044f4f48bd217d3c6f6d4646b11b57e752d85ddd80e2b00013add5bd2b83af"
+  },
+  "checksums_file": {
+    "name": "HeirsOfFortune-SHA256SUMS-2.1.0.txt",
+    "sha256": "89cdb58eca6effe6a7ffeda9b57830a466ab6c30bf705100611c13d6fccc451d"
+  },
+  "entries": 238,
+  "exe_sha256": "000b0eda79d7fa463a1e0e9ff64ebcfd976ad11b7fddd07dcccc01319e0fead9",
+  "pck_sha256": "35ed80d81ef2b22712115af74ca0b99702c037536812f809020242f453652ca1",
+  "runtime_export_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
+  "documentation_commit": "1964e55c18bc2b40837d5eca3184f31b0094b6c0",
+  "shipping_source_parity": "PASS: only non-shipped paths differ from the exported commit: README.md, docs/ACCEPTANCE_CERTIFICATE.md, docs/ANNOUNCE_KIT.md, docs/BUG_REGRESSIONS.md, docs/FINAL_REPORT.md, docs/HANDOFF.md, docs/MECHANICS_MATRIX.md, docs/RELEASE_2.1.0.md, docs/acceptance-2.1.0/announcement-word-counts.json, docs/acceptance-2.1.0/anti-slop.json, docs/acceptance-2.1.0/balance-sweep.json, docs/acceptance-2.1.0/contract-check_repo_isolation.log, docs/acceptance-2.1.0/contract-test_audio_assets.log, docs/acceptance-2.1.0/contract-test_copy_contract.log, docs/acceptance-2.1.0/contract-test_critical_manifest.log, docs/acceptance-2.1.0/contract-test_default_checkout.log, docs/acceptance-2.1.0/contract-test_export_contract.log, docs/acceptance-2.1.0/contract-test_license_bytes.log, docs/acceptance-2.1.0/contract-test_localization_generation.log, docs/acceptance-2.1.0/contract-test_mechanics_matrix.log, docs/acceptance-2.1.0/contract-test_promise_matrix.log, docs/acceptance-2.1.0/contract-test_public_qa_contract.log, docs/acceptance-2.1.0/contract-test_release_export_tool.log, docs/acceptance-2.1.0/contract-test_repo_isolation.log, docs/acceptance-2.1.0/contract-test_soundtrack.log, docs/acceptance-2.1.0/contracts.json, docs/acceptance-2.1.0/cycles.json, docs/acceptance-2.1.0/evidence-manifest.json, docs/acceptance-2.1.0/exports.json, docs/acceptance-2.1.0/galleries.json, docs/acceptance-2.1.0/gate.json, docs/acceptance-2.1.0/legacy.json, docs/acceptance-2.1.0/native.json, docs/acceptance-2.1.0/performance.json, docs/acceptance-2.1.0/soak-trend.json, docs/acceptance-2.1.0/soak.json, docs/acceptance-2.1.0/suite-source-audit.json, docs/acceptance-2.1.0/suites.json",
+  "inherited_license_files": 8,
+  "loose_secret_scan": "PASS",
+  "native_binary_key_hits": [
+    "HeirsOfFortune/HeirsOfFortune.exe"
+  ],
+  "native_template_sha256": "a82cbeedcf7edb62d974ae6875b3dddb956ad2a0d0b430cf9b772fa39d670905",
+  "entry_hashes": {
+    "HeirsOfFortune/HeirsOfFortune.exe": {
+      "bytes": 94037672,
+      "sha256": "000b0eda79d7fa463a1e0e9ff64ebcfd976ad11b7fddd07dcccc01319e0fead9"
+    },
+    "HeirsOfFortune/HeirsOfFortune.pck": {
+      "bytes": 22790300,
+      "sha256": "35ed80d81ef2b22712115af74ca0b99702c037536812f809020242f453652ca1"
+    },
+    "HeirsOfFortune/QUICK_START.md": {
+      "bytes": 1911,
+      "sha256": "6d9aafdb696165dfae7150913851ed475326309e9d1de5097c593a60eff99da3"
+    },
+    "HeirsOfFortune/README.md": {
+      "bytes": 20029,
+      "sha256": "60b4a526a3ce7800675b9ff656a0580c46ac41ac1039ff0de85c02a1a1056d5c"
+    },
+    "HeirsOfFortune/SAVE-INTEGRITY.md": {
+      "bytes": 8540,
+      "sha256": "ec43ad67ec5bfef40359cac44b42925383c59bf19abc490a18899657fdb4471b"
+    },
+    "HeirsOfFortune/assets/CREDITS.md": {
+      "bytes": 4010,
+      "sha256": "1d96587fe085828cb2bc491d5b6404b41673b05df4aa3ff9c6d7b3104924f7d0"
+    },
+    "HeirsOfFortune/assets/art/life-portraits-provenance.json": {
+      "bytes": 308,
+      "sha256": "9e4a62ec36dbe40e75778703e172542aea153cf045c800e47dfa4350019f4b80"
+    },
+    "HeirsOfFortune/assets/art/provenance.json": {
+      "bytes": 1810,
+      "sha256": "124c1b72df8aa1fc88523f83ef3910e2f1c1b10080c77f423da9ca98e70d1c1c"
+    },
+    "HeirsOfFortune/assets/asset-sources.json": {
+      "bytes": 1834,
+      "sha256": "3d9cd861b1042764b7aee234ffc7efa7e44d44f8443d2b8d922b21f10f2084cf"
+    },
+    "HeirsOfFortune/assets/audio/LICENSE.md": {
+      "bytes": 1123,
+      "sha256": "fe30199c1aff2063513f001f73b85592ec589566981e207b9a1ffd3a6e50b38e"
+    },
+    "HeirsOfFortune/assets/audio/NOTICES.txt": {
+      "bytes": 2423,
+      "sha256": "5da7f9dc108c9c172ef46d50e514e1a3f8f7b4c7925ee76b07a2aa8954b2a828"
+    },
+    "HeirsOfFortune/assets/audio/SOUNDTRACK.md": {
+      "bytes": 1298,
+      "sha256": "56806ea370666797186f950d528f84b2bde6c6f82cea2029d0d46a44c6e8ca84"
+    },
+    "HeirsOfFortune/assets/audio/interface-provenance.json": {
+      "bytes": 1167,
+      "sha256": "e72644348977f77d5847691edf85b33eb18f1dff8420a975a2dc7c3a02d9cbfd"
+    },
+    "HeirsOfFortune/assets/audio/music-provenance.json": {
+      "bytes": 6090,
+      "sha256": "aaebf2bcd608f59ca0433e5ae409eb8eb45cc1a56f4f5356bacbfeb0f08d74c0"
+    },
+    "HeirsOfFortune/assets/fonts/Onest-OFL.txt": {
+      "bytes": 4384,
+      "sha256": "071195d8806e226faeee60259c28ca67b458227af5195a73f5cfcab06e3003bc"
+    },
+    "HeirsOfFortune/assets/fonts/Unbounded-OFL.txt": {
+      "bytes": 4392,
+      "sha256": "31e5d4e83955e7103c34570dd49b0570ef490800bd65b42923c0dd02445263b3"
+    },
+    "HeirsOfFortune/assets/fonts/alegreya-OFL.txt": {
+      "bytes": 4395,
+      "sha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68"
+    },
+    "HeirsOfFortune/assets/fonts/manrope-OFL.txt": {
+      "bytes": 4387,
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    "HeirsOfFortune/assets/fonts/prata-OFL.txt": {
+      "bytes": 4476,
+      "sha256": "1e055d25bde41906cc2e1a08bc156e7776d5084e1640d75dbd0065a937b488e3"
+    },
+    "HeirsOfFortune/build-provenance.json": {
+      "bytes": 60021,
+      "sha256": "98c30ec77be34f6e2b48d132110150ee00faa2b26c028160427fe832bdc94eb1"
+    },
+    "HeirsOfFortune/docs/ACCEPTANCE_CERTIFICATE.md": {
+      "bytes": 4845,
+      "sha256": "e6ab232b95d19bb78c54f69a440a0a46a93c194c928517ef9c3168ac9cffb72a"
+    },
+    "HeirsOfFortune/docs/ANNOUNCE_KIT.md": {
+      "bytes": 12994,
+      "sha256": "64fed98cefcd23f15f61f8eac5e27b303205fba4a6d396ab1d1bddbbeddd598d"
+    },
+    "HeirsOfFortune/docs/ART_DIRECTION.md": {
+      "bytes": 6452,
+      "sha256": "76f5aa680a2c3ca3f9f09449ed27e0193dfc5eda2f4a9a837335d7aef18bef8b"
+    },
+    "HeirsOfFortune/docs/ASSET_REVIEW.json": {
+      "bytes": 5418,
+      "sha256": "0b6efd74b2bc149b6a3d746cc65f64557c4e1ac50439351ccef81b2373189c9d"
+    },
+    "HeirsOfFortune/docs/AUDIO_FEEDBACK.md": {
+      "bytes": 2021,
+      "sha256": "20f7d6f8bbdaa8135ed8ed50d7c465fda3c1100ca40ccd083b4527a65acd86df"
+    },
+    "HeirsOfFortune/docs/AUDIT_RELOCATION.md": {
+      "bytes": 4345,
+      "sha256": "b9395f6e5d27fa5257d88bc68fc8ef67b9ad68b587ac5e40d168ecd5016995d9"
+    },
+    "HeirsOfFortune/docs/BIRTH_DATA.csv": {
+      "bytes": 5051,
+      "sha256": "7e3a2c7e74d82a9020318fd903a32266181ce43c9172b195fc388bf4c2f733c0"
+    },
+    "HeirsOfFortune/docs/BIRTH_DATA_NOTICE.md": {
+      "bytes": 3283,
+      "sha256": "16b82b13137a119eead0f94dad1f9f1950068774e24f3dedac4b1c3bf1a28e93"
+    },
+    "HeirsOfFortune/docs/BIRTH_LOTTERY.md": {
+      "bytes": 4324,
+      "sha256": "e8d2521f4d087b69193fb27778a1d27a4f57e43e20913d365e150f04dcb28e73"
+    },
+    "HeirsOfFortune/docs/BUG_REGRESSIONS.md": {
+      "bytes": 5203,
+      "sha256": "561bc25065aa4c7fec130e0c5567446c9fc2db04fd4de5eb7260e16731d49979"
+    },
+    "HeirsOfFortune/docs/CHANGELOG_DRAFT.md": {
+      "bytes": 3239,
+      "sha256": "0d4f783d8643bf47d219a5f69008ed67c17685875c44ce152f8d5d4e1c49a83b"
+    },
+    "HeirsOfFortune/docs/CHECKOUT_REPRODUCTION.md": {
+      "bytes": 8001,
+      "sha256": "0f391557474182d107e718c43f56b6722cadd26c18604e79994d3223a7a9e121"
+    },
+    "HeirsOfFortune/docs/FINAL_REPORT.md": {
+      "bytes": 4642,
+      "sha256": "603cb7ddef1b05cfdcad301f3a59ade5f5eba4cbdc7db928b880366afef4cc52"
+    },
+    "HeirsOfFortune/docs/HANDOFF.md": {
+      "bytes": 1741,
+      "sha256": "df71463e14970fe9825d00854a74d92276e4b7ab1ea9a11d479336f8e07dc781"
+    },
+    "HeirsOfFortune/docs/LOCALIZATION.md": {
+      "bytes": 1531,
+      "sha256": "1f9c01cff8294220f6037a139382c07d738ad7061930ae2f074fc96995865648"
+    },
+    "HeirsOfFortune/docs/LOCALIZATION_AUDIT.md": {
+      "bytes": 2516,
+      "sha256": "c763c2535b038406fd6278043f0978ba61c8934dbf2096c0b750f3193420ee41"
+    },
+    "HeirsOfFortune/docs/MECHANICS_MATRIX.json": {
+      "bytes": 49801,
+      "sha256": "45e6a63fc0f854daad440fcc106435348059c8b87660989ba8f92e063b225476"
+    },
+    "HeirsOfFortune/docs/MECHANICS_MATRIX.md": {
+      "bytes": 33788,
+      "sha256": "f5d83c5b60f1f597a72a7f0c2f5b26cd8753441d9fcdffb03273183e55d04180"
+    },
+    "HeirsOfFortune/docs/PROMISE_MATRIX.json": {
+      "bytes": 42218,
+      "sha256": "2a78ce2be17fb39c1f652bcda88a80d6bdff81ee6b38fb81b3faa55e9f512cf1"
+    },
+    "HeirsOfFortune/docs/PROMISE_MATRIX.md": {
+      "bytes": 2691,
+      "sha256": "3a56b1446374427feaca6172510afd5c92be22880bbdc573bec086f6ba636ddb"
+    },
+    "HeirsOfFortune/docs/RELEASE_1_0.md": {
+      "bytes": 626,
+      "sha256": "5b5d0c9c243a500e17dd4fa31eb93486d816aee1522cec4a1c5a3d4a6b67e759"
+    },
+    "HeirsOfFortune/docs/RELEASE_2.0.0.md": {
+      "bytes": 6193,
+      "sha256": "aec2b35703f21d50f4d50b32f63c6dd4fee85313bb14a918bb3210c0ff5a2df3"
+    },
+    "HeirsOfFortune/docs/RELEASE_2.0.1.md": {
+      "bytes": 6790,
+      "sha256": "cff8e08c59e57af2ed4aa7c74c495829670788fcdd421b1de6becb06e5ffadde"
+    },
+    "HeirsOfFortune/docs/RELEASE_2.0.2.md": {
+      "bytes": 1891,
+      "sha256": "c109e52273c8fc01d27aad43f0f7c8fb21baeaf9d9025e2d369301527190a053"
+    },
+    "HeirsOfFortune/docs/RELEASE_2.1.0.md": {
+      "bytes": 10769,
+      "sha256": "5426438c26ac321d6ca9cb127f1e9de7dd9476053e401bbb1b0a1994798e55bf"
+    },
+    "HeirsOfFortune/docs/RELEASE_V2_PLAN.md": {
+      "bytes": 2662,
+      "sha256": "6391b9db784004ced5696379a599396219693d5dc2458b25b854360d8c37b5aa"
+    },
+    "HeirsOfFortune/docs/STATIC_AUDIT.md": {
+      "bytes": 1635,
+      "sha256": "04295b206c728a45a7e65cf06c1d818dd27751fd17cdf3eb1112846ea266c568"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/announcement-word-counts.json": {
+      "bytes": 33,
+      "sha256": "5bf03e104048b834738d06a43d759100e6664aab8137bb52bf778ecebec8aead"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/contracts.json": {
+      "bytes": 1534,
+      "sha256": "71a1556e760d39487f4e063d72377f2c75612421fc5c81df3ccf75baae7643f6"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/cycles.json": {
+      "bytes": 1120,
+      "sha256": "caac7ea516155f737928614d9605777a1fbdea3d31dacf13d6f84ad8c452c60d"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/distribution.json": {
+      "bytes": 13268,
+      "sha256": "3ea14377d13d8469863a3f553330e8aadbc0b66acd22cb277da28f140d772404"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/evidence-manifest.json": {
+      "bytes": 1716,
+      "sha256": "3f77fa9cb8161f5c8fcfd0c962581181dda552640f904c7350ca8fac771bdf31"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/exports.json": {
+      "bytes": 1882,
+      "sha256": "f8f5b0f996cb406c8ffd235c73859ec5985c5edfc7dee6202fa9625759b6f449"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/legacy.json": {
+      "bytes": 7395,
+      "sha256": "d38ff243f6749c097330e584fe8d66d9a5f274af6c6dc3ad554655e9c8a887d1"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/memory-review-negative-controls.json": {
+      "bytes": 2738,
+      "sha256": "fd9156df56a8f0fa1fae44b5b6fa5956dd280125834be42ccad9d12acd5ec4f9"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/memory-review.json": {
+      "bytes": 1895,
+      "sha256": "7d70eca912d6aae3534f40254fc07872a47d111fe1fb94f36147efdedc118d2d"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/native.json": {
+      "bytes": 3036,
+      "sha256": "10b9ae3460d67920b9af02d4a57ab43a5c16989f4abd4998b08e5d35a4d13144"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/pack-audit.json": {
+      "bytes": 9384,
+      "sha256": "28175ce4704a71869f6a525e24b84d025d483b7ef7ac71aa46adbe1cba3b67ba"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/soak-trend.json": {
+      "bytes": 2004,
+      "sha256": "65d95274a7c6e41a9476916fc612d7305e82ee840e365b58f2a8cb82f87609ed"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/soak.json": {
+      "bytes": 14159,
+      "sha256": "28a6d14629c6905bf26b90379abd27d7d6513f4015180c060683d0440d84ea5d"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/suite-en.log": {
+      "bytes": 3874,
+      "sha256": "92e289a7de260072c6cb67bb0e51b676d7ff284592e6cdbc4eaebf20abfb7c86"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/suite-ru.log": {
+      "bytes": 3876,
+      "sha256": "c779213a557b5e1cb1c455712bf9790cde300c8affcc8a709281e1c6d2b77846"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/suite-source-audit.json": {
+      "bytes": 137,
+      "sha256": "0c98c63ca5f178feb236864b84a217dfc1ea02ac5d8ebf7fe556cd46f89fdaf6"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/suites.json": {
+      "bytes": 994,
+      "sha256": "50821ea94eb2642bbc79a0e2cde12955b5ff2c55860c2af79d48e5265af00473"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1-birth/visual-review.json": {
+      "bytes": 1231,
+      "sha256": "ae5e4416ed4a09e85534c0e4deadd40ca2016955cce479cb02a55f871e478a04"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/announcement-word-counts.json": {
+      "bytes": 33,
+      "sha256": "7feb1ee346cae3399e1d2a37f2102aaba0328d8c35f46e791c93d1489dd8fc70"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/contracts.json": {
+      "bytes": 1470,
+      "sha256": "3653481ccf5ab47b36d2399c911ce6722604d50727feaa64936c94992093db06"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/cycles.json": {
+      "bytes": 1113,
+      "sha256": "bfa59cb2e32d9471685f81689e6464e3fe4819fc47207e435721d99e639fef05"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/evidence-manifest.json": {
+      "bytes": 1508,
+      "sha256": "e42a6189e5405878d620188bf0cb38bbb4dd7e52dc3717fc51954581069d3795"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/exports.json": {
+      "bytes": 1887,
+      "sha256": "1d563547666bc0c70b793a63ded4ca870a951ac59ea6c7a28829353b1c1b7a35"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/legacy.json": {
+      "bytes": 7402,
+      "sha256": "3d063fe5443cccade73c5592ee261139f7fb9a8fc2c4ca48d32268f8afa459cd"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/native.json": {
+      "bytes": 3038,
+      "sha256": "bba364d6e40098b26158318c042c0bf92d1282777761004142d7de98a767cb0b"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/pack-audit.json": {
+      "bytes": 9378,
+      "sha256": "c36a6ca42c59598cfda5b939ec0193aea647ceb0f362c2ad287763b73ea8fb8c"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/soak-trend.json": {
+      "bytes": 1995,
+      "sha256": "c37360da83a0300b317d92a6866dd5fc6575b9a96b7301a70c0063e16aedf84c"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/soak.json": {
+      "bytes": 12941,
+      "sha256": "66f020039d17e77d19a3f2390f9778c90c64181edc3efa621c85332383b86399"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/suite-en.log": {
+      "bytes": 3694,
+      "sha256": "69ee21db2f22811a6a06a08b24d8dd5b7a090ad37bf60b9f9f3cf32a31094d9a"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/suite-ru.log": {
+      "bytes": 3694,
+      "sha256": "452322ca3cb97d07a2e439b61318409e5da525c5ffec7d6f222b4a092e519497"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/suite-source-audit.json": {
+      "bytes": 137,
+      "sha256": "cdb4ceffc6834f9df76620b8a39caccd83cf36b37a9eb64796e119c6c2cec032"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/suites.json": {
+      "bytes": 995,
+      "sha256": "2ddba072c5e2d5a6200e23fca9f4bab3ed8bf86705bb2b7af37b5230c61d52ec"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.1/visual-review.json": {
+      "bytes": 1187,
+      "sha256": "50ecc08ac30aa46d15d0752cb62a9f56520cf398002e49ef05d52abc668ec35d"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/announcement-word-counts.json": {
+      "bytes": 33,
+      "sha256": "5bf03e104048b834738d06a43d759100e6664aab8137bb52bf778ecebec8aead"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/contracts.json": {
+      "bytes": 1534,
+      "sha256": "653c96610ae61c8983d39b7e5e28a5d093d4ead3d8f7db8b65a8ae4a35fcd908"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/cycles.json": {
+      "bytes": 1122,
+      "sha256": "949e6870f575a30945c17d4bff61e386ecd5c9a325e61655a84893868d36fc11"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/evidence-manifest.json": {
+      "bytes": 1607,
+      "sha256": "e9fe6fca83cae0fe7833d433f579c20d5665a5028fc7dd4fb3fb5bf0f6581dbf"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/exports.json": {
+      "bytes": 1886,
+      "sha256": "b6a33087af0327592af7671d420b20e0216dda96c69641b2bcfee0662adc9771"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/legacy.json": {
+      "bytes": 7397,
+      "sha256": "7d83b674209d1ac1dcc16c3bc355d97e1ba45f29e55770c0ed8d24c06192a6f4"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/native.json": {
+      "bytes": 3038,
+      "sha256": "f9a7d2e050a13a6d9f67d3489c699364e76682281c054e60165bb9021562324c"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/pack-audit.json": {
+      "bytes": 9385,
+      "sha256": "2a790d01b0464ebf1b3fefe64116131c5fc246ad531d1ed140a62a2dc0779843"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/soak-trend.json": {
+      "bytes": 2001,
+      "sha256": "df778b9006077d6bc58a2b3b15fea46465cc77d4b2bc2837dd6fd9cd8588ad3b"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/soak.json": {
+      "bytes": 9268,
+      "sha256": "69f3a59b0c9c5358e2b5725039edb7dc3083bcdfafea8689ce1a32ea2b6e27cb"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/suite-en.log": {
+      "bytes": 3875,
+      "sha256": "a5c30499dac2807a23467a620f75a9647800765b339bb72ecf8390b1873cfc3a"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/suite-ru.log": {
+      "bytes": 3875,
+      "sha256": "6f081a4f66eaf0ea2c0ea18be7b31587045edde760c769c18f4bea6d3c77d715"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/suite-source-audit.json": {
+      "bytes": 137,
+      "sha256": "f2e7b11a86a58d7e763a5f23c1926e6227656f698dd01ca6fdb7cef9a0cab9fc"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/suites.json": {
+      "bytes": 1273,
+      "sha256": "0fca18bab650901c20d119c5a20b7f5027c6f7e47d0328739e95f0ffbebf444c"
+    },
+    "HeirsOfFortune/docs/acceptance-2.0.2-birth/visual-review.json": {
+      "bytes": 897,
+      "sha256": "7643bcf3038cdb180d2b01d05adcb93ce428b787358fe47cb98b212aaaea96d2"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/announcement-word-counts.json": {
+      "bytes": 193,
+      "sha256": "e92e996fcc7a2679eabe2ab9f3a438f8d698a3504c5695a5ab00da42757f521b"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/anti-slop.json": {
+      "bytes": 1973,
+      "sha256": "1b548f1f102ff316862ee694e27681d0d622fa4c8a86d12e45bb755d8d6a9fa2"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/balance-sweep.json": {
+      "bytes": 17972,
+      "sha256": "a46879a33ea1e5d2c1d85d972f9528bb5ef79c8566fc74a29d7b881d4395a65f"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-check_repo_isolation.log": {
+      "bytes": 35,
+      "sha256": "69f0983316a1d264cfbd0b40c5e08a212d372bbaf0d121b0818852f54d6d7538"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_audio_assets.log": {
+      "bytes": 83,
+      "sha256": "50d67bf2e75793dfe0a1572e0e1df3c07d98966c65a193311a86be45c6755d0c"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_copy_contract.log": {
+      "bytes": 76,
+      "sha256": "27208d8e2a4e0bf0647f326d19795738ce7dc8de5febbb8de4e6dc3e163b4029"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_critical_manifest.log": {
+      "bytes": 161,
+      "sha256": "f47e58f211e0f9825c94214381bb2210a248e3a7361840625a1b7ad0c86b7798"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_default_checkout.log": {
+      "bytes": 609,
+      "sha256": "e97a3598bd1fec7cc567a5efd87aa4e0432a0cfed9419dfea70feefa52bdab9a"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_export_contract.log": {
+      "bytes": 64,
+      "sha256": "45333fb6f9b3b55773bd1863c2d8b4d6a0bcc44d5d2de0cb2c86a3ee7e195dbd"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_license_bytes.log": {
+      "bytes": 67,
+      "sha256": "203974b2284ad208fe892bb823848d09424c0e49e531d5d3f12b96b10cd9f650"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_localization_generation.log": {
+      "bytes": 130,
+      "sha256": "a4f1ea4430cb8df25d43343cd3a5fa641e5a1a3bedac784dd51b01cf196f28af"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_mechanics_matrix.log": {
+      "bytes": 64,
+      "sha256": "bc670e6427be22d179b08382b403286410e53bd141d47e7943c6d6f12a912ea9"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_promise_matrix.log": {
+      "bytes": 87,
+      "sha256": "92f9a33535cad73ce9fcb947a60160a3ceaf76e73dc66b79bcabc16005f3d4d0"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_public_qa_contract.log": {
+      "bytes": 91,
+      "sha256": "4cc62cbe95d7c7330ba797c1e0b793f228a0a1516d2b7ef0360e3c315d255879"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_release_export_tool.log": {
+      "bytes": 91,
+      "sha256": "fe6561f7aabb0ccc3432b9b41dda7549e4d77098e424469743d82fb338bca89f"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_repo_isolation.log": {
+      "bytes": 110,
+      "sha256": "7a14a6b7a78ab0c73959601709b293818678a1cfb496728a9dcd17340f008027"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_soundtrack.log": {
+      "bytes": 69,
+      "sha256": "dfcc8dd0c18ec2164d5ee3e17fe8d6f2b029886e6c04307069d7866b58d9d4df"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/contracts.json": {
+      "bytes": 2620,
+      "sha256": "95d1f81a3ff3bbfd8cd6396bed737ea36cf394b7645374f29c402ec1fc3d88df"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/cycles.json": {
+      "bytes": 103934,
+      "sha256": "19018c4d4ef586304972c117c8df2b74474474d9db32fec981727a3e00c7525f"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/evidence-manifest.json": {
+      "bytes": 3679,
+      "sha256": "51ff4d2d73e90dfbf3f23a16043d6f5fcf4eac2acd4c93d97d20ff6868b22e37"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/exports.json": {
+      "bytes": 2596,
+      "sha256": "cd17f30d9be54573923a3da96311ac07d049a793201ad1fbbd70aecd9e79803f"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/galleries.json": {
+      "bytes": 21284,
+      "sha256": "3c32a031e8e6f2aa3c4cc528f109e16040e12cf99edc235ec8aeb551368c2a2d"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/gate.json": {
+      "bytes": 1992,
+      "sha256": "dc3e5c2f46f91c047dc9103ed854786e65ab524720a0c85247faa9b493e3b63d"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/legacy.json": {
+      "bytes": 14514,
+      "sha256": "911fe0c929dc08938b64086ff329d4d1aaab23e6c8ac8780f7c02dc4d478906c"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/native.json": {
+      "bytes": 6415,
+      "sha256": "c5f75eac10b2f227dfeea3af4013f2832a60dd84618872f7df920999cbfe6bf4"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/performance.json": {
+      "bytes": 6732,
+      "sha256": "1f93f7f6051cd05d3de6cc1429132c959feb54e9fb9611df93a344817d7d068e"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/soak-trend.json": {
+      "bytes": 2265,
+      "sha256": "9e4c4ef4a2e501fb2316e8161f790e7727061fa52996f9407f02915d7d9160cb"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/soak.json": {
+      "bytes": 14851,
+      "sha256": "5f213bde878e92c35a256cb1bf3adfc8a3495b51d6640fbbc35bb201b845fbae"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/suite-source-audit.json": {
+      "bytes": 966,
+      "sha256": "9011cfc3c0a909e72133047a4783eaaa1e3ede120a4a05e2c33f3eb94af1cec5"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/suites.json": {
+      "bytes": 1468,
+      "sha256": "2036f224099fd83b3bffc477202b34be8c0e8cf5d5e724abb81aca8818dd4ee5"
+    },
+    "HeirsOfFortune/docs/acceptance-2.1.0/visual-review.json": {
+      "bytes": 5394,
+      "sha256": "91738b5ce3908b724672832e113681579768925a54ec366fb572628812eda0ce"
+    },
+    "HeirsOfFortune/docs/acceptance/announcement-word-counts.json": {
+      "bytes": 29,
+      "sha256": "260a5022ce66eacae34bfaaf68f8696b46d4e03dba9ed67b52363067c6abbf43"
+    },
+    "HeirsOfFortune/docs/acceptance/audio-assets.log": {
+      "bytes": 709,
+      "sha256": "b0ff22396a1bce3e59ab11a9d08aa1c3f04927c5b0ec65b475bb7ab36d881b07"
+    },
+    "HeirsOfFortune/docs/acceptance/audio-verification.json": {
+      "bytes": 3235,
+      "sha256": "b163c88c0541d1038e305bda364e4f530c77454dd6b5d52abf00a43a2759c4e8"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/full-suite-summary.json": {
+      "bytes": 791,
+      "sha256": "b79ef7ec03dded9f98ed74fd64ce79ab913056eb1c5d087ed8ef2a5443da863d"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/full-suites/en/console.log": {
+      "bytes": 2954,
+      "sha256": "65904ac89e0ee711e61c61e722524f162cc8aa83f2f16a89d535e26dd830c321"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/full-suites/en/result.json": {
+      "bytes": 363,
+      "sha256": "37dc4b8f0888225979dab7451759a0b5bc2e3720a93527909656c59504230f65"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/full-suites/ru/console.log": {
+      "bytes": 2954,
+      "sha256": "8e96c6a004be486d59e2c471b51c82386025bc44bd7feebc156a39a0522f1dc9"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/full-suites/ru/result.json": {
+      "bytes": 363,
+      "sha256": "adcc65c90e671e0c094c94014f64256618f7a3d38721a070bb9ffbdf9d7a7aa8"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/independent-review.json": {
+      "bytes": 828,
+      "sha256": "940bac857b0e748badcbc7da977d9e6fce895c63c4fb7262c658340cda1def7c"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/owned-temp-checks/build_manifest.py.log": {
+      "bytes": 36,
+      "sha256": "d05fea35b26540151284359f5808fad65455c665c33156666d31baf9a496b3cd"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/owned-temp-checks/diagnostic.json": {
+      "bytes": 4895,
+      "sha256": "3a06411af281b96c35402977c9958f86b481dac0faf49829531a3c6b34647e9d"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/owned-temp-checks/test_audio_assets.py.log": {
+      "bytes": 82,
+      "sha256": "b146398e1a6a80e37b74ef5340aa249f6bc856ba08134b22391910026f0565ff"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/owned-temp-checks/test_copy_contract.py.log": {
+      "bytes": 74,
+      "sha256": "686ae5316a0afa3164e9844100a233b07d6fa865b5dee54fcbd5594b9c13ab1a"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/owned-temp-checks/test_critical_manifest.py.log": {
+      "bytes": 158,
+      "sha256": "65d5105b76cdc625d9dfa8fbf1394f1ccedd728d9a4cfa4c50d847ecfe740334"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/owned-temp-checks/test_soundtrack.py.log": {
+      "bytes": 68,
+      "sha256": "50327d5eb68ba46dc1b7d4d2b91c80bea11109fde4e2b5fdb1339c7dbfe6857b"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/post-suite-source-audit.json": {
+      "bytes": 292,
+      "sha256": "473995eaff8f3439b7ecac7a5cea2bcb9938466e4108472d24dd18523b465733"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/receipt.json": {
+      "bytes": 2190,
+      "sha256": "6435d9449aef837727a2d59da7f768e4cd9ce920d2e1fd8ab736a8c5f9ca8730"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/release-checksums.json": {
+      "bytes": 986,
+      "sha256": "18ef99b57774c1e775d99bb9420381c078c210edee87e01e9240dc661839d5ad"
+    },
+    "HeirsOfFortune/docs/acceptance/checkout-profile/release-sha256sum.log": {
+      "bytes": 45,
+      "sha256": "88e216f2828a75951d865c1f24e94d5efe82ea27ee7d709dcb6c076c2736018e"
+    },
+    "HeirsOfFortune/docs/acceptance/download-verification.json": {
+      "bytes": 1468,
+      "sha256": "60d60a480565ab410ddb4c62b154e6096794b592e76e4faa907b604fd74b75a3"
+    },
+    "HeirsOfFortune/docs/acceptance/export-preflight.json": {
+      "bytes": 529,
+      "sha256": "eccba64cd91f4949b451fea2e29f857f854d384d11263930c8751274644b73e6"
+    },
+    "HeirsOfFortune/docs/acceptance/gallery-cases.json": {
+      "bytes": 2107,
+      "sha256": "f1bb66f9df79677fd0479ca98f6e6ed5bad32354cb2e2b5fb351bfb2f19280ae"
+    },
+    "HeirsOfFortune/docs/acceptance/gate-signoff.json": {
+      "bytes": 5787,
+      "sha256": "04cc5336a0a952bc372b0234a29ad074031ac6106d2e4941c778d2984cdce694"
+    },
+    "HeirsOfFortune/docs/acceptance/legacy-read.json": {
+      "bytes": 607,
+      "sha256": "52ec1e97f21dab335502b3e0349d24f1a0e3079ab1d330c76c3a789e26a301dd"
+    },
+    "HeirsOfFortune/docs/acceptance/literal-key-absence.json": {
+      "bytes": 1647,
+      "sha256": "28e66e6488b168b01d6a39d6f4c1a8f8ea6e604d9d6820592b62ff198eb7d746"
+    },
+    "HeirsOfFortune/docs/acceptance/music-wavs.log": {
+      "bytes": 69,
+      "sha256": "dfcc8dd0c18ec2164d5ee3e17fe8d6f2b029886e6c04307069d7866b58d9d4df"
+    },
+    "HeirsOfFortune/docs/acceptance/public-export-preflight.log": {
+      "bytes": 223,
+      "sha256": "c67754177b3999d829852411663141278a538f4d956b4153e1747dd7e76bd2be"
+    },
+    "HeirsOfFortune/docs/acceptance/public-qa-contract.log": {
+      "bytes": 91,
+      "sha256": "4cc62cbe95d7c7330ba797c1e0b793f228a0a1516d2b7ef0360e3c315d255879"
+    },
+    "HeirsOfFortune/docs/acceptance/published-binary-smoke.json": {
+      "bytes": 1009,
+      "sha256": "88daf3e8e0a7dd2acf4345757b86eaa2787c180fd75d8789caa31039cd11c147"
+    },
+    "HeirsOfFortune/docs/acceptance/qa-export-preflight.log": {
+      "bytes": 223,
+      "sha256": "c67754177b3999d829852411663141278a538f4d956b4153e1747dd7e76bd2be"
+    },
+    "HeirsOfFortune/docs/acceptance/receipt.json": {
+      "bytes": 2982,
+      "sha256": "44cda587f21a2de2aebb9a253dcf336e9b6fb2dcd3e69268e1c79bdc3a60c010"
+    },
+    "HeirsOfFortune/docs/acceptance/soak-acceptance.json": {
+      "bytes": 1563,
+      "sha256": "e32a5a57029382e37576b62cc63dcf9ae6fe1745b6d52ecc5c6417ca287ac20b"
+    },
+    "HeirsOfFortune/docs/acceptance/source-blockers.json": {
+      "bytes": 8699,
+      "sha256": "ef920e0731cf7237b90b51cd17b4b74e29aa39050da7d657c542688912e7a299"
+    },
+    "HeirsOfFortune/docs/acceptance/suite-en.log": {
+      "bytes": 592,
+      "sha256": "aa6a23c0d682cbe6dd41b731fbe87eefc30713fa9cf88197405e0deee40497b1"
+    },
+    "HeirsOfFortune/docs/acceptance/suite-ru.log": {
+      "bytes": 592,
+      "sha256": "aa6a23c0d682cbe6dd41b731fbe87eefc30713fa9cf88197405e0deee40497b1"
+    },
+    "HeirsOfFortune/docs/acceptance/suite-summary.json": {
+      "bytes": 751,
+      "sha256": "32b44231715f5df16373b765577cc149768764810761a9a90ac0ed3f58774b8d"
+    },
+    "HeirsOfFortune/docs/acceptance/supplemental-summary.json": {
+      "bytes": 876,
+      "sha256": "8dd9aa4b22822dd3d4af6380c525bc065827fb4aa779dee86046ae88a4f74932"
+    },
+    "HeirsOfFortune/docs/acceptance/tag-isolation.json": {
+      "bytes": 157,
+      "sha256": "bd1ed439e4d8a96d55c64923353a8fcfaae9f5aac0889bfe0e661222c785e113"
+    },
+    "HeirsOfFortune/docs/acceptance/test_critical_manifest.py.log": {
+      "bytes": 893,
+      "sha256": "e6a28df3305ab3a784b626056c7319526fed4511826997d2da088f50568d1adc"
+    },
+    "HeirsOfFortune/docs/acceptance/test_license_bytes.py.log": {
+      "bytes": 67,
+      "sha256": "203974b2284ad208fe892bb823848d09424c0e49e531d5d3f12b96b10cd9f650"
+    },
+    "HeirsOfFortune/docs/acceptance/test_mechanics_matrix.py.log": {
+      "bytes": 64,
+      "sha256": "77f76abcbedb9ec550bfcedc253bfeb126ece53db560e9e3a66530d345d67866"
+    },
+    "HeirsOfFortune/docs/acceptance/test_promise_matrix.py.log": {
+      "bytes": 87,
+      "sha256": "92f9a33535cad73ce9fcb947a60160a3ceaf76e73dc66b79bcabc16005f3d4d0"
+    },
+    "HeirsOfFortune/docs/acceptance/test_public_qa_contract.py.log": {
+      "bytes": 91,
+      "sha256": "4cc62cbe95d7c7330ba797c1e0b793f228a0a1516d2b7ef0360e3c315d255879"
+    },
+    "HeirsOfFortune/docs/acceptance/visual-review.json": {
+      "bytes": 521,
+      "sha256": "0d47ea6760755eeaf39bfdb586b284ce51890a05ac42f9f019d4a17b527f2d52"
+    },
+    "HeirsOfFortune/docs/press/01-en-gallery-intro.png": {
+      "bytes": 896541,
+      "sha256": "64a5b77e357a5ac519300974ac7c08a15541146ed59e6e93bdb3c659c05248b0"
+    },
+    "HeirsOfFortune/docs/press/02-en-gallery-life.png": {
+      "bytes": 587512,
+      "sha256": "1fda7df9b9ab52e2ad9523b1e540e6cf26f1d5d54186da91be01518aefe24ef9"
+    },
+    "HeirsOfFortune/docs/press/03-ru-gallery-currencies.png": {
+      "bytes": 130397,
+      "sha256": "d33737db98209092a7dede138fb2d489141d14b529087f8332fbdc55ce21e384"
+    },
+    "HeirsOfFortune/docs/press/04-ru-gallery-business.png": {
+      "bytes": 139324,
+      "sha256": "58c89feaa7e9a41bfefac8e70e188fe70ec35ac68a1796cf32d3343b6ea8be67"
+    },
+    "HeirsOfFortune/docs/press/05-en-finales-victory-finale.png": {
+      "bytes": 896541,
+      "sha256": "64a5b77e357a5ac519300974ac7c08a15541146ed59e6e93bdb3c659c05248b0"
+    },
+    "HeirsOfFortune/docs/press/06-ru-finales-defeat-finale.png": {
+      "bytes": 940568,
+      "sha256": "79aa1a0ed8c0f86147dd2f31a7e800206b79b09c8ce0fd0edfbd7c56a864d3f3"
+    },
+    "HeirsOfFortune/docs/press/07-en-gallery-credits.png": {
+      "bytes": 85477,
+      "sha256": "117578a86d6ed1edd84368e1adf7a5502a7da31bbcb35f1360c9fb0001fef311"
+    },
+    "HeirsOfFortune/docs/press/08-ru-gallery-settings.png": {
+      "bytes": 160395,
+      "sha256": "5359fd22772933f16703d1a422dc1fccb5ba820e2aaf87e9694aef6f66029882"
+    },
+    "HeirsOfFortune/docs/press/CAPTIONS.md": {
+      "bytes": 2842,
+      "sha256": "36c8d30883adafab1d7f926ab02dce4db99b04c40da176c97f9226c1bf974124"
+    },
+    "HeirsOfFortune/docs/press/manifest.json": {
+      "bytes": 4256,
+      "sha256": "69b6b37d110adf13ca94388cba46930e77f0a9af732e78cc35201909615a5232"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/01-en-gallery-intro.png": {
+      "bytes": 672728,
+      "sha256": "9cfb8a2b2a9103e5427a71f118a3d59fc19dcafdefbeb1dd92aa194ceec13ddc"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/02-en-gallery-life.png": {
+      "bytes": 478179,
+      "sha256": "f583d40db1c18dd2dc4b097916d17596b612e50b992a8864d3a5536b0c27f54e"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/03-ru-gallery-currencies.png": {
+      "bytes": 89375,
+      "sha256": "e2909f1fb07966a091059be9240c601c9f20a61ce74ed59d145d42ceaf9b2c3e"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/04-en-gallery-birth.png": {
+      "bytes": 57940,
+      "sha256": "6e196ab0089ae60541d4b31896e6fe88ee50542bd5bc4fb569c3ae6397f71d59"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/05-en-finales-victory-finale.png": {
+      "bytes": 746186,
+      "sha256": "33953a79a0e0323a2558f4b032949a1cf6e2e69605001d37ae608eeb3cd59515"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/06-ru-finales-defeat-finale.png": {
+      "bytes": 685868,
+      "sha256": "c5603c5e7b8b952618b9131e0ea209a03238e78668d6100a5d89c83add449658"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/07-en-gallery-credits.png": {
+      "bytes": 69827,
+      "sha256": "f596c00cd490609830b2efb9d9011d29e9cb8502e6a12f0bebc6d62a50715da9"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/08-ru-gallery-settings.png": {
+      "bytes": 96736,
+      "sha256": "1de0b204fdbd9785103d1f2804e5eb7cc37435a63ab48a5341b31beae083cc22"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/CAPTIONS.md": {
+      "bytes": 809,
+      "sha256": "b3ea6e49948c9fa3ee49122b6470bf8e684648964bb9e9c05340a12d31b7c099"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1-birth/manifest.json": {
+      "bytes": 3945,
+      "sha256": "3b807730d07e73fe22f3b898154fe45d0867830df75a27f492430020423942e1"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/01-en-gallery-intro.png": {
+      "bytes": 680148,
+      "sha256": "d44f0019e5220bd605f63cf20c46c433873547eacdaf4fe27b10b0bb657043b0"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/02-en-gallery-life.png": {
+      "bytes": 515876,
+      "sha256": "4ad763e9ba7cb0ebbca8df99bfa5f1c04220c88c70900468cc776d4b65c022a5"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/03-ru-gallery-currencies.png": {
+      "bytes": 93788,
+      "sha256": "318e2c85b24f5b0347a4e0290d0dc920646024642c7f7dfafa52bf6adb9e7018"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/04-en-gallery-market.png": {
+      "bytes": 93139,
+      "sha256": "3ec824379647b199bdb3103c7f85969183bc7fc868beaa7e0ff21957bb0e1377"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/05-en-finales-victory-finale.png": {
+      "bytes": 748244,
+      "sha256": "e63a629d5631a93635a15386f261481ad0dc1e6803beb0b7b7671817782e96c4"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/06-ru-finales-defeat-finale.png": {
+      "bytes": 689557,
+      "sha256": "06cd58c6875d5a7b1ee6d532ee96795e6ac9bc9f9e373985f53a69e7e221740c"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/07-en-gallery-credits.png": {
+      "bytes": 71912,
+      "sha256": "ba61752ead8f820cf6c6c11a33a7287de520543984cfc4a6bb76070d872274e8"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/08-ru-gallery-settings.png": {
+      "bytes": 109694,
+      "sha256": "eab20add23586ffaeb1eac7e1aaf52ee8dc853cf91e0f07f847d172de2ce69d0"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/CAPTIONS.md": {
+      "bytes": 781,
+      "sha256": "262aba9cb125bff54beebfe4879b6b4cbc06a64fa84fae38a231e8ecdbf6bd2f"
+    },
+    "HeirsOfFortune/docs/press/v2.0.1/manifest.json": {
+      "bytes": 3917,
+      "sha256": "2b54d2d9a77a2adbc7c5b3f37131cb2fc25e747dfe5fa47a95f42482b797f6ba"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/01-en-gallery-intro.png": {
+      "bytes": 672728,
+      "sha256": "9cfb8a2b2a9103e5427a71f118a3d59fc19dcafdefbeb1dd92aa194ceec13ddc"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/02-en-gallery-life.png": {
+      "bytes": 472197,
+      "sha256": "52f19288d72521306b6a30c269d00300d495fdebe7247b6791b0215cc14f6628"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/03-ru-gallery-currencies.png": {
+      "bytes": 89647,
+      "sha256": "cdeb85da17eca5c30efcae3924ffb84c0709b13e5cca1b3e2d5cf57897c5b83b"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/04-en-gallery-birth.png": {
+      "bytes": 169377,
+      "sha256": "4dfd89b4872cf364f8f21386001d32e485838428e02735512579d56f598605ab"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/05-en-finales-victory-finale.png": {
+      "bytes": 746186,
+      "sha256": "33953a79a0e0323a2558f4b032949a1cf6e2e69605001d37ae608eeb3cd59515"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/06-ru-finales-defeat-finale.png": {
+      "bytes": 685868,
+      "sha256": "c5603c5e7b8b952618b9131e0ea209a03238e78668d6100a5d89c83add449658"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/07-en-gallery-credits.png": {
+      "bytes": 69827,
+      "sha256": "f596c00cd490609830b2efb9d9011d29e9cb8502e6a12f0bebc6d62a50715da9"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/08-ru-gallery-settings.png": {
+      "bytes": 97789,
+      "sha256": "12d037ce439a87002a5093766497b8f549f05a368115912359bed052db9abdbb"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/CAPTIONS.md": {
+      "bytes": 809,
+      "sha256": "b3ea6e49948c9fa3ee49122b6470bf8e684648964bb9e9c05340a12d31b7c099"
+    },
+    "HeirsOfFortune/docs/press/v2.0.2-birth/manifest.json": {
+      "bytes": 3945,
+      "sha256": "6fc02cce3b57dd4b32be5f8dc1c85a8b919a2e31598e5f0e3a94ad7126dd5e06"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/01-en-gallery-intro.png": {
+      "bytes": 1039947,
+      "sha256": "239dbcb7474307b2888d00347a8d754fee126dca66ab6606904b6179f38988e1"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/02-en-gallery-life.png": {
+      "bytes": 720016,
+      "sha256": "cf7132b815f104a806fd716ba309c8bdb67a4a34eb5e327b9ca625ae01bd299f"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/03-en-gallery-market.png": {
+      "bytes": 88071,
+      "sha256": "0e424f1e5d68e1855ec977d5b85762fe897591c2d6291ad1350c1379c05e0894"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/04-ru-gallery-dynasty-threads.png": {
+      "bytes": 60728,
+      "sha256": "718950cb91c55f86c74c5ca9a52395845d08eb5fb4e674d25f2431ce9b5791b1"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/05-ru-gallery-dynasty-legacy.png": {
+      "bytes": 96957,
+      "sha256": "037f69327e0fc9e1500b6103d92af64df61be05fa13cf9a7581e0d57db2bc1d0"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/06-en-gallery-dynasty-hall.png": {
+      "bytes": 50830,
+      "sha256": "fa89e6ad9ea09497acfce08c8df5e473ae4c101d7dd5dd84c52a085071f5ff25"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/07-en-gallery-milestone.png": {
+      "bytes": 401935,
+      "sha256": "b82b32f64d0fc366cd4697c20d86f0ea850941d5d1526710f0063526832c9f64"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/08-ru-gallery-settings.png": {
+      "bytes": 102270,
+      "sha256": "89f00be533ca70cf09fa716e810d798092f7ce77834fb861f2369233c4a8cc0e"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/CAPTIONS.md": {
+      "bytes": 2581,
+      "sha256": "246cc57181afb84db26a35e37ed5e312f92b1d05834b8ca8792a9d04f99a247c"
+    },
+    "HeirsOfFortune/docs/press/v2.1.0/manifest.json": {
+      "bytes": 4357,
+      "sha256": "f54db039cf8f45a660a6f0fad6fa9e585fc69ec1a2e05bf2ce9a96e6462af541"
+    },
+    "HeirsOfFortune/docs/promises/README-v2-source.md": {
+      "bytes": 10631,
+      "sha256": "9c54ae8d21c051adc962f207501216ae8791b21077fb2eb0321a8686dd3f4363"
+    },
+    "HeirsOfFortune/docs/superpowers/plans/2026-10-25-bilingual-release.md": {
+      "bytes": 2775,
+      "sha256": "ef3d008620048da139ae6b2ebcfc6abc2008ac5962ff610800d744e214fbeef8"
+    },
+    "HeirsOfFortune/docs/superpowers/plans/2026-10-25-clear-play.md": {
+      "bytes": 1183,
+      "sha256": "56b791ff7a377d904c891e9ae9fd19ec7c64a66bcab478ebedb481a92e490c7f"
+    },
+    "HeirsOfFortune/docs/superpowers/plans/2026-10-25-premium-presentation.md": {
+      "bytes": 932,
+      "sha256": "d2e11d574a3c1c2458a25122e484b0a99fe5ccec3b61df61405c6efc711c6a3e"
+    },
+    "HeirsOfFortune/docs/superpowers/plans/2026-10-25-release-hardening.md": {
+      "bytes": 771,
+      "sha256": "ac19b1ea9f1614d9c4479d85aeb6c1d7e977c949c8f075f9398ce78a9c03e7ef"
+    },
+    "HeirsOfFortune/docs/superpowers/specs/2026-10-25-bilingual-release-design.md": {
+      "bytes": 2161,
+      "sha256": "407fe6bfb0395025fcf5ad94880eab981f89e60525ecaf8c058fb2cd0476f509"
+    },
+    "HeirsOfFortune/docs/superpowers/specs/2026-10-25-clear-play-design.md": {
+      "bytes": 984,
+      "sha256": "85805a8d87c96900c1e3772226f5b8e12e853b28cd9b8ede0fdecfaf8618b742"
+    },
+    "HeirsOfFortune/docs/superpowers/specs/2026-10-25-premium-presentation-design.md": {
+      "bytes": 1021,
+      "sha256": "c31d6be9cbebe4e0a3c4e0de83c0372516ea07de5775f8d3861bf3d544bd5a1f"
+    },
+    "HeirsOfFortune/licenses/Audio.md": {
+      "bytes": 1123,
+      "sha256": "fe30199c1aff2063513f001f73b85592ec589566981e207b9a1ffd3a6e50b38e"
+    },
+    "HeirsOfFortune/licenses/Godot/COPYRIGHT.txt": {
+      "bytes": 100108,
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    "HeirsOfFortune/licenses/Godot/LICENSE.txt": {
+      "bytes": 1149,
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    },
+    "HeirsOfFortune/licenses/Onest-OFL.txt": {
+      "bytes": 4384,
+      "sha256": "071195d8806e226faeee60259c28ca67b458227af5195a73f5cfcab06e3003bc"
+    },
+    "HeirsOfFortune/licenses/Unbounded-OFL.txt": {
+      "bytes": 4392,
+      "sha256": "31e5d4e83955e7103c34570dd49b0570ef490800bd65b42923c0dd02445263b3"
+    },
+    "HeirsOfFortune/licenses/alegreya-OFL.txt": {
+      "bytes": 4395,
+      "sha256": "f6f60d5d4cf4f4b1fc4e41353c897a2f5a16e6396c0cd8fa8bdfd2f4586a9a68"
+    },
+    "HeirsOfFortune/licenses/manrope-OFL.txt": {
+      "bytes": 4387,
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    "HeirsOfFortune/licenses/prata-OFL.txt": {
+      "bytes": 4476,
+      "sha256": "1e055d25bde41906cc2e1a08bc156e7776d5084e1640d75dbd0065a937b488e3"
+    },
+    "HeirsOfFortune/third_party/Godot/COPYRIGHT.txt": {
+      "bytes": 100108,
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    "HeirsOfFortune/third_party/Godot/LICENSE.txt": {
+      "bytes": 1149,
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    }
+  },
+  "failures": [],
+  "scope": "Re-verification of the delivered archive from the outside: entry inventory, binary hashes against the export records, inherited licence bytes, key-material scan and checksum file. The scan treats the native EXE separately: a self-contained Godot export embeds the pack decryption key in its template by design, which is recorded as a limitation rather than a loose-secret failure, and it only passes when both export records agree on that template digest. Any key material in a loose file fails. It does not re-run the game inside the archive."
+}

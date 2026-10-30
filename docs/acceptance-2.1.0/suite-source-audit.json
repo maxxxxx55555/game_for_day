@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
-  "tracked_files": 456,
+  "source_commit": "1964e55c18bc2b40837d5eca3184f31b0094b6c0",
+  "tracked_files": 486,
   "test_changes_since_release_candidate": [
     "tests/capture_gallery.gd",
     "tests/test_dynasty_progression.gd",
