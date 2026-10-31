@@ -12,6 +12,8 @@ var scrim:GradientTexture2D
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# A cover scales to fill, and the overflow must not paint over the caption below it.
+	clip_contents = true
 	custom_minimum_size.y = 300
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var gradient:Gradient= Gradient.new()
