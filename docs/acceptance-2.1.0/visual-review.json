@@ -1,13 +1,17 @@
 {
   "result": "PASS",
-  "source_commit": "e9b0256bb3c3048068d2ea1e12e3f3970aab1d87",
-  "capture_note": "Frames were re-rendered from the working tree committed as e9b0256 after the Heir ambition copy changed; the 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area (720x1055) on this host. The viewport runs carry no loading frame, so they contribute 16 frames each.",
-  "reviewed_frames": 78,
+  "source_commit": "62c153b020e10ec5b5c07d1f176e37408bfb2a38",
+  "capture_note": "Eight gallery runs at 62c153b: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host, so those runs carry no boot-splash frame: 17 frames per window run, 16 per viewport run.",
+  "reviewed_frames": 132,
   "frames_per_run": {
-    "en-540x960": 17,
-    "ru-540x960": 17,
-    "en-720x1280": 16,
-    "ru-720x1280": 16
+    "dark/en-540x960": 17,
+    "dark/en-720x1280": 16,
+    "dark/ru-540x960": 17,
+    "dark/ru-720x1280": 16,
+    "light/en-540x960": 17,
+    "light/en-720x1280": 16,
+    "light/ru-540x960": 17,
+    "light/ru-720x1280": 16
   },
   "reviewed_locales": [
     "en",
@@ -23,7 +27,7 @@
       1280
     ]
   ],
-  "method": "Every gallery frame was inspected in four labelled contact sheets, and every 2.1 screen (perk choice, dynasty journal, legacy, life threads, hall of fame, ascension, milestone card) was additionally inspected at original size in both locales. The ambition row was captured with each ambition selected in both locales and both resolutions; the Heir frames were inspected at original size and every ambition frame passed a geometry check that keeps the description inside the viewport and the row above the start action.",
+  "method": "Every frame of both skins was captured at this commit and assembled into eight labelled contact sheets. The intro screen is the only surface this commit changes, and the change is measured: comparing the same screens against the previous capture set leaves a single differing band at (29,797)-(511,811) — the caption under the cover plate — in all four locale/resolution combinations, and that frame was inspected at original size in both skins. The remaining screens differ between the two captures only in live figures and tween phase (life, outcome, milestone, currencies), which the sheets were checked for; the ledger, the milestone card and the settings appearance row were additionally inspected at original size in both skins, because those are the surfaces this edition repaired.",
   "issues_found": [
     {
       "id": "raw-rank",
@@ -38,46 +42,111 @@
     {
       "id": "dynasty-ghosting",
       "detail": "The dynasty backdrop at alpha 0.985 let the life screen bleed through at 720x1280.",
-      "resolution": "Backdrop is now opaque INK_BG."
+      "resolution": "Backdrop is now opaque and follows the active skin."
     },
     {
       "id": "thread-phrase",
       "detail": "Milestone body read \"Thread: completed threads: 1\".",
-      "resolution": "Label is now Threads with the value \"%d completed\" / \"\u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u043e %d\"."
+      "resolution": "Label is now Threads with the value \"%d completed\" / \"завершено %d\"."
     },
     {
       "id": "age-plural",
-      "detail": "Hall of fame printed \"61 \u043b\u0435\u0442\" in Russian.",
-      "resolution": "GameManager.format_age declines \u0433\u043e\u0434/\u0433\u043e\u0434\u0430/\u043b\u0435\u0442 and the English year/years plural."
+      "detail": "Hall of fame printed \"61 лет\" in Russian.",
+      "resolution": "GameManager.format_age declines год/года/лет and the English year/years plural."
+    },
+    {
+      "id": "ledger-not-skinned",
+      "detail": "On the paper skin the dynasty ledger and the milestone card stayed ink-dark while every other surface turned light.",
+      "resolution": "Both now listen for theme_changed and repaint their own backdrop and rows."
+    },
+    {
+      "id": "theme-picker-language",
+      "detail": "The appearance row in settings printed its two items in Russian inside the English build.",
+      "resolution": "Items are filled through the display translation, and the settings suite asserts the language actually shown."
+    },
+    {
+      "id": "fixed-grey-on-paper",
+      "detail": "Ledger rows and the ambition explanation used one hardcoded light grey and were close to unreadable on the paper skin.",
+      "resolution": "Both resolve through Palette.muted() at paint time."
+    },
+    {
+      "id": "skin-erases-fonts",
+      "detail": "The skin applier cleared every button font override, which widened the bottom bar past 540 and 360 viewports and printed the raw choice text over the choice card.",
+      "resolution": "Only stylebox overrides are cleared now; font sizes stay with the screen that chose them."
+    },
+    {
+      "id": "choice-card-gutter",
+      "detail": "The numeral gutter narrowed the text area but the card still measured its height against the old width, cutting the last detail line.",
+      "resolution": "Height is measured against the card margins actually in force."
+    },
+    {
+      "id": "numerals-never-drawn",
+      "detail": "The documented roman numerals never appeared because no card was ever given its index.",
+      "resolution": "Choice cards receive their index at construction; visible in the life frames of both skins."
+    },
+    {
+      "id": "sparkline-uninitialised",
+      "detail": "The quote graph showed no unit, scale or axis until something resized it.",
+      "resolution": "Labels are built when the control enters the tree."
+    },
+    {
+      "id": "icon-weight",
+      "detail": "The two icons added with the appearance system were drawn at 1.5px while every other interface glyph uses 1.75px.",
+      "resolution": "Both reweighted; the audit now checks every icon rather than a fixed count."
+    },
+    {
+      "id": "cover-overflow",
+      "detail": "The intro cover scaled to fill and painted past its own bounds over the caption below it, which read as a scrim in the dark skin and as dark text on a dark photograph in the paper skin.",
+      "resolution": "The cover control now clips its drawing to its own rect."
     }
   ],
   "open_issues": [],
   "contact_sheets": {
-    "contact-en-540x960.png": "b3f435f8f3680a5040ab103dce2358726b2aea3ba3f51facc9062ffc296e7a4b",
-    "contact-en-720x1280.png": "2ac95b1a228d18004ad5488f725dbb3bb635dc55ec7296b170c82b6b0fc9138a",
-    "contact-ru-540x960.png": "6ed410c5e556192e13d42ccb1bbb235efc4dd05214c9324a08638ba9bde23dee",
-    "contact-ru-720x1280.png": "079b81ac834cc9823377964827a74dbdb6be2ca861a27c5d7d41316cd9dd672d"
+    "dark/contact-en-540x960.png": "4c14c90adf44e266e4c2d95d2b48dbe298796273b79d2ead9eee7ed2f8d45694",
+    "dark/contact-en-720x1280.png": "2d50aa7c5f4c3a79d4c580992a4933077c12b526936ef4eea8a33b683774ce48",
+    "dark/contact-ru-540x960.png": "7375454882672a5dfa04bde846328588883107817c32156f12cea34ebf317ba3",
+    "dark/contact-ru-720x1280.png": "3a2708fc6c954593cd1ae8d5252aba88cb427fb7f2fdd6cc39a9b9dfee89971e",
+    "light/contact-en-540x960.png": "7ceae18f0341746d2daaea233239fe6ceefb25201f37c02430555ccf2a1097f3",
+    "light/contact-en-720x1280.png": "cd4ea62853ad17433d6acf02b5cc8547c693ea959d826424cd133c4dd2e42745",
+    "light/contact-ru-540x960.png": "2f69466c07282b414287943eeed87af32221fe2ffc9c7521bd1b8513e88436bc",
+    "light/contact-ru-720x1280.png": "b956d9b35b212617ce93e5ffba3dcac25e4adba8e258f585a33e96e4e58d1bf1"
   },
   "source_art_inventory_files": 4,
   "source_art_hashes_unchanged": true,
   "press_frames": "docs/press/v2.1.0 (8 frames, manifest and captions record per-file hashes and which frames are staged).",
-  "packaging_note": "This review was refreshed at e9b0256, the commit the gate exports. Since the 30fcac4 review the only presentation-relevant source change is the Heir ambition copy, which is not on screen in the default intro frame; it is covered by the dedicated ambition captures above.",
-  "scope": "Presentation review only: clipping, ghosting, formatting and locale fit in captured frames. It does not establish human play, listening or balance acceptance, which remain with the owner.",
+  "packaging_note": "This review was re-rendered at 62c153b, the commit the publication gate exports for the re-issued 2.1.0. It replaces the single-skin capture set and the pre-merge two-skin set.",
+  "scope": "Presentation review only: clipping, ghosting, formatting, locale fit and skin coverage in captured frames. It does not establish human play, listening or balance acceptance, which remain with the owner.",
   "gallery_frames": 66,
-  "ambition_frames_captured": 12,
+  "ambition_frames_captured": 24,
   "ambition_frames": {
-    "en-540x960-ambition-heir.png": "10e5752583c58990690f0a831641c2c8974dfd8102ef5dddbcc8faca19c98659",
-    "en-540x960-ambition-meteor.png": "29dafed1d7cd9db9170209bfc3eff5dc7d7070b92f03e0b0aec38b8b44b786d5",
-    "en-540x960-ambition-steady.png": "fdb4a1c17160943e41e189798e2cb47d08ea85d7c9860912348f481792d522bf",
-    "en-720x1280-ambition-heir.png": "1d632764ab6eb954f73d4a99f5ef0244c623dfe6eb49066eee627cb1986b6ce3",
-    "en-720x1280-ambition-meteor.png": "af8b070de10b074787bf4a2cd44c25987b109b9767d84399a4951c8e0206ab78",
-    "en-720x1280-ambition-steady.png": "239dbcb7474307b2888d00347a8d754fee126dca66ab6606904b6179f38988e1",
-    "ru-540x960-ambition-heir.png": "b1f2b6705bf7c7e96085633a45c4a06c75e247f292dd46f1c280a89636ed6f47",
-    "ru-540x960-ambition-meteor.png": "d0dac117333a0f9bbf580a6da44eca551ea724a806c83b57cdf3edf38e8992c2",
-    "ru-540x960-ambition-steady.png": "cde091c3adfb8c9531b5b1366da0ddcf56c9f8838dfd33317505b40e3e243dbd",
-    "ru-720x1280-ambition-heir.png": "7dd24c71ff3594a010ac08dba0273d07fa50b14c6915388481c5a2be0b57c6f6",
-    "ru-720x1280-ambition-meteor.png": "478ff1e24afcfbebae5dcda5d6726c226011bd1dda3ce8e99331c21fecc2e276",
-    "ru-720x1280-ambition-steady.png": "1d126aeddaa2732f08f4cdd6d7ade2edc1bd4f2ac1f4669a75755617304102da"
+    "en-dark-540x960-ambition-heir.png": "c4441b3874b953c1cc3e60762b7a3e963d2ddfc28c467dd6645bb6796b705f1f",
+    "en-dark-540x960-ambition-meteor.png": "5ebb0df6c1d04a90570da68e737a4f73387a8749973c64b1cf6b938f4798e4d5",
+    "en-dark-540x960-ambition-steady.png": "97188796a5c5735ddab8042fa9fa5287012451c1e9e04f22fe3163dc900c9962",
+    "en-dark-720x1280-ambition-heir.png": "f0186eb774d67e60e9b229775aa3bc697179961592906bcc4db696e9300a9b26",
+    "en-dark-720x1280-ambition-meteor.png": "51ae753c75bfb9b60e6f0478cb50200602096d0a37cbeb694af608570dc0ca34",
+    "en-dark-720x1280-ambition-steady.png": "28346d44ee3b0d648fe5f357f771b26df0dd8b5aa9bb5ebce98dd71931a3b49e",
+    "en-light-540x960-ambition-heir.png": "f863c7548014eaad1a7eb8e828faa6e9b964e778021ed18bed57c74c6ff7610f",
+    "en-light-540x960-ambition-meteor.png": "a5dfd8589462b9d1e2bbe8af131527ab152192ad312e8956e392056dc5399a01",
+    "en-light-540x960-ambition-steady.png": "468cfeabcb20ceb1611fb3202e4ad53183b2c15880cf1d514f390d54b1b0bb90",
+    "en-light-720x1280-ambition-heir.png": "e8b73d2c9a4df24e464fcabea28c962c5bc7c3e8a16c1bbf919e80b5629deb18",
+    "en-light-720x1280-ambition-meteor.png": "a89b9d3aa17a259759543fe3581ad6725bcc3ac5f71845c7c09f6dc7086d4c3a",
+    "en-light-720x1280-ambition-steady.png": "72e786ff98d8d5725a061d566d9ad0f11e22c3cc0b5396964e4f1ab579ac4d3b",
+    "ru-dark-540x960-ambition-heir.png": "8c8258d687d7d7f5c13faa4ed1d97e54a9ad784209821f2b049d830dc045b816",
+    "ru-dark-540x960-ambition-meteor.png": "ec7b6e22fb9ae9c20ccfe5409820664ed240496a49d8736f6e2abdef3345b97e",
+    "ru-dark-540x960-ambition-steady.png": "7d613aa645866f2721a465a218994467577f702c2eeeb65bb062c75ed81ac81f",
+    "ru-dark-720x1280-ambition-heir.png": "fcc85ade35f88e787abe31ae719a7d5b71f9f0ac8e1dae9faddd84d73faf55d5",
+    "ru-dark-720x1280-ambition-meteor.png": "2393e2cf1aa00b27b7a7daec1cdfb7cac0b118848c9cd5d39aaa048584bc7efc",
+    "ru-dark-720x1280-ambition-steady.png": "1f205c1042176f1019ded33898ac1a445b7c7b08cdea5ebb0d28d44a229a4e18",
+    "ru-light-540x960-ambition-heir.png": "278a12ef94898f9409fc16c2c96b168e25825d54f17a955273af5181b92e5b46",
+    "ru-light-540x960-ambition-meteor.png": "6278f78d2d01503bd39c666af7f0de4efc5258423fd4db65f64cbc1914d632b6",
+    "ru-light-540x960-ambition-steady.png": "0167eba249d2e957455036ce19598274093ae2a2e7a7bccaba85a10f3ac31adb",
+    "ru-light-720x1280-ambition-heir.png": "240943ff91172fc1af4d790092200c0a33cca42406d3b114783af7ed18ded8b3",
+    "ru-light-720x1280-ambition-meteor.png": "4977bd60defa0b3ea1634414a0379d397b14353154cf2784076d5ce5ae53c418",
+    "ru-light-720x1280-ambition-steady.png": "910dda08043b1f92ef2d647da5e730d95a6b8b8f1535fca5f4a1491b941384c3"
   },
-  "frame_identity": "The intro frame is byte-identical to the previously reviewed capture in all four runs, so the press set in docs/press/v2.1.0 still shows the shipped screen. Frames that print live figures (loading, birth, perk, life, outcome, market, currencies, business, dynasty sections, milestone, settings) differ from the earlier capture only in those values and in tween phase; no layout difference was observed."
+  "frame_identity": "The intro frame is byte-identical to the previously reviewed capture in all four runs, so the press set in docs/press/v2.1.0 still shows the shipped screen. Frames that print live figures (loading, birth, perk, life, outcome, market, currencies, business, dynasty sections, milestone, settings) differ from the earlier capture only in those values and in tween phase; no layout difference was observed.",
+  "reviewed_themes": [
+    "dark",
+    "light"
+  ]
 }

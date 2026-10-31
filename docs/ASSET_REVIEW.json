@@ -1,9 +1,9 @@
 {
-  "review_date": "2026-10-28",
+  "review_date": "2026-10-31",
   "game": "Heirs of Fortune",
-  "method": "Visual contact-sheet inspection of every listed raster/vector, full narrative-image inspection,16px icon check; integrated gallery acceptance is recorded separately after capture review.",
+  "method": "Visual contact-sheet inspection of every listed raster/vector, full narrative-image inspection, 16px icon check and per-skin gallery review in both locales and both acceptance resolutions; integrated gallery acceptance is recorded in acceptance-2.1.0/visual-review.json.",
   "scope": "Source curation; does not claim human playtesting or final release acceptance",
-  "count": 10,
+  "count": 17,
   "files": [
     {
       "path": "assets/art/city_folio.png",
@@ -84,6 +84,55 @@
       "decision": "ACCEPT_SOURCE",
       "notes": "Crest/monogram remains distinguishable at16×16. Source geometry and executable raster match.",
       "provenance": "assets/asset-sources.json"
+    },
+    {
+      "path": "assets/ui/icons/market.svg",
+      "sha256": "f799d278cdef1f8e9be9521f4b3568b58a6c3f9ad98a25023681d8ec4f12545f",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Bottom-bar markets glyph, inspected in the life/market frames of both skins at both resolutions; 24px vector, 1.75px stroke, round caps, differs by shape."
+    },
+    {
+      "path": "assets/ui/icons/business.svg",
+      "sha256": "5135d4cc7bf9d4f66f915da85a7058a47892f8704246369a27f9ab1464a689cb",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Bottom-bar business glyph, inspected in the business frames of both skins; same geometry rule."
+    },
+    {
+      "path": "assets/ui/icons/grant.svg",
+      "sha256": "9cd5f09c3fdba7a54dde29a16071798713976eaecadd4cbd3ce16e170c597004",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Bottom-bar grant glyph, inspected in the life frames of both skins; same geometry rule."
+    },
+    {
+      "path": "assets/ui/icons/dynasty.svg",
+      "sha256": "cde3ccff36e28c76247a6155bd40fbac60ff362ef17326c65be3306840ed03d9",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Bottom-bar dynasty glyph, inspected in the ledger frames of both skins; same geometry rule."
+    },
+    {
+      "path": "assets/ui/icons/settings.svg",
+      "sha256": "4722efcddb997ab1eaac22d3b31eb7b3c8a52d35782f2aab9c205910b4491a8e",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Bottom-bar settings glyph, inspected in the settings frames of both skins; same geometry rule."
+    },
+    {
+      "path": "assets/ui/icons/theme.svg",
+      "sha256": "10b8b361e76c2b77c380f7a285d3da7ba6c199a2008114ec348537167a2ecccd",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_SOURCE",
+      "notes": "Skin switch on the intro row, inspected in both intro frames; drawn at the documented 1.75px after this edition reweighted it from 1.5px."
+    },
+    {
+      "path": "assets/ui/icons/globe.svg",
+      "sha256": "fe291074c85e5697b3a63b70d10e789bb09cff070318fcde98c9dc15cfd28be7",
+      "role": "interface vector icon",
+      "decision": "ACCEPT_INVENTORY_ONLY",
+      "notes": "Repository-authored 1.75px vector kept with the appearance system; no control draws it in this build, so it is recorded as inventory, not as shipped interface."
     }
   ],
   "integrated_gallery": "pending F3 acceptance and final F7 exact-build recapture",
