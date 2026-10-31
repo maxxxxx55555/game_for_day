@@ -1,6 +1,6 @@
 # Heirs of Fortune mechanics matrix
 
-Execution: **executed PASS for all 18 mechanics across the eight columns in the publication gate run at `807ba09c551134c76f23b4167ab7b5783dd7199e`** (headless and rendered, Russian and English, 49 and 50 cases).
+Execution: **executed PASS for all 18 mechanics across the eight columns in the publication gate run at `b38e9df3788b8d83cc6c0a7956614963d6c16819`** (headless and rendered, Russian and English, 49 and 50 cases).
 
 Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the final publication gate remain pending.
 
