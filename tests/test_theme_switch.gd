@@ -153,6 +153,26 @@ func run()->void:
 	panel.queue_free()
 	await process_frame
 	set_skin("dark")
+	# Back over a pending event is only proven for the skin the player is looking at
+	# when the ledger is opened from a real life, so one life is entered here.
+	set_skin("dark")
+	screen.show_intro_screen()
+	await process_frame
+	for index:int in 3:
+		screen.btn_1.pressed.emit()
+		await process_frame
+	check(screen.current_mode==screen.ScreenMode.LIFE,"A life is running so the ledger can be walked in the other skin")
+	set_skin("light")
+	screen.dynasty_button.pressed.emit()
+	await process_frame
+	var opened_backdrop:StyleBoxFlat=screen.dynasty_panel.backdrop.get_theme_stylebox("panel") as StyleBoxFlat
+	check(screen.dynasty_panel.visible and opened_backdrop!=null and opened_backdrop.bg_color==light.ink,"The ledger opens over the paper skin")
+	var pending_before:String=str(screen.active_event.get("title",""))
+	var turns_before:int=game.total_turns
+	screen.dynasty_panel.close_button.pressed.emit()
+	await process_frame
+	check(screen.current_mode==screen.ScreenMode.LIFE and not screen.dynasty_panel.visible,"Back returns from the ledger to the life")
+	check(str(screen.active_event.get("title",""))==pending_before and game.total_turns==turns_before,"Back over the ledger keeps the pending event and spends no quarter")
 	print("THEME SWITCH RESULT: ","PASS" if failures==0 else "FAIL")
 	if not await root.get_node("SoundManager").shutdown():
 		quit(1)

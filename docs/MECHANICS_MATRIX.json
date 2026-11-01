@@ -1249,6 +1249,71 @@
           }
         ]
       }
+    },
+    {
+      "mechanic": "Appearance: two skins, the switch and every colour it paints",
+      "cells": {
+        "happy": [
+          {
+            "path": "tests/test_theme_switch.gd",
+            "scope": "All fourteen palette tokens differ between the skins, the rebuilt theme paints labels with the active skin and every live control repaints."
+          }
+        ],
+        "bounds": [
+          {
+            "path": "tests/test_theme_switch.gd",
+            "scope": "Text, muted, accent, green and alert hold their contrast floors in both skins; no label keeps a token from the other skin; the staged finale sheet is provably identical in both."
+          }
+        ],
+        "rapid_input": [
+          {
+            "path": "tests/test_theme_switch.gd",
+            "scope": "Re-applying the active skin emits nothing, switching emits exactly one theme_changed, and the switch spends no quarter and no event RNG."
+          }
+        ],
+        "pause_background": [
+          {
+            "path": "tests/test_mobile_lifecycle.gd",
+            "scope": "Backgrounding keeps the skin the player picked with the other settings."
+          },
+          {
+            "path": "tests/test_comfort_preferences.gd",
+            "scope": "The chosen skin survives save and reload beside volumes and reduced motion."
+          }
+        ],
+        "save_load_hash": [
+          {
+            "path": "tests/test_comfort_preferences.gd",
+            "scope": "The skin is read back from the settings file after a reload."
+          },
+          {
+            "path": "tests/test_theme_switch.gd",
+            "scope": "The stored skin survives a settings reload and the switch touches no run field."
+          }
+        ],
+        "en_ru": [
+          {
+            "path": "tests/test_settings_lifetime.gd",
+            "scope": "Theme picker items speak the active language immediately after a locale change."
+          },
+          {
+            "path": "tests/test_theme_switch.gd",
+            "scope": "The case runs in both locales and the intro shows the catalogued heir description."
+          }
+        ],
+        "audio": [
+          {
+            "path": "tests/test_ui_audio_feedback.gd",
+            "scope": "One click cue per skin-toggle press, and the same press really switches the skin."
+          }
+        ],
+        "ui_escape": [
+          {
+            "path": "tests/test_theme_switch.gd",
+            "scope": "Back closes the ledger opened in the other skin without disturbing the pending event or the clock."
+          }
+        ]
+      }
     }
   ],
   "coverage_status": "EXECUTED_PASS",

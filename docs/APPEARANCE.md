@@ -54,13 +54,18 @@ engine default.
 
 ## How this is checked
 
-Both skins are captured frame-by-frame in eight gallery runs (EN and RU at
-540x960 and 720x1280, `GAME_GALLERY_THEME` selects the skin) and the palette
-tokens above are asserted against `Palette.gd` by the anti-slop audit, together
-with the seven interface icons and the presence of the theme keys in both
-locales. No suite case clicks the switch itself: pressing it, walking the ledger
-in the other skin and confirming nothing keeps the ink palette is the owner's
-fifth check in [HANDOFF.md](HANDOFF.md).
+`tests/test_theme_switch.gd` drives the switch itself: it measures that all fourteen
+tokens differ between the skins, that text, muted, accent, green and alert hold their
+contrast floors in both, that the rebuilt theme and every live control repaint, that no
+label keeps a token from the other skin in either direction, that re-applying the active
+skin emits nothing while a real switch emits exactly one signal and spends no quarter and
+no event RNG, that the stored skin survives a settings reload, and that Back over the
+ledger opened in the other skin leaves the pending event intact. Both skins are also
+captured frame by frame in eight gallery runs (EN and RU at 540x960 and 720x1280,
+`GAME_GALLERY_THEME` selects the skin), and the anti-slop audit pins the documented
+tokens against `Palette.gd`, the seven icons and the theme keys in both locales. The
+owner's fifth check stays: pressing the switch and looking at the result is a human
+judgement about whether the paper skin reads well, which no measurement settles.
 
 ## Country plate
 

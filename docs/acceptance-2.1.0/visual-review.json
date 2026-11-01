@@ -1,17 +1,17 @@
 {
   "result": "PASS",
-  "source_commit": "62c153b020e10ec5b5c07d1f176e37408bfb2a38",
-  "capture_note": "Eight gallery runs at 62c153b: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host, so those runs carry no boot-splash frame: 17 frames per window run, 16 per viewport run.",
-  "reviewed_frames": 132,
+  "source_commit": "2ff705d",
+  "capture_note": "Eight gallery runs at 2ff705d: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host.",
+  "reviewed_frames": 136,
   "frames_per_run": {
     "dark/en-540x960": 17,
-    "dark/en-720x1280": 16,
+    "dark/en-720x1280": 17,
     "dark/ru-540x960": 17,
-    "dark/ru-720x1280": 16,
+    "dark/ru-720x1280": 17,
     "light/en-540x960": 17,
-    "light/en-720x1280": 16,
+    "light/en-720x1280": 17,
     "light/ru-540x960": 17,
-    "light/ru-720x1280": 16
+    "light/ru-720x1280": 17
   },
   "reviewed_locales": [
     "en",
@@ -27,7 +27,7 @@
       1280
     ]
   ],
-  "method": "Every frame of both skins was captured at this commit and assembled into eight labelled contact sheets. The intro screen is the only surface this commit changes, and the change is measured: comparing the same screens against the previous capture set leaves a single differing band at (29,797)-(511,811) — the caption under the cover plate — in all four locale/resolution combinations, and that frame was inspected at original size in both skins. The remaining screens differ between the two captures only in live figures and tween phase (life, outcome, milestone, currencies), which the sheets were checked for; the ledger, the milestone card and the settings appearance row were additionally inspected at original size in both skins, because those are the surfaces this edition repaired.",
+  "method": "Every frame of both skins was captured at this commit and assembled into eight labelled contact sheets, then the dark set was compared pixel by pixel against the accepted 62c153b capture. Identical frames show the repaint refactor changed nothing outside live values; the changed frames differ only in figures, ages and the portfolio polyline, read from cropped pairs at original size. The ledger, the milestone card, settings and the intro were inspected in both skins, because those are the surfaces this build repairs.",
   "issues_found": [
     {
       "id": "raw-rank",
@@ -98,25 +98,27 @@
       "id": "cover-overflow",
       "detail": "The intro cover scaled to fill and painted past its own bounds over the caption below it, which read as a scrim in the dark skin and as dark text on a dark photograph in the paper skin.",
       "resolution": "The cover control now clips its drawing to its own rect."
-    }
+    },
+    "Labels painted at build time kept the previous skin colour after a switch (intro brand, ambition hint and description, outcome line, ledger rows and backdrop, currency and milestone surfaces); text colour is now named by palette token and repainted on switch.",
+    "Outcome tones, delta chips and the finale carried hardcoded hex copies of the dark tokens instead of the tokens; the literals became token calls or named stage values, and the finale is asserted to be a deliberately staged sheet in both skins."
   ],
   "open_issues": [],
   "contact_sheets": {
-    "dark/contact-en-540x960.png": "4c14c90adf44e266e4c2d95d2b48dbe298796273b79d2ead9eee7ed2f8d45694",
-    "dark/contact-en-720x1280.png": "2d50aa7c5f4c3a79d4c580992a4933077c12b526936ef4eea8a33b683774ce48",
-    "dark/contact-ru-540x960.png": "7375454882672a5dfa04bde846328588883107817c32156f12cea34ebf317ba3",
-    "dark/contact-ru-720x1280.png": "3a2708fc6c954593cd1ae8d5252aba88cb427fb7f2fdd6cc39a9b9dfee89971e",
-    "light/contact-en-540x960.png": "7ceae18f0341746d2daaea233239fe6ceefb25201f37c02430555ccf2a1097f3",
-    "light/contact-en-720x1280.png": "cd4ea62853ad17433d6acf02b5cc8547c693ea959d826424cd133c4dd2e42745",
-    "light/contact-ru-540x960.png": "2f69466c07282b414287943eeed87af32221fe2ffc9c7521bd1b8513e88436bc",
-    "light/contact-ru-720x1280.png": "b956d9b35b212617ce93e5ffba3dcac25e4adba8e258f585a33e96e4e58d1bf1"
+    "dark/en-540x960": "4d81bafbc2bcb597e9c154000646f58d320bd765b44338948e9dd2b1204e4577",
+    "dark/en-720x1280": "600b6f93c1a93ca88e18184fadeaf21fb7974f2566351eb074a5b53653bda20c",
+    "dark/ru-540x960": "947c839a0dbcf12b0446f2527ad14b5f4ccc8cedc00451caa350e545079e86e5",
+    "dark/ru-720x1280": "1f1eef6afab42765e484acab67f7734aecb23392233aae2f16b5e8f868e45d48",
+    "light/en-540x960": "e38391ce45210ed4040f39e61d4cd2a38544682473d21e321b19c760d8040742",
+    "light/en-720x1280": "5dbd084d14011b86a21aff84a40510802c26b9566a8c0dab2a8cdcbe4056b1b9",
+    "light/ru-540x960": "be9b7e74f20cac116bf7c93f3538b94846b268e1f094a5bb9bcefd15be31f53b",
+    "light/ru-720x1280": "a0c0c6652a73bb04d796cdd93a6548297005929f700231be732f5668360f5f6d"
   },
   "source_art_inventory_files": 4,
   "source_art_hashes_unchanged": true,
   "press_frames": "docs/press/v2.1.0 (8 frames, manifest and captions record per-file hashes and which frames are staged).",
-  "packaging_note": "This review was re-rendered at 62c153b, the commit the publication gate exports for the re-issued 2.1.0. It replaces the single-skin capture set and the pre-merge two-skin set.",
+  "packaging_note": "Re-rendered at 2ff705d, the commit that makes the skin switch repaint every colour it owns. It replaces the capture set taken at 62c153b, which showed the stale-ink labels this build fixes.",
   "scope": "Presentation review only: clipping, ghosting, formatting, locale fit and skin coverage in captured frames. It does not establish human play, listening or balance acceptance, which remain with the owner.",
-  "gallery_frames": 66,
+  "gallery_frames": 136,
   "ambition_frames_captured": 24,
   "ambition_frames": {
     "en-dark-540x960-ambition-heir.png": "c4441b3874b953c1cc3e60762b7a3e963d2ddfc28c467dd6645bb6796b705f1f",
@@ -125,28 +127,145 @@
     "en-dark-720x1280-ambition-heir.png": "f0186eb774d67e60e9b229775aa3bc697179961592906bcc4db696e9300a9b26",
     "en-dark-720x1280-ambition-meteor.png": "51ae753c75bfb9b60e6f0478cb50200602096d0a37cbeb694af608570dc0ca34",
     "en-dark-720x1280-ambition-steady.png": "28346d44ee3b0d648fe5f357f771b26df0dd8b5aa9bb5ebce98dd71931a3b49e",
-    "en-light-540x960-ambition-heir.png": "f863c7548014eaad1a7eb8e828faa6e9b964e778021ed18bed57c74c6ff7610f",
-    "en-light-540x960-ambition-meteor.png": "a5dfd8589462b9d1e2bbe8af131527ab152192ad312e8956e392056dc5399a01",
-    "en-light-540x960-ambition-steady.png": "468cfeabcb20ceb1611fb3202e4ad53183b2c15880cf1d514f390d54b1b0bb90",
-    "en-light-720x1280-ambition-heir.png": "e8b73d2c9a4df24e464fcabea28c962c5bc7c3e8a16c1bbf919e80b5629deb18",
-    "en-light-720x1280-ambition-meteor.png": "a89b9d3aa17a259759543fe3581ad6725bcc3ac5f71845c7c09f6dc7086d4c3a",
-    "en-light-720x1280-ambition-steady.png": "72e786ff98d8d5725a061d566d9ad0f11e22c3cc0b5396964e4f1ab579ac4d3b",
+    "en-light-540x960-ambition-heir.png": "0f701bc8f00386a9169fb4717c1bb27d348c7c9215bb19474ad01ef81229f439",
+    "en-light-540x960-ambition-meteor.png": "7e77c4b0fe942a9c44a31e87cf3fb8a592bf14d6c7ac714576eb4897fe8add64",
+    "en-light-540x960-ambition-steady.png": "7f56a785a63ffe4375967394b7ca8efb5c1bdb77bc08bcc2e14dc5efa3016cde",
+    "en-light-720x1280-ambition-heir.png": "f5074e24bc94d5466f4d38972866c25ab2abf14ee24aab8bc79ab51237d65609",
+    "en-light-720x1280-ambition-meteor.png": "06f274065db8d11bc3aa9589551e6ed253e79fe564e0784b90a8152313f737e8",
+    "en-light-720x1280-ambition-steady.png": "00a06a445c7c62351a5a4470f404125749516df2e508fa0495bf68976c2f8105",
     "ru-dark-540x960-ambition-heir.png": "8c8258d687d7d7f5c13faa4ed1d97e54a9ad784209821f2b049d830dc045b816",
     "ru-dark-540x960-ambition-meteor.png": "ec7b6e22fb9ae9c20ccfe5409820664ed240496a49d8736f6e2abdef3345b97e",
     "ru-dark-540x960-ambition-steady.png": "7d613aa645866f2721a465a218994467577f702c2eeeb65bb062c75ed81ac81f",
     "ru-dark-720x1280-ambition-heir.png": "fcc85ade35f88e787abe31ae719a7d5b71f9f0ac8e1dae9faddd84d73faf55d5",
     "ru-dark-720x1280-ambition-meteor.png": "2393e2cf1aa00b27b7a7daec1cdfb7cac0b118848c9cd5d39aaa048584bc7efc",
     "ru-dark-720x1280-ambition-steady.png": "1f205c1042176f1019ded33898ac1a445b7c7b08cdea5ebb0d28d44a229a4e18",
-    "ru-light-540x960-ambition-heir.png": "278a12ef94898f9409fc16c2c96b168e25825d54f17a955273af5181b92e5b46",
-    "ru-light-540x960-ambition-meteor.png": "6278f78d2d01503bd39c666af7f0de4efc5258423fd4db65f64cbc1914d632b6",
-    "ru-light-540x960-ambition-steady.png": "0167eba249d2e957455036ce19598274093ae2a2e7a7bccaba85a10f3ac31adb",
-    "ru-light-720x1280-ambition-heir.png": "240943ff91172fc1af4d790092200c0a33cca42406d3b114783af7ed18ded8b3",
-    "ru-light-720x1280-ambition-meteor.png": "4977bd60defa0b3ea1634414a0379d397b14353154cf2784076d5ce5ae53c418",
-    "ru-light-720x1280-ambition-steady.png": "910dda08043b1f92ef2d647da5e730d95a6b8b8f1535fca5f4a1491b941384c3"
+    "ru-light-540x960-ambition-heir.png": "79ee9a8da5935aa82d3a699b7f71e8205a2f711f15066adc062c241e6845ecf6",
+    "ru-light-540x960-ambition-meteor.png": "64c43b8cc8d386c7f8e3fca1fabf9d68a6e2f9fb144ba8bd02ee40bc47586e62",
+    "ru-light-540x960-ambition-steady.png": "42cd1e4b64061ae9b2f3af39e43138197fd517f6cc63342469bab20d5a037caf",
+    "ru-light-720x1280-ambition-heir.png": "b7c7a6737d8db0ae35527a5b760a9074ec56bec28a502f335490c9524597058d",
+    "ru-light-720x1280-ambition-meteor.png": "66ac569d6b2214d39242cc939dd055e9cd593def40b34dc9f273954ee2ddc0f8",
+    "ru-light-720x1280-ambition-steady.png": "bc82f625e5ec98746b30a42ad16cf4e2f0083c144c9fd4e63facea40bfba8244"
   },
   "frame_identity": "The intro frame is byte-identical to the previously reviewed capture in all four runs, so the press set in docs/press/v2.1.0 still shows the shipped screen. Frames that print live figures (loading, birth, perk, life, outcome, market, currencies, business, dynasty sections, milestone, settings) differ from the earlier capture only in those values and in tween phase; no layout difference was observed.",
   "reviewed_themes": [
     "dark",
     "light"
-  ]
+  ],
+  "dark_skin_comparison": {
+    "previous_capture_set": "gallery-62c153b-dark",
+    "frames_compared": 16,
+    "identical_frames": [
+      "birth",
+      "credits",
+      "dynasty-ascension",
+      "dynasty-hall",
+      "dynasty-journal",
+      "dynasty-legacy",
+      "dynasty-threads",
+      "intro",
+      "perk"
+    ],
+    "measured_differences": {
+      "birth": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "business": {
+        "differing_pixels": 2887,
+        "bbox": [
+          64,
+          139,
+          684,
+          262
+        ]
+      },
+      "credits": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "currencies": {
+        "differing_pixels": 10931,
+        "bbox": [
+          56,
+          108,
+          653,
+          741
+        ]
+      },
+      "dynasty-ascension": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "dynasty-hall": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "dynasty-journal": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "dynasty-legacy": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "dynasty-threads": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "intro": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "life": {
+        "differing_pixels": 23528,
+        "bbox": [
+          67,
+          795,
+          672,
+          1170
+        ]
+      },
+      "market": {
+        "differing_pixels": 3574,
+        "bbox": [
+          64,
+          139,
+          684,
+          935
+        ]
+      },
+      "milestone": {
+        "differing_pixels": 72895,
+        "bbox": [
+          38,
+          139,
+          684,
+          1170
+        ]
+      },
+      "outcome": {
+        "differing_pixels": 100171,
+        "bbox": [
+          38,
+          139,
+          684,
+          1170
+        ]
+      },
+      "perk": {
+        "differing_pixels": 0,
+        "bbox": null
+      },
+      "settings": {
+        "differing_pixels": 2887,
+        "bbox": [
+          64,
+          139,
+          684,
+          262
+        ]
+      }
+    },
+    "method": "The same dark-skin frames were compared pixel by pixel against the accepted capture. Identical frames prove the token refactor changed nothing that is not a live value; the changed frames were then cropped and read side by side, and every difference sits in a band holding figures, ages or the portfolio polyline."
+  }
 }

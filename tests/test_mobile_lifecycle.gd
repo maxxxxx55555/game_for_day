@@ -21,6 +21,7 @@ func run() -> void:
 	screen.show_intro_screen()
 	screen.ambition_buttons[2].pressed.emit()
 	check(game.ambition == "heir", "The ambition control writes the model before the first card")
+	game.set_theme_mode("light")
 	for choice in 3: screen.on_choice_pressed(1)
 	game.cash = 31415
 	screen._notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
@@ -29,6 +30,10 @@ func run() -> void:
 	var saved: Dictionary = game.load_current_life()
 	check(game.cash == 31415 and not saved.is_empty(), "Android backgrounding persists the current life before the OS can evict it")
 	check(game.ambition == "heir", "Backgrounding keeps the ambition the player chose")
+	# A value no save could contain, so restoring "light" can only come from the settings file.
+	game.theme_mode = "unwritten by any save"
+	game.load_dynasty()
+	check(str(game.theme_mode) == "light", "Backgrounding keeps the skin the player picked with the other settings")
 	var event: Dictionary = screen.active_event.duplicate()
 	var turns: int = game.total_turns
 	screen.open_business_menu()

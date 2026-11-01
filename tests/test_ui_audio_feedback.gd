@@ -92,6 +92,17 @@ func run() -> void:
     await process_frame
     await process_frame
     check(voices("ui_click").size()==1,"Switching ambition re-arms one cue without doubling it")
+    silence()
+    var game:Node=root.get_node("GameManager")
+    var skin_before:String=str(game.theme_mode)
+    screen.theme_button.button_down.emit()
+    screen.theme_button.pressed.emit()
+    await process_frame
+    await process_frame
+    check(voices("ui_click").size()==1,"The skin toggle acknowledges its press with one cue")
+    check(str(game.theme_mode)!=skin_before,"The same press really switches the skin")
+    silence()
+    game.set_theme_mode(skin_before)
     screen.queue_free()
     await process_frame
     silence()
