@@ -3,18 +3,29 @@ extends HFlowContainer
 const Palette=preload("res://scripts/ui/Palette.gd")
 const SkinTheme=preload("res://scripts/ui/FortuneTheme.gd")
 var reveal:Tween
-var shown_delta:Dictionary={}
 
 func _ready() -> void:
 	add_theme_constant_override("h_separation",6)
 	add_theme_constant_override("v_separation",6)
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
-	# Chip borders are mixed from the raised surface, so a switch rebuilds the chips
-	# rather than only re-tinting their labels.
+	# Chip borders are mixed from the raised surface, so a switch re-tints the finished
+	# chips in place. Rebuilding them here would restart the reveal and blink the row.
 	@warning_ignore("return_value_discarded")
-	GameManager.theme_changed.connect(func(_mode:String)->void:
-		if visible: present(shown_delta))
+	GameManager.theme_changed.connect(func(_mode:String)->void:recolor())
 	hide()
+
+## Re-applies the token colour of every chip: its label text and its border.
+func recolor() -> void:
+	for child:Node in get_children():
+		var box:PanelContainer=child as PanelContainer
+		if box==null or box.get_child_count()==0:
+			continue
+		var label:Label=box.get_child(0) as Label
+		if label==null or not label.has_meta(Palette.TOKEN_META):
+			continue
+		var tint:Color=Palette.color_for(str(label.get_meta(Palette.TOKEN_META)))
+		box.add_theme_stylebox_override("panel",SkinTheme.panel(Color(Palette.raised(),0.55),tint,10))
+		label.add_theme_color_override("font_color",tint)
 
 func clear_chips() -> void:
 	for child:Node in get_children():
@@ -44,7 +55,6 @@ func chip(text:String, token:String) -> void:
 
 func present(delta:Dictionary) -> void:
 	clear_chips()
-	shown_delta=delta
 	if delta.is_empty():
 		hide()
 		return

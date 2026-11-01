@@ -31,6 +31,16 @@ func contrast(one:Color,other:Color)->float:
 	var high:float=maxf(luminance(one),luminance(other))
 	var low:float=minf(luminance(one),luminance(other))
 	return (high+0.05)/(low+0.05)
+func stale_labels(unwanted:Dictionary, current:Dictionary)->Array[String]:
+	var offenders:Array[String]=[]
+	for label:Label in screen.find_children("*","Label",true,false):
+		if under_finale(label): continue
+		var painted:Color=label.get_theme_color("font_color")
+		for token:String in TOKENS:
+			if painted==unwanted[token] and painted!=current[token]:
+				offenders.append(str(label.get_path())+" keeps "+token)
+	return offenders
+
 func under_finale(node:Node)->bool:
 	var parent:Node=node.get_parent()
 	while parent!=null:
@@ -86,23 +96,8 @@ func run()->void:
 	check(backdrop!=null and backdrop.bg_color==light.ink,"The dynasty ledger backdrop repaints, not just refreshes")
 	var milestone:StyleBoxFlat=screen.milestone_card.card.get_theme_stylebox("panel") as StyleBoxFlat
 	check(milestone!=null and milestone.bg_color==light.surface,"The milestone card repaints its panel")
-	var stale:Array[String]=[]
-	for label:Label in screen.find_children("*","Label",true,false):
-		if under_finale(label): continue
-		var painted:Color=label.get_theme_color("font_color")
-		for token:String in TOKENS:
-			if painted==dark[token] and painted!=light[token]:
-				stale.append(str(label.get_path())+" keeps "+token)
-	check(stale.is_empty(),"No label keeps an ink token while the paper skin is active: "+", ".join(stale.slice(0,10)))
-	set_skin("dark")
-	var kept:Array[String]=[]
-	for label:Label in screen.find_children("*","Label",true,false):
-		if under_finale(label): continue
-		var painted:Color=label.get_theme_color("font_color")
-		for token:String in TOKENS:
-			if painted==light[token] and painted!=dark[token]:
-				kept.append(str(label.get_path())+" keeps "+token)
-	check(kept.is_empty(),"Switching back leaves no paper token behind: "+", ".join(kept.slice(0,10)))
+	check(stale_labels(dark, light).is_empty(),"No label keeps an ink token while the paper skin is active: "
+		+ ", ".join(stale_labels(dark, light).slice(0, 10)))
 	# The credits overlay is the one panel that can stay open while the skin changes,
 	# because the intro toggle is reachable by keyboard behind it.
 	var credits_action:Button=null
@@ -118,16 +113,21 @@ func run()->void:
 	check(screen.credits_panel.body.get_theme_color("font_color") == light.text, "Credits body stays readable on the panel it sits on")
 	screen.credits_panel.close_button.pressed.emit()
 	await process_frame
-	set_skin("dark")
-	# The finale is a staged sheet with its own scrim (LifeFinale's STAGE_* values), so
-	# its type has to be provably identical in both skins rather than excused from the scan.
+	# The finale is a staged sheet with its own scrim (LifeFinale's STAGE_* values), so its type
+	# has to be provably identical in both skins rather than excused from the scan. Its action
+	# buttons stay ordinary controls — staging their text without staging their surface would
+	# make them unreadable — so both halves are measured in the same pass.
 	set_skin("light")
 	var paper_sheet:Array=finale_sheet()
+	var paper_button_art:StyleBox=screen.finale_overlay.primary.get_theme_stylebox("normal")
 	set_skin("dark")
 	var ink_sheet:Array=finale_sheet()
+	var ink_button_art:StyleBox=screen.finale_overlay.primary.get_theme_stylebox("normal")
 	check(paper_sheet.size()>=6,"The staged finale offers its type for measurement (%d labels)" % paper_sheet.size())
 	check(paper_sheet==ink_sheet,"The finale keeps one staged sheet in either skin (%s versus %s)" % [str(paper_sheet.slice(0,3)),str(ink_sheet.slice(0,3))])
 	check(finale_marked()==0,"The staged sheet opts out of the skin system on purpose, not by accident")
+	check(paper_button_art!=null and ink_button_art!=null and paper_button_art!=ink_button_art,
+		"The finale buttons stay skin-following controls while its sheet is staged")
 	var turns:int=game.total_turns
 	var rng_before:int=screen.rng.state
 	set_skin("light")
@@ -183,12 +183,31 @@ func run()->void:
 	await process_frame
 	var opened_backdrop:StyleBoxFlat=screen.dynasty_panel.backdrop.get_theme_stylebox("panel") as StyleBoxFlat
 	check(screen.dynasty_panel.visible and opened_backdrop!=null and opened_backdrop.bg_color==light.ink,"The ledger opens over the paper skin")
+	# The ledger rows are built by refresh(), so this is where the moved call sites exist at all.
+	for section:String in screen.dynasty_panel.SECTIONS:
+		screen.dynasty_panel.set_section(section)
+		await process_frame
+		var paper_offenders:Array[String]=stale_labels(dark, light)
+		check(paper_offenders.is_empty(),"Ledger section %s carries no ink token on paper: %s" % [section, ", ".join(paper_offenders.slice(0,6))])
 	var pending_before:String=str(screen.active_event.get("title",""))
 	var turns_before:int=game.total_turns
 	screen.dynasty_panel.close_button.pressed.emit()
 	await process_frame
 	check(screen.current_mode==screen.ScreenMode.LIFE and not screen.dynasty_panel.visible,"Back returns from the ledger to the life")
 	check(str(screen.active_event.get("title",""))==pending_before and game.total_turns==turns_before,"Back over the ledger keeps the pending event and spends no quarter")
+	set_skin("dark")
+	screen.dynasty_button.pressed.emit()
+	await process_frame
+	for section:String in screen.dynasty_panel.SECTIONS:
+		screen.dynasty_panel.set_section(section)
+		await process_frame
+		var ink_offenders:Array[String]=stale_labels(light, dark)
+		check(ink_offenders.is_empty(),"Ledger section %s carries no paper token back in ink: %s" % [section, ", ".join(ink_offenders.slice(0,6))])
+	screen.dynasty_panel.close_button.pressed.emit()
+	await process_frame
+	check(stale_labels(light, dark).is_empty(),"Switching back leaves no paper token behind on the life screen")
+	game.set_theme_mode("dark")
+	await process_frame
 	print("THEME SWITCH RESULT: ","PASS" if failures==0 else "FAIL")
 	if not await root.get_node("SoundManager").shutdown():
 		quit(1)

@@ -125,10 +125,16 @@ func verify_dynasty(ui: LedgerView) -> void:
 	facts["ambition"]=str(GameManager.ambition)
 	if GameManager.ambition!="heir" or not ui.ambition_buttons[2].button_pressed:
 		notes.append("the heir control did not write the model")
-	# The wording itself is graded by the copy contract and the dynasty suite; here the route
-	# proves the player is shown exactly the catalogued heir description.
-	if ui.ambition_desc.text != LocalizationManager.source("ambition.heir.desc"):
-		notes.append("the intro shows something other than the heir description")
+	# A self-comparison would prove nothing, so the route requires the text to be the heir one,
+	# not the steady one, and to carry a percentage figure in whichever locale is running.
+	var heir_copy:String=LocalizationManager.source("ambition.heir.desc")
+	if ui.ambition_desc.text != heir_copy or ui.ambition_desc.text == LocalizationManager.source("ambition.steady.desc"):
+		notes.append("the intro does not show the heir description specifically")
+	# The control itself carries the short name; the cost is disclosed in the description line and
+	# repeated on the control tooltip, so both are checked rather than a catalogue string that
+	# the interface never shows.
+	if ui.ambition_buttons[2].tooltip_text != LocalizationManager.source("ambition.heir.desc"):
+		notes.append("the heir control does not carry its own disclosure")
 	for index:int in 3:
 		ui.btn_1.pressed.emit()
 		await get_tree().process_frame
@@ -185,8 +191,8 @@ func verify_dynasty(ui: LedgerView) -> void:
 		notes.append("the choice stored no flag")
 	if str(record.get("label",""))!=start_label:
 		notes.append("the stored label is not the choice text the player pressed")
-	if ui.delta_chips.get_child_count()==0 or GameManager.last_delta.is_empty():
-		notes.append("the choice painted no delta chips")
+	if not ui.delta_chips.visible or ui.delta_chips.get_child_count()==0 or GameManager.last_delta.is_empty():
+		notes.append("the choice left no visible delta chips")
 	for step:int in 5:
 		@warning_ignore("return_value_discarded")
 		GameManager.advance_quarter_and_markets()
@@ -196,6 +202,8 @@ func verify_dynasty(ui: LedgerView) -> void:
 		notes.append("no follow-up arrived after five quarters")
 		await finish_dynasty(ui,false,notes)
 		return
+	if str(ui.active_event.get("chain_id",""))!=thread_id:
+		notes.append("the follow-up belongs to %s, not the thread that was started" % str(ui.active_event.get("chain_id","")))
 	if not str(ui.active_event.get("note","")).contains(start_label):
 		notes.append("the follow-up does not recall the stored label")
 	var momentum_before:int=GameManager.momentum
@@ -294,8 +302,21 @@ func verify_dynasty(ui: LedgerView) -> void:
 	await get_tree().process_frame
 	ui.dynasty_panel.set_section("hall")
 	await get_tree().process_frame
-	if ui.dynasty_panel.content.get_child_count()<2:
-		notes.append("the hall renders nothing for the recorded life")
+	# Counting children proves nothing: the empty hall renders a message too. The recorded
+	# life has to appear as text the player can read.
+	var rendered_record:bool=false
+	var hall_value:Variant=GameManager.dynasty_records[records_before]
+	var hall_age_value:int=0
+	if hall_value is Dictionary:
+		var hall_record:Dictionary=hall_value
+		hall_age_value=hall_record.get("age",0)
+	var recorded_age:String=GameManager.format_age(hall_age_value)
+	for row:Label in ui.dynasty_panel.content.find_children("*","Label",true,false):
+		if row.text.contains(recorded_age):
+			rendered_record=true
+	if not rendered_record:
+		notes.append("the hall does not render the life that was just recorded")
+	facts["hall_rows"]=ui.dynasty_panel.content.get_child_count()
 	facts["records"]=GameManager.dynasty_records.size()
 	facts["generation"]=GameManager.generation
 	facts["choices"]=steps

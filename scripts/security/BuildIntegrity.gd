@@ -133,6 +133,8 @@ func _process(_delta:float) -> void:
         notice.add_theme_font_size_override("font_size",22)
     active_notice_key=key
     refresh_notice(locale)
+    # Reused across notices and across skin changes: re-apply the current skin before showing.
+    notice.theme = preload("res://scripts/ui/FortuneTheme.gd").create()
     notice.popup_centered()
 
 @warning_ignore_restore("unsafe_property_access")

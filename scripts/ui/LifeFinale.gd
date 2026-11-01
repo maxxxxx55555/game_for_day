@@ -23,6 +23,8 @@ const STAGE_TITLE:Color=Color("eeeadd")
 const STAGE_COPY:Color=Color("d8dfe0")
 const STAGE_GOLD:Color=Color("c9a227")
 const STAGE_WASH:Color=Color(0.04,0.09,0.15)
+const STAGE_CARD:Color=Color(0.18,0.25,0.34,0.9)
+const STAGE_CARD_EDGE:Color=Color(0.79,0.64,0.15,0.55)
 
 func label(parent: Node, font_size: int, color: Color = STAGE_TITLE) -> Label:
 	var text:Label= Label.new()
@@ -74,7 +76,7 @@ func _ready() -> void:
 	heading.add_theme_font_override("font",preload("res://scripts/ui/FortuneTheme.gd").display_font(600))
 	story = label(column,21,STAGE_COPY)
 	var card:PanelContainer= PanelContainer.new()
-	card.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(Color(0.18,0.25,0.34,0.9),Color(0.79,0.64,0.15,0.55)))
+	card.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(STAGE_CARD,STAGE_CARD_EDGE))
 	column.add_child(card)
 	var metrics:VBoxContainer= VBoxContainer.new()
 	card.add_child(metrics)

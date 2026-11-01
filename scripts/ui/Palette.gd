@@ -87,6 +87,9 @@ static func mix(base: Color, tint: Color, amount: float) -> Color:
 	return base.lerp(tint, clampf(amount, 0.0, 1.0))
 
 const TOKEN_META:String= "palette_token"
+## Only these tokens are readable as text on either skin. Painting a surface, rule or
+## track colour onto a label is a mistake that reads as invisible text, so paint() refuses it.
+const TEXT_TOKENS:Array[String]= ["text", "muted", "accent", "accent_deep", "green", "alert"]
 
 ## Colour for one documented token in the active skin.
 static func color_for(token: String) -> Color:
@@ -112,6 +115,9 @@ static func color_for(token: String) -> Color:
 ## Paints a control and remembers which token owns the colour, so a skin switch
 ## repaints it instead of leaving the previous skin's value on screen forever.
 static func paint(target: Control, token: String) -> void:
+	if not TEXT_TOKENS.has(token):
+		push_error("Token %s is not a text colour; use color_for() for surfaces." % token)
+		return
 	target.set_meta(TOKEN_META, token)
 	target.add_theme_color_override("font_color", color_for(token))
 

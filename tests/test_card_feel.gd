@@ -116,13 +116,16 @@ func run()->void:
     await process_frame
     check(chips.get_child_count()>=2,"A mixed delta surfaces one chip per changed stat")
     var first_chip:Label=chips.get_child(0).get_child(0) as Label
-    check(first_chip!=null and first_chip.get_theme_color("font_color")==Palette.accent(),"A cash gain chip draws the accent tone")
+    var accent_on_ink:Color=first_chip.get_theme_color("font_color") if first_chip!=null else Color.TRANSPARENT
+    check(first_chip!=null and str(first_chip.get_meta("palette_token",""))=="accent","A cash gain chip records the accent token it paints")
     game.set_theme_mode("light")
     await process_frame
     await process_frame
     check(chips.get_child_count()>=2,"A skin switch does not drop the visible chips")
     var repainted:Label=chips.get_child(0).get_child(0) as Label
-    check(repainted!=null and repainted.get_theme_color("font_color")==Palette.color_for("accent"),"The chip follows the accent token into the paper skin")
+    var accent_on_paper:Color=repainted.get_theme_color("font_color") if repainted!=null else Color.TRANSPARENT
+    check(repainted!=null and accent_on_paper!=accent_on_ink and accent_on_paper==Palette.color_for("accent"),
+          "The same chip changes to the paper accent, so it is not a frozen hex")
     check(screen.outcome.get_theme_color("font_color")==Palette.color_for("green"),"The outcome tone follows the skin switch")
     game.set_theme_mode(saved_skin)
     await process_frame

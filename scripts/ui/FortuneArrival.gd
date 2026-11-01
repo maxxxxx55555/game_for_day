@@ -78,7 +78,12 @@ func open_ledger() -> void:
 	hide_splash()
 func confirm_unsaved(retry:Callable,leave:Callable) -> void:
 	if quitting:return
-	if is_instance_valid(unsaved_dialog):unsaved_dialog.popup_centered();return
+	if is_instance_valid(unsaved_dialog):
+		# The dialog is reused, so it takes the skin that is current when it opens, not the
+		# one that was current when a previous quit attempt built it.
+		unsaved_dialog.theme=preload("res://scripts/ui/FortuneTheme.gd").create()
+		unsaved_dialog.popup_centered()
+		return
 	unsaved_dialog=ConfirmationDialog.new()
 	unsaved_dialog.theme=preload("res://scripts/ui/FortuneTheme.gd").create()
 	unsaved_dialog.title=LocalizationManager.get_string("ui.unsaved_title")
