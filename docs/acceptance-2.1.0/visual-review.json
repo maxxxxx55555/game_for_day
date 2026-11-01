@@ -99,8 +99,21 @@
       "detail": "The intro cover scaled to fill and painted past its own bounds over the caption below it, which read as a scrim in the dark skin and as dark text on a dark photograph in the paper skin.",
       "resolution": "The cover control now clips its drawing to its own rect."
     },
-    "Labels painted at build time kept the previous skin colour after a switch (intro brand, ambition hint and description, outcome line, ledger rows and backdrop, currency and milestone surfaces); text colour is now named by palette token and repainted on switch.",
-    "Outcome tones, delta chips and the finale carried hardcoded hex copies of the dark tokens instead of the tokens; the literals became token calls or named stage values, and the finale is asserted to be a deliberately staged sheet in both skins."
+    {
+      "id": "stale-skin-labels",
+      "detail": "Labels painted while their screen was built kept the previous skin after a switch: the intro brand, the ambition hint and description, the outcome line, ledger rows and backdrop, currency and milestone surfaces.",
+      "resolution": "Text colour is named by token — Palette.paint() records the token on the control and Palette.repaint() re-applies every marked colour when the skin changes; 28 call sites moved to the token path."
+    },
+    {
+      "id": "hardcoded-token-hexes",
+      "detail": "The outcome tones, the delta chips and the finale carried hardcoded hex copies of the dark tokens instead of the tokens, so they could not follow the paper skin at all.",
+      "resolution": "outcome_tone() and DeltaChips.chip() now name tokens; the finale keeps a deliberately staged sheet whose values are named STAGE_* and asserted identical in both skins rather than excused from the scan."
+    },
+    {
+      "id": "credits-backdrop-never-repaints",
+      "detail": "The credits overlay painted its backdrop once at build time and never listened for a skin change. The intro toggle is reachable by keyboard behind that overlay, so switching skins with credits open left near-black body text on the previous dark sheet — a readability defect, not a cosmetic one.",
+      "resolution": "FortuneCredits now re-applies its own backdrop on theme_changed, and the theme case drives exactly that path: open credits, switch skins, require the backdrop and the body colour to follow."
+    }
   ],
   "open_issues": [],
   "contact_sheets": {
