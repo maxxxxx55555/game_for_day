@@ -1,23 +1,23 @@
 {
-  "result": "FAIL",
+  "result": "PASS",
   "archive": {
     "name": "HeirsOfFortune-Windows-2.1.0.zip",
-    "bytes": 84631852,
-    "sha256": "dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011"
+    "bytes": 84655151,
+    "sha256": "587c2d23c9c23b585ebfe0cd6df0ff46f3609e703fd5499e084a93ff0ebc2f20"
   },
   "checksums_file": {
     "name": "HeirsOfFortune-SHA256SUMS-2.1.0.txt",
     "bytes": 99,
-    "sha256": "f821ccb77b50f4794b266e6f4338d91b7bc9e07f815e4848984610878a9d6b1e"
+    "sha256": "41c09ba2c91d45e3bf354ecfa63f3ddabc6927782688bffd1c1844b20c41fc8b"
   },
-  "runtime_export_commit": "b38e9df3788b8d83cc6c0a7956614963d6c16819",
-  "repository_head": "682164d976b6c44e0436b3fd7343f70ee6b1ac64",
+  "runtime_export_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
+  "repository_head": "87bb476353951899d54031a9c117585fe11a9c8f",
   "checks": [
     {
       "check": "the sums file names this archive and its digest",
       "ok": true,
       "detail": [
-        "dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011",
+        "587c2d23c9c23b585ebfe0cd6df0ff46f3609e703fd5499e084a93ff0ebc2f20",
         "HeirsOfFortune-Windows-2.1.0.zip"
       ]
     },
@@ -50,14 +50,14 @@
       "check": "the extracted EXE matches the export record",
       "ok": true,
       "detail": {
-        "bytes": 94063944
+        "bytes": 94065576
       }
     },
     {
       "check": "the extracted PCK matches the export record",
       "ok": true,
       "detail": {
-        "bytes": 22816572
+        "bytes": 22818204
       }
     },
     {
@@ -122,15 +122,15 @@
     },
     {
       "check": "the public pack refuses --dynasty with exit 64",
-      "ok": false,
+      "ok": true,
       "detail": {
-        "exit": 1
+        "exit": 64
       }
     },
     {
       "check": "the refusal for --dynasty names the private export requirement",
-      "ok": false,
-      "detail": "Godot Engine v4.7.stable.custom_build - https://godotengine.org"
+      "ok": true,
+      "detail": "om_build - https://godotengine.org\n\nQA arguments require a private QA export and GAME_QA=1"
     },
     {
       "check": "the guarded shutdown for --dynasty leaves no error or leaked object",
@@ -151,7 +151,7 @@
   "boot": {
     "exit": 0,
     "timed_out": false,
-    "seconds": 1.906,
+    "seconds": 1.89,
     "errors": [],
     "leaks": [
       "2"
@@ -172,14 +172,14 @@
   "guardverifybuild": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.031,
+    "seconds": 1.047,
     "errors": [],
     "leaks": [],
     "user_data": [
       "boot.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.49.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.29.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -190,7 +190,7 @@
   "guarddefeat": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.031,
+    "seconds": 1.125,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -198,8 +198,8 @@
       "guarddefeat.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.49.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.50.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.29.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.30.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -208,9 +208,9 @@
     ]
   },
   "guarddynasty": {
-    "exit": 1,
-    "timed_out": true,
-    "seconds": 180.031,
+    "exit": 64,
+    "timed_out": false,
+    "seconds": 1.141,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -219,18 +219,20 @@
       "guarddynasty.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.49.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.50.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.51.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.29.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.30.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.31.log"
     ],
     "excerpt": [
-      "Godot Engine v4.7.stable.custom_build - https://godotengine.org"
+      "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
+      "",
+      "QA arguments require a private QA export and GAME_QA=1"
     ]
   },
   "environment_only": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.031,
+    "seconds": 1.235,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -243,9 +245,6 @@
       "QA arguments require a private QA export and GAME_QA=1"
     ]
   },
-  "failures": [
-    "the public pack refuses --dynasty with exit 64",
-    "the refusal for --dynasty names the private export requirement"
-  ],
+  "failures": [],
   "scope": "Installed-archive boot and guard behaviour only. It does not judge pixels or sound, and the forced --quit-after exit is reported separately from the game-managed shutdown."
 }

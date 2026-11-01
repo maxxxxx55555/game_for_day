@@ -1,8 +1,35 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "018102b3949331b800bb8ce1c4ae2b7ab7572d96",
+  "host_head": "87bb476353951899d54031a9c117585fe11a9c8f",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "87bb476353951899d54031a9c117585fe11a9c8f",
+      "subject": "Heirs of Fortune 2.1.0: record the gate that passed on the exported commit",
+      "files": [
+        "docs/acceptance-2.1.0/anti-slop.json",
+        "docs/acceptance-2.1.0/balance-sweep.json",
+        "docs/acceptance-2.1.0/contract-test_mechanics_matrix.log",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/cycles.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/exports.json",
+        "docs/acceptance-2.1.0/galleries.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/gate.json",
+        "docs/acceptance-2.1.0/installed-smoke-pre-fix.json",
+        "docs/acceptance-2.1.0/installed-smoke.json",
+        "docs/acceptance-2.1.0/legacy.json",
+        "docs/acceptance-2.1.0/native.json",
+        "docs/acceptance-2.1.0/performance.json",
+        "docs/acceptance-2.1.0/soak-trend.json",
+        "docs/acceptance-2.1.0/soak.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json",
+        "docs/acceptance-2.1.0/suites.json",
+        "docs/acceptance-2.1.0/trend-validation.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96",
       "subject": "Heirs of Fortune 2.1.0: record what the re-check found and what it cannot see",
@@ -18,29 +45,29 @@
     "018102b": [
       "anti-slop.json:runtime_commit",
       "balance-sweep.json:source_commit",
-      "contracts.json:source_commit",
       "cycles.json:source_commit",
-      "evidence-manifest.json:source_test_commit",
       "legacy.json:source_commit",
-      "soak.json:source_commit",
-      "suite-source-audit.json:source_commit"
+      "soak.json:source_commit"
     ],
     "1ec7668": [
       "anti-slop.json:baseline_commit"
+    ],
+    "87bb476": [
+      "contracts.json:source_commit",
+      "evidence-manifest.json:source_test_commit",
+      "pack-audit.json:documentation_commit",
+      "suite-source-audit.json:source_commit"
     ],
     "466a8c1": [
       "evidence-manifest.json:runtime_export_commit",
       "exports.json:export_commit",
       "gate-window.json:gate_source_commit",
-      "gate.json:source_commit"
-    ],
-    "b38e9df": [
-      "installed-smoke-pre-fix.json:runtime_export_commit",
+      "gate.json:source_commit",
       "installed-smoke.json:runtime_export_commit",
       "pack-audit.json:runtime_export_commit"
     ],
-    "1a32532": [
-      "pack-audit.json:documentation_commit"
+    "b38e9df": [
+      "installed-smoke-pre-fix.json:runtime_export_commit"
     ]
   },
   "rule": "Nothing the player receives may change inside the gate window. Commits after the gated commit are allowed only when every file they touch lives under docs/; the exported EXE and PCK come from the gated commit and the packager refuses a mismatch.",

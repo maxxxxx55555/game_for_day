@@ -12,7 +12,7 @@
 - Added Unbounded/Onest type and emoji-free displayed copy.
 - Added chains, dynasty-progression and card-feel suites; mechanics matrix is now 19 rows / 152 cells.
 - 2.1 save fields remain optional; 1.4.0 and 2.0.x profiles load with neutral defaults.
-- Publication gate PASS at the commit named in `docs/acceptance-2.1.0/gate.json` (15 steps, clean tree); tag `v2.1.0` names that commit; release assets are `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file, whose current digests are recorded in [RELEASE_2.1.0.md](RELEASE_2.1.0.md) and [ACCEPTANCE_CERTIFICATE.md](ACCEPTANCE_CERTIFICATE.md).
+- Publication gate PASS at `466a8c1` (15 steps, 4,477.5 s, clean tree); tag `v2.1.0` names that commit; release assets are `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file, whose digests are recorded in [RELEASE_2.1.0.md](RELEASE_2.1.0.md) and [ACCEPTANCE_CERTIFICATE.md](ACCEPTANCE_CERTIFICATE.md).
 - The theme switch has its own case: `tests/test_theme_switch.gd` measures that all fourteen tokens differ, that contrast floors hold in both skins, that no label keeps the other skin's colour, that the switch costs no quarter and no RNG, and that Back over the ledger in the other skin leaves the pending event intact.
 
 ## Earlier v2 notes (historical, unchanged by 2.1.0)

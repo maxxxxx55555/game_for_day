@@ -8,7 +8,7 @@
     "console_sha256": "17d38522395377e51e862159ac9264b32ebb102245de65e136087819d48d4a6e",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
+    "source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06"
   },
   "en-rendered": {
     "result": "PASS",
@@ -19,7 +19,7 @@
     "console_sha256": "874b58b393eaa7029d968628a9783ecd6478af4bb8bed9904694e9ac8d92cf79",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
+    "source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06"
   },
   "ru-headless": {
     "result": "PASS",
@@ -30,7 +30,7 @@
     "console_sha256": "162aa3e64732aa01ae1dfc34b1d13231830b82aabce131ee9ca2a7ad3b48c8da",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
+    "source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06"
   },
   "ru-rendered": {
     "result": "PASS",
@@ -41,7 +41,8 @@
     "console_sha256": "5bf56188f5c1e69054152b2559393195b1b4c20b2314b66d1aedefe1e50c6bc8",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
+    "source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06"
   },
-  "result": "PASS"
+  "result": "PASS",
+  "provenance": "These four records re-read the console logs of the gate steps, so they carry the commit the gate pinned when it started rather than the commit of the machine that collected them; gate-window.json lists what moved on the host while the gate was running."
 }
