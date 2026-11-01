@@ -8,7 +8,7 @@
     "console_sha256": "9c0e87654a4fa4b37135af36b1aaf56c269e46aae600ea2db81b3357ac4910ac",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "1a3253230d5a89273b14ad4a53b61900280a078c"
+    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
   },
   "en-rendered": {
     "result": "PASS",
@@ -19,7 +19,7 @@
     "console_sha256": "d6240e96c83bffb9d8f4a959a7cbaddea2630fa562a055a0577ffb21286bb061",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "1a3253230d5a89273b14ad4a53b61900280a078c"
+    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
   },
   "ru-headless": {
     "result": "PASS",
@@ -30,7 +30,7 @@
     "console_sha256": "61024f57b51561c488587fefea7e860c60d3e849f3360b7f1d641c7614178a8f",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "1a3253230d5a89273b14ad4a53b61900280a078c"
+    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
   },
   "ru-rendered": {
     "result": "PASS",
@@ -41,7 +41,7 @@
     "console_sha256": "adc7b081edc6e05b1958154be28c55fc29a629da5fcef2a8efc82bf7222d70d8",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "1a3253230d5a89273b14ad4a53b61900280a078c"
+    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
   },
   "result": "PASS"
 }

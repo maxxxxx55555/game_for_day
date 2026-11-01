@@ -6,7 +6,7 @@ Eight player-started life threads now run across two links. A thread chosen from
 
 The dynasty ledger adds five real sections: journal, permanent legacy perks (eight unlocks, 4–15 points), life threads, a twelve-life hall of fame and ascension status. Legacy points survive generations; the intro offers three ambitions — steady, meteor and heir — and milestones at 18, 25, 35, 50 and 65 present a retrospective card and momentum without pausing the world.
 
-Ascension is a five-level NG+ path from the victory finale: each level raises inflation, volatility and difficulty and enriches legacy, while the next life starts clean. Cards gained a short reveal, signed delta chips for every changed stat, outcome tones and a live portfolio pulse; reduced motion snaps all of it. Palette, Unbounded display and Onest body type, the 1.75px vector icon set and the no-emoji presentation pass are documented in [art direction](docs/ART_DIRECTION.md).
+Ascension is a five-level NG+ path from the victory finale: each level raises inflation, volatility and difficulty and enriches legacy, while the next life starts clean. Cards gained a short reveal, signed delta chips for every changed stat, outcome tones and a live portfolio pulse; reduced motion snaps all of it. The build paints two complete appearances — ink-and-gold dark and warm-paper light — switched on the intro screen or in settings and remembered between runs, with every colour resolved through one palette module and a per-country plate on the event card; see [appearance](docs/APPEARANCE.md). Palette, Unbounded display and Onest body type, the 1.75px vector icon set and the no-emoji presentation pass are documented in [art direction](docs/ART_DIRECTION.md).
 
 2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 18 rows and 144 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
 
@@ -18,7 +18,7 @@ The publication gate ran to completion on this build host on 2026-10-31 at commi
 
 Панель династии собрана из пяти разделов: журнал, постоянные перки наследия (восемь покупок за 4–15 очков), нити, зал славы на двенадцать жизней и восхождение. Очки наследия переходят между поколениями; на старте доступны три амбиции — размеренная, метеор и наследник; вехи в 18, 25, 35, 50 и 65 лет показывают карточку-ретроспективу и импульс, не останавливая мир.
 
-Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
+Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Сборка рисует два целостных оформления — тёмное (чернила и золото) и светлое (тёплая бумага и бронза) с переключателем на стартовом экране и в настройках; выбор запоминается, все цвета берутся из одного модуля палитры, а карточка события несёт плашку страны рождения — см. [оформление](docs/APPEARANCE.md). Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
 
 Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик теперь 18 строк и 144 исполняемых ячейки. 31 октября 2026 года на этом сборочном хосте публикационный гейт прошёл целиком на коммите `b38e9df3788b8d83cc6c0a7956614963d6c16819` (перевыпуск; первая публикация 30 октября шла с коммита `807ba09`): строгий компилятор, 49 headless и 50 рендерных кейсов на русском и английском, четыре экспорта, девять нативных прогонов, 100 сеяных циклов, совместимость профилей 1.4.0/2.0.x и соук 1817 с — все шаги с нулевым кодом возврата. Тег `v2.1.0` стоит на этом экспортированном коммите, релиз содержит ровно два файла: ZIP для Windows и сверенный с ним файл сумм. Ручные проверки владельца остаются открытыми и не объявлены пройденными.
 
@@ -95,7 +95,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains 49 Godot invocations per locale (50 with rendered mode, which adds the chart-path regression), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 1084 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
+The current source runner contains 49 Godot invocations per locale (50 with rendered mode, which adds the chart-path regression), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack and audio-asset checks. These cover 23 core regressions, 1093 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens.
 
 ## Release scope and verification
 
@@ -138,7 +138,7 @@ Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checkli
 
 ## 2.1.0 acceptance and distribution
 
-The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `807ba09` and tagged `v2.1.0`. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
+The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `b38e9df` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins the shipped build paints. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
 
 ## Earlier editions
 

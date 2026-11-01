@@ -2,11 +2,11 @@
 
 Prepared for the gated Windows release «Legacy & Chains». The acceptance gate returned PASS at the exported commit `b38e9df3788b8d83cc6c0a7956614963d6c16819` on 2026-10-31 (a re-issue of the 2026-10-30 publication from `807ba09`, needed to carry the two-skin appearance system), the tag `v2.1.0` sits on that commit and the artifact digests are recorded in [RELEASE_2.1.0](RELEASE_2.1.0.md) and the [certificate](ACCEPTANCE_CERTIFICATE.md). The five owner checks in [HANDOFF](HANDOFF.md) stay open until the owner performs them, so nothing here claims human play, listening or balance acceptance. The publishable frames for 2.1.0 are listed with their hashes in [press/v2.1.0/CAPTIONS.md](press/v2.1.0/CAPTIONS.md); the earlier sets ([2.0.2](press/v2.0.2-birth/CAPTIONS.md), [2.0.1](press/v2.0.1-birth/CAPTIONS.md), [2.0.0](press/CAPTIONS.md)) remain historical and must not be attached to this release.
 
-## EN announcement — 361 words
+## EN announcement — 397 words
 
 Heirs of Fortune v2.1.0 — Legacy & Chains — brings an illustrated life and finance game to portable Windows x64 and adds a dynasty layer over the accepted 2.0.2 loop. Draw a birthplace from 192 countries, choose a trait and one of three ambitions, decide each quarter, build a business and manage a growing portfolio that passes to the next generation.
 
-Eight threads of fate now run across quarters: a flagged choice returns later as its own continuation card. A dynasty journal and a hall of fame record every finished life with its rank, age and outcome. Eight legacy perks cost points earned at inheritance, and Ascension starts a new game at one of five harder levels while keeping what the family already owns. Five milestone retrospectives land at ages 18, 25, 35, 50 and 65 and build momentum, which raises both pressure and the legacy payoff. Decision cards gained a reveal, signed delta chips, outcome tones and a live portfolio pulse.
+Eight threads of fate now run across quarters: a flagged choice returns later as its own continuation card. A dynasty journal and a hall of fame record every finished life with its rank, age and outcome. Eight legacy perks cost points earned at inheritance, and Ascension starts a new game at one of five harder levels while keeping what the family already owns. Five milestone retrospectives land at ages 18, 25, 35, 50 and 65 and build momentum, which raises both pressure and the legacy payoff. Decision cards gained a reveal, signed delta chips, outcome tones and a live portfolio pulse. Two complete appearances ship with it — an ink-and-gold dark skin and a warm-paper light skin — switched on the opening screen or in settings, remembered between runs, with a per-country plate on every event card.
 
 Markets include stocks, crypto, and fictional EUR, GBP, and JPY exchange rates. Currency trades disclose a 0.35 percent spread in each direction, while inflation changes purchasing power and living costs. These are simulated systems, with no live market feed, real-money investment, account, or required network connection.
 
@@ -16,11 +16,11 @@ Authenticated saves, checked money values, backups, and critical-data validation
 
 This portable executable is unsigned, so normal Windows warnings may appear. Android and store certification are excluded. Finite automated acceptance does not establish every-device compatibility, universal freedom from bugs, invulnerable protection, or AAA production scale. Read the included licenses and owner handoff before distribution.
 
-## RU announcement — 335 words
+## RU announcement — 368 words
 
-Heirs of Fortune 2.1.0 — «Наследие и цепи» — иллюстрированная игра о жизни и финансах для Windows x64, распространяемая в переносимом виде. Поверх принятой основы 2.0.2 добавлен слой династии: место рождения выбирается из 192 стран, доступны черта персонажа и один из трёх темпов жизни, решения по кварталам, развитие бизнеса и портфель, переходящий к следующему поколению.
+Heirs of Fortune 2.1.0 — «Наследие и нити» — иллюстрированная игра о жизни и финансах для Windows x64, распространяемая в переносимом виде. Поверх принятой основы 2.0.2 добавлен слой династии: место рождения выбирается из 192 стран, доступны черта персонажа и один из трёх темпов жизни, решения по кварталам, развитие бизнеса и портфель, переходящий к следующему поколению.
 
-Восемь нитей судьбы растянуты между кварталами: отмеченный выбор возвращается позже отдельной картой продолжения. Журнал династии и Зал славы хранят каждую завершённую жизнь с её рейтингом, возрастом и исходом. Восемь перков наследия оплачиваются очками, полученными при наследовании, а «Восхождение» начинает новую игру на одном из пяти более сложных уровней, сохраняя уже заработанное родом. Пять вех-ретроспектив приходятся на 18, 25, 35, 50 и 65 лет и наращивают импульс, повышая и давление, и итоговый выигрыш наследия. Карты решений получили раскрытие, чипы изменений со знаком, тона исхода и живой пульс портфеля.
+Восемь нитей судьбы растянуты между кварталами: отмеченный выбор возвращается позже отдельной картой продолжения. Журнал династии и Зал славы хранят каждую завершённую жизнь с её рейтингом, возрастом и исходом. Восемь перков наследия оплачиваются очками, полученными при наследовании, а «Восхождение» начинает новую игру на одном из пяти более сложных уровней, сохраняя уже заработанное родом. Пять вех-ретроспектив приходятся на 18, 25, 35, 50 и 65 лет и наращивают импульс, повышая и давление, и итоговый выигрыш наследия. Карты решений получили раскрытие, чипы изменений со знаком, тона исхода и живой пульс портфеля. В игре два целостных оформления — тёмное (чернила и золото) и светлое (тёплая бумага и бронза): переключаются на стартовом экране и в настройках, запоминаются между запусками, а карточка события несёт плашку страны рождения.
 
 На рынках доступны акции, криптовалюта и вымышленные курсы EUR, GBP и JPY. При обмене показан спред 0,35 процента в каждую сторону. Инфляция влияет на покупательную способность и расходы на жизнь. Все значения относятся к симуляции: игра не использует реальные инвестиции, онлайн-котировки, аккаунты или обязательное подключение к сети.
 
@@ -40,9 +40,10 @@ EXE не подписан Authenticode, поэтому возможно стан
 - Ascension new-game-plus at five difficulty levels, keeping the family start.
 - Milestone retrospectives at ages 18, 25, 35, 50 and 65 with a momentum counter.
 - Card feel: reveal animation, signed delta chips, outcome tones, live portfolio pulse.
+- Two complete appearances — ink-and-gold dark and warm-paper light — switched on the intro screen or in settings and remembered between runs; every event card carries a per-country plate.
 - Businesses, stocks, crypto and inheritance across generations.
 - EUR, GBP and JPY trading with a disclosed 0.35% each-way spread; simulated inflation.
-- Live English/Russian switching with 1084 localized keys and matched copy on the new screens.
+- Live English/Russian switching with 1093 localized keys and matched copy on the new screens.
 - Authenticated saves with 1.4.0 and 2.0.x compatibility; offline portable Windows x64 build.
 
 ## Features RU
@@ -55,9 +56,10 @@ EXE не подписан Authenticode, поэтому возможно стан
 - «Восхождение» с пятью уровнями сложности, сохраняющее старт рода.
 - Ретроспективы вех в 18, 25, 35, 50 и 65 лет со счётчиком импульса.
 - Подача карт: раскрытие, чипы изменений со знаком, тона исхода, живой пульс портфеля.
+- Два целостных оформления — тёмное (чернила и золото) и светлое (тёплая бумага и бронза): переключение на стартовом экране и в настройках, выбор запоминается; на карточке события — плашка страны рождения.
 - Бизнес, акции, криптовалюта и наследование между поколениями.
 - Обмен EUR, GBP и JPY со спредом 0,35% в каждую сторону; моделируемая инфляция.
-- Переключение русского и английского языков, 1084 ключа, согласованные тексты новых экранов.
+- Переключение русского и английского языков, 1093 ключа, согласованные тексты новых экранов.
 - Аутентификация сохранений и совместимость профилей 1.4.0 и 2.0.x; переносимая сборка без сети.
 
 ## Screenshots
