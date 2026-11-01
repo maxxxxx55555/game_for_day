@@ -25,6 +25,16 @@ Presentation: re-rendered at `2ff705d`, whose only difference from the exported 
 - A skin switch left everything that took a colour while its screen was built: the intro brand, the ambition hint and description, the outcome line, ledger rows and backdrop, currency and milestone surfaces kept the previous skin, while the outcome tones, the delta chips and the finale carried hardcoded hex copies of the dark tokens. Text colour is now named by token and repainted on switch, the literals are gone, and the finale is measured as an intentionally staged sheet rather than excused from the check.
 - The credits overlay painted its backdrop once at build time and never listened for a skin change. Because the intro toggle is reachable by keyboard behind that overlay, switching skins with credits open left near-black body text on the previous dark sheet — a readability defect. The panel now repaints its own backdrop and the theme case drives exactly that path.
 
+## Deferred after the independent re-check
+
+The re-check of the repaint batch confirmed five closures and named three items that are recorded rather than silently fixed, because none of them changes what the shipped build shows a player and each would otherwise cost a full re-gate:
+
+- `scripts/ReleaseVerification.gd` reads `dynasty_records[records_before]` after only appending a note when the hall gained no record, so a genuinely broken hall makes the route crash and the native runner fails by timeout instead of failing fast. The QA script is physically excluded from the public pack, so this affects diagnostic speed only.
+- A comment above that route still claims a percentage-figure check that no longer exists; the disclosure is asserted on the description and the control tooltip instead, because the interface never shows the percentage strings.
+- The reused boot splash keeps the theme it was created with if it is ever re-shown after being hidden; the unsaved dialog and the integrity notice were fixed at show time, this path was not.
+
+Two limits of the new theme case are also stated rather than glossed: opening a ledger section calls `refresh()`, which rebuilds its rows, so the scan proves the rebuilt rows carry the active skin and cannot observe a row that kept an old colour; and the chip visibility check in the dynasty route reads the container's own `visible` flag, so it does not by itself catch a chip row that is visible but mid-reveal.
+
 ## Music file checksums
 
 | Mood/cue | Title | SHA256 |

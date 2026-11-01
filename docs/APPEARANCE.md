@@ -66,7 +66,10 @@ captured frame by frame in eight gallery runs (EN and RU at 540x960 and 720x1280
 `GAME_GALLERY_THEME` selects the skin), and the anti-slop audit pins the documented
 tokens against `Palette.gd`, the seven icons and the theme keys in both locales. The
 owner's fifth check stays: pressing the switch and looking at the result is a human
-judgement about whether the paper skin reads well, which no measurement settles.
+judgement about whether the paper skin reads well, which no measurement settles. One
+limit of the scan is worth stating: opening a ledger section rebuilds its rows, so the
+case proves the rebuilt rows carry the active skin; it cannot observe a row that kept an
+older colour after a switch.
 
 ## Country plate
 
