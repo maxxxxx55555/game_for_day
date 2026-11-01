@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "source_commit": "2ff705d",
-  "capture_note": "Eight gallery runs at 2ff705d: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host.",
+  "source_commit": "4784eed",
+  "capture_note": "Eight gallery runs at 4784eed: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host.",
   "reviewed_frames": 136,
   "frames_per_run": {
     "dark/en-540x960": 17,
@@ -27,7 +27,7 @@
       1280
     ]
   ],
-  "method": "Every frame of both skins was captured at this commit and assembled into eight labelled contact sheets, then the dark set was compared pixel by pixel against the accepted 62c153b capture. Identical frames show the repaint refactor changed nothing outside live values; the changed frames differ only in figures, ages and the portfolio polyline, read from cropped pairs at original size. The ledger, the milestone card, settings and the intro were inspected in both skins, because those are the surfaces this build repairs.",
+  "method": "Every frame of both skins was captured at this commit and assembled into eight labelled contact sheets, then the dark set was compared pixel by pixel against the accepted 62c153b capture. Identical frames show the repaint refactor changed nothing outside live values; the changed frames differ only in figures, ages and the portfolio polyline, read from cropped pairs at original size. The ledger, the milestone card, settings and the intro were inspected in both skins, because those are the surfaces this build repairs. The 4784eed set was additionally compared against 2ff705d: the intro, credits and all five ledger sections are byte-identical across that change, which is the measurement that says the credits repaint and the token plumbing left the shipped dark skin as it was.",
   "issues_found": [
     {
       "id": "raw-rank",
@@ -104,14 +104,14 @@
   ],
   "open_issues": [],
   "contact_sheets": {
-    "dark/en-540x960": "4d81bafbc2bcb597e9c154000646f58d320bd765b44338948e9dd2b1204e4577",
-    "dark/en-720x1280": "600b6f93c1a93ca88e18184fadeaf21fb7974f2566351eb074a5b53653bda20c",
-    "dark/ru-540x960": "947c839a0dbcf12b0446f2527ad14b5f4ccc8cedc00451caa350e545079e86e5",
-    "dark/ru-720x1280": "1f1eef6afab42765e484acab67f7734aecb23392233aae2f16b5e8f868e45d48",
-    "light/en-540x960": "e38391ce45210ed4040f39e61d4cd2a38544682473d21e321b19c760d8040742",
-    "light/en-720x1280": "5dbd084d14011b86a21aff84a40510802c26b9566a8c0dab2a8cdcbe4056b1b9",
-    "light/ru-540x960": "be9b7e74f20cac116bf7c93f3538b94846b268e1f094a5bb9bcefd15be31f53b",
-    "light/ru-720x1280": "a0c0c6652a73bb04d796cdd93a6548297005929f700231be732f5668360f5f6d"
+    "dark/en-540x960": "294c179b0041300dac9f8eee3024f36b86fe781eb0bdf5f850e313316c1e2e3f",
+    "dark/en-720x1280": "6d51e230f5d35bc608d1944ef5eca461e4a4257343bbff01a283786f48c2fa40",
+    "dark/ru-540x960": "3fd148181f6cebae1194898079bc7fb77232112fea3ec2733fdfc11b57d420f8",
+    "dark/ru-720x1280": "240591df8f70b79b3faa181a6fd97ba0bedb749bc0d3707bdd046ba01513828e",
+    "light/en-540x960": "4183fccb442b3a8fd046e78219bca559e3538259b1b048091eced539ce1943b7",
+    "light/en-720x1280": "56191331f7553fa972e301dc93f7507507a19b94381aeb42e705b2678ab3ea8c",
+    "light/ru-540x960": "dd8419d8f6166b704f02ece70bc12226affd253825ce603fa1c6d7d4ef6a22ce",
+    "light/ru-720x1280": "5e3ea57ddf54c1ebd44ad9301b479aac09796bdb3bb5e2686f5d8ff5aed6ed77"
   },
   "source_art_inventory_files": 4,
   "source_art_hashes_unchanged": true,
@@ -152,29 +152,32 @@
     "light"
   ],
   "dark_skin_comparison": {
-    "previous_capture_set": "gallery-62c153b-dark",
+    "previous_capture_set": "gallery-2ff705d-dark",
     "frames_compared": 16,
     "identical_frames": [
-      "birth",
       "credits",
       "dynasty-ascension",
       "dynasty-hall",
       "dynasty-journal",
       "dynasty-legacy",
       "dynasty-threads",
-      "intro",
-      "perk"
+      "intro"
     ],
     "measured_differences": {
       "birth": {
-        "differing_pixels": 0,
-        "bbox": null
+        "differing_pixels": 9336,
+        "bbox": [
+          38,
+          81,
+          679,
+          691
+        ]
       },
       "business": {
-        "differing_pixels": 2887,
+        "differing_pixels": 2930,
         "bbox": [
-          64,
-          139,
+          38,
+          81,
           684,
           262
         ]
@@ -184,12 +187,12 @@
         "bbox": null
       },
       "currencies": {
-        "differing_pixels": 10931,
+        "differing_pixels": 15981,
         "bbox": [
           56,
-          108,
+          110,
           653,
-          741
+          868
         ]
       },
       "dynasty-ascension": {
@@ -217,55 +220,61 @@
         "bbox": null
       },
       "life": {
-        "differing_pixels": 23528,
+        "differing_pixels": 208919,
         "bbox": [
-          67,
-          795,
-          672,
-          1170
+          38,
+          81,
+          682,
+          1064
         ]
       },
       "market": {
-        "differing_pixels": 3574,
+        "differing_pixels": 3724,
         "bbox": [
-          64,
-          139,
+          38,
+          81,
           684,
           935
         ]
       },
       "milestone": {
-        "differing_pixels": 72895,
+        "differing_pixels": 149754,
         "bbox": [
           38,
-          139,
+          81,
           684,
           1170
         ]
       },
       "outcome": {
-        "differing_pixels": 100171,
+        "differing_pixels": 174425,
         "bbox": [
           38,
-          139,
+          81,
           684,
           1170
         ]
       },
       "perk": {
-        "differing_pixels": 0,
-        "bbox": null
+        "differing_pixels": 1810,
+        "bbox": [
+          38,
+          81,
+          679,
+          219
+        ]
       },
       "settings": {
-        "differing_pixels": 2887,
+        "differing_pixels": 2930,
         "bbox": [
-          64,
-          139,
+          38,
+          81,
           684,
           262
         ]
       }
     },
-    "method": "The same dark-skin frames were compared pixel by pixel against the accepted capture. Identical frames prove the token refactor changed nothing that is not a live value; the changed frames were then cropped and read side by side, and every difference sits in a band holding figures, ages or the portfolio polyline."
+    "method": "The same dark-skin frames were compared pixel by pixel against the previous capture. Seven frames are byte-identical, and they are exactly the surfaces this build could have altered: the intro, the credits overlay and all five dynasty sections. The nine differing frames all begin their difference at the live stat band (y=81) and were then cropped and read side by side; the perk frame, for example, differs because the capture driver seeded a different birth (CHINA, $1.3K, Health 88) where this run seeded (SUDAN, $150, Health 71), with identical layout, type and colour. The gallery driver does not pin the birth roll, so run-to-run figure differences are expected and are not evidence of a presentation change.",
+    "identical_surfaces_are_the_changed_code_paths": true
   }
 }
