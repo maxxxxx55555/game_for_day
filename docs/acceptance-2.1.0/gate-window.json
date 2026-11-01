@@ -1,8 +1,25 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "3b851e7c2efe0710664c4bf0565f61bf7cd0498f",
+  "host_head": "eec2d6c7dba10a54273a5abb0f3976a918c7fc09",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "eec2d6c7dba10a54273a5abb0f3976a918c7fc09",
+      "subject": "Heirs of Fortune 2.1.0: archive the build whose documents describe it",
+      "files": [
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/HANDOFF.md",
+        "docs/RELEASE_2.1.0.md",
+        "docs/acceptance-2.1.0/anti-slop.json",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/installed-smoke.json",
+        "docs/acceptance-2.1.0/pack-audit.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "3b851e7c2efe0710664c4bf0565f61bf7cd0498f",
       "subject": "Heirs of Fortune 2.1.0: name the binary that drove each exported route in the release table",
@@ -136,7 +153,7 @@
   ],
   "documentation_only_window": true,
   "receipts_by_recorded_commit": {
-    "35d2201": [
+    "3b851e7": [
       "anti-slop.json:runtime_commit",
       "contracts.json:source_commit",
       "evidence-manifest.json:source_test_commit",
