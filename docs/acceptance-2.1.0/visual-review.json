@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "source_commit": "4784eed",
-  "capture_note": "Eight gallery runs at 4784eed: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host.",
+  "source_commit": "b7f894b",
+  "capture_note": "Eight gallery runs at b7f894b: English and Russian at 540x960 and 720x1280, each captured once per skin. The 720x1280 runs use an exact-size SubViewport because a real Windows window is clamped to the 1920x1020 work area on this host.",
   "reviewed_frames": 136,
   "frames_per_run": {
     "dark/en-540x960": 17,
@@ -117,14 +117,14 @@
   ],
   "open_issues": [],
   "contact_sheets": {
-    "dark/en-540x960": "294c179b0041300dac9f8eee3024f36b86fe781eb0bdf5f850e313316c1e2e3f",
-    "dark/en-720x1280": "6d51e230f5d35bc608d1944ef5eca461e4a4257343bbff01a283786f48c2fa40",
-    "dark/ru-540x960": "3fd148181f6cebae1194898079bc7fb77232112fea3ec2733fdfc11b57d420f8",
-    "dark/ru-720x1280": "240591df8f70b79b3faa181a6fd97ba0bedb749bc0d3707bdd046ba01513828e",
-    "light/en-540x960": "4183fccb442b3a8fd046e78219bca559e3538259b1b048091eced539ce1943b7",
-    "light/en-720x1280": "56191331f7553fa972e301dc93f7507507a19b94381aeb42e705b2678ab3ea8c",
-    "light/ru-540x960": "dd8419d8f6166b704f02ece70bc12226affd253825ce603fa1c6d7d4ef6a22ce",
-    "light/ru-720x1280": "5e3ea57ddf54c1ebd44ad9301b479aac09796bdb3bb5e2686f5d8ff5aed6ed77"
+    "dark/en-540x960": "bbe12c6e5cce7459db0cc5966f7d5b3ade5923f5d75d47851124588c67df5693",
+    "dark/en-720x1280": "4daa364e361c3cfd32ea0f4c97dce7d1678ac46213e21dc289201e798642835e",
+    "dark/ru-540x960": "e8a1d00365016199b8d8188464d44ca8af1b26a63bd4d0dac98a171034c0bb3e",
+    "dark/ru-720x1280": "43ec0f86c9074b4e92f4844a6b003f1388c111a3adc3363aaad32ea2838cc15b",
+    "light/en-540x960": "15768977a4ef189dcda181921f2e539e0f54794d1cc91b173d76c7ea3cf81dba",
+    "light/en-720x1280": "518096c4d8fc3442ed784baec7f287e4e75d93d558b1e687270021f30f537622",
+    "light/ru-540x960": "d84aa48f4c9758bf0a04443bab3c965a4acb2b7a21f078ea626b67e3d2ccd18d",
+    "light/ru-720x1280": "1ab69cacf86ad66ec7a5d96ea4f92e4283eeef27440c19ed0c1cce0c8bac15df"
   },
   "source_art_inventory_files": 4,
   "source_art_hashes_unchanged": true,
@@ -165,7 +165,7 @@
     "light"
   ],
   "dark_skin_comparison": {
-    "previous_capture_set": "gallery-2ff705d-dark",
+    "previous_capture_set": "gallery-4784eed-dark",
     "frames_compared": 16,
     "identical_frames": [
       "credits",
@@ -178,21 +178,21 @@
     ],
     "measured_differences": {
       "birth": {
-        "differing_pixels": 9336,
+        "differing_pixels": 8542,
         "bbox": [
           38,
           81,
-          679,
+          680,
           691
         ]
       },
       "business": {
-        "differing_pixels": 2930,
+        "differing_pixels": 1013,
         "bbox": [
           38,
           81,
-          684,
-          262
+          680,
+          219
         ]
       },
       "credits": {
@@ -200,12 +200,12 @@
         "bbox": null
       },
       "currencies": {
-        "differing_pixels": 15981,
+        "differing_pixels": 12104,
         "bbox": [
-          56,
+          69,
           110,
           653,
-          868
+          862
         ]
       },
       "dynasty-ascension": {
@@ -233,61 +233,60 @@
         "bbox": null
       },
       "life": {
-        "differing_pixels": 208919,
+        "differing_pixels": 171402,
         "bbox": [
           38,
           81,
-          682,
-          1064
+          681,
+          707
         ]
       },
       "market": {
-        "differing_pixels": 3724,
+        "differing_pixels": 1535,
         "bbox": [
           38,
           81,
-          684,
+          680,
           935
         ]
       },
       "milestone": {
-        "differing_pixels": 149754,
+        "differing_pixels": 140686,
         "bbox": [
           38,
           81,
-          684,
+          682,
           1170
         ]
       },
       "outcome": {
-        "differing_pixels": 174425,
+        "differing_pixels": 166398,
         "bbox": [
           38,
           81,
-          684,
+          682,
           1170
         ]
       },
       "perk": {
-        "differing_pixels": 1810,
+        "differing_pixels": 2065,
         "bbox": [
           38,
           81,
-          679,
+          680,
           219
         ]
       },
       "settings": {
-        "differing_pixels": 2930,
+        "differing_pixels": 1013,
         "bbox": [
           38,
           81,
-          684,
-          262
+          680,
+          219
         ]
       }
     },
-    "method": "The same dark-skin frames were compared pixel by pixel against the previous capture. Seven frames are byte-identical, and they are exactly the surfaces this build could have altered: the intro, the credits overlay and all five dynasty sections. The nine differing frames all begin their difference at the live stat band (y=81) and were then cropped and read side by side; the perk frame, for example, differs because the capture driver seeded a different birth (CHINA, $1.3K, Health 88) where this run seeded (SUDAN, $150, Health 71), with identical layout, type and colour. The gallery driver does not pin the birth roll, so run-to-run figure differences are expected and are not evidence of a presentation change.",
-    "identical_surfaces_are_the_changed_code_paths": true
+    "method": "The same dark-skin frames were compared pixel by pixel against the baseline capture. Identical frames prove the change touched no presentation surface outside live values; every remaining difference sits in a band holding figures, ages or the portfolio polyline."
   }
 }

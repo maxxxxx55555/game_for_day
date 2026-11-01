@@ -1,8 +1,8 @@
 {
   "status": "PUBLISHED_2_1_0_PRESS_SET",
   "publishable": true,
-  "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
-  "capture": "Rendered by tests/capture_gallery.gd on Godot 4.7.stable.official.5b4e0cb0f at 720x1280 in the dark skin from commit 4784eedbc6eb62508304c844cb29b87bf456f5e8, the last commit that changes shipping bytes for this release. The paper skin is covered by the gallery evidence in docs/acceptance-2.1.0.",
+  "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
+  "capture": "Rendered by tests/capture_gallery.gd on Godot 4.7.stable.official.5b4e0cb0f at 720x1280 in the dark skin from commit b7f894b4dacfcf97c1af5b78de486e9a6c223b1a, the last commit that changes shipping bytes for this release. The paper skin is covered by the gallery evidence in docs/acceptance-2.1.0.",
   "images": [
     {
       "file": "01-en-gallery-intro.png",
@@ -11,7 +11,7 @@
       "sha256": "28346d44ee3b0d648fe5f357f771b26df0dd8b5aa9bb5ebce98dd71931a3b49e",
       "publishable": true,
       "staged": false,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -21,10 +21,10 @@
       "file": "02-en-gallery-life.png",
       "locale": "en",
       "caption": "A life decision with signed delta chips / Жизненное решение с чипами изменений",
-      "sha256": "ac65453c56ececafdc3ca3554572c609645e25947b823c237f19ae514ddf35ab",
+      "sha256": "be5792fb1cfadb0600a6fa5c3f75dc3ef6648b44cfcc3e4cd0f36036a827e6c5",
       "publishable": true,
       "staged": false,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -34,10 +34,10 @@
       "file": "03-en-gallery-market.png",
       "locale": "en",
       "caption": "Markets with the live portfolio pulse / Рынки с живым пульсом портфеля",
-      "sha256": "f92985f6df87f3557c3bc47bf9d7b5ed828a5ecfe952c2581c7278c609067303",
+      "sha256": "85eec0ff32bb2933ce03608ff4f27555eb5f4a421d575ce1a1b94d5b959e3fc7",
       "publishable": true,
       "staged": false,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -50,7 +50,7 @@
       "sha256": "ffbf818d5198ce5e400096dec5d170d1a8114b94f03b93cd342ff0df4777153e",
       "publishable": true,
       "staged": true,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -63,7 +63,7 @@
       "sha256": "e4c841d220bb6f5fe265ed904f40d2b432eb8ebe8c4788861e34963c9e8464f2",
       "publishable": true,
       "staged": true,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -76,7 +76,7 @@
       "sha256": "ca28926c90e84a1d08518af8c2ca227c1e3d6f7a74e7568eee83f379b7aeb955",
       "publishable": true,
       "staged": true,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -86,10 +86,10 @@
       "file": "07-en-gallery-milestone.png",
       "locale": "en",
       "caption": "Milestone retrospective at age 50; age is set by the capture driver / Ретроспектива вехи в 50 лет; возраст задаёт драйвер",
-      "sha256": "0ffe53e3ae13e4cdf822c2385bc78354dd0a84b49e2feb1b56ae79999679ea4b",
+      "sha256": "e7f0d914aeb86cd691d70746c3378100a5d9c842d485bc8a6d2cc80b09e72baf",
       "publishable": true,
       "staged": true,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
@@ -99,15 +99,15 @@
       "file": "08-ru-gallery-settings.png",
       "locale": "ru",
       "caption": "Settings, audio buses and reduced motion / Настройки, аудиодорожки и уменьшенная анимация",
-      "sha256": "8a8cac5851eeebe44deda66c7ae9dc931bcc277528f990311cbf7848a7234340",
+      "sha256": "e24ef56cea445649c823904fa9050b47ad76a6c43ee7fd8f2862cda5bf01a9ed",
       "publishable": true,
       "staged": false,
-      "source_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8",
+      "source_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a",
       "dimensions": [
         720,
         1280
       ]
     }
   ],
-  "capture_commit": "4784eedbc6eb62508304c844cb29b87bf456f5e8"
+  "capture_commit": "b7f894b4dacfcf97c1af5b78de486e9a6c223b1a"
 }
