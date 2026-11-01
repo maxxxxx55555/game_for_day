@@ -1,8 +1,38 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "35d220133a24bde6f4d4447df5952538990f0677",
+  "host_head": "3b851e7c2efe0710664c4bf0565f61bf7cd0498f",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "3b851e7c2efe0710664c4bf0565f61bf7cd0498f",
+      "subject": "Heirs of Fortune 2.1.0: name the binary that drove each exported route in the release table",
+      "files": [
+        "docs/RELEASE_2.1.0.md"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "dfd767634a65fa5b7a45ddcc313406d4281e928d",
+      "subject": "Heirs of Fortune 2.1.0: correct five claims an independent audit of the published release found",
+      "files": [
+        "README.md",
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/BUG_REGRESSIONS.md",
+        "docs/FINAL_REPORT.md",
+        "docs/HANDOFF.md",
+        "docs/MECHANICS_MATRIX.md",
+        "docs/RELEASE_2.1.0.md",
+        "docs/acceptance-2.1.0/anti-slop.json",
+        "docs/acceptance-2.1.0/contract-test_repo_isolation.log",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/installed-smoke.json",
+        "docs/acceptance-2.1.0/pack-audit.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "35d220133a24bde6f4d4447df5952538990f0677",
       "subject": "Heirs of Fortune 2.1.0: say what a digest printed inside a ZIP actually means",
@@ -106,10 +136,11 @@
   ],
   "documentation_only_window": true,
   "receipts_by_recorded_commit": {
-    "51cf18f": [
+    "35d2201": [
       "anti-slop.json:runtime_commit",
       "contracts.json:source_commit",
       "evidence-manifest.json:source_test_commit",
+      "pack-audit.json:documentation_commit",
       "suite-source-audit.json:source_commit"
     ],
     "1ec7668": [
@@ -131,9 +162,6 @@
     ],
     "b38e9df": [
       "installed-smoke-pre-fix.json:runtime_export_commit"
-    ],
-    "87bb476": [
-      "pack-audit.json:documentation_commit"
     ]
   },
   "rule": "Nothing the player receives may change inside the gate window. Commits after the gated commit are allowed only when every file they touch is documentation (under docs/, or the root README.md, both of which the export presets exclude from the PCK); the exported EXE and PCK come from the gated commit and the packager refuses a mismatch.",
