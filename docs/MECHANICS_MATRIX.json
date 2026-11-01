@@ -1318,6 +1318,6 @@
   ],
   "coverage_status": "EXECUTED_PASS",
   "platform": "Windows. OS background/Back is simulated on Windows; Android artifact omitted under section16.",
-  "scope": "Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the final publication gate remain pending.",
+  "scope": "Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the publication gate ran at commit 466a8c1 and reported PASS for every step; the owner play and listening checks stay with the owner.",
   "execution_evidence": "Every mapped suite runs inside tests/run_tests.py during the publication gate passes (en and ru, headless and rendered). The gate writes its own summary under builds/, which is kept outside the repository, so no per-case evidence file is tracked here."
 }

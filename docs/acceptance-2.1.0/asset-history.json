@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "tag": "v2.1.0",
+  "tag_peels_to": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
+  "documented_archives": [
+    {
+      "documented_at": "0fb754e78c74f2fde02bca11532d7f577ef066d5",
+      "committed_at": "2026-11-01T17:54:04+03:00",
+      "zip_sha256": "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f",
+      "bytes": 84658959,
+      "entries": 245
+    },
+    {
+      "documented_at": "3b851e7c2efe0710664c4bf0565f61bf7cd0498f",
+      "committed_at": "2026-11-01T17:50:42+03:00",
+      "zip_sha256": "db0bae0d4179bd9a5843186ad5e42d7f65608ef13a10b19016d98f1b93cc8fa2",
+      "bytes": 84657617,
+      "entries": 245
+    },
+    {
+      "documented_at": "35d220133a24bde6f4d4447df5952538990f0677",
+      "committed_at": "2026-11-01T17:22:46+03:00",
+      "zip_sha256": "587c2d23c9c23b585ebfe0cd6df0ff46f3609e703fd5499e084a93ff0ebc2f20",
+      "bytes": 84655151,
+      "entries": 244
+    },
+    {
+      "documented_at": "87bb476353951899d54031a9c117585fe11a9c8f",
+      "committed_at": "2026-11-01T17:04:57+03:00",
+      "zip_sha256": "dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011",
+      "bytes": 84631852,
+      "entries": 240
+    }
+  ],
+  "distinct_archives": 4,
+  "host_archive_now": "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f",
+  "host_archive_is_documented": true,
+  "rule": "Every digest listed here was the one the release documents named at that commit. A digest that stops being newest means the published asset was replaced, not that the earlier bytes were wrong: the binaries inside each of them are the same export, and only the documentation tree differed.",
+  "scope": "Reads docs/RELEASE_2.1.0.md out of git history after the gated commit. It does not contact the release and does not prove what a visitor downloaded.",
+  "problems": []
+}

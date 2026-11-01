@@ -13,7 +13,7 @@ These regressions stay covered by the source runner, which now passes 50 headles
 
 Live soak behind this table: 1,802.875 s of rendered gameplay with 88 complete lives, 1396 UI/save/locale checkpoints, 0 failures, 0 script errors and 0 integrity warnings, on top of the strict compiler over 38 shipping scripts with all 49 warning categories as errors and the mechanics matrix executed in both locales at `466a8c1`. Raw process CPU and memory data are retained in the release evidence, allocation variation is measured rather than described as exactly zero, and the owner play and listening checks stay open.
 
-- `tests/test_chart_path_regression.gd`: rendered quote history must contain its gold price path, not only axis labels. A typing change mistakenly treated the packed-array append error flag as a success flag; the regression recorded 0 accent pixels before the correction and passes after it. The source suite includes this rendered case. Final frozen suites and soak remain required.
+- `tests/test_chart_path_regression.gd`: rendered quote history must contain its gold price path, not only axis labels. A typing change mistakenly treated the packed-array append error flag as a success flag; the regression recorded 0 accent pixels before the correction and passes after it. The source suite includes this rendered case, and the publication gate ran the suites and the soak in both locales without a failure.
 
 ## Exact floating-point profile restoration
 
