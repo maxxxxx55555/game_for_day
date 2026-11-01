@@ -1,6 +1,6 @@
 # F6 regression work
 
-These regressions stay covered by the source runner, which now passes 49 headless and 50 rendered Godot cases in each of English and Russian; the 2.1.0 publication gate at `807ba09` ran them in both locales without a failure.
+These regressions stay covered by the source runner, which now passes 49 headless and 50 rendered Godot cases in each of English and Russian; the 2.1.0 publication gate at `b38e9df` ran them in both locales without a failure.
 
 | Defect | Trigger and correction | Regression |
 |---|---|---|

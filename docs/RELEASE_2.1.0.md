@@ -13,7 +13,7 @@ This edition was first published on 2026-10-30 from `807ba09`. It was re-issued 
 - **Milestones and momentum (G5).** Retrospectives at 18, 25, 35, 50 and 65 grant momentum. The card records the read but never pauses or advances the world.
 - **Ambitions (G6).** Steady, meteor and heir change real economic trade-offs: meteor raises stress gains and market swings, heir takes a 1.25 inheritance multiplier and a larger legacy payout in exchange for a tenth of quarter income.
 - **Card feel (G7).** A short reveal, signed delta chips for every changed stat, outcome tones, a live 24-sample portfolio pulse and reduced-motion snapping. Presentation never enters the saved model.
-- **Two skins (carried into this re-issue).** Dark ink-and-gold and light paper-and-bronze, resolved through `scripts/ui/Palette.gd`, switched on the intro and in settings, and never written into a save. See [APPEARANCE.md](APPEARANCE.md).
+- **Two skins (carried into this re-issue).** Dark ink-and-gold and light paper-and-bronze, resolved through `scripts/ui/Palette.gd`, switched on the intro and in settings, and stored with the other interface settings in `dynasty_save.cfg`; the choice never enters the life payload or the canonical Russian copy. See [APPEARANCE.md](APPEARANCE.md).
 
 ## Design pass
 

@@ -4,44 +4,44 @@
     "cases_passed": 49,
     "cases_failed": 0,
     "godot_invocations": 49,
-    "seconds": 393.5,
-    "console_sha256": "b2269e563fee8f09de53639bf0491f6b71559cb4cc1aef7e90dfc16dd6e7ff98",
+    "seconds": 293.7,
+    "console_sha256": "9c0e87654a4fa4b37135af36b1aaf56c269e46aae600ea2db81b3357ac4910ac",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "e4eeaf13cd1c5eeb81f2371be93de88c21117adb"
+    "source_commit": "fcd5b94ba8a2f358ea72c47e8d503b367effcb86"
   },
   "en-rendered": {
     "result": "PASS",
     "cases_passed": 50,
     "cases_failed": 0,
     "godot_invocations": 50,
-    "seconds": 367.6,
-    "console_sha256": "0052a4bfb2b464c5b837e5fa19be260d90c5886331281184d2f75723c57d9de2",
+    "seconds": 301.3,
+    "console_sha256": "d6240e96c83bffb9d8f4a959a7cbaddea2630fa562a055a0577ffb21286bb061",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "e4eeaf13cd1c5eeb81f2371be93de88c21117adb"
+    "source_commit": "fcd5b94ba8a2f358ea72c47e8d503b367effcb86"
   },
   "ru-headless": {
     "result": "PASS",
     "cases_passed": 49,
     "cases_failed": 0,
     "godot_invocations": 49,
-    "seconds": 361.5,
-    "console_sha256": "a41cef72cfaa2474536c1635d28647a91633c2b4b1318c514029b1a432d648ae",
+    "seconds": 246.3,
+    "console_sha256": "61024f57b51561c488587fefea7e860c60d3e849f3360b7f1d641c7614178a8f",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "e4eeaf13cd1c5eeb81f2371be93de88c21117adb"
+    "source_commit": "fcd5b94ba8a2f358ea72c47e8d503b367effcb86"
   },
   "ru-rendered": {
     "result": "PASS",
     "cases_passed": 50,
     "cases_failed": 0,
     "godot_invocations": 50,
-    "seconds": 363.3,
-    "console_sha256": "107793035de5adb20063a4251474697f1b2df9800af6605508049abf48161159",
+    "seconds": 267.3,
+    "console_sha256": "adc7b081edc6e05b1958154be28c55fc29a629da5fcef2a8efc82bf7222d70d8",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "e4eeaf13cd1c5eeb81f2371be93de88c21117adb"
+    "source_commit": "fcd5b94ba8a2f358ea72c47e8d503b367effcb86"
   },
   "result": "PASS"
 }

@@ -1,100 +1,100 @@
 {
   "result": "PASS",
-  "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
+  "source_commit": "b38e9df3788b8d83cc6c0a7956614963d6c16819",
   "clean_tree": true,
   "engine": "4.7.stable.official.5b4e0cb0f",
   "steps": [
     {
       "step": "trust-anchor",
       "exit": 0,
-      "seconds": 0.4,
+      "seconds": 0.2,
       "timed_out": false
     },
     {
       "step": "localization-drift",
       "exit": 0,
-      "seconds": 0.3,
+      "seconds": 0.1,
       "timed_out": false
     },
     {
       "step": "strict-compile",
       "exit": 0,
-      "seconds": 5.1,
+      "seconds": 2.8,
       "timed_out": false
     },
     {
       "step": "suites-en-headless",
       "exit": 0,
-      "seconds": 393.5,
+      "seconds": 293.7,
       "timed_out": false
     },
     {
       "step": "suites-en-rendered",
       "exit": 0,
-      "seconds": 367.6,
+      "seconds": 301.3,
       "timed_out": false
     },
     {
       "step": "suites-ru-headless",
       "exit": 0,
-      "seconds": 361.5,
+      "seconds": 246.3,
       "timed_out": false
     },
     {
       "step": "suites-ru-rendered",
       "exit": 0,
-      "seconds": 363.3,
+      "seconds": 267.3,
       "timed_out": false
     },
     {
       "step": "export-public-exe",
       "exit": 0,
-      "seconds": 29.2,
+      "seconds": 25.2,
       "timed_out": false
     },
     {
       "step": "export-public-pck",
       "exit": 0,
-      "seconds": 26.9,
+      "seconds": 15.8,
       "timed_out": false
     },
     {
       "step": "export-qa-exe",
       "exit": 0,
-      "seconds": 32.3,
+      "seconds": 14.4,
       "timed_out": false
     },
     {
       "step": "export-qa-pck",
       "exit": 0,
-      "seconds": 33.2,
+      "seconds": 13.3,
       "timed_out": false
     },
     {
       "step": "native-checks",
       "exit": 0,
-      "seconds": 88.5,
+      "seconds": 58.5,
       "timed_out": false
     },
     {
       "step": "cycles",
       "exit": 0,
-      "seconds": 2150.4,
+      "seconds": 2084.9,
       "timed_out": false
     },
     {
       "step": "legacy",
       "exit": 0,
-      "seconds": 5.8,
+      "seconds": 6.7,
       "timed_out": false
     },
     {
       "step": "soak",
       "exit": 0,
-      "seconds": 1827.0,
+      "seconds": 1818.1,
       "timed_out": false
     }
   ],
-  "started": "2026-10-30T11:53:56",
-  "finished": "2026-10-30T13:28:45"
+  "started": "2026-10-31T21:32:28",
+  "finished": "2026-10-31T22:58:20"
 }

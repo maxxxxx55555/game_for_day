@@ -42,12 +42,25 @@ screen, and `Оформление` in Settings.
 - `assets/ui/button-*-light.svg` — light set, selected by `Palette.button_variant()`.
 - `assets/ui/check-{on,off}[-light].svg` — checkboxes for both skins.
 - `assets/ui/icons/*.svg` — 24×24 line icons, drawn white and tinted through the
-  Button `icon_*_color` overrides, so one file serves both skins. Wired in
-  `Main.apply_icons()` for the bottom bar (Рынки, Бизнес, Грант, Настройки) and
-  the intro theme toggle.
+  Button `icon_*_color` overrides, so one file serves both skins. Six of the
+  seven are on screen: `Main.apply_skin()` calls `apply_bottom_icons()` for
+  market, business, grant, dynasty and settings and gives `theme.svg` to the
+  intro toggle. `globe.svg` ships in the asset inventory, is imported and
+  audited, and no control draws it yet — `docs/ASSET_REVIEW.json` records it as
+  `ACCEPT_INVENTORY_ONLY` for that reason.
 
 Sliders are styled as a 4px groove with a bronze filled area instead of the
 engine default.
+
+## How this is checked
+
+Both skins are captured frame-by-frame in eight gallery runs (EN and RU at
+540x960 and 720x1280, `GAME_GALLERY_THEME` selects the skin) and the palette
+tokens above are asserted against `Palette.gd` by the anti-slop audit, together
+with the seven interface icons and the presence of the theme keys in both
+locales. No suite case clicks the switch itself: pressing it, walking the ledger
+in the other skin and confirming nothing keeps the ink palette is the owner's
+fifth check in [HANDOFF.md](HANDOFF.md).
 
 ## Country plate
 
@@ -82,15 +95,13 @@ The event card also carries a chapter overline (`stage.survival` …
 `stage.billionaire`) derived from the same net-worth thresholds the event pools
 use, so the label never disagrees with the events on screen.
 
-## Проверка по-русски
+## Хром, обложка и печать — по-русски
 
 Три детали дают основное ощущение «дорого», и каждая — один вызов отрисовки:
 тонкая рамка с уголками поверх всего экрана; стартовый экран как обложка книги
 (затемнение, надзаголовок в разрядку, название шрифтом Prata, золотая линейка);
 римские цифры в жёлобах вариантов ответа. В карточке события появилась строка
 этапа — «ВЫЖИВАНИЕ», «КАРЬЕРА», «КАПИТАЛ», «ИМПЕРИЯ».
-
-
 
 ## Проверка по-русски
 

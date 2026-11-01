@@ -1,9 +1,10 @@
 {
   "result": "PASS",
   "runs": {
-    "en-540x960": {
+    "dark/en-540x960": {
       "result": "PASS",
       "locale": "en",
+      "theme": "dark",
       "resolution": "540x960",
       "timed_out": false,
       "exit": 0,
@@ -12,7 +13,7 @@
       "frames": [
         {
           "frame": "loading",
-          "sha256": "ce44c68b9ea66b6928baa82b395d35e6d188124ebae6de25fccbf180ade8c1f6",
+          "sha256": "5f28bf6d27008e559e244a31671e48d6321594131c1da121b7d83726a820e81c",
           "dimensions": [
             540,
             960
@@ -21,7 +22,7 @@
         },
         {
           "frame": "intro",
-          "sha256": "f543b24f15772a50f9777eb8b87ab7d7613221a491554d08bce0100295d92022",
+          "sha256": "a0fb0cf2eec3d2afb77d2a4864f1a8d0259417d03990e395fc8ad82b43020acd",
           "dimensions": [
             540,
             960
@@ -30,7 +31,7 @@
         },
         {
           "frame": "credits",
-          "sha256": "6b2e8c52933a846450ade22d69679571aef4145dcf10d62bba82419f76d3316b",
+          "sha256": "3d79829fab06a9706d2f8abd8ee2a8a9032012a5448e130f6d1dc4f28a72650a",
           "dimensions": [
             540,
             960
@@ -39,7 +40,7 @@
         },
         {
           "frame": "birth",
-          "sha256": "18d3eb57d61a8997ade07fea50ba9df50b7f4a2e60a00ba840d7dc07e3cba4b0",
+          "sha256": "10657e529e97d32d7c23c2082a35aab0df683aece2f15201e7cfa8419e46e564",
           "dimensions": [
             540,
             960
@@ -48,7 +49,7 @@
         },
         {
           "frame": "perk",
-          "sha256": "852333e120de6801a4648b8a3d0c61b34eb2e50fbc6cb436ec187ff2498cdad8",
+          "sha256": "d212d245d0a518fd50b67b0a0bcb82098d87754766abda6329976b0a012e2b19",
           "dimensions": [
             540,
             960
@@ -57,7 +58,7 @@
         },
         {
           "frame": "life",
-          "sha256": "75cdcf97f5201880b565ce4b5a5b5972b61f21d045612628849730567fabb35c",
+          "sha256": "1089392bf6a9cb9b643e95ea362798a8e3f28f70003aff917334658a2ae4ad6a",
           "dimensions": [
             540,
             960
@@ -66,7 +67,7 @@
         },
         {
           "frame": "outcome",
-          "sha256": "3442e999f9738b5b840c6a7c466c5f53ec45a7c85009f732c118d8d22fd4c8a4",
+          "sha256": "7ea31467ca283362f6ecc4801595165e6cee4a6b124679ff3d38481eaf92408c",
           "dimensions": [
             540,
             960
@@ -75,7 +76,7 @@
         },
         {
           "frame": "market",
-          "sha256": "b6f6dbb92231cde4660287b62c304427cf9e818da6c7c5453634a36d1676b5bb",
+          "sha256": "0844a91acd4316fc685a4c891a8f3d0fe8920eca96a1680f2ff6499da39fc06d",
           "dimensions": [
             540,
             960
@@ -84,7 +85,7 @@
         },
         {
           "frame": "currencies",
-          "sha256": "7c70aca82cb6c564230e449b622ff16de2271623ac95b6638199ce950135cc11",
+          "sha256": "abea6d0223b3c4c85c84674b7fe536508a7f5a05602e94d83280f946b47587b1",
           "dimensions": [
             540,
             960
@@ -93,7 +94,7 @@
         },
         {
           "frame": "business",
-          "sha256": "4592d28ac00b6979cc0f0b69b5c97a1e00ff4337dbd431c7a1b81f30516ebc4c",
+          "sha256": "26488c4a016eced2fa9f9a64af53527f0a049b208dbf834289de155aa7fa1dbb",
           "dimensions": [
             540,
             960
@@ -102,7 +103,7 @@
         },
         {
           "frame": "dynasty-journal",
-          "sha256": "380273c8b85aa231d5a52ec561514f763a23e4944fc96a471b46dfcb008b1b8b",
+          "sha256": "b7b6d6eb356d065788aa3834dad9dc932388fd4f5622b5882b267f73288d2b2b",
           "dimensions": [
             540,
             960
@@ -111,7 +112,7 @@
         },
         {
           "frame": "dynasty-legacy",
-          "sha256": "2068c3e5cdb3b2935119233027f8838397d9853a67b212785a62f9fea4f5ad2e",
+          "sha256": "4d3b7f6b823be67540cf29e5215f530983d72c34a1eb0bc82b3df001f3483bf6",
           "dimensions": [
             540,
             960
@@ -120,7 +121,7 @@
         },
         {
           "frame": "dynasty-threads",
-          "sha256": "923844bdd79ea72c281d46d6bf1143d20f59ae217881660452701c6f13475bad",
+          "sha256": "ef121b8ad9f9ee9033bc6f268da1d49bfb0b9695311bf73ca89d8e42ca9331a3",
           "dimensions": [
             540,
             960
@@ -129,7 +130,7 @@
         },
         {
           "frame": "dynasty-hall",
-          "sha256": "8a38642cf59b589b528f6b8dd05fa20f53b1cc0246cf462a43df4095c824b5a2",
+          "sha256": "607dffbb8f3bba89d2dac2aa5ec24d25dfc2e139451eed66a1601b9c73a1c34f",
           "dimensions": [
             540,
             960
@@ -138,7 +139,7 @@
         },
         {
           "frame": "dynasty-ascension",
-          "sha256": "95e41f03f0ea9f94428f5126807c4cce5cb8f29ed251657c6e03fc602ace0f4e",
+          "sha256": "c94d658bcfce01a858fc10dcb3308ba37cbe9ca066da1a937f76a64a77f1b08d",
           "dimensions": [
             540,
             960
@@ -147,7 +148,7 @@
         },
         {
           "frame": "milestone",
-          "sha256": "b92c84e6ccb3ade26a3175eca21525e8338c4b62d999b76a48d87da0b4be12b1",
+          "sha256": "588f9bccf9ce055a9c90ca1ec346020a418b443b644824757560c1f7fbf49b76",
           "dimensions": [
             540,
             960
@@ -156,7 +157,7 @@
         },
         {
           "frame": "settings",
-          "sha256": "8b77896475c1c8919e201888ce9c546680e0d663d28a55aae1569a51d90e77fe",
+          "sha256": "c8e59051aac45c9ac5deca4d67fb3f8ed86253169b93b68eee3a8c0350452086",
           "dimensions": [
             540,
             960
@@ -177,16 +178,17 @@
         "--resolution",
         "540x960",
         "--log-file",
-        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery\\en-540x960\\godot.log",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\en-540x960-dark\\godot.log",
         "--script",
         "res://tests/capture_gallery.gd"
       ],
       "captured_frames": 17,
       "missing_frames": []
     },
-    "en-720x1280": {
+    "dark/en-720x1280": {
       "result": "PASS",
       "locale": "en",
+      "theme": "dark",
       "resolution": "720x1280",
       "timed_out": false,
       "exit": 0,
@@ -204,7 +206,7 @@
         },
         {
           "frame": "intro",
-          "sha256": "239dbcb7474307b2888d00347a8d754fee126dca66ab6606904b6179f38988e1",
+          "sha256": "28346d44ee3b0d648fe5f357f771b26df0dd8b5aa9bb5ebce98dd71931a3b49e",
           "dimensions": [
             720,
             1280
@@ -213,7 +215,7 @@
         },
         {
           "frame": "credits",
-          "sha256": "1b270a8947b4d05aab5774a162c34fc438c029a1cce34ff93996571cca3d9525",
+          "sha256": "6e3a74a8adce35e85de0e413b1b2d581ef8e72736b77952e6f12882075433ad7",
           "dimensions": [
             720,
             1280
@@ -222,7 +224,7 @@
         },
         {
           "frame": "birth",
-          "sha256": "cf95b66cc24ee1ee917d63a57f221a285ef2cdf3777ba5af4e0b00180706bd0a",
+          "sha256": "f0b2bf517ab83dd94554061a18a8b6aa2f8f2e4e6b9f49e7710e989da55c3091",
           "dimensions": [
             720,
             1280
@@ -231,7 +233,7 @@
         },
         {
           "frame": "perk",
-          "sha256": "9e462a4466f6592910b204759b7921f1a775b181506174d5e03ce4ae1d2f3f22",
+          "sha256": "4924b79e0dc54bcb1055170008a7cd7b9c56f8b12fd2161e28900d278a21667d",
           "dimensions": [
             720,
             1280
@@ -240,7 +242,7 @@
         },
         {
           "frame": "life",
-          "sha256": "9e3d3f5478dbd974f84251fab7766e09e0b54b1629758c347d6f3c4b500bb047",
+          "sha256": "d8518a6ddcc8e3a8fbd6695558846f1f1e4639229351a00413581edc56d0be82",
           "dimensions": [
             720,
             1280
@@ -249,7 +251,7 @@
         },
         {
           "frame": "outcome",
-          "sha256": "37ef10924cec594248119fa5a04814b306868c1ea4dc225a1eec93ae8e7d2c8f",
+          "sha256": "7e867452c33e5320b6bab56d87026c71d9fec04dd3fda9ca413bc9ad2de14f88",
           "dimensions": [
             720,
             1280
@@ -258,7 +260,7 @@
         },
         {
           "frame": "market",
-          "sha256": "9de4f21e5175b359c6648a424011ba0fed2c887b586a72be406ea8bc1fe270e2",
+          "sha256": "58cc0962b930b8626a6204a7c178598baee42d2985d49368ed14546d921e448d",
           "dimensions": [
             720,
             1280
@@ -267,7 +269,7 @@
         },
         {
           "frame": "currencies",
-          "sha256": "3ca1b2d241567373f737c93e85f3e18897116fe7e0af4ccd6c76eb2ef276d2f1",
+          "sha256": "c310e32d4e1f94e40c99c89e84c89ead33cdfd8ea2fde2080bd7225fed17dbe0",
           "dimensions": [
             720,
             1280
@@ -276,7 +278,7 @@
         },
         {
           "frame": "business",
-          "sha256": "40e5545170231f41395506df072cbb00213dc35fdee73a448c6a352df9bb080b",
+          "sha256": "8c65fc7696132bd9759ff9f387aa9b5ab02894ceeeda7bd8352def2735384f27",
           "dimensions": [
             720,
             1280
@@ -285,7 +287,7 @@
         },
         {
           "frame": "dynasty-journal",
-          "sha256": "50f17d4e8bc93484e95cf73a329b0728ec252ee43c2fe9e5708bcfa998d319e8",
+          "sha256": "5e5a031056353f72f370c7e41643c82d1f3de2091b2ea51516becd25a55e8ed6",
           "dimensions": [
             720,
             1280
@@ -294,7 +296,7 @@
         },
         {
           "frame": "dynasty-legacy",
-          "sha256": "0f41ecaeb535e505f496f81559e393849face22a30679774709ee496a5358b12",
+          "sha256": "f3f71f1f194b918cf5b72cbb733de96a98a1ca6fd9bae4f53d00f34789c19cdd",
           "dimensions": [
             720,
             1280
@@ -303,7 +305,7 @@
         },
         {
           "frame": "dynasty-threads",
-          "sha256": "f754eb9513b5195177942872dd0c7b30d7a17432e36dc436453617b6e4d91872",
+          "sha256": "9b1e3701e5526e4e025957aadd5d550c91e5f1be3c6ddc6fefa56511652eff7a",
           "dimensions": [
             720,
             1280
@@ -312,7 +314,7 @@
         },
         {
           "frame": "dynasty-hall",
-          "sha256": "fa89e6ad9ea09497acfce08c8df5e473ae4c101d7dd5dd84c52a085071f5ff25",
+          "sha256": "ca28926c90e84a1d08518af8c2ca227c1e3d6f7a74e7568eee83f379b7aeb955",
           "dimensions": [
             720,
             1280
@@ -321,7 +323,7 @@
         },
         {
           "frame": "dynasty-ascension",
-          "sha256": "3ee5ed52af1f2df894049a0588d46bb7633fb3a0bee66519b7996cdac3f09941",
+          "sha256": "0e495178a742b88f5e54c79cf9f237e9ce583e4dcd357eb0a27ebc830d2f9956",
           "dimensions": [
             720,
             1280
@@ -330,7 +332,7 @@
         },
         {
           "frame": "milestone",
-          "sha256": "f5212c8397259f0ca99676d78bc9f583b01d0d39cb41fe19a8250edaf009e773",
+          "sha256": "e56261fb66608ee13fe4e4a309ceb83bbe0871eaf3641c3cb4c9859abed50173",
           "dimensions": [
             720,
             1280
@@ -339,7 +341,7 @@
         },
         {
           "frame": "settings",
-          "sha256": "30e426a7253c1277be778d7ef051a028162e1a98a7727b64cb02bc1cf0efa2b7",
+          "sha256": "31049cd6e45be2f673691adcb554eb7e0c0ff06cf1df4448c2bdfe5f8c9c3ac8",
           "dimensions": [
             720,
             1280
@@ -360,7 +362,7 @@
         "--resolution",
         "720x1280",
         "--log-file",
-        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery\\en-720x1280\\godot.log",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\en-720x1280-dark\\godot.log",
         "--script",
         "res://tests/capture_gallery.gd"
       ],
@@ -369,9 +371,10 @@
         "loading"
       ]
     },
-    "ru-540x960": {
+    "dark/ru-540x960": {
       "result": "PASS",
       "locale": "ru",
+      "theme": "dark",
       "resolution": "540x960",
       "timed_out": false,
       "exit": 0,
@@ -380,7 +383,7 @@
       "frames": [
         {
           "frame": "loading",
-          "sha256": "af4b802541695545ba55bb42bad3f6b9e75a6811e226ff4af421403edd160fd6",
+          "sha256": "edc45b5e5f5a96ad34366e02d4541463cdec9672b6f2fab9fc7787d9c38642a7",
           "dimensions": [
             540,
             960
@@ -389,7 +392,7 @@
         },
         {
           "frame": "intro",
-          "sha256": "050eed8051ab2b50078cc212fb547e40ad71efc96f76afc86384e2aa0e0f4109",
+          "sha256": "d204dce921f9c430d5667eca5f2878cbdf3e49ff6856e1577680162b028242d0",
           "dimensions": [
             540,
             960
@@ -398,7 +401,7 @@
         },
         {
           "frame": "credits",
-          "sha256": "f28d65cd594ed00b7897add5d6e992d5d8f47011bae7be417054f898ebd42a92",
+          "sha256": "2ab9eb7d09c9c90c115dd62fec05aa80862fc49a7df69c7b07b8ba49f153f57f",
           "dimensions": [
             540,
             960
@@ -407,7 +410,7 @@
         },
         {
           "frame": "birth",
-          "sha256": "632663506e66c9a7cc81f9a7d09055722eeeff23668b669bf8d60ad34d7333a5",
+          "sha256": "517d2f32a99be83f0778240dffd9a17be1ba31edadd3acf4c9e8feed98a27875",
           "dimensions": [
             540,
             960
@@ -416,7 +419,7 @@
         },
         {
           "frame": "perk",
-          "sha256": "7edaa3c960c47497b423f8c19ebf8e58392c68511ca0310efbf1d3918ffffa27",
+          "sha256": "09da9cff6bbe79df9befe3951d7b383bffc9b12a96c1765a0ec807288e26bb6d",
           "dimensions": [
             540,
             960
@@ -425,7 +428,7 @@
         },
         {
           "frame": "life",
-          "sha256": "fafbe234697bac5ceb85ba0c2699278b1a0d52fdad0d637bd819aa2b23205e79",
+          "sha256": "00c4ae414981c226080e1c8aa8f87bdc84db54bc122fca1e311f4115eb7a08ee",
           "dimensions": [
             540,
             960
@@ -434,7 +437,7 @@
         },
         {
           "frame": "outcome",
-          "sha256": "3919456e08020f9d9b53a32a02bd59b0891c737bc1b3db29a49bb7975de48a77",
+          "sha256": "9d69ab0c4deda11d6c9ce088ae9bbc965118e508979b4f7a0b8911c326788bd7",
           "dimensions": [
             540,
             960
@@ -443,7 +446,7 @@
         },
         {
           "frame": "market",
-          "sha256": "632d54638cb85f17b08ac61fef793f3f5e3b93bcdba62c935d9235fabd96346f",
+          "sha256": "35e1f548102aac5dbf861a76b6942323ef63c17ef951acfcb150fd5778fef27f",
           "dimensions": [
             540,
             960
@@ -452,7 +455,7 @@
         },
         {
           "frame": "currencies",
-          "sha256": "0508f79e3ee53dea7f7f5c3a01e017d3b831a410f1bffc3daca0aa7cb27acb93",
+          "sha256": "eaeaab5ad44e6f5cbc995332893843fad1354bf576336b949f1a8939723be367",
           "dimensions": [
             540,
             960
@@ -461,7 +464,7 @@
         },
         {
           "frame": "business",
-          "sha256": "ce646fbcf379df309213ce898fca035cd91b9fad798af9cb2ad5bf72375445d2",
+          "sha256": "60ab40f908504b0a92437a8a751958a828c6c64cc6f0d6371671557d013bc901",
           "dimensions": [
             540,
             960
@@ -470,7 +473,7 @@
         },
         {
           "frame": "dynasty-journal",
-          "sha256": "f6466232a9e7eaed0989c3f1f7e42b4060b484aa7036d49d64dc08e699c47a1f",
+          "sha256": "6f09ed3a7834f5c7fafbe418db3d30f7ec8f7408308044014e4618985f0383c7",
           "dimensions": [
             540,
             960
@@ -479,7 +482,7 @@
         },
         {
           "frame": "dynasty-legacy",
-          "sha256": "3e21e813d3c3f87436e2f0abc84ed1e0d548cc228da900b3091d24a8739efb25",
+          "sha256": "6ad574c1a5505b7a4777e6ee8c3b7d5f89528bf6b4cf116b47b030792461e92b",
           "dimensions": [
             540,
             960
@@ -488,7 +491,7 @@
         },
         {
           "frame": "dynasty-threads",
-          "sha256": "d5413449dd8f17503ba2fcd4e607b8f32185c01b2909fbc0259f45d7aa60da0e",
+          "sha256": "80411cd2c0c541b90f60c61a012a5ba51a8f99f5281910d47c21e3d8ac421168",
           "dimensions": [
             540,
             960
@@ -497,7 +500,7 @@
         },
         {
           "frame": "dynasty-hall",
-          "sha256": "955c74183ffe330a27848ba6488d8bb3ad509000550e7f9a5e67ae830378df2c",
+          "sha256": "8066f8a2c31164f98fc999bc49e6ffe322246746c380f22010d757143713a283",
           "dimensions": [
             540,
             960
@@ -506,7 +509,7 @@
         },
         {
           "frame": "dynasty-ascension",
-          "sha256": "7b22b43df20612c319dfebaefe3dceed1a6e30fa45126e1b495119ed1819eb01",
+          "sha256": "a2b620d4743d392e13ffa11efe6506d754b0e555d418d93ec936bbaa42f24d21",
           "dimensions": [
             540,
             960
@@ -515,7 +518,7 @@
         },
         {
           "frame": "milestone",
-          "sha256": "d603c7f4e7396879199c204f3e9e3d7545534a4f3d2b37ec1455bba0e82bacec",
+          "sha256": "0e6af73488a25256c45155d4b4795fd5df7fd76395d6b4de105eb4d40f6271b1",
           "dimensions": [
             540,
             960
@@ -524,7 +527,7 @@
         },
         {
           "frame": "settings",
-          "sha256": "a62a3752de82410f184e55ea0e1d6c09bb5a3f620011efc9ab42d852bfbc6bfe",
+          "sha256": "40f78f35703604884fff631dfc042dac98a11f36f0f5d2b368c75da34bdb0f17",
           "dimensions": [
             540,
             960
@@ -545,16 +548,17 @@
         "--resolution",
         "540x960",
         "--log-file",
-        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery\\ru-540x960\\godot.log",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\ru-540x960-dark\\godot.log",
         "--script",
         "res://tests/capture_gallery.gd"
       ],
       "captured_frames": 17,
       "missing_frames": []
     },
-    "ru-720x1280": {
+    "dark/ru-720x1280": {
       "result": "PASS",
       "locale": "ru",
+      "theme": "dark",
       "resolution": "720x1280",
       "timed_out": false,
       "exit": 0,
@@ -572,7 +576,7 @@
         },
         {
           "frame": "intro",
-          "sha256": "1d126aeddaa2732f08f4cdd6d7ade2edc1bd4f2ac1f4669a75755617304102da",
+          "sha256": "1f205c1042176f1019ded33898ac1a445b7c7b08cdea5ebb0d28d44a229a4e18",
           "dimensions": [
             720,
             1280
@@ -581,7 +585,7 @@
         },
         {
           "frame": "credits",
-          "sha256": "130fa802f888ecce578c5d2a390d9efe2f82f35c8db1aeb1eeb504b52372bbd7",
+          "sha256": "6cadec813ae7ba31322f3ad19d674479b5ce6806302a6621dfbabcd373982c86",
           "dimensions": [
             720,
             1280
@@ -590,7 +594,7 @@
         },
         {
           "frame": "birth",
-          "sha256": "7a73f954a4b97a4ecf06f6dce1d59781dfab5667741a6ecb5749e125d6d9cd2c",
+          "sha256": "d1235134d16189c575bc33e4e94ff994430cc023fa2801531c184920a3003699",
           "dimensions": [
             720,
             1280
@@ -599,7 +603,7 @@
         },
         {
           "frame": "perk",
-          "sha256": "dabdb6ca11496f93436b1b12b92ba83f1869185cfe23f9cbddb8a29efaf3e084",
+          "sha256": "4a13e8a30d7ddfa921e6fb7ca1204f10b99248e83b197413d0373f452ff4b93b",
           "dimensions": [
             720,
             1280
@@ -608,7 +612,7 @@
         },
         {
           "frame": "life",
-          "sha256": "198ffa47fc2f9459b9bac108ddc580a2c334cdc5dae796eec8180d21a6af305c",
+          "sha256": "4f4792eca41f249f1203ca7334326007502972d67e5e1d934e88250f6a87e2bd",
           "dimensions": [
             720,
             1280
@@ -617,7 +621,7 @@
         },
         {
           "frame": "outcome",
-          "sha256": "80af5a2231cef1f257aaa8a8285b7cafcb07cd3ab825f75a83538cf5209fb36a",
+          "sha256": "13c045333203e48996eef0c0d0a53f9bacf47189b4f512b9346565fcf835fdac",
           "dimensions": [
             720,
             1280
@@ -626,7 +630,7 @@
         },
         {
           "frame": "market",
-          "sha256": "851d8c8751da634b10ac981b8b64ca03b3f04c4130320cb5a9f6d018ee63d03d",
+          "sha256": "2c5b7652056773381bb8917f084c31a2b1317b8bcae959f8394906dbe71abfea",
           "dimensions": [
             720,
             1280
@@ -635,7 +639,7 @@
         },
         {
           "frame": "currencies",
-          "sha256": "c7026006f53d61fb7ad51ac3da1166260c2b1683c47302b7b5610196ace70af8",
+          "sha256": "038bc341fc1d409d21e7de94dc2d3f8026992ede47b17c44a5c0c57bb85c6309",
           "dimensions": [
             720,
             1280
@@ -644,7 +648,7 @@
         },
         {
           "frame": "business",
-          "sha256": "b43d9bd0a69afca428f7d52e0a84a2a08f90d82dc2cbe1ed5fe85c2efb480f61",
+          "sha256": "79bdc3c6a40c3cc7276ee1c6471ec9145fd4fa66b477cceab7b17a131bb6e3af",
           "dimensions": [
             720,
             1280
@@ -653,7 +657,7 @@
         },
         {
           "frame": "dynasty-journal",
-          "sha256": "97b6afa667747844a6a6c8c42fdaa4c94d729fc63b5fa8dcb3cb41259d20376a",
+          "sha256": "6bf5789741c2222155f9dd3e8018af4ef0789f4ac6af1e7e8d066f135f064c54",
           "dimensions": [
             720,
             1280
@@ -662,7 +666,7 @@
         },
         {
           "frame": "dynasty-legacy",
-          "sha256": "037f69327e0fc9e1500b6103d92af64df61be05fa13cf9a7581e0d57db2bc1d0",
+          "sha256": "e4c841d220bb6f5fe265ed904f40d2b432eb8ebe8c4788861e34963c9e8464f2",
           "dimensions": [
             720,
             1280
@@ -671,7 +675,7 @@
         },
         {
           "frame": "dynasty-threads",
-          "sha256": "718950cb91c55f86c74c5ca9a52395845d08eb5fb4e674d25f2431ce9b5791b1",
+          "sha256": "ffbf818d5198ce5e400096dec5d170d1a8114b94f03b93cd342ff0df4777153e",
           "dimensions": [
             720,
             1280
@@ -680,7 +684,7 @@
         },
         {
           "frame": "dynasty-hall",
-          "sha256": "72c2ce05021bb176a8245b67c44a4ae0db8fa50e110b5f96fc51ad93600cdc55",
+          "sha256": "8574be439e50c6d19faecb42db16f9acd4ca08d680d3e9df06458e004e79e9b0",
           "dimensions": [
             720,
             1280
@@ -689,7 +693,7 @@
         },
         {
           "frame": "dynasty-ascension",
-          "sha256": "8e72d2e60f047656f80fa125dbf71b2c81f7c9e0efb0a8050e4e0a989e93bc3d",
+          "sha256": "4d2289c302254110b23c567704e68141f565da5b896787ed6c58815025df7ae9",
           "dimensions": [
             720,
             1280
@@ -698,7 +702,7 @@
         },
         {
           "frame": "milestone",
-          "sha256": "a8ee506a8d88b42c29bc3e21ad1fadded3ed12170c2dc3db56b3a8e6836c3eb4",
+          "sha256": "d5c5909fddaa13850adb738982f828e3e95ae885c2577b4508ba42e24a82c36f",
           "dimensions": [
             720,
             1280
@@ -707,7 +711,7 @@
         },
         {
           "frame": "settings",
-          "sha256": "4abced57ccb3d2f0eda52634c72b363e8bd4626ceaec932619496d17918f2255",
+          "sha256": "4b9c9701393910e27d2dd84d3f09c13f6227f06271e09436be1218ba1c01f067",
           "dimensions": [
             720,
             1280
@@ -728,7 +732,747 @@
         "--resolution",
         "720x1280",
         "--log-file",
-        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery\\ru-720x1280\\godot.log",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\ru-720x1280-dark\\godot.log",
+        "--script",
+        "res://tests/capture_gallery.gd"
+      ],
+      "captured_frames": 16,
+      "missing_frames": [
+        "loading"
+      ]
+    },
+    "light/en-540x960": {
+      "result": "PASS",
+      "locale": "en",
+      "theme": "light",
+      "resolution": "540x960",
+      "timed_out": false,
+      "exit": 0,
+      "gallery_marker": true,
+      "errors": [],
+      "frames": [
+        {
+          "frame": "loading",
+          "sha256": "30ce1ad96031669a89c830d9dc89528f3390371f683e78c6f0d4e4d78ca90ca0",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "intro",
+          "sha256": "6c694616d856bf1437661d0d73e47d5f9cb5e772ae34f4dc4a1cf686842a52b5",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "credits",
+          "sha256": "2d0edd116533fc5fbb79b6b1d1e7f8f2e532ac74aecb6c5204e7c291dfc90a29",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "birth",
+          "sha256": "8f4da08a370850cb6b6d4e0dc8b230c01d895b9c812a20e1427080f02f4f78f8",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "perk",
+          "sha256": "8089fc219d2884cb6ebc3eb6710a5304479bf3144682799aabba5d3f801eb0e7",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "life",
+          "sha256": "f0cda1da13c4a6573c9a54177b9119bbff99fadd3652a8f319ef5986c52b118c",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "outcome",
+          "sha256": "20980e0077191d6b06c50142683358a36bd0d2a5d17f563dbaf8e41be94a8fd6",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "market",
+          "sha256": "11e4e83bd4721c9da11d59af50edcb0491a88b9930633212ee46e6982ec1343b",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "currencies",
+          "sha256": "fb703e4701e3c5c0826cf1c70ce0322cc8e4d545f621ce536240a95d25b759d4",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "business",
+          "sha256": "9b8116be69562889323152e3b0a9df55a9ac56591e395f420c0fd0f88b906ccb",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-journal",
+          "sha256": "9b840a700b4432edbfc54ccf4a339a8971353ba24f94a8e6572d9f7b1a020e86",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-legacy",
+          "sha256": "96eb6e851f679d4ce9f972dc7f06e17eb3a2a2d4f8b35ddd181c385b0b10e003",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-threads",
+          "sha256": "5b6b89fc437f07180de770cbaa34e31c43017260888c84e56ed68324eb3f95a9",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-hall",
+          "sha256": "619f2019c471d14d23477f04f4b99b695d5412e65bb001851960b93116f23efa",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-ascension",
+          "sha256": "fceda703feba669c410b56c2c9d615184e8af46e59701cb88399d4e291d12121",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "milestone",
+          "sha256": "c26bab59bc1f007308407e831e1ee93dbf721c20929bad1cd77925070ee2dcfc",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "settings",
+          "sha256": "ae889b9201e7871b498364d3ec2ac6a1b4f49fc367db636c69145876d89647a1",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        }
+      ],
+      "frame_count": 17,
+      "console_sha256": "0dbdc9f22982faa7000582fd21112bd239ceac56cf4a92d3a69f744c163e40d1",
+      "command": [
+        "C:/Users/Maxsim/Downloads/Godot_v4.7-stable_win64.exe/Godot_v4.7-stable_win64_console.exe",
+        "--audio-driver",
+        "Dummy",
+        "--rendering-method",
+        "gl_compatibility",
+        "--path",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0",
+        "--resolution",
+        "540x960",
+        "--log-file",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\en-540x960-light\\godot.log",
+        "--script",
+        "res://tests/capture_gallery.gd"
+      ],
+      "captured_frames": 17,
+      "missing_frames": []
+    },
+    "light/en-720x1280": {
+      "result": "PASS",
+      "locale": "en",
+      "theme": "light",
+      "resolution": "720x1280",
+      "timed_out": false,
+      "exit": 0,
+      "gallery_marker": true,
+      "errors": [],
+      "frames": [
+        {
+          "frame": "loading",
+          "sha256": null,
+          "dimensions": [
+            null,
+            null
+          ],
+          "blank": null
+        },
+        {
+          "frame": "intro",
+          "sha256": "72e786ff98d8d5725a061d566d9ad0f11e22c3cc0b5396964e4f1ab579ac4d3b",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "credits",
+          "sha256": "196eac69362903b70a5da0d301e1ad67a74364fadabe81f23481e70a17c58fbd",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "birth",
+          "sha256": "d69315e397c84261240728389c5d3354364cb5d411e62fd3126d0eada3a42020",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "perk",
+          "sha256": "27242908a2e8ad41d2c4d84df8d36db302303cbd83b5690006a2133c4031b659",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "life",
+          "sha256": "b3d002002afb8d3ee70de70b4f63c40e3b3420ceba6d31f9cbbb20e39c6050de",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "outcome",
+          "sha256": "7566e3708adb07ba24df247c17c2cc1a6436a42758764881ad2642f7bb64a24a",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "market",
+          "sha256": "7cf24237a84f584b42cece9c3e9d03f49049f53f3c11532b234bd0055908ab0f",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "currencies",
+          "sha256": "526ba1df4bed8ee28a8f563b1d1d5c4e9e75bfbf64d8c4ed596e65ab9e6098a6",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "business",
+          "sha256": "72b57f69ca7ec2586a68be9198bd73f71df13fe65de7164e6cef2ef8848903ac",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-journal",
+          "sha256": "dfbc788703a292fd2a2678d84a98d1948a701d9b174a5bd5b2dc98d2bcb24de3",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-legacy",
+          "sha256": "d3f6a2427daee560614a5e0cd30ff57aa06941e5d6bda7e0152a46d2c2d10c6e",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-threads",
+          "sha256": "8b2fda9d39b4a3db3bf8a878b0217fc51ddc6a6a527c054ef1f8280e2e6b04ba",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-hall",
+          "sha256": "6006d4d43563366c6023697e32a453871d3ac3510a2385ff6e2e934fc57d4b6d",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-ascension",
+          "sha256": "91d4f1bcb0d0c241b7160ad383176cef284de4a3d419ac09c2e1278ffd8adf2b",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "milestone",
+          "sha256": "0ea4207e5745127d9c61c267db78fedfae4f4e048825ddf7b20f536e48c793f7",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "settings",
+          "sha256": "691b94e1c207ddfe4d589411adf00d76b5b4f3ae44a8be7de97bc1d488078274",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        }
+      ],
+      "frame_count": 17,
+      "console_sha256": "0dbdc9f22982faa7000582fd21112bd239ceac56cf4a92d3a69f744c163e40d1",
+      "command": [
+        "C:/Users/Maxsim/Downloads/Godot_v4.7-stable_win64.exe/Godot_v4.7-stable_win64_console.exe",
+        "--audio-driver",
+        "Dummy",
+        "--rendering-method",
+        "gl_compatibility",
+        "--path",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0",
+        "--resolution",
+        "720x1280",
+        "--log-file",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\en-720x1280-light\\godot.log",
+        "--script",
+        "res://tests/capture_gallery.gd"
+      ],
+      "captured_frames": 16,
+      "missing_frames": [
+        "loading"
+      ]
+    },
+    "light/ru-540x960": {
+      "result": "PASS",
+      "locale": "ru",
+      "theme": "light",
+      "resolution": "540x960",
+      "timed_out": false,
+      "exit": 0,
+      "gallery_marker": true,
+      "errors": [],
+      "frames": [
+        {
+          "frame": "loading",
+          "sha256": "7c07bbe05ff243ef3971dcf1fc05c2c40193354a8f1c06651a73413b133c049a",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "intro",
+          "sha256": "8e4541a132156f12195f3f2431b6bc56873142e3778ebe1278fb163aba7fea20",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "credits",
+          "sha256": "811096b351002e182a49e996c17969fb6175456c08dc569b9a14f14dcfa37d6a",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "birth",
+          "sha256": "9a98db2ee8a41f3c2bb1d21d2948cc330a82cc23f4858add2346d1fd3744f83a",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "perk",
+          "sha256": "946826d292a636c51053e0e9cf7074d5418972847dfc3c91905855d9cb4a3d6e",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "life",
+          "sha256": "dc85312631807eafa46ac1b330a3636f08a9d195fce82c2c4e33a4288f957809",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "outcome",
+          "sha256": "ebbf8ac3df67bad708484c54b0ad0faeae1717eaac8d9836eaacfd6170879837",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "market",
+          "sha256": "ab036b2ebe7fa068c8750b355a6ae841bcf82c1ed810a100dcd0741d6aaaee8c",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "currencies",
+          "sha256": "d194fcfe305c6fcffd22c7a1ddbb69c2a4f79d09f5c7b4f8522ef37ff74fbcd0",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "business",
+          "sha256": "a1df72e0e5a05b8069580c00c1266b94626c955143da589324c04e65a7056717",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-journal",
+          "sha256": "678bd98fcd29570583d4337146402b558c9b32c0d8f5fed6f299f0c8d8eea7b2",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-legacy",
+          "sha256": "4592c8049f0a74b438639b31963f508f11d820bca54798ca22203fbfed239120",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-threads",
+          "sha256": "b9f3dc1bdc7964912f8b1254efda475a70b7f668449c92c71a110ad5b88efa19",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-hall",
+          "sha256": "ba49a22835d1e995be6c6b65bc196a3f5645bd2f7e1cc4d4c8eec25b79090d46",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-ascension",
+          "sha256": "6985fdf201abede0abf1b038d4d63ccd6846f68b8f7a1de8c3a719269c6e7ea3",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "milestone",
+          "sha256": "ad1c1aeff828549c0ca6a289191e92b345700e5e4cce2d29cb69874583820b29",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        },
+        {
+          "frame": "settings",
+          "sha256": "b23cbf708dd9e15be04fefe800629288115a1b21553c6e4fc6dea7b359268d13",
+          "dimensions": [
+            540,
+            960
+          ],
+          "blank": false
+        }
+      ],
+      "frame_count": 17,
+      "console_sha256": "0dbdc9f22982faa7000582fd21112bd239ceac56cf4a92d3a69f744c163e40d1",
+      "command": [
+        "C:/Users/Maxsim/Downloads/Godot_v4.7-stable_win64.exe/Godot_v4.7-stable_win64_console.exe",
+        "--audio-driver",
+        "Dummy",
+        "--rendering-method",
+        "gl_compatibility",
+        "--path",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0",
+        "--resolution",
+        "540x960",
+        "--log-file",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\ru-540x960-light\\godot.log",
+        "--script",
+        "res://tests/capture_gallery.gd"
+      ],
+      "captured_frames": 17,
+      "missing_frames": []
+    },
+    "light/ru-720x1280": {
+      "result": "PASS",
+      "locale": "ru",
+      "theme": "light",
+      "resolution": "720x1280",
+      "timed_out": false,
+      "exit": 0,
+      "gallery_marker": true,
+      "errors": [],
+      "frames": [
+        {
+          "frame": "loading",
+          "sha256": null,
+          "dimensions": [
+            null,
+            null
+          ],
+          "blank": null
+        },
+        {
+          "frame": "intro",
+          "sha256": "910dda08043b1f92ef2d647da5e730d95a6b8b8f1535fca5f4a1491b941384c3",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "credits",
+          "sha256": "c62b2df4806cd247644be246596fc38f821bd7afb9f20c1d53d0b9ae3b833edc",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "birth",
+          "sha256": "36b25d7c777b06e32f5836239f1ef9fb0c9361dadf19b1e17f6d431beb44cd18",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "perk",
+          "sha256": "adda7c29d8f2a6a0cc871d687e9055d16432f6fc5d16b48a0ab8795ef07f00d3",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "life",
+          "sha256": "447d653731a4996672bcc822f28b3d2a04a478eb0c63b5a9d03dd779e5543e77",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "outcome",
+          "sha256": "ae60d4c01013fdd61f8bd50c7e67d7d89fb0cbfbd381e863cc0dd4108c9d9902",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "market",
+          "sha256": "470796b5b61e1c9ebbae01b65409d97216c59b3fe807e929c0329be8a2911047",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "currencies",
+          "sha256": "a739ff7a9c2801748778ead098232304dc6d116900f50bf299b82d7b2db3726a",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "business",
+          "sha256": "761210597a2829c19b4a107e871a2a8bfe1f9b0de0d77c3e5793e3c1d2fa526a",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-journal",
+          "sha256": "ecb4d14fe6b3dcd7156bfdea4e66a577f15f884dc0d561c85c4aac17124e55ca",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-legacy",
+          "sha256": "a29a0053f4a91f79b1edfe7a76ebc24ce453ed3c0d543fd03e09a4be00c5e0a5",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-threads",
+          "sha256": "483be98eb24e8509c9759123e17bc7629d7a3a45078ecc4e688ff772ac134378",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-hall",
+          "sha256": "f42f404311205549e7f7aa7978ad1e44fd53c0460a285581c1033a08875cfd73",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "dynasty-ascension",
+          "sha256": "056343c906752bf2a005525998f23dc2ead5c9628639b2168b9e1c22a482afd6",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "milestone",
+          "sha256": "5d6645e206edecc67cfd864dfcabfa8575ac0d583940ed1795f945fbbf75adfe",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        },
+        {
+          "frame": "settings",
+          "sha256": "066a90f7fddc69905c8b19f5ae0f16cc9a40d37486d1d502afda76f312ac2ec2",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "blank": false
+        }
+      ],
+      "frame_count": 17,
+      "console_sha256": "0dbdc9f22982faa7000582fd21112bd239ceac56cf4a92d3a69f744c163e40d1",
+      "command": [
+        "C:/Users/Maxsim/Downloads/Godot_v4.7-stable_win64.exe/Godot_v4.7-stable_win64_console.exe",
+        "--audio-driver",
+        "Dummy",
+        "--rendering-method",
+        "gl_compatibility",
+        "--path",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0",
+        "--resolution",
+        "720x1280",
+        "--log-file",
+        "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0\\builds\\release-2.1.0\\gallery-62c153b\\ru-720x1280-light\\godot.log",
         "--script",
         "res://tests/capture_gallery.gd"
       ],

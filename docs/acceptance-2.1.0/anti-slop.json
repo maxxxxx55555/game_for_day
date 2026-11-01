@@ -1,17 +1,66 @@
 {
   "result": "PASS",
-  "scope": "Finite presentation audit: displayed 2.1 copy, documented palette, repository vector icons, display fonts/licences, unchanged bitmap inventory and placeholder scan. It does not prove human authorship of every asset or replace visual review and owner checks.",
-  "runtime_commit": "028a4518e74bf49b65496deeb9f4899474dd7157",
+  "scope": "Finite presentation audit: displayed edition copy, both documented skins, repository vector icons, display fonts/licences, unchanged bitmap inventory and placeholder scan. It does not prove human authorship of every asset or replace visual review and owner checks.",
+  "runtime_commit": "b38e9df3788b8d83cc6c0a7956614963d6c16819",
   "baseline_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
   "copy_keys_scanned_per_locale": 526,
   "copy_findings": [],
+  "skins": {
+    "dark": {
+      "ink": "0a0f16",
+      "surface": "111a25",
+      "raised": "16212e",
+      "deep": "0d151f",
+      "rule": "26313f",
+      "rule_soft": "1d2733",
+      "text": "ede7da",
+      "muted": "8a97a6",
+      "accent": "c9a227",
+      "accent_deep": "a9871f",
+      "green": "7fb069",
+      "alert": "c4614f",
+      "track": "1e2a38"
+    },
+    "light": {
+      "ink": "f3eee2",
+      "surface": "fbf7ee",
+      "raised": "ffffff",
+      "deep": "ebe4d4",
+      "rule": "d8cdb6",
+      "rule_soft": "e4dbc8",
+      "text": "1b2027",
+      "muted": "6f6a5e",
+      "accent": "8a6a2f",
+      "accent_deep": "6d5324",
+      "green": "4f7a3a",
+      "alert": "a8443c",
+      "track": "ddd4c1"
+    }
+  },
+  "theme_keys": [
+    "ui.theme",
+    "ui.theme.dark",
+    "ui.theme.light"
+  ],
+  "icon_stroke_rule": "stroke-width=\"1.75\"",
+  "expected_icons": [
+    "business.svg",
+    "dynasty.svg",
+    "globe.svg",
+    "grant.svg",
+    "market.svg",
+    "settings.svg",
+    "theme.svg"
+  ],
   "palette_missing": [],
   "icons": [
     "business.svg",
     "dynasty.svg",
+    "globe.svg",
     "grant.svg",
     "market.svg",
-    "settings.svg"
+    "settings.svg",
+    "theme.svg"
   ],
   "bad_icons": [],
   "fonts": {

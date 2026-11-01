@@ -5,46 +5,46 @@
     "perf-2.1.0": {
       "label": "perf-2.1.0",
       "project": "C:\\Users\\Maxsim\\Documents\\Qoder\\2026-10-29\\0f74e5c0",
-      "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e",
+      "source_commit": "62c153b020e10ec5b5c07d1f176e37408bfb2a38",
       "engine": "4.7-stable",
       "attempts": [
         {
-          "dashboard_ready_ms": 537,
+          "dashboard_ready_ms": 525,
           "samples": 240,
-          "median_frame_ms": 16.67,
-          "p95_frame_ms": 17.269,
+          "median_frame_ms": 16.696,
+          "p95_frame_ms": 17.258,
           "engine": "4.7-stable",
-          "wall_seconds": 8.594,
-          "captured_at": "2026-10-30T10:41:12+00:00",
-          "console_sha256": "16d9bce030a4cce3c9f37d15d73b62e7422a2921709539f37391c814b21b76e4",
-          "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+          "wall_seconds": 8.125,
+          "captured_at": "2026-10-31T18:28:38+00:00",
+          "console_sha256": "1e085643710d663586444525691a2da705426d00afaf62b4c331bb425ac25193",
+          "source_commit": "62c153b020e10ec5b5c07d1f176e37408bfb2a38"
         },
         {
-          "dashboard_ready_ms": 528,
+          "dashboard_ready_ms": 506,
           "samples": 240,
-          "median_frame_ms": 16.659,
-          "p95_frame_ms": 17.542,
+          "median_frame_ms": 16.673,
+          "p95_frame_ms": 17.226,
           "engine": "4.7-stable",
-          "wall_seconds": 8.0,
-          "captured_at": "2026-10-30T10:41:28+00:00",
-          "console_sha256": "452bce0a2bd03edbe83df4f05ade3544fbece085c88e1216546dff2256a4212e",
-          "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+          "wall_seconds": 8.219,
+          "captured_at": "2026-10-31T18:28:47+00:00",
+          "console_sha256": "bc310846c4ed30fe71d6986445f7e498e4ce695d387c6ea161e0c6b3c3db40d9",
+          "source_commit": "62c153b020e10ec5b5c07d1f176e37408bfb2a38"
         },
         {
-          "dashboard_ready_ms": 484,
+          "dashboard_ready_ms": 522,
           "samples": 240,
-          "median_frame_ms": 16.665,
-          "p95_frame_ms": 17.272,
+          "median_frame_ms": 16.687,
+          "p95_frame_ms": 17.177,
           "engine": "4.7-stable",
-          "wall_seconds": 8.641,
-          "captured_at": "2026-10-30T10:41:47+00:00",
-          "console_sha256": "c71092ac0697af1599207b70bfba1f6cc40aa0e77612df0b0fc4fea17ff05005",
-          "source_commit": "807ba09c551134c76f23b4167ab7b5783dd7199e"
+          "wall_seconds": 8.047,
+          "captured_at": "2026-10-31T18:28:55+00:00",
+          "console_sha256": "39e4b1080efa93d37e7904cc68499d93ab723817f944725579857075b08ba17e",
+          "source_commit": "62c153b020e10ec5b5c07d1f176e37408bfb2a38"
         }
       ],
-      "dashboard_ready_ms": 528,
-      "median_frame_ms": 16.665,
-      "p95_frame_ms": 17.272,
+      "dashboard_ready_ms": 522,
+      "median_frame_ms": 16.687,
+      "p95_frame_ms": 17.226,
       "samples": 240,
       "runs": 3,
       "criteria": "Real-window run on this host with audio muted; dashboard_ready_ms counts intro->birth->perk->first life card, frame deltas cover 240 consecutive presented frames of the live dashboard screen. Top-level numbers are the median over 3 attempt(s) on this host; every attempt is stored separately. Same-host comparison, not a device sweep."
@@ -131,9 +131,9 @@
     }
   },
   "delta": {
-    "dashboard_ready_ms": -17.5,
-    "median_frame_ms": -0.01,
-    "p95_frame_ms": 0.009
+    "dashboard_ready_ms": -23.5,
+    "median_frame_ms": 0.012,
+    "p95_frame_ms": -0.037
   },
   "within_label_spread_ms": {
     "dashboard_ready_ms": 159,

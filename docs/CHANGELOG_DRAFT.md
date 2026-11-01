@@ -1,6 +1,6 @@
 # CHANGELOG — v2 integration draft
 
-## 2.1.0 Legacy & Chains — published 2026-10-30
+## 2.1.0 Legacy & Chains — published 2026-10-30, re-issued 2026-10-31
 
 - Added eight two-link threads with stored flags, five-quarter delays, recalled choices, variant outcomes and momentum.
 - Added the five-section dynasty ledger and a twelve-life hall of fame.
@@ -8,15 +8,12 @@
 - Added the five-level Ascension NG+ path from the victory finale.
 - Added milestone retrospectives at 18/25/35/50/65 and momentum; Continue never advances the world.
 - Added card reveal, signed delta chips, outcome tones, a live 24-sample portfolio pulse and reduced-motion snapping.
-- Added jazz-lounge palette, Unbounded/Onest type, 1.75px vector icons and emoji-free displayed copy.
+- Added the two-skin appearance system: dark (ink and gold) and light (warm paper and bronze) resolved through `scripts/ui/Palette.gd`, a theme switch on the intro and in settings, a per-country plate in the event card, chrome/cover/print cues and 1.75px vector interface icons (six drawn; `globe.svg` ships unused). See [APPEARANCE.md](APPEARANCE.md).
+- Added Unbounded/Onest type and emoji-free displayed copy.
 - Added chains, dynasty-progression and card-feel suites; mechanics matrix is now 18 rows / 144 cells.
 - 2.1 save fields remain optional; 1.4.0 and 2.0.x profiles load with neutral defaults.
-- Publication gate PASS at `807ba09`; tag `v2.1.0`; release assets `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file.
-
-## Unreleased on main — two-skin appearance system
-
-- Dark (ink and champagne) and light (warm paper and bronze) skins resolved through `scripts/ui/Palette.gd`, a theme switch on the intro and in settings, a per-country plate in the event card and new interface icons. See [APPEARANCE.md](APPEARANCE.md).
-- This work is **not** part of the published 2.1.0 archive and has not been through the publication gate, and no suite exercises the theme switch yet; the 2.1.0 design-pass expectations (one documented palette, five 1.75px interface icons) do not describe it, so it needs its own acceptance run before any release.
+- Publication gate PASS at `b38e9df` (15 steps, clean tree); tag `v2.1.0` names that commit; release assets are `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file, whose current digests are recorded in [RELEASE_2.1.0.md](RELEASE_2.1.0.md) and [ACCEPTANCE_CERTIFICATE.md](ACCEPTANCE_CERTIFICATE.md).
+- The theme switch is not exercised by a suite case: both skins are gallery-captured and audited token by token, and pressing the switch in the live build is the owner's fifth check.
 
 ## Earlier v2 notes (historical, unchanged by 2.1.0)
 
