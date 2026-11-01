@@ -14,7 +14,6 @@ func _ready() -> void:
 	var backdrop:Panel=Panel.new()
 	backdrop_panel=backdrop
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.surface(),Palette.rule()))
 	add_child(backdrop)
 	var margin:MarginContainer=MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -51,6 +50,16 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	close_button.pressed.connect(close)
 	close_button.grab_focus()
+	# The overlay can stay open while the skin changes (the intro toggle is reachable by keyboard
+	# behind it), so its own backdrop repaints instead of leaving dark paper under ink text.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(_mode:String)->void:apply_skin())
+	apply_skin()
+func apply_skin() -> void:
+	if not is_instance_valid(backdrop_panel):
+		return
+	backdrop_panel.add_theme_stylebox_override("panel",SkinTheme.style(Palette.surface(),Palette.rule()))
+
 func close() -> void:
 	closed.emit()
 	queue_free()

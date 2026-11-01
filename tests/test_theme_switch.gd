@@ -103,6 +103,22 @@ func run()->void:
 			if painted==light[token] and painted!=dark[token]:
 				kept.append(str(label.get_path())+" keeps "+token)
 	check(kept.is_empty(),"Switching back leaves no paper token behind: "+", ".join(kept.slice(0,10)))
+	# The credits overlay is the one panel that can stay open while the skin changes,
+	# because the intro toggle is reachable by keyboard behind it.
+	var credits_action:Button=null
+	for candidate:Button in screen.find_children("*","Button",true,false):
+		if candidate.name=="CreditsButton": credits_action=candidate
+	check(credits_action!=null,"The intro offers a credits action")
+	if credits_action!=null: credits_action.pressed.emit()
+	await process_frame
+	check(screen.credits_panel != null and screen.credits_panel.visible, "Credits open over the life")
+	set_skin("light")
+	var credits_backdrop: StyleBoxFlat = screen.credits_panel.backdrop_panel.get_theme_stylebox("panel") as StyleBoxFlat
+	check(credits_backdrop != null and credits_backdrop.bg_color == light.surface, "The credits backdrop follows the skin while the panel is open")
+	check(screen.credits_panel.body.get_theme_color("font_color") == light.text, "Credits body stays readable on the panel it sits on")
+	screen.credits_panel.close_button.pressed.emit()
+	await process_frame
+	set_skin("dark")
 	# The finale is a staged sheet with its own scrim (LifeFinale's STAGE_* values), so
 	# its type has to be provably identical in both skins rather than excused from the scan.
 	set_skin("light")
