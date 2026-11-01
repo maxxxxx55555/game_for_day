@@ -1,5 +1,8 @@
 # Localization source audit — v2 F2
 
+Recorded for the 2.0 edition and left unchanged as the accepted baseline. On the 2.1.0 tree the same compile passes over 1093 keys in each locale: the gate step `localization-drift` at `466a8c1` prints `LOCALIZATION COMPILE PASS: 1093 RU/EN keys`, and the copy contract reads the same catalogue. Every count below is the 2.0-era figure.
+
+
 Catalog: 598 keys in each of RU and EN. Both editable CSV files contain identical keyed rows. Compilation validates nonempty values and placeholder parity. The source audit rejects missing literal keys, unkeyed Cyrillic model/UI copy and nonempty hardcoded scene labels. Blank scene controls are populated by localized _ready handlers before display. Native language names remain readable regardless of the active language. English product brands and standard input symbols are deliberate identifiers.
 
 First launch suggests the system language, offers an explicit selector and persists confirmation. Live switching preserves the existing scene and gameplay state. Body/heading fonts are checked for Cyrillic, ё, punctuation and currency symbols. Decorative legacy emoji are preserved in canonical Russian content but omitted by the concise presentation layer; this avoids relying on an OS color-emoji font.
