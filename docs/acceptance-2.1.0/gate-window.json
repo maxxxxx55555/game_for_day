@@ -1,8 +1,35 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "eec2d6c7dba10a54273a5abb0f3976a918c7fc09",
+  "host_head": "d713af3e9a5a63e12a9128c3a05702c5784ade89",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "d713af3e9a5a63e12a9128c3a05702c5784ade89",
+      "subject": "Heirs of Fortune 2.1.0: close the six defects a second audit of the published release found",
+      "files": [
+        "docs/BUG_REGRESSIONS.md",
+        "docs/FINAL_REPORT.md",
+        "docs/MECHANICS_MATRIX.json",
+        "docs/RELEASE_2.1.0.md",
+        "docs/acceptance-2.1.0/asset-history.json"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "0fb754e78c74f2fde02bca11532d7f577ef066d5",
+      "subject": "Heirs of Fortune 2.1.0: record the download of the archive that ships the corrected documents",
+      "files": [
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/FINAL_REPORT.md",
+        "docs/acceptance-2.1.0/contract-test_repo_isolation.log",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json",
+        "docs/acceptance/download-verification-2.1.0.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "eec2d6c7dba10a54273a5abb0f3976a918c7fc09",
       "subject": "Heirs of Fortune 2.1.0: archive the build whose documents describe it",
@@ -155,10 +182,7 @@
   "receipts_by_recorded_commit": {
     "3b851e7": [
       "anti-slop.json:runtime_commit",
-      "contracts.json:source_commit",
-      "evidence-manifest.json:source_test_commit",
-      "pack-audit.json:documentation_commit",
-      "suite-source-audit.json:source_commit"
+      "pack-audit.json:documentation_commit"
     ],
     "1ec7668": [
       "anti-slop.json:baseline_commit"
@@ -168,6 +192,11 @@
       "cycles.json:source_commit",
       "legacy.json:source_commit",
       "soak.json:source_commit"
+    ],
+    "eec2d6c": [
+      "contracts.json:source_commit",
+      "evidence-manifest.json:source_test_commit",
+      "suite-source-audit.json:source_commit"
     ],
     "466a8c1": [
       "evidence-manifest.json:runtime_export_commit",
