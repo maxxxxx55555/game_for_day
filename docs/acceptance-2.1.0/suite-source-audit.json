@@ -1,6 +1,6 @@
 {
   "result": "PASS",
-  "source_commit": "fcd5b94ba8a2f358ea72c47e8d503b367effcb86",
+  "source_commit": "1a3253230d5a89273b14ad4a53b61900280a078c",
   "tracked_files": 506,
   "test_changes_since_release_candidate": [
     "tests/capture_gallery.gd",

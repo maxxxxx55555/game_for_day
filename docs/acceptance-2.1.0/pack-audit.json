@@ -2,19 +2,19 @@
   "result": "PASS",
   "archive": {
     "name": "HeirsOfFortune-Windows-2.1.0.zip",
-    "bytes": 84627544,
-    "sha256": "1d1afdb4e3880379c9f8ea4676ad73f19882e23e2e2506a3bbd3b42dfad74ebe"
+    "bytes": 84631852,
+    "sha256": "dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011"
   },
   "checksums_file": {
     "name": "HeirsOfFortune-SHA256SUMS-2.1.0.txt",
-    "sha256": "19913dda9f91f0e405c719e69f2947af029233fc90e8d05aac74531143fa1232"
+    "sha256": "f821ccb77b50f4794b266e6f4338d91b7bc9e07f815e4848984610878a9d6b1e"
   },
   "entries": 240,
   "exe_sha256": "ca7147bd246f1716b71f801fdb860bd27448171533b6c8d3d78a7c7c24567202",
   "pck_sha256": "3275646de463050610c57c4dad1ddaf837a00a56f8d7a7690f612909ee2050b6",
   "runtime_export_commit": "b38e9df3788b8d83cc6c0a7956614963d6c16819",
-  "documentation_commit": "fcd5b94ba8a2f358ea72c47e8d503b367effcb86",
-  "shipping_source_parity": "PASS: only non-shipped paths differ from the exported commit: README.md, docs/ACCEPTANCE_CERTIFICATE.md, docs/ANNOUNCE_KIT.md, docs/FINAL_REPORT.md, docs/HANDOFF.md, docs/MECHANICS_MATRIX.md, docs/RELEASE_2.1.0.md",
+  "documentation_commit": "1a3253230d5a89273b14ad4a53b61900280a078c",
+  "shipping_source_parity": "PASS: only non-shipped paths differ from the exported commit: README.md, docs/ACCEPTANCE_CERTIFICATE.md, docs/ANNOUNCE_KIT.md, docs/APPEARANCE.md, docs/BUG_REGRESSIONS.md, docs/CHANGELOG_DRAFT.md, docs/FINAL_REPORT.md, docs/HANDOFF.md, docs/MECHANICS_MATRIX.md, docs/RELEASE_2.1.0.md, docs/acceptance-2.1.0/anti-slop.json, docs/acceptance-2.1.0/balance-sweep.json, docs/acceptance-2.1.0/contract-test_copy_contract.log, docs/acceptance-2.1.0/contract-test_localization_generation.log, docs/acceptance-2.1.0/contracts.json, docs/acceptance-2.1.0/cycles.json, docs/acceptance-2.1.0/evidence-manifest.json, docs/acceptance-2.1.0/exports.json, docs/acceptance-2.1.0/galleries.json, docs/acceptance-2.1.0/gate.json, docs/acceptance-2.1.0/legacy.json, docs/acceptance-2.1.0/native.json, docs/acceptance-2.1.0/pack-audit.json, docs/acceptance-2.1.0/performance.json, docs/acceptance-2.1.0/soak-trend.json, docs/acceptance-2.1.0/soak.json, docs/acceptance-2.1.0/suite-source-audit.json, docs/acceptance-2.1.0/suites.json",
   "inherited_license_files": 8,
   "loose_secret_scan": "PASS",
   "native_binary_key_hits": [
@@ -36,7 +36,7 @@
     },
     "HeirsOfFortune/README.md": {
       "bytes": 20327,
-      "sha256": "b191aef988b2bb34a320abae8c4074e78e61643b4a80f082607793c211218bf1"
+      "sha256": "8c59aa6dd4e05aae8043807ac11301bbd0f532be9584ade877d61e7b2c7ae846"
     },
     "HeirsOfFortune/SAVE-INTEGRITY.md": {
       "bytes": 8540,
@@ -99,8 +99,8 @@
       "sha256": "1e055d25bde41906cc2e1a08bc156e7776d5084e1640d75dbd0065a937b488e3"
     },
     "HeirsOfFortune/build-provenance.json": {
-      "bytes": 57845,
-      "sha256": "924b375e1d86a56b96c2f3f1c77cd409948c3ed20352ef5925dd2465456f44d9"
+      "bytes": 58644,
+      "sha256": "0626b797b41c5fa67ce9d2b47d6d1c610195add39391bcac3e3df4776db56c8a"
     },
     "HeirsOfFortune/docs/ACCEPTANCE_CERTIFICATE.md": {
       "bytes": 6161,
@@ -111,8 +111,8 @@
       "sha256": "95a6c962607717393b3bd940499c8edaeffd2e4088ba97806d11417b6b74c008"
     },
     "HeirsOfFortune/docs/APPEARANCE.md": {
-      "bytes": 5519,
-      "sha256": "677edf18cdd8a01c91b0fb344faed70cae4db427d910f4cd5264eae0495c325d"
+      "bytes": 6310,
+      "sha256": "2afe8362ce252f93f376fb2e24ff7aba2f3a33944ef34be4aa1a59c881af7b88"
     },
     "HeirsOfFortune/docs/ART_DIRECTION.md": {
       "bytes": 7230,
@@ -144,11 +144,11 @@
     },
     "HeirsOfFortune/docs/BUG_REGRESSIONS.md": {
       "bytes": 5203,
-      "sha256": "561bc25065aa4c7fec130e0c5567446c9fc2db04fd4de5eb7260e16731d49979"
+      "sha256": "841ba657d6ee426856a7e9550c24b0601636abfaf301c484c986604abfd1a173"
     },
     "HeirsOfFortune/docs/CHANGELOG_DRAFT.md": {
-      "bytes": 3876,
-      "sha256": "cdcb5b7ffc1038ae4c5925849500dad8e66aed2bbd1726b678db5782c778a8d2"
+      "bytes": 3949,
+      "sha256": "b2ddae3a8ed2f84bf2f0d628fdc3bdd51ad0fb1eec8e1dfad2518e5d7037a15b"
     },
     "HeirsOfFortune/docs/CHECKOUT_REPRODUCTION.md": {
       "bytes": 8001,
@@ -176,7 +176,7 @@
     },
     "HeirsOfFortune/docs/MECHANICS_MATRIX.md": {
       "bytes": 33788,
-      "sha256": "15c70078a5690ec0e54b7488978e6d3154c6f3369d936de6b7f7a3df5620faa9"
+      "sha256": "e38b92d948abdec813c290b021fe6ffa62e1c6375c40270db34c1b81b8e3b41c"
     },
     "HeirsOfFortune/docs/PROMISE_MATRIX.json": {
       "bytes": 42218,
@@ -184,7 +184,7 @@
     },
     "HeirsOfFortune/docs/PROMISE_MATRIX.md": {
       "bytes": 2691,
-      "sha256": "647e9d1ca19e1d2e25653e108023d9b32480f6fe011f6c43dffdda0830414c03"
+      "sha256": "bd2bb4cf30cfbd479c4be8718f56dc2ebbc423ed2938b5cdb55bd16fbcc6cd8e"
     },
     "HeirsOfFortune/docs/RELEASE_1_0.md": {
       "bytes": 626,
@@ -203,8 +203,8 @@
       "sha256": "c109e52273c8fc01d27aad43f0f7c8fb21baeaf9d9025e2d369301527190a053"
     },
     "HeirsOfFortune/docs/RELEASE_2.1.0.md": {
-      "bytes": 14062,
-      "sha256": "efc664c42b0d811b66638601c2f34245634dc7ac3797dc8c69d5d772f0713bfd"
+      "bytes": 14171,
+      "sha256": "3a741dc09671ae73aee7a729848829f235deb24fc4e645311f740c365a94e70f"
     },
     "HeirsOfFortune/docs/RELEASE_V2_PLAN.md": {
       "bytes": 2662,
@@ -411,12 +411,12 @@
       "sha256": "e92e996fcc7a2679eabe2ab9f3a438f8d698a3504c5695a5ab00da42757f521b"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/anti-slop.json": {
-      "bytes": 1973,
-      "sha256": "1b548f1f102ff316862ee694e27681d0d622fa4c8a86d12e45bb755d8d6a9fa2"
+      "bytes": 3071,
+      "sha256": "3e167028be6cac909509397c0c7dd6bd43ba1041e812a25026967d6504bc599e"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/balance-sweep.json": {
-      "bytes": 17972,
-      "sha256": "a46879a33ea1e5d2c1d85d972f9528bb5ef79c8566fc74a29d7b881d4395a65f"
+      "bytes": 17971,
+      "sha256": "5298f55e90f05f13a3cd597f97e3ca8e60ea2ec638ae93f3a264498524defe84"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/contract-check_repo_isolation.log": {
       "bytes": 35,
@@ -428,7 +428,7 @@
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_copy_contract.log": {
       "bytes": 76,
-      "sha256": "27208d8e2a4e0bf0647f326d19795738ce7dc8de5febbb8de4e6dc3e163b4029"
+      "sha256": "3b020bb5159496a11079c0e6e43e83ed540104e0de657434196330065e96119c"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_critical_manifest.log": {
       "bytes": 161,
@@ -448,7 +448,7 @@
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_localization_generation.log": {
       "bytes": 130,
-      "sha256": "a4f1ea4430cb8df25d43343cd3a5fa641e5a1a3bedac784dd51b01cf196f28af"
+      "sha256": "2611b2a6028137684f2438a9d105a8db0778b9dcf31fbff095c582350a306062"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/contract-test_mechanics_matrix.log": {
       "bytes": 64,
@@ -476,59 +476,59 @@
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/contracts.json": {
       "bytes": 2620,
-      "sha256": "97b6e12dbd18bf2dfe6a9465da813a2dc495046ea4dcc5940d542d9d77351af8"
+      "sha256": "933d8d4c3ef268c6193f99dd39007d35535cec3a61f18cb16194c050efe8c89a"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/cycles.json": {
-      "bytes": 103934,
-      "sha256": "19018c4d4ef586304972c117c8df2b74474474d9db32fec981727a3e00c7525f"
+      "bytes": 103955,
+      "sha256": "5140438e436d2e94fe0fd0b0ea7accb2e29f4240277bb667938cd187c0dae81f"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/evidence-manifest.json": {
       "bytes": 3616,
-      "sha256": "1bfe2c6c12c3ea38a86b7a40fb616fc28df12800b66e9e221bb0daf168776e28"
+      "sha256": "c8af1254395934ba9769ea121354e7514100a11e2f91d55c71749d8cd3c0b9ef"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/exports.json": {
       "bytes": 2596,
-      "sha256": "cd17f30d9be54573923a3da96311ac07d049a793201ad1fbbd70aecd9e79803f"
+      "sha256": "53fa3236d278bef6ee1b531229b201971a050b2581f45c8d820b76fff4a1feba"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/galleries.json": {
-      "bytes": 21284,
-      "sha256": "3c32a031e8e6f2aa3c4cc528f109e16040e12cf99edc235ec8aeb551368c2a2d"
+      "bytes": 42372,
+      "sha256": "84f12655b2352e35a048e3bdde04afb6b1f62fd17c4e7d710ff0aa1ee14581ab"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/gate.json": {
       "bytes": 1992,
-      "sha256": "dc3e5c2f46f91c047dc9103ed854786e65ab524720a0c85247faa9b493e3b63d"
+      "sha256": "cffa5e4e8b5fc4a8babf1a79b8799524174b86ca493e4ece13aeb1603ac33f0f"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/legacy.json": {
-      "bytes": 14514,
-      "sha256": "911fe0c929dc08938b64086ff329d4d1aaab23e6c8ac8780f7c02dc4d478906c"
+      "bytes": 14515,
+      "sha256": "b85859248b0a2d9d5a3484364f19ba1d65b6970b3dccb405643f7bede94b829c"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/native.json": {
       "bytes": 6415,
-      "sha256": "c5f75eac10b2f227dfeea3af4013f2832a60dd84618872f7df920999cbfe6bf4"
+      "sha256": "5ee42eb2bf2cdb6b2db3195833d107c9b3a34ec165011304fcbfbbff0728437f"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/pack-audit.json": {
-      "bytes": 46134,
-      "sha256": "5428d41e29579ed2abca66f7db65e68af23056c4a1afa2782b279770e0d03024"
+      "bytes": 44801,
+      "sha256": "350b99a532f35ad02aa15c4806b2d69fc2db9d4ff77d8204f3077bd919d74998"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/performance.json": {
-      "bytes": 6819,
-      "sha256": "c2ee3bf7f05e44b1619b707706db59a89a0ac8603d369c077df17d4dbf07a13b"
+      "bytes": 6823,
+      "sha256": "33fc5351f43838daa2e42599ea4874ef428f23991a54d305561bcd902fc3880c"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/soak-trend.json": {
-      "bytes": 2265,
-      "sha256": "9e4c4ef4a2e501fb2316e8161f790e7727061fa52996f9407f02915d7d9160cb"
+      "bytes": 2476,
+      "sha256": "975460b77ee84c166b2670a604447edd4a4b5bdeabf4297e95c6a7cdad356f45"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/soak.json": {
-      "bytes": 14851,
-      "sha256": "5f213bde878e92c35a256cb1bf3adfc8a3495b51d6640fbbc35bb201b845fbae"
+      "bytes": 10809,
+      "sha256": "3a6c1b6849d4a206c6e7a72db59b20ed416f5bbfbdd63c79d312d2704303ecc9"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/suite-source-audit.json": {
-      "bytes": 966,
-      "sha256": "57900eb13387f303a38e2204939ee133ce71987e8c7867ccc3f49e897d79fcfb"
+      "bytes": 2271,
+      "sha256": "b07da28b9aec6681cfa5fe61a2c8f440f3e59cea3495290ead9a82522165d55b"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/suites.json": {
       "bytes": 1468,
-      "sha256": "9a1f463d057a1cc84200a08492f58c08ec4c631cf3576cd1d175b0beb0d4b9c3"
+      "sha256": "568880ed4b94fab7e8a0d51a928fac881dc45c8f01556d254aaae05f79f85161"
     },
     "HeirsOfFortune/docs/acceptance-2.1.0/visual-review.json": {
       "bytes": 10090,
