@@ -5,7 +5,7 @@
   "tag_object_sha": "cc1fa564a944e2f334ba381cf548d5f454b4d270",
   "tag_peels_to": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
   "runtime_export_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "checked_at": "2026-11-01T14:53:22+00:00",
+  "checked_at": "2026-11-01T15:19:03+00:00",
   "downloaded_into": "a fresh empty directory via `gh release download v2.1.0 --pattern HeirsOfFortune-*`",
   "commands": [
     "gh release download v2.1.0 --repo maxxxxx55555/game_for_day --pattern HeirsOfFortune-* --clobber",
@@ -17,24 +17,24 @@
   },
   "downloaded_files": {
     "HeirsOfFortune-Windows-2.1.0.zip": {
-      "bytes": 84658959,
-      "sha256": "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f",
-      "entries": 245
+      "bytes": 84660604,
+      "sha256": "458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f",
+      "entries": 246
     },
     "HeirsOfFortune-SHA256SUMS-2.1.0.txt": {
       "bytes": 99,
-      "sha256": "5af6248da760559e1608e28eb295d4af9fa227b28023a84987503e9e71f6a068"
+      "sha256": "2e5ae904bb0715f750223368e4d1c486129c77c689dc00ac3a0cffb9fdd12e9b"
     }
   },
   "github_asset_digests": {
     "HeirsOfFortune-SHA256SUMS-2.1.0.txt": {
       "bytes": 99,
-      "github_sha256": "5af6248da760559e1608e28eb295d4af9fa227b28023a84987503e9e71f6a068",
+      "github_sha256": "2e5ae904bb0715f750223368e4d1c486129c77c689dc00ac3a0cffb9fdd12e9b",
       "download_count": 0
     },
     "HeirsOfFortune-Windows-2.1.0.zip": {
-      "bytes": 84658959,
-      "github_sha256": "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f",
+      "bytes": 84660604,
+      "github_sha256": "458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f",
       "download_count": 0
     }
   },

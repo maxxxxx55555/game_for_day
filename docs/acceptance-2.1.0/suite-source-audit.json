@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "source_commit": "eec2d6c7dba10a54273a5abb0f3976a918c7fc09",
-  "tracked_files": 513,
+  "source_commit": "7ee21b3bf0c77dd27182a9447e6634d4f06c9433",
+  "tracked_files": 514,
   "test_changes_since_release_candidate": [
     "tests/capture_gallery.gd",
     "tests/run_tests.py",

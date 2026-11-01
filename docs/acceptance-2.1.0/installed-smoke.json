@@ -2,22 +2,22 @@
   "result": "PASS",
   "archive": {
     "name": "HeirsOfFortune-Windows-2.1.0.zip",
-    "bytes": 84658959,
-    "sha256": "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f"
+    "bytes": 84660604,
+    "sha256": "458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f"
   },
   "checksums_file": {
     "name": "HeirsOfFortune-SHA256SUMS-2.1.0.txt",
     "bytes": 99,
-    "sha256": "5af6248da760559e1608e28eb295d4af9fa227b28023a84987503e9e71f6a068"
+    "sha256": "2e5ae904bb0715f750223368e4d1c486129c77c689dc00ac3a0cffb9fdd12e9b"
   },
   "runtime_export_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "repository_head": "3b851e7c2efe0710664c4bf0565f61bf7cd0498f",
+  "repository_head": "b69d4d7d90c825e20215b4034de7905843a256c7",
   "checks": [
     {
       "check": "the sums file names this archive and its digest",
       "ok": true,
       "detail": [
-        "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f",
+        "458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f",
         "HeirsOfFortune-Windows-2.1.0.zip"
       ]
     },
@@ -151,7 +151,7 @@
   "boot": {
     "exit": 0,
     "timed_out": false,
-    "seconds": 2.282,
+    "seconds": 1.875,
     "errors": [],
     "leaks": [
       "2"
@@ -172,14 +172,14 @@
   "guardverifybuild": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.032,
+    "seconds": 1.016,
     "errors": [],
     "leaks": [],
     "user_data": [
       "boot.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.51.07.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T18.12.03.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -190,7 +190,7 @@
   "guarddefeat": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.046,
+    "seconds": 1.016,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -198,8 +198,8 @@
       "guarddefeat.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.51.07.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.51.08.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T18.12.03.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T18.12.04.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -210,7 +210,7 @@
   "guarddynasty": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.032,
+    "seconds": 1.031,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -219,9 +219,9 @@
       "guarddynasty.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.51.07.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.51.08.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.51.09.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T18.12.03.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T18.12.04.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T18.12.05.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",

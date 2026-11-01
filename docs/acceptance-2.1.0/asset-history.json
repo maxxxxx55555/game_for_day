@@ -4,6 +4,13 @@
   "tag_peels_to": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
   "documented_archives": [
     {
+      "documented_at": "7ee21b3bf0c77dd27182a9447e6634d4f06c9433",
+      "committed_at": "2026-11-01T18:12:34+03:00",
+      "zip_sha256": "458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f",
+      "bytes": 84660604,
+      "entries": 246
+    },
+    {
       "documented_at": "b69d4d7d90c825e20215b4034de7905843a256c7",
       "committed_at": "2026-11-01T18:11:51+03:00",
       "zip_sha256": "6d52a888ee0e72f4eb8a01750ed592644fe7dd3d393251abe1816b969b90ea1f",
@@ -32,9 +39,9 @@
       "entries": 240
     }
   ],
-  "distinct_archives": 4,
+  "distinct_archives": 5,
   "host_archive_now": "458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f",
-  "host_archive_is_documented": false,
+  "host_archive_is_documented": true,
   "rule": "Every digest listed here was the one the release documents named at that commit. A digest that stops being newest means the published asset was replaced, not that the earlier bytes were wrong: the binaries inside each of them are the same export, and only the documentation tree differed.",
   "scope": "Reads docs/RELEASE_2.1.0.md out of git history after the gated commit. It does not contact the release and does not prove what a visitor downloaded.",
   "problems": []

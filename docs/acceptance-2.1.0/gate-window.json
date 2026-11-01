@@ -1,8 +1,27 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "d713af3e9a5a63e12a9128c3a05702c5784ade89",
+  "host_head": "7ee21b3bf0c77dd27182a9447e6634d4f06c9433",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "7ee21b3bf0c77dd27182a9447e6634d4f06c9433",
+      "subject": "Heirs of Fortune 2.1.0: document the archive that carries the corrected evidence",
+      "files": [
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/HANDOFF.md",
+        "docs/RELEASE_2.1.0.md",
+        "docs/acceptance-2.1.0/asset-history.json"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "b69d4d7d90c825e20215b4034de7905843a256c7",
+      "subject": "Heirs of Fortune 2.1.0: extend the gate window over the audit closures",
+      "files": [
+        "docs/acceptance-2.1.0/gate-window.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "d713af3e9a5a63e12a9128c3a05702c5784ade89",
       "subject": "Heirs of Fortune 2.1.0: close the six defects a second audit of the published release found",
@@ -180,9 +199,11 @@
   ],
   "documentation_only_window": true,
   "receipts_by_recorded_commit": {
-    "3b851e7": [
+    "7ee21b3": [
       "anti-slop.json:runtime_commit",
-      "pack-audit.json:documentation_commit"
+      "contracts.json:source_commit",
+      "evidence-manifest.json:source_test_commit",
+      "suite-source-audit.json:source_commit"
     ],
     "1ec7668": [
       "anti-slop.json:baseline_commit"
@@ -192,11 +213,6 @@
       "cycles.json:source_commit",
       "legacy.json:source_commit",
       "soak.json:source_commit"
-    ],
-    "eec2d6c": [
-      "contracts.json:source_commit",
-      "evidence-manifest.json:source_test_commit",
-      "suite-source-audit.json:source_commit"
     ],
     "466a8c1": [
       "evidence-manifest.json:runtime_export_commit",
@@ -208,6 +224,9 @@
     ],
     "b38e9df": [
       "installed-smoke-pre-fix.json:runtime_export_commit"
+    ],
+    "b69d4d7": [
+      "pack-audit.json:documentation_commit"
     ]
   },
   "rule": "Nothing the player receives may change inside the gate window. Commits after the gated commit are allowed only when every file they touch is documentation (under docs/, or the root README.md, both of which the export presets exclude from the PCK); the exported EXE and PCK come from the gated commit and the packager refuses a mismatch.",
