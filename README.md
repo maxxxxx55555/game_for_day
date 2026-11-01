@@ -138,7 +138,7 @@ Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checkli
 
 ## 2.1.0 acceptance and distribution
 
-The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `b38e9df` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins the shipped build paints. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
+The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins the shipped build paints. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
 
 ## Earlier editions
 

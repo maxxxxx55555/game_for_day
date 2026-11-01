@@ -11,7 +11,7 @@ These regressions stay covered by the source runner, which now passes 50 headles
 
 `tests/fixtures/protected-v1.4.0-current_life.cfg` is the byte-identical original 1.4 protected profile with provenance. Its installation key is private and never included in source or release assets. Legacy fractional dollar amounts migrate to the documented nearest cent; progression and protected input bytes are preserved.
 
-Preliminary live soak: 84 complete lives, 1309 UI/save/locale checkpoints, 1804.043 seconds of gameplay; no script errors. Raw process CPU/memory data are retained in the release evidence. Allocation variation is measured, not described as exactly zero. Final frozen-source fuzz, strict compiler checks, mechanics matrix and F7 acceptance remain pending.
+Live soak behind this table: 1,802.875 s of rendered gameplay with 88 complete lives, 1396 UI/save/locale checkpoints, 0 failures, 0 script errors and 0 integrity warnings, on top of the strict compiler over 38 shipping scripts with all 49 warning categories as errors and the mechanics matrix executed in both locales at `466a8c1`. Raw process CPU and memory data are retained in the release evidence, allocation variation is measured rather than described as exactly zero, and the owner play and listening checks stay open.
 
 - `tests/test_chart_path_regression.gd`: rendered quote history must contain its gold price path, not only axis labels. A typing change mistakenly treated the packed-array append error flag as a success flag; the regression recorded 0 accent pixels before the correction and passes after it. The source suite includes this rendered case. Final frozen suites and soak remain required.
 

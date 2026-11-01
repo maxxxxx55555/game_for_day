@@ -1,8 +1,48 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "51cf18fb06a8d302be4f57ac6c010b5436354a29",
+  "host_head": "35d220133a24bde6f4d4447df5952538990f0677",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "35d220133a24bde6f4d4447df5952538990f0677",
+      "subject": "Heirs of Fortune 2.1.0: say what a digest printed inside a ZIP actually means",
+      "files": [
+        "docs/RELEASE_2.1.0.md"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "199b9a6b405e9e6b4adcef7ed9d52887025e1043",
+      "subject": "Heirs of Fortune 2.1.0: mark the localization audit as the 2.0 baseline it is",
+      "files": [
+        "docs/LOCALIZATION_AUDIT.md"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "2343f5b9c34b61be7d240c9aa7a864d63d69b053",
+      "subject": "Heirs of Fortune 2.1.0: name the export commit the press frames actually stand on",
+      "files": [
+        "docs/press/v2.1.0/CAPTIONS.md"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "e4335d2477b47ea8df6c163dabe3c0a470d47e99",
+      "subject": "Heirs of Fortune 2.1.0: write the published download record into the documents",
+      "files": [
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/FINAL_REPORT.md",
+        "docs/HANDOFF.md",
+        "docs/acceptance-2.1.0/anti-slop.json",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json",
+        "docs/acceptance/download-verification-2.1.0.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "51cf18fb06a8d302be4f57ac6c010b5436354a29",
       "subject": "Heirs of Fortune 2.1.0: refresh the receipts and documents for the re-issued tree",
@@ -66,20 +106,20 @@
   ],
   "documentation_only_window": true,
   "receipts_by_recorded_commit": {
-    "018102b": [
+    "51cf18f": [
       "anti-slop.json:runtime_commit",
-      "balance-sweep.json:source_commit",
-      "cycles.json:source_commit",
-      "legacy.json:source_commit",
-      "soak.json:source_commit"
+      "contracts.json:source_commit",
+      "evidence-manifest.json:source_test_commit",
+      "suite-source-audit.json:source_commit"
     ],
     "1ec7668": [
       "anti-slop.json:baseline_commit"
     ],
-    "51cf18f": [
-      "contracts.json:source_commit",
-      "evidence-manifest.json:source_test_commit",
-      "suite-source-audit.json:source_commit"
+    "018102b": [
+      "balance-sweep.json:source_commit",
+      "cycles.json:source_commit",
+      "legacy.json:source_commit",
+      "soak.json:source_commit"
     ],
     "466a8c1": [
       "evidence-manifest.json:runtime_export_commit",

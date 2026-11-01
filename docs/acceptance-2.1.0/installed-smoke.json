@@ -2,22 +2,22 @@
   "result": "PASS",
   "archive": {
     "name": "HeirsOfFortune-Windows-2.1.0.zip",
-    "bytes": 84655151,
-    "sha256": "587c2d23c9c23b585ebfe0cd6df0ff46f3609e703fd5499e084a93ff0ebc2f20"
+    "bytes": 84657617,
+    "sha256": "db0bae0d4179bd9a5843186ad5e42d7f65608ef13a10b19016d98f1b93cc8fa2"
   },
   "checksums_file": {
     "name": "HeirsOfFortune-SHA256SUMS-2.1.0.txt",
     "bytes": 99,
-    "sha256": "41c09ba2c91d45e3bf354ecfa63f3ddabc6927782688bffd1c1844b20c41fc8b"
+    "sha256": "641cc74825af1f9da0258f0a46108b1fba2b93bbd62493fc86aa9bb2913045bb"
   },
   "runtime_export_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "repository_head": "87bb476353951899d54031a9c117585fe11a9c8f",
+  "repository_head": "35d220133a24bde6f4d4447df5952538990f0677",
   "checks": [
     {
       "check": "the sums file names this archive and its digest",
       "ok": true,
       "detail": [
-        "587c2d23c9c23b585ebfe0cd6df0ff46f3609e703fd5499e084a93ff0ebc2f20",
+        "db0bae0d4179bd9a5843186ad5e42d7f65608ef13a10b19016d98f1b93cc8fa2",
         "HeirsOfFortune-Windows-2.1.0.zip"
       ]
     },
@@ -151,7 +151,7 @@
   "boot": {
     "exit": 0,
     "timed_out": false,
-    "seconds": 1.89,
+    "seconds": 1.906,
     "errors": [],
     "leaks": [
       "2"
@@ -172,14 +172,14 @@
   "guardverifybuild": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.047,
+    "seconds": 1.031,
     "errors": [],
     "leaks": [],
     "user_data": [
       "boot.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.29.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.48.17.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -190,7 +190,7 @@
   "guarddefeat": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.125,
+    "seconds": 0.922,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -198,8 +198,8 @@
       "guarddefeat.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.29.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.30.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.48.17.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.48.18.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -210,7 +210,7 @@
   "guarddynasty": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.141,
+    "seconds": 1.031,
     "errors": [],
     "leaks": [],
     "user_data": [
@@ -219,9 +219,9 @@
       "guarddynasty.log",
       "guardverifybuild.log",
       "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.29.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.30.log",
-      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.05.31.log"
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.48.17.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.48.18.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T17.48.19.log"
     ],
     "excerpt": [
       "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
@@ -232,7 +232,7 @@
   "environment_only": {
     "exit": 64,
     "timed_out": false,
-    "seconds": 1.235,
+    "seconds": 0.938,
     "errors": [],
     "leaks": [],
     "user_data": [
