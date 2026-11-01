@@ -2,7 +2,7 @@
 
 Execution: **executed PASS for all 19 mechanics across the eight columns in the publication gate run at the commit named in `docs/acceptance-2.1.0/gate.json`** (headless and rendered, Russian and English, 50 and 51 cases).
 
-Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed. F7 and the final publication gate remain pending.
+Current edition, bounded explicitly by PROMISE_MATRIX.md. Shared whole-model contracts cover pause/background, live locale and exact save restoration. Passive simulation uses contextual music rather than a discrete sound on every tick. The mapped finite cases passed within the scope recorded per cell.
 
 Windows. OS background/Back is simulated on Windows; Android artifact omitted under section 16.
 

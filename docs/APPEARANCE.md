@@ -21,6 +21,7 @@ stylesheet.
 | `green` | `#7fb069` | `#4f7a3a` |
 | `alert` | `#c4614f` | `#a8443c` |
 | `track` unfilled meter | `#1e2a38` | `#ddd4c1` |
+| `shadow` elevated drop | `rgba(0,0,0,0.45)` | `rgba(41,31,15,0.14)` |
 
 Dark is ink and gold; light is warm paper and bronze. Neither uses more
 than one accent — gold marks value, never decoration.
