@@ -41,7 +41,7 @@ func _ready() -> void:
 	overline=Label.new()
 	overline.text=LocalizationManager.source("milestone.overline")
 	overline.add_theme_font_size_override("font_size",12)
-	overline.add_theme_color_override("font_color",Palette.accent())
+	Palette.paint(overline,"accent")
 	column.add_child(overline)
 	heading=Label.new()
 	heading.add_theme_font_override("font",SkinTheme.display_font(600))
@@ -54,7 +54,7 @@ func _ready() -> void:
 	column.add_child(body)
 	momentum=Label.new()
 	momentum.add_theme_font_size_override("font_size",13)
-	momentum.add_theme_color_override("font_color",Palette.accent())
+	Palette.paint(momentum,"accent")
 	column.add_child(momentum)
 	continue_button=Button.new()
 	continue_button.name="MilestoneContinue"
@@ -75,8 +75,8 @@ func apply_skin() -> void:
 	if not is_instance_valid(card):
 		return
 	card.add_theme_stylebox_override("panel",SkinTheme.panel(Palette.surface(),Palette.accent(),8))
-	overline.add_theme_color_override("font_color",Palette.accent())
-	momentum.add_theme_color_override("font_color",Palette.accent())
+	Palette.paint(overline,"accent")
+	Palette.paint(momentum,"accent")
 
 func thread_note(chains:int) -> String:
 	if chains<=0:

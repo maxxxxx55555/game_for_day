@@ -1,4 +1,5 @@
 extends SceneTree
+const Palette=preload("res://scripts/ui/Palette.gd")
 var failures:int=0
 var game:Node
 var screen:Control
@@ -93,16 +94,38 @@ func run()->void:
     chips.present({})
     check(not chips.visible and chips.get_child_count()==0,"An empty delta hides every chip")
     var saved_delta:Dictionary=game.last_delta
+    var saved_skin:String=str(game.theme_mode)
     game.last_delta={"cash":10.0,"health":0,"stress":0}
-    check(screen.outcome_tone()==Color("7fb069"),"Positive cash without harm reads as a good outcome")
+    check(screen.outcome_tone()=="green","Positive cash without harm reads the green tone")
     game.last_delta={"cash":10.0,"health":-1,"stress":0}
-    check(screen.outcome_tone()==Color("c4614f"),"Any health loss overrides a cash gain")
+    check(screen.outcome_tone()=="alert","Any health loss overrides a cash gain")
     game.last_delta={"cash":-5.0,"health":2,"stress":-1}
-    check(screen.outcome_tone()==Color("c4614f"),"Lost cash reads as a bad outcome")
+    check(screen.outcome_tone()=="alert","Lost cash reads the alert tone")
     game.last_delta={"cash":0.0,"health":0,"stress":1}
-    check(screen.outcome_tone()==Color("c4614f"),"Rising stress reads as a bad outcome")
+    check(screen.outcome_tone()=="alert","Rising stress reads the alert tone")
     game.last_delta={"cash":0.0,"health":0,"stress":0}
-    check(screen.outcome_tone()==Color("c9a227"),"A neutral delta keeps the gold tone")
+    check(screen.outcome_tone()=="accent","A neutral delta keeps the accent tone")
+    # The tone reaches the player only through the painted line and the chips, so both
+    # are driven for real and then re-checked across a skin switch.
+    game.last_delta={"cash":10.0,"health":0,"stress":0}
+    screen.load_next_life_event("QA tone probe")
+    await process_frame
+    check(screen.outcome.get_meta("palette_token")=="green","The outcome line records the token it paints")
+    check(screen.outcome.get_theme_color("font_color")==Palette.green(),"The outcome line draws the active green")
+    chips.present({"cash":10.0,"health":1,"stress":0})
+    await process_frame
+    check(chips.get_child_count()>=2,"A mixed delta surfaces one chip per changed stat")
+    var first_chip:Label=chips.get_child(0).get_child(0) as Label
+    check(first_chip!=null and first_chip.get_theme_color("font_color")==Palette.accent(),"A cash gain chip draws the accent tone")
+    game.set_theme_mode("light")
+    await process_frame
+    await process_frame
+    check(chips.get_child_count()>=2,"A skin switch does not drop the visible chips")
+    var repainted:Label=chips.get_child(0).get_child(0) as Label
+    check(repainted!=null and repainted.get_theme_color("font_color")==Palette.color_for("accent"),"The chip follows the accent token into the paper skin")
+    check(screen.outcome.get_theme_color("font_color")==Palette.color_for("green"),"The outcome tone follows the skin switch")
+    game.set_theme_mode(saved_skin)
+    await process_frame
     game.last_delta=saved_delta
     scan_copy(screen,"life")
     screen.open_dynasty_menu()

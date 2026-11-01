@@ -47,7 +47,7 @@ func _ready() -> void:
 	close_button.pressed.connect(func()->void: closed.emit())
 	balance_label=Label.new()
 	balance_label.add_theme_font_size_override("font_size",13)
-	balance_label.add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(balance_label,"muted")
 	balance_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	column.add_child(balance_label)
 	tab_group=ButtonGroup.new()
@@ -95,7 +95,7 @@ func apply_skin() -> void:
 		return
 	backdrop.add_theme_stylebox_override("panel",SkinTheme.style(Palette.ink()))
 	if is_instance_valid(balance_label):
-		balance_label.add_theme_color_override("font_color",Palette.muted())
+		Palette.paint(balance_label,"muted")
 	if visible:
 		refresh()
 
@@ -105,14 +105,12 @@ func set_section(section:String) -> void:
 	active_section=section
 	refresh()
 
-func add_line(text:String, font_size:int=15, color:Color=Color(0,0,0,0)) -> void:
-	if color.a==0.0:
-		color=Palette.muted()
+func add_line(text:String, font_size:int=15, token:String="muted") -> void:
 	var label:Label=Label.new()
 	label.text=text
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	label.add_theme_font_size_override("font_size",font_size)
-	label.add_theme_color_override("font_color",color)
+	Palette.paint(label,token)
 	content.add_child(label)
 
 func add_heading(text:String) -> void:
@@ -121,7 +119,7 @@ func add_heading(text:String) -> void:
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	label.add_theme_font_override("font",SkinTheme.display_font(600))
 	label.add_theme_font_size_override("font_size",14)
-	label.add_theme_color_override("font_color",Palette.accent())
+	Palette.paint(label,"accent")
 	content.add_child(label)
 
 func add_panel() -> VBoxContainer:
@@ -199,7 +197,7 @@ func refresh() -> void:
 		"ascension": build_ascension()
 
 func build_journal() -> void:
-	add_line(hall_stats(),15,Palette.text())
+	add_line(hall_stats(),15,"text")
 	if GameManager.milestone_log.is_empty():
 		add_line(LocalizationManager.source("dynasty.journal.empty"))
 	for value:Variant in GameManager.milestone_log:
@@ -238,7 +236,7 @@ func unlock_perk(id: String) -> void:
 	refresh()
 
 func build_legacy() -> void:
-	add_line(LocalizationManager.source("dynasty.legacy.balance") % GameManager.legacy_points,15,Palette.text())
+	add_line(LocalizationManager.source("dynasty.legacy.balance") % GameManager.legacy_points,15,"text")
 	add_line(LocalizationManager.source("dynasty.legacy.hint"))
 	for perk:Dictionary in GameManager.LEGACY_PERKS:
 		var id:String=str(perk.get("id",""))
@@ -264,7 +262,7 @@ func build_legacy() -> void:
 		desc_label.text=LocalizationManager.source(desc_key)
 		desc_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		desc_label.add_theme_font_size_override("font_size",12)
-		desc_label.add_theme_color_override("font_color",Palette.muted())
+		Palette.paint(desc_label,"muted")
 		column.add_child(desc_label)
 		if GameManager.legacy_perk_owned(id):
 			action.text=LocalizationManager.source("dynasty.legacy.owned")
@@ -303,7 +301,7 @@ func build_threads() -> void:
 		title_label_local.text=LocalizationManager.source("chain."+id+".start.title")
 		title_label_local.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		title_label_local.add_theme_font_size_override("font_size",13)
-		title_label_local.add_theme_color_override("font_color",Palette.muted())
+		Palette.paint(title_label_local,"muted")
 		column.add_child(title_label_local)
 		var record:Dictionary=GameManager.chain_record_for(id)
 		var completed:bool=record.get("completed",false)
@@ -313,7 +311,7 @@ func build_threads() -> void:
 			var done_label:Label=Label.new()
 			done_label.text=LocalizationManager.source("dynasty.threads.done")
 			done_label.add_theme_font_size_override("font_size",13)
-			done_label.add_theme_color_override("font_color",Palette.green())
+			Palette.paint(done_label,"green")
 			column.add_child(done_label)
 		else:
 			var left:int=GameManager.chain_quarters_left(id)
@@ -321,19 +319,19 @@ func build_threads() -> void:
 			state_label.text=LocalizationManager.source("dynasty.threads.active") % left if left>0 else LocalizationManager.source("dynasty.threads.due")
 			state_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 			state_label.add_theme_font_size_override("font_size",13)
-			state_label.add_theme_color_override("font_color",Palette.accent())
+			Palette.paint(state_label,"accent")
 			column.add_child(state_label)
 
-func add_record_line(column:VBoxContainer, text:String, color:Color) -> void:
+func add_record_line(column:VBoxContainer, text:String, token:String) -> void:
 	var label:Label=Label.new()
 	label.text=text
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	label.add_theme_font_size_override("font_size",13)
-	label.add_theme_color_override("font_color",color)
+	Palette.paint(label,token)
 	column.add_child(label)
 
 func build_hall() -> void:
-	add_line(hall_stats(),15,Palette.text())
+	add_line(hall_stats(),15,"text")
 	if GameManager.dynasty_records.is_empty():
 		add_line(LocalizationManager.source("dynasty.empty.hall"))
 		return
@@ -356,21 +354,21 @@ func build_hall() -> void:
 			GameManager.format_num(Money.dollars(wealth_cents)),
 			GameManager.format_rank(rank_value),
 			GameManager.format_age(age_value)
-		],Palette.accent() if victory else Palette.text())
+		],"accent" if victory else "text")
 		var ascension:int=record.get("ascension",0)
 		if ascension>0:
-			add_record_line(column,LocalizationManager.source("dynasty.record.ascension.line") % ascension,Palette.muted())
+			add_record_line(column,LocalizationManager.source("dynasty.record.ascension.line") % ascension,"muted")
 		var chains:int=record.get("chains",0)
 		var milestones:int=record.get("milestones",0)
-		add_record_line(column,LocalizationManager.source("dynasty.record.detail") % [chains,milestones],Palette.muted())
+		add_record_line(column,LocalizationManager.source("dynasty.record.detail") % [chains,milestones],"muted")
 
 func build_ascension() -> void:
-	add_line(LocalizationManager.source("dynasty.ascension.level") % GameManager.ascension_level,16,Palette.text())
+	add_line(LocalizationManager.source("dynasty.ascension.level") % GameManager.ascension_level,16,"text")
 	add_line(LocalizationManager.source("dynasty.ascension.hint"))
 	add_line(LocalizationManager.source("dynasty.ascension.momentum") % GameManager.momentum)
 	if GameManager.ascension_level>=GameManager.MAX_ASCENSION:
-		add_line(LocalizationManager.source("dynasty.ascension.max"),15,Palette.accent())
+		add_line(LocalizationManager.source("dynasty.ascension.max"),15,"accent")
 	else:
 		var next_level:int=GameManager.ascension_level+1
-		add_line(LocalizationManager.source("dynasty.ascension.next") % [next_level,2+next_level],15,Palette.accent())
+		add_line(LocalizationManager.source("dynasty.ascension.next") % [next_level,2+next_level],15,"accent")
 	add_line(LocalizationManager.source("dynasty.ascension.open"))

@@ -13,9 +13,6 @@ const CountryPlateView=preload("res://scripts/ui/CountryPlate.gd")
 const IntroCoverView=preload("res://scripts/ui/IntroCover.gd")
 const ChromeView=preload("res://scripts/ui/Chrome.gd")
 const Palette=preload("res://scripts/ui/Palette.gd")
-const OUTCOME_GOOD:Color=Color("7fb069")
-const OUTCOME_BAD:Color=Color("c4614f")
-const OUTCOME_NEUTRAL:Color=Color("c9a227")
 
 @onready var stats_label: Label = $MarginContainer/VBoxContainer/StatsPanel/StatsLabel
 @onready var market_label: Label = $MarginContainer/VBoxContainer/MarketPanel/MarketLabel
@@ -78,7 +75,7 @@ func _ready() -> void:
 	save_status.text = LocalizationManager.source("copy.bf448e0995f5")
 	save_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	save_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	save_status.add_theme_color_override("font_color",Palette.alert())
+	Palette.paint(save_status,"alert")
 	save_status.add_theme_color_override("font_outline_color",Palette.ink())
 	save_status.add_theme_constant_override("outline_size",8)
 	save_status.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -123,7 +120,7 @@ func _ready() -> void:
 	brand.text = "HEIRS OF FORTUNE"
 	brand.add_theme_font_override("font", LoungeTheme.display_font(700))
 	brand.add_theme_font_size_override("font_size", 24)
-	brand.add_theme_color_override("font_color", Palette.accent())
+	Palette.paint(brand,"accent")
 	column.add_child(brand)
 	column.move_child(brand,0)
 	language_choice=OptionButton.new()
@@ -174,7 +171,7 @@ func _ready() -> void:
 	ambition_hint.text=LocalizationManager.source("ambition.intro")
 	ambition_hint.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	ambition_hint.add_theme_font_size_override("font_size",13)
-	ambition_hint.add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(ambition_hint,"muted")
 	ambition_row.add_child(ambition_hint)
 	var ambition_line:HBoxContainer=HBoxContainer.new()
 	ambition_line.add_theme_constant_override("separation",6)
@@ -197,7 +194,7 @@ func _ready() -> void:
 	ambition_desc=Label.new()
 	ambition_desc.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	ambition_desc.add_theme_font_size_override("font_size",12)
-	ambition_desc.add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(ambition_desc,"muted")
 	ambition_row.add_child(ambition_desc)
 	update_ambition_controls()
 	var content:VBoxContainer= VBoxContainer.new()
@@ -231,13 +228,13 @@ func _ready() -> void:
 	content.add_child(birth_reveal)
 	content.move_child(birth_reveal,1)
 	birth_reveal.hide()
-	event_label.add_theme_color_override("font_color",Palette.text())
+	Palette.paint(event_label,"text")
 	event_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	event_label.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
 	stage_label = Label.new()
 	stage_label.name = "StageLabel"
 	stage_label.add_theme_font_size_override("font_size",11)
-	stage_label.add_theme_color_override("font_color",Palette.accent())
+	Palette.paint(stage_label,"accent")
 	stage_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	content.add_child(stage_label)
 	content.move_child(stage_label, event_label.get_index())
@@ -245,7 +242,7 @@ func _ready() -> void:
 	outcome=Label.new()
 	outcome.name="LastOutcome"
 	outcome.add_theme_font_size_override("font_size",15)
-	outcome.add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(outcome,"muted")
 	outcome.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	outcome.hide()
 	content.add_child(outcome)
@@ -365,10 +362,8 @@ func _ready() -> void:
 ## button icons and the custom-drawn cards.
 func apply_skin() -> void:
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
-	if event_label: event_label.add_theme_color_override("font_color", Palette.text())
-	if stage_label: stage_label.add_theme_color_override("font_color", Palette.accent())
+	Palette.repaint(self)
 	if save_status:
-		save_status.add_theme_color_override("font_color", Palette.alert())
 		save_status.add_theme_color_override("font_outline_color", Palette.ink())
 	apply_bottom_icons()
 	if theme_button:
@@ -670,7 +665,7 @@ func load_next_life_event(status_note: String = "", preserve_event: bool = false
 	if not status_note.is_empty():
 		outcome.text=clean_copy(status_note).replace("\n"," ")
 		outcome.tooltip_text=clean_copy(status_note)
-		outcome.add_theme_color_override("font_color",outcome_tone())
+		Palette.paint(outcome,outcome_tone())
 		outcome_timer=7.0
 	btn_1.text = active_event["o1"]
 	btn_2.text = active_event["o2"]
@@ -687,15 +682,15 @@ func event_text(event:Dictionary) -> String:
 		result += "\n\n" + str(event["note"])
 	return result
 
-func outcome_tone() -> Color:
+func outcome_tone() -> String:
 	var cash:float=GameManager.last_delta.get("cash",0.0)
 	var health:int=GameManager.last_delta.get("health",0)
 	var stress:int=GameManager.last_delta.get("stress",0)
 	if cash>0.0 and health>=0 and stress<=0:
-		return OUTCOME_GOOD
+		return "green"
 	if cash<0.0 or health<0 or stress>0:
-		return OUTCOME_BAD
-	return OUTCOME_NEUTRAL
+		return "alert"
+	return "accent"
 
 func apply_ambition(mode: String) -> void:
 	if not GameManager.select_ambition(mode):

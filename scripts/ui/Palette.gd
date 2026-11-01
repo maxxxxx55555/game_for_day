@@ -85,3 +85,39 @@ static func button_variant() -> String:
 ## Blend helper for tinted bands over the current surface.
 static func mix(base: Color, tint: Color, amount: float) -> Color:
 	return base.lerp(tint, clampf(amount, 0.0, 1.0))
+
+const TOKEN_META:String= "palette_token"
+
+## Colour for one documented token in the active skin.
+static func color_for(token: String) -> Color:
+	match token:
+		"ink": return ink()
+		"surface": return surface()
+		"raised": return raised()
+		"deep": return deep()
+		"rule": return rule()
+		"rule_soft": return rule_soft()
+		"text": return text()
+		"muted": return muted()
+		"accent": return accent()
+		"accent_deep": return accent_deep()
+		"green": return green()
+		"alert": return alert()
+		"track": return track()
+		"shadow": return shadow()
+		_:
+			push_error("Unknown palette token: " + token)
+			return text()
+
+## Paints a control and remembers which token owns the colour, so a skin switch
+## repaints it instead of leaving the previous skin's value on screen forever.
+static func paint(target: Control, token: String) -> void:
+	target.set_meta(TOKEN_META, token)
+	target.add_theme_color_override("font_color", color_for(token))
+
+## Re-applies every marked colour in the subtree. Controls built after a switch
+## paint themselves through paint(); this covers the ones built before it.
+static func repaint(root: Node) -> void:
+	for node: Node in root.find_children("*", "Control", true, false):
+		if not node.has_meta(TOKEN_META): continue
+		(node as Control).add_theme_color_override("font_color", color_for(str(node.get_meta(TOKEN_META))))

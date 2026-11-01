@@ -46,8 +46,8 @@ func _ready() -> void:
 
 ## Colours are pushed once per skin, not per frame: theme overrides invalidate the theme cache.
 func apply_skin() -> void:
-	title.add_theme_color_override("font_color",Palette.text())
-	detail.add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(title,"text")
+	Palette.paint(detail,"muted")
 	queue_redraw()
 
 ## Roman index drawn in the gutter, the way a numbered menu is set in print.

@@ -76,6 +76,7 @@ def main():
         for case in ['qa_router','build_integrity','critical_read_bounds','integrity_notice','save_recovery','cent_ledger']:
             cases.append((case, ['--headless','--script','res://tests/test_'+case+'.gd']))
         cases.append(('settings-lifetime', ['--headless','--script','res://tests/test_settings_lifetime.gd']))
+        cases.append(('theme-switch', ['--headless','--script','res://tests/test_theme_switch.gd']))
         cases.append(('choice-reentry', ['--headless','--script','res://tests/test_choice_reentry.gd']))
         cases.append(('navigation-matrix', ([] if args.rendered else ['--headless'])+['--resolution', '1280x720' if not portrait else '540x960','--script','res://tests/test_navigation_matrix.gd']))
         cases.append(('qa-seed', ['--headless','--script','res://tests/test_qa_seed.gd']))

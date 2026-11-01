@@ -10,7 +10,7 @@ func _ready() -> void:
 		var label:Label=Label.new()
 		label.name=id.capitalize()+"AxisLabel"
 		label.add_theme_font_size_override("font_size",16)
-		label.add_theme_color_override("font_color",Palette.muted())
+		Palette.paint(label,"muted")
 		label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		add_child(label);labels[id]=label
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func apply_skin() -> void:
 	for id:String in labels:
-		labels[id].add_theme_color_override("font_color",Palette.muted())
+		Palette.paint(labels[id] as Control,"muted")
 	queue_redraw()
 	refresh_labels()
 func plot_rect() -> Rect2:

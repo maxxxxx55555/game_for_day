@@ -28,7 +28,7 @@ func _ready() -> void:
 	title.text="HEIRS OF FORTUNE"
 	title.add_theme_font_override("font",load("res://assets/fonts/Prata-Regular.ttf") as Font)
 	title.add_theme_font_size_override("font_size",32)
-	title.add_theme_color_override("font_color",Palette.accent())
+	Palette.paint(title,"accent")
 	title_label=title
 	column.add_child(title)
 	var scroll:ScrollContainer=ScrollContainer.new()

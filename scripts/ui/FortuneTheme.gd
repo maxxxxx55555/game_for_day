@@ -107,4 +107,4 @@ static func apply(root: Control) -> void:
 	(root.get_node("MarginContainer/VBoxContainer/StatsPanel") as Control).add_theme_stylebox_override("panel",style(Palette.surface(),Palette.rule()))
 	(root.get_node("MarginContainer/VBoxContainer/MarketPanel") as Control).add_theme_stylebox_override("panel",style(Palette.surface(),Palette.rule_soft()))
 	(root.get_node("MarginContainer/VBoxContainer/EventPanel") as Control).add_theme_stylebox_override("panel",style(Palette.deep(),Palette.rule()))
-	(root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel") as Control).add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(root.get_node("MarginContainer/VBoxContainer/MarketPanel/MarketLabel") as Control,"muted")

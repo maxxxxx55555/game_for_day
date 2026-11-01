@@ -48,7 +48,7 @@ func show_splash() -> void:
 	opening_label=Label.new()
 	opening_label.text=LocalizationManager.get_string("flow.loading")
 	opening_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	opening_label.add_theme_color_override("font_color",Palette.muted())
+	Palette.paint(opening_label,"muted")
 	column.add_child(opening_label)
 	hint=Label.new()
 	hint.text=LocalizationManager.get_string("flow.tip."+str(Time.get_ticks_msec()%3))

@@ -16,7 +16,15 @@ var victorious:bool= false
 var elapsed:float= 0.0
 var entrance: Tween
 
-func label(parent: Node, font_size: int, color: Color = Color("eeeadd")) -> Label:
+## The finale is a staged sheet: its scrim and type keep the dark skin in both
+## appearances, the same way the boot splash does. The values are named so the
+## theme case can assert that exception instead of overlooking it.
+const STAGE_TITLE:Color=Color("eeeadd")
+const STAGE_COPY:Color=Color("d8dfe0")
+const STAGE_GOLD:Color=Color("c9a227")
+const STAGE_WASH:Color=Color(0.04,0.09,0.15)
+
+func label(parent: Node, font_size: int, color: Color = STAGE_TITLE) -> Label:
 	var text:Label= Label.new()
 	text.add_theme_font_size_override("font_size",font_size)
 	text.add_theme_color_override("font_color",color)
@@ -38,7 +46,7 @@ func _ready() -> void:
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var gradient:Gradient= Gradient.new()
 	gradient.offsets = PackedFloat32Array([0,0.32,0.58,1])
-	gradient.colors = PackedColorArray([Color(0.04,0.09,0.15,0.4),Color(0.04,0.09,0.15,0),Color(0.04,0.09,0.15,0.6),Color(0.04,0.09,0.15,0.99)])
+	gradient.colors = PackedColorArray([Color(STAGE_WASH,0.4),Color(STAGE_WASH,0),Color(STAGE_WASH,0.6),Color(STAGE_WASH,0.99)])
 	var texture:GradientTexture2D= GradientTexture2D.new()
 	texture.gradient = gradient
 	texture.width = 8
@@ -55,23 +63,23 @@ func _ready() -> void:
 	var column:VBoxContainer= VBoxContainer.new()
 	column.add_theme_constant_override("separation",16)
 	margin.add_child(column)
-	var brand:Label= label(column,18,Color("c9a227"))
+	var brand:Label= label(column,18,STAGE_GOLD)
 	brand.text = "HEIRS OF FORTUNE"
 	spacer= Control.new()
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	spacer.custom_minimum_size.y = 200
 	column.add_child(spacer)
-	overline = label(column,17,Color("c9a227"))
+	overline = label(column,17,STAGE_GOLD)
 	heading = label(column,32)
 	heading.add_theme_font_override("font",preload("res://scripts/ui/FortuneTheme.gd").display_font(600))
-	story = label(column,21,Color("d8dfe0"))
+	story = label(column,21,STAGE_COPY)
 	var card:PanelContainer= PanelContainer.new()
 	card.add_theme_stylebox_override("panel",preload("res://scripts/ui/FortuneTheme.gd").style(Color(0.18,0.25,0.34,0.9),Color(0.79,0.64,0.15,0.55)))
 	column.add_child(card)
 	var metrics:VBoxContainer= VBoxContainer.new()
 	card.add_child(metrics)
-	wealth = label(metrics,34,Color("c9a227"))
-	legacy = label(metrics,17,Color("d8dfe0"))
+	wealth = label(metrics,34,STAGE_GOLD)
+	legacy = label(metrics,17,STAGE_COPY)
 	primary = Button.new()
 	primary.name = "FinalePrimary"
 	primary.custom_minimum_size.y = 64
@@ -96,7 +104,7 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	tertiary.pressed.connect(func()->void: choice_requested.emit(3))
-	ascension_hint = label(column,14,Color("c9a227"))
+	ascension_hint = label(column,14,STAGE_GOLD)
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	resized.connect(queue_redraw)

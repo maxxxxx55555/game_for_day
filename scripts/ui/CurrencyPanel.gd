@@ -61,7 +61,7 @@ func _ready() -> void:
 		quote.add_theme_font_size_override("font_size", 24)
 		card.add_child(quote)
 		var wallet:Label= Label.new()
-		wallet.add_theme_color_override("font_color", Palette.muted())
+		Palette.paint(wallet,"muted")
 		card_wallets.append(wallet)
 		card.add_child(wallet)
 		var chart:TypeRefCurrencySparkline= preload("res://scripts/ui/CurrencySparkline.gd").new()
@@ -97,13 +97,13 @@ func _ready() -> void:
 		rows[code] = {"quote": quote, "wallet": wallet, "chart": chart, "buy": buy, "sell": sell}
 	notice = Label.new()
 	notice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	notice.add_theme_color_override("font_color", Palette.accent_deep())
+	Palette.paint(notice,"accent_deep")
 	column.add_child(notice)
 	var detail:Label= Label.new()
 	detail.text = LocalizationManager.source("copy.a5f2a71c789f")
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail.add_theme_font_size_override("font_size", 15)
-	detail.add_theme_color_override("font_color", Palette.muted())
+	Palette.paint(detail,"muted")
 	detail_label = detail
 	column.add_child(detail)
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
@@ -117,9 +117,9 @@ func apply_skin() -> void:
 	for panel:PanelContainer in card_panels:
 		panel.add_theme_stylebox_override("panel", SkinTheme.style(Palette.raised(),Palette.rule_soft()))
 	for wallet:Label in card_wallets:
-		wallet.add_theme_color_override("font_color", Palette.muted())
-	if notice: notice.add_theme_color_override("font_color", Palette.accent_deep())
-	if detail_label: detail_label.add_theme_color_override("font_color", Palette.muted())
+		Palette.paint(wallet,"muted")
+	if notice: Palette.paint(notice,"accent_deep")
+	if detail_label: Palette.paint(detail_label,"muted")
 
 func action(parent: Node, text: String, callback: Callable) -> Button:
 	var button:Button= Button.new()

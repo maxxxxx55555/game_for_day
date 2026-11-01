@@ -5,7 +5,7 @@ static func authorized() -> bool:
 
 static func request(host:Node) -> bool:
 	var arguments:PackedStringArray=OS.get_cmdline_user_args()
-	var requested:bool=arguments.has("--verify-build") or arguments.has("--defeat")
+	var requested:bool=arguments.has("--verify-build") or arguments.has("--defeat") or arguments.has("--dynasty")
 	if not requested:return false
 	if not authorized() or not arguments.has("--verify-build"):
 		printerr("QA arguments require a private QA export and GAME_QA=1")
