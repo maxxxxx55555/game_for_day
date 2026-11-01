@@ -1,0 +1,256 @@
+{
+  "result": "FAIL",
+  "archive": {
+    "name": "HeirsOfFortune-Windows-2.1.0.zip",
+    "bytes": 84631852,
+    "sha256": "dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011"
+  },
+  "checksums_file": {
+    "name": "HeirsOfFortune-SHA256SUMS-2.1.0.txt",
+    "bytes": 99,
+    "sha256": "f821ccb77b50f4794b266e6f4338d91b7bc9e07f815e4848984610878a9d6b1e"
+  },
+  "runtime_export_commit": "b38e9df3788b8d83cc6c0a7956614963d6c16819",
+  "repository_head": "682164d976b6c44e0436b3fd7343f70ee6b1ac64",
+  "checks": [
+    {
+      "check": "the sums file names this archive and its digest",
+      "ok": true,
+      "detail": [
+        "dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011",
+        "HeirsOfFortune-Windows-2.1.0.zip"
+      ]
+    },
+    {
+      "check": "sha256sum -c reports OK for the published pair",
+      "ok": true,
+      "detail": {
+        "exit": 0,
+        "stdout": "HeirsOfFortune-Windows-2.1.0.zip: OK"
+      }
+    },
+    {
+      "check": "every archive entry passes its CRC",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "check": "the extracted folder holds the executable and its pack",
+      "ok": true,
+      "detail": [
+        "HeirsOfFortune\\HeirsOfFortune.exe",
+        "HeirsOfFortune\\HeirsOfFortune.pck",
+        "HeirsOfFortune\\QUICK_START.md",
+        "HeirsOfFortune\\README.md",
+        "HeirsOfFortune\\SAVE-INTEGRITY.md",
+        "HeirsOfFortune\\assets\\CREDITS.md"
+      ]
+    },
+    {
+      "check": "the extracted EXE matches the export record",
+      "ok": true,
+      "detail": {
+        "bytes": 94063944
+      }
+    },
+    {
+      "check": "the extracted PCK matches the export record",
+      "ok": true,
+      "detail": {
+        "bytes": 22816572
+      }
+    },
+    {
+      "check": "the extracted executable boots and stops on request",
+      "ok": true,
+      "detail": {
+        "exit": 0
+      }
+    },
+    {
+      "check": "the boot log carries no engine or script error",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "the boot writes into the preserved user-data folder name",
+      "ok": true,
+      "detail": [
+        "boot.log",
+        "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log"
+      ]
+    },
+    {
+      "check": "the public pack refuses --verify-build with exit 64",
+      "ok": true,
+      "detail": {
+        "exit": 64
+      }
+    },
+    {
+      "check": "the refusal for --verify-build names the private export requirement",
+      "ok": true,
+      "detail": "om_build - https://godotengine.org\n\nQA arguments require a private QA export and GAME_QA=1"
+    },
+    {
+      "check": "the guarded shutdown for --verify-build leaves no error or leaked object",
+      "ok": true,
+      "detail": {
+        "errors": [],
+        "leaks": []
+      }
+    },
+    {
+      "check": "the public pack refuses --defeat with exit 64",
+      "ok": true,
+      "detail": {
+        "exit": 64
+      }
+    },
+    {
+      "check": "the refusal for --defeat names the private export requirement",
+      "ok": true,
+      "detail": "om_build - https://godotengine.org\n\nQA arguments require a private QA export and GAME_QA=1"
+    },
+    {
+      "check": "the guarded shutdown for --defeat leaves no error or leaked object",
+      "ok": true,
+      "detail": {
+        "errors": [],
+        "leaks": []
+      }
+    },
+    {
+      "check": "the public pack refuses --dynasty with exit 64",
+      "ok": false,
+      "detail": {
+        "exit": 1
+      }
+    },
+    {
+      "check": "the refusal for --dynasty names the private export requirement",
+      "ok": false,
+      "detail": "Godot Engine v4.7.stable.custom_build - https://godotengine.org"
+    },
+    {
+      "check": "the guarded shutdown for --dynasty leaves no error or leaked object",
+      "ok": true,
+      "detail": {
+        "errors": [],
+        "leaks": []
+      }
+    },
+    {
+      "check": "the QA environment alone cannot unlock a route in the delivered pack",
+      "ok": true,
+      "detail": {
+        "exit": 64
+      }
+    }
+  ],
+  "boot": {
+    "exit": 0,
+    "timed_out": false,
+    "seconds": 1.906,
+    "errors": [],
+    "leaks": [
+      "2"
+    ],
+    "user_data": [
+      "boot.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log"
+    ],
+    "excerpt": [
+      "",
+      "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+      "   at: cleanup (core\\object\\object.cpp:2535)"
+    ]
+  },
+  "boot_forced_exit_leaks": [
+    "2"
+  ],
+  "guardverifybuild": {
+    "exit": 64,
+    "timed_out": false,
+    "seconds": 1.031,
+    "errors": [],
+    "leaks": [],
+    "user_data": [
+      "boot.log",
+      "guardverifybuild.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.49.log"
+    ],
+    "excerpt": [
+      "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
+      "",
+      "QA arguments require a private QA export and GAME_QA=1"
+    ]
+  },
+  "guarddefeat": {
+    "exit": 64,
+    "timed_out": false,
+    "seconds": 1.031,
+    "errors": [],
+    "leaks": [],
+    "user_data": [
+      "boot.log",
+      "guarddefeat.log",
+      "guardverifybuild.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.49.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.50.log"
+    ],
+    "excerpt": [
+      "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
+      "",
+      "QA arguments require a private QA export and GAME_QA=1"
+    ]
+  },
+  "guarddynasty": {
+    "exit": 1,
+    "timed_out": true,
+    "seconds": 180.031,
+    "errors": [],
+    "leaks": [],
+    "user_data": [
+      "boot.log",
+      "guarddefeat.log",
+      "guarddynasty.log",
+      "guardverifybuild.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.49.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.50.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot2026-11-01T12.07.51.log"
+    ],
+    "excerpt": [
+      "Godot Engine v4.7.stable.custom_build - https://godotengine.org"
+    ]
+  },
+  "environment_only": {
+    "exit": 64,
+    "timed_out": false,
+    "seconds": 1.031,
+    "errors": [],
+    "leaks": [],
+    "user_data": [
+      "envonly.log",
+      "roaming\\Godot\\app_userdata\\Forbes Ladder- Dynasty & Markets v2\\logs\\godot.log"
+    ],
+    "excerpt": [
+      "Godot Engine v4.7.stable.custom_build - https://godotengine.org",
+      "",
+      "QA arguments require a private QA export and GAME_QA=1"
+    ]
+  },
+  "failures": [
+    "the public pack refuses --dynasty with exit 64",
+    "the refusal for --dynasty names the private export requirement"
+  ],
+  "scope": "Installed-archive boot and guard behaviour only. It does not judge pixels or sound, and the forced --quit-after exit is reported separately from the game-managed shutdown.",
+  "record_role": "negative control, not the current release record: this run was made against the archive published on 2026-10-31 (sha256 dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011, export commit b38e9df), which predates the dynasty guard. It is kept to show that the installed-archive smoke is not vacuous: 17 of its 19 checks passed on that archive and the two that failed are exactly the ones a missing guard must fail. The record for the shipped archive is installed-smoke.json.",
+  "failed_checks": [
+    "the public pack refuses --dynasty with exit 64",
+    "the refusal for --dynasty names the private export requirement"
+  ]
+}

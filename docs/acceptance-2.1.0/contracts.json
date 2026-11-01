@@ -29,7 +29,7 @@
     "tests/test_mechanics_matrix.py": {
       "result": "PASS",
       "exit": 0,
-      "log_sha256": "bc670e6427be22d179b08382b403286410e53bd141d47e7943c6d6f12a912ea9"
+      "log_sha256": "ea4262bb5b7c2c4d2e309e149702fe8c3194a4c22aee897f0c543d540f7ee740"
     },
     "tests/test_repo_isolation.py": {
       "result": "PASS",
@@ -72,5 +72,5 @@
       "log_sha256": "69f0983316a1d264cfbd0b40c5e08a212d372bbaf0d121b0818852f54d6d7538"
     }
   },
-  "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
+  "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
 }

@@ -1,0 +1,64 @@
+{
+  "result": "PASS",
+  "profiles": 8,
+  "expected_outcomes": [
+    {
+      "note": "flat plateau, flat counts",
+      "bytes_per_second": 0,
+      "shape": "flat",
+      "orphans": false,
+      "expected": "PASS"
+    },
+    {
+      "note": "bounded cache warm-up that settles by cycle 20",
+      "bytes_per_second": 0,
+      "shape": "settling",
+      "orphans": false,
+      "expected": "PASS"
+    },
+    {
+      "note": "slow monotone leak 150B/s",
+      "bytes_per_second": 150,
+      "shape": "flat",
+      "orphans": false,
+      "expected": "FAIL"
+    },
+    {
+      "note": "leak 1KiB/s",
+      "bytes_per_second": 1024,
+      "shape": "flat",
+      "orphans": false,
+      "expected": "FAIL"
+    },
+    {
+      "note": "leak ~6MiB/run",
+      "bytes_per_second": 3500,
+      "shape": "flat",
+      "orphans": false,
+      "expected": "FAIL"
+    },
+    {
+      "note": "engine objects never settle (one per cycle)",
+      "bytes_per_second": 0,
+      "shape": "creeping",
+      "orphans": false,
+      "expected": "FAIL"
+    },
+    {
+      "note": "memory leak plus never-settling objects",
+      "bytes_per_second": 1024,
+      "shape": "creeping",
+      "orphans": false,
+      "expected": "FAIL"
+    },
+    {
+      "note": "orphan nodes during the soak",
+      "bytes_per_second": 0,
+      "shape": "flat",
+      "orphans": true,
+      "expected": "FAIL"
+    }
+  ],
+  "mismatches": [],
+  "criteria": "The detector is graded against synthetic soak shapes, not only against the real run: a flat plateau and a bounded warm-up that settles must pass, while a 150 B/s drift, a 1 KiB/s leak, a ~6 MiB/run leak, engine counts that never settle, and orphan nodes must each fail."
+}

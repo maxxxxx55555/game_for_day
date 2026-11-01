@@ -1,14 +1,19 @@
 {
   "result": "PASS",
-  "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84",
-  "tracked_files": 506,
+  "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96",
+  "tracked_files": 508,
   "test_changes_since_release_candidate": [
     "tests/capture_gallery.gd",
+    "tests/run_tests.py",
+    "tests/test_card_feel.gd",
     "tests/test_chart_path_regression.gd",
+    "tests/test_comfort_preferences.gd",
     "tests/test_dynasty_progression.gd",
     "tests/test_mobile_lifecycle.gd",
     "tests/test_quit_audio.gd",
     "tests/test_settings_lifetime.gd",
+    "tests/test_theme_switch.gd",
+    "tests/test_theme_switch.gd.uid",
     "tests/test_ui_audio_feedback.gd"
   ],
   "shipping_changes_since_release_candidate": [
@@ -36,7 +41,10 @@
     "scripts/BirthLottery.gd",
     "scripts/GameManager.gd",
     "scripts/Main.gd",
+    "scripts/ReleaseVerification.gd",
     "scripts/audio/AudioSettings.gd",
+    "scripts/security/BuildIntegrity.gd",
+    "scripts/security/QARouter.gd",
     "scripts/security/TrustedData.gd",
     "scripts/ui/BirthReveal.gd",
     "scripts/ui/ChoiceCard.gd",
@@ -54,6 +62,7 @@
     "scripts/ui/FortuneTheme.gd",
     "scripts/ui/IntroCover.gd",
     "scripts/ui/IntroCover.gd.uid",
+    "scripts/ui/LifeFinale.gd",
     "scripts/ui/MilestoneCard.gd",
     "scripts/ui/Palette.gd",
     "scripts/ui/Palette.gd.uid"

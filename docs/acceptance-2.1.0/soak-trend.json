@@ -2,53 +2,53 @@
   "result": "PASS",
   "failures": [],
   "tail_seconds": 360,
-  "tail_complete_cycles": 12,
-  "tail_start_process_seconds": 1446.032,
+  "tail_complete_cycles": 18,
+  "tail_start_process_seconds": 1441.844,
   "metrics": {
     "private_bytes": {
       "minute_medians_bytes": [
-        449490944.0,
-        450265088.0,
-        451108864.0,
-        450623488.0,
-        451014656.0,
-        450174976.0
+        454455296.0,
+        454574080.0,
+        454569984.0,
+        454537216.0,
+        454545408.0,
+        454819840.0
       ],
-      "net_bytes": 684032.0,
-      "band_bytes": 1617920.0,
-      "plateau_median_bytes": 450183168,
-      "net_allowance_bytes": 4501831,
-      "band_allowance_bytes": 6752747,
+      "net_bytes": 364544.0,
+      "band_bytes": 364544.0,
+      "plateau_median_bytes": 454537216,
+      "net_allowance_bytes": 4545372,
+      "band_allowance_bytes": 6818058,
       "post_warmup_quarter_medians_bytes": [
-        449789952,
-        449765376,
-        450146304,
-        451035136
+        454049792,
+        453701632,
+        454406144,
+        454569984
       ],
-      "post_warmup_growth_bytes": 1245184,
-      "post_warmup_growth_allowance_bytes": 6752747,
+      "post_warmup_growth_bytes": 520192,
+      "post_warmup_growth_allowance_bytes": 6818058,
       "post_warmup_quarters_monotone": false
     },
     "working_set_bytes": {
       "minute_medians_bytes": [
-        421189632.0,
-        421971968.0,
-        422858752.0,
-        422090752.0,
-        422256640.0,
-        421609472.0
+        438272000.0,
+        438206464.0,
+        437942272.0,
+        437932032.0,
+        438194176.0,
+        438124544.0
       ],
-      "net_bytes": 419840.0,
-      "band_bytes": 1669120.0
+      "net_bytes": -147456.0,
+      "band_bytes": 339968.0
     }
   },
   "resident_quarter_medians": [
-    423870464,
-    423223296,
-    421224448,
-    421818368
+    446486528.0,
+    441692160.0,
+    437911552.0,
+    438079488.0
   ],
-  "object_settle_seconds": 847.98,
-  "object_settle_cycles": 32,
+  "object_settle_seconds": 583.636,
+  "object_settle_cycles": 60,
   "criteria": "Six-minute final window with at least 10 completed cycles. Shape test: the six final private minute medians must not rise monotonically. Size test: final-window net <=max(64KiB, 1% of the plateau median) and band <=max(1MiB, 1.5% of the plateau median); the tolerance is scaled to the plateau because allocator churn at a few hundred MB steady state oscillates by several megabytes, and a fixed byte bound would report noise as growth. Warm-up test: the post-warm-up window starts where the per-cycle engine node/resource/object counts stop changing for the rest of the run (never earlier than 120s), so a bounded cache warm-up is measured as warm-up and not as growth; counts that never settle, settle with fewer than 10 stable cycles left, or only settle after half the run are failures. Inside that window the step between the first and last quarter median must stay within max(4MiB, 1.5% of the plateau), and a monotone four-quarter climb additionally has to stay within the 1% net allowance. Whole-run resident quarter medians must not independently flag sustained growth. Zero orphan nodes across every sample. Finite stability review, not zero-byte growth or leak-freedom proof."
 }

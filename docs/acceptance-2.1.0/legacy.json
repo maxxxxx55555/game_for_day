@@ -6,7 +6,7 @@
       "mode": "roundtrip",
       "exit": 0,
       "timed_out": false,
-      "seconds": 1.204,
+      "seconds": 1.0,
       "driver": {
         "canonical_config_payload_sha256_after_first": "8dd516323f18d4f60e86f3e3150a9e3b988cc36323920a2372b8759cdb149a36",
         "canonical_config_payload_sha256_after_second": "8dd516323f18d4f60e86f3e3150a9e3b988cc36323920a2372b8759cdb149a36",
@@ -92,7 +92,7 @@
       "mode": "tamper",
       "exit": 0,
       "timed_out": false,
-      "seconds": 1.312,
+      "seconds": 0.875,
       "driver": {
         "checks": {
           "Authenticated primary rejects modified signed body": true,
@@ -106,7 +106,7 @@
       },
       "errors": [],
       "integrity_notices": [
-        "2026-10-31T19:27:58 integrity.save_rejected [\"user://current_life.cfg\"]"
+        "2026-11-01T12:56:52 integrity.save_rejected [\"user://current_life.cfg\"]"
       ],
       "unexpected_integrity_notices": [],
       "console_sha256": "cef7e2fa9ee971a1fa8898da0c2e3c4510ececcc064037337fd3cd0f344659ba",
@@ -120,7 +120,7 @@
       "mode": "roundtrip",
       "exit": 0,
       "timed_out": false,
-      "seconds": 1.407,
+      "seconds": 0.985,
       "driver": {
         "canonical_config_payload_sha256_after_first": "115a05e11ae807dfa273274e88515039685cb6b1cc44031281b95798c44f1263",
         "canonical_config_payload_sha256_after_second": "115a05e11ae807dfa273274e88515039685cb6b1cc44031281b95798c44f1263",
@@ -216,7 +216,7 @@
       "mode": "tamper",
       "exit": 0,
       "timed_out": false,
-      "seconds": 1.515,
+      "seconds": 0.969,
       "driver": {
         "checks": {
           "Authenticated primary rejects modified signed body": true,
@@ -230,7 +230,7 @@
       },
       "errors": [],
       "integrity_notices": [
-        "2026-10-31T19:28:01 integrity.save_rejected [\"user://current_life.cfg\"]"
+        "2026-11-01T12:56:54 integrity.save_rejected [\"user://current_life.cfg\"]"
       ],
       "unexpected_integrity_notices": [],
       "console_sha256": "cef7e2fa9ee971a1fa8898da0c2e3c4510ececcc064037337fd3cd0f344659ba",
@@ -241,6 +241,6 @@
     }
   ],
   "driver_sha256": "2655ea47303c69123cda2135942e191b67cca027f6f73fdfed6a25c5d053fa1e",
-  "source_commit": "b38e9df3788b8d83cc6c0a7956614963d6c16819",
+  "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96",
   "actual_original_profiles_and_installation_keys_preserved": true
 }

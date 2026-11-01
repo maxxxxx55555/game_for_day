@@ -1,47 +1,47 @@
 {
   "en-headless": {
     "result": "PASS",
-    "cases_passed": 49,
+    "cases_passed": 50,
     "cases_failed": 0,
-    "godot_invocations": 49,
-    "seconds": 293.7,
-    "console_sha256": "9c0e87654a4fa4b37135af36b1aaf56c269e46aae600ea2db81b3357ac4910ac",
+    "godot_invocations": 50,
+    "seconds": 243.6,
+    "console_sha256": "17d38522395377e51e862159ac9264b32ebb102245de65e136087819d48d4a6e",
     "rendered": false,
     "audio_driver": "Dummy",
-    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
+    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
   },
   "en-rendered": {
     "result": "PASS",
-    "cases_passed": 50,
+    "cases_passed": 51,
     "cases_failed": 0,
-    "godot_invocations": 50,
-    "seconds": 301.3,
-    "console_sha256": "d6240e96c83bffb9d8f4a959a7cbaddea2630fa562a055a0577ffb21286bb061",
+    "godot_invocations": 51,
+    "seconds": 254.7,
+    "console_sha256": "874b58b393eaa7029d968628a9783ecd6478af4bb8bed9904694e9ac8d92cf79",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
+    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
   },
   "ru-headless": {
     "result": "PASS",
-    "cases_passed": 49,
-    "cases_failed": 0,
-    "godot_invocations": 49,
-    "seconds": 246.3,
-    "console_sha256": "61024f57b51561c488587fefea7e860c60d3e849f3360b7f1d641c7614178a8f",
-    "rendered": false,
-    "audio_driver": "Dummy",
-    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
-  },
-  "ru-rendered": {
-    "result": "PASS",
     "cases_passed": 50,
     "cases_failed": 0,
     "godot_invocations": 50,
-    "seconds": 267.3,
-    "console_sha256": "adc7b081edc6e05b1958154be28c55fc29a629da5fcef2a8efc82bf7222d70d8",
+    "seconds": 187.3,
+    "console_sha256": "162aa3e64732aa01ae1dfc34b1d13231830b82aabce131ee9ca2a7ad3b48c8da",
+    "rendered": false,
+    "audio_driver": "Dummy",
+    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
+  },
+  "ru-rendered": {
+    "result": "PASS",
+    "cases_passed": 51,
+    "cases_failed": 0,
+    "godot_invocations": 51,
+    "seconds": 204.6,
+    "console_sha256": "5bf56188f5c1e69054152b2559393195b1b4c20b2314b66d1aedefe1e50c6bc8",
     "rendered": true,
     "audio_driver": "Dummy",
-    "source_commit": "9797a7989579aee1dd50710a59e76fc7a9136e84"
+    "source_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96"
   },
   "result": "PASS"
 }
