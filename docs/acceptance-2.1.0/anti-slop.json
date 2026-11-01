@@ -1,7 +1,7 @@
 {
   "result": "PASS",
   "scope": "Finite presentation audit: displayed edition copy, both documented skins, repository vector icons, display fonts/licences, unchanged bitmap inventory and placeholder scan. It does not prove human authorship of every asset or replace visual review and owner checks.",
-  "runtime_commit": "018102b3949331b800bb8ce1c4ae2b7ab7572d96",
+  "runtime_commit": "51cf18fb06a8d302be4f57ac6c010b5436354a29",
   "baseline_commit": "1ec7668a02998043f9ba6d7307cc661ed0f7f9d1",
   "copy_keys_scanned_per_locale": 526,
   "copy_findings": [],

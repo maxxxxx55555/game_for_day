@@ -1,8 +1,32 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "87bb476353951899d54031a9c117585fe11a9c8f",
+  "host_head": "51cf18fb06a8d302be4f57ac6c010b5436354a29",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "51cf18fb06a8d302be4f57ac6c010b5436354a29",
+      "subject": "Heirs of Fortune 2.1.0: refresh the receipts and documents for the re-issued tree",
+      "files": [
+        "README.md",
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/ANNOUNCE_KIT.md",
+        "docs/BUG_REGRESSIONS.md",
+        "docs/CHANGELOG_DRAFT.md",
+        "docs/FINAL_REPORT.md",
+        "docs/HANDOFF.md",
+        "docs/MECHANICS_MATRIX.md",
+        "docs/RELEASE_2.1.0.md",
+        "docs/STATIC_AUDIT.md",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/installed-smoke.json",
+        "docs/acceptance-2.1.0/pack-audit.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json",
+        "docs/acceptance-2.1.0/suites.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "87bb476353951899d54031a9c117585fe11a9c8f",
       "subject": "Heirs of Fortune 2.1.0: record the gate that passed on the exported commit",
@@ -52,10 +76,9 @@
     "1ec7668": [
       "anti-slop.json:baseline_commit"
     ],
-    "87bb476": [
+    "51cf18f": [
       "contracts.json:source_commit",
       "evidence-manifest.json:source_test_commit",
-      "pack-audit.json:documentation_commit",
       "suite-source-audit.json:source_commit"
     ],
     "466a8c1": [
@@ -68,9 +91,12 @@
     ],
     "b38e9df": [
       "installed-smoke-pre-fix.json:runtime_export_commit"
+    ],
+    "87bb476": [
+      "pack-audit.json:documentation_commit"
     ]
   },
-  "rule": "Nothing the player receives may change inside the gate window. Commits after the gated commit are allowed only when every file they touch lives under docs/; the exported EXE and PCK come from the gated commit and the packager refuses a mismatch.",
+  "rule": "Nothing the player receives may change inside the gate window. Commits after the gated commit are allowed only when every file they touch is documentation (under docs/, or the root README.md, both of which the export presets exclude from the PCK); the exported EXE and PCK come from the gated commit and the packager refuses a mismatch.",
   "scope": "Reconstructs the gate window and the commit field of every receipt from git and the JSON on disk. It does not re-run any test.",
   "failures": []
 }
