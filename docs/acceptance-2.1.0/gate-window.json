@@ -1,8 +1,37 @@
 {
   "result": "PASS",
   "gate_source_commit": "466a8c164a70b89fbdfb1ef174cff98c0e323d06",
-  "host_head": "7ee21b3bf0c77dd27182a9447e6634d4f06c9433",
+  "host_head": "e90e44f9bb64449b7bf741b2e605fa7ee0665a6b",
   "commits_inside_the_gate_window": [
+    {
+      "commit": "e90e44f9bb64449b7bf741b2e605fa7ee0665a6b",
+      "subject": "Heirs of Fortune 2.1.0: keep the contract receipts at the commit that revalidated them",
+      "files": [
+        "docs/acceptance-2.1.0/contract-test_repo_isolation.log",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json"
+      ],
+      "documentation_only": true
+    },
+    {
+      "commit": "deeb1acd09df0c065e8f2614f0313273e33d729f",
+      "subject": "Heirs of Fortune 2.1.0: record the download of the archive that ships these corrections",
+      "files": [
+        "docs/ACCEPTANCE_CERTIFICATE.md",
+        "docs/FINAL_REPORT.md",
+        "docs/acceptance-2.1.0/anti-slop.json",
+        "docs/acceptance-2.1.0/asset-history.json",
+        "docs/acceptance-2.1.0/contracts.json",
+        "docs/acceptance-2.1.0/evidence-manifest.json",
+        "docs/acceptance-2.1.0/gate-window.json",
+        "docs/acceptance-2.1.0/installed-smoke.json",
+        "docs/acceptance-2.1.0/pack-audit.json",
+        "docs/acceptance-2.1.0/suite-source-audit.json",
+        "docs/acceptance/download-verification-2.1.0.json"
+      ],
+      "documentation_only": true
+    },
     {
       "commit": "7ee21b3bf0c77dd27182a9447e6634d4f06c9433",
       "subject": "Heirs of Fortune 2.1.0: document the archive that carries the corrected evidence",
@@ -200,10 +229,7 @@
   "documentation_only_window": true,
   "receipts_by_recorded_commit": {
     "7ee21b3": [
-      "anti-slop.json:runtime_commit",
-      "contracts.json:source_commit",
-      "evidence-manifest.json:source_test_commit",
-      "suite-source-audit.json:source_commit"
+      "anti-slop.json:runtime_commit"
     ],
     "1ec7668": [
       "anti-slop.json:baseline_commit"
@@ -213,6 +239,11 @@
       "cycles.json:source_commit",
       "legacy.json:source_commit",
       "soak.json:source_commit"
+    ],
+    "e90e44f": [
+      "contracts.json:source_commit",
+      "evidence-manifest.json:source_test_commit",
+      "suite-source-audit.json:source_commit"
     ],
     "466a8c1": [
       "evidence-manifest.json:runtime_export_commit",
