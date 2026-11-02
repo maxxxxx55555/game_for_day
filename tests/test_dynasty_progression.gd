@@ -48,14 +48,16 @@ func run()->void:
     check(heir_income<steady_income and float(heir_income)>=float(steady_income)*0.88,"Heir trades about a tenth of quarterly income for the dynasty")
     var heir_desc:String=txt("ambition.heir.desc")
     check(heir_desc.contains("ниже") or heir_desc.contains("lower"),"The Heir description discloses the income cost")
-    check(txt("ambition.heir.button").count("%")>=2,"The Heir label carries both its percentage figures")
     screen.update_ambition_controls()
+    check(screen.ambition_desc.text.count("%")>=2,"The visible Heir description states both figures")
+    check(screen.ambition_buttons[2].tooltip_text.count("%")>=2,"The Heir tooltip states both figures")
     check(screen.ambition_buttons.size()==3 and screen.ambition_buttons[0].button_group!=null,"Ambition is a single-choice control group")
     for button:Button in screen.ambition_buttons:
         check(not button.tooltip_text.strip_edges().is_empty(),"Every ambition describes its trade-off")
     screen.apply_ambition("meteor")
     check(game.ambition=="meteor" and screen.ambition_buttons[1].button_pressed,"The ambition control writes the real model")
     check(not screen.ambition_desc.text.strip_edges().is_empty(),"The active ambition explains itself")
+    check(screen.ambition_desc.text.count("%")>=2,"The visible Meteor description states its figures")
     var ambition_turns:int=game.total_turns
     var ambition_rng:int=screen.rng.state
     for press:int in 24:

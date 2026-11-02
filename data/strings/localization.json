@@ -3289,12 +3289,12 @@
       "en": "An even pace: no hidden income or stress multipliers."
     },
     "ambition.meteor.desc": {
-      "ru": "Быстрые деньги требуют крепких нервов: доход выше, стресс растёт быстрее.",
-      "en": "Fast money demands strong nerves: higher income, faster stress."
+      "ru": "Быстрые деньги требуют крепких нервов: доход на 25% выше, стресс растёт на 30% быстрее, рыночные качели шире на 35%.",
+      "en": "Fast money demands strong nerves: income 25% higher, stress rising 30% faster and market swings 35% wider."
     },
     "ambition.heir.desc": {
-      "ru": "Дело рода требует вложений: доход на десятую часть ниже, зато наследство крупнее.",
-      "en": "The family work comes first: income runs a tenth lower, but the inheritance is larger."
+      "ru": "Дело рода требует вложений: доход на 10% ниже, зато наследство на 25% крупнее.",
+      "en": "The family work comes first: income runs 10% lower, but the inheritance is 25% larger."
     },
     "ambition.intro": {
       "ru": "Выберите темп этой жизни.",

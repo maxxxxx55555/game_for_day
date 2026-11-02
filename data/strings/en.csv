@@ -985,8 +985,8 @@ ambition.steady,Размеренный,Steady
 ambition.meteor,Метеор,Meteor
 ambition.heir,Наследник,Heir
 ambition.steady.desc,Ровный темп: без скрытых множителей дохода и стресса.,An even pace: no hidden income or stress multipliers.
-ambition.meteor.desc,"Быстрые деньги требуют крепких нервов: доход выше, стресс растёт быстрее.","Fast money demands strong nerves: higher income, faster stress."
-ambition.heir.desc,"Дело рода требует вложений: доход на десятую часть ниже, зато наследство крупнее.","The family work comes first: income runs a tenth lower, but the inheritance is larger."
+ambition.meteor.desc,"Быстрые деньги требуют крепких нервов: доход на 25% выше, стресс растёт на 30% быстрее, рыночные качели шире на 35%.","Fast money demands strong nerves: income 25% higher, stress rising 30% faster and market swings 35% wider."
+ambition.heir.desc,"Дело рода требует вложений: доход на 10% ниже, зато наследство на 25% крупнее.","The family work comes first: income runs 10% lower, but the inheritance is 25% larger."
 ambition.intro,Выберите темп этой жизни.,Choose the pace of this life.
 ambition.short.steady,размеренный,steady
 ambition.short.meteor,метеор,meteor

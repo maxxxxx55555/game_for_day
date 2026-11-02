@@ -1,5 +1,23 @@
 # CHANGELOG — v2 integration draft
 
+## 2.1.1 — patch on the published 2.1.0
+
+- Moved the exact ambition figures into `ambition.<mode>.desc`, the string the intro draws in the
+  description line and in each ambition button's tooltip, and deleted `ambition.steady.button`,
+  `ambition.meteor.button` and `ambition.heir.button`, which held those percentages in rows no control
+  ever displayed. One suite case asserted against that invisible string; it now asserts against the
+  visible description and tooltip, so the disclosure is proven on screen instead of in the catalogue.
+- `project.godot` and both export presets now say 2.1.1. The save format is untouched, so 1.4.0 and
+  2.0.x profiles still load with neutral ambition, empty threads and no milestones; no migration added.
+- Corrected the 2.1.0 attribution of the longer intro-to-first-card walk: scene and panel construction
+  happens before the measurement timer starts, and the segment probe places the difference in the first
+  frames presented after each screen switch. The disclosed verdict stays REVIEW; nothing was moved across
+  the timer boundary to flatter the number.
+- No mechanic, screen, balance number or asset changed. The 2.1.0 release stays published with its tag,
+  assets and receipts.
+
+Gate 2.1.1 at the exported commit: pending the run.
+
 ## 2.1.0 Legacy & Chains — published 2026-10-30, re-issued 2026-10-31
 
 - Added eight two-link threads with stored flags, five-quarter delays, recalled choices, variant outcomes and momentum.

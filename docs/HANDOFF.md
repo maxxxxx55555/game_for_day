@@ -1,6 +1,6 @@
 # Heirs of Fortune 2.1.0 — owner handoff
 
-Release: **2.1.0 "Legacy & Chains" is published at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0, gated 2026-11-01 at commit `466a8c164a70b89fbdfb1ef174cff98c0e323d06`.** The gate ran there and every step reported exit 0: trust anchor, localization compile, strict compile over 38 shipping scripts, 50-case headless and 51-case rendered source suites in both RU and EN, four exports, 12 exported native runs, 100 seeded cycles, legacy 1.4.0/2.0.x compatibility and the 30-minute rendered soak. The archive is `HeirsOfFortune-Windows-2.1.0.zip` (84,660,604 bytes, SHA256 `458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f`) beside `HeirsOfFortune-SHA256SUMS-2.1.0.txt` (SHA256 `2e5ae904bb0715f750223368e4d1c486129c77c689dc00ac3a0cffb9fdd12e9b`).
+Release: **2.1.1 "Legacy & Chains" is published at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.1 — pending the gate run.**
 
 1. Download only the exact 2.1.0 Windows ZIP and its versioned sums file; require `sha256sum -c` to report OK and exit 0.
 2. Extract the entire folder, launch the EXE and select English/Russian.
@@ -8,7 +8,7 @@ Release: **2.1.0 "Legacy & Chains" is published at https://github.com/maxxxxx555
 4. Walk every ledger section. Read a milestone retrospective at 18, finish a $250B victory and try Ascension; the hall must gain exactly one record per life. Choose each of the three ambitions on the intro screen and confirm the Heir description states the income cost it charges.
 5. Check the four musical moods, finale cues, each audio slider, reduced motion, Credits and an older 1.4.0/2.0.x profile. Keep its installation key and original backup.
 
-Checks 1-5 describe the re-issued 2.1.0 build at the gated commit, which carries the two-skin appearance system ([APPEARANCE.md](APPEARANCE.md)). Check 5 also covers the switch by hand: pick the paper skin, walk the ledger, the milestone card and settings, and confirm nothing keeps the ink palette. `tests/test_theme_switch.gd` measures the same thing automatically, so the owner pass is a confirmation, not the only evidence. The first publication of 2.1.0 (2026-10-30, source `807ba09`) is superseded by this one; it lacked the appearance system.
+Checks 1-5 describe the 2.1.1 build at the gated commit. 2.1.1 is a patch on 2.1.0 and changes no mechanic, screen or asset, so the checklist is the same walk; the appearance system it carries is the repainted one ([APPEARANCE.md](APPEARANCE.md)). Check 5 also covers the switch by hand: pick the paper skin, walk the ledger, the milestone card and settings, and confirm nothing keeps the ink palette. `tests/test_theme_switch.gd` measures the same thing automatically, so the owner pass is a confirmation, not the only evidence. Earlier publications stay reachable: 2.1.0 from 2026-10-30 (`807ba09`, no appearance system), 2026-10-31 (`b38e9df`, no skin repaint) and the 2026-11-01 re-issue (`466a8c1`); 2.1.1 supersedes them for current claims and deletes none of them.
 
 What a machine already did on the delivered archive, so a human can spend the pass on what only a human can judge:
 

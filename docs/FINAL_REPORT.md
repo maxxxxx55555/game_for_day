@@ -49,10 +49,12 @@ Two limits of the new theme case are also stated rather than glossed: opening a 
 Known limitations: no human/audible final acceptance, Android/store certification or Authenticode; the QA
 harnesses share the real user-data profile with the game, so save-writing harnesses and suites are never run
 concurrently; the balance sweep measures two scripted policies rather than the whole strategy space; the paper
-skin keeps the dark boot splash, which precedes any theme choice. The three `ambition.*.button` catalogue
-strings that 2.1.0 recorded as existing in both locales with no control displaying them were deleted in 2.1.1
-instead of being dressed up as UI: the ambition button keeps its short name and the trade-off stays disclosed
-in words in the description line and the tooltip. No AAA or universal no-bug/invulnerability claim. See
+skin keeps the dark boot splash, which precedes any theme choice. The three `ambition.*.button` strings that 2.1.0 recorded as holding the ambition percentages in
+rows no control displayed are gone in 2.1.1, and the percentages they carried now live in
+`ambition.<mode>.desc` — the text the intro draws in the description line and in every ambition tooltip —
+with the multipliers read off the model rather than off the old copy; the suite case that used to assert
+against the invisible string asserts against the visible description and tooltip. No AAA or universal no-bug/invulnerability claim. See
 [HANDOFF](HANDOFF.md).
 
 Publication record of the re-issued build: `HeirsOfFortune-Windows-2.1.0.zip` — 84,660,604 bytes, SHA256 `458df67decc698aa7467179b85600d298d30a5ddd68b4bb8d1ef31d08d7e055f`, 246 entries — and `HeirsOfFortune-SHA256SUMS-2.1.0.txt` — 99 bytes, SHA256 `2e5ae904bb0715f750223368e4d1c486129c77c689dc00ac3a0cffb9fdd12e9b` — are the only two assets on https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0, whose tag object `cc1fa564a944e2f334ba381cf548d5f454b4d270` peels to the gated commit `466a8c164a70b89fbdfb1ef174cff98c0e323d06`. Both files were downloaded fresh from that release into an empty directory on 2026-11-01 and `sha256sum -c HeirsOfFortune-SHA256SUMS-2.1.0.txt` printed `HeirsOfFortune-Windows-2.1.0.zip: OK` with exit code 0; GitHub's own asset digests matched the local ones, and opening the downloaded archive gave the gate's EXE `aa9d5b1a7dc2ad4a0d0d490af0e6a5a1a927d0b8c5859fce553cf30c0864d24c` and PCK `b6a63f95685b4e655580dfbcb21433d2357a16ed0af9bb8dfdf3fd0a7b982a57`, which are the digests the export step recorded. The superseded 2026-10-31 archive (`dbc13f80ae2f54fcc925ff1bb6fa1d9a407a4e554cf4e2f04c33241587fba011`, 84,631,852 bytes) and the first publication of 2026-10-30 stay reproducible from their own commits; neither was rewritten. The published asset pair has been repacked 5 times since the tag, in the order dbc13f80 → 587c2d23 → db0bae0d → 6d52a888 → 458df67d; `acceptance-2.1.0/asset-history.json` reads that list back out of git, and every one of them carries the same exported EXE and PCK — only the documentation tree that travels inside the archive changed between them, so a copy downloaded from an earlier digest is the same game with older notes.
+Publication record of the 2.1.1 build: pending the download.
