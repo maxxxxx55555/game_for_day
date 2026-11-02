@@ -3284,18 +3284,6 @@
       "ru": "Наследник",
       "en": "Heir"
     },
-    "ambition.steady.button": {
-      "ru": "Размеренный (ровный доход и стресс)",
-      "en": "Steady (even income and stress)"
-    },
-    "ambition.meteor.button": {
-      "ru": "Метеор (доход +25%, стресс +30%)",
-      "en": "Meteor (+25% income, +30% stress)"
-    },
-    "ambition.heir.button": {
-      "ru": "Наследник (наследство +25%, доход -10%)",
-      "en": "Heir (+25% inheritance, -10% income)"
-    },
     "ambition.steady.desc": {
       "ru": "Ровный темп: без скрытых множителей дохода и стресса.",
       "en": "An even pace: no hidden income or stress multipliers."

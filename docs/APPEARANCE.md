@@ -46,9 +46,14 @@ screen, and `Оформление` in Settings.
   Button `icon_*_color` overrides, so one file serves both skins. Six of the
   seven are on screen: `Main.apply_skin()` calls `apply_bottom_icons()` for
   market, business, grant, dynasty and settings and gives `theme.svg` to the
-  intro toggle. `globe.svg` ships in the asset inventory, is imported and
-  audited, and no control draws it yet — `docs/ASSET_REVIEW.json` records it as
-  `ACCEPT_INVENTORY_ONLY` for that reason.
+  intro toggle. `globe.svg` is deliberately not drawn by any control: those six
+  slots are the whole set of icon-bearing destinations in this interface, and the
+  language selector on the intro already names itself through its items
+  («Русский» / English), so a seventh icon would be decoration rather than logic.
+  `docs/ASSET_REVIEW.json` records that as `ACCEPT_INVENTORY_ONLY`, and the
+  presentation audit keeps the file in the seven-icon set it verifies
+  (`docs/acceptance-2.1.0/anti-slop.json` → `expected_icons`), so the decision
+  stays audited instead of silently drifting.
 
 Sliders are styled as a 4px groove with a bronze filled area instead of the
 engine default.
