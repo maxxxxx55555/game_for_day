@@ -1,4 +1,6 @@
-# Heirs of Fortune 2.1.0 — acceptance certificate
+# Heirs of Fortune 2.1.0 — acceptance certificate (published edition)
+
+This certificate covers the published 2.1.0 build only. The current 2.1.1 source has not passed the export gate and has no published archive or checksums.
 
 Date: gated 2026-11-01 (Europe/Moscow). Second re-issue of the edition. Automated Windows runtime checks accepted within the recorded scope. The publication gate ran on a clean tree at the export commit and reported PASS for every step in 4,477.5 seconds. Owner play/listening acceptance remains outstanding.
 

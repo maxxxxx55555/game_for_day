@@ -7,6 +7,17 @@ func check(ok: bool, label: String) -> void:
 	if not ok:
 		failures += 1
 		print("FAIL: ",label)
+func theme_cfg() -> ConfigFile:
+	var cfg: ConfigFile = ConfigFile.new()
+	cfg.set_value("dynasty","generation",1)
+	cfg.set_value("dynasty","legacy_points",0)
+	cfg.set_value("dynasty","inherited_capital",0.0)
+	cfg.set_value("settings","time_speed",1.0)
+	cfg.set_value("settings","audio_enabled",true)
+	cfg.set_value("settings","reduced_motion",false)
+	for field:String in ["master_volume","music_volume","sfx_volume","ui_volume"]:
+		cfg.set_value("settings",field,0.3)
+	return cfg
 func run() -> void:
 	await process_frame
 	var game: Node = root.get_node("GameManager")
@@ -47,6 +58,17 @@ func run() -> void:
 		check(not screen.save_status.visible,"Successful retry clears the visible warning")
 		screen.queue_free()
 		await process_frame
+	var legacy_skin: ConfigFile = theme_cfg()
+	check(Policy.dynasty(legacy_skin),"Profiles without a persisted theme remain valid")
+	var light_skin: ConfigFile = theme_cfg()
+	light_skin.set_value("settings","theme_mode","light")
+	check(Policy.dynasty(light_skin),"The paper skin is a valid persisted theme")
+	var unknown_skin: ConfigFile = theme_cfg()
+	unknown_skin.set_value("settings","theme_mode","sepia")
+	check(not Policy.dynasty(unknown_skin),"An unknown persisted theme is rejected")
+	var typed_skin: ConfigFile = theme_cfg()
+	typed_skin.set_value("settings","theme_mode",7)
+	check(not Policy.dynasty(typed_skin),"A non-string persisted theme is rejected")
 	print("RELEASE HARDENING RESULT: ","PASS" if failures==0 else "FAIL")
 	if not await root.get_node("SoundManager").shutdown():
 		quit(1)

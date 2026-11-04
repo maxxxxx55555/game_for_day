@@ -12,6 +12,7 @@ const AMBITIONS:Array[String]=["steady","meteor","heir"]
 const STAGES:Array[String]=["survival","career","millionaire","billionaire"]
 const CHAIN_IDS:Array[String]=["library_workshop","night_courier","hackathon_team","mentor_coffee","family_loan","city_tender","media_profile","quiet_estate"]
 const MILESTONE_AGES:Array[int]=[18,25,35,50,65]
+const THEME_MODES:Array[String]=["dark","light"]
 static func dynasty(cfg: ConfigFile) -> bool:
 	if not Guard.numeric(cfg.get_value("dynasty","generation",1),1,1000000,true): return false
 	if not Guard.numeric(cfg.get_value("dynasty","legacy_points",0),0,10000000,true): return false
@@ -21,6 +22,11 @@ static func dynasty(cfg: ConfigFile) -> bool:
 	if not cfg.get_value("settings","reduced_motion",false) is bool: return false
 	for name:String in ["master_volume","music_volume","sfx_volume","ui_volume"]:
 		if not Guard.numeric(cfg.get_value("settings",name,0.3),0,1): return false
+	# The 2.1 appearance preference is optional so older dynasty profiles remain valid.
+	if cfg.has_section_key("settings","theme_mode"):
+		var skin:Variant=cfg.get_value("settings","theme_mode","dark")
+		if not skin is String: return false
+		if not THEME_MODES.has(skin): return false
 	if cfg.has_section_key("dynasty","inherited_capital_cents") and not cents_pair(cfg,"dynasty","inherited_capital","inherited_capital_cents",false):return false
 	# Fields introduced by 2.1.0 are optional so 1.4.0 and 2.0.x profiles stay valid.
 	if cfg.has_section_key("dynasty","unlocked_perks") and not perk_list(cfg.get_value("dynasty","unlocked_perks",[])):return false

@@ -1,4 +1,4 @@
-# Heirs of Fortune — 2.1.0
+# Heirs of Fortune — 2.1.1
 
 ## Legacy & Chains
 
@@ -10,7 +10,7 @@ Ascension is a five-level NG+ path from the victory finale: each level raises in
 
 2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 19 rows and 152 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
 
-The publication gate ran to completion on this build host on 2026-11-01 at commit `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and every step exited 0: strict compile over 38 shipping scripts, 50 headless and 51 rendered cases in Russian and English, four exports, 12 exported-binary runs, 100 seeded cycles, 1.4.0/2.0.x compatibility and a 1,802.875-second rendered soak. The `v2.1.0` tag names that exported commit and the release is published at https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.0 with exactly two assets, the Windows ZIP `HeirsOfFortune-Windows-2.1.0.zip` and its versioned sums file, verified by a fresh download and `sha256sum -c`. Owner play and listening checks remain open and are not claimed. See the [2.1.0 release notes](docs/RELEASE_2.1.0.md), the [certificate](docs/ACCEPTANCE_CERTIFICATE.md) and the [handoff](docs/HANDOFF.md).
+The published Windows release remains **2.1.0**, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; its exact ZIP and versioned sums file are the only current distribution artifacts. This source tree is **2.1.1**, an unpublished patch: its export gate, Windows ZIP, checksums and owner checks are pending. The [2.1.1 release notes](docs/RELEASE_2.1.1.md) record what has actually been validated in source; the [2.1.0 release notes](docs/RELEASE_2.1.0.md), [certificate](docs/ACCEPTANCE_CERTIFICATE.md) and [handoff](docs/HANDOFF.md) describe the published build.
 
 ## Русский
 
@@ -20,7 +20,7 @@ The publication gate ran to completion on this build host on 2026-11-01 at commi
 
 Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Сборка рисует два целостных оформления — тёмное (чернила и золото) и светлое (тёплая бумага и бронза) с переключателем на стартовом экране и в настройках; выбор запоминается, все цвета берутся из одного модуля палитры, а карточка события несёт плашку страны рождения — см. [оформление](docs/APPEARANCE.md). Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
 
-Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. В матрице механик 19 строк и 152 исполняемых ячейки. Публикационный гейт прошёл целиком на коммите `466a8c1` (первый перевыпуск 31 октября шёл с `b38e9df`, а первая публикация 30 октября — с `807ba09`): строгий компилятор, 50 headless и 51 rendered кейсов на русском и английском, четыре экспорта, 12 нативных прогонов, 100 сеяных циклов, совместимость профилей 1.4.0/2.0.x и соук 1,802.875 с — все шаги с нулевым кодом возврата. Тег `v2.1.0` стоит на этом экспортированном коммите, релиз содержит ровно два файла: ZIP для Windows и сверенный с ним файл сумм. Ручные проверки владельца остаются открытыми и не объявлены пройденными.
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. Опубликованная редакция — 2.1.0, прошедшая гейт на `466a8c1`; текущий исходник — неопубликованный патч 2.1.1, для которого экспортный гейт, ZIP, суммы и ручные проверки владельца ещё не выполнены. См. [заметки 2.1.1](docs/RELEASE_2.1.1.md).
 
 ---
 
@@ -40,7 +40,7 @@ Both localization CSV files have explicit LF checkout rules, preserving embedded
 
 Retained: Live RU/EN presentation with 816 catalog keys, four mood compositions and two musical finales, independent audio levels, reduced motion, credits and protected 1.4.0 profiles. Content of that edition: 31 events/93 choices, 192 weighted birthplaces, business progression, investments, EUR/GBP/JPY trading with a disclosed 0.35% spread each way, inflation, inheritance and illustrated victory/defeat.
 
-## Русский
+## Русский — 2.0.2
 
 Исправлена воспроизводимая сборка из обычного Git-checkout: манифест данных, происхождение интерфейсных звуков и переносы строк локализации согласованы с исходными LF-байтами. Канонический русский текст и музыка сохранены. Включены 192 страны рождения с разными начальными условиями, тёмный интерфейс и проверяемые поля сохранения; старые профили получают нейтральные значения.
 
@@ -54,7 +54,7 @@ See [patch notes](docs/RELEASE_2.0.1.md), [acceptance certificate](docs/ACCEPTAN
 
 ---
 
-# Heirs of Fortune —1.4.0
+# Heirs of Fortune — 1.4.0
 
 Native decision cards now separate concise action titles from readable effects. Cost, probability and requirements remain visible, with original full text retained for tooltips/accessibility. A short outcome notice replaces repeated event paragraphs, and the main illustration uses the freed space. Smooth rounded controls and shorter introductory/market copy reduce clutter; all 93 choice layouts are checked at a small portrait size. The original money, RNG, turns, currency/inflation, soundtrack and protected-save rules remain.
 
@@ -95,7 +95,7 @@ python tools/export_release.py --godot /path/to/godot --output /fresh/staging/He
 python tests/run_tests.py --godot /path/to/godot --rendered --artifacts /path/to/logs
 ```
 
-The current source runner contains 50 Godot invocations per locale (51 with rendered mode, which adds the chart-path regression), including import, plus Python export, copy/edition contracts, inherited-license bytes, isolation, soundtrack, audio-asset, package and installed-archive checks. These cover 23 core regressions, 1093 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, the skin switch, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens in both skins.
+The current source runner imports the real project, executes the full registered Godot and Python case set in each locale and covers 1090 localization keys, all 93 decision layouts, independent audio buses, country birth bounds and live EN/RU labels, full victory, market exit without liquidation, mobile lifecycle, chains, dynasty progression, card feel, the skin switch, save compatibility and audio. `tests/capture_gallery.gd` checks portrait bounds while capturing the main screens in both skins.
 
 ## Release scope and verification
 
@@ -134,11 +134,15 @@ Country statistics and reuse terms: [data attribution and open table](docs/BIRTH
 
 ## 2.0.1 acceptance and distribution
 
-Current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe this patch. Older diagnostic documents/images refer to preserved historical attempts. Only the published gated patch ZIP and its exact versioned sums file are distribution artifacts.
+Historical release documents below are not a 2.1.1 publication record. The [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) now describe the published 2.1.0 edition. Older diagnostic documents and images refer to preserved historical attempts. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
 
-## 2.1.0 acceptance and distribution
+## 2.1.0 acceptance and distribution (published)
 
-The current [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe 2.1.0, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins the shipped build paints. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
+The [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe the published 2.1.0 build, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins that shipped. Those exact release assets remain the only distribution artifacts. The 2.1.0 gate and owner acceptance do not carry over to 2.1.1.
+
+## 2.1.1 source status
+
+The current source is 2.1.1. Strict compilation and all four bilingual source runners pass; the [source validation receipt](docs/acceptance-2.1.1/source-validation.json) records their exact console hashes and timings. It is not published: its export gate, Windows ZIP, checksums, rendered/export evidence and five owner checks remain pending. The [2.1.1 release notes](docs/RELEASE_2.1.1.md) record only what has actually run. Do not attach the 2.1.0 ZIP, press frames or gate receipts to a 2.1.1 announcement.
 
 ## Earlier editions
 

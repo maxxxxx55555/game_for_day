@@ -1,6 +1,6 @@
-# CHANGELOG — v2 integration draft
+# CHANGELOG — Heirs of Fortune
 
-## 2.1.1 — patch on the published 2.1.0
+## 2.1.1 — source-complete patch, publication gated
 
 - Moved the exact ambition figures into `ambition.<mode>.desc`, the string the intro draws in the
   description line and in each ambition button's tooltip, and deleted `ambition.steady.button`,
@@ -9,16 +9,25 @@
   visible description and tooltip, so the disclosure is proven on screen instead of in the catalogue.
 - `project.godot` and both export presets now say 2.1.1. The save format is untouched, so 1.4.0 and
   2.0.x profiles still load with neutral ambition, empty threads and no milestones; no migration added.
-- Corrected the 2.1.0 attribution of the longer intro-to-first-card walk: scene and panel construction
-  happens before the measurement timer starts, and the segment probe places the difference in the first
-  frames presented after each screen switch. The disclosed verdict stays REVIEW; nothing was moved across
-  the timer boundary to flatter the number.
+- The optional `settings/theme_mode` value in the authenticated dynasty profile is now explicitly
+  validated as `dark` or `light`; older profiles without it remain valid. This is an integrity guard,
+  not a change to any mechanic, screen or balance number.
+- The release record no longer claims an unpublished ZIP, gate result, checksum, owner pass or
+  performance receipt for 2.1.1.
+- The default-checkout contract keeps its disposable fixture under the validation artifacts, so a
+  host-side bulk-delete guard cannot turn cleanup into a false contract failure.
+- Withdrew the 2.1.0 attribution of the longer intro-to-first-card walk: scene and panel construction
+  happens before the measurement timer starts. A 2.1.1 segment probe is planned to test whether the
+  first frames presented after each screen switch explain the difference, but it has not run and no
+  receipt exists. The disclosed verdict stays REVIEW; nothing was moved across the timer boundary.
 - No mechanic, screen, balance number or asset changed. The 2.1.0 release stays published with its tag,
   assets and receipts.
 
-Gate 2.1.1 at the exported commit: pending the run.
+Source validation 2.1.1: PASS — strict compile and EN/RU headless/rendered source runners, recorded in [acceptance-2.1.1/source-validation.json](acceptance-2.1.1/source-validation.json). This is not the export gate.
 
-## 2.1.0 Legacy & Chains — published 2026-10-30, re-issued 2026-10-31
+Publication gate 2.1.1: not run; no exported commit, ZIP, checksums or download verification exists yet.
+
+## 2.1.0 Legacy & Chains — published 2026-10-30, intermediate build 2026-10-31, re-issued 2026-11-01
 
 - Added eight two-link threads with stored flags, five-quarter delays, recalled choices, variant outcomes and momentum.
 - Added the five-section dynasty ledger and a twelve-life hall of fame.
@@ -39,7 +48,7 @@ Gate 2.1.1 at the exported commit: pending the run.
 - Removed mixed historical design scope; new negative guard tests catch copied design/runtime references.
 - Added branded boot/loading hints and explicit retry/stay/discard handling after a failed exit save.
 - Added contextual disabled explanations and retained real transaction prices in tooltips.
-- Publication remains locked until all v2 phase evidence and the final gate pass.
+- Historical note: publication remained locked until all v2 phase evidence and that edition’s final gate passed.
 
 - F2: audited literal keys and blank scene defaults; verified both locale catalogs and actual typeface glyphs.
 - Remaining birth/business/inheritance model copy uses existing keys while preserving canonical Russian identities. Added a v1.4.0 original-copy and ordered-event regression fixture; opening copy refreshes on live language changes.
@@ -48,7 +57,7 @@ F3: published art tokens and individual 10-file source review; unified Prata dis
 
 V2 F4: preserve the four distinct recorded mood tracks and two finales; add quiet focus/unavailable synthesis with honest CC0 hashes, one contextual acknowledgment per action, restrained cosmetic pitch variation and real rejected-action regressions. QA remains muted.
 
-## F5 — integrity integration, awaiting final gate
+## F5 — integrity integration (historical)
 
 Separate encrypted public/private QA exports and environment-only keys; physically excluded public verifier. Compiled critical-data manifest/trusted fallback and localized read-only safe mode. Localized authenticated-save recovery and stable unchanged round trips. New regression tests cover replacement manifests, safe-mode write/deletion boundaries, key preflight, public flags and save recovery.
 Integer-cent money ledger, bounded fixed-precision FX wallet, no same-quote cent creation, atomic overflow refusal and saved monotonic grant ticks. Android artifacts omitted for this v2 cycle under section 16; no emulator claim.

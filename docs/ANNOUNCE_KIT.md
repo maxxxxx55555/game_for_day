@@ -1,4 +1,6 @@
-# Heirs of Fortune 2.1.0 — announcement kit
+# Heirs of Fortune 2.1.0 — announcement kit (published edition)
+
+This kit is for the published 2.1.0 release. The current 2.1.1 source is not published; do not use these announcement texts or press frames for 2.1.1 until its own gate, archive and checksums exist.
 
 Prepared for the gated Windows release «Legacy & Chains». The acceptance gate returned PASS at the exported commit `466a8c164a70b89fbdfb1ef174cff98c0e323d06` on 2026-11-01 (4,477.5 s over 15 steps); this is the second re-issue of the edition (the 2026-10-30 publication came from `807ba09` and lacked the appearance system, the 2026-10-31 build came from `b38e9df` and lacked the skin repaint). The tag `v2.1.0` names the gated commit and the artifact digests are recorded in [RELEASE_2.1.0](RELEASE_2.1.0.md) and the [certificate](ACCEPTANCE_CERTIFICATE.md). The five owner checks in [HANDOFF](HANDOFF.md) stay open until the owner performs them, so nothing here claims human play, listening or balance acceptance. The publishable frames for 2.1.0 are listed with their hashes in [press/v2.1.0/CAPTIONS.md](press/v2.1.0/CAPTIONS.md); the earlier sets remain historical and must not be attached to this release.
 

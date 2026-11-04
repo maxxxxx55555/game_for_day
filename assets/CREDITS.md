@@ -1,4 +1,6 @@
-# Art and audio credits — cumulative, current edition 2.1.0
+# Art and audio credits — cumulative, source edition 2.1.1
+
+The published binary remains 2.1.0; 2.1.1 is an unpublished source patch and carries the same art and audio assets.
 
 Original in-game illustrations: OpenAI image generation, created for this edition. Generation records and SHA-256 digests are in assets/art/*provenance.json.
 
