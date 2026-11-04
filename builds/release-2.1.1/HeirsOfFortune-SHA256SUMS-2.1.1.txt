@@ -1,0 +1,2 @@
+8aaca7a0de81a5c39c3125683964a8a5d0fb6b2666307f0dd2ecf3572a062393  HeirsOfFortune-Windows-2.1.1.zip
+fcc1f30cb3c14c8815bb3b4bf4d727598e82bef825f5e278a7546d1cf9733acd  HeirsOfFortune.exe

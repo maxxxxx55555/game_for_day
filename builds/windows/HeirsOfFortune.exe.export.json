@@ -1,0 +1,11 @@
+{
+  "preset": "Windows Desktop",
+  "private_qa": false,
+  "encrypted": true,
+  "directory_encrypted": true,
+  "template_sha256": "07501999446b152255178c2e9783ea347e3f9e0d546501bf2d32dbb347781fe9",
+  "artifact_sha256": "fcc1f30cb3c14c8815bb3b4bf4d727598e82bef825f5e278a7546d1cf9733acd",
+  "artifact_bytes": 94055192,
+  "key_storage": "environment only; no key recorded",
+  "source_preset_restored": true
+}
