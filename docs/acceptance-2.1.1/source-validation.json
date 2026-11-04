@@ -1,0 +1,71 @@
+{
+  "edition": "2.1.1",
+  "result": "PASS",
+  "status": "SOURCE_VALIDATION_PASS",
+  "source_commit": "7a7ef6de9ee47e2945fbc126b7714eec574bdd4f",
+  "head_before_validation": "7dba522f9ed38dfb8aa15c9d523a4c82fa9b347f",
+  "engine": "Godot 4.7.stable.official.5b4e0cb0f",
+  "audio_driver": "Dummy",
+  "generated": "2026-11-04T13:05:55Z",
+  "scope": "Strict GDScript compilation, four bilingual source runners and their Python data contracts. No export, native binary, seeded-cycle, soak, ZIP, checksum or owner acceptance result is claimed.",
+  "steps": [
+    {
+      "step": "strict-compile",
+      "exit": 0,
+      "seconds": 5,
+      "console_sha256": "81ffee0c0cbce4037271b0f22f98aaf3c565eacdbb85c1b1a1f66b485a805a8d"
+    },
+    {
+      "step": "en-headless",
+      "exit": 0,
+      "seconds": 305,
+      "console_sha256": "3c755ae16a3c771f6368ffc6b68d1d3c789a21d9e672bdcc49376db92a679705",
+      "language": "en",
+      "rendered": false,
+      "godot_cases_passed": 58
+    },
+    {
+      "step": "en-rendered",
+      "exit": 0,
+      "seconds": 319,
+      "console_sha256": "d3568c426cc54ceb3b8582d1aac91c3d37b4c59d65af09b5fe5c35b8b25430f9",
+      "language": "en",
+      "rendered": true,
+      "godot_cases_passed": 59
+    },
+    {
+      "step": "ru-headless",
+      "exit": 0,
+      "seconds": 410,
+      "console_sha256": "76eed3df81b5197ebe0cf6ae71f41df3609d421c02980c7b5d0a23756967445e",
+      "language": "ru",
+      "rendered": false,
+      "godot_cases_passed": 58
+    },
+    {
+      "step": "ru-rendered",
+      "exit": 0,
+      "seconds": 431,
+      "console_sha256": "34d0c6b34c3d76368fd912108114ff19bfe740df764cb1c9ae18ada6e90c2efd",
+      "language": "ru",
+      "rendered": true,
+      "godot_cases_passed": 59
+    }
+  ],
+  "publication_gate": {
+    "result": "NOT_RUN",
+    "reason": "The private GODOT_SCRIPT_ENCRYPTION_KEY and matching custom Windows release template are unavailable on this host; the five owner checks also remain open.",
+    "missing_evidence": [
+      "encrypted exports",
+      "exported native runs",
+      "seeded cycles",
+      "rendered soak",
+      "performance/balance/gallery receipts",
+      "Windows ZIP",
+      "SHA256SUMS file",
+      "download verification",
+      "owner play/listening pass"
+    ]
+  },
+  "provenance": "Validation ran on the working tree whose shipping source and documents became source_commit. This file is a documentation-only follow-up receipt; raw logs stay outside the repository and the console SHA256 values identify them."
+}
