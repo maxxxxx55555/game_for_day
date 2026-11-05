@@ -10,7 +10,7 @@ Ascension is a five-level NG+ path from the victory finale: each level raises in
 
 2.1 fields are optional in saves: 1.4.0 and 2.0.x profiles still load with neutral ambition, empty threads and no milestones. The mechanics matrix now carries 19 rows and 152 executable cells, including the new [chains](tests/test_chains.gd), [dynasty progression](tests/test_dynasty_progression.gd) and [card feel](tests/test_card_feel.gd) suites.
 
-The published Windows release remains **2.1.0**, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; its exact ZIP and versioned sums file are the only current distribution artifacts. This source tree is **2.1.1**, an unpublished patch: its export gate, Windows ZIP, checksums and owner checks are pending. The [2.1.1 release notes](docs/RELEASE_2.1.1.md) record what has actually been validated in source; the [2.1.0 release notes](docs/RELEASE_2.1.0.md), [certificate](docs/ACCEPTANCE_CERTIFICATE.md) and [handoff](docs/HANDOFF.md) describe the published build.
+The published Windows release is **2.1.1**, tagged `v2.1.1`, with its own ZIP, standalone executable and versioned sums file; **2.1.0** remains available at `466a8c164a70b89fbdfb1ef174cff98c0e323d06`, tagged `v2.1.0`. 2.1.1 has passed strict compilation, the headless source gate, rendered galleries in both skins, an exported native boot and a seeded exported-native playthrough to rank 1; the encrypted export and the owner play/listening checks remain open. The [2.1.1 release notes](docs/RELEASE_2.1.1.md) and the [source validation receipt](docs/acceptance-2.1.1/source-validation.json) record exactly what has been validated; the [2.1.0 release notes](docs/RELEASE_2.1.0.md), [certificate](docs/ACCEPTANCE_CERTIFICATE.md) and [handoff](docs/HANDOFF.md) describe the 2.1.0 build.
 
 ## Русский
 
@@ -20,7 +20,7 @@ The published Windows release remains **2.1.0**, gated at `466a8c164a70b89fbdfb1
 
 Восхождение — путь NG+ на пять уровней из победного финала: каждый уровень усиливает инфляцию, волатильность и сложность и щедрее платит наследием, а новая жизнь начинается заново. Карточки получили короткое появление, чипы изменений с подписью каждого стата, тональность исхода и живой пульс портфеля; режим уменьшенной анимации всё мгновенно снимает. Сборка рисует два целостных оформления — тёмное (чернила и золото) и светлое (тёплая бумага и бронза) с переключателем на стартовом экране и в настройках; выбор запоминается, все цвета берутся из одного модуля палитры, а карточка события несёт плашку страны рождения — см. [оформление](docs/APPEARANCE.md). Новая палитра, дисплейный Unbounded, основной Onest, набор векторных иконок 1,75px и отказ от эмодзи описаны в [арт-дирекции](docs/ART_DIRECTION.md).
 
-Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. Опубликованная редакция — 2.1.0, прошедшая гейт на `466a8c1`; текущий исходник — неопубликованный патч 2.1.1, для которого экспортный гейт, ZIP, суммы и ручные проверки владельца ещё не выполнены. См. [заметки 2.1.1](docs/RELEASE_2.1.1.md).
+Поля 2.1 необязательны: профили 1.4.0 и 2.0.x загружаются с нейтральной амбицией, пустыми нитями и без вех. Опубликованная редакция — 2.1.1 (тег `v2.1.1`) со своим ZIP, отдельным exe и файлом сумм; 2.1.0 остаётся доступной на `466a8c1` (тег `v2.1.0`). Патч 2.1.1 прошёл строгую компиляцию, headless source-гейт, рендер-галереи в обеих темах, нативный запуск собранного бинарника и seeded-прохождение экспортированной сборки до 1-го места; незакрытыми остаются зашифрованный экспорт и ручные проверки владельца (игра и прослушивание). См. [заметки 2.1.1](docs/RELEASE_2.1.1.md) и [квитанцию валидации](docs/acceptance-2.1.1/source-validation.json).
 
 ---
 
@@ -134,15 +134,15 @@ Country statistics and reuse terms: [data attribution and open table](docs/BIRTH
 
 ## 2.0.1 acceptance and distribution
 
-Historical release documents below are not a 2.1.1 publication record. The [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) now describe the published 2.1.0 edition. Older diagnostic documents and images refer to preserved historical attempts. Only the published gated release ZIP and its exact versioned sums file are distribution artifacts.
+Historical release documents below are not a 2.1.1 publication record. The [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) now describe the published 2.1.0 edition. Older diagnostic documents and images refer to preserved historical attempts. Each published edition ships its own ZIP and exact versioned sums file.
 
 ## 2.1.0 acceptance and distribution (published)
 
-The [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe the published 2.1.0 build, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins that shipped. Those exact release assets remain the only distribution artifacts. The 2.1.0 gate and owner acceptance do not carry over to 2.1.1.
+The [acceptance certificate](docs/ACCEPTANCE_CERTIFICATE.md), [owner checklist](docs/HANDOFF.md), [final report](docs/FINAL_REPORT.md) and [announcement kit](docs/ANNOUNCE_KIT.md) describe the published 2.1.0 build, gated at `466a8c164a70b89fbdfb1ef174cff98c0e323d06` and tagged `v2.1.0`; the [appearance document](docs/APPEARANCE.md) records the two skins that shipped. Each published edition ships its own ZIP and exact versioned sums file. The 2.1.0 gate and owner acceptance do not carry over to 2.1.1; 2.1.1 carries its own evidence.
 
-## 2.1.1 source status
+## 2.1.1 status and distribution (published)
 
-The current source is 2.1.1. Strict compilation and all four bilingual source runners pass; the [source validation receipt](docs/acceptance-2.1.1/source-validation.json) records their exact console hashes and timings. It is not published: its export gate, Windows ZIP, checksums, rendered/export evidence and five owner checks remain pending. The [2.1.1 release notes](docs/RELEASE_2.1.1.md) record only what has actually run. Do not attach the 2.1.0 ZIP, press frames or gate receipts to a 2.1.1 announcement.
+The current source is 2.1.1 and it is published: tagged `v2.1.1`, with `HeirsOfFortune-Windows-2.1.1.zip`, a standalone `HeirsOfFortune.exe` and `HeirsOfFortune-SHA256SUMS-2.1.1.txt`. Strict compilation, the headless source gate, rendered galleries in both skins, an exported native boot and a seeded exported-native playthrough to rank 1 have passed; the [source validation receipt](docs/acceptance-2.1.1/source-validation.json) records the results and the [2.1.1 release notes](docs/RELEASE_2.1.1.md) record only what has actually run. The encrypted export and the owner play/listening checks remain open. Do not attach the 2.1.0 ZIP, press frames or gate receipts to a 2.1.1 announcement.
 
 ## Earlier editions
 

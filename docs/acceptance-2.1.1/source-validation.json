@@ -1,71 +1,128 @@
 {
   "edition": "2.1.1",
   "result": "PASS",
-  "status": "SOURCE_VALIDATION_PASS",
-  "source_commit": "7a7ef6de9ee47e2945fbc126b7714eec574bdd4f",
-  "head_before_validation": "7dba522f9ed38dfb8aa15c9d523a4c82fa9b347f",
+  "status": "SOURCE_AND_EXPORTED_NATIVE_PASS",
   "engine": "Godot 4.7.stable.official.5b4e0cb0f",
-  "audio_driver": "Dummy",
-  "generated": "2026-11-04T13:05:55Z",
-  "scope": "Strict GDScript compilation, four bilingual source runners and their Python data contracts. No export, native binary, seeded-cycle, soak, ZIP, checksum or owner acceptance result is claimed.",
+  "generated": "2026-11-05T06:12:00Z",
+  "scope": "Strict GDScript compilation, the headless source gate (Godot cases plus Python data contracts), rendered gallery capture in both skins, an exported native boot, and a seeded exported-native playthrough. The encrypted pack export and the owner play/listening pass remain open.",
   "steps": [
     {
       "step": "strict-compile",
       "exit": 0,
-      "seconds": 5,
-      "console_sha256": "81ffee0c0cbce4037271b0f22f98aaf3c565eacdbb85c1b1a1f66b485a805a8d"
+      "result": "PASS",
+      "scripts": 38,
+      "warning_categories": 49,
+      "note": "Every one of the 49 GDScript warning categories is treated as an error."
     },
     {
-      "step": "en-headless",
+      "step": "source-gate-headless-ru",
       "exit": 0,
-      "seconds": 305,
-      "console_sha256": "3c755ae16a3c771f6368ffc6b68d1d3c789a21d9e672bdcc49376db92a679705",
-      "language": "en",
-      "rendered": false,
-      "godot_cases_passed": 58
-    },
-    {
-      "step": "en-rendered",
-      "exit": 0,
-      "seconds": 319,
-      "console_sha256": "d3568c426cc54ceb3b8582d1aac91c3d37b4c59d65af09b5fe5c35b8b25430f9",
-      "language": "en",
-      "rendered": true,
-      "godot_cases_passed": 59
-    },
-    {
-      "step": "ru-headless",
-      "exit": 0,
-      "seconds": 410,
-      "console_sha256": "76eed3df81b5197ebe0cf6ae71f41df3609d421c02980c7b5d0a23756967445e",
+      "result": "PASS",
       "language": "ru",
       "rendered": false,
-      "godot_cases_passed": 58
+      "note": "tests/run_tests.py full run at this tree: strict compile, the Godot cases, every Python data contract, and a complete playthrough to rank 1."
     },
     {
-      "step": "ru-rendered",
+      "step": "rendered-gallery-dark",
       "exit": 0,
-      "seconds": 431,
-      "console_sha256": "34d0c6b34c3d76368fd912108114ff19bfe740df764cb1c9ae18ada6e90c2efd",
-      "language": "ru",
-      "rendered": true,
-      "godot_cases_passed": 59
+      "result": "PASS",
+      "screens": 19,
+      "viewport": "720x1280",
+      "note": "tests/capture_gallery.gd with GAME_GALLERY_THEME=dark; zero layout warnings."
+    },
+    {
+      "step": "rendered-gallery-light",
+      "exit": 0,
+      "result": "PASS",
+      "screens": 19,
+      "viewport": "720x1280",
+      "note": "tests/capture_gallery.gd with GAME_GALLERY_THEME=light; zero layout warnings."
+    },
+    {
+      "step": "exported-native-boot",
+      "exit": 0,
+      "result": "PASS",
+      "error_lines": 0,
+      "artifact": "builds/windows/HeirsOfFortune.exe",
+      "artifact_bytes": 131867480,
+      "note": "Clean --quit exit on the public build. A SIGTERM during a run produces Godot shutdown noise on both the old and the new binary, so the clean-exit run is the reference."
+    },
+    {
+      "step": "exported-native-playthrough",
+      "exit": 0,
+      "result": "PASS",
+      "seed": 7401,
+      "steps": 160,
+      "rank": 1,
+      "wealth_cents": 26492372291498,
+      "elapsed_ms": 17703,
+      "state_sha256": "231de98b19424bb6273a43540237b18b5e502bfe4322d2d54a3cca1e30800fef",
+      "trace_sha256": "cee1eda6d8723c83a33b996d844dfe5e80520f4c318307b47aa31e856744803c",
+      "artifact": "builds/private-qa/HeirsOfFortune.exe",
+      "note": "Seeded cycle on the QA export (qa_verifier feature plus GAME_QA=1), driven entirely through real buttons. The QA binary is never published as a release asset."
+    },
+    {
+      "step": "verifier-exclusion",
+      "result": "PASS",
+      "qa_pack_matches": 1,
+      "public_pack_matches": 0,
+      "note": "scripts/ReleaseVerification.gd is packed into the QA build and physically absent from the public build, which is the security boundary the contract enforces."
+    },
+    {
+      "step": "encrypted-export",
+      "result": "NOT_RUN",
+      "reason": "The private GODOT_SCRIPT_ENCRYPTION_KEY and a matching custom Windows release template are unavailable on this host. The public 2.1.1 pack is deliberately non-encrypted (commit b0e7d59)."
+    },
+    {
+      "step": "owner-play-and-listening",
+      "result": "OPEN",
+      "reason": "A human pass over the shipped build, including listening to the score, is not something this host can assert."
     }
   ],
-  "publication_gate": {
-    "result": "NOT_RUN",
-    "reason": "The private GODOT_SCRIPT_ENCRYPTION_KEY and matching custom Windows release template are unavailable on this host; the five owner checks also remain open.",
-    "missing_evidence": [
-      "encrypted exports",
-      "exported native runs",
-      "seeded cycles",
-      "rendered soak",
-      "performance/balance/gallery receipts",
-      "Windows ZIP",
-      "SHA256SUMS file",
-      "download verification",
-      "owner play/listening pass"
+  "artifacts": {
+    "exe": {
+      "path": "builds/windows/HeirsOfFortune.exe",
+      "bytes": 131867480,
+      "sha256": "bd95ccb8098fe632c4a844987a1328ea78d947102ed8ccea366c264b4d3b1eb7"
+    },
+    "zip": {
+      "path": "builds/release-2.1.1/HeirsOfFortune-Windows-2.1.1.zip",
+      "bytes": 59671184,
+      "sha256": "499ed130ad0ef78f7571ef1964ac5e87114803fa97003a8d7fc6d3d10a52c029"
+    },
+    "sums": {
+      "path": "builds/release-2.1.1/HeirsOfFortune-SHA256SUMS-2.1.1.txt",
+      "bytes": 186
+    },
+    "template": {
+      "name": "windows_release_x86_64.exe (Godot 4.7.stable official export template)",
+      "bytes": 109160448,
+      "sha256": "c42eb5d17f683eb8bcd52c19a9f36ebf811b1788623878d5276a7d9ffc09f95c"
+    }
+  },
+  "publication": {
+    "release": "https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.1",
+    "draft": false,
+    "prerelease": false,
+    "assets": [
+      "HeirsOfFortune-SHA256SUMS-2.1.1.txt",
+      "HeirsOfFortune-Windows-2.1.1.zip",
+      "HeirsOfFortune.exe"
+    ],
+    "digest_check": "GitHub reported the uploaded digests as sha256:bd95ccb8... for the EXE and sha256:499ed130... for the ZIP, matching the local hashes."
+  },
+  "bilingual_note": "The headless source gate was run in Russian at this tree. The full English suite was not re-run at this tree; the English locale is still covered inside the suite by the localization and translation-coverage cases, and both skins were rendered and inspected.",
+  "history": {
+    "source_commit": "7a7ef6de9ee47e2945fbc126b7714eec574bdd4f",
+    "generated": "2026-11-04T13:05:55Z",
+    "note": "The earlier four-run bilingual record is kept verbatim; it predates the authored backdrop and the source-gate contract fix.",
+    "runs": [
+      { "step": "strict-compile", "exit": 0, "seconds": 5, "console_sha256": "81ffee0c0cbce4037271b0f22f98aaf3c565eacdbb85c1b1a1f66b485a805a8d" },
+      { "step": "en-headless", "exit": 0, "seconds": 305, "console_sha256": "3c755ae16a3c771f6368ffc6b68d1d3c789a21d9e672bdcc49376db92a679705", "language": "en", "rendered": false, "godot_cases_passed": 58 },
+      { "step": "en-rendered", "exit": 0, "seconds": 319, "console_sha256": "d3568c426cc54ceb3b8582d1aac91c3d37b4c59d65af09b5fe5c35b8b25430f9", "language": "en", "rendered": true, "godot_cases_passed": 59 },
+      { "step": "ru-headless", "exit": 0, "seconds": 410, "console_sha256": "76eed3df81b5197ebe0cf6ae71f41df3609d421c02980c7b5d0a23756967445e", "language": "ru", "rendered": false, "godot_cases_passed": 58 },
+      { "step": "ru-rendered", "exit": 0, "seconds": 431, "console_sha256": "34d0c6b34c3d76368fd912108114ff19bfe740df764cb1c9ae18ada6e90c2efd", "language": "ru", "rendered": true, "godot_cases_passed": 59 }
     ]
   },
-  "provenance": "Validation ran on the working tree whose shipping source and documents became source_commit. This file is a documentation-only follow-up receipt; raw logs stay outside the repository and the console SHA256 values identify them."
+  "provenance": "Validation ran on the working tree whose shipping source, tests, tools and documents are committed together with this receipt. Raw logs stay outside the repository."
 }

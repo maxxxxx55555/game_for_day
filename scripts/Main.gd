@@ -56,6 +56,8 @@ var ambition_buttons:Array[Button]=[]
 var ambition_desc:Label
 var ambition_group:ButtonGroup
 var intro_notice:String=""
+var backdrop: TextureRect
+var vignette: TextureRect
 
 enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER, CURRENCY, DYNASTY }
 var current_mode: ScreenMode = ScreenMode.INTRO
@@ -91,6 +93,7 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	GameManager.persistence_changed.connect(func(ok:bool)->void: save_status.visible = not ok)
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
+	build_backdrop()
 	dynasty_button=Button.new()
 	dynasty_button.name="DynastyButton"
 	dynasty_button.custom_minimum_size.y=54
@@ -358,11 +361,74 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	preload("res://scripts/security/QARouter.gd").request(self)
 
+## Atmospheric backdrop: a restrained, theme-aware vertical gradient plus a soft
+## radial vignette. Static by design (ART_DIRECTION forbids perpetual UI shimmer).
+## Authored in code, not AI-generated imagery.
+func build_backdrop() -> void:
+	if backdrop != null and vignette != null:
+		return
+	var bg:Panel = get_node_or_null("Background")
+	if bg == null:
+		return
+	if backdrop == null:
+		backdrop = TextureRect.new()
+		backdrop.name = "Backdrop"
+		backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(backdrop)
+	if vignette == null:
+		vignette = TextureRect.new()
+		vignette.name = "Vignette"
+		vignette.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(vignette)
+	# The page panel is an opaque skin-coloured surface, so the atmosphere has to
+	# sit directly on top of it and underneath every content node, otherwise it is
+	# painted over and never seen.
+	var bg_index: int = bg.get_index()
+	move_child(backdrop, bg_index + 1)
+	move_child(vignette, bg_index + 2)
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	backdrop.expand_mode = TextureRect.ExpandMode.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.StretchMode.STRETCH_SCALE
+	vignette.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	vignette.expand_mode = TextureRect.ExpandMode.EXPAND_IGNORE_SIZE
+	# Scale rather than cover: a cover-scaled square would crop the radial before it
+	# reached the window edge and the corners would never settle.
+	vignette.stretch_mode = TextureRect.StretchMode.STRETCH_SCALE
+	repaint_backdrop()
+
+func repaint_backdrop() -> void:
+	if backdrop == null or vignette == null:
+		return
+	var grad:GradientTexture2D = GradientTexture2D.new()
+	grad.width = 64
+	grad.height = 1024
+	grad.fill = GradientTexture2D.Fill.FILL_LINEAR
+	grad.fill_from = Vector2(0.5, 0.0)
+	grad.fill_to = Vector2(0.5, 1.0)
+	var g:Gradient = Gradient.new()
+	var vgrad:GradientTexture2D = GradientTexture2D.new()
+	vgrad.width = 1024
+	vgrad.height = 1024
+	vgrad.fill = GradientTexture2D.Fill.FILL_RADIAL
+	vgrad.fill_from = Vector2(0.5, 0.5)
+	vgrad.fill_to = Vector2(1.0, 1.0)
+	var vg:Gradient = Gradient.new()
+	g.set_color(0, Palette.backdrop_top())
+	g.set_color(1, Palette.backdrop_base())
+	g.add_point(0.45, Palette.backdrop_mid())
+	vg.set_color(0, Color(0.0, 0.0, 0.0, 0.0))
+	vg.set_color(1, Palette.vignette_edge())
+	grad.gradient = g
+	vgrad.gradient = vg
+	backdrop.texture = grad
+	vignette.texture = vgrad
+
 ## Re-skins everything the global Theme cannot reach: explicit colour overrides,
 ## button icons and the custom-drawn cards.
 func apply_skin() -> void:
 	preload("res://scripts/ui/FortuneTheme.gd").apply(self)
 	Palette.repaint(self)
+	repaint_backdrop()
 	if save_status:
 		save_status.add_theme_color_override("font_outline_color", Palette.ink())
 	apply_bottom_icons()

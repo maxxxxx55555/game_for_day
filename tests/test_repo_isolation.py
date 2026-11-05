@@ -25,4 +25,8 @@ class IsolationTests(unittest.TestCase):
         self.assertTrue(guard.inspect_text('docs/plan.md',other))
     def test_normal_text_is_allowed(self):
         self.assertEqual([],guard.inspect_text('scripts/Shipping.gd','var amount=1.0 # no credential'))
+    def test_encryption_key_material_is_blocked(self):
+        self.assertTrue(guard.inspect_text('tools/export_release.py','GODOT_SCRIPT_ENCRYPTION_KEY = "'+('ab'*32)+'"'))
+    def test_checksum_lines_are_not_treated_as_keys(self):
+        self.assertEqual([],guard.inspect_text('builds/release-2.1.1/HeirsOfFortune-SHA256SUMS-2.1.1.txt',('ab'*32)+'  HeirsOfFortune.exe'))
 if __name__=='__main__': unittest.main()

@@ -78,6 +78,22 @@ static func track() -> Color:
 static func shadow() -> Color:
 	return Color(0.0,0.0,0.0,0.45) if is_dark() else Color(0.16,0.12,0.06,0.14)
 
+## Atmospheric backdrop: the tint that lifts the top of the page.
+static func backdrop_top() -> Color:
+	return Color(0.18,0.28,0.40,0.85) if is_dark() else Color(1.0,0.97,0.90,0.85)
+
+## Atmospheric backdrop: the mid falloff between the lifted top and the page ink.
+static func backdrop_mid() -> Color:
+	return Color(0.10,0.15,0.24,0.28) if is_dark() else Color(0.99,0.95,0.86,0.30)
+
+## Atmospheric backdrop: the transparent foot that lets the page ink show through.
+static func backdrop_base() -> Color:
+	return Color(0.04,0.06,0.09,0.0) if is_dark() else Color(0.95,0.93,0.89,0.0)
+
+## Atmospheric backdrop: the darkest edge of the vignette that settles the corners.
+static func vignette_edge() -> Color:
+	return Color(0.0,0.0,0.0,0.38) if is_dark() else Color(0.12,0.10,0.06,0.16)
+
 ## Button surface suffix: the SVG set that matches the current skin.
 static func button_variant() -> String:
 	return "" if is_dark() else "-light"
@@ -108,6 +124,10 @@ static func color_for(token: String) -> Color:
 		"alert": return alert()
 		"track": return track()
 		"shadow": return shadow()
+		"backdrop_top": return backdrop_top()
+		"backdrop_mid": return backdrop_mid()
+		"backdrop_base": return backdrop_base()
+		"vignette_edge": return vignette_edge()
 		_:
 			push_error("Unknown palette token: " + token)
 			return text()

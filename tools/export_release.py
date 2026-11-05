@@ -44,6 +44,12 @@ def main():
         replacement='custom_template/release='+json.dumps(str(template).replace('\\','/'))
         text,count=re.subn(r'^custom_template/release=.*$',lambda _:replacement,text,flags=re.M)
         if count<2:raise RuntimeError('Both separate Windows presets must configure a custom template')
+        # This tool is the encrypted pack path and the key is supplied here, so the
+        # presets must really encrypt. Leaving them unencrypted produced an artifact
+        # whose receipt claimed encryption it did not have.
+        text,enc_pck=re.subn(r'^encrypt_pck=.*$','encrypt_pck=true',text,flags=re.M)
+        text,enc_dir=re.subn(r'^encrypt_directory=.*$','encrypt_directory=true',text,flags=re.M)
+        if enc_pck<2 or enc_dir<2:raise RuntimeError('Both separate Windows presets must configure encryption')
         preset_path.write_text(text,encoding='utf-8')
         env={key:value for key,value in os.environ.items() if key=='GODOT_SCRIPT_ENCRYPTION_KEY' or not re.search(r'TOKEN|PASSWORD|SECRET|API_KEY',key,re.I)};env['GAME_AUDIO_MUTED']='1'
         preset='Windows QA' if options.qa else 'Windows Desktop'
@@ -54,7 +60,11 @@ def main():
             logs.append(sanitized)
             if result.returncode or 'SCRIPT ERROR' in sanitized:raise RuntimeError('Godot export failed; inspect the sanitized log')
         if not target.is_file() or target.stat().st_size<10000:raise RuntimeError('No complete export artifact was produced')
-        report={'preset':preset,'private_qa':options.qa,'encrypted':True,'directory_encrypted':True,'template_sha256':hashlib.sha256(template.read_bytes()).hexdigest(),'artifact_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'artifact_bytes':target.stat().st_size,'key_storage':'environment only; no key recorded','source_preset_restored':True}
+        final_preset=preset_path.read_text(encoding='utf-8')
+        def preset_value(key):
+            match=re.search(r'^'+key+r'=(.*)$',final_preset,flags=re.M)
+            return match.group(1).strip().strip('"') if match else ''
+        report={'preset':preset,'private_qa':options.qa,'encrypted':preset_value('encrypt_pck')=='true','directory_encrypted':preset_value('encrypt_directory')=='true','template_sha256':hashlib.sha256(template.read_bytes()).hexdigest(),'artifact_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'artifact_bytes':target.stat().st_size,'key_storage':'environment only; no key recorded','source_preset_restored':True}
         target.with_suffix(target.suffix+'.export.json').write_text(json.dumps(report,indent=2)+'\n')
         print('ENCRYPTED EXPORT COMPLETE:',target.name,preset)
         return 0

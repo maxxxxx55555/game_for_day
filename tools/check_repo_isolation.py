@@ -23,7 +23,11 @@ FOREIGN_DESIGN={
 }
 SECRETS=[re.compile(r'AIza[0-9A-Za-z_-]{30,}'),re.compile(r'gh[pousr]_[0-9A-Za-z]{20,}'),
  re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
- re.compile(r'(?i)(?:api[_-]?key|access[_-]?token|auth[_-]?token)\s*[=:]\s*["\x27][A-Za-z0-9_/-]{20,}["\x27]')]
+ re.compile(r'(?i)(?:api[_-]?key|access[_-]?token|auth[_-]?token)\s*[=:]\s*["\x27][A-Za-z0-9_/-]{20,}["\x27]'),
+ # The pack encryption key is environment-only by design: a 64-hex value bound to an
+ # encryption key name must never reach the repository. Checksum lines are not keys
+ # because the hash there is followed by a file name, not by the key assignment.
+ re.compile(r'(?i)(?:encryption[_/-]?key)\s*[=:]\s*["\x27]?[0-9a-fA-F]{64}')]
 def inspect_text(path,text):
     errors=[]
     if any(p.search(text) for p in SECRETS): errors.append(path+': credential material detected')

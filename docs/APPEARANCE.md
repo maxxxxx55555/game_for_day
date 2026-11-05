@@ -22,6 +22,10 @@ stylesheet.
 | `alert` | `#c4614f` | `#a8443c` |
 | `track` unfilled meter | `#1e2a38` | `#ddd4c1` |
 | `shadow` elevated drop | `rgba(0,0,0,0.45)` | `rgba(41,31,15,0.14)` |
+| `backdrop_top` page lift | `rgba(46,71,102,0.85)` | `rgba(255,247,230,0.85)` |
+| `backdrop_mid` page falloff | `rgba(26,38,61,0.28)` | `rgba(252,242,219,0.30)` |
+| `backdrop_base` page foot | `rgba(10,15,23,0.00)` | `rgba(242,237,227,0.00)` |
+| `vignette_edge` corner shade | `rgba(0,0,0,0.38)` | `rgba(31,26,15,0.16)` |
 
 Dark is ink and gold; light is warm paper and bronze. Neither uses more
 than one accent — gold marks value, never decoration.

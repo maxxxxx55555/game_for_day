@@ -1,6 +1,6 @@
-# Heirs of Fortune 2.1.1 — source quick start
+# Heirs of Fortune 2.1.1 — quick start
 
-This is the 2.1.1 source quick start. No 2.1.1 Windows archive exists yet; the only published archive is `HeirsOfFortune-Windows-2.1.0.zip`. A 2.1.1 archive is produced only after its bilingual, export and owner gates pass.
+`HeirsOfFortune-Windows-2.1.1.zip` is published, with `HeirsOfFortune.exe` also available as a standalone asset and `HeirsOfFortune-SHA256SUMS-2.1.1.txt` for verification.
 
 Extract the entire Windows ZIP and launch HeirsOfFortune.exe. Select English or Russian, begin a life, choose a trait, then make quarterly decisions. Preserve health and energy; stock/currency exchanges do not consume a turn. Businesses, inheritance and inflation follow the displayed rules. The dynasty ledger tracks your journal, eight permanent legacy perks, life threads, a twelve-life hall of fame and ascension; one of three ambitions is chosen at the start. Settings include four sound levels, reduced motion, live language switching and the dynasty ledger button. Credits are on the initial screen. Windows x64 only; no Android artifact ships with this edition.
 
