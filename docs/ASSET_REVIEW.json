@@ -33,8 +33,8 @@
       "path": "assets/art/life-portraits.png",
       "sha256": "23b54852534fb57b268f63e57d3ff4646097cec3d3b6c8f3257b4983c1436cd6",
       "role": "portrait atlas",
-      "decision": "ACCEPT_SOURCE",
-      "notes": "All four life stages inspected at full source resolution: consistent identity/palette, aligned crops, no visible facial/teeth/hand artifacts; atlas boundaries avoid neighboring portrait bleed.",
+      "decision": "REMOVED_2.1.3",
+      "notes": "Was ACCEPT_SOURCE (consistent identity/palette, no visible artifacts), but removed in 2.1.3: no code references it, it is photo-realistic against the painted city, and it shows one face for 192 countries. Portraits stay out of the game on purpose; if they return, they must be painted, not photographic.",
       "provenance": "assets/art/life-portraits-provenance.json"
     },
     {

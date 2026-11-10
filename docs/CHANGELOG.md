@@ -1,5 +1,31 @@
 # CHANGELOG — Heirs of Fortune
 
+## 2.1.3 — English that actually shows, and art that actually shows (2026-11-10)
+
+- Visual QA on real rendered frames (Xvfb + Mesa, 540×960) found the intro
+  title and the country plate stuck in Russian on English: custom-drawn
+  text used `LocalizationManager.source()` (canonical Russian) instead of
+  `get_string()`. Fixed in `IntroCover.gd`, `CountryPlate.gd` and
+  `BirthLottery.country_name()` / `region_name()`; a new guard in
+  `test_copy_contract.py` fails any future `draw_string(... source(...))`.
+- The billionaire art strip was empty night sky (crop `y=0`, mean brightness
+  55, lowest contrast of the four); re-aimed to `y=150` so the dome and
+  towers show. The survival strip was nearly all water (`y=948`); re-aimed
+  to `y=800` so the bridge, boats and embankment show.
+- The settings theme picker showed the theme from launch time; it now
+  follows `GameManager.theme_changed`.
+- Removed the unused photo-realistic `life-portraits.png` atlas (2.36 MB):
+  no code references it, it clashes with the painted city style, and it
+  shows one face for 192 countries. Portraits stay out of the game on
+  purpose; if they return, they must be painted, not photographic.
+- No mechanic, screen layout or balance number changed. Save format untouched.
+
+Source validation 2.1.3: PASS — strict compile and the full
+`tests/run_tests.py` suite on Godot 4.7.stable.official, exit 0
+(116 PASS lines, playthroughs to rank 1). Visual QA re-run on real
+frames: intro EN, country plate EN, billionaire strip and survival strip
+all confirmed fixed by eye.
+
 ## 2.1.2 — quality audio & stage art (2026-11-10)
 
 - Replaced the primitive short sound effects with runtime-synthesized ones
@@ -29,8 +55,8 @@ including headless playthroughs to rank 1 and the balance sweep.
 Windows export 2.1.2: PASS — `HeirsOfFortune-Windows-2.1.2.zip`
 (59 434 945 bytes, SHA256 `6a886ea0…fbdf8`), exe 131 825 344 bytes.
 Committed to `main` as `9c2bf87`; the eight unused legacy WAV effects
-were then removed, HEAD `9ad9de2`. Owner play check on Windows and the
-GitHub Release (tag `v2.1.2`) are still open.
+were then removed, HEAD `9ad9de2`. GitHub Release `v2.1.2` is published
+and marked Latest. Owner play check on Windows is still open.
 
 ## 2.1.1 — source-complete patch, publication gated
 

@@ -70,7 +70,7 @@ static func by_code(code:String) -> Array:
 	return []
 
 static func country_name(code:String) -> String:
-	return LocalizationManager.source("country.%s.name" % code.to_lower())
+	return LocalizationManager.get_string("country.%s.name" % code.to_lower())
 
 ## Three dominant flag colours, used to paint the country art plate.
 static func flag_colors(code:String) -> Array[Color]:
@@ -86,7 +86,7 @@ static func flag_colors(code:String) -> Array[Color]:
 	return colors
 
 static func region_name(region_code:String) -> String:
-	return LocalizationManager.source("region.%s" % region_code)
+	return LocalizationManager.get_string("region.%s" % region_code)
 
 ## Share of all births, 0..1. The reciprocal reads as "one in N newborns".
 static func share(row:Array) -> float:

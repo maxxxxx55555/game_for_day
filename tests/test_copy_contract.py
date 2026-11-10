@@ -8,6 +8,13 @@ root=Path(__file__).resolve().parents[1]
 rows=list(csv.DictReader((root/'data/strings/ru.csv').open(encoding='utf-8',newline='')))
 assert rows==list(csv.DictReader((root/'data/strings/en.csv').open(encoding='utf-8',newline='')))
 keys={row['key'] for row in rows};failures=[]
+# Custom-drawn text is never auto-translated by the engine, so draw_string
+# must never use source() (canonical Russian); it must use get_string() or
+# display(). Regression guard for the 2.1.3 intro/country-plate bug.
+for p in sorted((root/'scripts').rglob('*.gd')):
+    for line in p.read_text(encoding='utf-8').splitlines():
+        if 'draw_string' in line and 'source(' in line:
+            failures.append(str(p.relative_to(root))+': draw_string uses untranslated source(): '+line.strip())
 for p in sorted((root/'scripts').rglob('*.gd')):
     text=p.read_text(encoding='utf-8')
     for match in re.finditer(r'"(?:[^"\\\r\n]|\\.)*"',text):

@@ -35,6 +35,10 @@ func _ready() -> void:
 	# This signal is wired once per owning node; teardown and navigation tests cover its lifetime.
 	@warning_ignore("return_value_discarded")
 	theme_picker.item_selected.connect(func(index:int)->void:GameManager.set_theme_mode("light" if index==1 else "dark"))
+	# Keep the picker honest when the theme changes elsewhere (e.g. the
+	# intro theme button): it used to show the theme from launch time.
+	@warning_ignore("return_value_discarded")
+	GameManager.theme_changed.connect(func(mode:String)->void:theme_picker.select(1 if mode=="light" else 0))
 	for entry:Array in [["ui.master","master_volume"],["copy.19ecb2b49349","music_volume"],["copy.05321a5231ca","sfx_volume"],["ui.interface","ui_volume"]]:
 		var row:HBoxContainer=HBoxContainer.new()
 		add_child(row)

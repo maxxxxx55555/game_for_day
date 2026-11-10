@@ -60,6 +60,6 @@ func _draw() -> void:
 	# Lockup.
 	var left:float = maxf(20.0, w * 0.06)
 	var base:float = h - 26.0
-	draw_string(get_theme_default_font(), Vector2(left, base - 62.0), tracked(LocalizationManager.source("intro.overline")), HORIZONTAL_ALIGNMENT_LEFT, w - left * 2.0, 10, COVER_ACCENT)
-	draw_string(display_font, Vector2(left, base - 20.0), LocalizationManager.source("intro.title"), HORIZONTAL_ALIGNMENT_LEFT, w - left * 2.0, 40, COVER_INK)
+	draw_string(get_theme_default_font(), Vector2(left, base - 62.0), tracked(LocalizationManager.get_string("intro.overline")), HORIZONTAL_ALIGNMENT_LEFT, w - left * 2.0, 10, COVER_ACCENT)
+	draw_string(display_font, Vector2(left, base - 20.0), LocalizationManager.get_string("intro.title"), HORIZONTAL_ALIGNMENT_LEFT, w - left * 2.0, 40, COVER_INK)
 	draw_line(Vector2(left, base - 6.0), Vector2(left + 64.0, base - 6.0), COVER_ACCENT, 1.4)

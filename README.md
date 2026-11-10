@@ -1,14 +1,24 @@
-# Heirs of Fortune — 2.1.2
+# Heirs of Fortune — 2.1.3
 
-## Quality audio & stage art
+## English that actually shows, and art that actually shows
+
+2.1.3 fixes what the visual QA of 2.1.2 found on real frames: the intro
+title and the country plate stayed Russian on English (custom-drawn text
+bypassed translation), the settings theme picker showed the wrong theme,
+and the billionaire art strip was empty night sky. The stage crops are
+re-aimed at the city itself, and the unused photo-realistic portrait atlas
+is removed. No mechanic, balance number or save format changed. See
+[release notes 2.1.3](docs/RELEASE_2.1.3.md).
+
+## Quality audio & stage art (2.1.2)
 
 2.1.2 rebuilds the short sound effects as eight distinct runtime-synthesized
 designs (purchase and grant were the same file), raises the default music
 level from 0.30 to 0.65, and gives each life stage its own crop and tint of
 the city illustration instead of one identical frame. No mechanic, balance
 number or save format changed. The full source gate passed on Godot 4.7;
-the Windows export is pending the export templates. See
-[release notes 2.1.2](docs/RELEASE_2.1.2.md).
+the Windows build is published as [release 2.1.2](https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.2).
+See [release notes 2.1.2](docs/RELEASE_2.1.2.md).
 
 ## Legacy & Chains (2.1.1)
 

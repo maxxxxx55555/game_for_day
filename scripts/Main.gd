@@ -454,10 +454,10 @@ func apply_stage_art() -> void:
 		return
 	var stage: String = GameManager.stage_id()
 	var regions: Dictionary = {
-		"survival": Rect2(0, 948, 1086, 500),
+		"survival": Rect2(0, 800, 1086, 500),
 		"career": Rect2(0, 500, 1086, 500),
 		"millionaire": Rect2(0, 250, 1086, 500),
-		"billionaire": Rect2(0, 0, 1086, 500),
+		"billionaire": Rect2(0, 150, 1086, 500),
 	}
 	var tints: Dictionary = {
 		"survival": Color(1.00, 0.94, 0.82),

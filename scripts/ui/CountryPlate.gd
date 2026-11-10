@@ -90,5 +90,5 @@ func _draw() -> void:
 	draw_string(get_theme_default_font(),Vector2(left,top+block*0.64),tracked(BirthLottery.region_name(str(row[1])).to_upper()),HORIZONTAL_ALIGNMENT_LEFT,w*0.62,10,Palette.accent())
 	draw_line(Vector2(left,top+block*0.72),Vector2(w*0.46,top+block*0.72),Palette.rule(),1.0)
 	var share:float= BirthLottery.share(row)*100.0
-	draw_string(get_theme_default_font(),Vector2(left,top+block*0.85),GameManager.origin_percent_text(share)+"% "+LocalizationManager.source("birth.share"),HORIZONTAL_ALIGNMENT_LEFT,w*0.62,12,Palette.muted())
+	draw_string(get_theme_default_font(),Vector2(left,top+block*0.85),GameManager.origin_percent_text(share)+"% "+LocalizationManager.get_string("birth.share"),HORIZONTAL_ALIGNMENT_LEFT,w*0.62,12,Palette.muted())
 	draw_rect(Rect2(0,0,w,h),Palette.rule(),false,1.0)
