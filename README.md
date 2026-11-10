@@ -1,6 +1,15 @@
-# Heirs of Fortune — 2.1.4
+# Heirs of Fortune — 2.1.5
 
-## Honest text, no click-through, lighter build
+## Events stop repeating
+
+2.1.5 fixes the audit's repeat problem: a life runs ~256 choices over
+stage pools of 6–10 events, and the picker only guarded against an
+immediate repeat. It now prefers unseen events and only restarts the
+rotation once the pool is exhausted; the seen list survives a session
+save. No mechanic, balance number or save format changed. See
+[release notes 2.1.5](docs/RELEASE_2.1.5.md).
+
+## Honest text, no click-through, lighter build (2.1.4)
 
 2.1.4 applies the safe fixes from an independent audit: the milestone
 card no longer lets clicks fall through to event choices, the

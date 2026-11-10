@@ -2,9 +2,9 @@
   "files": {
     "res://assets/audio/catalog.json": "76f5f86efef02b6ffa6df398eea6661657943f5a4fdb45a6704c9f80ae62d141",
     "res://data/chains.json": "70c916ae320547d3c53fc0f87093fada1baf3dae8c711bea80e9d5e29d37b0a5",
-    "res://data/events.json": "0cc14454201506e326526830b941b2daaac00cba21c34d3f4b5179bb3b68d6ef",
+    "res://data/events.json": "1fc49ef1d04cdabecba9d14cd86ce9562c103b680bb39211d10efa75b7d7684b",
     "res://data/strings/choice_aliases.json": "a40256647b7226e2e29fc4bcfd79f419662ae6446f66229b3e1980dcf39e216e",
-    "res://data/strings/localization.json": "fc02a79adb5ef897a3aaabd50b725402c81bffa9e427299085ee893542a107cf"
+    "res://data/strings/localization.json": "007ae38e3d294f12cb68c73e9697ea27afa8886690d66ff7af6cd117e0f43e7b"
   },
   "version": 1
 }

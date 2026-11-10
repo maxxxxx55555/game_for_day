@@ -1,11 +1,15 @@
 # Heirs of Fortune 2.1.4 — honest text, no click-through, lighter build
 
-Status: **source release**. This patch applies the safe fixes from the
-independent audit of 2.1.2 (three auditors: gameplay/content, tech/Android,
-audio/art). The audit found the game release-ready overall — strict compile
-PASS, full gate PASS, localization 1090/1090, no dead-end choices — and the
-fixes below are the ones that were safe to take without authoring new
-content or changing mechanics.
+Status: **published**. GitHub Release `v2.1.4` is live and marked Latest:
+https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.4
+(2026-11-10, target `main`, assets: the Windows ZIP, 57 356 758 bytes,
+SHA256 `de8e985f…51e9`, and SHA256SUMS; verified via the public GitHub
+API). This patch applies the safe fixes from the independent audit of
+2.1.2 (three auditors: gameplay/content, tech/Android, audio/art). The
+audit found the game release-ready overall — strict compile PASS, full
+gate PASS, localization 1090/1090, no dead-end choices — and the fixes
+below are the ones that were safe to take without authoring new content
+or changing mechanics.
 
 ## What changed
 

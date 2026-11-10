@@ -1164,25 +1164,9 @@
       "ru": "Собрать первый платный проект (+$1 800  здоровье −4  стресс +14  энергия −24)",
       "en": "Take on your first paid project (+$1,800  health −4  stress +14  energy −24)"
     },
-    "copy.ababbbb85c8a": {
-      "ru": "Ответственный проект завершён; доход получен, но нагрузка выросла.",
-      "en": "The high-stakes project is complete; the payout is yours, though the toll was heavy."
-    },
     "copy.0031d1b65193": {
       "ru": "Провести практикум для соседей (+$750  интеллект +4  энергия −8)",
       "en": "Host a workshop for the neighbors (+$750  intellect +4  energy −8)"
-    },
-    "copy.938cfed2ddd2": {
-      "ru": "Спокойная работа принесла доход, навыки и доверие команды.",
-      "en": "Steady work has yielded profit, sharpened your skills, and earned the team's trust."
-    },
-    "copy.67df7f77027d": {
-      "ru": "Отложить решение и восстановить силы (здоровье +9, стресс −22, энергия +32)",
-      "en": "Defer the decision and recover your strength (health +9, stress −22, energy +32)"
-    },
-    "copy.7b4b7f994781": {
-      "ru": "Вы восстановили здоровье и силы перед следующим кварталом.",
-      "en": "You have restored your health and vigor for the coming quarter."
     },
     "copy.b5ed25cfbbee": {
       "ru": "В вашей квартире освободилась комната, но совместный быт требует договорённостей.",
@@ -4359,6 +4343,262 @@
     "stage.billionaire": {
       "ru": "ИМПЕРИЯ",
       "en": "EMPIRE"
+    },
+    "copy.e42f6fb55ec76adf": {
+      "ru": "Первый платный проект сдан в срок; $1 800 заработаны, но ночи за ноутбуком дали о себе знать.",
+      "en": "Your first paid project shipped on time; $1,800 earned, though the late nights took their toll."
+    },
+    "copy.d18ff57c63810445": {
+      "ru": "Практикум прошёл спокойно: соседи разобрались в теме, а вы получили $750 и полезные знакомства.",
+      "en": "The workshop went smoothly: the neighbors got the hang of it, and you earned $750 and useful contacts."
+    },
+    "copy.03249f91d26cf0a5": {
+      "ru": "День в читальном зале без дедлайнов: вы выспались, а мысли о мастерской улеглись.",
+      "en": "A quiet day in the reading room with no deadlines: you slept well, and the workshop worries settled."
+    },
+    "copy.427c674571ad2520": {
+      "ru": "Отложить решение и восстановить силы (здоровье +8, стресс −18, энергия +28)",
+      "en": "Defer the decision and recover your strength (health +8, stress −18, energy +28)"
+    },
+    "copy.1bc2f8f70d2d673f": {
+      "ru": "Комната сдана, бюджет под контролем: $1 300 в месяц, но бытовые споры отнимают силы.",
+      "en": "The room is rented and the budget is under control: $1,300 a month, though household friction wears you down."
+    },
+    "copy.c28c4385fbe3e005": {
+      "ru": "Расходы поделили поровну: $650 экономии, а с другом стало проще договариваться.",
+      "en": "Costs split evenly: $650 saved, and dealing with your friend got easier."
+    },
+    "copy.390620bcaab9aee6": {
+      "ru": "Вечер за общим ужином на $150: напряжение с соседом спало, а сон наконец наладился.",
+      "en": "A shared dinner for $150: the tension with your flatmate eased, and sleep finally came easy."
+    },
+    "copy.b7091fa8a6afbbe1": {
+      "ru": "Отложить решение и восстановить силы (здоровье +7, стресс −20, энергия +30, −$150)",
+      "en": "Defer the decision and recover your strength (health +7, stress −20, energy +30, −$150)"
+    },
+    "copy.e49b34c5eefd6b37": {
+      "ru": "Учёт заказов заработал: пекарня платит долю, $2 100 за месяц, но внедрение съело все вечера.",
+      "en": "The order tracking is live: the bakery pays your share, $2,100 for the month, but the rollout ate every evening."
+    },
+    "copy.8704f9a92bf3deef": {
+      "ru": "Разовый заказ закрыт за неделю: $950 и рекомендация владельца пекарни.",
+      "en": "The one-off job closed within a week: $950 and a recommendation from the bakery owner."
+    },
+    "copy.5d3cf8621398ddf8": {
+      "ru": "Утро без будильника и долгая прогулка: голова прояснилась, а силы вернулись.",
+      "en": "A morning without an alarm and a long walk: your head cleared and your strength came back."
+    },
+    "copy.b199bbcb3b9acf89": {
+      "ru": "Отложить решение и восстановить силы (здоровье +10, стресс −24, энергия +33)",
+      "en": "Defer the decision and recover your strength (health +10, stress −24, energy +33)"
+    },
+    "copy.c013503e59ab3ae9": {
+      "ru": "Срочные заказы оплатили новый компьютер: $1 600, но неделя на износ выжала все силы.",
+      "en": "Rush jobs paid for the new computer: $1,600, but a week at full tilt drained you completely."
+    },
+    "copy.4ac17cf192de7741": {
+      "ru": "Техника починена своими руками: $450 сэкономлены, а учёба пошла быстрее.",
+      "en": "You fixed the gear yourself: $450 saved, and your studies picked up speed."
+    },
+    "copy.d6815d2738b88650": {
+      "ru": "День без экранов: нервы успокоились, хотя пара учебных деталей вылетела из головы.",
+      "en": "A day without screens: your nerves settled, though a couple of study details slipped your mind."
+    },
+    "copy.a400a09570577e9e": {
+      "ru": "Отложить решение и восстановить силы (здоровье +6, стресс −15, энергия +25, интеллект −2)",
+      "en": "Defer the decision and recover your strength (health +6, stress −15, energy +25, intellect −2)"
+    },
+    "copy.eec13dc576966693": {
+      "ru": "Вы взяли все решения на себя: отдел принёс $15 000, но контроль съедает здоровье и сон.",
+      "en": "You took every decision on yourself: the department brought in $15,000, but the control is eating your health and sleep."
+    },
+    "copy.cd48baaeda338d2e": {
+      "ru": "Команда обучена и работает сама: $9 000 прибыли, а у вас появилось время на главное.",
+      "en": "The team is trained and runs itself: $9,000 profit, and you finally have time for what matters."
+    },
+    "copy.dcfedc52569dcba0": {
+      "ru": "Выходные без рабочих чатов: вы выспались, и решения на понедельник стали яснее.",
+      "en": "A weekend with no work chats: you caught up on sleep, and Monday's decisions look clearer."
+    },
+    "copy.40b8a7c1173b0cad": {
+      "ru": "Отложить решение и восстановить силы (здоровье +11, стресс −21, энергия +31)",
+      "en": "Defer the decision and recover your strength (health +11, stress −21, energy +31)"
+    },
+    "copy.4418e0efc954d0f7": {
+      "ru": "Стенд собрал толпу: контрактов на $19 000, но три дня на ногах вымотали вас полностью.",
+      "en": "The booth drew a crowd: $19,000 in contracts, but three days on your feet wore you out completely."
+    },
+    "copy.f2cce865ed57b92b": {
+      "ru": "Встречи с постоянными клиентами дали $8 500 и укрепили отношения без лишней суеты.",
+      "en": "Meetings with regular clients brought $8,500 and stronger ties, without the rush."
+    },
+    "copy.9e35018fb7725f4c": {
+      "ru": "Вечер в городе на $250 после выставки: шум ярмарки остался позади, а силы восстановились.",
+      "en": "An evening out for $250 after the fair: the exhibition noise is behind you, and your strength is back."
+    },
+    "copy.5439a31500a47c7a": {
+      "ru": "Отложить решение и восстановить силы (здоровье +9, стресс −23, энергия +29, −$250)",
+      "en": "Defer the decision and recover your strength (health +9, stress −23, energy +29, −$250)"
+    },
+    "copy.a3e44f4e03f99a69": {
+      "ru": "Контроль качества перестроен: брак остановлен, $13 000 сохранены, но перестройка далась тяжело.",
+      "en": "Quality control rebuilt: the defect stopped, $13,000 saved, but the overhaul was grueling."
+    },
+    "copy.fb194b9892497a8f": {
+      "ru": "Взаимная проверка вошла в привычку: $7 500 экономии и команда стала внимательнее.",
+      "en": "Peer review became a habit: $7,500 saved, and the team grew more careful."
+    },
+    "copy.bf67b38b5a4ef1d1": {
+      "ru": "Долгий сон и тихий день: тревога за заказ ушла, а энергия вернулась полностью.",
+      "en": "A long sleep and a quiet day: the worry over the order is gone, and your energy is fully back."
+    },
+    "copy.727d8c3e2ac6c753": {
+      "ru": "Отложить решение и восстановить силы (здоровье +12, стресс −25, энергия +35)",
+      "en": "Defer the decision and recover your strength (health +12, stress −25, energy +35)"
+    },
+    "copy.29cbcfc20dd1aff9": {
+      "ru": "Годовой контракт подписан под вашу гарантию: $18 000, но ответственность давит каждый день.",
+      "en": "The annual contract is signed under your guarantee: $18,000, but the responsibility weighs on you daily."
+    },
+    "copy.329fad21d2aa2778": {
+      "ru": "Скромный, но надёжный контракт: $10 000 и спокойный год без авралов.",
+      "en": "A modest but reliable contract: $10,000 and a calm year with no fire drills."
+    },
+    "copy.f3fabec091d2042b": {
+      "ru": "День без почты и звонков: голова отдохнула, хотя одна мелочь по контракту ускользнула из виду.",
+      "en": "A day with no mail or calls: your head rested, though one small contract detail slipped past you."
+    },
+    "copy.0955605b3353edde": {
+      "ru": "Отложить решение и восстановить силы (здоровье +7, стресс −17, энергия +27, интеллект −2)",
+      "en": "Defer the decision and recover your strength (health +7, stress −17, energy +27, intellect −2)"
+    },
+    "copy.15342eaa3bc6059a": {
+      "ru": "Вы взяли фабрику под своё управление: $120 000 прибыли, но модернизация отняла все силы.",
+      "en": "You took the factory under your management: $120,000 profit, but the upgrade took everything out of you."
+    },
+    "copy.2977a622c86d9e30": {
+      "ru": "Модернизация идёт поэтапно: $65 000 дохода, рабочие места сохранены, а темп терпимый.",
+      "en": "Modernization proceeds in stages: $65,000 income, jobs preserved, and the pace is bearable."
+    },
+    "copy.85138baf06a1dca9": {
+      "ru": "Выходные в загородном доме на $300: шум цехов остался позади, а силы вернулись.",
+      "en": "A weekend at the country house for $300: the factory floor noise is behind you, and your strength is back."
+    },
+    "copy.40b78ddf90c954cb": {
+      "ru": "Отложить решение и восстановить силы (здоровье +10, стресс −22, энергия +32, −$300)",
+      "en": "Defer the decision and recover your strength (health +10, stress −22, energy +32, −$300)"
+    },
+    "copy.be3170982522cde8": {
+      "ru": "Три представительства открыты одновременно: $180 000 выручки, но запуск на пределе выжал вас досуха.",
+      "en": "Three offices opened at once: $180,000 revenue, but the launch at full throttle wrung you dry."
+    },
+    "copy.8a58ef2c1a47295f": {
+      "ru": "Пилотный регион заработал: $75 000 и проверенная модель для следующих шагов.",
+      "en": "The pilot region is running: $75,000 and a proven model for the next steps."
+    },
+    "copy.a9f2353da9adca07": {
+      "ru": "Неделя без перелётов: вы восстановили силы перед следующим рывком на рынок.",
+      "en": "A week with no flights: you recovered your strength before the next market push."
+    },
+    "copy.a320fbd265ec28de": {
+      "ru": "Отложить решение и восстановить силы (здоровье +9, стресс −19, энергия +34)",
+      "en": "Defer the decision and recover your strength (health +9, stress −19, energy +34)"
+    },
+    "copy.40b9f25f0ac5ece6": {
+      "ru": "Программа обмена разгрузила склады: $140 000 выручки, но логистика держала вас в напряжении неделями.",
+      "en": "The exchange program cleared the warehouses: $140,000 revenue, but the logistics kept you tense for weeks."
+    },
+    "copy.5d27b13bfbf13bae": {
+      "ru": "Остатки переработаны в новую линейку: $60 000 и ни одного лишнего ящика на складе.",
+      "en": "Leftovers reworked into a new line: $60,000 and not a single spare crate in the warehouse."
+    },
+    "copy.416da66cdf62f18c": {
+      "ru": "День на ярмарке уценённых товаров за $200: склад пуст, а голова наконец свободна.",
+      "en": "A day at the clearance fair for $200: the warehouse is empty, and your head is finally clear."
+    },
+    "copy.2378cb49ab9afe28": {
+      "ru": "Отложить решение и восстановить силы (здоровье +8, стресс −16, энергия +26, −$200)",
+      "en": "Defer the decision and recover your strength (health +8, stress −16, energy +26, −$200)"
+    },
+    "copy.2a479044d5314317": {
+      "ru": "Вы лично возглавили прорывную программу: $160 000, но лаборатория и отчёты не отпускают вас ни на день.",
+      "en": "You personally led the breakthrough program: $160,000, but the lab and its reports never let you go for a day."
+    },
+    "copy.a96e5255fe224033": {
+      "ru": "Автономная команда собрана: $80 000 и исследования идут без вашего ежедневного контроля.",
+      "en": "An autonomous team is assembled: $80,000, and the research runs without your daily oversight."
+    },
+    "copy.c70edca3afaf2666": {
+      "ru": "День вдали от лаборатории: нервы успокоились, хотя одна формула без вас так и не сошлась.",
+      "en": "A day away from the lab: your nerves settled, though one formula never quite added up without you."
+    },
+    "copy.625236dae6907c9a": {
+      "ru": "Отложить решение и восстановить силы (здоровье +6, стресс −20, энергия +30, интеллект −2)",
+      "en": "Defer the decision and recover your strength (health +6, stress −20, energy +30, intellect −2)"
+    },
+    "copy.d36b087a9da35313": {
+      "ru": "Все решения собраны в одном штабе: $12 000 000, но груз ответственности не даёт спать.",
+      "en": "All decisions gathered in one headquarters: $12,000,000, but the weight of responsibility keeps you awake."
+    },
+    "copy.74f4a72195965453": {
+      "ru": "Дочерние компании получили свободу: $6 500 000 и холдинг работает без вашего участия в каждой мелочи.",
+      "en": "Subsidiaries gained their freedom: $6,500,000, and the holding runs without you in every small matter."
+    },
+    "copy.eb5bbd186f719289": {
+      "ru": "Неделя в горах без совещаний: давление спало, а к управлению вы вернулись с ясной головой.",
+      "en": "A week in the mountains with no meetings: the pressure lifted, and you returned to management clear-headed."
+    },
+    "copy.bf63b5e95755fe41": {
+      "ru": "Отложить решение и восстановить силы (здоровье +11, стресс −24, энергия +28)",
+      "en": "Defer the decision and recover your strength (health +11, stress −24, energy +28)"
+    },
+    "copy.c7e53f73e2784f02": {
+      "ru": "Вы возглавили ускоренную стройку: $18 000 000, но стройка на три страны выжала вас полностью.",
+      "en": "You led the accelerated build: $18,000,000, but a three-country construction drained you completely."
+    },
+    "copy.26dfad250ea72e7e": {
+      "ru": "Проект разбит на надёжные этапы: $9 000 000 и ни одного сорванного срока.",
+      "en": "The project split into reliable stages: $9,000,000 and not a single missed deadline."
+    },
+    "copy.2de871717286a5a7": {
+      "ru": "День в фонде и тихий вечер: вы пожертвовали $300 на местную школу, а тревога о сетях улеглась.",
+      "en": "A day with the foundation and a quiet evening: you gave $300 to a local school, and the worry over the grids settled."
+    },
+    "copy.b34de918fffbc25b": {
+      "ru": "Отложить решение и восстановить силы (здоровье +12, стресс −25, энергия +34, −$300)",
+      "en": "Defer the decision and recover your strength (health +12, stress −25, energy +34, −$300)"
+    },
+    "copy.4c8258d16826dd5d": {
+      "ru": "Широкая реорганизация проведена: $15 000 000 экономии, но перестановка кадров держала всех в напряжении.",
+      "en": "The broad reorganization is done: $15,000,000 saved, but the reshuffle kept everyone on edge."
+    },
+    "copy.ae3df079bbcc8cf7": {
+      "ru": "Программа преемственности запущена: $7 500 000 и новое поколение готово принять дела.",
+      "en": "The succession program is launched: $7,500,000, and the new generation is ready to take over."
+    },
+    "copy.531e3370c12415b8": {
+      "ru": "День с семьёй без рабочих звонков: силы восстановились, хотя одно совещание прошло без вас.",
+      "en": "A day with family and no work calls: your strength is back, though one meeting went ahead without you."
+    },
+    "copy.eea88ce67d3951c9": {
+      "ru": "Отложить решение и восстановить силы (здоровье +9, стресс −18, энергия +29, интеллект −2)",
+      "en": "Defer the decision and recover your strength (health +9, stress −18, energy +29, intellect −2)"
+    },
+    "copy.be608cffafe92690": {
+      "ru": "Непрофильные активы быстро проданы: $14 000 000 в резерв, но распродажа прошла в авральном режиме.",
+      "en": "Non-core assets sold fast: $14,000,000 into the reserve, but the sell-off ran in crisis mode."
+    },
+    "copy.0697a1028550b675": {
+      "ru": "Резерв создан, снабжение налажено: $8 500 000 и компания готова к спаду.",
+      "en": "The reserve is built and supply is fixed: $8,500,000, and the company is ready for the downturn."
+    },
+    "copy.862a36e1b6064d00": {
+      "ru": "Тихая неделя без совета директоров: напряжение спало, а план на спад стал ясен.",
+      "en": "A quiet week with no board meetings: the tension eased, and the downturn plan became clear."
+    },
+    "copy.b714f23a14a4ff80": {
+      "ru": "Отложить решение и восстановить силы (здоровье +10, стресс −21, энергия +33)",
+      "en": "Defer the decision and recover your strength (health +10, stress −21, energy +33)"
     }
   },
   "aliases": {

@@ -1,5 +1,25 @@
 # CHANGELOG — Heirs of Fortune
 
+## 2.1.5 — events stop repeating (2026-11-10)
+
+- The event picker now prefers events this life has not shown yet and
+  only restarts the rotation once the whole stage pool is exhausted
+  (`Main.pick_modular_event()` + `used_event_titles`, persisted in the
+  session save; a new generation starts fresh). New `event-variety` test
+  covers the full-pool run, the restart, and the save round-trip.
+- The 16 JSON events are no longer templated: 48 unique outcome texts
+  (RU+EN, 48 new keys) written to match each choice's own delta, and the
+  «rest» choice now has 16 different deltas instead of one identical
+  `[0, 9, 0, −22, 10, 32]` (its label changed with its numbers).
+  Localization grows 1090 → 1150 keys; the 4 old template keys are gone.
+- No mechanic, balance number or save format changed (one new optional
+  session key; old saves load with an empty list).
+
+Source validation 2.1.5: PASS — strict compile and the full
+`tests/run_tests.py` suite on Godot 4.7.stable.official, exit 0
+(playthroughs to rank 1; new `event-variety` case PASS, pool=10),
+re-run after merging the 48 new event texts.
+
 ## 2.1.4 — honest text, no click-through, lighter build (2026-11-10)
 
 - Independent audit fixes: the milestone card no longer lets clicks fall

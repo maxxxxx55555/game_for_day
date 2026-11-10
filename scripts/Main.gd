@@ -64,6 +64,10 @@ enum ScreenMode { INTRO, BIRTH, PERK, LIFE, MARKET, BUSINESS, SETTINGS, GAMEOVER
 var current_mode: ScreenMode = ScreenMode.INTRO
 var active_event: Dictionary = {}
 var last_event_title: String = ""
+# Titles already shown this life, so events do not repeat dozens of times
+# over ~256 choices. The list resets when a stage pool is exhausted, and it
+# is stored in the session save, so reloading mid-life keeps it.
+var used_event_titles: Array[String] = []
 var can_revive: bool = false
 var final_reason: String = ""
 var final_victory: bool = false
@@ -520,7 +524,8 @@ func save_session() -> bool:
 		"mode": int(current_mode), "event_title": active_event.get("title", ""),
 		"event_net_worth": active_event_net_worth, "rng_state": rng.state,
 		"last_event_title": last_event_title, "final_reason": final_reason,
-		"final_victory": final_victory, "event_text": event_label.text
+		"final_victory": final_victory, "event_text": event_label.text,
+		"used_event_titles": used_event_titles
 	})
 
 func restore_session(saved: Dictionary) -> void:
@@ -529,6 +534,12 @@ func restore_session(saved: Dictionary) -> void:
 	set_bottom_bar_enabled(saved_mode in [ScreenMode.LIFE, ScreenMode.MARKET, ScreenMode.BUSINESS, ScreenMode.SETTINGS, ScreenMode.CURRENCY, ScreenMode.DYNASTY])
 	rng.state = saved.get("rng_state", rng.state)
 	last_event_title = saved.get("last_event_title", "")
+	used_event_titles.clear()
+	var saved_used: Variant = saved.get("used_event_titles", [])
+	if saved_used is Array:
+		for title: Variant in saved_used:
+			if title is String and not used_event_titles.has(title):
+				used_event_titles.append(title)
 	active_event_net_worth = saved.get("event_net_worth", GameManager.get_net_worth())
 	var pools: Array = get_survival_events() + get_career_events() + get_millionaire_events() + get_billionaire_events(active_event_net_worth) + ChainLibrary.restore_events()
 	for event:Variant in pools:
@@ -1227,12 +1238,19 @@ func pick_modular_event() -> Dictionary:
 	else:
 		pool = get_billionaire_events()
 	
-	var candidate: Dictionary = pool[rng.randi() % pool.size()]
+	# Prefer events this life has not shown yet; when the stage pool is
+	# exhausted, start a fresh rotation instead of repeating forever.
+	var fresh: Array = pool.filter(func(event: Dictionary) -> bool: return not used_event_titles.has(str(event["title"])))
+	if fresh.is_empty():
+		used_event_titles.clear()
+		fresh = pool
+	var candidate: Dictionary = fresh[rng.randi() % fresh.size()]
 	var guard:int= 0
-	while candidate["title"] == last_event_title and guard < 10:
-		candidate = pool[rng.randi() % pool.size()]
+	while candidate["title"] == last_event_title and fresh.size() > 1 and guard < 10:
+		candidate = fresh[rng.randi() % fresh.size()]
 		guard += 1
 	last_event_title = candidate["title"]
+	used_event_titles.append(str(candidate["title"]))
 	return candidate
 
 func get_survival_events() -> Array:
