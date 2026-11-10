@@ -1,8 +1,12 @@
 # Heirs of Fortune 2.1.5 — events stop repeating, and stop sounding the same
 
-Status: **source release**. This patch fixes two of the audit's P0
-problems: events repeated dozens of times per life, and the 16 JSON
-events were all built from one template.
+Status: **published**. GitHub Release `v2.1.5` is live and marked Latest:
+https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.5
+(2026-11-10, target `main`, assets: the Windows ZIP, 57 419 616 bytes,
+SHA256 `f08541a1…31c8c6`, and SHA256SUMS; verified via the public GitHub
+API). This patch fixes two of the audit's P0 problems: events repeated
+dozens of times per life, and the 16 JSON events were all built from one
+template.
 
 ## What changed
 
