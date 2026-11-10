@@ -66,9 +66,10 @@ the encryption key and custom template live outside this environment).
 - Owner play/listening check on Windows: the exe was built and inspected
   here, but this Linux host cannot run a Windows binary (no Wine), so
   the human playthrough is still open.
-- The unused legacy WAV effect files are still on disk and are removed
-  in a follow-up commit.
+- The unused legacy WAV effect files (`ui_click`, `purchase`, `sale`,
+  `coin`, `upgrade`, `grant`, `ui_focus`, `ui_error`) were removed from
+  the repo in eight follow-up commits after `9c2bf87`, HEAD `9ad9de2`.
 - Executable is unsigned; Windows x64 only; no Android artifact.
 - The GitHub Release itself (tag `v2.1.2` + asset upload) is still open:
-  the connected GitHub integration has no write access to this repo
-  (403), so the commit and the release need the owner's access.
+  it is being created in the browser, because the connector has no
+  release-creation call.

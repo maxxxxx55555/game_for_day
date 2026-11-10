@@ -28,8 +28,9 @@ and the full `tests/run_tests.py` suite on Godot 4.7.stable.official,
 including headless playthroughs to rank 1 and the balance sweep.
 Windows export 2.1.2: PASS — `HeirsOfFortune-Windows-2.1.2.zip`
 (59 434 945 bytes, SHA256 `6a886ea0…fbdf8`), exe 131 825 344 bytes.
-Owner play check on Windows is still open; the GitHub commit and
-Release (tag `v2.1.2`) are blocked on write access (403).
+Committed to `main` as `9c2bf87`; the eight unused legacy WAV effects
+were then removed, HEAD `9ad9de2`. Owner play check on Windows and the
+GitHub Release (tag `v2.1.2`) are still open.
 
 ## 2.1.1 — source-complete patch, publication gated
 
