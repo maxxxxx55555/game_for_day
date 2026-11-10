@@ -52,6 +52,7 @@ def main():
         cases.append(('localization', ['--headless', '--script', 'res://tests/test_localization.gd']))
         cases.append(('translation-coverage', ['--headless', '--script', 'res://tests/test_translation_coverage.gd']))
         cases.append(('audio-scope', ['--headless', '--script', 'res://tests/test_audio_scope.gd']))
+        cases.append(('procedural-sfx', ['--headless', '--script', 'res://tests/test_procedural_sfx.gd']))
         cases.append(('qa-audio-lifetime', ['--headless', '--fixed-fps', '30', '--script', 'res://tests/test_qa_audio_lifetime.gd']))
         cases.append(('audio-shutdown', ['--headless', '--fixed-fps', '30', '--script', 'res://tests/test_audio_shutdown.gd']))
         cases.append(('quit-save', ['--headless', '--script', 'res://tests/test_quit_audio.gd']))

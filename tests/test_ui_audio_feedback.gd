@@ -8,10 +8,15 @@ func check(ok:bool,message:String) -> void:
         print("FAIL: ",message)
 func silence() -> void:
     for player in audio.effect_players:player.stop()
+func stream_for(cue:String):
+    if ProceduralSfx.has_sound(cue):
+        return audio.procedural_sfx.stream(cue)
+    return audio._stream(cue)
 func voices(cue:String) -> Array:
     var found:Array=[]
+    var target = stream_for(cue)
     for player in audio.effect_players:
-        if player.playing and player.stream==audio._stream(cue):found.append(player)
+        if player.playing and player.stream==target:found.append(player)
     return found
 func run() -> void:
     await process_frame
@@ -27,7 +32,7 @@ func run() -> void:
     contextual.pressed.connect(func():audio.play_sfx("purchase"))
     await process_frame
     await process_frame
-    check(audio.catalog.sfx.has("ui_focus") and audio.catalog.sfx.has("ui_error"),"Focus and unavailable actions have dedicated contextual assets")
+    check(audio.catalog.get("synth_sfx", {}).has("ui_focus") and audio.catalog.get("synth_sfx", {}).has("ui_error"),"Focus and unavailable actions have dedicated contextual assets")
     ordinary.release_focus()
     await create_timer(0.12).timeout
     silence()

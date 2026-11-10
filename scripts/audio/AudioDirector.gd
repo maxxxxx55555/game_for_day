@@ -11,6 +11,7 @@ var finale_player:AudioStreamPlayer
 var current_finale:String=""
 var music_index: int = -1
 var crossfade: Tween
+var procedural_sfx: ProceduralSfx
 var effect_cursor: int = 0
 var feedback_serial:int=0
 var audio_rng:RandomNumberGenerator= RandomNumberGenerator.new()
@@ -39,6 +40,7 @@ func _ready() -> void:
 		add_child(player)
 		effect_players.append(player)
 	apply_gains()
+	procedural_sfx = preload("res://scripts/audio/ProceduralSfx.gd").new()
 	var feedback:TypeRefUIFeedback=preload("res://scripts/audio/UIFeedback.gd").new()
 	add_child(feedback)
 	feedback.start(self)
@@ -109,7 +111,11 @@ func play_music(mood: String, fade_seconds: float = 1.2) -> void:
 
 func play_sfx(sound_name: String, bus_name: String = "") -> AudioStreamPlayer:
 	if shutting_down:return null
-	var sound:AudioStreamWAV= _stream(sound_name)
+	var sound:AudioStreamWAV
+	if is_instance_valid(procedural_sfx) and ProceduralSfx.has_sound(sound_name):
+		sound = procedural_sfx.stream(sound_name)
+	else:
+		sound = _stream(sound_name)
 	if not sound:
 		return null
 	feedback_serial+=1
@@ -123,10 +129,13 @@ func play_sfx(sound_name: String, bus_name: String = "") -> AudioStreamPlayer:
 		effect_cursor += 1
 	player.stream = sound
 	player.bus = bus_name if not bus_name.is_empty() else ("UI" if sound_name in ["ui_click","ui_focus","ui_error"] else "SFX")
-	player.volume_db = -24 if sound_name=="ui_focus" else -10 if sound_name=="ui_error" else -5
-	var effects:Dictionary=catalog.sfx
-	var effect:Dictionary=effects[sound_name]
-	player.pitch_scale = audio_rng.randf_range(0.97, 1.03) if not effect.get("loop",false) and sound_name not in ["victory","defeat"] else 1.0
+	player.volume_db = -18 if sound_name=="ui_focus" else -6 if sound_name=="ui_error" else -2
+	@warning_ignore("unsafe_cast")
+	var sfx_group: Dictionary = catalog.get("sfx", {})
+	@warning_ignore("unsafe_cast")
+	var effect: Dictionary = sfx_group.get(sound_name, {})
+	var loops: bool = effect.get("loop", false)
+	player.pitch_scale = audio_rng.randf_range(0.97, 1.03) if not loops and sound_name not in ["victory","defeat"] else 1.0
 	player.play()
 	return player
 
@@ -186,6 +195,9 @@ func shutdown()->bool:
 	if not shutting_down:
 		shutting_down=true
 		for key:String in streams:shutdown_references.append(weakref(streams[key]))
+		if is_instance_valid(procedural_sfx):
+			for cached_stream: Variant in procedural_sfx.cached_streams():
+				shutdown_references.append(weakref(cached_stream))
 		if is_instance_valid(crossfade):crossfade.kill()
 		crossfade=null
 		for voice:Node in get_children():
@@ -193,6 +205,8 @@ func shutdown()->bool:
 				(voice as AudioStreamPlayer).stop()
 				(voice as AudioStreamPlayer).stream=null
 		streams.clear()
+		if is_instance_valid(procedural_sfx):
+			procedural_sfx.clear_cache()
 		current_music=""
 		current_finale=""
 		music_index=-1

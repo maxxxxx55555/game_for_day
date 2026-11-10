@@ -6,6 +6,7 @@ func check(ok:bool,label:String)->void:
 func audio_refs(audio:Node)->Array[WeakRef]:
  var result:Array[WeakRef]=[]
  for key:String in audio.streams:result.append(weakref(audio.streams[key]))
+ for stream:Variant in audio.procedural_sfx.cached_streams():result.append(weakref(stream))
  return result
 func run()->void:
  await process_frame
@@ -23,7 +24,7 @@ func run()->void:
  audio.play_music("study",0.0)
  audio.play_finale(false)
  check(audio.play_sfx("ui_click")==null,"Late UI callbacks cannot restart effects while quitting")
- check(audio.streams.is_empty() and audio.feedback_serial==serial,"Terminal guard prevents new streams and feedback")
+ check(audio.streams.is_empty() and audio.procedural_sfx.cached_streams().is_empty() and audio.feedback_serial==serial,"Terminal guard prevents new streams and feedback")
  check(await audio.shutdown(),"Repeated terminal shutdown is safe and idempotent")
  print("AUDIO SHUTDOWN RESULT: ","PASS" if failures==0 else "FAIL")
  quit(0 if failures==0 else 1)

@@ -6,8 +6,9 @@ func check(ok:bool,message:String) -> void:
 func quiet(audio:Node) -> void:
     for p in audio.effect_players:p.stop()
 func has_error(audio:Node) -> bool:
+    var target = audio.procedural_sfx.stream("ui_error")
     for p in audio.effect_players:
-        if p.playing and p.stream==audio._stream("ui_error"):return true
+        if p.playing and p.stream==target:return true
     return false
 func run() -> void:
     await process_frame

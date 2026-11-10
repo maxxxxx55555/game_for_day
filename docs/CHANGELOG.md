@@ -1,5 +1,36 @@
 # CHANGELOG — Heirs of Fortune
 
+## 2.1.2 — quality audio & stage art (2026-11-10)
+
+- Replaced the primitive short sound effects with runtime-synthesized ones
+  (`scripts/audio/ProceduralSfx.gd`, CC0-1.0): eight distinct designs, so
+  `purchase` and `grant` are no longer the same file — purchase is a warm
+  C-E-G arpeggio, grant is a six-note rising harp gliss. Peak is normalized
+  to 0.60, attack/release edges are clean, and a new `test_procedural_sfx.gd`
+  proves all eight are distinct, audible and non-clipping. Music and the
+  victory/defeat finales stay as the recorded WAV assets.
+- Music is finally audible by default: `music_volume` default 0.30 → 0.65,
+  and effect levels raised (`ui_focus` −24 → −18 dB, `ui_error` −10 → −6 dB,
+  other effects −5 → −2 dB). Saved profiles keep their own levels.
+- One city illustration, four readings: the event art now crops a different
+  band of `city_folio.png` per life stage (river, bank, towers, skyline)
+  with a stage tint, and it stays visible during a life instead of hiding
+  once a birth country is chosen. No new bitmap was added.
+- `assets/audio/catalog.json` now lists the eight effects under `synth_sfx`;
+  the trust anchor (`data/critical-manifest.json`,
+  `scripts/security/TrustedData.gd`) was regenerated with
+  `tools/build_manifest.py`. The old WAV effect files are unused and are
+  removed in a follow-up commit.
+- No mechanic, screen layout or balance number changed. Save format untouched.
+
+Source validation 2.1.2: PASS — strict compile (39 scripts, 49 categories)
+and the full `tests/run_tests.py` suite on Godot 4.7.stable.official,
+including headless playthroughs to rank 1 and the balance sweep.
+Windows export 2.1.2: PASS — `HeirsOfFortune-Windows-2.1.2.zip`
+(59 434 945 bytes, SHA256 `6a886ea0…fbdf8`), exe 131 825 344 bytes.
+Owner play check on Windows is still open; the GitHub commit and
+Release (tag `v2.1.2`) are blocked on write access (403).
+
 ## 2.1.1 — source-complete patch, publication gated
 
 - Moved the exact ambition figures into `ambition.<mode>.desc`, the string the intro draws in the

@@ -141,7 +141,7 @@ var reduced_motion: bool = false
 var theme_mode: String = "dark"
 var master_volume: float = 1.0
 var ui_volume: float = 0.8
-var music_volume: float = 0.3
+var music_volume: float = 0.65
 var sfx_volume: float = 0.8
 
 var has_seen_intro: bool = false
@@ -235,7 +235,7 @@ func load_dynasty() -> void:
 		master_volume = clampf(master_volume,0,1)
 		ui_volume = cfg.get_value("settings", "ui_volume", 0.8)
 		ui_volume = clampf(ui_volume,0,1)
-		music_volume = cfg.get_value("settings", "music_volume", 0.3)
+		music_volume = cfg.get_value("settings", "music_volume", 0.65)
 		music_volume = clampf(music_volume,0,1)
 		sfx_volume = cfg.get_value("settings", "sfx_volume", 0.8)
 		sfx_volume = clampf(sfx_volume,0,1)

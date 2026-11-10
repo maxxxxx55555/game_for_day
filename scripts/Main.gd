@@ -31,6 +31,7 @@ var market_back: Button
 var currency_button: Button
 var currency_panel: CurrencyView
 var story_art: TextureRect
+var city_art_texture: Texture2D
 var country_plate:CountryPlateView
 var intro_cover:IntroCoverView
 var chrome:ChromeView
@@ -209,7 +210,8 @@ func _ready() -> void:
 	$MarginContainer/VBoxContainer/EventPanel/EventScroll.add_child(content)
 	event_label.reparent(content)
 	story_art = TextureRect.new()
-	story_art.texture = load("res://assets/art/city_folio.png")
+	city_art_texture = load("res://assets/art/city_folio.png")
+	story_art.texture = city_art_texture
 	story_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	story_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	story_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -442,6 +444,34 @@ func apply_skin() -> void:
 	if country_plate: country_plate.queue_redraw()
 	if intro_cover: intro_cover.queue_redraw()
 
+## One city illustration, four readings: each life stage crops a different
+## band of city_folio.png and tints it to its time of day, so events stop
+## showing the identical frame from birth to billionaire. No new bitmap is
+## needed; the AtlasTexture region is the variation, and the full image
+## still backs the intro cover and the birth reveal.
+func apply_stage_art() -> void:
+	if not is_instance_valid(story_art) or city_art_texture == null:
+		return
+	var stage: String = GameManager.stage_id()
+	var regions: Dictionary = {
+		"survival": Rect2(0, 948, 1086, 500),
+		"career": Rect2(0, 500, 1086, 500),
+		"millionaire": Rect2(0, 250, 1086, 500),
+		"billionaire": Rect2(0, 0, 1086, 500),
+	}
+	var tints: Dictionary = {
+		"survival": Color(1.00, 0.94, 0.82),
+		"career": Color(1.00, 1.00, 1.00),
+		"millionaire": Color(1.00, 0.90, 0.70),
+		"billionaire": Color(0.85, 0.90, 1.00),
+	}
+	var atlas: AtlasTexture = AtlasTexture.new()
+	atlas.atlas = city_art_texture
+	atlas.region = regions.get(stage, Rect2(0, 500, 1086, 500))
+	story_art.texture = atlas
+	story_art.modulate = tints.get(stage, Color.WHITE)
+	story_art.tooltip_text = current_stage_text()
+
 ## The chapter the run is in, matching the event pools' own thresholds.
 func current_stage_text() -> String:
 	var nw:float = GameManager.get_net_worth()
@@ -563,8 +593,10 @@ func update_ui() -> void:
 	if stage_label:
 		stage_label.visible = current_mode == ScreenMode.LIFE
 		stage_label.text = current_stage_text()
-	story_art.visible = current_mode == ScreenMode.PERK or (current_mode == ScreenMode.LIFE and not has_country)
-	story_art.custom_minimum_size.y = 190
+	story_art.visible = current_mode == ScreenMode.PERK or current_mode == ScreenMode.LIFE
+	story_art.custom_minimum_size.y = 190 if not has_country else 110
+	if story_art.visible:
+		apply_stage_art()
 	if birth_reveal: birth_reveal.visible = current_mode == ScreenMode.BIRTH
 	if story_content:
 		story_content.alignment = BoxContainer.ALIGNMENT_CENTER if current_mode == ScreenMode.BIRTH else BoxContainer.ALIGNMENT_BEGIN

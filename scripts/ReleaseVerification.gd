@@ -363,12 +363,17 @@ func settle_audio()->bool:
 	var audio:AudioView=get_tree().root.get_node("SoundManager")
 	var references:Array[WeakRef]=[]
 	for key:String in audio.streams:references.append(weakref(audio.streams[key]))
+	if is_instance_valid(audio.procedural_sfx):
+		for cached_stream: Variant in audio.procedural_sfx.cached_streams():
+			references.append(weakref(cached_stream))
 	if audio.crossfade:audio.crossfade.kill()
 	for voice:Node in audio.get_children():
 		if voice is AudioStreamPlayer:
 			(voice as AudioStreamPlayer).stop()
 			(voice as AudioStreamPlayer).stream=null
 	audio.streams.clear()
+	if is_instance_valid(audio.procedural_sfx):
+		audio.procedural_sfx.clear_cache()
 	audio.current_music=""
 	audio.current_finale=""
 	audio.music_index=-1

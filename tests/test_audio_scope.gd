@@ -15,7 +15,7 @@ func run() -> void:
 	check(not director.has_method("play_footstep"),"Finance has no spatial-footstep API")
 	for obsolete in ["pickup","potion","inventory_open"]:
 		check(not director.catalog.sfx.has(obsolete),"Catalog only contains contextual finance effects: "+obsolete)
-	check(director.catalog.sfx.has("grant"),"Award feedback is named for its actual finance action")
+	check(director.catalog.get("synth_sfx", {}).has("grant"),"Award feedback is named for its actual finance action")
 	var effect=director.play_sfx("ui_click")
 	check(effect.bus=="UI","Interface cues use their own bus")
 	print("AUDIO SCOPE RESULT: ","PASS" if failures==0 else "FAIL")

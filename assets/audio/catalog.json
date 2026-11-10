@@ -1,6 +1,6 @@
 {
   "sample_rate": 32000,
-  "license": "Mixed: synthesized effects CC0-1.0; Gemini background music and finale stingers, see LICENSE.md and music-provenance.json",
+  "license": "Mixed: runtime-synthesized effects CC0-1.0; Gemini background music and finale stingers, see LICENSE.md and music-provenance.json",
   "music": {
     "welcome": {
       "path": "last_call_at_three.wav",
@@ -40,36 +40,6 @@
     }
   },
   "sfx": {
-    "ui_click": {
-      "path": "ui_click.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
-    },
-    "purchase": {
-      "path": "purchase.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
-    },
-    "sale": {
-      "path": "sale.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
-    },
-    "coin": {
-      "path": "coin.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
-    },
-    "upgrade": {
-      "path": "upgrade.wav",
-      "seconds": 1.1,
-      "loop": false,
-      "channels": 1
-    },
     "victory": {
       "path": "a_fortune_remembered.wav",
       "title": "A Fortune Remembered",
@@ -87,28 +57,64 @@
       "channels": 2,
       "source": "Google Gemini / Lyria",
       "license": "Generated output; applicable Google Gemini API terms"
+    }
+  },
+  "synth_sfx": {
+    "ui_click": {
+      "seconds": 0.09,
+      "design": "Single bright 880 Hz tick, 90 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
+    },
+    "purchase": {
+      "seconds": 0.65,
+      "design": "Warm C-E-G arpeggio over a low C thump, 650 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
+    },
+    "sale": {
+      "seconds": 0.55,
+      "design": "Descending G-E-C cash tone, 550 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
+    },
+    "coin": {
+      "seconds": 0.45,
+      "design": "Metallic E6 to B6 ping, 450 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
+    },
+    "upgrade": {
+      "seconds": 1.05,
+      "design": "Rising four-note C-E-G-C fanfare, 1050 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
     },
     "grant": {
-      "path": "grant.wav",
-      "seconds": 0.38,
-      "loop": false,
-      "channels": 1
+      "seconds": 0.95,
+      "design": "Six-note rising harp gliss with warm pad, 950 ms; distinct from purchase by design",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
     },
     "ui_focus": {
-      "path": "ui_focus.wav",
-      "seconds": 0.08,
-      "loop": false,
-      "channels": 1,
-      "source": "synthesized CC0",
-      "license": "CC0-1.0"
+      "seconds": 0.06,
+      "design": "Soft 660 Hz tick, 60 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
     },
     "ui_error": {
-      "path": "ui_error.wav",
-      "seconds": 0.22,
-      "loop": false,
-      "channels": 1,
-      "source": "synthesized CC0",
-      "license": "CC0-1.0"
+      "seconds": 0.3,
+      "design": "Dissonant 196/185 Hz low buzz, 300 ms",
+      "source": "runtime synthesis CC0-1.0",
+      "license": "CC0-1.0",
+      "generator": "scripts/audio/ProceduralSfx.gd"
     }
   }
 }

@@ -1,6 +1,16 @@
-# Heirs of Fortune — 2.1.1
+# Heirs of Fortune — 2.1.2
 
-## Legacy & Chains
+## Quality audio & stage art
+
+2.1.2 rebuilds the short sound effects as eight distinct runtime-synthesized
+designs (purchase and grant were the same file), raises the default music
+level from 0.30 to 0.65, and gives each life stage its own crop and tint of
+the city illustration instead of one identical frame. No mechanic, balance
+number or save format changed. The full source gate passed on Godot 4.7;
+the Windows export is pending the export templates. See
+[release notes 2.1.2](docs/RELEASE_2.1.2.md).
+
+## Legacy & Chains (2.1.1)
 
 Eight player-started life threads now run across two links. A thread chosen from the dynasty ledger stores its flag, returns after five quarters with a recall of the exact choice, and resolves through a flag-specific variant. Completion grants momentum; every thread is recorded once.
 
