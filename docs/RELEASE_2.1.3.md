@@ -1,8 +1,12 @@
 # Heirs of Fortune 2.1.3 — English that actually shows, and art that actually shows
 
-Status: **source release**. This patch fixes what the rendered visual QA
-of 2.1.2 found on real frames (Xvfb + Mesa llvmpipe, 540×960, 15 frames
-reviewed by eye in `~/workspace/visual-qa-2.1.2/`).
+Status: **published**. GitHub Release `v2.1.3` is live and marked Latest:
+https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.3
+(2026-11-10, target `main`, assets: the Windows ZIP, 57 837 984 bytes,
+SHA256 `712e7a4a…58a`, and SHA256SUMS; verified via the public GitHub
+API). This patch fixes what the rendered visual QA of 2.1.2 found on
+real frames (Xvfb + Mesa llvmpipe, 540×960, 15 frames reviewed by eye
+in `~/workspace/visual-qa-2.1.2/`).
 
 ## What changed
 

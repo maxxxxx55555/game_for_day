@@ -144,7 +144,6 @@ var ui_volume: float = 0.8
 var music_volume: float = 0.65
 var sfx_volume: float = 0.8
 
-var has_seen_intro: bool = false
 var has_rolled_birth: bool = false
 var simulation_ticks:int=0
 var grant_ready_tick:int=0

@@ -16,7 +16,10 @@ var current_age:int=0
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	mouse_filter=Control.MOUSE_FILTER_IGNORE
+	# Modal overlay: swallow clicks outside the card so they cannot fall
+	# through to the event-choice buttons underneath (they would dismiss
+	# the card and still apply the choice).
+	mouse_filter=Control.MOUSE_FILTER_STOP
 	var shade:ColorRect=ColorRect.new()
 	shade.color=Color(0.05,0.06,0.08,0.42)
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

@@ -113,15 +113,6 @@ func add_line(text:String, font_size:int=15, token:String="muted") -> void:
 	Palette.paint(label,token)
 	content.add_child(label)
 
-func add_heading(text:String) -> void:
-	var label:Label=Label.new()
-	label.text=text
-	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_override("font",SkinTheme.display_font(600))
-	label.add_theme_font_size_override("font_size",14)
-	Palette.paint(label,"accent")
-	content.add_child(label)
-
 func add_panel() -> VBoxContainer:
 	var box:PanelContainer=PanelContainer.new()
 	box.add_theme_stylebox_override("panel",SkinTheme.panel(Palette.surface(),Palette.rule_soft(),8))

@@ -1213,7 +1213,7 @@ func trigger_game_over(reason: String, is_victory: bool) -> void:
 	@warning_ignore("return_value_discarded")
 	save_session()
 
-# --- 32+ МОДУЛЬНЫХ СОБЫТИЯ ПО 4 ЭКОНОМИЧЕСКИМ ЭТАПАМ ---
+# --- 31 МОДУЛЬНОЕ СОБЫТИЕ ПО 4 ЭКОНОМИЧЕСКИМ ЭТАПАМ (15 в коде + 16 из data/events.json) ---
 
 func pick_modular_event() -> Dictionary:
 	var nw:float= GameManager.get_net_worth()

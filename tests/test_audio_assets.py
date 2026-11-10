@@ -36,13 +36,9 @@ def verify(project):
                 assert entry.get('source') == 'Google Gemini / Lyria', f'{name}: old soundtrack remains'
                 provenance = json.loads((folder / 'music-provenance.json').read_text(encoding='utf-8'))
                 assert hashlib.sha256((folder / entry['path']).read_bytes()).hexdigest() == provenance[entry['path']]['wav_sha256']
-            if name in ['ui_focus', 'ui_error']:
-                record = json.loads((folder / 'interface-provenance.json').read_text())[entry['path']]
-                assert record['source'] == 'synthesized CC0' and record['license'] == 'CC0-1.0'
-                assert entry.get('source') == 'synthesized CC0' and entry.get('license') == 'CC0-1.0'
-                assert hashlib.sha256((folder / entry['path']).read_bytes()).hexdigest() == record['wav_sha256']
-                assert hashlib.sha256((project / record['generator']).read_bytes()).hexdigest() == record['generator_sha256']
-                assert .04 <= length / 32000 <= .25 and channels == 1 and not entry['loop']
+            # NOTE: the old ui_focus/ui_error WAV branch was removed with the
+            # legacy effects in 2.1.2; synth SFX live in ProceduralSfx.gd and
+            # are covered by tests/test_procedural_sfx.gd, not by this WAV gate.
             dc = sum(points) / len(points) / 32768
             assert abs(dc) < .012, f'{name}: DC offset ({dc})'
             if entry.get('loop'):

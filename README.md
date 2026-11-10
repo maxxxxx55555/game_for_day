@@ -1,6 +1,15 @@
-# Heirs of Fortune — 2.1.3
+# Heirs of Fortune — 2.1.4
 
-## English that actually shows, and art that actually shows
+## Honest text, no click-through, lighter build
+
+2.1.4 applies the safe fixes from an independent audit: the milestone
+card no longer lets clicks fall through to event choices, the
+Meteor/Heir descriptions now match the code, dead code and stale records
+are gone, and the export drops 2.2 MB of files the build never needs.
+No mechanic, balance number or save format changed. See
+[release notes 2.1.4](docs/RELEASE_2.1.4.md).
+
+## English that actually shows, and art that actually shows (2.1.3)
 
 2.1.3 fixes what the visual QA of 2.1.2 found on real frames: the intro
 title and the country plate stayed Russian on English (custom-drawn text

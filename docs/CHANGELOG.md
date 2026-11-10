@@ -1,5 +1,28 @@
 # CHANGELOG — Heirs of Fortune
 
+## 2.1.4 — honest text, no click-through, lighter build (2026-11-10)
+
+- Independent audit fixes: the milestone card no longer lets clicks fall
+  through to the event-choice buttons underneath; the Meteor/Heir
+  descriptions now say what the code actually does (choice payouts +25%
+  / passive income −10%); dead code removed (`total_births`,
+  `add_heading`, `birthplace_region`, `has_seen_intro`); stale
+  `interface-provenance.json` and its dead test branch removed; the
+  «32+ events» comment corrected to 31.
+- Export presets now exclude files the build never needs (removed
+  portrait atlas, two unused fonts, `globe.svg`, localization source
+  CSVs/binaries, `choice_aliases.json`): exported pack 22 767 792 →
+  20 532 228 bytes (−2.2 MB), verified A/B.
+- No mechanic, balance number or save format changed.
+
+Source validation 2.1.4: PASS — strict compile and the full
+`tests/run_tests.py` suite on Godot 4.7.stable.official, exit 0
+(playthroughs to rank 1). Note: the first gate run failed on
+`test_ui_audio_feedback.gd` (two `ui_click` voice-count checks); the
+same checks fail intermittently on the pristine 2.1.2 tree too, so this
+is a pre-existing timing flake in the test (0.09 s click vs slow frames),
+not a 2.1.4 regression. A re-run passed clean.
+
 ## 2.1.3 — English that actually shows, and art that actually shows (2026-11-10)
 
 - Visual QA on real rendered frames (Xvfb + Mesa, 540×960) found the intro

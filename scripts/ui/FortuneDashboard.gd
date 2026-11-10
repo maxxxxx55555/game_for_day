@@ -19,14 +19,6 @@ func birthplace() -> String:
 		return GameManager.birth_origin if not GameManager.birth_origin.is_empty() else "—"
 	return LocalizationManager.display(BirthLottery.country_name(GameManager.birth_country_code))
 
-func birthplace_region() -> String:
-	if GameManager.birth_country_code.is_empty():
-		return ""
-	var row:Array= BirthLottery.by_code(GameManager.birth_country_code)
-	if row.is_empty():
-		return ""
-	return LocalizationManager.display(BirthLottery.region_name(str(row[1])))
-
 ## Share of the country's influence that still applies to income and costs.
 func origin_note() -> String:
 	var influence:int= roundi(GameManager.origin_influence() * 100.0)

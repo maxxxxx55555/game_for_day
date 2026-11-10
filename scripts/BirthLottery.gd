@@ -46,9 +46,6 @@ static func value_int(info:Dictionary, key:String) -> int:
 static func count() -> int:
 	return Data.COUNTRIES.size()
 
-static func total_births() -> int:
-	return Data.TOTAL_BIRTHS
-
 static func code_of(row:Array) -> String:
 	return str(row[0])
 
