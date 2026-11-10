@@ -70,6 +70,8 @@ the encryption key and custom template live outside this environment).
   `coin`, `upgrade`, `grant`, `ui_focus`, `ui_error`) were removed from
   the repo in eight follow-up commits after `9c2bf87`, HEAD `9ad9de2`.
 - Executable is unsigned; Windows x64 only; no Android artifact.
-- The GitHub Release itself (tag `v2.1.2` + asset upload) is still open:
-  it is being created in the browser, because the connector has no
+- GitHub Release `v2.1.2` is published and marked Latest:
+  https://github.com/maxxxxx55555/game_for_day/releases/tag/v2.1.2
+  (2026-11-10, target `main`, assets: the Windows ZIP and SHA256SUMS).
+  It was created in the browser, because the connector has no
   release-creation call.
